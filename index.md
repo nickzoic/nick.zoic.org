@@ -1,3 +1,3 @@
-<style>@import("foo.css")</style>
+<style>@import url("main.css")</style>
 
 # TEST

@@ -1,3 +1,6 @@
-<style>@import url("main.css")</style>
+---
+layout: template
+title: fnord
+---
 
 # TEST

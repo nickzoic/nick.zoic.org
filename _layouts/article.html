@@ -6,6 +6,10 @@
   <body>
     <div class="pages">
       <a href="/nick-moore/">Nick Moore</a>
+      {% for page in site.pages %}
+        {{ page }}
+        {{ page.title }}
+      {% endfor %}
     </div>
 
     <div class="tags">

@@ -1,4 +1,4 @@
 ---
 layout: tag
-title: %s
+title: revision-control
 ---

@@ -5,7 +5,7 @@ layout: article
 redirect_from: '/etc/first-class-classes-in-csharp/'
 slug: 'first-class-classes-in-csharp'
 tags:
-    - c\#
+    - c-sharp
     - functional programming
 title: '(sort of) First Class Classes in C\#'
 ---

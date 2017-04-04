@@ -11,8 +11,9 @@ body {
     text-align: left;
 }
 
-/* Headings */
-h1.title {font-size: 3em}
+.title {font-size: 2.4em; text-align: center; margin: 0 5px 0 5px; }
+.date { text-decoration: none; text-align: center; margin: 0 5px 0 5px; }
+
 h1 {font-size: 2em}
 h2 {font-size: 1.8em}
 h3 {font-size: 1.429em}	/* 20px */
@@ -48,4 +49,5 @@ a:hover, a:active { text-decoration: underline; }
     margin: auto;
     width: 720px;
 }
-    
+
+.footer { text-align: center; }

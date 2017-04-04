@@ -4,7 +4,10 @@ date: '2016-06-08'
 layout: article
 redirect_from: '/etc/virtual-load-balancer/'
 slug: 'virtual-load-balancer'
-tags: 'architecture, systems, networks'
+tags:
+  - architecture
+  - systems
+  - networks
 title: a Virtual Load Balancer
 ---
 

@@ -155,7 +155,9 @@ come out in a different order than they go in.
 C++ compiler error messages are displayed to the user, and it's hard to
 imagine a primary school kid doing much with:
 
-    project U________d11_4.ino.cpp:24:11 error: cannot convert 'StringSumHelper' to 'double' in assignment
+```
+project U________d11_4.ino.cpp:24:11 error: cannot convert 'StringSumHelper' to 'double' in assignment
+```
 
 It is a cool idea, but it seems not quite ready for classroom use ...
 

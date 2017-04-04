@@ -9,6 +9,7 @@ tags:
     - electronics
     - keyboard
 title: BlueSMiRF Bluetooth HID Module
+summary: Getting data onto curmudgeonly devices
 ---
 
 The [Roving Networks](http://rovingnetworks.com/)

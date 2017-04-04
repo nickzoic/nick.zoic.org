@@ -6,7 +6,7 @@ redirect_from: '/etc/linuxconf-2017-hobart/'
 slug: 'linuxconf-2017-hobart'
 summary: |
     I've been to LinuxConf before and I've been to Hobart before but this
-    time I'm going to LinuxConf in Hobart ...
+    time I'm going to LinuxConf in Hobart, for the Open Hardware Miniconf
 tags:
     - conference
     - micropython

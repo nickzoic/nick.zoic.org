@@ -30,15 +30,15 @@ inequality, and then post-filter to assess the rest. This works great
 than 1000 rows) but having to do it explicitly in the main part of the
 code reduces the elegance of the code:
 
-``` {.sourceCode .python}
+~~~
 Things.all().filter("foo >", foo).filter("bar >", bar).filter("qux >", qux)
-```
+~~~
 
 is more elegant than:
 
-``` {.sourceCode .python}
+~~~
 [ t for t in Things.all().filter("foo >", foo) if t.bar > bar and t.qux > qux]
-```
+~~~
 
 especially if you’re generating the queries on the fly. Wouldn’t it be
 nice to be able to have the filter() method work out whether this was a
@@ -47,21 +47,21 @@ disallowed inequality and if so, handle it as a post-filter?
 Well, with a little Python magic, this is possible. First, a mixin class
 lets us declare models as:
 
-``` {.sourceCode .python}
+~~~
 class Things(MultiInequalityMixin, db.Model):
     # etc
-```
+~~~
 
 Using the following Mixin class:
 
-``` {.sourceCode .python}
+~~~
 class MultiInequalityMixin(object):
     """ Allows multiple inequality matches in a query. """
 
     @classmethod
     def all(cls, **kwds):
         return MultiInequalityQuery(cls, **kwds)
-```
+~~~
 
 This just gets Things.all() to pass back our own special Query() object
 instead of the standard one. The MultiInequalityQuery class derives from
@@ -71,7 +71,7 @@ normal, but later inequalities get turned into little post-filter
 closures and stashed in a list. Then the \_\_iter\_\_ iterator method
 checks these post-filters as it yields up the results:
 
-``` {.sourceCode .python}
+~~~
 class MultiInequalityQuery(db.Query):
 
      def filter(self, prop_op, value):
@@ -97,7 +97,7 @@ class MultiInequalityQuery(db.Query):
         for x in super(MultiInequalityQuery, self).__iter__():
             if all([ f(x) for f in self.ineq_post ]):
                     yield x
-```
+~~~
 
 … and some other methods which wrap up the other methods (fetch, count)
 based on \_\_iter\_\_. I haven’t even considered GQL because it just,

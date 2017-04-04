@@ -10,6 +10,7 @@ tags:
     - esp32
     - python
 title: ESP32 Capacitive Sensors
+summary: The ESP32's capacitive sensors, and how to use them from MicroPython
 ---
 
 I've been working on [MicroPython for ESP32](/python/micropython/)

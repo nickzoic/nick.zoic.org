@@ -6,6 +6,7 @@ redirect_from: '/Languages/a-canticle-for-diff3/'
 slug: 'a-canticle-for-diff3'
 tags: Languages
 title: A Canticle for Diff3
+summary: A brief and not necessarily totally accurate history of diff3
 ---
 
 A brief and not necessarily totally accurate history of diff3

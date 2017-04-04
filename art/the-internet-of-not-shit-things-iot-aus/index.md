@@ -5,7 +5,7 @@ layout: article
 redirect_from: '/etc/the-internet-of-not-shit-things-iot-aus/'
 slug: 'the-internet-of-not-shit-things-iot-aus'
 tags: IoT
-title: 'The Internet of (Not Shit) Things'
+title: 'The Internet of (Not Shit) Things (at IoT Aus)'
 ---
 
 at IoT Aus

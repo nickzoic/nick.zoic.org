@@ -10,6 +10,7 @@ tags:
     - bluetooth
     - linux
 title: 'Apple Magic Trackpad for Ubuntu Linux 10.10 Maverick'
+summary: (rather out of date)
 ---
 
 Well, I’ve decided to declare 2011 the year of finally getting my

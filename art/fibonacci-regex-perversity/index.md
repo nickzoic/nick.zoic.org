@@ -8,6 +8,7 @@ tags:
     - languages
     - regex
 title: Fibonacci Regex Perversity
+summary: Repeated substitutions are Turing Complete
 ---
 
 Repeated Substitutions

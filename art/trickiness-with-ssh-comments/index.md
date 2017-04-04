@@ -8,6 +8,7 @@ tags:
     - systems
     - crypto
 title: Comments On More Trickiness With SSH
+summary: the only useful blog post comments I ever got before I turned them off forever
 ---
 
 [More Trickiness With SSH](./) is my only blog post which has ever

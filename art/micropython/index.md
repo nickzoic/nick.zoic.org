@@ -9,6 +9,7 @@ tags:
     - micropython
     - microcontrollers
 title: 'MicroPython!'
+summary: "I've been doing a lot of work on MicroPython ESP32 lately ..."
 ---
 
 So I've been doing a lot of work on

@@ -23,7 +23,7 @@ trivial: a data URL is just a base64 encoding of the file with a label
 and a mime-type tacked on the front. So for the Unix-heads among us I
 present the following tiny bash script:
 
-``` {.sourceCode .bash}
+~~~
 #!/bin/bash
 
 for filename; do
@@ -31,27 +31,33 @@ for filename; do
     encoded=`base64 -w 0 $filename`
     echo "data:$mimetype;base64,$encoded"
 done
-```
+~~~
 
 It takes one or more files as arguments, and outputs a URL for each, one
 per line. It uses the `file` command to determine the MIME type of the
 files, and the `base64` command to encode it. You use it like this:
 
+~~~
     $ dataurl sort_up.gif sort_dn.png
     data:image/gif;base64,R0lGODlhEAAQALMLAJLNXpDEaZPNX4/NU5bUWJnXWpDNVIvFWXyuWmOPRf///////wAAAAAAAAAAAAAAACH5BAEAAAsALAAAAAAQABAAAAQvcMlJq704612V4ouSJJ8mAgiZnYVwqJY4EsEIU55oAKSHiQNe6We7XXI5kHK5iQAAOw==
     data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQBAMAAADt3eJSAAAAIVBMVEWZ11qQzVSPzVOLxVljj0V8rlr///+W1FiTzV+SzV6QxGnd5+EIAAAAL0lEQVQImWNIgwIG/AwXFyjDaQqU4QhluLgvcQEzUiY0u0GkPEOgalLcCJuMygAAMbUyf2u25M8AAAAASUVORK5CYII=
+~~~
 
 You can then cut and paste the URLs output by this script into your CSS
 like so:
 
+~~~
     background-image: url(data:image/gif;base64,R0lGODlhEAAQALMLAJLNXpDEaZPNX4/NU5bUWJnXWpDNVIvFWXyuWmOPRf///////wAAAAAAAAAAAAAAACH5BAEAAAsALAAAAAAQABAAAAQvcMlJq704612V4ouSJJ8mAgiZnYVwqJY4EsEIU55oAKSHiQNe6We7XXI5kHK5iQAAOw==)
+~~~
 
 or into your HTML like so:
 
+~~~
     <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQBAMAAADt3eJSAAAAIVBMVEWZ11qQzVSPzVOLxVljj0V8rlr///+W1FiTzV+SzV6QxGnd5+EIAAAAL0lEQVQImWNIgwIG/AwXFyjDaQqU4QhluLgvcQEzUiY0u0GkPEOgalLcCJuMygAAMbUyf2u25M8AAAAASUVORK5CYII=" />
+~~~
 
 <div style="height: 16px; width: 16px; background-image: url(data:image/gif;base64,R0lGODlhEAAQALMLAJLNXpDEaZPNX4/NU5bUWJnXWpDNVIvFWXyuWmOPRf///////wAAAAAAAAAAAAAAACH5BAEAAAsALAAAAAAQABAAAAQvcMlJq704612V4ouSJJ8mAgiZnYVwqJY4EsEIU55oAKSHiQNe6We7XXI5kHK5iQAAOw==)"> </div>
-![image](data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQBAMAAADt3eJSAAAAIVBMVEWZ11qQzVSPzVOLxVljj0V8rlr///+W1FiTzV+SzV6QxGnd5+EIAAAAL0lEQVQImWNIgwIG/AwXFyjDaQqU4QhluLgvcQEzUiY0u0GkPEOgalLcCJuMygAAMbUyf2u25M8AAAAASUVORK5CYII=)
+![image](data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQBAMAAADt3eJSAAAAIVBMVEWZ11qQzVSPzVOLxVljj0V8rlr///+W1FiTzV+SzV6QxGnd5+EIAAAAL0lEQVQImWNIgwIG/AwXFyjDaQqU4QhluLgvcQEzUiY0u0GkPEOgalLcCJuMygAAMbUyf2u25M8AAAAASUVORK5CYII= =16,16)
 
 HTTP overhead is something around 500 bytes. Base64 encoding increases
 the size of files by 1/3, so using this encoding method is likely to be

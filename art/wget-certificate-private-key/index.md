@@ -8,13 +8,15 @@ tags:
     - systems
     - crypto
     - ssl
-title: 'wget –certificate=\$X –private-key=\$X'
+title: 'wget –certificate=$X –private-key=$X'
 ---
 
 wget 1.10.2 seems to silently fail to use an SSL client certificate
 unless you specify both –certificate and –private-key:
 
+~~~
     wget --certificate=$PEMFILE --private-key=$PEMFILE
+~~~
 
 Even though both things are in the same .PEM file. It does read and
 check the PEM file if you specify only the former, it just doesn’t use

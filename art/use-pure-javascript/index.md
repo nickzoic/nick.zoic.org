@@ -9,7 +9,7 @@ tags:
     - javascript
     - functional programming
 title: '"use pure"; in Javascript'
-summary: 'a modest proposal for better javascript'
+summary: 'a modest proposal for better javascript: like "use strict" but purer.'
 ---
 
 use strict

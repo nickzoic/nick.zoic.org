@@ -7,24 +7,30 @@
    <div class="wrapper">
     <div class="pages">
       <a href="/nick-moore/">Nick Moore</a>
+
+      <h2>Recently:</h2>
       <ul>
-        {% assign recent_pages = site.pages | sort:"date" | reverse | limit: 10 %}
-        {% for page in recent_pages %}
+        {% assign recent_pages = site.pages | sort:"date" | reverse %}
+        {% for page in recent_pages limit:10 %}
           {% if page.layout == "article" %}
             <li>
-              {{ page.date }}
               <a href="{{ page.url }}">{{ page.title }}</a>
               {% if page.summary %}<p>{{ page.summary }}</p>{% endif %}
             </li>
           {% endif %}
         {% endfor %}
       </ul>
-    </div>
 
-    <div class="tags">
-      {% for tag in site.tags %}
-        {{ tag|first }} 
-      {% endfor %}
+      <h2>Tags:</h2>
+      <ul>
+        {% assign sorted_pages = site.pages | sort:"title" %}
+        {% for page in sorted_pages %}
+          {% if page.layout = "tag" %}
+            <li>
+              <a href="{{ page.url }}">{{ page.title }}</a>
+            </li>
+          {% endif %}
+        {% endfor %}
     </div>
 
     <div class="banner">

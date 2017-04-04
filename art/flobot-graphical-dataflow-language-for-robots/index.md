@@ -93,7 +93,7 @@ scare kids off.
 So what I'd like to do is set up a graphical editor for the dataflow
 language.
 
-![image](%7Cfilename%7C/images/flowdiag.png){.center width="50%"}
+![flow diagram](flowdiag.png)
 
 HTML5 App
 =========
@@ -141,7 +141,7 @@ such as differentiating, integrating and slew limiting need to be
 supported. This means the operator functions need a "time since last
 update" input.
 
-![image](%7Cfilename%7C/images/flowdiag2.png){.center width="50%"}
+![flow diagram operators](flowdiag2.png)
 
 Compiling Code
 ==============
@@ -221,11 +221,11 @@ UPDATES
 
 I've started playing with the HTML5 GUI ...
 
-<iframe width="100%" height="400px" src="../../files/flobot/index.html" style="border: 2px solid black;"></iframe>
+<iframe width="100%" height="400px" src="./demo/index.html" style="border: 2px solid black;"></iframe>
 ... And [messing around with hardware](http://github.com/mnemote/ciril)
 experimenting with stepper motors and drivers in
 [NodeMCU](http://nodemcu.com/index_en.html):
 
-![image](%7Cfilename%7C/images/esp8266-1.jpg){.center width="90%"}
+![esp8266 test setup](esp8266-1.jpg)
 
-![image](%7Cfilename%7C/images/junkbot.jpg){.center width="90%"}
+![junkbot](junkbot.jpg)

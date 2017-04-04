@@ -81,7 +81,7 @@ and then very delicately soldered a 10K resistor between one of these
 spare pins and the RESET pin of the RN-42 module:
 
 ![Adding a reset line to the Bluetooth HID
-module](%7Cfilename%7C/images/bluesmirf-bluetooth-hid-module-reset.jpg)
+module](bluesmirf-bluetooth-hid-module-reset.jpg)
 
 The 10K resistor lets you control the 3.3V line from 5V logic, just like
 the resistors on the BlueSMiRF board for the RX and CTS lines (see

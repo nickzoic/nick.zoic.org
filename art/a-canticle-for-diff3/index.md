@@ -16,10 +16,9 @@ today. It is an amazingly simple idea which changed the way we think
 about software. And even most of the people who use it don't really know
 much about it ...
 
-![(from [Something
-Awful](https://www.somethingawful.com/photoshop-phriday/cutrate-literary-classics/6/)
-"Cut-rate Literary
-Classics")](%7Cfilename%7C/images/Canticle_Lebowski.jpg)
+
+![A Canticle for Lebowski](Canticle_Lebowski.jpg)
+(from [Something Awful "Cut-rate Literary Classics"](https://www.somethingawful.com/photoshop-phriday/cutrate-literary-classics/6/))
 
 diff
 ----

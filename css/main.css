@@ -18,11 +18,11 @@ body {
 .banner .tags { text-align: center; }
 
 h1 {font-size: 2em}
-h2 {font-size: 1.8em}
-h3 {font-size: 1.429em}	/* 20px */
-h4 {font-size: 1.143em}	/* 16px */
-h5 {font-size: 1em}	/* 14px */
-h6 {font-size: 1em}	/* 14px */
+h2 {font-size: 1.6em}
+h3 {font-size: 1.3m}
+h4 {font-size: 1.15em}
+h5 {font-size: 1em}
+h6 {font-size: 1em}
 
 h1, h2 { text-decoration: underline; }
 
@@ -60,6 +60,14 @@ a:hover, a:active { text-decoration: underline; }
     border: 3px solid #333;
     border-radius: 10px;
     padding: 20px 20px;
+}
+
+div.highlighter-rouge {
+    background-color: #333;
+    color: #CCC;
+    overflow: auto;
+    width: 100%;
+    padding: 0.4em;
 }
 
 img { width: 100% }

@@ -7,7 +7,10 @@ slug: 'linuxconf-2017-hobart'
 summary: |
     I've been to LinuxConf before and I've been to Hobart before but this
     time I'm going to LinuxConf in Hobart ...
-tags: 'conference, micropython, microcontrollers'
+tags:
+    - conference
+    - micropython
+    - microcontrollers
 title: LinuxConf 2017 in Hobart
 ---
 

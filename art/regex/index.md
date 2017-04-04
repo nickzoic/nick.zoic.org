@@ -4,7 +4,9 @@ date: '2011-06-02'
 layout: article
 redirect_from: '/Languages/regex/'
 slug: regex
-tags: 'Languages, Regex'
+tags:
+    - languages
+    - regex
 title: Fibonacci Regex Perversity
 ---
 

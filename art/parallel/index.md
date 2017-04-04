@@ -4,7 +4,10 @@ date: '2011-05-15'
 layout: article
 redirect_from: '/Languages/parallel/'
 slug: parallel
-tags: 'Languages, functional programming, parallel programming'
+tags:
+    - languages
+    - functional programming
+    - parallel programming
 title: Functional Parallel Programming
 ---
 

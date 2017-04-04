@@ -4,7 +4,9 @@ date: '2012-02-20'
 layout: article
 redirect_from: '/Python/multiple-inequalities/'
 slug: 'multiple-inequalities'
-tags: 'Python, AppEngine'
+tags:
+    - python
+    - appengine
 title: Multiple Inequalities in Google AppEngine
 ---
 

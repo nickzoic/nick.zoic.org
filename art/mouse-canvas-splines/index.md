@@ -8,7 +8,10 @@ summary: |
     HTML5 Canvas reminds me of the good old days of the `APPLE ][` ... this
     article looks at how to do some interesting things with Canvas and
     numeric.js Splines.
-tags: 'HTML5, javascript, canvas'
+tags:
+    - html5
+    - javascript
+    - canvas
 title: 'Mouse Events, Canvas and Splines in Javascript / HTML5'
 ---
 

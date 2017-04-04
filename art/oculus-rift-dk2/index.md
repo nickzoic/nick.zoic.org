@@ -5,7 +5,9 @@ layout: article
 redirect_from: '/VR/oculus-rift-dk2/'
 slug: 'oculus-rift-dk2'
 summary: 'The Oculus Rift DK2 ends a 20 year wait for consumer VR ...'
-tags: 'vr, oculus-rift'
+tags:
+    - vr
+    - oculus-rift
 title: Oculus Rift DK2
 ---
 

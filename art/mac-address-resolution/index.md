@@ -5,7 +5,10 @@ layout: article
 redirect_from: '/etc/mac-address-resolution/'
 slug: 'mac-address-resolution'
 summary: 'Why can''t I just ping this widget?'
-tags: 'networks,iot,c'
+tags:
+    - networks
+    - iot
+    - c
 title: MAC address resolution
 ---
 

@@ -7,7 +7,10 @@ slug: 'cqrs-for-blue-green-deployment'
 summary: |
     Bringing databases into the Blue-Green Deployment process by using CQRS
     and idempotent work queues.
-tags: 'Systems, Databases, DevOps'
+tags:
+    - systems
+    - databases
+    - devops
 title: 'CQRS for Blue-Green Deployment'
 ---
 

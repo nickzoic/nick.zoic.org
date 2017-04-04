@@ -4,7 +4,9 @@ date: '2012-02-16'
 layout: article
 redirect_from: '/etc/gcc-linker-libs/'
 slug: 'gcc-linker-libs'
-tags: 'C, unix'
+tags:
+    - c
+    - unix
 title: 'GCC 4.6 linker switches'
 ---
 

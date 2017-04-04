@@ -8,7 +8,13 @@ summary: |
     Mostly, getting stuff done fast in the web world requires doing things
     in parallel. However, every now and then you bump into a problem where
     this just doesn't work ...
-tags: 'memcached, C, backend, python, tornado, atomic'
+tags:
+    - memcached
+    - c
+    - backend
+    - python
+    - tornado
+    - atomic
 title: 'FastCGI and Memcached, all in C'
 ---
 

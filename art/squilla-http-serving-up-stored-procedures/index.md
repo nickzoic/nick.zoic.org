@@ -7,7 +7,12 @@ slug: 'squilla-http-serving-up-stored-procedures'
 summary: |
     A (somewhat sketchy) connector between HTTP and postgres stored
     procedures ...
-tags: 'SQL, django, backend, speculation, postgres'
+tags:
+    - sql
+    - django
+    - backend
+    - speculation
+    - postgres
 title: 'Squilla: Serving up Stored Procedures'
 ---
 

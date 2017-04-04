@@ -8,7 +8,10 @@ summary: |
     I presented at the MelbDjango user group on 11 July 2013, here's the
     slides and some quick scribblings re: the content of my talk, and the
     feedback from the Djangonauts present.
-tags: 'Python, django, testing'
+tags:
+    - python
+    - django
+    - testing
 title: Testing Django Performance
 ---
 

@@ -5,7 +5,9 @@ layout: article
 redirect_from: '/etc/squawk-cc-the-true-story/'
 slug: 'squawk-cc-the-true-story'
 summary: 'Distributed Disruption of Surveillance ...'
-tags: 'www, crypto'
+tags:
+    - www
+    - crypto
 title: 'Squawk.CC -- The true story'
 ---
 

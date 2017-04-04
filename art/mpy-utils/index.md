@@ -4,7 +4,11 @@ date: '2016-11-24'
 layout: article
 redirect_from: '/etc/mpy-utils/'
 slug: 'mpy-utils'
-tags: 'micropython,microcontrollers,esp8266,python'
+tags:
+    - micropython
+    - microcontrollers
+    - esp8266
+    - python
 title: Micropython Utilities
 ---
 

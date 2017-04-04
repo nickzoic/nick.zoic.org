@@ -4,7 +4,9 @@ date: '2015-11-17'
 layout: article
 redirect_from: '/etc/credit-gateway-policy/'
 slug: 'credit-gateway-policy'
-tags: 'www, payments'
+tags:
+    - www
+    - payments
 title: Credit Gateway Policies
 ---
 

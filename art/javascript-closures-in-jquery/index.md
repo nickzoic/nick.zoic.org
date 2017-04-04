@@ -4,7 +4,10 @@ date: '2013-04-16'
 layout: article
 redirect_from: '/HTML5/javascript-closures-in-jquery/'
 slug: 'javascript-closures-in-jquery'
-tags: 'HTML5, javascript, functional programming'
+tags:
+    - html5
+    - javascript
+    - functional programming
 title: Using Closures in Javascript
 ---
 

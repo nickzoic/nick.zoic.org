@@ -8,7 +8,11 @@ summary: |
     I was setting up Django using Gunicorn behind an Nginx proxy the other
     day, and hit this problem which took a while to find an answer for ...
     all Django would do was return `400 Bad Request`
-tags: 'Systems, nginx, django, python'
+tags:
+    - systems
+    - nginx
+    - django
+    - python
 title: 'Nginx proxy\_pass to upstream Django always giving 400 Bad Request'
 ---
 

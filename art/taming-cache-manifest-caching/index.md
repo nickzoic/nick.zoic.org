@@ -4,7 +4,9 @@ date: '2011-09-22'
 layout: article
 redirect_from: '/HTML5/taming-cache-manifest-caching/'
 slug: 'taming-cache-manifest-caching'
-tags: 'HTML5, mobile'
+tags:
+    - html5
+    - mobile
 title: 'Taming "cache.manifest" Caching'
 ---
 

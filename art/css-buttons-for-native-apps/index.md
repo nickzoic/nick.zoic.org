@@ -5,7 +5,10 @@ layout: article
 redirect_from: '/etc/css-buttons-for-native-apps/'
 slug: 'css-buttons-for-native-apps'
 summary: 'Using CSS to make nice looking buttons for Native Apps (using PhantomJS)'
-tags: 'css, ios, android'
+tags:
+    - css
+    - ios
+    - android
 title: CSS Buttons for Native Apps
 ---
 

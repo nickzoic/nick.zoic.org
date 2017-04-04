@@ -8,7 +8,14 @@ summary: |
     A couple of people have mentioned that while they like the idea of
     offloading their site to a CDN, they're not ready to have their site
     look like some relic from 1999 ...
-tags: 'HTML5, mobile, architecture, aws, www, django, static'
+tags:
+    - html5
+    - mobile
+    - architecture
+    - aws
+    - www
+    - django
+    - static
 title: Static Sites using jQuery to appear Dynamic
 ---
 

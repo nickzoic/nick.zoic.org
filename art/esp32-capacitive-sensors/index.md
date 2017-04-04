@@ -4,7 +4,11 @@ date: '2017-02-14'
 layout: article
 redirect_from: '/etc/esp32-capacitive-sensors/'
 slug: 'esp32-capacitive-sensors'
-tags: 'micropython,microcontrollers,esp32,python'
+tags:
+    - micropython
+    - microcontrollers
+    - esp32
+    - python
 title: ESP32 Capacitive Sensors
 ---
 

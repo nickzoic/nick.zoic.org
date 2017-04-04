@@ -4,7 +4,9 @@ date: '2011-04-28'
 layout: article
 redirect_from: '/Systems/trickiness-with-ssh/'
 slug: 'trickiness-with-ssh'
-tags: 'Systems, crypto'
+tags:
+    - systems
+    - crypto
 title: More Trickiness With SSH
 ---
 

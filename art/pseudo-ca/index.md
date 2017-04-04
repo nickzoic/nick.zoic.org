@@ -4,7 +4,10 @@ date: '2013-04-11'
 layout: article
 redirect_from: '/Systems/pseudo-ca/'
 slug: 'pseudo-ca'
-tags: 'Systems, crypto, ssl'
+tags:
+    - systems
+    - crypto
+    - ssl
 title: 'Make your own Client-side Certificates with a Pseudo CA'
 ---
 

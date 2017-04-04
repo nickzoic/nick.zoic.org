@@ -5,7 +5,10 @@ layout: article
 redirect_from: '/etc/nodemcu-plus-plus/'
 slug: 'nodemcu-plus-plus'
 summary: 'Improving on the design of the NodeMCU modules ...'
-tags: 'robots, microcontrollers, electronics'
+tags:
+    - robots
+    - microcontrollers
+    - electronics
 title: 'NodeMCU++ ?'
 ---
 

@@ -4,7 +4,10 @@ date: '2011-04-28'
 layout: article
 redirect_from: '/Systems/wget-certificate-private-key/'
 slug: 'wget-certificate-private-key'
-tags: 'Systems, crypto, ssl'
+tags:
+    - systems
+    - crypto
+    - ssl
 title: 'wget –certificate=\$X –private-key=\$X'
 ---
 

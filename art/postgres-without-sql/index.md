@@ -13,7 +13,10 @@ summary: |
     talk to an SQL database through an ORM, we're turning a bunch of
     operations on objects into a human readable query language, then turning
     that back into a query plan. *Why?*
-tags: 'SQL, C, backend'
+tags:
+    - sql
+    - c
+    - backend
 title: Postgres without SQL
 ---
 

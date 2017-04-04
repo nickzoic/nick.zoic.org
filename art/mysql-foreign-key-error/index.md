@@ -8,7 +8,10 @@ summary: |
     Accidentally putting a foreign key between an InnoDB table and a MyISAM
     table results in an error "Cannot add or update a child row: a foreign
     key constraint fails"
-tags: 'SQL, mysql, django'
+tags:
+    - sql
+    - mysql
+    - django
 title: 'MySQL: Foreign Keys between InnoDB and MyISAM'
 ---
 

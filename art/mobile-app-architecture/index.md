@@ -8,7 +8,11 @@ summary: |
     I want to discuss some weirder things on this blog, but I think it'd be
     a good idea to start off with an overview of how to build a very simple
     HTML5- or Native App friendly architecture.
-tags: 'HTML5, backend, mobile, architecture'
+tags:
+    - html5
+    - backend
+    - mobile
+    - architecture
 title: Basic Mobile App Architecture
 ---
 

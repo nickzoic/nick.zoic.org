@@ -8,7 +8,14 @@ summary: |
     The current storm in a teacup seems to be about static vs. dynamic
     website design. As usual, this is a False Dichotomy ... actually,
     there's a whole range of options to explore.
-tags: 'HTML5, mobile, architecture, memcached, aws, www, static'
+tags:
+    - html5
+    - mobile
+    - architecture
+    - memcached
+    - aws
+    - www
+    - static
 title: 'Static vs. Dynamic Sites'
 ---
 

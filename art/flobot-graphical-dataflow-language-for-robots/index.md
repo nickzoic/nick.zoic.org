@@ -5,7 +5,12 @@ layout: article
 redirect_from: '/etc/flobot-graphical-dataflow-language-for-robots/'
 slug: 'flobot-graphical-dataflow-language-for-robots'
 summary: 'Working on a graphical dataflow language for educational robotics.'
-tags: 'robots, microcontrollers, electronics, education, HTML5'
+tags:
+    - robots
+    - microcontrollers
+    - electronics
+    - education
+    - html5
 title: 'FloBot: A Graphical Dataflow Language for Robots'
 ---
 

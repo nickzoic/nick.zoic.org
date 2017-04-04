@@ -4,7 +4,11 @@ date: '2015-12-01'
 layout: article
 redirect_from: '/etc/mbot-nodebot-blockly-arduino/'
 slug: 'mbot-nodebot-blockly-arduino'
-tags: 'robots, microcontrollers, electronics, education'
+tags:
+    - robots
+    - microcontrollers
+    - electronics
+    - education
 title: 'mBots using Nodebot, mBlockly and Arduino'
 ---
 

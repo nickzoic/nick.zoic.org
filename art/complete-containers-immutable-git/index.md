@@ -8,7 +8,10 @@ subtitle: Immutable Servers with all their state in Git
 summary: |
     I like the idea of ephemeral, immutable servers in light containers but
     what I really want is to put the entire state in a Git repo ...
-tags: 'conference, linux, systems'
+tags:
+    - conference
+    - linux
+    - systems
 title: Complete Containers
 ---
 

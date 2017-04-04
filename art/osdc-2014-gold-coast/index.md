@@ -7,7 +7,15 @@ slug: 'osdc-2014-gold-coast'
 summary: |
     My presentations at [OSDC 2014](http://2014.osdc.com.au/) on the Gold
     Coast!
-tags: 'conference, agile, enterprise, postgres, nosql, sql, architecture, www'
+tags:
+    - conference
+    - agile
+    - enterprise
+    - postgres
+    - nosql
+    - sql
+    - architecture
+    - www
 title: OSDC 2014 Gold Coast
 ---
 

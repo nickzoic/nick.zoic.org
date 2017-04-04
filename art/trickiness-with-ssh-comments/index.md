@@ -4,7 +4,9 @@ date: '2011-04-29'
 layout: article
 redirect_from: '/Systems/trickiness-with-ssh-comments/'
 slug: 'trickiness-with-ssh-comments'
-tags: 'Systems, crypto'
+tags:
+    - systems
+    - crypto
 title: Comments On More Trickiness With SSH
 ---
 

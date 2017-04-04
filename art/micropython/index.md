@@ -4,7 +4,10 @@ date: '2017-02-11'
 layout: article
 redirect_from: '/Python/micropython/'
 slug: micropython
-tags: 'Python, micropython, microcontrollers'
+tags:
+    - python
+    - micropython
+    - microcontrollers
 title: 'MicroPython!'
 ---
 

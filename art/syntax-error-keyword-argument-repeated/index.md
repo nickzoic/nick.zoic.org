@@ -4,7 +4,9 @@ date: '2012-02-20'
 layout: article
 redirect_from: '/Python/syntax-error-keyword-argument-repeated/'
 slug: 'syntax-error-keyword-argument-repeated'
-tags: 'Python, VCS'
+tags:
+    - python
+    - vcs
 title: 'SyntaxError: keyword argument repeated'
 ---
 

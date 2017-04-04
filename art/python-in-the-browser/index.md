@@ -4,7 +4,10 @@ date: '2011-05-01'
 layout: article
 redirect_from: '/Python/python-in-the-browser/'
 slug: 'python-in-the-browser'
-tags: 'Python, javascript, www'
+tags:
+    - python
+    - javascript
+    - www
 title: Python in the Browser
 ---
 

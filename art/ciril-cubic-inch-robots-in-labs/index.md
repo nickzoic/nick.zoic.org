@@ -5,7 +5,11 @@ layout: article
 redirect_from: '/etc/ciril-cubic-inch-robots-in-labs/'
 slug: 'ciril-cubic-inch-robots-in-labs'
 summary: A project to create mini robots for education purposes
-tags: 'robots, microcontrollers, electronics, education'
+tags:
+    - robots
+    - microcontrollers
+    - electronics
+    - education
 title: 'Ciril: Cubic Inch Robots in Labs'
 ---
 

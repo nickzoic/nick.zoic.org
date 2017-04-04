@@ -4,7 +4,10 @@ date: '2012-08-22'
 layout: article
 redirect_from: '/etc/bluesmirf-bluetooth-hid-module-reset/'
 slug: 'bluesmirf-bluetooth-hid-module-reset'
-tags: 'bluetooth, electronics, keyboard'
+tags:
+    - bluetooth
+    - electronics
+    - keyboard
 title: BlueSMiRF Bluetooth HID Module
 ---
 

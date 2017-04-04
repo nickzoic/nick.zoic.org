@@ -7,7 +7,12 @@ slug: 'flobot-continued'
 summary: |
     Flobot gets a rewrite into MicroPython, a new hardware platform and a
     lot more discussion ...
-tags: 'micropython, robots, microcontrollers, electronics, education'
+tags:
+    - micropython
+    - robots
+    - microcontrollers
+    - electronics
+    - education
 title: 'Flobot: The Journey Continues'
 ---
 

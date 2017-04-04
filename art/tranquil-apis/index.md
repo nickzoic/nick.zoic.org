@@ -7,7 +7,11 @@ slug: 'tranquil-apis'
 summary: |
     Tranquil is a protocol framework which is designed to be very simple and
     very extensible.
-tags: 'architecture, www, HTML5, django'
+tags:
+    - architecture
+    - www
+    - html5
+    - django
 title: Tranquil APIs
 ---
 

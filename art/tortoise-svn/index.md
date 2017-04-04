@@ -4,7 +4,10 @@ date: '2012-08-22'
 layout: article
 redirect_from: '/etc/tortoise-svn/'
 slug: 'tortoise-svn'
-tags: 'windows, svn, revision control'
+tags:
+    - windows
+    - svn
+    - revision control
 title: 'Quick guide to setting up TortoiseCVS / TortoiseSVN'
 ---
 

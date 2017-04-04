@@ -7,7 +7,11 @@ slug: 'django-rest-framework'
 summary: |
     Django REST Framework: The Good, the Bad and the Ugly. Presented at
     MelbDjango 0.9 on 6 Feb 2014
-tags: 'Python, django, architecture, www'
+tags:
+    - python
+    - django
+    - architecture
+    - www
 title: Django REST Framework
 ---
 

@@ -4,7 +4,12 @@ date: '2016-02-06'
 layout: article
 redirect_from: '/HTML5/the-emperors-new-closure-functional-programming-in-javascript/'
 slug: 'the-emperors-new-closure-functional-programming-in-javascript'
-tags: 'conference, HTML5, www, javascript, functional programming'
+tags:
+    - conference
+    - html5
+    - www
+    - javascript
+    - functional programming
 title: 'The Emperor''s New Closure: Functional Programming in Javascript'
 ---
 

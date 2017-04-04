@@ -4,7 +4,10 @@ date: '2017-02-11'
 layout: article
 redirect_from: '/HTML5/use-pure-javascript/'
 slug: 'use-pure-javascript'
-tags: 'HTML5, javascript, functional programming'
+tags:
+    - html5
+    - javascript
+    - functional programming
 title: '"use pure"; in Javascript'
 ---
 

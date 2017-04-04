@@ -8,7 +8,10 @@ summary: |
     I was talking to \$PERSON from \$BIG\_COMPANY the other day, and they
     happened to mention that around 80% of their CPU time was spent on
     serializing and deserializing data ...
-tags: 'architecture, systems, speculation'
+tags:
+    - architecture
+    - systems
+    - speculation
 title: 'Deserialize / Alter / Serialize: an Antipattern?'
 ---
 

@@ -5,7 +5,10 @@ layout: article
 redirect_from: '/etc/cryptographic-hash-uris/'
 slug: 'cryptographic-hash-uris'
 subtitle: Cryptographic Hash URIs
-tags: 'www, speculation, crypto'
+tags:
+    - www
+    - speculation
+    - crypto
 title: 'Imagine There''s No URLs'
 ---
 

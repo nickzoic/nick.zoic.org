@@ -5,7 +5,10 @@ layout: article
 redirect_from: '/etc/try-except-pass/'
 slug: 'try-except-pass'
 summary: 'A short rant about a common beginner''s mistake in dynamic languages'
-tags: 'python, javascript, perl'
+tags:
+    - python
+    - javascript
+    - perl
 title: 'Try: Except: Pass'
 ---
 

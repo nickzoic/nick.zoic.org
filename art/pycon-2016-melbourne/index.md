@@ -5,7 +5,11 @@ layout: article
 redirect_from: '/etc/pycon-2016-melbourne/'
 slug: 'pycon-2016-melbourne'
 summary: 'PyCon 2016 in Melbourne ...'
-tags: 'conference, iot, esp8266, python'
+tags:
+    - conference
+    - iot
+    - esp8266
+    - python
 title: PyCon 2016 Melbourne
 ---
 

@@ -4,7 +4,10 @@ date: '2012-02-20'
 layout: article
 redirect_from: '/etc/itunes-virtualbox/'
 slug: 'itunes-virtualbox'
-tags: 'apple, linux, virtualbox'
+tags:
+    - apple
+    - linux
+    - virtualbox
 title: 'iPhone / iTunes / Windows XP / VirtualBox / Ubuntu 9.10'
 ---
 

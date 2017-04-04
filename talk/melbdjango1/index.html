@@ -1,0 +1,334 @@
+<!doctype html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+
+    <title>Testing Django Performance</title>
+
+    <meta name="description" content="Testing Django Performance">
+    <meta name="author" content="Nick Moore <nick@zoic.org>">
+
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <link rel="stylesheet" href="css/reveal.min.css">
+    <link rel="stylesheet" href="css/theme/default.css" id="theme">
+
+    <!-- For syntax highlighting -->
+    <link rel="stylesheet" href="lib/css/zenburn.css">
+
+    <!-- If the query includes 'print-pdf', use the PDF print sheet -->
+    <script>
+      document.write( '<link rel="stylesheet" href="css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );
+    </script>
+
+    <!--[if lt IE 9]>
+    <script src="lib/js/html5shiv.js"></script>
+    <![endif]-->
+  </head>
+
+  <body>
+
+    <div class="reveal">
+
+      <!-- Any section element inside of this container is displayed as a slide -->
+      <div class="slides">
+
+        <section>
+          <h1>Testing Django Performance</h1>
+          <p>
+            <small><a href="http://nick.zoic.org">Nick Moore</a> / <a href="mailto:nick@zoic.org">nick@zoic.org</a></small>
+          </p>
+        </section>
+
+        <section>
+          <h2>Performance Testing</h2>
+
+          <ul>
+            <li>Code Profiling: what do we try next?</li>
+            <li>Relative Performance: is it helping?</li>
+            <li>Absolute Performance: can we survive success?</li>
+          </ul>
+        </section>
+
+        <section>
+          <section>
+            <h2>Test Platform</h2>
+
+            <ul>
+              <li>Don't even bother testing on your laptop</li>
+              <li>I &#x2764; AWS EC2</li>
+              <li>Try to get a whole machine: eg:
+                <ul><li>m1.xlarge</li><li>m3.2xlarge</li><li>cc2.8xlarge</li></ul>
+              </li>
+            </ul>
+
+          </section>
+          <section>
+            <h2>Test Platform Config &mdash; 1</h2>
+
+            <ul><li>Install Packages:
+            <pre><code class="no-highlight" data-trim>
+$ sudo apt-get update
+$ sudo apt-get install nginx postgresql postgresql-server-dev-all python-dev python-pip
+$ sudo pip install django mezzanine psycopg2 uwsgi loremipsum inflect
+            </code></pre>
+
+            </li><li>Make Django Project:
+
+            <pre><code class="no-highlight" data-trim>
+$ mkdir testproject
+$ cd testproject
+$ mezzanine-project
+            </code></pre>
+
+            </li><li>Configure Postgres User:
+
+            <pre><code class="python" data-trim>
+create user mezzanine with login password 'mezzanine';
+create database mezzanine;
+grant all on database mezzanine to mezzanine;
+            </code></pre>
+
+            </li></ul>
+
+          </section>
+          <section>
+            <h2>Test Platform Config &mdash; 2</h2>
+
+            <ul>
+              <li>local_settings.py
+<pre><code class="python" data-trim>
+DEBUG = True
+
+DATABASES = {
+    "default": {
+        "ENGINE": "django.db.backends.postgresql_psycopg2",
+        "NAME": "mezzanine",
+        "USER": "mezzanine",
+        "PASSWORD": "mezzanine",
+        "HOST": "localhost",
+        "PORT": "",
+    }
+}
+
+ALLOWED_HOSTS=['*']
+</code></pre>
+              </li>
+            </ul> 
+
+          </section>
+          <section>
+            <h2>Test Platform Config &mdash; 3</h2>
+
+            <ul>
+              <li>NGINX config:
+                <pre><code class="nginx" data-trim>
+server {
+    listen *:80;
+
+    location /static {
+        root /usr/local/lib/python2.7/dist-packages/mezzanine/core;
+    }
+
+    location / {
+        include uwsgi_params;
+        uwsgi_pass localhost:9000;
+    }
+}
+                </code></pre>
+              </li>
+              <li>UWSGI config:
+                <pre><code class="ini" data-trim>
+[uwsgi]
+chdir=/home/ubuntu
+module=testproject.wsgi
+processes=15
+socket=localhost:9000
+env=DJANGO_SETTINGS_MODULE=testproject.settings
+                </code></pre>
+              </li>
+            </ul>
+          </section>
+        </section>
+
+        <section>
+         <section>
+          <h2>Synthetic Test Data</h2>
+
+          <ul>
+            <li>Empty databases go fast!</li>
+            <li>Your database won't stay empty</li>
+            <li>Model for success</li>
+            <li>Generate data through Django</li>
+          </ul>
+        </section>
+
+        <section>
+          <h2>Synthetic Test Data</h2>
+
+          <pre><code class="python">
+from django.contrib.auth.models import User
+from mezzanine.blog.models import BlogPost
+
+
+
+
+
+
+users = User.objects.all()
+
+for n in range(1,10001):
+    BlogPost(
+        user =
+        title =
+        content =
+    ).save()
+          </code></pre>
+        </section>
+
+        <section>
+          <h2>Synthetic Test Data</h2>
+
+          <pre><code class="python">
+
+
+
+import random
+import loremipsum
+import inflect
+
+
+
+
+
+
+                  random.choice(users)
+                  inflect_engine.ordinal(n)
+                  loremipsum.get_paragraphs(2)
+
+          </code></pre>
+        </section>
+
+        <section>
+          <h2>Synthetic Test Data</h2>
+
+          <pre><code class="python">
+from django.contrib.auth.models import User
+from mezzanine.blog.models import BlogPost
+
+import random
+import loremipsum
+import inflect
+inflect_engine = inflect.engine()
+
+users = User.objects.all()
+
+for n in range(1,10001):
+    BlogPost(
+        user =    random.choice(users),
+        title =   inflect_engine.ordinal(n),
+        content = loremipsum.get_paragraphs(2)
+    ).save()
+          </code></pre>
+        </section>
+        </section>
+        
+        <section>
+          <h2>Simulating Load &mdash; Siege</h2>
+
+          <ul>
+            <li>Concurrency</li>
+            <li>URLs</li>
+            <li>Cacheability</li>
+          </ul>
+          
+        </section>
+
+        <section>
+          <h2>Antipatterns: N+1</h2>
+
+<pre><code class="python" data-trim>
+for foo in Foo.objects.filter(...):
+    print foo.bar().name          
+</code></pre>
+
+<pre class="fragment"><code class="python" data-trim>
+for foo in Foo.objects.all():
+    for bar in foo.bar_set().all():
+        for baz in bar.baz_set().all():
+            for qux in baz.qux_set().all():
+                print qux.quux
+</code></pre>
+
+<pre class="fragment"><code class="python" data-trim>
+foo.select_related('bar__baz__qux')
+</code></pre>
+
+<ul class="fragment"><li>May still generate horrible SQL</li></ul>
+        </section>
+
+        <section>
+          <h2>Query Logging</h2>
+
+          <ul>
+            <li>Log All Queries</li>
+            <li>Log Slow Queries</li>
+            <li>(mysql) Log Lousy Queries</li>
+            <li>EXPLAIN and EXPLAIN ANALYSE</li>
+          </ul>
+        </section>
+
+        <section>
+          <h2>Other Bottlenecks</h2>
+          
+          <ul>
+            <li>Disk IOPS</li>
+            <li>Network</li>
+            <li>Entropy</li>
+          </ul>
+        </section>
+        
+        <section>
+          <p style="font-size: 14em; font-weight: bold">?</p>
+        </section>
+
+      </div>
+
+    </div>
+
+    <script src="lib/js/head.min.js"></script>
+    <script src="js/reveal.min.js"></script>
+
+    <script>
+
+      // Full list of configuration options available here:
+      // https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+        controls: true,
+        progress: true,
+        history: true,
+        center: true,
+                                theme: "night",
+                                transition: "fade",
+
+        // Optional libraries used to extend on reveal.js
+        dependencies: [
+          { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+          { src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+          { src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+          { src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+          { src: 'plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+          { src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+          // { src: 'plugin/search/search.js', async: true, condition: function() { return !!document.body.classList; } }
+          // { src: 'plugin/remotes/remotes.js', async: true, condition: function() { return !!document.body.classList; } }
+        ]
+      });
+
+    </script>
+
+  </body>
+</html>

@@ -1,0 +1,246 @@
+@import url(http://fonts.googleapis.com/css?family=Source+Sans+Pro|Oxygen+Mono|Bitter:400,700);
+
+body {
+    font-family: "Source Sans Pro", sans-serif;
+    font-weight: 400;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: Bitter, Impact, sans-serif;
+    font-weight: 400;
+    margin: 15px;
+}
+
+div.huge {
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+}
+
+div.huge span, span.huge {
+    font-size: 400%;
+    font-family: Bitter, Impact, sans-serif;
+    height: 100%;
+}
+
+body.flip h1 {
+    font-size: 300%;
+    padding-bottom: 0.5ex;
+}
+
+h1, h2 { font-weight: 700; }
+
+body.flip h1, body.flip h3 { border-bottom: 3px solid #666; }
+
+pre, .fixed {
+    font-family: "Oxygen Mono", mono;
+}
+
+p {
+    margin: auto;
+    max-width: 30em;
+}
+
+span.strike {
+    color: red;
+    text-decoration: line-through;
+}
+
+span.strike span {
+    color: black;
+}
+
+body.flip span.strike span {
+    color: white;
+}
+
+.hide {
+    visibility: hidden;
+}
+
+pre.medium { font-size: 60% }
+
+p.small { font-size: 72% }
+
+pre, ul, ol {
+    display: inline-block;
+    text-align: left;
+    margin: 15px;
+    max-width: 90%;
+    list-style-type: square;
+}
+
+body.flip { 
+   background-color: black;
+   color: white;
+   font-size: 50px;
+   padding: 0px;
+   margin: 0px;
+}
+
+body > div {
+    text-align: center;
+    border-top: 1px solid black;
+    padding: 5px;
+}
+
+body > div:first-child {
+    border-top: none;
+}
+
+body.flip > div {
+    border: 0;
+    margin: auto;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    opacity: 0;
+    transition: opacity 250ms;
+} 
+
+body.flip > div.slide {
+   height: 99%;
+}
+
+body.flip-unhide {
+    background-color: white;
+    transition: background-color 2000ms;
+}
+
+body.flip-hide {
+   background-color: black;
+   transition: background-color 2000ms;
+}
+
+body.flip-hide > div, body.flip-unhide > div {
+    opacity: 0;
+    transition: opacity: 2000ms;
+}
+
+div.slide {
+    page-break-inside: avoid;
+    clear: both;
+    position: relative;
+}
+
+body.flip > div.show {
+    opacity: 1;
+    transition: opacity 250ms;
+}
+
+pre { 
+    background-color: #DDD;
+    padding: 5px;
+}
+
+p, ul { padding: 0.5em; }
+
+body.flip pre {
+    background-color: #666;
+    padding: 10px;
+}
+
+body.flip a {
+    color: #AAF;
+    text-decoration: none;
+}
+
+body.flip b, body.flip .top {
+    color: #FF6;
+}
+
+div.footer {
+    border: none;
+}
+
+body.flip div.footer {
+    margin: auto;
+    color: grey;
+    opacity: 1;
+    position: fixed;
+    top: auto;
+    bottom: 0px;
+    width: 100%;
+    font-size: 20px;
+}
+
+body.flip div.footer span {
+    border-top: 3px solid #666;
+    padding-left: 30px;
+    padding-right: 30px;
+}
+
+div.footer img.logo {
+    height: 1.5em;
+    vertical-align: middle;
+    padding-right: 1em;
+}
+
+body.flip .small { font-size: 20px; }
+
+body.flip table {
+    font-size: 40px;
+    margin: auto;
+    border-collapse: collapse;
+}
+
+body.flip table tr:first-child th {
+    background-color: #666;
+}
+
+body.flip table td, body.flip table th {
+    border: 3px solid #666;
+    padding: 10px;
+    min-width: 25%;
+    text-align: center;
+}
+
+
+table.fourpics {
+    width: 90%;
+    max-height: 100%;
+}
+
+table.fourpics tr {
+}
+
+body.flip table.fourpics td {
+    border: 0px;
+}
+
+img.fourpics {
+    max-width: 40%;
+    max-height: 40%;
+}
+
+img.whiteborder {
+    background-color: white;
+    border: 10px solid white;
+}
+
+img.eighty {
+    max-width: 20em;
+    max-height: 75%;
+}
+
+img.ninety {
+    max-width: 25em;
+    max-height: 90%;
+}
+
+.floatleft {
+    float: left;
+    max-width: 40%;
+}
+
+.floatleft img, .floatright img {
+    margin-left: 25%;
+    /*margin-right: 25%;*/
+}
+
+body.flip ul.floatright {
+    float: right;
+    max-width: 50%;
+}
+

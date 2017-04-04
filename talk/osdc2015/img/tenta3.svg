@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.0//EN" "http://www.w3.org/TR/2001/PR-SVG-20010719/DTD/svg10.dtd">
+<svg width="19cm" height="19cm" viewBox="78 98 363 363" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #ffffff" x="80" y="100" width="360" height="360"/>
+  <g>
+    <ellipse style="fill: #d8e5e5" cx="260" cy="260" rx="40" ry="40"/>
+    <ellipse style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" cx="260" cy="260" rx="40" ry="40"/>
+    <text font-size="12.8" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:normal" x="260" y="263.9">
+      <tspan x="260" y="263.9">API</tspan>
+    </text>
+  </g>
+  <g>
+    <path style="fill: #e6e6e6" d="M 345 328 C 345,320 345,320 350,320 C 355,320 355,320 360,320 C 365,320 365,320 365,328 C 365,328 380,328 380,328 C 380,328 380,360 380,360 C 380,360 345,360 345,360 C 345,360 345,336 345,328z"/>
+    <path style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" d="M 345 328 C 345,320 345,320 350,320 C 355,320 355,320 360,320 C 365,320 365,320 365,328 C 365,328 380,328 380,328 C 380,328 380,360 380,360 C 380,360 345,360 345,360 C 345,360 345,336 345,328"/>
+    <path style="fill: none; fill-opacity:0; stroke-width: 0.2; stroke: #000000" d="M 345 328 C 345,320 345,320 350,320 C 355,320 355,320 360,320 C 365,320 365,320 365,328 C 365,328 380,328 380,328 C 380,328 380,360 380,360 C 380,360 345,360 345,360 C 345,360 345,336 345,328"/>
+    <polygon style="fill: #d8e5e5" points="345,360 340,332 375,332 380,360 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="345,360 340,332 375,332 380,360 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 0.2; stroke: #000000" points="345,360 340,332 375,332 380,360 "/>
+    <text font-size="12.8" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:normal" x="360" y="346">
+      <tspan x="360" y="346"></tspan>
+    </text>
+  </g>
+  <g>
+    <ellipse style="fill: #d8e5e5" cx="400" cy="240" rx="20" ry="20"/>
+    <ellipse style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" cx="400" cy="240" rx="20" ry="20"/>
+    <line style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x1="385.858" y1="225.858" x2="414.142" y2="254.142"/>
+    <line style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x1="385.858" y1="254.142" x2="414.142" y2="225.858"/>
+  </g>
+  <g>
+    <path style="fill: #d8e5e5" d="M 200 140 C 224,125 236,120 260,120 C 284,120 296,125 320,140 L 320,220 C 296,235 284,240 260,240 C 236,240 224,235 200,220 L 200,140z"/>
+    <path style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" d="M 200 140 C 224,125 236,120 260,120 C 284,120 296,125 320,140 L 320,220 C 296,235 284,240 260,240 C 236,240 224,235 200,220 L 200,140"/>
+    <path style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" d="M 200 140 C 224,155 236,160 260,160 C 284,160 296,155 320,140"/>
+    <text font-size="12.8" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:normal" x="260" y="194">
+      <tspan x="260" y="194">ERP</tspan>
+    </text>
+  </g>
+  <g>
+    <path style="fill: #d8e5e5" d="M 140 325.5 C 148,331 152,331 160,325.5 C 168,320 172,320 180,325.5 L 180,358.5 C 172,353 168,353 160,358.5 C 152,364 148,364 140,358.5 L 140,325.5z"/>
+    <path style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" d="M 140 325.5 C 148,331 152,331 160,325.5 C 168,320 172,320 180,325.5 L 180,358.5 C 172,353 168,353 160,358.5 C 152,364 148,364 140,358.5 L 140,325.5"/>
+    <text font-size="12.8" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:normal" x="160" y="346">
+      <tspan x="160" y="346"></tspan>
+    </text>
+  </g>
+  <g>
+    <path style="fill: #d8e5e5" d="M 100 220 L 140,220 L 132,260 L 108,260 L 100,220z"/>
+    <path style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" d="M 100 220 L 140,220 L 132,260 L 108,260 L 100,220"/>
+    <text font-size="12.8" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:normal" x="120" y="244">
+      <tspan x="120" y="244"></tspan>
+    </text>
+  </g>
+  <g>
+    <path style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" d="M 137.004 240 C 190.124,240 161.153,292.949 211.916,276.028"/>
+    <polygon style="fill: #000000" points="219.031,273.656 211.126,281.562 211.916,276.028 207.963,272.075 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="219.031,273.656 211.126,281.562 211.916,276.028 207.963,272.075 "/>
+  </g>
+  <g>
+    <path style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" d="M 379.102 241.91 C 339.102,237.91 358.772,292.924 308.009,276.003"/>
+    <polygon style="fill: #000000" points="300.894,273.631 311.962,272.05 308.009,276.003 308.799,281.537 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="300.894,273.631 311.962,272.05 308.009,276.003 308.799,281.537 "/>
+  </g>
+  <g>
+    <path style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" d="M 180.997 347.5 C 220.837,347.5 221.778,336.444 237.424,305.152"/>
+    <polygon style="fill: #000000" points="240.778,298.444 240.778,309.624 237.424,305.152 231.834,305.152 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="240.778,298.444 240.778,309.624 237.424,305.152 231.834,305.152 "/>
+  </g>
+  <g>
+    <path style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" d="M 343.761 347.046 C 303.027,347.046 298.108,336.217 282.462,304.925"/>
+    <polygon style="fill: #000000" points="279.108,298.217 288.053,304.925 282.462,304.925 279.108,309.397 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="279.108,298.217 288.053,304.925 282.462,304.925 279.108,309.397 "/>
+  </g>
+</svg>

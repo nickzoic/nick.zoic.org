@@ -1,0 +1,348 @@
+<html>
+  <head>
+    <link rel="stylesheet" href="flip.css"/>
+    <script src="flip.js"></script>
+  </head>
+  <body>
+
+    <div class="slide">
+      <h1>Talking with Leviathan</h1>
+      <img class="whiteborder" src="img/squid15.jpg"/>
+      <h2>SAP, oData and HTML5</h2>
+    </div>
+
+    <div class="slide">
+        <h3>SAP ERP &mdash; 1</h3>
+        <ul>
+          <li>Enterprise Resource Planning</li>
+          <li>Business Document Oriented</li>
+          <li>GUI access, easy customization, great flexibility</li>
+        </ul>
+    </div>
+
+    <div class="slide">
+        <h3>SAP ERP &mdash; 2</h3>
+        <ul>
+          <li>Many obscure icons, shortcuts
+              <img class="whiteborder" width="60%" src="img/icons.png"/>
+          </li>
+          <li>Its own programming environment &amp; 4GL language (ABAP)</li>
+          <li>Internals may be in German:<br/>
+              <tt>WERKS</tt>, <tt>MEINS</tt>, <tt>MATKL</tt>, <tt>LGORT</tt>
+          </li>
+        </ul>
+    </div>
+
+    <div class="slide">
+        <h3>Parallel Evolution</h3>
+        <img class="whiteborder eighty" src="img/squid20.png"/>
+    </div>
+
+    <div class="slide">
+      <h3>SAP NetWeaver</h3>
+
+      <p>Interfaces:</p>
+      <ul>
+        <li>iDoc (EDI-like)</li>
+        <li>"RFC" (RPC-like, see <a href="http://sap.github.io/PyRFC/">PyRFC</a>)</li>
+        <li><a href="http://odata.org/">oData</a> (RESTful)</li>
+        <li>ABAP code stored in SAP, using SAP's native revision control</li>
+      </ul>
+    </div>
+
+    <div class="slide">
+      <h3>SAP NetWeaver &mdash; oData</h3>
+
+      <ul>
+        <li>RESTful</li>
+        <li>Serialization to JSON or XML</li>
+        <li>Actions as well as CRUD</li>
+        <li>Nested serialization</li>
+        <li>Entities don't have to correspond 1:1 with SAP objects</li>
+        <li>Easy to interface from HTML5</li>
+      </ul>
+    </div>
+
+    <div class="slide">
+        <h3>HTML5 Apps</h3>
+        <ul>
+          <li>Easy to implement</li>
+          <li>Very wide variety of devices</li>
+          <li>Responsive design for multiple devices</li>
+          <li>Plenty of library support</li>
+        </ul>
+    </div>
+
+    <div class="slide">
+      <h3>User Experience</h3>
+      <div class="floatleft">
+          <img class="whiteborder eighty" src="img/nick-moore-hiviz.jpg"/>
+      </div>
+      <ul class="floatright">
+          <li>Hostile environments</li>
+          <li>Busy environements</li>
+          <li>Simple UI</li>
+          <li>Specialization</li>
+          <li>Minimize training requirements</li>
+      </ul>
+    </div>
+
+    <div class="slide">
+      <h3>Architecture</h3>
+      <img class="whiteborder" style="height: 75%" src="img/squid30.jpg"/>
+    </div>
+
+    <div class="slide">
+      <h3>Architecture &mdash; 1</h3>
+      <div class="floatleft">
+          <img class="whiteborder eighty" height="60%" src="img/arch1.svg">
+      </div>
+      <ul class="floatright">
+        <li>Direct access to database</li>
+        <li>Unavailable when ERP offline</li>
+        <li>Avoids going through business logic</li>
+        <li>Can lead to bad ERP state</li>
+        <li>Can lead to DoS</li>
+      </ul>
+    </div>
+
+    <div class="slide">
+      <h3>Architecture &mdash; 2</h3>
+      <div class="floatleft">
+         <img class="whiteborder eighty" height="60%" src="img/arch2.svg">
+      </div>
+      <ul class="floatright">
+        <li>Insulates ERP against Web</li>
+        <li>Can denormalize</li>
+        <li>Can firewall</li>
+        <li>Sync process is hairy</li>
+      </ul>
+    </div>
+
+    <div class="slide">
+      <h3>Case Study: SolutionsOnline</h3>
+      <ul>
+        <li>Ran from 2008 to 2015</li>
+        <li>SAGE Line500 (Informix / SQL Server)</li>
+        <li>&sim;2000 weekly users</li>
+        <li>Review Invoices, Statements</li>
+        <li>Report on Gas Usage</li>
+        <li>Make payments</li>
+        <li>Merged into MyAccount</li>
+      </ul>
+    </div>
+
+    <div class="slide">
+      <h3>Architecture &mdash; 3</h3>
+      <div class="floatleft">
+         <img class="whiteborder eighty" height="60%" src="img/arch3.svg">
+      </div>
+      <ul class="floatright">
+        <li>SAP Netweaver</li>
+        <li>Interface HTML5 app direct to oData</li>
+        <li>Fewest moving parts</li>
+        <li>No extra infrastructure</li>
+        <li>Unavailable when ERP offline</li>
+        <li>Revision control &amp; Authentication are inflexible</li>
+      </ul>
+    </div>
+
+    <div class="slide">
+      <h3>Case Study: Mushrooms Scanning &mdash; 1</h3>
+      <div class="floatleft">
+         <img class="whiteborder eighty" height="60%" src="img/intermec.png">
+      </div>
+      <ul class="floatright">
+        <li>6 Farms in WA, SA, Vic, QLD</li>
+        <li>&sim;30 Scanners + &sim;20 Tablets</li>
+        <li>&sim;1000 pallets / day</li>
+        <li> Short warehouse shelf life</li>
+        <li>Scanning guns &amp; Industrial tablet PCs</li>
+        <li><tt>localStorage</tt> and HTML5 Manifests for partial offline use</li>
+      </ul>
+    </div>
+
+    <div class="slide">
+      <h3>Case Study: Mushrooms Scanning &mdash; 2</h3>
+      <ul>
+        <li>Availability limited when ERP is offline</li>
+        <li>Revision control is painful</li>
+        <li>Authentication is inflexible</li>
+        <li>... slower development</li>
+      </ul>
+    </div>
+
+    <div class="slide">
+      <h3>Architecture &mdash; 4</h3>
+      <div class="floatleft">
+          <img class="whiteborder eighty" height="60%" src="img/arch4.svg">
+      </div>
+      <ul class="floatright">
+        <li>Use a reverse proxy &amp; web server</li>
+        <li>Easier to control headers, caching, URLs etc</li>
+        <li>At least if ERP is unavailable you get a friendly error message!</li>
+      </ul>
+    </div>
+
+    <div class="slide">
+      <h3>Architecture &mdash; 5</h3>
+      <div class="floatleft">
+          <img class="whiteborder eighty" height="60%" src="img/arch5.svg">
+      </div>
+      <ul class="floatright">
+        <li>Auxiliary database</li>
+        <li>Sync to oData or RFC</li>
+        <li>Sync process is hairy</li>
+        <li>More moving parts</li>
+        <li>Can denormalize</li>
+        <li>System remains online when ERP unavailable</li>
+      </ul>
+    </div>
+
+    <div class="slide">
+      <h3>Case Study: The Reject Shop</h3>
+      <ul>
+        <li>&sim;340 stores, &sim;1200 devices, mostly HTML5</li>
+        <li>BizTalk, MS SQL Server, WebSphere</li>
+        <li>Business logic partly implemented outside SAP</li>
+        <li>Separate applications for specific roles</li>
+      </ul>
+    </div>
+
+    <div class="slide">
+      <h3>Architecture &mdash; 6</h3>
+      <div class="floatleft">
+          <img class="whiteborder eighty" height="60%" src="img/arch6.svg">
+      </div>
+      <ul class="floatright">
+        <li>Future work: Distributed Databases</li>
+        <li>eg: CouchBase Mobile</li>
+        <li>Devices work offline</li>
+        <li>Fewer moving parts</li>
+      </ul>
+    </div>
+
+    <div class="slide">
+      <img class="whiteborder ninety" src="img/squid10.jpg"/>
+    </div>
+
+    <div class="slide">
+      <h3>Agility &mdash; 1</h3>
+      <div class="floatleft">
+          <img class="whiteborder eighty" height="60%" src="img/tenta5.svg"/>
+      </div>
+      <ul class="floatright">
+          <li>ERP system changes very slowly</li>
+      </ul>
+    </div>
+
+    <div class="slide">
+      <h3>Agility &mdash; 2</h3>
+      <div class="floatleft">
+          <img class="whiteborder eighty" height="60%" src="img/tenta4.svg"/>
+      </div>
+      <ul class="floatright">
+          <li>ERP system changes very slowly</li>
+          <li>API code is embedded and can't be changed easily either</li>
+      </ul>
+    </div>
+
+    <div class="slide">
+      <h3>Agility &mdash; 3</h3>
+      <div class="floatleft">
+          <img class="whiteborder eighty" height="60%" src="img/tenta3.svg"/>
+      </div>
+      <ul class="floatright">
+          <li>ERP system changes very slowly</li>
+          <li>API code is embedded and can't be changed easily either</li>
+          <li>Once API is defined peripheral systems can be added easily</li>
+      </ul>
+    </div>
+
+    <div class="slide">
+      <h3>Agility &mdash; 4</h3>
+      <div class="floatleft">
+          <img class="whiteborder eighty" height="60%" src="img/tenta1.svg"/>
+      </div>
+      <ul class="floatright">
+          <li>ERP system changes very slowly</li>
+          <li>API code is embedded and can't be changed easily either</li>
+          <li>Once API is defined peripheral systems can be added easily</li>
+          <li>... and more, and more, and more ...</li>
+      </ul>
+    </div>
+    </div>
+
+    <div class="slide">
+      <h3>Thanks</h3>
+      <div class="floatleft">
+          <img class="whiteborder eighty" height="65%" src="img/squid21.png">
+      </div>
+      <ul>
+        <li>Mark van de Ven</li>
+        <li>Louwtjie Nel</li>
+        <li>Vaibhav Kumar</li>
+      </ul>
+    </div>
+
+    <div class="slide">
+      <h3>Questions / Comments</h3>
+      <div class="floatleft">
+          <img class="whiteborder eighty" height="65%" src="img/squid32.jpg">
+      </div>
+      <p>Nick Moore<br/>Mnemote Pty Ltd</p>
+
+      <ul>
+        <li><a href="mailto:nick@mnemote.com">nick@mnemote.com</a></li>
+        <li><a href="http://mnemote.com/">http://mnemote.com/</a></li>
+        <!--li><a href="tel:+61409656267">0409 656 267</a></li-->
+        <li><a href="https://twitter.com/mnemote/">@mnemote</a></li>
+        <li><a href="https://joind.in/15914">https://joind.in/15914</a></li>
+      </ul>
+    </div>
+
+    <div class="slide">
+      <h3>Credits / References</h3>
+      <div class="floatleft">
+          <img class="whiteborder eighty" height="65%" src="img/squid17.jpg">
+      </div>
+      <h4>Image Credits</h4>
+        <ul>
+          <li class="small">
+            Squid with ship: Copyright expired.<br/>
+            <a href="https://commons.wikimedia.org/wiki/File:PSM_V35_D674_Capture_of_a_giant_squid.jpg">
+              Popular Science Monthly Volume 35, 1889.
+            </a>
+          </li>
+          <li class="small">
+            Squid on beach: Copyright expired.<br/>
+            <a href="https://commons.wikimedia.org/wiki/File:Giant_squid_catalina2.png">
+              &ldquo;Gravure d'un calmar g&eacute;ant &eacute;chou&eacute; en 1877 sur la baie Trinity, &agrave; Terre-Neuve&rdquo;
+            </a>
+          </li>
+          <li class="small">
+            Squid attacking boat: Copyright expired.<br/>
+            <a href="https://commons.wikimedia.org/wiki/File:PSM_V14_D361_The_giant_squid.jpg">
+              Popular Science Monthly, Volume 14, 1879.
+            </a>
+          </li>
+          <li class="small">
+            Intermec Scanner: Presumably &copy; Intermec by Honeywell.
+          </li>
+          <li class="small">
+            Programmer in a Hi-viz Vest: &copy; 2015 Nick Moore
+          </li>
+        </ul>
+      <h4>References</h4>
+        <ul>
+          <li class="small">PyRFC: <a href="http://sap.github.io/PyRFC/">http://sap.github.io/PyRFC/</a></li>
+          <li class="small">oData: <a href="http://odata.org/">http://odata.org/</a></li>
+        </ul>
+    </div>
+
+    <div class="footer">
+      <span><img class="logo" src="img/mnemote-logo-color.svg"/>Nick Moore &lt;nick@mnemote.com&gt; for <a href="https://2015.osdc.com.au/">OSDC2015</a></span>
+    </div>
+
+  </body>
+</html>

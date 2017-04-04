@@ -1,0 +1,233 @@
+<html>
+  <head>
+    <link rel="stylesheet" href="flip.css"/>
+    <script src="flip.js"></script>
+  </head>
+  <body>
+
+    <div class="slide">
+      <h1>The Internet of <span class="strike"><span>Things</span></span> Toys</h1>
+      <h4>Nick Moore<br/>
+        <a href="https://twitter.com/mnemote/">@mnemote</a><br/>
+        Buzzconf Nights 2016</h3>
+    </div>
+
+    <div class="slide">
+       <h1>ESP8266</h1>
+    </div>
+
+    <div class="slide">
+       <h3>ESP8266</h3>
+       <img src="img/espressif-logo.jpg" width="66%"/>
+       <ul>
+          <li>Shanghai based</li>
+          <li>Specializing in SoC for IoT</li>
+          <li>Unusually community-minded</li>
+          <li><a href="http://www.bunniestudios.com/blog/?page_id=4297">Gongkai</a>?</li>
+          <li>Tensilica Xtensa based</li>
+       </ul>
+    </div>
+
+    <div class="slide">
+       <img src="img/esp8266-die2.jpg" height="90%"/>
+       <p class="small">original image: <a href="http://zeptobars.com/en/read/Espressif-ESP8266-wifi-serial-rs232-ESP8089-IoT">zeptobars.com</a></p>
+    </div>
+
+    <div class="slide">
+       <img class="whiteborder" src="img/esp8266-chip.jpg" height="90%"/>
+    </div>
+
+    <div class="slide">
+       <img src="img/esp-12e.jpg" height="90%"/>
+       <p class="small">original image: <a href="https://www.adafruit.com/product/2491">adafruit.com</a></p>
+    </div>
+
+    <div class="slide">
+       <img src="img/esp-12e-5.jpg" height="90%"/>
+       <p class="small">original image: <a href="https://www.adafruit.com/product/2491">adafruit.com</a></p>
+    </div>
+
+    <div class="slide">
+       <img src="img/teenyrobots.jpg" height="90%"/>
+    </div>
+
+    <div class="slide">
+       <img class="whiteborder" src="img/junkbot.jpg" height="90%"/>
+    </div>
+
+    <div class="slide">
+       <h3>NodeMCU</h3>
+       <div class="floatleft">
+          <img src="img/nodemcu.jpg" height="50%"/>
+          <p class="small">image: <a href="http://www.seeedstudio.com/depot/NodeMCU-v2-Lua-based-ESP8266-development-kit-p-2415.html">seeedstudio.com</a></p>
+       </div>
+       <ul>
+          <li>3.3v regulator</li>
+          <li>USB interface</li>
+          <li>Automatic flash &<br/>reset functions</li>
+          <li>Standard 0.1" headers</li>
+          <li>$8-$10 on Ebay</li>
+       </ul>
+    </div>
+
+    <div class="slide">
+       <h3>Programming the ESP8266</h3>
+       <p><a href="https://github.com/themadinventor/esptool">github: themadinventor/esptool</a></p>
+       <ul>
+         <li>NodeMCU makes this totally easy</li>
+         <li>USB cable and esptool</li>
+         <li>Otherwise, serial converter</li>
+       </ul>
+    </div>
+
+    <div class="slide">
+       <h3>esp-open-sdk</h3>
+       <p><a href="https://github.com/pfalcon/esp-open-sdk">github: pfalcon/esp-open-sdk</a></p>
+       <ul>
+         <li>C development using GCC toolchain</li>
+         <li>Quite a lot of libraries for WiFi</li>
+       </ul>
+    </div>
+    
+    <div class="slide">
+       <h3>libesphttpd</h3>
+       <p><a href="https://github.com/Spritetm/esphttpd">github: Spritetm/esphttpd</a></p>
+       <ul>
+         <li>Simple HTTP / Websocket handling</li>
+         <li>Flash-based read-only filesystem</li>
+       </ul>
+    </div>
+
+    <div class="slide">
+       <h3>NodeLua</h3>
+       <p><a href="https://nodelua.org/">nodelua.org</a></p>
+       <ul>
+         <li>Load with esptool</li>
+         <li>Interpreted languages on a uC!</li>
+         <li>REPL over serial port</li>
+         <li>Cut-down standard libraries</li>
+         <li>Libraries representing hardware</li>
+       </ul>
+    </div>
+
+    <div class="slide">
+       <h3>MicroPython</h3>
+       <p><a href="https://micropython.org/">micropython.org</a></p>
+       <ul>
+         <li><a href="https://github.com/micropython/micropython/blob/master/esp8266/README.md">Install README</a></li>
+         <li><a href="http://docs.micropython.org/en/latest/esp8266/">Python Docs</a></li>
+       </ul>
+       <br/>
+       <pre class="small">git clone https://github.com/micropython/micropython.git
+cd micropython
+git submodule update --init
+cd esp8266
+make axtls; make
+PORT=/dev/ttyUSB0 make deploy
+</pre>
+    </div>
+
+    <div class="slide">
+       <h1>Ciril</h1>
+       <p>A (4) Cubic Inch Robot for educational labs</p>
+       <p><a href="http://ciril.mnemote.com/">ciril.mnemote.com</a></p>
+    </div>
+
+
+    <div class="slide">
+       <img class="whiteborder" src="img/mbot-with-kids.jpg" height="90%"/>
+    </div>
+
+    <div class="slide">
+       <img class="whiteborder" src="img/render.png" height="90%"/>
+    </div>
+
+    <div class="slide">
+       <img class="whiteborder" src="img/ciril-proto.jpg" height="90%"/>
+    </div>
+
+    <div class="slide">
+       <img class="whiteborder" src="img/ciril-wheels.png" height="90%"/>
+    </div>
+
+    <div class="slide">
+       <h1>Flobot</h1>
+       <p>A visual dataflow language for educational robots,<br/>
+          with a graphical editor which runs in your web browser.</p>
+       <p><a href="http://flobot.mnemote.com/">flobot.mnemote.com</a></p>
+    </div>
+
+    <div class="slide">
+       <h3>Educational Robotics</h3>
+       <p>Problems:</p>
+       <ul>
+         <li>Installing toolchain</li>
+         <li>Cabling / uploading</li>
+         <li>Coding errors</li>
+         <li>Debugging poor</li>
+       </ul>   
+    </div>
+
+    <div class="slide">
+       <h3>Educational Robotics</h3>
+       <p>Solutions:</p>
+       <ul>
+         <li><span class="strike">Installing toolchain</span>
+             Web browser based</li>
+         <li><span class="strike">Cabling / uploading</span>
+             WiFi</li>
+         <li><span class="strike">Coding errors</span>
+             No "wrong" programs</li>
+         <li><span class="strike">Debugging poor</span>
+             visual debugging</li>
+       </ul>   
+    </div>
+    
+    <div class="slide">
+       <img class="whiteborder" src="img/flobot-example.png" height="90%"/>
+    </div>
+
+    <div class="slide">
+       <h3>Open Source & Open Hardware</h3>
+       <h4>Why?</h4>
+       <ul>
+         <li>Collaboration</li>
+         <li>Productization</li>
+         <li>Ongoing education</li>
+       </ul>
+    </div>
+
+    <div class="slide">
+       <h3>PyCon AU 2016</h3>
+       <div class="floatleft">
+          <img src="img/pycon-logo-mel.png" height="50%"/>
+          <p class="small">image: <a href="https://2016.pycon-au.org/">PyCon AU</a></p>
+       </div>
+       <ul>
+         <li>The Internet of (Not Shit) Things</li>
+         <li>ESP8266 and MicroPython</li>
+       </ul>
+    </div>
+
+    <div class="slide">
+      <h3>Questions / Comments</h3>
+      <p>Nick Moore<br/>Mnemote Pty Ltd</p>
+
+       <p><a href="http://nick.zoic.org/etc/buzzconf-nights-esp8266-flobot-ciril/">http://nick.zoic.org/etc/buzzconf-nights-esp8266-flobot-ciril/</a></p>
+
+      <ul>
+        <li><a href="mailto:nick@mnemote.com">nick@mnemote.com</a></li>
+        <li><a href="http://mnemote.com/">http://mnemote.com/</a></li>
+        <!--li><a href="tel:+61409656267">0409 656 267</a></li-->
+        <li><a href="https://twitter.com/mnemote/">@mnemote</a></li>
+      </ul>
+
+      <p class="small">Content and images &copy; Mnemote Pty Ltd except where otherwise noted</p>
+    </div>
+
+    <div class="footer">
+      <span><img class="logo" src="img/mnemote-logo-color.svg"/>Nick Moore &lt;nick@mnemote.com&gt; for <a href="https://buzzconf.io/nights/">Buzzconf Nights</a></span>
+    </div>
+
+  </body>
+</html>

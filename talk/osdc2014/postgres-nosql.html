@@ -1,0 +1,278 @@
+<html>
+  <head>
+    <link rel="stylesheet" href="flip.css"/>
+    <script src="flip.js"></script>
+  </head>
+  <body>
+
+    <div class="slide">
+      <h1>PostgreSQL JSON data types</h1>
+      <h2>NoSQL in SQL?</h2>
+      <h4>Nick Moore &lt;nick@mnemote.com&gt;</h4>
+    </div>
+
+    <div class="slide">
+      <h3>JSON &mdash; JavaScript Object Notation</h3>
+<pre>{
+   "id": "1220",
+   "title": "PostgreSQL JSON data types",
+   "subtitle": "NoSQL in SQL?",
+   "tags": [ "SQL", "NoSQL", "JSON" ],
+   "author": {
+       "name": "Nick Moore",
+       "email": "nick@mnemote.com"
+   }
+}</pre>
+    </div>
+
+    <div class="slide">
+      <h3>JSON &mdash; Portability</h3>
+      <ul>
+        <li>JSON types are (more or less) Javascript literal types</li>
+        <li>Very similar to native Python/Perl types</li>
+        <li>Easy to use from Javascript frontends via AJAX/REST</li>
+        <li>Easy to template on frontend or backend</li>
+        <li>Relatively easy to hand-edit</li>
+      </ul>
+
+      <p>&rArr; Used in NoSQL "Document Store" databases<br/>(MongoDB<super>*</super>, CouchDB)</p>
+      <p class="small"><super>*</super> Actually BSON</p>
+    </div>
+    <div class="slide">
+      <h3>JSON in SQL</h3>
+      <h4>Flexibility</h4>
+      <ul>
+         <li>Avoid &lsquo;Kitchen Sink&rsquo; tables</li>
+         <li>Avoid Entity-Attribute-Value Antipattern</li>
+         <li>Avoid &lsquo;Maze of Twisty Joins&rsquo;</li>
+         <li>Don't need explicit database migrations for new features</li>
+      </ul>
+    </div>   
+
+    <div class="slide">
+      <h3>JSON in PostgreSQL</h3>
+
+      <ul>
+         <li>PostgreSQL 9.3 adds <a href="http://www.postgresql.org/docs/9.3/static/datatype-json.html">JSON Datatype</a></li>
+         <li>Basically a <span class="fixed">text</span> field but enforces valid JSON</li>
+         <li>PostgreSQL 9.4 adding <a href="http://www.postgresql.org/docs/9.4/static/datatype-json.html">JSONB datatype</a></li>
+         <li>Same thing, more efficient<super>*</super></li>
+      </ul>
+      <p class="small"><super>*</super>a lot like BSON</p>
+    </div>
+
+    <div class="slide">
+      <h3>JSON in PostgreSQL &mdash; CREATE TABLE</h3>
+      <pre>
+CREATE TABLE Profiles (
+    id SERIAL PRIMARY KEY,
+    data <b>JSON</b>
+);</pre>
+    </div>
+
+    <div class="slide">
+      <h3>JSON in PostgreSQL &mdash; Creating</h3> 
+
+<pre>INSERT INTO Profiles (data) VALUES (
+    '<b>{
+        "occupation": "hacker",
+        "likes": [ "beer", "sql" ]
+    }</b>'
+);</pre>
+    </div>
+
+    <div class="slide">
+      <h3>JSON in PostgreSQL &mdash; Extracting</h3>
+      <pre>
+select <b>data-&gt;&gt;'occupation'</b> from profiles;
+
+select * from profiles
+  where <b>data-&gt;&gt;'occupation'</b> = 'hacker';</pre>
+    </div>
+
+    <div class="slide">
+      <h3>JSON Operators &amp; Functions</h3>
+
+      <p>Builtin JSON <a href="http://www.postgresql.org/docs/9.3/static/functions-json.html#FUNCTIONS-JSON-OP-TABLE">Operators</a> and <a href="http://www.postgresql.org/docs/9.3/static/functions-json.html#FUNCTIONS-JSON-TABLE">Functions</a> manipulate JSON objects</p>
+
+      <table>
+        <tr><td class="fixed">-&gt;&gt;</td><td>Lookup Element (as text)</td></tr>
+        <tr><td class="fixed">#&gt;&gt;</td><td>Lookup Element Path (as text)</td></tr>
+        <tr><td class="fixed">row_to_json</td><td>Turn a row into a JSON structure</td></tr>
+        <tr><td class="fixed">json_agg</td><td>Aggregate records into a JSON array</td></tr>
+        <tr><td class="fixed">json_each</td><td>Unpack a JSON object into key/value pairs</td></tr>
+        <tr><td class="fixed">json_array_elements</td><td>Unpack a JSON array</td></tr>
+      </table>
+
+      <p>... and many others ...</p>
+    </div>
+
+    <div class="slide">
+      <h3>Indexing JSON Values</h3>
+      <p><a href="http://www.postgresql.org/docs/9.3/static/indexes-expressional.html">Indexes on Expressions</a></p>
+      <pre>
+CREATE INDEX profiles_occupation
+  ON profiles ((<b>data-&gt;&gt;'occupation'</b>));
+
+SELECT * FROM profiles
+WHERE <b>data-&gt;&gt;'occupation'</b> = 'hacker';
+</pre>
+    </div>
+
+    
+    <div class="slide">
+      <h3>Indexing JSON Array Values &mdash; 1</h3>
+
+      <ul>
+         <li>Multi-valued attributes<br/>
+           <pre>"likes": [ "beer", "sql" ]</pre></li>
+         <li>Use <a href="http://www.postgresql.org/docs/9.3/static/gin-intro.html">GIN</a> indexes to store multiple values per row.</li>
+         <li>Unfortunately, support isn't brilliant</li>
+         <li>Use a helper function ...</li>
+       </ul>
+    </div>
+
+    <div class="slide">
+      <h3>Indexing JSON Array Values &mdash; 2</h3>
+      <pre>
+<b class="hide">CREATE OR REPLACE FUNCTION
+    public.<b>json_to_text_array</b>(jarr JSON)
+  RETURNS text[] LANGUAGE sql IMMUTABLE
+AS $$
+  SELECT ARRAY_AGG(ROW_TO_JSON(T)-&gt;&gt;'x')
+  FROM (</b>
+    SELECT <b>JSON_ARRAY_ELEMENTS</b>(jarr)<b class="hide"> AS x
+  ) AS T
+$$;</b></pre>
+    </div>
+
+    <div class="slide">
+      <h3>Indexing JSON Array Values &mdash; 3</h3>
+      <pre>
+<b class="hide">CREATE OR REPLACE FUNCTION
+    public.<b>json_to_text_array</b>(jarr JSON)
+  RETURNS text[] LANGUAGE sql IMMUTABLE
+AS $$</b>
+  SELECT <b class="hide">ARRAY_AGG(</b><b>ROW_TO_JSON</b>(T)<b class="hide">-&gt;&gt;'x')</b>
+  FROM (
+    SELECT JSON_ARRAY_ELEMENTS(jarr)<b class="hide"> AS x</b>
+  ) AS T
+<b class="hide">$$;</b></pre>
+    </div>
+
+    <div class="slide">
+      <h3>Indexing JSON Array Values &mdash; 4</h3>
+      <pre>
+<b class="hide">CREATE OR REPLACE FUNCTION
+    public.<b>json_to_text_array</b>(jarr JSON)
+  RETURNS text[] LANGUAGE sql IMMUTABLE
+AS $$</b>
+  SELECT <b class="hide">ARRAY_AGG(</b>ROW_TO_JSON(T)<b>-&gt;&gt;'x'</b><b class="hide">)</b>
+  FROM (
+    SELECT JSON_ARRAY_ELEMENTS(jarr) <b>AS x</b>
+  ) AS T
+<b class="hide">$$;</b></pre>
+    </div>
+
+    <div class="slide">
+      <h3>Indexing JSON Array Values &mdash; 5</h3>
+      <pre>
+<b class="hide">CREATE OR REPLACE FUNCTION
+    public.<b>json_to_text_array</b>(jarr JSON)
+  RETURNS text[] LANGUAGE sql IMMUTABLE
+AS $$</b>
+  SELECT <b>ARRAY_AGG</b>(ROW_TO_JSON(T)-&gt;&gt;'x')
+  FROM (
+    SELECT JSON_ARRAY_ELEMENTS(jarr) AS x
+  ) AS T
+<b class="hide">$$;</b></pre>
+    </div>
+
+    <div class="slide">
+      <h3>Indexing JSON Array Values &mdash; 6</h3>
+      <pre>
+CREATE OR REPLACE FUNCTION
+    public.<b>json_to_text_array</b>(jarr JSON)
+  RETURNS text[] LANGUAGE sql IMMUTABLE
+AS $$
+  SELECT ARRAY_AGG(ROW_TO_JSON(T)-&gt;&gt;'x')
+  FROM (
+    SELECT JSON_ARRAY_ELEMENTS(jarr) AS x
+  ) AS T
+$$;</pre>
+    </div>
+
+    <div class="slide">
+      <h3>Indexing JSON Array Values &mdash; 7</h3>
+      <pre>
+CREATE INDEX profiles_likes
+ON profiles USING gin (
+  <b>json_to_text_array(data-&gt;'likes')</b>
+);
+
+SELECT * FROM profiles
+WHERE <b>json_to_text_array(data-&gt;'likes')</b>
+  @&gt; ARRAY['beer'];</pre>
+    </div>
+
+    <div class="slide">
+      <h3>Indexing JSON Array Values &mdash; 8</h3>
+  
+      <ul>
+        <li>Inspired by <a href="http://stackoverflow.com/questions/18404055/index-for-finding-an-element-in-a-json-array">"Index for finding an element in a JSON array"</a> on stack overflow</li>
+        <li>Could also index multiple attributes at once</li>
+        <li>I'll post a nicer version on my blog</li>
+      </ul>
+    </div>
+
+    <div class="slide">
+      <h3>Comparison with Normalized SQL</h3>
+      <p>Benchmarks are fundamentally unhelpful, but ...</li>
+      <ul>
+        <li>Fewer table joins</li>
+        <li>Fewer seeks &rArr; should have better IO performance</li>
+        <li>Less translation in backend code</li>
+      </ul>
+    </div>
+
+    <div class="slide">
+      <h3>Comparison with MongoDB / CouchDB</h3>
+      <p>I <em>like</em> NoSQL, but I miss ...
+      <ul>
+        <li>Transactions</li>
+        <li>Joins with relational tables</li>
+        <li>Ad-hoc querying</li>
+      </ul>
+    </div>
+
+    <div class="slide">
+      <h3>Summary</h3>
+      
+      <p>Postgres JSON columns are:</p>
+
+      <ul>
+        <li>Easy to use</li>
+        <li>Flexible</li>
+        <li>Indexable</li>
+        <li>Efficient</li>
+      </ul>
+
+      <p>Would also work in MS SQL Server, others ...</p>
+      <p>... really anything which supports indexes on expressions and user-defined functions.</p>
+    </div>
+
+    <div class="slide">
+      <h2>QUESTIONS?</h2>
+      <ul>
+        <li><a href="mailto:nick@mnemote.com">nick@mnemote.com</a></li>
+        <li><a href="https://twitter.com/mnemote">@mnemote</a></li>
+        <li><a href="http://nick.zoic.org">http://nick.zoic.org/</a></li>
+      </ul>
+    </div>
+
+    <div class="footer">
+      <span>Nick Moore &lt;nick@mnemote.com&gt; for <a href="http://2014.osdc.com.au/">OSDC2014</a></span>
+    </div>
+
+  </body>
+</html>

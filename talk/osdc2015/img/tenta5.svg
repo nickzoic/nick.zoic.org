@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.0//EN" "http://www.w3.org/TR/2001/PR-SVG-20010719/DTD/svg10.dtd">
+<svg width="19cm" height="19cm" viewBox="78 98 363 363" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #ffffff" x="80" y="100" width="360" height="360"/>
+  <g>
+    <path style="fill: #d8e5e5" d="M 200 140 C 224,125 236,120 260,120 C 284,120 296,125 320,140 L 320,220 C 296,235 284,240 260,240 C 236,240 224,235 200,220 L 200,140z"/>
+    <path style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" d="M 200 140 C 224,125 236,120 260,120 C 284,120 296,125 320,140 L 320,220 C 296,235 284,240 260,240 C 236,240 224,235 200,220 L 200,140"/>
+    <path style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" d="M 200 140 C 224,155 236,160 260,160 C 284,160 296,155 320,140"/>
+    <text font-size="12.8" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:normal" x="260" y="194">
+      <tspan x="260" y="194">ERP</tspan>
+    </text>
+  </g>
+</svg>

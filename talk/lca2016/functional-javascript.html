@@ -1,0 +1,513 @@
+<html>
+  <head>
+    <link rel="stylesheet" href="flip.css"/>
+    <script src="flip.js"></script>
+  </head>
+  <body>
+
+    <div class="slide">
+      <h1>The Emperor's New Closure</h1>
+      <h2>Functional Programming in Javascript</h2>
+      <img class="whiteborder" height="50%" src="img/the_emperors_new_clothes.jpg"/>
+    </div>
+
+    <div class="slide">
+        <h3>Javascript / ECMAScript 5</h3>
+        <h4>Only the <em>good</em> things about Javascript</h4>
+        <span>Concentrating on the core language</span>
+        <br/>
+        <ul>
+          <li>... not the many, <em>many</em> libraries</li>
+          <li>... or ECMAScript 6</li>
+          <li>... or prototype OO</li>
+          <li>... or javascript-as-bytecode</li>
+        </ul>
+        <br/>
+        <em>Programming in Javascript doesn't make you a bad person</em>
+    </div>
+
+    <div class="slide">
+        <h3>Functional Programming</h3>
+        <h4>Preaching to the converted</h4>
+        <ul>
+          <li>First class functions</li>
+          <li>Higher-order functions</li>
+          <li>Pure functions: containment of side-effects</li>
+          <li>Composable, Optimizable, Reason-able!</li>
+        </ul>
+    </div>
+
+    <div class="slide">
+        <h3>Is Javascript a Functional Programming Language?</h3>
+        <h4>No.</h4>
+        <ul>
+          <li>First class functions: YES</li>
+          <li>Higher-order functions: YES</li>
+          <li>Pure functions: NO<br/>
+              <ul>
+                <li>Side effects (DOM, Globals, AJAX ...)</li>
+                <li>Optimization limited</li>
+              </ul>
+          </li>
+        </ul>
+    </div>
+
+    <div class="slide">
+        <h3>Can we benefit from functional style in Javascript?</h3>
+        <h4>Yes.</h4>
+        <ul>
+          <li>Elimination of repetition</li>
+          <li>Reduction of variable scope</li>
+          <li>Preference for pure functions</li>
+        </ul>
+    </div>
+
+
+    <div class="slide">
+        <h3>Built-in Higher Order Functions &mdash; 1</h3>
+        <h4>map, filter, forEach, some, every, reduce</h4>
+        <ul>
+            <li>Take a function as a parameter</li>
+            <li>Run the function on each element of an array</li>
+            <li>Collect the results</li>
+        </ul>
+        <br/>
+<pre>var lowercase_words = words.<b>map</b>(String.toLowerCase);</pre>
+     </div>
+
+    <div class="slide">
+        <h3>Built-in Higher Order Functions &mdash; 2</h3>
+        <h4>map, filter, forEach, some, every, reduce</h4>
+        <ul>
+            <li>Take a function as a parameter</li>
+            <li>Run the function on each element of an array</li>
+            <li>Collect the results</li>
+        </ul>
+        <br/>
+<pre>function add(a, b) { return a + b; }
+
+var sum = numbers.<b>reduce</b>(add, 0);</pre>
+    </div>
+
+    <div class="slide">
+        <h3>Built-in Higher Order Functions &mdash; 3</h3>
+        <h4>map, filter, forEach, some, every, reduce</h4>
+        <ul>
+            <li>Take a function as a parameter</li>
+            <li>Run the function on each element of an array</li>
+            <li>Collect the results</li>
+        </ul>
+        <br/>
+<pre>function is_odd(n) { return n % 2 == 1; };
+
+if (numbers.<b>every</b>(is_odd) {
+    /* ... */
+}</pre>
+    </div>
+
+    <div class="slide">
+        <h3>Built-in Higher Order Functions &mdash; 4</h3>
+        <h4>Real Programmers can write Forth in any language ...</h4>
+        <pre>function <b>add</b>(a,b) { return a + b; }
+function <b>is_odd</b>(a) { return a % 2 != 0; }
+function <b>square</b>(a) { return a * a; }
+
+var sum_of_squares_of_odds = numbers.filter(<b>is_odd</b>)
+                                    .map(<b>square</b>)
+                                    .reduce(<b>add</b>, 0);</pre>
+    </div>
+
+    <div class="slide">
+        <h3>Asynchronous Functions &mdash; 1</h3>
+        <h4>Are we there yet?</h4>
+        <pre>document.getElementById('foo').<b>onclick</b> =
+                                foo_click_handler;
+
+var xhr = new XMLHttpRequest();
+xhr.<b>onreadystatechange</b> = function () { /* ... */ }
+
+<b>setTimeout</b>(do_something, 300000);</pre>
+    </div>
+
+    <div class="slide">
+        <h3>Asynchronous Functions &mdash; 3</h3>
+        <span>Working out the details of what happened:</span>
+        <br/>
+        <span>Sometimes it is obvious ...</span>
+        <br/>
+        <pre>var button = document.getElementById('foo');
+button.onclick = function () {
+    /* button has been clicked */
+}</pre>
+        <br/>
+        <span>Sometimes less so ...</span>
+
+        </pre>
+    </div>
+
+    <div class="slide">
+        <h3>Variable scoping in Javascript &mdash; 1</h3>
+        <h4>Function scoping</h4>
+
+        <pre>function () {
+    var foo;
+
+    <em>// foo and bar are in scope.</em>
+
+    function bar() {
+         <em>// foo and bar are still in scope.</em>
+    }
+}</pre>
+    </div>
+
+    <div class="slide">
+        <h3>Variable scoping in Javascript &mdash; 2</h3>
+        <h4>Function scoping</h4>
+
+        <pre>function () {
+    var foo;
+
+    <em>// foo and bar are in scope.
+    // but bar is 'undefined'.</em>
+
+    var bar = function () {
+         <em>// foo and bar are available in here.</em>
+    }
+}</pre>
+    </div>
+
+    <div class="slide">
+        <h3>Closures &mdash; 1</h3>
+        <pre>function outer_function() {
+    var <b>captured_variable</b> = 0;
+    function inner_function() {
+        <b>captured_variable</b> += 1;
+    }
+}</pre>
+    </div>
+
+    <div class="slide">
+        <h3>Closures &mdash; 2</h3>
+        <h4>Simple loop ...</h4>
+        <pre>function sum(numbers) {
+    var total = 0;
+    for (var i=0; i&lt;numbers.length; i++) {
+        total += numbers[i];
+    }
+    return total;
+}</pre>
+    </div>
+
+    <div class="slide">
+        <h3>Closures &mdash; 3</h3>
+        <h4>Using forEach</h4>
+        <pre>function sum(numbers) {
+    var total = 0;
+    function <b>add_to_total</b>(n) { total += n; }
+    numbers.forEach(<b>add_to_total</b>);
+    return total;
+}</pre>
+      <br/>
+      <ul>
+        <li>Separation of loop ("forEach") from accumulation ("add_to_total")</li>
+      </ul>
+    </div>
+
+    <div class="slide">
+        <h3>Returning functions &mdash; 1</h3>
+        <pre>function <b>raise_to_power</b>(x) {
+    return function (y) {
+        return Math.pow(x, y);
+    }
+}
+
+var sum_of_squares = numbers.map(<b>raise_to_power(2)</b>)
+                            .reduce(add, 0);</pre>
+    </div>
+    
+    <div class="slide">
+        <h3>Returning functions &mdash; 2</h3>
+        <pre>function get_name(u) { return u.name; }
+function get_age(u) { return u.age; }
+functoin get_hat_size(u) { return u.hat_size; }
+function get_shoe_size(u) { return u.shoe_size; }
+
+var shoe_sizes = users.map(get_shoe_size);</pre>
+    </div>
+
+    <div class="slide">
+        <h3>Returning functions &mdash; 3</h3>
+        <pre>function <b>get_property</b>(prop_name) {
+    return function (x) {
+        return x[prop_name];
+    }
+}
+
+var hat_sizes = users.map(<b>get_property</b>('hat_size'));
+var shoe_sizes = users.map(<b>get_property</b>('shoe_size'));</pre>
+    </div>
+
+    <div class="slide">
+        <h3>Returning functions &mdash; 4</h3>
+        <pre>function <b>by_property</b>(prop_name) {
+    return function (a,b) {
+        if (a[prop_name] &lt; b[prop_name]) return -1;
+        if (a[prop_name] &gt; b[prop_name]) return +1;
+        return 0;
+    }
+}
+
+bills.sort(<b>by_property</b>('date_due'))
+members.sort(<b>by_property</b>('last_name') ||
+             <b>by_property</b>('first_name'))</pre>
+    </div>
+
+
+    <div class="slide">
+        <h3>Asynchronous Closures &mdash; 1</h3>
+        <h4>Don't count your chickens ...</h4>
+        <pre>function lookup_name(name) {
+    do_asynchronous_lookup(name, function (result) {
+        if (result) {
+            return result.name;
+        }
+    });
+    
+}</pre>
+       <br/>
+       <span><em>This isn't going to work</em></span>
+    </div>
+
+    <div class="slide">
+        <h3>Asynchronous Closures &mdash; 2</h3>
+        <h4>Don't count your chickens ...</h4>
+        <pre>function lookup_name(name) {
+    do_asynchronous_lookup(name, function (result) {
+        if (result) {
+            <b>return "Are you still listening?";</b>
+        }
+    });
+    <b>return "hang on, I'm not ready yet!";</b>
+}</pre>
+    </div>
+
+    <div class="slide">
+        <h3>Asynchronous Closures &mdash; 3</h3>
+        <h4>... until they call you back.</h4>
+        <pre>function lookup_name(name, <b>callback</b>) {
+    do_asynchronous_lookup(name, function (result) {
+        if (result) {
+            <b>callback</b>(result.name);
+        }
+    });
+}</pre>
+        <br/>
+        <span><em>AKA Continuation Passing Style</em></span>
+    </div>
+
+    <div class="slide">
+        <h3>Asynchronous Closures &mdash; 4</h3>
+        <h4>... do another lookup ...</h4>
+        <pre>function lookup_stuff(id, callback) {
+    do_asynchronous_lookup(id, function (result1) {
+        if (result1) {
+            <b>do_another_lookup(result1.related_id, function (result2) {
+                if (result2) {
+                    callback(result1, result2);
+                }
+            });</b>
+         }
+    });
+}</pre>
+    </div>
+
+    <div class="slide">
+        <h3>Asynchronous Closures &mdash; 5</h3>
+        <h4>... yet another lookup ...</h4>
+        <pre>function lookup_stuff(id, callback) {
+    do_asynchronous_lookup(id, function (result1) {
+        if (result1) {
+            do_another_lookup(result1.related_id, function (result2) {
+                if (result2) {
+                    <b>yet_another_lookup(result1.postcode, function(result3) {
+                        if (result3) {
+                            callback(result1, result2, result3);
+                        }
+                    });</b>
+}</pre>
+    </div>
+
+    <div class="slide">
+        <h3>Asynchronous Closures &mdash; 6</h3>
+        <h4>... oh no not another lookup!</h4>
+        <pre>function lookup_stuff(id, callback) {
+    do_asynchronous_lookup(id, function (result1) {
+        if (result1) {
+            do_another_lookup(result1.related_id, function (result2) {
+                if (result2) {
+                    yet_another_lookup(result1.postcode, function(result3) {
+                        if (result3) {
+                            <b>oh_no_not_another_lookup(result3.code, function (result4) {
+                                if (result4) {
+                                    // etc ad nauseum</b></pre>
+    </div>
+
+    <div class="slide">
+        <h3>Asynchronous Closures &mdash; 7</h3>
+
+        <pre>function run_in_series(functions, callback) {
+    var i = 0;
+    function inner_callback() {
+        if (i &gt;= functions.length) callback();
+        else functions[i++](inner_callback);
+    }
+}
+
+run_in_series(
+    [ do_asynchronous_lookup, do_another_lookup,
+      yet_another_lookup, oh_no_not_another_lookup ],
+    now_go_do_something_else
+);</pre>
+    </div>
+
+
+    <div class="slide">
+        <h3>Asynchronous Closures &mdash; 8</h3>
+
+        <pre>function run_in_parallel(functions, callback) {
+    for (var i=0; i &lt; functions.length; i++) {
+        functions[i](inner_callback);
+    }
+    var callback_count = 0;
+    function inner_callback() {
+        callback_count++;
+        if (callback_count == functions.length) { 
+            callback();
+        }
+    }
+}</pre>
+    </div>
+
+    <div class="slide">
+        <h3>Objects using Closures &mdash; 1</h3>
+        <h4>Encapsulation</h4>
+        <pre>function Person(name, email) {
+    return {
+        get_name: function () { return name; }
+        get_email: function () { return email; }
+    }
+}
+
+var p = Person('Nick', 'nick@mnemote.com')
+p.get_name()
+<b>Nick</b></pre>
+    </div>
+
+    <div class="slide">
+        <h3>Objects using Closures &mdash; 2</h3>
+        <h4>Inheritance</h4>
+        <pre>function Employee(name, email, number) {
+    var self = Person(name, email);
+    self.get_number = function () { return number; }
+    return self;
+}
+
+var e = Employee('Nick', 'nick@mnemote.com', 107);
+e.get_name()
+<b>Nick</b>
+e.get_number()
+<b>107</b></pre>
+    </div>
+
+    <div class="slide">
+        <h3>Closures &mdash; 4</h3>
+        <h4>Partial Application</h4>
+        <pre>function partial(func) {
+    var outer_args = [].slice.apply(arguments, [1]);
+    return function () {
+        var inner_args = [].slice.apply(arguments);
+        return func.apply(this,
+                     outer_args.concat(inner_args));
+    }
+}</pre>
+    </div>
+
+    <div class="slide">
+        <h3>Lazy Iterables</h3>
+        <pre>function fibonnaci_generator() {
+    var a = 0, b = 1;
+    return function () {
+        b = a + b; a = b - a; return b;
+    }
+}
+
+var fib_iter = fibonnaci_generator();
+for (var i=0; i&lt;15; i++) {
+    print(fib_iter());
+}</pre>
+    </div>
+
+    <div class="slide">
+        <h3>Trampolining</h3>
+        <h4>bouncing tail calls ...</h4>
+        <span>Current support for Tail Call Optimization is poor</span>
+        <br/>
+        <pre>function trampoline(thunk) {
+    // thunk is an array of (next_func, arguments...)
+    while (thunk[0]) { 
+        thunk = thunk[0].apply(null, (thunk.slice(1))
+    }
+    return thunk.slice(1);
+</pre>
+    </div>
+
+    <div class="slide red">
+        <h3>Javascript Objects Are Not Dictionaries! &mdash; 1</h3>
+        <h4>Carthago Delenda Est</h4>
+
+        <pre>var word_count = {};
+var words = ["foo", "bar", "constructor"];
+for (var i=0; i&lt;words.length; i++) {
+    word_count[words[i]] =
+            (word_count[words[i]] || 0) + 1;
+}
+console.log(word_count)
+<b>Object {foo: 1, bar: 1,
+  constructor: "function Object() { [native code] }1"}</b></pre>
+    </div>
+
+    <div class="slide red">
+        <h3>Javascript Objects Are Not Dictionaries! &mdash; 2</h3>
+        <h4>Carthago Delenda Est</h4>
+
+        <pre>var is_admin = {'alice': true, 'bob': true};
+if (is_admin[username])
+    console.log("Welcome, administrator " + username);
+<b>Welcome, administrator hasOwnProperty</b></pre>
+        <br/>
+        <span>Try <a href="https://github.com/mnemote/dictionary.js">dictionary.js</a></span>
+    </div>
+
+    <div class="slide">
+        <h3>Summary</h3>
+        <ul>
+            <li>Javascript may be awful, but it can also be awesome</li>
+            <li>If you're going to write Javascript, it might as well be
+                awesome Javascript</li>
+            <li>Unfortunately, the language doesn't distinguish for you</li>
+        </ul>
+    </div>
+
+    <div class="slide">
+      <h3>Credits</h3>
+      <ul>
+        <li><em>The Emperor's New Clothes</em> By Alfred Walter Bayes, Dalziel Brothers<br/>[Public domain], <a href="https://commons.wikimedia.org/wiki/File%3AThe_Emperor&#039;s_New_Clothes.jpg">via Wikimedia Commons</a></li>
+      </ul>
+    </div>
+
+    <div class="footer">
+      <span><img class="logo" src="img/mnemote-logo-color.svg"/>Nick Moore &lt;nick@mnemote.com&gt; for <a href="https://linux.conf.au/">LinuxConf 2016</a></span>
+    </div>
+
+  </body>
+</html>

@@ -1,0 +1,348 @@
+<html>
+  <head>
+    <link rel="stylesheet" href="flip.css"/>
+    <script src="flip.js"></script>
+    <title>ESP8266 and MicroPython</title>
+  </head>
+  <body>
+
+    <div class="slide">
+      <h1>ESP8266 and MicroPython</h1>
+      <h3>Nick Moore<br/>
+        <a href="https://twitter.com/mnemote/">@mnemote</a></h3>
+    </div>
+
+    <div class="slide">
+       <h1>ESP8266</h1>
+       <img class="whiteborder" src="img/esp8266-chip2.jpg" height="50%"/>
+    </div>
+
+    <div class="slide">
+       <img src="img/esp8266-die2.jpg" height="90%"/>
+       <p class="small">original image: <a href="http://zeptobars.com/en/read/Espressif-ESP8266-wifi-serial-rs232-ESP8089-IoT">zeptobars.com</a></p>
+    </div>
+
+    <div class="slide">
+       <img src="img/esp8266-die3.jpg" height="90%"/>
+       <p class="small">original image: <a href="http://zeptobars.com/en/read/Espressif-ESP8266-wifi-serial-rs232-ESP8089-IoT">zeptobars.com</a></p>
+    </div>
+
+    <div class="slide">
+       <p>Originally came to prominence as a WiFi controller for AVR
+          and similar, but ...</p>
+       <table>
+        <tr><th>AVR<br/>(Arduino)</th><th>ESP8266</th><th>ARM / Broadcom<br/>(RPi 2)</th></tr>
+	      <tr><td>ATMega328P</td><td>Tensilica Xtensa LX106</td><td>Cortex A53</td></tr>
+        <tr><td>8 bit</td><td>32 bit</td><td>32 bit</td></tr>
+        <tr><td>1 core</td><td>1 core</td><td>4 core</td></tr>
+        <tr><td>20 MHz</td><td>80-160 MHz</td><td>900 MHz</td></tr>
+        <tr><td>2KB RAM</td><td>160KB RAM</td><td>1GB RAM</td></tr>
+        <tr><td>32KB Flash</td><td>DIO/QIO Flash</td><td>MicroSDHC</td></tr>
+       </table>
+    </div>
+
+    <div class="slide">
+       <img src="img/esp-12e.jpg" height="90%"/>
+       <p class="small">original image: <a href="https://www.adafruit.com/product/2491">adafruit.com</a></p>
+    </div>
+
+    <div class="slide">
+       <img src="img/esp-12e-24mm.jpg" height="90%"/>
+       <p class="small">original image: <a href="https://www.adafruit.com/product/2491">adafruit.com</a></p>
+    </div>
+
+    <div class="slide">
+       <img src="img/esp-12e-5.jpg" height="90%"/>
+       <p class="small">original image: <a href="https://www.adafruit.com/product/2491">adafruit.com</a></p>
+    </div>
+
+    <div class="slide">
+       <img src="img/junkbot.jpg" height="90%"/>
+    </div>
+
+    <div class="slide">
+       <h3>Programming the ESP8266</h3>
+       <ul>
+         <li>Serial programming mode to flash memory
+            <br/>by pulling GPIO0 low at reset</li>
+         <li>Any of the usual RS232-TTL converters</li>
+         <li>3.3v at 250mA ...</li>
+         <li>... bad power gives unpredictable results!</li>
+       </ul>
+    </div>
+
+    <div class="slide">
+       <h3>The easy way ... NodeMCU</h3>
+       <div class="floatleft">
+          <img src="img/nodemcu.jpg" height="50%"/>
+          <p class="small">image: <a href="http://www.seeedstudio.com/depot/NodeMCU-v2-Lua-based-ESP8266-development-kit-p-2415.html">seeedstudio.com</a></p>
+       </div>
+       <ul>
+          <li>3.3v regulator</li>
+          <li>USB to serial interface</li>
+          <li>Automatic flash &amp; <br/>reset functions</li>
+          <li>Standard 0.1" headers</li>
+          <li>$8-$10 on Ebay</li>
+       </ul>
+    </div>
+
+    <div class="slide">
+       <h3>Other Boards</h3>
+       <img class="whiteborder" src="img/boards.jpg" height="80%"/>
+    </div>
+
+    <div class="slide">
+       <h3>esptool</h3>
+       <p><a href="https://github.com/themadinventor/esptool">github: themadinventor/esptool</a></p>
+       <pre class="medium"><b>$</b> git clone https://github.com/themadinventor/esptool
+<b>$</b> cd esptool
+<b>$</b> sudo python setup.py install
+<b>$</b> esptool.py version
+<b>$</b> esptool.py write_flash 0 image.bin</pre>
+    </div>
+
+    <div class="slide">
+       <h3>esp-open-sdk &mdash; 1</h3>
+       <p><a href="https://github.com/pfalcon/esp-open-sdk">github: pfalcon/esp-open-sdk</a></p>
+       <ul>
+         <li>C development using GCC toolchain</li>
+         <li>"Free and open (as much as possible)"</li>
+         <li>Includes some binary blobs from Espressif</li>
+       </ul>
+    </div>
+    
+    <div class="slide">
+       <h3>esp-open-sdk &mdash; 2</h3>
+       <pre class="medium"><b>$</b> git clone --recursive https://github.com/pfalcon/esp-open-sdk
+<b>$</b> sudo apt-get install make unrar autoconf automake \
+  libtool gcc g++ gperf flex bison texinfo gawk \
+  ncurses-dev libexpat-dev python-dev python python-serial \
+  sed git unzip bash help2man wget bzip2 libtool-bin
+<b>$</b> cd esp-open-sdk
+<b>$</b> make</pre>
+       <h4>HOW ABOUT A NICE CUP OF TEA?</h4>
+       <pre class="medium"><b>$</b> xtensa-lx106-elf/bin/xtensa-lx106-elf-gcc --version
+<b>xtensa-lx106-elf-gcc (crosstool-NG
+      crosstool-ng-1.22.0-55-gecfc19a) 4.8.5</b>
+<b>$</b> export PATH=`realpath xtensa-lx106-elf/bin/`:$PATH</pre>
+    </div>
+
+    <div class="slide">
+       <h3>esp-open-sdk &mdash; 3</h3>
+       <ul>
+         <li>support for WiFi and hardware in SDK</li>
+         <li>libesphttpd supports HTTP and Websockets</li>
+         <li>Not an operating system ...</li>
+         <li>... but interrupt handlers and so on</li>
+       </ul>
+    </div>
+
+    <div class="slide">
+      <pre class="small">#include &lt;esp8266.h&gt;
+#include "httpd.h"
+#include "httpdespfs.h"
+#include "espfs.h"
+#include "webpages-espfs.h"
+#include "../vm/virtual.h"
+#include "cgiwebsocket.h"
+
+void myWebsocketConnect(Websock *ws) {
+    ws-&gt;recvCb = myWebsocketRecv;
+    ws-&gt;closeCb = myWebsocketClose;
+}
+
+HttpdBuiltInUrl builtInUrls[]={
+    {"/", cgiRedirect, "/index.html"},
+    {"/ws", cgiWebsocket, myWebsocketConnect},
+    {"*", cgiEspFsHook, NULL},
+    {NULL, NULL, NULL}
+};
+
+static os_timer_t vmExecTimer;
+
+void user_init(void) {
+    espFsInit((void*)(webpages_espfs_start));
+    httpdInit(builtInUrls, 80);
+
+    os_timer_disarm(&amp;vmExecTimer);
+    os_timer_setfn(&amp;vmExecTimer, myTimerCallback, NULL);
+    os_timer_arm(&amp;vmExecTimer, 20, 1);
+
+    gpio_init();
+}</pre>
+    </div>
+
+    <div class="slide">
+       <h3>Other Languages</h3>
+       <ul>
+         <li>Lua: <a href="https://nodelua.org/">Node Lua</a></li>
+         <li>Javascript: <a href="http://www.espruino.com/EspruinoESP8266">Espruino</a>, <a href="https://github.com/cesanta/v7/">Cesanta V7</a> ...</li>
+         <li><a href="https://github.com/CraigLindley/ESP8266Forth">Forth</a>, <a href="https://github.com/yesco/esp-lisp">Lisp</a>, <a href="http://www.esp8266basic.com/">Basic</a></li>
+       </ul>
+       <p>... and thanks to <a href="https://www.kickstarter.com/projects/214379695/micropython-on-the-esp8266-beautifully-easy-iot">a successful Kickstarter campaign</a> and Damien George ...</p>
+    </div>
+
+    <div class="slide">
+       <h3>MicroPython</h3>
+       <img class="whiteborder" src="img/micropython.jpg" height="50%"/>
+       <h4><a href="https://micropython.org/">micropython.org</a></h4>
+       <p>Download firmware from <a href="https://micropython.org/download#esp8266">https://micropython.org/download#esp8266</a>
+    </div>
+
+    <div class="slide">
+       <h3>MicroPython</h3>
+       <pre class="medium"><b>$</b> git clone --recursive https://github.com/micropython/micropython.git
+<b>$</b> cd micropython/mpy-cross
+<b>$</b> make
+<b>$</b> cd ../esp8266
+<b>$</b> make axtls
+<b>$</b> make
+<b>$</b> PORT=/dev/ttyUSB0 make deploy</pre>
+    </div>
+
+    <div class="slide">
+        <h3>MicroPython REPL</h3>
+        <pre class="medium"><b>$</b> cu -l /dev/ttyUSB0 -s 115200
+<b>MicroPython v1.8.5-10-g0e69e6b on 2016-10-17; ESP module with ESP8266
+Type "help()" for more information.</b>
+<b>&gt;&gt;&gt;</b> dir()
+<b>['uos', '__name__', 'gc', 'bdev', 'vfs']</b>
+<b>&gt;&gt;&gt;</b> print("Hello, World!")
+<b>Hello, World!</b>
+<b>&gt;&gt;&gt;</b></pre>
+    </div>
+
+    <div class="slide">
+        <h3>MicroPython I/O &mdash; 1</h3>
+        <pre class="medium"><b>&gt;&gt;&gt;</b> import machine
+<b>&gt;&gt;&gt;</b> import time
+<b>&gt;&gt;&gt;</b> pin2 = machine.Pin(2)
+<b>&gt;&gt;&gt;</b> pin2.init(machine.Pin.OUT)
+<b>&gt;&gt;&gt;</b> while True:
+<b>...</b>     pin2.low()
+<b>...</b>     time.sleep(0.5)
+<b>...</b>     pin2.high()
+<b>...</b>     time.sleep(0.5)</pre>
+      <img src="img/nodemcu-blinky.gif" height="50%"/>
+    </div>
+
+    <div class="slide">
+        <h3>MicroPython I/O &mdash; 2</h3>
+        <pre class="medium">class Servo:
+    def __init__(self, pin):
+        self.pwm = machine.PWM(machine.Pin(pin))
+        self.pwm.freq(50)
+
+    def set(self, pos):
+        pulse_us = 1000 + 1000 * min(1,max(pos,0))
+        self.pwm.duty(int(pulse_us * self.pwm.freq() * 0.001024))</pre>
+    </div>
+
+    <div class="slide">
+        <h3>MicroPython WiFi</h3>
+        <pre class="medium"><b>&gt;&gt;&gt;</b> import network
+<b>&gt;&gt;&gt;</b> sta_if = network.WLAN(network.STA_IF)
+<b>&gt;&gt;&gt;</b> sta_if.active(True)
+<b>&gt;&gt;&gt;</b> sta_if.scan()
+<b>&gt;&gt;&gt;</b> sta_if.connect("my_ap", "my_password")
+    </div>
+
+    <div class="slide">
+        <h3>MicroPython Sockets</h3>
+        <pre class="medium"><b>&gt;&gt;&gt;</b> import socket
+<b>&gt;&gt;&gt;</b> sock = socket.socket(socket.AF_INET)
+<b>&gt;&gt;&gt;</b> sock.bind(('0.0.0.0', 80))
+<b>&gt;&gt;&gt;</b> sock.listen(5)
+<b>&gt;&gt;&gt;</b> sock.accept()
+<b>(&lt;socket state=2 timeout=-1 incoming=0 off=0&gt;, ('10.107.1.4', 37464))</b></pre>
+    </div>
+
+    <div class="slide">
+      <h3>Python Files</h3>
+      <ul>
+        <li>Frozen in the firmware ...
+          <ul>
+            <li><b>micropython/esp8266/modules/</b>: precompiled and then frozen into the firmware</li>
+            <li><b>micropython/esp8266/scripts/</b>: frozen into the firmware as python source</li>
+          </ul>
+        </li>
+        <li>... or copied in later to the internal VFAT FS
+        <ul>
+          <li><b>WebRepl</b>: copy files through the webrepl interface</li>
+          <li><b>mpy-utils</b>: copy files through the serial port REPL<br/>
+            <a href="https://github.com/nickzoic/mpy-utils">github: nickzoic/mpy-utils</a></li>
+          </ul>
+        </li>
+        </ul>
+    </div>
+
+    <div class="slide">
+      <h3>Micropip</h3>
+      <pre><b>$</b> (cd unix; make axtls; make)
+<b>$</b> unix/micropython -m upip install \
+    -p esp8266/modules micropython-functools</pre>
+
+      <p><a href="https://github.com/micropython/micropython-lib">github: micropython/micropython-lib</a></p>
+    </div>
+
+    <div class="slide">
+       <h3>What <em>doesn't</em> MicroPython have?</h3>
+       <ul>
+         <li>An operating system</li>
+         <li>Multiprocessing</li>
+         <li>Much memory to play with</li>
+         <li>Debugger / Profiler</li>
+       </ul>
+    </div>
+
+    <div class="slide">
+      <h3>My Projects ...</h3>
+      <img class="floatleft" src="img/flobot-example.png"/>
+      <ul>
+        <li>Nicer WebREPL</li>
+        <li>mDNS</li>
+        <li>Flobot</li>
+      </ul>
+    </div>
+
+    <div class="slide">
+       <h3>Summary</h3>
+       <p>If you're interested in Microcontrollers / IoT / Robotics:</p>
+       <ul>
+          <li>ESP8266 is about the cheapest</li>
+          <li>MicroPython is about the easiest</li>
+       </ul>
+    </div>
+
+    <div class="slide">
+       <h3>Buzzconf!</h3>
+       <img src="img/buzzconf.jpg" width="90%"/>
+       <p class="small">original image: <a href="https://buzzconf.io">buzzconf.io</a></p>
+    </div>
+
+    <div class="slide">
+        <h3>Hands On Workshop ...</h3>
+        <img src="img/parts.jpg" height="60%"/>
+    </div>
+
+    <div class="slide">
+      <h3>Questions / Comments</h3>
+      <p>Nick Moore<br/>Mnemote Pty Ltd</p>
+      <ul>
+        <li><a href="mailto:nick@mnemote.com">nick@mnemote.com</a></li>
+        <li><a href="http://mnemote.com/">http://mnemote.com/</a></li>
+        <li><a href="https://twitter.com/mnemote/">@mnemote</a></li>
+      </ul>
+      <p>Slides:</p>
+      <ul>
+         <li><a href="http://nick.zoic.org/melbdjango3/">http://nick.zoic.org/melbdjango3/</a></li>
+      </ul>
+      <p class="small">Content and images &copy; Mnemote Pty Ltd except where otherwise noted</p>
+    </div>
+
+    <div class="footer">
+      <span><img class="logo" src="img/mnemote-logo-color.svg"/>Nick Moore &lt;nick@mnemote.com&gt; for <a href="http://www.meetup.com/MelbDjango/">MelbDjango 3.1</a></span>
+    </div>
+
+  </body>
+</html>

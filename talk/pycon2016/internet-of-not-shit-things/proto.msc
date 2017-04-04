@@ -1,0 +1,35 @@
+msc { 
+arcgradient=8;
+a [label="Lightswitch", linecolor="yellow", textcolor="yellow", textbgcolor="black", arclinecolor="white", arctextcolor="white", arctextbgcolor="black"],
+b [label="Phone / PC", linecolor="yellow", textcolor="yellow", textbgcolor="black", arclinecolor="white", arctextcolor="white", arctextbgcolor="black"],
+c [label="Lightsocket", linecolor="yellow", textcolor="yellow", textbgcolor="black", arclinecolor="white", arctextcolor="white", arctextbgcolor="black"];
+
+a->b [ label = "QR Code"];
+b->a [ label = "Configuration" ];
+
+c->b [ label = "QR Code"];
+b->c [ label = "Configuration" ];
+
+|||;
+--- [ label = "Normal Operation", linecolor="red", textcolor="red", textbgcolor="black" ];
+
+a->c [ label = "Switch On" ];
+c->a [ label = "Status On" ];
+
+|||;
+--- [ label = "Packet loss on Switch", linecolor="red", textcolor="red", textbgcolor="black" ];
+
+a-xc [ label = "Switch Off" ];
+a->c [ label = "Switch Off" ];
+c->a [ label = "Status Off" ];
+
+|||;
+--- [ label = "Packet loss on Status", linecolor="red", textcolor="red", textbgcolor="black" ];
+
+a->c [ label = "Switch Off" ];
+c-xa [ label = "Status Off" ];
+a->c [ label = "Switch Off" ];
+c->a [ label = "Status Off" ];
+
+}
+

@@ -1,0 +1,122 @@
+<html>
+  <head>
+    <link rel="stylesheet" href="flip.css"/>
+    <script src="flip.js"></script>
+  </head>
+  <body>
+
+    <div class="slide">
+      <h1>Tranquil APIs</h1>
+      <h2>v0.1</h2>
+      <h4>Nick Moore &lt;nick@mnemote.com&gt;</h4>
+    </div>
+
+    <div class="slide">
+      <h3>Tranquil APIs</h3>
+      <ul>
+        <li>Protocol Framework</li>
+        <li>Tranquil is similar in intention to REST</li>
+        <li>Transport agnostic.</li>
+        <li>Allows multiple 'actions' per request.</li>
+        <li>Actions are composable and extensible.</li>
+        <li>Doesn't have horrible URLs<b>?filter_name=Nick&amp;$format=json</b></li>
+      </ul>
+    </div>
+
+    <div class="slide">
+      <h3>Tranquil: Contexts</h3>
+      <p>A <b>context</b> describes a group of resources.</p>
+      <ul>
+            <li>&ldquo;all users&rdquo;</li>
+            <li>&ldquo;all active users&rdquo;</li>
+            <li>&ldquo;all users over 35&rdquo;</li>
+            <li>&ldquo;all contacts for user number 12345&rdquo;</li>
+         </ul>
+    </div>
+
+    <div class="slide">
+      <h3>Tranquil: Actions</h3>
+      <ul>
+        <li><b>actions</b> transform contexts into other contexts</li>
+        <li>... <em>OR</em> into data which is returned in the response.</li>
+      </ul>
+
+      <p>For example, the &ldquo;all users&rdquo; context could be transformed into the &ldquo;users over 35&rdquo; context using a &ldquo;filter&rdquo; action.</p>
+     </div>
+
+     <div class="slide">
+      <h3>Tranquil: Composing Actions</h3>
+      <h4>Action Lists</h4>
+      <p>Builds a pipeline of actions</p>
+<pre>[ [ "filter", { "is_author": true } ], "count" ]</pre>
+
+      <h4>Action Groups</h4>
+      <p>Labels actions and runs them in parallel</p>
+<pre>{
+    "count": "count",
+    "page": [ [ "page", 0, 5 ] ]
+}</pre>
+     </div>
+
+     <div class="slide">
+      <h3>Tranquil: Composing Actions</h3>
+<pre>{
+    "authors": [
+        "users",
+        [ "filter": { "is_author": true } ],
+        {
+            "count": "count",
+            "top10": [
+                [ "sort", "-score" ],
+                [ "page", 0, 10 ]
+            ]
+        }
+    ]
+}</pre>
+    </div>
+
+     <div class="slide">
+      <h3>Tranquil: Composing Actions</h3>
+<pre>{
+    "authors": {
+        "count": 23,
+        "top10": [
+            { "name": "Fred Nerk", ... },
+            { "name": "Joe Blow", ... },
+            ...
+        ]
+    }
+}</pre>
+     </div>
+
+     <div class="slide">
+      <h3>Tranquil: HTTP Transport</h3>
+<pre>POST /api
+Content-Type: application/json
+Accept: application/json
+
+{ "user_count": [ "users", "count" ] }</pre>
+
+<pre>200 OK
+Content-Type: application/json
+
+{ "user_count": 107 }</pre>
+<br/>
+<b>Transport Agnostic</b>
+    </div>
+
+    <div class="slide">
+      <h3>More!</h3>
+      <ul>
+        <li><a href="http://nick.zoic.org/etc/tranquil-apis/">http://nick.zoic.org/etc/tranquil-apis/</a></li>
+        <li><a href="http://2014.osdc.com.au/presentation/1221-bof-building-web-apis">Tonight's BOF</a></li>
+      </ul>
+
+     </div>
+
+<div class="footer">
+      <span>Nick Moore &lt;nick@mnemote.com&gt; for <a href="http://2014.osdc.com.au/">OSDC2014</a></span>
+    </div>
+
+  </body>
+</html>

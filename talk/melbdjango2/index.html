@@ -1,0 +1,430 @@
+<!doctype html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+
+    <title>Django REST Framework</title>
+
+    <meta name="description" content="Django REST Framework">
+    <meta name="author" content="Nick Moore <nick@zoic.org>">
+
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <link rel="stylesheet" href="css/reveal.min.css">
+    <link rel="stylesheet" href="css/theme/default.css" id="theme">
+
+    <!-- For syntax highlighting -->
+    <link rel="stylesheet" href="lib/css/zenburn.css">
+
+    <!-- If the query includes 'print-pdf', use the PDF print sheet -->
+    <script>
+      document.write( '<link rel="stylesheet" href="css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );
+    </script>
+
+    <!--[if lt IE 9]>
+    <script src="lib/js/html5shiv.js"></script>
+    <![endif]-->
+
+  </head>
+
+  <body>
+
+    <div class="reveal">
+
+      <!-- Any section element inside of this container is displayed as a slide -->
+      <div class="slides">
+
+        <section>
+          <h1>Django REST Framework</h1>
+          <h2>The Good, the Bad and the Ugly</h2>
+          <p>
+            <small><a href="http://nick.zoic.org">Nick Moore</a> / <a href="mailto:nick@zoic.org">nick@zoic.org</a></small>
+          </p>
+        </section>
+
+	<section>
+	  <h2>Django REST Framework</h2>
+          <p><a href="http://django-rest-framework.org/">django-rest-framework.org</a></p>
+
+          <br/>
+          <br/>
+
+          <h3>Versions</h3>
+          <ul>
+            <li>Python 2.7</li>
+            <li>Django 1.6</li>
+            <li>djangorestframework 2.3.10</li>
+          </ul>
+        </section>
+
+        <section>
+          <h2>REST?</h2>
+          <p><font color="red">Re</font>presentational <font color="red">S</font>tate <font color="red">T</font>ransfer</p>
+          <br/></br/>
+          <h2>CRUD?</h2>
+          <p><font color="red">C</font>reate, <font color="red">R</font>etrieve, <font color="red">U</font>pdate, <font color="red">D</font>estroy</p>
+        </section>
+
+          <section>
+            <h2>Why REST?</h2>
+            <ul>
+              <li>Native clients &amp; HTML5/AJAX clients</li>
+              <li>REST resources map to Django model entities</li>
+              <li>Stateless, CRUD operations suit HTTP</li>
+              <li>GETs are cacheable</li>
+              <li>Very widely used, familiar, abstractable</li>
+            </ul>
+          </section>
+
+          <section>
+            <h2>Why not REST?</h2>
+
+            <ul>
+               <li>May drive front-end developers mad
+                   <ul>
+                      <li>many calls</li>
+                      <li>asynchronicity</li>
+                   </ul>
+               </li>
+               <li>No way to bind multiple operations into a single transaction</li>
+            </ul>
+          </section>
+
+          <section>
+            <h2>Django REST Framework</h2>
+            <h3>Good</h3>
+            <ul>
+               <li>Documentation</li>
+               <li>Little Code Needed</li>
+               <li>Built-in API Interface</li>
+               <li>Extensibility</li>
+            </ul>
+
+          </section>
+
+          <section>
+            <h2>Documentation</h2>
+            <ul>
+               <li>Website docs are excellent</li>
+               <li>Code quite readable</li>
+               <li>Lots of discussion on StackOverflow, etc</li>
+            </ul>
+          </section>
+
+          <!--<section>
+            <h2>Little Code Needed (1)</h2>
+  
+            <ul>
+               <li>Models</li>
+               <li>Settings</li>
+               <li>Serializers</li>
+               <li>ViewSets</li>
+               <li>Routers</li>
+            </ul>
+          </section>-->
+
+          <section>
+            <h2>Little Code Needed (1)</h2>
+            <h3>models.py</h3>
+
+            <pre><code class="python" data-trim>
+from django.db import models
+from django.contrib.auth.models import User
+
+
+class Stuff(models.Model):
+
+    name = models.TextField()
+
+
+class Things(models.Model):
+
+    name = models.TextField()
+    user = models.ForeignKey(User, related_name="things_set")
+    stuff_set = models.ManyToManyField(Stuff)
+            </code></pre>
+            <p>Models are unchanged, so you can add a REST interface
+            to an existing project easily</p>
+          </section>
+ 
+          <section>
+            <h2>Little Code Needed (2)</h2>
+            <h3>settings.py</h3>
+            <pre><code class="python" data-trim>
+INSTALLED_APPS = (
+    'django.contrib.admin',
+    'django.contrib.auth',
+    'django.contrib.contenttypes',
+    'django.contrib.sessions',
+    'django.contrib.messages',
+    'django.contrib.staticfiles',
+    'rest_framework',
+    'example.main'
+)
+
+REST_FRAMEWORK = {
+}
+            </code></pre>
+
+            <ul>
+              <li>Add <code class="python">'rest_framework'</code> to your installed apps.</li>
+              <li><code class="python">REST_FRAMEWORK</code> allows setting defaults, etc.</li>
+              <li>You probably also want <code>'rest_framework.authtoken'</code></li>
+            </ul>
+          </section>
+
+          <section>
+            <h2>Little Code Needed (3)</h2>
+
+            
+            <h3>serializers.py</h3>
+
+            <pre><code class="python" data-trim>
+from example.main.models import *
+from rest_framework import serializers
+
+import django.db.models
+
+
+class StuffSerializer(serializers.ModelSerializer):
+
+    class Meta:
+        model = Stuff
+        fields = ('id', 'name', 'things_set')
+
+
+class ThingsSerializer(serializers.ModelSerializer):
+
+    class Meta:
+        model = Things
+        fields = ('id', 'name', 'user', 'stuff_set')
+            </code></pre>
+   
+            <ul>
+              <li>Serializers are the translator between Django objects and native python</li>
+              <li>Actual serialization and deserialization is done by Renderers / Parsers
+                  ... can be JSON or XML or YAML (etc)</li>
+            </ul>
+
+          </section>
+
+          <section>
+            <h2>Little Code Needed (4)</h2>
+            <h3>views.py</h3>
+            
+            <pre><code class="python" data-trim>
+from rest_framework import viewsets
+
+from example.main.models import *
+from example.main.serializers import *
+
+class ThingsViewSet(viewsets.ModelViewSet):
+    model = Things
+    serializer_class = ThingsSerializer
+
+    def get_queryset(self):
+        return self.request.user.things_set.all()
+
+class StuffViewSet(viewsets.ModelViewSet):
+    model = Stuff
+    serializer_class = StuffSerializer
+            </code></pre>
+ 
+            <p>ViewSets bind together the CRUD operations for a resource</p>
+            <p>GET, POST, PUT, PATCH, DELETE, OPTIONS</p>
+          </section>
+
+          <section>
+            <h2>Little Code Needed (5)</h2>
+            <h3>urls.py</h3>
+
+            <pre><code class="python" data-trim>
+from django.conf.urls import patterns, include, url
+
+from django.contrib import admin
+admin.autodiscover()
+
+from rest_framework import routers
+
+from example.main import views
+
+api_router = routers.DefaultRouter()
+api_router.register(r'things', views.ThingsViewSet)
+api_router.register(r'stuff', views.StuffViewSet)
+
+urlpatterns = patterns('',
+    url(r'^admin/', include(admin.site.urls)),
+    url(r'^api/', include(api_router.urls)),
+)
+            </code></pre>
+ 
+            <p>Router collects the ViewSets into a neat API</p>
+          </section>
+
+
+          <section>
+            <h2>Built-in API Interface (1)</h2>
+
+            <ul>
+              <li>Not a replacement for /admin/ but similar</li>
+              <li>Lists views, lists objects, view objects, edit objects</li>
+            </ul>
+          </section>
+
+          <section>
+            <h2>Built-in API Interface (2)</h2>
+            <img src="ss1.png"/>
+            <p>List ViewSets</p>
+          </section>
+      
+          <section>
+            <h2>Built-in API Interface (3)</h2>
+            <img src="ss2.png"/>
+            <p>List &amp; Create Resources</p>
+          </section>
+
+          <section>
+            <h2>Built-in API Interface (4)</h2>
+            <img src="ss3.png"/>
+            <p>View &amp; Delete Resources</p>
+          </section>
+
+          <section>
+            <h2>Built-in API Interface (5)</h2>
+            <img src="ss4.png"/>
+            <p>Update Resources</p>
+          </section>
+
+	  <section>
+            <h2>Extensible (1)</h2>
+ 
+            <p>Classes are easy to inherit from and extend</p>
+
+            <ul>
+            <li>ModelSerializer
+            <ul>
+              <li>from_native</li>
+              <li>to_native</li>
+              <li>__init__</li>
+              <li>field_mapping</li>
+            </ul>
+            <br/>
+
+            <li>ModelViewSet
+            <ul>
+              <li>get_queryset</li>
+              <li>"actions"</li>
+            </ul>
+            <br/>
+            <li>ViewSets are just CBVs</li>
+            </ul>
+          </section>
+
+	  <section>
+            <h2>Extensible (2)</h2>
+            <h3>Serializers</h3>    
+            <pre><code class="python" data-trim>
+class CommaSeparatedIntegerSerializerField(serializers.CharField):
+    """This just makes the representation of a CommaSeparatedIntegerField a bit
+    more JSON friendly by splitting it out and putting it back together"""
+
+    def to_native(self, value):
+        if not value: return []
+        return [ int(v) for v in value.split(',') ]
+
+    def from_native(self, value):
+        if value is None: return None
+        return ','.join([str(v) for v in value])
+          </code></pre>
+         </section>
+
+	  <section>
+            <h2>Extensible (3)</h2>
+            <h3>Viewsets</h3>
+
+            <pre><code class="python" data-trim>
+class UserViewSet(viewsets.ModelViewSet):
+    model = User
+    serializer_class = UserSerializer
+
+    def get_queryset(self):
+        return User.objects.filter(id=self.request.user.id).prefetch_related('things_set')
+            </code></pre>
+          </section>
+
+          <section>
+            <h2>The Bad (but fixable)</h2>
+
+            <ul>
+               <li>Unknown <code class="python">filter_fields</code> are <em>ignored</em></li>
+               <li>Efficiency requires liberal use of <code class="python">.prefetch_related()</code></li>
+               <li>Slightly odd behaviours around many-to-many relationships
+		  <code class="python">many=True, required=False, allow_add_remove=True</code></li>
+               <li>Lots of repeating yourself, across multiple files (Model, Serializers, ViewSets, URLs)</li>
+            </ul>
+          </section>
+          <section>
+            <h2>The Ugly: Hidden Complexity</h2>
+
+            <ul>
+               <li>Complicated Class Hierarchy with Mixins and Metaclasses</li>
+               <li>Exceptions happen deep in the framework code</li>
+               <li>May end up needing multiple Serializers per Model</li>
+               <li>filtering / searching URLs aren't elegant</li>
+            </ul>
+          </section>
+
+          <section>
+            <h2>Alternatives</h2>
+
+            <ul>
+              <li>TastyPie <a href="http://tastypieapi.org">tastypieapi.org</a></li>
+              <li>django-nap</li>
+              <li>Roll your own</li>
+            </ul>
+          </section>
+
+        <section>
+          <p style="font-size: 20em; font-weight: bold">?</p>
+        </section>
+
+      </div>
+
+    </div>
+
+    <script src="lib/js/head.min.js"></script>
+    <script src="js/reveal.min.js"></script>
+
+    <script>
+
+      // Full list of configuration options available here:
+      // https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+        controls: false,
+        progress: true,
+        history: true,
+        center: true,
+                                theme: "night",
+                                transition: "fade",
+
+        // Optional libraries used to extend on reveal.js
+        dependencies: [
+          { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+          { src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+          { src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+          { src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+          { src: 'plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+          { src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+          // { src: 'plugin/search/search.js', async: true, condition: function() { return !!document.body.classList; } }
+          // { src: 'plugin/remotes/remotes.js', async: true, condition: function() { return !!document.body.classList; } }
+        ]
+      });
+
+    </script>
+
+  </body>
+</html>

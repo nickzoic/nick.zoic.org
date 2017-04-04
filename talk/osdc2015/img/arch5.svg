@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.0//EN" "http://www.w3.org/TR/2001/PR-SVG-20010719/DTD/svg10.dtd">
+<svg width="19cm" height="18cm" viewBox="199 -81 364 342" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <g>
+    <path style="fill: #d8e5e5" d="M 200 176.667 C 224,164.167 236,160 260,160 C 284,160 296,164.167 320,176.667 L 320,243.333 C 296,255.833 284,260 260,260 C 236,260 224,255.833 200,243.333 L 200,176.667z"/>
+    <path style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" d="M 200 176.667 C 224,164.167 236,160 260,160 C 284,160 296,164.167 320,176.667 L 320,243.333 C 296,255.833 284,260 260,260 C 236,260 224,255.833 200,243.333 L 200,176.667"/>
+    <path style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" d="M 200 176.667 C 224,189.167 236,193.333 260,193.333 C 284,193.333 296,189.167 320,176.667"/>
+    <text font-size="12.8" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:normal" x="260" y="214.333">
+      <tspan x="260" y="214.333">ERP</tspan>
+      <tspan x="260" y="230.333">Database</tspan>
+    </text>
+  </g>
+  <g>
+    <rect style="fill: #d8e5e5" x="200" y="40" width="120" height="80"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="200" y="40" width="120" height="80"/>
+    <text font-size="12.8" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:normal" x="260" y="75.9">
+      <tspan x="260" y="75.9">ERP</tspan>
+      <tspan x="260" y="91.9">Logic</tspan>
+    </text>
+  </g>
+  <g>
+    <line style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x1="260" y1="120" x2="260" y2="150.264"/>
+    <polygon style="fill: #000000" points="260,157.764 255,147.764 260,150.264 265,147.764 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="260,157.764 255,147.764 260,150.264 265,147.764 "/>
+  </g>
+  <g>
+    <rect style="fill: #d8e5e5" x="200" y="-80" width="120" height="80"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="200" y="-80" width="120" height="80"/>
+    <text font-size="12.8" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:normal" x="260" y="-44.1">
+      <tspan x="260" y="-44.1">ERP</tspan>
+      <tspan x="260" y="-28.1">Client</tspan>
+    </text>
+  </g>
+  <g>
+    <line style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x1="260" y1="0.898438" x2="260" y2="29.3655"/>
+    <polygon style="fill: #000000" points="260,36.8655 255,26.8655 260,29.3655 265,26.8655 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="260,36.8655 255,26.8655 260,29.3655 265,26.8655 "/>
+  </g>
+  <g>
+    <path style="fill: #d8e5e5" d="M 440 176.667 C 464,164.167 476,160 500,160 C 524,160 536,164.167 560,176.667 L 560,243.333 C 536,255.833 524,260 500,260 C 476,260 464,255.833 440,243.333 L 440,176.667z"/>
+    <path style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" d="M 440 176.667 C 464,164.167 476,160 500,160 C 524,160 536,164.167 560,176.667 L 560,243.333 C 536,255.833 524,260 500,260 C 476,260 464,255.833 440,243.333 L 440,176.667"/>
+    <path style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" d="M 440 176.667 C 464,189.167 476,193.333 500,193.333 C 524,193.333 536,189.167 560,176.667"/>
+    <text font-size="12.8" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:normal" x="500" y="214.333">
+      <tspan x="500" y="214.333">Auxiliary</tspan>
+      <tspan x="500" y="230.333">Database</tspan>
+    </text>
+  </g>
+  <g>
+    <rect style="fill: #d8e5e5" x="440" y="-80" width="121.5" height="80"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="440" y="-80" width="121.5" height="80"/>
+    <text font-size="12.8" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:normal" x="500.75" y="-44.1">
+      <tspan x="500.75" y="-44.1">Web</tspan>
+      <tspan x="500.75" y="-28.1">Application</tspan>
+    </text>
+  </g>
+  <g>
+    <rect style="fill: #d8e5e5" x="440" y="40" width="120" height="80"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="440" y="40" width="120" height="80"/>
+    <text font-size="12.8" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:normal" x="500" y="75.9">
+      <tspan x="500" y="75.9">Web</tspan>
+      <tspan x="500" y="91.9">Server</tspan>
+    </text>
+  </g>
+  <g>
+    <line style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x1="500.494" y1="0.898438" x2="500.316" y2="29.3657"/>
+    <polygon style="fill: #000000" points="500.27,36.8655 495.332,26.8345 500.316,29.3657 505.332,26.897 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="500.27,36.8655 495.332,26.8345 500.316,29.3657 505.332,26.897 "/>
+  </g>
+  <g>
+    <line style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x1="500" y1="120.942" x2="500" y2="150.371"/>
+    <polygon style="fill: #000000" points="500,157.871 495,147.871 500,150.371 505,147.871 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="500,157.871 495,147.871 500,150.371 505,147.871 "/>
+  </g>
+  <g>
+    <ellipse style="fill: #d8e5e5" cx="380" cy="140" rx="40" ry="40"/>
+    <ellipse style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" cx="380" cy="140" rx="40" ry="40"/>
+    <text font-size="12.8" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:normal" x="380" y="143.9">
+      <tspan x="380" y="143.9">SYNC</tspan>
+    </text>
+  </g>
+  <g>
+    <line style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x1="343.379" y1="121.689" x2="329.712" y2="114.856"/>
+    <polygon style="fill: #000000" points="323.003,111.502 334.184,111.502 329.712,114.856 329.712,120.446 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="323.003,111.502 334.184,111.502 329.712,114.856 329.712,120.446 "/>
+  </g>
+  <g>
+    <line style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x1="415.405" y1="160.653" x2="432.081" y2="170.381"/>
+    <polygon style="fill: #000000" points="438.559,174.16 427.402,173.44 432.081,170.381 432.441,164.802 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="438.559,174.16 427.402,173.44 432.081,170.381 432.441,164.802 "/>
+  </g>
+</svg>

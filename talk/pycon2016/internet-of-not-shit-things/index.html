@@ -1,0 +1,215 @@
+<html>
+  <head>
+    <link rel="stylesheet" href="flip.css"/>
+    <script src="flip.js"></script>
+  </head>
+  <body>
+
+    <div class="slide">
+      <h1>The Internet of<br/>(Better) Things</h1>
+      <h3>Nick Moore<br/>
+        <a href="https://twitter.com/mnemote/">@mnemote</a></h3>
+    </div>
+
+    <div class="slide">
+      <h3>Panacea?</h3>
+      <img class="whiteborder" src="img/panacea.jpg" height="70%"/>
+      <p class="small">image: <a href="http://revistamundonatural.com/noticia.cfm?n=1166">revistamundonatural.com</a></p>
+    </div>
+
+    <div class="slide">
+      <h3>Panopticon?</h3>
+      <img class="whiteborder" src="img/panopticon.jpg" height="70%"/>
+      <p class="small">image: <a href="http://foucault.info/doc/documents/disciplineandpunish/foucault-disciplineandpunish-panopticism-html">focault.info</a></p>
+    </div>
+
+    <div class="slide">
+      <img class="whiteborder fourpics" src="img/surveillance.jpg">
+      <p class="small">
+        image:
+        <a href="https://upload.wikimedia.org/wikipedia/commons/a/a1/Three_Surveillance_cameras.jpg">wikimedia commons</a>
+      </p>
+    </div>
+
+    <div class="slide">
+      <img class="whiteborder fourpics" src="img/surveillance.jpg">
+      <img class="whiteborder fourpics" src="img/police_photo.jpg">
+      <p class="small">
+        images:
+        <a href="https://upload.wikimedia.org/wikipedia/commons/a/a1/Three_Surveillance_cameras.jpg">wikimedia commons</a> /
+        <a href="http://www.diyphotography.net/texas-bill-threatens-to-criminalize-photographers-must-stay-25-feet-away-from-police/">diyphotography.net</a>
+      </p>
+    </div>
+
+    <div class="slide">
+      <img class="whiteborder fourpics" src="img/surveillance.jpg">
+      <img class="whiteborder fourpics" src="img/police_photo.jpg">
+      <br/>
+      <img class="whiteborder fourpics" src="img/police_photo.jpg">
+      <img class="whiteborder fourpics" src="img/surveillance.jpg">
+      <p class="small">
+        images:
+        <a href="https://upload.wikimedia.org/wikipedia/commons/a/a1/Three_Surveillance_cameras.jpg">wikimedia commons</a> /
+        <a href="http://www.diyphotography.net/texas-bill-threatens-to-criminalize-photographers-must-stay-25-feet-away-from-police/">diyphotography.net</a>
+      </p>
+    </div>
+
+    <div class="slide">
+      <span class="huge">not a<br/>TECHNICAL<br/>issue</span>
+    </div>
+
+    <div class="slide">
+      <span class="huge">CONTROL</span>
+      <p>On the one hand information wants to be expensive, because it's so valuable.
+        The right information in the right place just changes your life.</p>
+      <p>On the other hand, <b>information wants to be free</b>, because the cost of getting it
+        out is getting lower and lower all the time. So you have these two fighting
+        against each other.</p>
+      <span class="small">Stewart Brand, 1st Hackers Conference 1984</span>
+    </div>
+
+    <div class="slide">
+      <h3>The State of the IoT</h3>
+      <ul>
+        <li>New legal, ethical, etiquette challenges</li>
+        <li>Many manufacturers and experimenters breaking new ground</li>
+        <li>Market isn't really settled yet</li>
+      </ul>
+      <p>... a bit like mobile phones in the 1990s</p>
+      <p>... or motorcars in the 1920s</p>
+    </div>
+
+    <div class="slide">
+      <h3>The State of the IoT</h3>
+      <p>The Internet of Shit</p>
+
+      <ul>
+      <li><a href="http://twitter.com/internetofshit/">@internetofshit</a></li>
+      <li><a href="https://www.reddit.com/r/theinternetofshit/">/r/theinternetofshit</a></li>
+      </ul>
+
+    </div>
+
+    <div class="slide">
+      <h3>The State of the IoT</h3>
+      <ul>
+        <li><b>Analysis</b> of the ways IoT is currently bad</li>
+        <li><b>Requirements</b> for it to be less bad</li>
+        <li><b>Solutions</b> which meet those requirements</li>
+      </ul>
+    </div>
+
+    <div class="slide">
+      <h3>1. If you're not the customer, you're the product.</h3>
+      <ul>
+        <li>The backend services have to get paid for somehow.</li>
+        <li>If you're not paying directly, you're paying indirectly
+          <ul><li>... by accepting advertising</li>
+            <li>... by having your privacy sold.</li>
+            </ul></li>
+        <li>This has led to a conflation of IoT and Big Data</li>
+      </ul>
+    </div>
+
+    <div class="slide">
+      <h3>2. End Of Life</h3>
+      <ul>
+        <li>Your hi-tech device may suddenly turn into a doorstop if the service provider no longer feels like supporting it.</li>
+        <li>Not much cross-brand compatibility</li>
+      </ul>
+      <img src="img/revolv-hummus.jpeg"/>
+      <p><a href="https://arlogilbert.com/the-time-that-tony-fadell-sold-me-a-container-of-hummus-cb0941c762c1">arlogilbert.com</a></p>
+    </div>
+
+    <div class="slide">
+      <h3>3. Internet Not Found</h3>
+      <ul>
+        <li>Most devices useless if the Internet isn't available.</li>
+        <li>Even the most reliable networks sometimes go down.</li>
+        <li>Consumer-grade routers fail frequently.</li>
+      </ul>
+      <img src="img/pet-feeder.png"/>
+      <p><a href="http://www.telegraph.co.uk/technology/2016/07/28/smart-feeder-outage-left-pets-hungry-for-10-hours/">telegraph.co.uk</a></p>
+    </div>
+
+    <div class="slide">
+      <h3>4. Cryptography</h3>
+      <ul>
+        <li>Crypto support on IoT devices is often very weak.</li>
+        <li>Partly because of lack of entropy, CPU, RAM.</li>
+        <li>It's tricky to use a protocol like SSL on a tiny CPU.</li>
+      </ul>
+    </div>
+
+    <div class="slide">
+      <h3>5. Awful Software</h3>
+      <ul>
+        <li>The software for things like lightbulbs is often awful, and open to all kinds of exploitation.</li>
+        <li>This shouldn't be too surprising since even the manufacturers of electronic locks have trouble getting this right.</li>
+      </ul>
+      <div style="display: inline-block" width="60%">
+        <ul>
+          <li><a href="https://mjg59.dreamwidth.org/40397.html">Matthew Garrett on iRainbow Lightbulbs</a></li>
+          <li><a href="http://blog.trendmicro.com/let-get-door-remote-root-vulnerability-hid-door-controllers/">TrendMicro on HID remote door unlocks</a></li>
+        </ul>
+      </div>
+      <img src="img/irainbow2.jpg" width="30%"/>
+    </div>
+
+    <div class="slide">
+      <h3>6. Update Cycle</h3>
+<div style="display: inline-block; width: 50%">
+<ul>
+        <li>It's hard enough to get people to change their smoke alarm batteries or update Internet Explorer.</li>
+        <li>No-one ever is going to reflash their thermostat.</li>
+        <li>While devices are reloading, they are generally unavailable.</li>
+      </ul>
+</div>
+      <img src="img/hue-updating.jpg" height="70%"/>
+   </div>
+
+    <div class="slide">
+      <h3>Complaints &rarr; Requirements</h3>
+      <ol>
+        <li><span class="strike">Internet Mediation</span> Internet Independence</li>
+        <li><span class="strike">Vendor Lockin</span> Generic Interfaces</li>
+        <li><span class="strike">SSL</span> Simplified Cryptography</li>
+        <li><span class="strike">C / Linux</span> Easier development</li>
+      </ol>
+    </div>
+
+    <div class="slide">
+      <h3>Requirements &rarr; Potential Solutions</h3>
+      
+      <div style="display: inline-block" width="50%">
+      <ul>
+        <li>Client/Server &rarr; Peer to Peer</li>
+        <li>Standards-based Hardware Description Language</li>
+        <li>Shared Secrets, initialized by QR code</li>
+        <li>Simpler development with Micropython!</li>
+      </ul>
+      </div>
+      <img src="proto.svg" height="70%"/>
+    </div>
+
+    <div class="slide">
+      <h3>Questions / Comments</h3>
+      <p>Nick Moore<br/>Mnemote Pty Ltd</p>
+      <ul>
+        <li><a href="mailto:nick@mnemote.com">nick@mnemote.com</a></li>
+        <li><a href="http://mnemote.com/">http://mnemote.com/</a></li>
+        <li><a href="https://twitter.com/mnemote/">@mnemote</a></li>
+      </ul>
+      <p>Slides:</p>
+      <ul>
+         <li><a href="http://nick.zoic.org/pycon2016/">http://nick.zoic.org/pycon2016/</a></li>
+      </ul>
+      <p class="small">Content &copy; Mnemote Pty Ltd except where otherwise noted</p>
+    </div>
+
+    <div class="footer">
+      <span><img class="logo" src="img/mnemote-logo-color.svg"/>Nick Moore &lt;nick@mnemote.com&gt; for <a href="https://2016.pycon-au.org/">PyCon AU 2016</a></span>
+    </div>
+
+  </body>
+</html>

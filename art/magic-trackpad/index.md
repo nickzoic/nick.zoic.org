@@ -69,7 +69,7 @@ but I’m kind of used to synaptics so I’ll stick with it for the moment.
 
 So this is what the input part of the desk looks like right now:
 
-![magic trackpad with kinesis freestyle keyboard](%7Cfilename%7C/images/magic_trackpad.jpg)
+![magic trackpad with kinesis freestyle keyboard](magic_trackpad.jpg)
 
 This puts the halves of the kinesis keyboard about the right distance
 apart for me, and the trackpad is well positioned to get to without much

@@ -43,5 +43,7 @@ a:hover, a:active { text-decoration: underline; }
     background-color: #EEE;
     border: 3px solid #333;
     border-radius: 10px;
-    padding: 10px;
+    padding: 20px 20px;
+    margin: auto;
+    width: 720px;
 }

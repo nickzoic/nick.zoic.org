@@ -31,24 +31,26 @@
             </li>
           {% endif %}
         {% endfor %}
+      </ul>
     </div>
 
     <div class="banner">
-      <h1 class="title">{{ page.title }}</h1>
-      <h2 class="date">{{ page.date }}</h2>
-      {% if page.summary %}
-        <p class="summary">{{ page.summary }}</p>
-      {% endif %}
-      <div class="tags">
-        {% for tag in page.tags %}
-          <span class="tag"><a href="/tag/{{ tag }}">{{ tag }}</a></span>
-          {% unless forloop.last %} / {% endunless %}
-        {% endfor %}
-      </div>
+      <h1 class="title">Articles tagged {{ page.title }}</h1>
     </div>
 
     <div class="content">
-      {{ content }}
+      {% assign sorted_pages = site.pages | sort:"title" %}
+      {% for p in sorted_pages %}
+        {% if p.layout == "article" %}
+          {% for t in p.tags %}
+            {% if t == page.title %}
+              <a href="{{ p.url }}"><h3>{{ p.title }}</h3></a>
+              {% if p.summary %}<p>{{ p.summary }}</p>{% endif %}
+              {% break %}
+            {% endif %}
+          {% endfor %}
+        {% endif %}
+      {% endfor %}
     </div>
 
     <div class="footer">

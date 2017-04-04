@@ -17,6 +17,6 @@ for filename in sys.argv[1:]:
 for tag in sorted(all_tags):
    print tag
    with open("tag/%s.md" % tag, "w") as f:
-     f.write("---\nlayout: tag\ntitle: %s\n---\n" % tag)
+     f.write("---\nlayout: tag\ntag: %s\ntitle: %s\n---\n" % (tag, tag))
 
 

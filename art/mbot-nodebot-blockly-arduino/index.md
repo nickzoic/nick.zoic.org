@@ -17,7 +17,7 @@ ago at [BuzzConf](https://buzzconf.io/), and Charlotte and I put
 together an [mBot](http://www.makeblock.cc/mbot/) kit and had a go at
 programming it.
 
-![image](%7Cfilename%7C/images/mbot-with-kids.jpg){width="100%"}
+![Mbot with Amelia and Charlotte](mbot-with-kids.jpg)
 
 We made a racetrack for the mBot, out of a bit of corflute with a track
 for the robot made out of black insulating tape. The challenge was to
@@ -101,8 +101,7 @@ consistency.
 mBlockly for iOS
 ----------------
 
-[![image](%7Cfilename%7C/images/mBlockly-t.png){.right
-width="50%"}](%7Cfilename%7C/images/mBlockly.png)
+[![mblockly screenshot](mBlockly-t.png)](mBlockly.png)
 
 This app loaded up nicely on a recent (iOS 8.1) iPad and found the
 robot's Bluetooth interface straight away. (On an older iPad 2 (iOS 6)
@@ -129,8 +128,7 @@ mBlock
 
 ### mBlock 2.2 for Mac
 
-[![image](%7Cfilename%7C/images/mblock1t.png){.right
-width="50%"}](%7Cfilename%7C/images/mblock1.png)
+[![mblock mac screenshot](mblock1t.png)](mblock1.png)
 
 Now we're getting somewhere.
 
@@ -146,8 +144,7 @@ much point trying to teach fundamentals of programming without them.
 
 ### Arduino Code Generation
 
-[![image](%7Cfilename%7C/images/mblock2t.png){.right
-width="50%"}](%7Cfilename%7C/images/mblock2.png)
+[![mblock code generation](mblock2t.png)](mblock2.png)
 
 Sadly, the code generation is a little funky. There's no type inference
 (everything is a `double`), and strings aren't always escaped. Function
@@ -169,8 +166,7 @@ programmers, so it seems like a bad limitation.
 
 ### mBlock 3.1 for Windows
 
-[![image](%7Cfilename%7C/images/mblock3t.png){.right
-width="50%"}](%7Cfilename%7C/images/mblock3.png)
+[![image](mblock3t.png)](mblock3.png)
 
 mBlock for Windows has a newer version, 3.1.
 
@@ -203,7 +199,7 @@ needed. That'd be cool.)
 Remote Monitor
 --------------
 
-![image](%7Cfilename%7C/images/chip8.jpg){.right width="50%"}
+![CHIP-8 Instruction Set](chip8.jpg)
 
 Another alternative would be to run some kind of monitor / interpreter
 which could handle the single-step behaviour and so on. Scoff if you

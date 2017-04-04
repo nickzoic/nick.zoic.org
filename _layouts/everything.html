@@ -1,0 +1,13 @@
+---
+layout: sidebar
+---
+    <div class="banner">
+      <h1 class="title">{{ page.title }}</h1>
+      <h2 class="date">Everything ...</h2>
+    </div>
+
+    <div class="content">
+      {% assign sorted_pages = site.pages | sort:"title" %}
+      {% for page in sorted_pages %}{% if page.layout == "article" %}<a href="{{ page.url }}"><h3>{{ page.title }}</h3></a>{% if page.summary %}<p>{{ page.summary }}</p>{% endif %}{% endif %}{% endfor %}
+      </ul>
+    </div>

@@ -12,6 +12,7 @@ layout: base
       {% assign recent_pages = site.pages | sort:"date" | reverse %}
       {% for page in recent_pages limit:10 %}{% if page.layout == "article" %}<li><a href="{{ page.url }}">{{ page.title }}</a></li>{% endif %}{% endfor %}
     </ul>
+    <p><a href="/everything/">More ...</a></p>
   </div>
 
   <div class="tags">

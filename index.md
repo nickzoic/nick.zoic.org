@@ -1,11 +1,4 @@
 ---
-layout: default
-title: fnord
+layout: recent
+title: ... and another thing ...
 ---
-
-Summary Test
-{: .summary }
-
-# TEST
-
-This is a more test.

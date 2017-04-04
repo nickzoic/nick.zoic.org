@@ -49,9 +49,9 @@ made up some a quick test setup out a [Sparkfun ESP32
 Thing](https://www.sparkfun.com/products/13907) and a bit of
 single-sided blank PCB cut into four zones with a rotary burr.
 
-![image](%7Cfilename%7C/images/esp32touch/A2141668.JPG){width="100%"}
+![test pcb with tape](A2141668.JPG)
 
-![image](%7Cfilename%7C/images/esp32touch/A2141670.JPG){width="100%"}
+![test pcb with module](A2141670.JPG)
 
 The ESP32 board is stood off from the touch board with a layer of foam
 and double-sided taple, and a couple of layers of insulting tape over
@@ -66,7 +66,7 @@ about 8ms, so the capture is over about 3 seconds.
 Swiping a finger from GPIO15 to GPIO12 shows the way the multiple
 oscillators respond:
 
-![image](%7Cfilename%7C/images/esp32touch/data-insulator.svg){width="100%"}
+![graph with insulator](data-insulator.svg)
 
 The 'resting' frequencies of the central two pads are lower than that of
 the pads at the ends, presumably because they are somewhat coupled to
@@ -77,7 +77,7 @@ behind the pad for GPIO13 for quite a way, inevitably coupling them. Any
 design using the capacitive sensors is going to have to take board
 layout seriously!
 
-![image](%7Cfilename%7C/images/esp32touch/data-center.svg){width="100%"}
+![graph of central sensors](data-center.svg)
 
 A closer look at just two pads (at twice the sample rate, and a larger
 number of samples) shows that there's a smooth crossover between the
@@ -86,13 +86,13 @@ and smooth, suggesting that they don't interfere much. It might be
 possible to get a longer transfer between the two by interleaving tracks
 at the edges, perhaps even tapering them together like so:
 
-![image](%7Cfilename%7C/images/esp32touch/A2141671.JPG){width="100%"}
+![interleaving pads](A2141671.JPG)
 
 The sensors work pretty well right through the PCB, these traces show a
 touch on the non-copper side. Again, good PCB design practices will be
 needed to prevent interference!
 
-![image](%7Cfilename%7C/images/esp32touch/data-reverse.svg){width="100%"}
+![using sensors through pcb](data-reverse.svg)
 
 Seriously Retro
 ===============
@@ -110,15 +110,15 @@ At 10us per division that's about 14ms per cycle or 71kHz. The vertical
 axis shows the signal going from about 1.5V to 3.7V above ground. At
 this point, t.read() returns about 300.
 
-![image](%7Cfilename%7C/images/esp32touch/A2141658.JPG){width="100%"}
+![scope trace 1](A2141658.JPG)
 
 The second shows the waveform while being touched, at the same setup.
 The frequency has reduced to about 34us per cycle or 30kHz. At this
 point, t.read() returns about 230.
 
-![image](%7Cfilename%7C/images/esp32touch/A2141660.JPG){width="100%"}
+![scope trace 2](A2141660.JPG)
 
 Interestingly, the oscillator output isn't constant, but occurs in about
 8ms bursts with about 30ms 'off' between them.
 
-![image](%7Cfilename%7C/images/esp32touch/A2141664.JPG){width="100%"}
+![scope bursts](A2141664.JPG)

@@ -1,9 +1,27 @@
 ---
-layout: default
+layout: sidebar
 title: "404 - File Not Found"
 permalink: /404.html
 ---
 
-<h1>404 File Not Found</h1>
+<div class="banner">
+  <h1>404 File Not Found</h1>
+</div>
+
+<div class="content">
+  <p>Whatever you were looking for isn't where you left it!</p>
+
+  <a id="link" href="/">nick.zoic.org Front Page</a>
+
+  <script type="text/javascript">
+       var search = window.location.pathname.replace('/art/','').replace('/\.html$', '').replace(/[^\w]+/g, ' ').replace(/^ /,'').replace(/ $/,'');
+       var search_uri = "http://google.com/search?q=" + encodeURIComponent("site:nick.zoic.org " + search);
+       var link = document.getElementById("link");
+       link.href = search_uri;
+       link.innerText = 'Search nick.zoic.org for "' + search + '"';
+  </script>
+
+
+</div>
 
 

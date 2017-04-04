@@ -110,7 +110,7 @@ and still keep our data in sync? Well, if we've managed to force
 ourselves into the idempotent work queue architecture, this becomes
 rather simple:
 
-![image](%7Cfilename%7C/images/bluegreencqrs.png){.center width="50%"}
+![Blue/Green CQRS](bluegreencqrs.png)
 
 Messages in the queue are received by *both* backends, and operated on
 accordingly. The "green" side of the queue can be paused while the

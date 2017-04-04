@@ -8,6 +8,12 @@
       <a href="/nick-moore/">Nick Moore</a>
     </div>
 
+    <div class="tags">
+      {% for tag in site.tags %}
+        {{ tag|first }} 
+      {% endfor %}
+    </div>
+
     <div class="banner">
       <h1 class="title">{{ page.title }}</h1>
       <h2 class="date">{{ page.date }}</h2>
@@ -16,7 +22,8 @@
       {% endif %}
       <div class="tags">
         {% for tag in page.tags %}
-          <span class="tag"><a href="tag/{{ tag }}">{{ tag }}</a></span>
+          <span class="tag"><a href="/tag/{{ tag }}">{{ tag }}</a></span>
+          {% unless forloop.last %} / {% endunless %}
         {% endfor %}
       </div>
     </div>

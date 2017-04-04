@@ -13,6 +13,7 @@ body {
 
 .title {font-size: 2.4em; text-align: center; margin: 0 5px 0 5px; }
 .date { text-decoration: none; text-align: center; margin: 0 5px 0 5px; }
+.tags { text-align: center; }
 
 h1 {font-size: 2em}
 h2 {font-size: 1.8em}

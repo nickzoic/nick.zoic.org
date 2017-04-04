@@ -13,7 +13,7 @@ tags:
     - nginx
     - django
     - python
-title: 'Nginx proxy\_pass to upstream Django always giving 400 Bad Request'
+title: 'Nginx proxy_pass to upstream Django always giving 400 Bad Request'
 ---
 
 Problem
@@ -25,7 +25,7 @@ figure I'll post it here.
 
 The nginx config file looked like this:
 
-``` {.sourceCode .nginx}
+~~~
 upstream gunicorn_django {
     server localhost:8000;
 }
@@ -37,7 +37,7 @@ location / {
 location @proxy {
     proxy_pass http://gunicorn_django;
 }
-```
+~~~
 
 ... and all Django would do was return `400 Bad Request` every time when
 accessed through the proxy, even though it worked perfectly when
@@ -52,16 +52,18 @@ by [Rune Kaagaard](http://stackoverflow.com/users/164449/rune-kaagaard),
 I worked out that nginx was rewriting the Host header before passing to
 the proxied host:
 
+~~~
     Host: gunicorn_django
+~~~
 
 Django is fussy about the contents of the Host header, and [requires it
 to be valid](https://code.djangoproject.com/ticket/20264) according to
 [RFC 952](http://rfc-editor.org/rfc/rfc952.txt), as shown in
 `django.http.request`:
 
-``` {.sourceCode .python}
+~~~
 host_validation_re = re.compile(r"^([a-z0-9.-]+|\[[a-f0-9]*:[a-f0-9:]+\])(:\d+)?$")
-```
+~~~
 
 Solution
 ========
@@ -69,12 +71,12 @@ Solution
 The easiest way around it is to prevent Nginx from rewriting the Host
 header:
 
-``` {.sourceCode .nginx}
+~~~
 location @proxy {
     proxy_set_header Host $http_host;
     proxy_pass http://gunicorn_django;
 }
-```
+~~~
 
 ... as a bonus, your Django applications can now know what Host was
 originally being asked for.

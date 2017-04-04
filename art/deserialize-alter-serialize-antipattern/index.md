@@ -32,10 +32,12 @@ With anything web-related, once flushed from the cover of frameworks and
 libraries, an enormous proportion of operations end up looking something
 like:
 
+~~~
     def update_attribute(new_value):
         object = deserialize(input_stream)
         object.attribute = new_value
         output_stream.write(object.serialize())
+~~~
 
 ... where the `input_stream` and `output_stream` are connections to a
 database of some kind. The serialization and deserialization may be
@@ -94,6 +96,7 @@ loading the whole thing into RAM at one time.
 This general idea could be used with other protocol languages too, so
 your new pseudocode looks like:
 
+~~~
     def update_attribute(new_value):
 
         def updater(key, value):
@@ -101,6 +104,7 @@ your new pseudocode looks like:
             else: return value
 
         update(input_stream, output_stream, updater)
+~~~
 
 ... all `update` has to do is to call the `updater` function for every
 element in the structure, passing the name of the element within the

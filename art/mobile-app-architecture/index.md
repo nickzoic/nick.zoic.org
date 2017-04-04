@@ -20,8 +20,8 @@ I want to discuss some weirder things on this blog, but I think it'd be
 a good idea to start off with an overview of how to build a very simple
 HTML5- or Native App friendly architecture.
 
-1. First, UX
-============
+1: UX
+=====
 
 > Design is not just what it looks like and feels like. Design is how it
 > works.
@@ -45,7 +45,7 @@ tools](http://stackoverflow.com/questions/5672/what-are-you-using-for-web-ui-lay
 or whatever works for you. Let the graphic designers [agonize over the
 pixels](http://blog.mengto.com/the-one-pixel-rule/), as they will.
 
-2. Entities
+2: Entities
 ===========
 
 > There are only two hard things in Computer Science: cache invalidation
@@ -77,7 +77,7 @@ labels differently.
 
 Write it up somewhere and stick to it.
 
-3. Messages
+3: Messages
 ===========
 
 > All mass is interaction.
@@ -135,7 +135,7 @@ Whether your public API should include an API version number is
 [contested](http://www.jbarnette.com/2009/04/07/http-apis.html), and I'm
 not going to go into it here.
 
-4. Development!
+4: Development!
 ===============
 
 > Make a mess, clean it up!
@@ -161,7 +161,7 @@ You won't be connecting to a database or anything glamorous like that.
 Instead, write some tiny stubs for each handler in your API (example in
 Tornado):
 
-``` {.sourceCode .python}
+~~~
 class UserInfoHandler(tornado.web.RequestHandler):
 
     def get(self, user_id):
@@ -174,7 +174,7 @@ class MessageWSHandler(tornado.websocket.WebSocketHandler):
 
     def on_message(self, message):
         self.write_message("What?")
-```
+~~~
 
 Front-end(s)
 ------------
@@ -228,7 +228,7 @@ within the database, consider keeping such data only in the memory cache
 ... if the memory cache gets flushed, you can always regenerate the
 denormalization.
 
-6. You Didn't Mention Agile Once!
+5: You Didn't Mention Agile Once!
 =================================
 
 > The greatest challenge to any thinker is stating the problem in a way

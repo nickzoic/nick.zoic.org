@@ -20,10 +20,10 @@ pragma](http://perldoc.perl.org/strict.html) was revolutionary, removing
 a whole swathe of very easy "foot guns" from the language. It wasn't
 long before every Perl script started:
 
-``` {.sourceCode .perl}
+~~~
 #!/usr/bin/perl -w
 use strict;
-```
+~~~
 
 Forcing programmers to declare variables turned out to be a huge win
 ([who'd have
@@ -36,12 +36,12 @@ pragma](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Strict
 at JS 1.8.5 / ECMAScript 5, using a weird little piece of syntax which
 appears to be an unevaluated string but is really a pragma:
 
-``` {.sourceCode .javascript}
+~~~
 function foo() {
     "use strict";
     // be strict within the scope of this function
 }
-```
+~~~
 
 It has similar effects on JS code as it did on Perl.
 
@@ -73,12 +73,12 @@ Directive](http://www.ecma-international.org/ecma-262/7.0/index.html#use-strict-
 ... a small string at the start of a function scope which is really a
 pragma.
 
-``` {.sourceCode .javascript}
+~~~
 function foo() {
     "use pure";
     // this function is pure, and any functions declared within are too.
 }
-```
+~~~
 
 This pragma would declare that within its scope all functions are pure
 and can be optimized as such. Access to global or outer scope variables,

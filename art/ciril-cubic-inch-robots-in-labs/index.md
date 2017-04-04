@@ -13,11 +13,9 @@ tags:
 title: 'Ciril: Cubic Inch Robots in Labs'
 ---
 
-> **note**
->
-> For updates, see the
->
-> [Ciril Project Page](http://ciril.mnemote.com/)
+<p class="note">
+For updates, see the <a href="http://ciril.mnemote.com/">Ciril Project Page</a>
+</p>
 
 The [ESP8266](http://esp8266.com/) opens up new possibilities for
 hardware design of educational robots. This project aims to put together

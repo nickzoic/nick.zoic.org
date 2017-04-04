@@ -16,9 +16,10 @@ title: Django REST Framework
 ---
 
 Presented at [MelbDjango](http://melbdjango.com/) 0.9 on 6 Feb 2014.
-[Here's the slides](/melbdjango2/):
+[Here's the slides](/talk/melbdjango2/):
 
-<iframe src="/melbdjango2/" width="100%" height="400px" frameborder="0"></iframe>
+<iframe src="/talk/melbdjango2/" width="100%" height="400px" frameborder="0"></iframe>
+
 Notes
 =====
 

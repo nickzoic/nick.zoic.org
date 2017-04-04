@@ -35,7 +35,7 @@ file.
 
 The control script, `buttons.js`, looks like this:
 
-``` {.sourceCode .javascript}
+~~~
 var page = require('webpage').create();
 var fs = require('fs');
 var system = require('system')
@@ -71,7 +71,9 @@ page.clipRect = page.evaluate(function(styles, label, klass) {
 page.render(output);
 
 phantom.exit();
-```
+~~~
+
+<a href="buttons.js">(download it here)</a>
 
 To make a "Fnord" button with your `my_buttons.css` file, run:
 
@@ -83,13 +85,13 @@ line too.
 
 You could easily add these as Makefile rules, for example:
 
-``` {.sourceCode .makefile}
+~~~
 buttons/save.png: my_buttons.css
     phantomjs buttons.js $< $@ Save save
 
 buttons/cancel.png: my_buttons.css
     phantomjs buttons.js $< $@ Cancel cancel
-```
+~~~
 
 The PNG files will get rebuilt by Make any time the CSS file changes.
 

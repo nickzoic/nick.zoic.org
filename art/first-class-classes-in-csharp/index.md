@@ -7,7 +7,8 @@ slug: 'first-class-classes-in-csharp'
 tags:
     - c-sharp
     - functional programming
-title: '(sort of) First Class Classes in C\#'
+title: '(sort of) First Class Classes in C#'
+summary: It seems, at first, that C# doesn't have first-class classes.  But ...
 ---
 
 I find myself writing some C\# code while still thinking in Python. One
@@ -19,7 +20,7 @@ construct a list of these classes, and call a “probe” classmethod on
 each of them to ask the class to go search out any devices which were
 available. In Python, this would look like :
 
-``` {.sourceCode .csharp}
+```
 device_classes = (FooDevice, BarDevice, BazDevice)
 
 for device_class in device_classes:
@@ -30,7 +31,7 @@ See? The classes are being treated just like any other variable, because
 they are, they’re just instances of type ‘classobj’ . But the equivalent
 doesn’t work in C\# — doing this:
 
-``` {.sourceCode .csharp}
+```
 Type[] DeviceClasses = {
     FooDevice,
     BarDevice,
@@ -46,7 +47,7 @@ Thankfully after a bit more exploration it turns out that all that is
 needed is some syntactic nastiness … namely, typeof(), GetMethod() and
 Invoke() (Passing “null” to Invoke works for static methods):
 
-``` {.sourceCode .csharp}
+```
 Type[] DeviceClasses = {
     typeof(FooDevice),
     typeof(BarDevice),

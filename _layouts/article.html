@@ -8,7 +8,8 @@
     <div class="pages">
       <a href="/nick-moore/">Nick Moore</a>
       <ul>
-        {% for page in site.pages|sort:"date"|reverse %}
+        {% assign recent_pages = site.pages | sort:"date" | reverse | limit: 10 %}
+        {% for page in recent_pages %}
           {% if page.layout == "article" %}
             <li>
               {{ page.date }}

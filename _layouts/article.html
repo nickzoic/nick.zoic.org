@@ -6,10 +6,14 @@
   <body>
     <div class="pages">
       <a href="/nick-moore/">Nick Moore</a>
-      {% for page in site.pages %}
-        {{ page }}
-        {{ page.title }}
-      {% endfor %}
+      <ul>
+        {% for page in site.pages %}
+          <li>
+            <a href="{{ page.url }}">{{ page.title }}</a>
+            {% if page.summary %}<p>{{ page.summary }}</p>{% endif %}
+          </li>
+        {% endfor %}
+      </ul>
     </div>
 
     <div class="tags">

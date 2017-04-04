@@ -6,6 +6,7 @@ redirect_from: '/etc/the-internet-of-not-shit-things-iot-aus/'
 slug: 'the-internet-of-not-shit-things-iot-aus'
 tags: IoT
 title: 'The Internet of (Not Shit) Things (at IoT Aus)'
+summary: I did roughly the same talk again for IoT Aus
 ---
 
 at IoT Aus

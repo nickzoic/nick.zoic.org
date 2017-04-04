@@ -6,6 +6,7 @@ redirect_from: '/etc/the-internet-of-not-shit-things/'
 slug: 'the-internet-of-not-shit-things'
 tags: IoT
 title: 'The Internet of (Not Shit) Things'
+summary: Trying to better understand the problems of the IoT by actually listening to its detractors.
 ---
 
 The Internet of Things! Existential menace or meaningless buzzword?

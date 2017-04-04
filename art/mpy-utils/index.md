@@ -25,3 +25,11 @@ was already done by the excellent
 and
 [pyboard.py](https://github.com/micropython/micropython/blob/master/tools/pyboard.py)
 for the hints on how to get Micropython REPL working in raw mode.
+
+UPDATE 2017-04-04
+=================
+
+Rather unexpectedly, [Tony D from Adafruit](https://learn.adafruit.com/users/tdicola)
+made a [youtube video about mpy-utils](https://youtu.be/NdXtvtYrOs4) which was quite
+interesting to see, as it points out quite a few flaws in the package.  I've tried to 
+turn them into github issues ...

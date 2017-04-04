@@ -11,6 +11,7 @@
         {% for page in site.pages|sort:"date"|reverse %}
           {% if page.layout == "article" %}
             <li>
+              {{ page.date }}
               <a href="{{ page.url }}">{{ page.title }}</a>
               {% if page.summary %}<p>{{ page.summary }}</p>{% endif %}
             </li>

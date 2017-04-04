@@ -48,7 +48,7 @@ The prototype uses two 10mm stepper motors (from Ebay), along with four
 them. There's also a [NodeMCU](http://nodemcu.com/) in the box, with an
 ESP-12E module on board. And Lego wheels.
 
-![image](../../images/ciril-proto.jpg){.center width="90%"}
+![image](ciril-proto.jpg)
 
 The kinematics need a lot of work, but I'm amazed by how much torque the
 tiny motors have ...
@@ -60,7 +60,7 @@ Direct driving the wheels is a bit ... minimalist. The size of tyre
 they're able to drive is very limited and the stub axle is under a lot
 of load.
 
-![image](../../images/ciril-wheels.png){.center width="90%"}
+![image](ciril-wheels.png)
 
 As an alternative, perhaps 3D-printed wheels with an internal gear and
 an O-ring groove around the outside. They take up a lot of room

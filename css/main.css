@@ -12,6 +12,7 @@ body {
 }
 
 /* Headings */
+h1.title {font-size: 3em}
 h1 {font-size: 2em}
 h2 {font-size: 1.8em}
 h3 {font-size: 1.429em}	/* 20px */
@@ -39,7 +40,7 @@ a img {border: 0px; text-decoration: none;}
 a:link, a:visited { color: #44F; text-decoration: none; }
 a:hover, a:active { text-decoration: underline; }
 
-.content, .banner {
+.content, .banner, .footer {
     background-color: #EEE;
     border: 3px solid #333;
     border-radius: 10px;
@@ -47,3 +48,4 @@ a:hover, a:active { text-decoration: underline; }
     margin: auto;
     width: 720px;
 }
+    

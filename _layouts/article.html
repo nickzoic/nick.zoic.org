@@ -1,7 +1,7 @@
 <html>
   <head>
     <link rel="stylesheet" href="/css/main.css"/>
-    <title>Testing! {{ page.title }}</title>
+    <title>{{ page.title }} ... and another thing ...</title>
   </head>
   <body>
     <div class="pages">
@@ -9,13 +9,16 @@
     </div>
 
     <div class="banner">
-      <pre>
-      {{ page.date }}
-      {{ page.category }}
-      {{ page.tags }}
-      {{ page.slug }}
-      {{ page.summary }}
-      </pre>
+      <h1 class="title">{{ page.title }}</h1>
+      <h2 class="date">{{ page.date }}</h2>
+      {% if page.summary %}
+        <p class="summary">{{ page.summary }}</p>
+      {% endif %}
+      <div class="tags">
+        {% for tag in page.tags %}
+          <span class="tag"><a href="tag/{{ tag }}">{{ tag }}</a></span>
+        {% endfor %}
+      </div>
     </div>
 
     <div class="content">

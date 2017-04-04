@@ -51,4 +51,10 @@ a:hover, a:active { text-decoration: underline; }
     width: 720px;
 }
 
+.pages {
+    background-color: #CCC;
+    width: 120px;
+    float: left;
+}
+
 .footer { text-align: center; }

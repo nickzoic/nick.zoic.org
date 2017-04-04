@@ -15,7 +15,7 @@ body {
 
 .title {font-size: 2.4em; text-align: center; margin: 0 5px 0 5px; }
 .date { text-decoration: none; text-align: center; margin: 0 5px 0 5px; }
-.tags { text-align: center; }
+.banner .tags { text-align: center; }
 
 h1 {font-size: 2em}
 h2 {font-size: 1.8em}
@@ -49,14 +49,17 @@ a:hover, a:active { text-decoration: underline; }
     margin-left: 245px;
 }
 
-.pages {
-    background-color: #CCC;
-    border: 3px solid #333;
-    border-radius: 10px;
+.sidebar {
     width: 200px;
     float: left;
     font-size: 0.72em;
+}
+
+.sidebar div {
+    background-color: #CCC;
+    border: 3px solid #333;
+    border-radius: 10px;
     padding: 20px 20px;
 }
 
-.footer { text-align: center; }
+.footer { clear: both; text-align: center; width: 800px; }

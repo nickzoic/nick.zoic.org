@@ -23,8 +23,9 @@ Standard](http://en.wikipedia.org/wiki/Internet_Standard#Proposed_Standard).
 I'm also very interested in [Mesh Networking](http://mesh.zoic.org/).
 
 I live in the suburbs of Melbourne, Australia with my wife, two
-daughters and a very antisocial
-[cat](http://zoic.smugmug.com/Family/Wally-the-Cat-1/i-Kwx4b72/0/L/IMG_3720-L.jpg).
+daughters, a very antisocial
+[cat](http://zoic.smugmug.com/Family/Wally-the-Cat-1/i-Kwx4b72/0/L/IMG_3720-L.jpg)
+and a very enthusiastic dog. Also some fish.
 Very occasionally we really do get kangaroos bouncing along the street.
 If I had any spare time I'd only waste it
 [motorcycling](http://moto.zoic.org), 4WDing, bushwalking, climbing and

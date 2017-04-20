@@ -10,6 +10,7 @@ tags:
     - esp8266
     - python
 title: Micropython Utilities
+summary: some utility programs to copy and mount MicroPython filesystems from your computer
 ---
 
 I just released [mpy-utils](https://github.com/nickzoic/mpy-utils) which

@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 import sys
 import re
+import os
 
 all_tags = set()
 
@@ -16,7 +17,8 @@ for filename in sys.argv[1:]:
 
 for tag in sorted(all_tags):
    print tag
-   with open("tag/%s.md" % tag, "w") as f:
+   os.mkdir("tag/%s" % tag)
+   with open("tag/%s/index.md" % tag, "w") as f:
      f.write("---\nlayout: tag\ntag: %s\ntitle: %s\n---\n" % (tag, tag))
 
 

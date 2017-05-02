@@ -11,7 +11,7 @@ Shifting
 ========
 
 It seems just the other day I [shifted this blog to Pelican and S3](/art/new-static-site/)
-but apparetnly it has been almost 4 years.
+but apparently it has been almost 4 years.
 
 Now we're shifting over to running on [Jekyll](https://jekyllrb.com/) /
 [Github Pages](https://pages.github.com) ... it seems easier.
@@ -25,8 +25,7 @@ I didn't really like the way a lot of the Jekyll stuff worked out of the box, so
 I've reimplmented some of the smaller wheels and kept some of the styling from the
 old site, and here it is!
 
-The wallpaper is from: [Subtle
-Patterns](http://subtlepatterns.com/3px-tile/).
+The wallpaper is from: [Subtle Patterns](http://subtlepatterns.com/3px-tile/).
 
 "Bitter" and "Source Sans Pro" font suggestion thanks to: [inSquare
 Media](http://www.insquaremedia.com/blog/15-web-design-stuff/50-our-favourite-google-font-combinations).

@@ -56,10 +56,10 @@ that it stays much the same, and links for
 and [images](http://en.wikipedia.org/wiki/Les_Horribles_Cernettes) stay
 in their familiar form:
 
-``` {.sourceCode .html}
+~~~
 <a href="md2:6c508c14308f608dd24602201cfc13fe">The World Wide Web Project</a>
 <img src="md2:742b8198cff94b32c92ec8a44fad9091" alt="LHC">
-```
+~~~
 
 MD2 was obsoleted by MD4, which was obsoleted by MD5 then
 [SHA-1](http://en.wikipedia.org/wiki/SHA-1) and now
@@ -101,7 +101,7 @@ Security
 Resources may be modified on the server: you think you're downloading a
 particular version of a particular file, but it may have been tampered
 with. Resources may also be
-modified in transit by your ISP &lt;http://www.mattcutts.com/blog/confirmed-isp-modifies-google-home-page/&gt;
+[modified in transit by your ISP](http://www.mattcutts.com/blog/confirmed-isp-modifies-google-home-page/)
 or by [other
 intermediaries](http://en.wikipedia.org/wiki/Man-in-the-middle_attack).
 
@@ -138,5 +138,4 @@ There's some stuff here I need to expand on ...
 -   Updating Documents
 -   Signing Documents
 -   Ranking Documents
--   Publishing URLs with [QR
-    Codes](http://en.wikipedia.org/wiki/QR_code)
+-   Publishing URLs with [QR Codes](http://en.wikipedia.org/wiki/QR_code)

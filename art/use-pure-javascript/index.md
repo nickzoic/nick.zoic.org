@@ -62,7 +62,7 @@ longer matters, and functions can be memoized or eliminated or lazily
 evaluated as the runtime sees fit.
 
 If the language doesn't provide these constraints, then the runtime is
-not able to make these optimizations. For example:
+not able to make these optimizations.
 
 "use pure";
 ===========
@@ -76,7 +76,8 @@ pragma.
 ~~~
 function foo() {
     "use pure";
-    // this function is pure, and any functions declared within are too.
+    // this function is pure, and any functions declared within are limited
+    // to its scope.
 }
 ~~~
 
@@ -90,3 +91,22 @@ any code which runs correctly in a JS runtime which understands it,
 should also run correctly in a JS runtime which does not. Therefore it
 is safe to use a pure-aware linter, cross-compiler, etc and still have
 the unmodified code run properly in a non-pure-aware runtime.
+
+Pure Closures
+-------------
+
+I think you'd still be able to do closures within pure functions, so long as the 
+containing functions are marked as pure:
+
+~~~
+function new_accumulator() {
+    "use pure";
+    var acc = 0;
+    return function() {
+        acc += 1;
+        return acc;
+    }
+}
+~~~
+
+... but this might not stand up to closer scrutiny, I'm not sure yet ...

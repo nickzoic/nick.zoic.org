@@ -20,7 +20,7 @@ I was also really pleased to be part of Linuxconf's first Functional
 Programming miniconf.
 
 I presented [The Emperor's New Closure: FP in
-Javascript](/html5/the-emperors-new-closure-functional-programming-in-javascript/)
+Javascript](../the-emperors-new-closure-functional-programming-in-javascript/)
 
 Other Videos
 ============
@@ -58,6 +58,6 @@ I've got a string of blog posts to write based on ideas kicked around at
 LCA, so follow the RSS feed or [@mnemote on
 twitter](https://twitter.com/mnemote/) if you're interested!
 
--   [Complete Containers](/etc/complete-containers-immutable-git/)
+-   [Complete Containers](../complete-containers-immutable-git/)
 -   [Flobot: A Graphical Dataflow Language for
-    Robots](/etc/flobot-graphical-dataflow-language-for-robots/)
+    Robots](../flobot-graphical-dataflow-language-for-robots/)

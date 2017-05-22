@@ -28,10 +28,10 @@ up in bulky libraries.
 <div class="border: 1px solid red">Embedded video doesn't seem to work for you!  Try downloading the
 file below or <a href="https://www.youtube.com/watch?v=a6azjixVy2g">have a look on youtube</a></div>
 </video>
-Links
-=====
 
--   [Slides](/lca2016/functional-javascript.html).
+# Links
+
+-   [Slides](/talk/lca2016/functional-javascript.html).
 -   [Video](http://mirror.linux.org.au/linux.conf.au/2016/02_Tuesday/Wool_Museum/The_Emperors_New_Closure_FP_in_Javascript.webm).
 -   [dictionary.js](https://github.com/mnemote/dictionary.js)
--   [More about Linuxconf 2016](/etc/linuxconf-2016-geelong/).
+-   [More about Linuxconf 2016](../linuxconf-2016-geelong/).

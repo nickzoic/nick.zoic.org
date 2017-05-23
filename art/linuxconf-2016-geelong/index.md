@@ -32,24 +32,18 @@ I intend to write up a summary of the ones I thought were especially
 interesting, but here's a few links to get you started:
 
 -   [Haskell is not for production and other
-    tales](http://mirror.linux.org.au/linux.conf.au/2016/02_Tuesday/Wool_Museum/Haskell_is_Not_For_Production_and_Other_Tales.webm)
+    tales](https://www.youtube.com/watch?v=mlTO510zO78)
 -   [Data made out of
-    functions](http://mirror.linux.org.au/linux.conf.au/2016/02_Tuesday/Wool_Museum/Data_made_out_of_functions.webm)
+    functions](https://www.youtube.com/watch?v=GSPB6YgPmZw)
 -   [Parametricity
-    types](http://mirror.linux.org.au/linux.conf.au/2016/02_Tuesday/Wool_Museum/The_Essential_Tools_of_OpenSource_Functional_Programming_Parametricity_Types.webm)
--   [Tridge on heli
-    planes](http://mirror.linux.org.au/linux.conf.au/2016/05_Friday/Costa_Hall/Helicopters_and_rocketplanes.webm)
--   [RPi
-    projects](http://mirror.linux.org.au/linux.conf.au/2016/05_Friday/Wool_Museum/Raspberry_Pi_Hacks.webm)
--   [Blue/Green
-    deployments](http://mirror.linux.org.au/linux.conf.au/2016/01_Monday/Costa_Hall/Continuous_Delivery_using_bluegreen_deployments_and_immutable_infrastructure.webm)
--   [Security: Assume the
-    worst](http://mirror.linux.org.au/linux.conf.au/2016/04_Thursday/D4.303_Costa_Theatre/Playing_to_lose_making_sensible_security_decisions_by_assuming_the_worst_2.webm)
--   [Genevieve Bell's
-    keynote](http://mirror.linux.org.au/linux.conf.au/2016/05_Friday/Costa_Hall/Keynote_4_Ms_Genevieve_Bell.webm)
--   [Free as in Cheap gadgets: the
-    ESP8266](http://mirror.linux.org.au/linux.conf.au/2016/05_Friday/Wool_Museum/Free_as_in_cheap_gadgets_the_ESP8266.webm)
--   [Twoskip](http://mirror.linux.org.au/linux.conf.au/2016/03_Wednesday/Wool_Museum/Twoskip_a_robust_singlefile_keyvalue_database.webm)
+    types](https://www.youtube.com/watch?v=4hTtcUeqmfY)
+-   [Tridge on heli planes](https://www.youtube.com/watch?v=kifraO9yMrk)
+-   [RPi projects](https://www.youtube.com/watch?v=22dKTGyuRrc)
+-   [Blue/Green deployments](https://www.youtube.com/watch?v=KD1JHpzKW3Q)
+-   [Security: Assume the worst](https://www.youtube.com/watch?v=K8p0gvOgQ_c)
+-   [Genevieve Bell's keynote](https://www.youtube.com/watch?v=QqADuKyBNMc)
+-   [Free as in Cheap gadgets: the ESP8266](https://www.youtube.com/watch?v=Du1MtqsvSy4)
+-   [Twoskip](https://www.youtube.com/watch?v=2XWUYPLUrSM)
 
 Blog Posts
 ==========

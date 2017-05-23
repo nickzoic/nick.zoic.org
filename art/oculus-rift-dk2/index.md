@@ -30,12 +30,10 @@ wait](http://www.imdb.com/title/tt0104692/) for the
 At some point I gutted an old Toshiba laptop (monochrome
 [T3400](http://www.pcmag.com/article2/0,2817,1167527,00.asp), if I
 remember correctly ...) and tried to build a HMD out of the LCD panel.
-Cutting up a few [plastic fresnel
-lenses](http://www.rsb.org.au/Shop_Online/AustralianProducts/Fresnel_Lens_-_2x_Magnification_A4_size.aspx),
+Cutting up a few plastic fresnel lenses, 
 a set of plastic safety goggles and a whole lot of cardboard, I could
 produce two 320 pixel wide images out of the 640x480 greyscale panel.
-Using [scan-line
-rendering](http://en.wikipedia.org/wiki/Scanline_rendering) meant I
+Using [scan-line rendering](http://en.wikipedia.org/wiki/Scanline_rendering) meant I
 could calculate both images at the same time ... trying to push enough
 performance out of the 33MHz 486 CPU to do real time rendering was not
 easy. Sadly, extending the display cable of the laptop degraded the
@@ -101,7 +99,6 @@ Resources
 -   [Twenty Milliseconds](http://www.twentymilliseconds.com/): VR UX.
 -   [Live coding in VR with the Oculus Rift, Firefox WebVR, JavaScript
     and Three.js](https://www.youtube.com/watch?v=db-7J5OaSag).
--   [Minecraft for Oculus](http://minecraft-vr.com/) aka
-    [Minecrift](http://www.mtbs3d.com/phpbb/viewtopic.php?f=142&t=17489#p124997).
+-   [Minecrift](https://www.wearvr.com/apps/minecrift)
 -   [Interfacing to the Wii Balance
     Board](https://www.mattcutts.com/blog/linux-wii-balanceboard/).

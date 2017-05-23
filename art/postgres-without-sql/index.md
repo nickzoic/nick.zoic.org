@@ -31,7 +31,7 @@ anyway](http://nosql-database.org/).
 But there's life in the old dog yet. [Postgres stands up rather well in
 benchmarks](http://erthalion.info/2015/12/29/json-benchmarks/) and if
 you're going to have all your eggs in one basket, a relational database
-which also [supports JSON](/osdc2014/postgres-nosql.html) is a fairly
+which also [supports JSON](../../talk/osdc2014/postgres-nosql.html) is a fairly
 convenient basket.
 
 So that got me thinking ... when we talk to an SQL database through an

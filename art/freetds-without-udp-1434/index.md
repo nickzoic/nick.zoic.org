@@ -4,7 +4,7 @@ date: '2011-04-28'
 layout: article
 redirect_from: '/Systems/freetds-without-udp-1434/'
 slug: 'freetds-without-udp-1434'
-tags: Systems
+tags: systems
 title: FreeTDS without udp 1434
 summary: a quick note for anyone trying to do FreeTDS through a tunnel or a firewall pinhole
 ---

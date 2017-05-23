@@ -4,7 +4,7 @@ date: '2016-04-20'
 layout: article
 redirect_from: '/Languages/a-canticle-for-diff3/'
 slug: 'a-canticle-for-diff3'
-tags: Languages
+tags: languages
 title: A Canticle for Diff3
 summary: A brief and not necessarily totally accurate history of diff3
 ---
@@ -67,7 +67,7 @@ System)](https://en.wikipedia.org/wiki/Concurrent_Versions_System).
 
 Where the diffs do overlap, there's 'conflicts' ... parts of the patches
 will fail, and have to be manually corrected. [Merges don't always
-work](/python/syntaxerror-keyword-argument-repeated/) but it's a very
+work](../syntaxerror-keyword-argument-repeated/) but it's a very
 good start.
 
 diff3

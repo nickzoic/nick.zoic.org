@@ -83,13 +83,11 @@ which would meet these requirements and hopefully [get it published as
 an RFC](https://www.ietf.org/tao.html). In the meantime, I'll be talking
 about [The Internet of
 Toys](../buzzconf-nights-esp8266-flobot-ciril/) at [Buzzconf
-Nights](https://buzzconf.io/nights/) and continuing to develop these
+Nights](https://buzzconf.io/) and continuing to develop these
 ideas.
 
 UPDATE
 ======
 
--   I'll be talking about this stuff at [PyCon AU's inaugural Internet
-    of Things
-    mini-conf](https://2016.pycon-au.org/programme/internet_of_things_miniconf)
-    which should be fun! More news as it comes to light.
+-   I talked about this stuff at
+    [PyCon AU's inaugural Internet of Things mini-conf](../pycon-2016-melbourne/)

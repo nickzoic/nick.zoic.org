@@ -8,7 +8,9 @@ summary: |
     Apple uses a signing mechanism for in app purchases, but its behaviour
     is a bit weird. This post outlines how to confirm the validity of
     Apple's receipts in Python.
-tags: apple payments
+tags:
+  - apple
+  - payments
 title: 'Verifying Apple''s Signed Receipts'
 ---
 

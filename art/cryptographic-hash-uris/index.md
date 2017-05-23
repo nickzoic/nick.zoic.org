@@ -18,7 +18,7 @@ It is 1990 at CERN, and work is beginning on a new information
 management system called
 "[Mesh](http://www.w3.org/History/1989/proposal.html)". They need a
 [uniform way to identify
-resources](http://en.wikipedia.org/wiki/Uniform_resource_identifier).
+resources](https://en.wikipedia.org/wiki/Uniform_resource_identifier).
 The syntax of [URLs](http://en.wikipedia.org/wiki/URL) is becoming
 [quite complex](http://www.w3.org/People/Berners-Lee/FAQ.html). What if
 we do away with [all this](http://en.wikipedia.org/wiki/True_Names) and
@@ -75,20 +75,20 @@ as "the colon in emm-dee-five-colon."
 Caching
 =======
 
-A [URL](http://en.wikipedia.org/wiki/URL) gets its uniqueness from
+A [URL](https://en.wikipedia.org/wiki/URL) gets its uniqueness from
 centralized authority: the [Domain Name
-System](http://en.wikipedia.org/wiki/Domain_Name_System) guarantees the
+System](https://en.wikipedia.org/wiki/Domain_Name_System) guarantees the
 uniqueness of the first part, and the filesystem of the web server
 guarantees the uniqueness of the second part.
 
 Except when it doesn't. Domain names change ownership, [Round Robin
-DNS](http://en.wikipedia.org/wiki/Round-robin_DNS) and [Load
+DNS](https://en.wikipedia.org/wiki/Round-robin_DNS) and [Load
 Balancers](http://en.wikipedia.org/wiki/Load_balancing_(computing))
 switch between filesystems and the filesystems are always subject to
 change.
 
 This makes caching web resources rather difficult, and has led to
-schemes like [ETags](http://en.wikipedia.org/wiki/HTTP_ETag) which add a
+schemes like [ETags](https://en.wikipedia.org/wiki/HTTP_ETag) which add a
 revision identifier to a resource to make it possible to see if it has
 changed. Cryptographic hashes are frequently used to calculate ETags.
 
@@ -103,7 +103,7 @@ particular version of a particular file, but it may have been tampered
 with. Resources may also be
 [modified in transit by your ISP](http://www.mattcutts.com/blog/confirmed-isp-modifies-google-home-page/)
 or by [other
-intermediaries](http://en.wikipedia.org/wiki/Man-in-the-middle_attack).
+intermediaries](https://en.wikipedia.org/wiki/Man-in-the-middle_attack).
 
 A client loading a resource by Cryptographic Hash URI can tell if the
 file has been modified by calculating the hash of the received resource

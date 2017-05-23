@@ -21,7 +21,7 @@ title: 'FloBot: A Graphical Dataflow Language for Robots'
 > [Flobot Project Page](http://flobot.mnemote.com/)
 
 I've [talked about my experiences with
-mBot](/etc/mbots-using-nodebot-mblockly-and-arduino/) already, and
+mBot](../mbots-using-nodebot-mblockly-and-arduino/) already, and
 concluded the idea is good but the implementation is a little clumsy for
 the primary classroom. Which is a pity, because the little robots are
 immediately fascinating to very young kids.

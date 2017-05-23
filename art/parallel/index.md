@@ -12,7 +12,6 @@ title: Functional Parallel Programming
 ---
 
 Guy Steele’s recent talk [\[VID\]](http://www.vimeo.com/6624203)
-[\[PDF\]](http://research.sun.com/projects/plrg/Publications/ICFPAugust2009Steele.pdf)
 [\[PAPER\]](http://portal.acm.org/citation.cfm?id=1596550.1596551) on
 “Organizing Functional Code for Parallel Execution” [came up a while ago
 on

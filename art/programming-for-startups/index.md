@@ -97,8 +97,7 @@ Components
 
 [Kurt](https://generalassemb.ly/instructors/kurt-falkenstein/1183)
 talked about how your intellectual property is an asset and how even
-your [losses are an
-asset](https://www.ato.gov.au/General/Losses/How-companies-use-tax-losses/),
+your losses are an asset (to a tax accountant, anyway ...)
 but it is important to realize that your software itself is not an
 asset.
 

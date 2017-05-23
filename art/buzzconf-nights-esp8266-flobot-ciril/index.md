@@ -4,12 +4,12 @@ date: '2016-05-03'
 layout: article
 redirect_from: '/etc/buzzconf-nights-esp8266-flobot-ciril/'
 slug: 'buzzconf-nights-esp8266-flobot-ciril'
-tags: IoT conference
+tags: iot, conference
 title: 'The Internet of Toys: ESP8266, Flobot and Ciril'
 ---
 
 On the 26 May I presented at [Buzzconf
-Nights](https://buzzconf.io/nights/) in Melbourne about the [ESP8266
+Nights](https://buzzconf.io/) in Melbourne about the [ESP8266
 WiFi SoC](http://esp8266.com/), its implications and how to use it.
 
 And I got to introduce and give a quick demo of the
@@ -20,11 +20,9 @@ Video
 =====
 
 <iframe width="648" height="390" src="https://www.youtube.com/embed/VqiZ1P5cHag" frameborder="0" allowfullscreen></iframe>
-[The slides are here](/buzzconf1/#1)
+[The slides are here](../../talk/buzzconf1/)
 
-![image](%7Cfilename%7C../images/buzzconf-presentation.jpg){width="648px"}
-
-Photo: Göknur Giner
+![Presenting at Buzzconf Nights / Photo: Göknur Giner](buzzconf-presentation.jpg){width="648px"}
 
 PyCon AU
 ========

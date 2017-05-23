@@ -17,8 +17,8 @@ title: 'CQRS for Blue-Green Deployment'
 Blue-Green Deployment
 =====================
 
-At LinuxConf this year, [Ruben Rubio spoke about Blue/Green
-deployment](http://mirror.linux.org.au/linux.conf.au/2016/01_Monday/Costa_Hall/Continuous_Delivery_using_bluegreen_deployments_and_immutable_infrastructure.webm)
+At LinuxConf this year, Ruben Rubio spoke about Blue/Green
+deployment
 as a way of formalizing the deployment process and minimizing deployment
 risk. By using immutable infrastructure, we can avoid getting our
 configurations mixed up, and by keeping the old infrastructure around
@@ -45,7 +45,7 @@ Database State
 
 I really like the idea of containerized, immutable servers: actually,
 [I'd like to roll the entire container state into Git, libraries and
-all](/etc/complete-containers-immutable-git/). Who needs state anyway!
+all](../complete-containers-immutable-git/). Who needs state anyway!
 It only gets you in trouble! At this point, though, there's just one
 minor problem: most web services need to store some state at some point,
 and it ends up in a database.
@@ -93,8 +93,8 @@ if you don't get a confirmation is okay.
 
 This is a pretty severe constraint, but just as the constraints of
 immutable containers help keep our deployments organized, or the
-[constraints of a type system keep our thinking
-organized](http://mirror.linux.org.au/linux.conf.au/2016/02_Tuesday/Wool_Museum/The_Essential_Tools_of_OpenSource_Functional_Programming_Parametricity_Types.webm),
+constraints of a type system keep our thinking
+organized
 having an idempotent work queue based API can open up new possibilities
 for deployment.
 

@@ -40,9 +40,8 @@ drawn screenshots, it is a series of sketches of "scenes" from the
 
 Use a
 [whiteboard](https://itunes.apple.com/au/app/jotnot-scanner-pro-scan-multipage/id307868751?mt=8),
-or pencil and paper, or one of the [many mockup
-tools](http://stackoverflow.com/questions/5672/what-are-you-using-for-web-ui-layout-design)
-or whatever works for you. Let the graphic designers [agonize over the
+or pencil and paper, or one of the many mockup
+tools or whatever works for you. Let the graphic designers [agonize over the
 pixels](http://blog.mengto.com/the-one-pixel-rule/), as they will.
 
 2: Entities
@@ -216,7 +215,7 @@ Once you've picked the database you can go back to your diagram of
 entity relationships and turn it into a schema ... for an SQL database
 this is probably a file full of SQL statements, for
 [Django](http://djangoproject.com/) it is the
-[models.py](https://docs.djangoproject.com/en/1.5/topics/db/models/)
+[models.py](https://docs.djangoproject.com/en/1.11/topics/db/models/)
 file. For a lot of NoSQL databases there isn't a schema as such, but you
 can still write up a description of what goes where.
 

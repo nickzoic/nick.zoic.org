@@ -43,11 +43,10 @@ HTTP/1.1.
 
 Whereas RPC approaches are generally protocol-neutral and all about the
 "verbs" (messages). I quite like [designing around
-messages](/html5/basic-mobile-app-architecture/) but they also have
+messages](../basic-mobile-app-architecture/) but they also have
 their drawbacks and it seems to me there must be some kind of middle
 ground.
 
 > **note**
 >
-> I've done some further thinking about this: see [Tranquil
-> APIs](/etc/tranquil-apis/).
+> I've done some further thinking about this: see [Tranquil APIs](../tranquil-apis/).

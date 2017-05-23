@@ -138,10 +138,10 @@ Other Stuff
 ===========
 
 -   The slides were put together with
-    [Reveal.js](http://lab.hakim.se/reveal-js/) which is really just a
+    [Reveal.js](https://github.com/hakimel/reveal.js/) which is really just a
     bundle of HTML5 you can hack on.
 -   For the same kind of thing in a friendlier package, Brenton used
-    [slide.es](http://slid.es/). I might give that a go next time ...
+    [slid.es](https://slid.es/). I might give that a go next time ...
 -   I seem to remember ranting on about [Design Patterns in Dynamic
     Programming](http://norvig.com/design-patterns/), and [Design
     Patterns in

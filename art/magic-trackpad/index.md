@@ -33,8 +33,7 @@ you can enter the proper PIN [^1], and it'll connect.
 
 Alternatively, the gnome bluetooth applet seems to work, although it has
 some odd UI bugs. See also this post on [broken bluetooth support in
-ubuntu / bluez
-4](http://blog.projectnibble.org/2010/08/08/how-ubuntus-broken-bluetooth-support-came-to-be/)
+ubuntu / bluez 4](http://www.bennybottema.com/2010/08/08/how-ubuntus-broken-bluetooth-support-came-to-be/)
 which explains where hcid.conf has gone ...
 
 It also helps to know that the trackpad is a bit fussy about when it is
@@ -50,9 +49,7 @@ in X windows.
 
 The file `/usr/share/X11/xorg.conf.d/60-magictrackpad.conf` (created by
 package `xserver-xorg-input-evdev`) overrides the trackpad to use the
-“evdev” driver. If you don’t already [have a custom xorg.conf as in
-these
-instructions](http://www.excession.org.uk/blog/apple-magic-trackpad-and-ubuntu-maverick.html),
+“evdev” driver. If you don’t already have a custom xorg.conf
 the easiest way to override it back again is to create a file
 `/usr/share/X11/xorg.conf.d/99-magictrackpad.conf`:
 

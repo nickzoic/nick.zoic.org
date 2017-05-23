@@ -16,7 +16,7 @@ title: 'Imagine There''s No URLs'
 
 It is 1990 at CERN, and work is beginning on a new information
 management system called
-"[Mesh](http://www.w3.org/History/1989/proposal.html)". They need a
+"[Mesh](https://www.w3.org/History/1989/proposal.html)". They need a
 [uniform way to identify
 resources](https://en.wikipedia.org/wiki/Uniform_resource_identifier).
 The syntax of [URLs](http://en.wikipedia.org/wiki/URL) is becoming

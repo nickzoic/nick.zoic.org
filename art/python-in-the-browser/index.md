@@ -28,7 +28,7 @@ Why Would This Be A Good Thing
 
 I read a blog post recently by Ian Bicking which describes [running the
 same language on client and server as "not a big
-deal"](http://blog.ianbicking.org/2011/03/30/js-on-server-and-client-is-not-a-big-deal.html)
+deal"](http://www.ianbicking.org/blog/2011/03/javascript-on-the-server-and-the-client-is-not-a-big-deal.html)
 (admittedly, talking about Node.js, eg: JavaScript running on the
 server). I don't tend to agree ...
 

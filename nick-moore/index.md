@@ -13,7 +13,7 @@ C/C\#/Objective-C, SQL and (for my sins) JavaScript.
 I've been on "the Internet" since
 [1990](http://en.wikipedia.org/wiki/Flood_%28They_Might_Be_Giants_album%29)
 when Melbourne University helpfully provided me with
-[Usenet](news:aus.motorcycles) access, a room full of warm
+[Usenet](https://en.wikipedia.org/wiki/Usenet) access, a room full of warm
 [VT320s](http://vt100.net/docs/vt320-uu/chapter2.html) and, eventually,
 a degree in Computer Science. Somewhere along the way I learnt a fair
 bit about Unix, Free Software and IP networking, which have pretty much

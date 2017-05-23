@@ -43,7 +43,7 @@ Statically Deployed
 :   Your CSS is probably compiled from [SASS](http://sass-lang.com/) or
     similar, and your Privacy Policy, etc, pages are probably templated
     out of your CMS. Your Javascript may well be [compiled from some
-    more exotic language](http://altjs.org/) too. It can be handy to do
+    more exotic language](https://github.com/jashkenas/coffeescript/wiki/list-of-languages-that-compile-to-js) too. It can be handy to do
     this stuff dynamically in development systems, but when deploying to
     production you really might as well deploy the compiled versions as
     static files which change only when the site is redeployed. For

@@ -6,8 +6,8 @@ redirect_from: '/Languages/parallel/'
 slug: parallel
 tags:
     - languages
-    - functional programming
-    - parallel programming
+    - functional-programming
+    - parallel-programming
 title: Functional Parallel Programming
 ---
 

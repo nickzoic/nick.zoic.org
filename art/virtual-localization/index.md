@@ -57,7 +57,7 @@ some new VRML files [^1] based on simulation over at
 <http://mesh.zoic.org/> ... the idea is to eventually test the software
 on hardware nodes.
 
-![Screenshot of 100 nodes](%7Cfilename%7C/images/100nodes.png)
+![Screenshot of 100 nodes](100nodes.png)
 
 [^1]: It seemed like a good idea at the time: see [VRML: Very
-    Odd](%7Cfilename%7Cvrml.rst)
+    Odd](../vrml/)

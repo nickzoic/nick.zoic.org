@@ -27,13 +27,13 @@ Nights](https://buzzconf.io). So why all this relentless conferencing?
 Well, for starters, I enjoy sharing the stuff I'm working on with
 others, whether that's as an official talk or a BoF session or just
 chatting in the "hallway track" or coming up with [bad ideas in
-bars](/etc/squawk-cc-the-true-story/). It's always tempting to hide your
+bars](../squawk-cc-the-true-story/). It's always tempting to hide your
 ideas away until they're "ready", but getting them [out and in front of
-people](/etc/flobot-graphical-dataflow-language-for-robots/) is a great
+people](../flobot-graphical-dataflow-language-for-robots/) is a great
 way to put them to the test and see what other people think. And even if
 what you're doing isn't really breaking new ground, it's great to [share
 what you've
-learnt](/html5/the-emperors-new-closure-functional-programming-in-javascript/)
+learnt](../the-emperors-new-closure-functional-programming-in-javascript/)
 about what works for you and give that back to the community.
 
 Obviously, there's also networking -- conferences are a great way to
@@ -50,7 +50,7 @@ It's not just about talking though: you've also got to listen. There's
 always a huge variety of things on offer at these conferences, which
 means they add up to more than the sum of their parts: I find myself
 [making connections between seemingly unrelated
-talks](http://nick.zoic.org/systems/cqrs-for-blue-green-deployment/) and
+talks](../cqrs-for-blue-green-deployment/) and
 who knows: some day one of those connections may turn out to be
 fruitful! Computing in particular has a long tradition of recycling:
 there is little that is [startlingly

@@ -60,5 +60,5 @@ Further Reading
 
 -   [Tranquil APIs](http://www.tranquil-apis.org/) documentation site.
 -   Lightning Talk at [OSDC 2014](/etc/osdc-2014-gold-coast/)
-    [Slides](/osdc2014/tranquil-apis.html), [Video (youtube,
+    [Slides](../../talk/osdc2014/tranquil-apis.html), [Video (youtube,
     4 minutes)](http://www.youtube.com/watch?v=iCptoG4DpMI#t=590)

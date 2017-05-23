@@ -17,7 +17,7 @@ title: 'Flobot: The Journey Continues'
 ---
 
 -   [original Flobot
-    article](/etc/flobot-graphical-dataflow-language-for-robots)
+    article](../flobot-graphical-dataflow-language-for-robots)
 -   [Flobot on Github](https://github.com/mnemote/flobot/)
 
 MicroPython
@@ -68,7 +68,7 @@ Flobot on mBot
 ==============
 
 I [wrote earlier about the
-mBot](http://nick.zoic.org/etc/mbots-using-nodebot-mblockly-and-arduino/)
+mBot](../mbot-nodebot-blockly-arduino/)
 and, well, it is a nifty piece of hardware and there's a heap of them
 out there in schools. The [mCore
 board](http://makeblock.com/mcore-main-control-board-for-mbot) runs a
@@ -82,7 +82,7 @@ But it's pretty easy to set up an on-board ESP8266 to run Flobot and
 talk to Firmata over the serial port ... so then Flobot can control
 mBot! I call this the Brain Slug.
 
-![image](../../images/mbot_with_esp-bs.jpg){.center width="90%"}
+![image](mbot_with_esp-bs.jpg)
 
 The tricky bit is that it needs the UART and the UART is generally used
 for the REPL. But with some small tweaks (okay, so switching off the

@@ -7,7 +7,7 @@ slug: 'use-pure-javascript'
 tags:
     - html5
     - javascript
-    - functional programming
+    - functional-programming
 title: '"use pure"; in Javascript'
 summary: 'a modest proposal for better javascript: like "use strict" but purer.'
 ---
@@ -49,7 +49,7 @@ ES6 and FP
 ==========
 
 Doing [Functional Programming in
-Javascript](/html5/the-emperors-new-closure-functional-programming-in-javascript/)
+Javascript](../the-emperors-new-closure-functional-programming-in-javascript/)
 can greatly improve the legibility and reliability of your code, and ES6
 introduces all sorts of lovely syntax for to make your FP nicer. But
 there's still a problem: enforcement.

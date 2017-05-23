@@ -40,17 +40,9 @@ I'll also compare to some previous projects I've worked on in a similar
 space, including some recommendations on how I'd do it over if I got to
 do it over.
 
-![image](%7Cfilename%7C/images/nick-moore-hiviz.jpg)
+![... in the warehouse ...](nick-moore-hiviz.jpg)
 
-> class
->
-> :   center
->
-> alt
->
-> :   Nick Moore at Adelaide Mushrooms
->
 UPDATE
 ======
 
-[Slides are here](/osdc2015/leviathan.html).
+[Slides are here](../../talk/osdc2015/leviathan.html).

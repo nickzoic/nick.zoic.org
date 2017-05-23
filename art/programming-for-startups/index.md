@@ -17,7 +17,7 @@ Assembly](http://ga.co/)'s "[Founder's
 Bootcamp](https://generalassemb.ly/education/founders-bootcamp-a-two-day-startup-mba/melbourne/5351)"
 course this morning.
 
-The [slides](http://nick.zoic.org/files/pfnp.pdf) are probably a bit too
+The [slides](pfnp.pdf) are probably a bit too
 terse to be useful so here's some notes. Feel free to get in touch if
 you've got questions or feedback:
 
@@ -87,7 +87,7 @@ instance](http://aws.amazon.com/free/).
 
 Likewise, if your application doesn't *need* high reliability, don't
 bother building it. It's a lot of fun [reading up on how Netflix do
-it](http://nick.zoic.org/etc/some-thoughts-on-aws/) but for startups its
+it](../thoughts-on-aws/) but for startups its
 often not necessary and you probably can't afford it.
 
 Components

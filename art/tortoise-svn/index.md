@@ -7,7 +7,7 @@ slug: 'tortoise-svn'
 tags:
     - windows
     - svn
-    - revision control
+    - revision-control
 title: 'Quick guide to setting up TortoiseCVS / TortoiseSVN'
 ---
 

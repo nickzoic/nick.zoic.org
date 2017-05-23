@@ -13,7 +13,7 @@ title: ESP32 Capacitive Sensors
 summary: The ESP32's capacitive sensors, and how to use them from MicroPython
 ---
 
-I've been working on [MicroPython for ESP32](/python/micropython/)
+I've been working on [MicroPython for ESP32](../micropython/)
 recently and working on implementing some of the crazier hardware on the
 device.
 
@@ -34,7 +34,7 @@ Each sample takes about 8ms to complete.
 MicroPython
 ===========
 
-I'm programming the ESP in [MicroPython](/python/micropython/) which
+I'm programming the ESP in [MicroPython](../micropython/) which
 just makes the experimental setup easier. Not all features are merged in
 yet, so if you want to use the TouchPad from MicroPython you may need to
 pull in [my esp32-touchpad

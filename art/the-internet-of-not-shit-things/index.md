@@ -4,7 +4,7 @@ date: '2016-05-07'
 layout: article
 redirect_from: '/etc/the-internet-of-not-shit-things/'
 slug: 'the-internet-of-not-shit-things'
-tags: IoT
+tags: iot
 title: 'The Internet of (Not Shit) Things'
 summary: Trying to better understand the problems of the IoT by actually listening to its detractors.
 ---
@@ -82,7 +82,7 @@ I'd like to do some more work on defining a simple candidate protocol
 which would meet these requirements and hopefully [get it published as
 an RFC](https://www.ietf.org/tao.html). In the meantime, I'll be talking
 about [The Internet of
-Toys](../../etc/buzzconf-nights-esp8266-flobot-ciril/) at [Buzzconf
+Toys](../buzzconf-nights-esp8266-flobot-ciril/) at [Buzzconf
 Nights](https://buzzconf.io/nights/) and continuing to develop these
 ideas.
 

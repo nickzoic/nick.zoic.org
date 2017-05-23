@@ -67,7 +67,7 @@ System)](https://en.wikipedia.org/wiki/Concurrent_Versions_System).
 
 Where the diffs do overlap, there's 'conflicts' ... parts of the patches
 will fail, and have to be manually corrected. [Merges don't always
-work](../syntaxerror-keyword-argument-repeated/) but it's a very
+work](../syntax-error-keyword-argument-repeated/) but it's a very
 good start.
 
 diff3

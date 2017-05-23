@@ -16,9 +16,9 @@ title: Tranquil APIs
 ---
 
 I'm reaching the end of a project based on REST and [Django REST
-Framework](/python/django-rest-framework/). There have been good parts
+Framework](../django-rest-framework/). There have been good parts
 and bad, but out of it has come some [thinking about
-architecure](/html5/basic-mobile-app-architecture/) and the inspiration
+architecure](../mobile-app-architecture/) and the inspiration
 to do things a bit differently.
 
 I've put together an alternative to REST which I'm calling *Tranquil*.

@@ -3,6 +3,7 @@ category: etc
 date: '2015-12-01'
 layout: article
 redirect_from: '/etc/mbot-nodebot-blockly-arduino/'
+redirect_from: '/etc/mbots-using-nodebot-mblockly-and-arduino/'
 slug: 'mbot-nodebot-blockly-arduino'
 tags:
     - robots

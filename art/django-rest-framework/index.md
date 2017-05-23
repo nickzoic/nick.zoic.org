@@ -43,7 +43,7 @@ HTTP/1.1.
 
 Whereas RPC approaches are generally protocol-neutral and all about the
 "verbs" (messages). I quite like [designing around
-messages](../basic-mobile-app-architecture/) but they also have
+messages](../mobile-app-architecture/) but they also have
 their drawbacks and it seems to me there must be some kind of middle
 ground.
 

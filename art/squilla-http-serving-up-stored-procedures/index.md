@@ -174,7 +174,7 @@ Drawbacks
     [SQLAlchemy](http://sqlalchemy.org/) and all the other ORMs is not
     having to write your own SQL. The downside of this is you have to
     keep a pretty close eye on the SQL they generate or you end up
-    [getting burned](/python/testing-django-performance/). So you end up
+    [getting burned](../testing-django-performance/). So you end up
     learning SQL anyway.
 -   **Versioning stored procedures and triggers and migrating them** ...
     This is worthy of its own whole article.

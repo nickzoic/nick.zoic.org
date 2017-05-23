@@ -16,9 +16,8 @@ title: Testing Django Performance
 ---
 
 I presented at the [MelbDjango](http://melbdjango.com/) user group on 11
-July 2013, [here's the slides](/melbdjango1/):
+July 2013, [here's the slides](../../talk/melbdjango1/).
 
-<iframe src="/melbdjango1/" width="100%" height="400px" frameborder="0"></iframe>
 Notes
 =====
 

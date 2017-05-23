@@ -4,7 +4,9 @@ date: '2016-05-03'
 layout: article
 redirect_from: '/etc/buzzconf-nights-esp8266-flobot-ciril/'
 slug: 'buzzconf-nights-esp8266-flobot-ciril'
-tags: iot, conference
+tags:
+  - iot
+  - conference
 title: 'The Internet of Toys: ESP8266, Flobot and Ciril'
 ---
 

@@ -20,7 +20,7 @@ title: Static Sites using jQuery to appear Dynamic
 ---
 
 This is a little addendum to my [previous post about static vs. dynamic
-sites](/html5/static-vs-dynamic-sites/). A couple of people have
+sites](../static-vs-dynamic-sites/). A couple of people have
 mentioned that while they like the idea of offloading their site to a
 CDN (such as [AWS S3](http://aws.amazon.com/s3/)), they're not ready to
 have their site look like some relic from 1999.

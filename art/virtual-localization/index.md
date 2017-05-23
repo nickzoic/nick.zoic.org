@@ -4,7 +4,7 @@ date: '2011-05-01'
 layout: article
 redirect_from: '/etc/virtual-localization/'
 slug: 'virtual-localization'
-tags: mesh networks
+tags: networks
 title: Virtual Localization
 ---
 

@@ -4,7 +4,6 @@ date: '2011-04-28'
 layout: article
 redirect_from: '/etc/templates-fugit/'
 slug: 'templates-fugit'
-tags: templates
 title: Templates Fugit
 ---
 

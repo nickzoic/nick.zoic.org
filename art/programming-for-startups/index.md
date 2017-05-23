@@ -183,8 +183,7 @@ Some of my favourite Web programming / HTML5 resources:
 -   [Dive into HTML5](http://diveintohtml5.info/)
 -   [Douglas Crockford on Javascript](http://javascript.crockford.com/)
 -   [CanIUse](http://caniuse.com/#cats=HTML5)
--   I've also [written a few articles on HTML5
-    myself](http://nick.zoic.org/html5/).
+-   I've also [written a few articles on HTML5 myself](../../tag/html5/).
 
 Apps & Applications
 -------------------

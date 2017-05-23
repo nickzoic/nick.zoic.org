@@ -4,7 +4,7 @@ date: '2015-10-02'
 layout: article
 redirect_from: '/etc/universal-authenticator/'
 slug: 'universal-authenticator'
-tags: security crypto
+tags: crypto
 title: Universal Authenticators
 ---
 

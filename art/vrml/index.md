@@ -4,7 +4,10 @@ date: '2011-05-01'
 layout: article
 redirect_from: '/etc/vrml/'
 slug: vrml
-tags: vr networks languages
+tags:
+  - vr
+  - networks
+  - languages
 title: 'VRML: Very Odd.'
 ---
 

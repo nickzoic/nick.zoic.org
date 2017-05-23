@@ -99,7 +99,7 @@ Messages
 ========
 
 I've talked before about [APIs based on
-messages](../basic-mobile-app-architecture/#messages). The general
+messages](../mobile-app-architecture/#messages). The general
 idea is that each of these messages translates into a stored procedure
 call. Each stored procedure runs a series of SQL commands, and sends
 back the result as JSON. This is very similar to what happens in a

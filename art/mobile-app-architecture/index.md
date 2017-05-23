@@ -3,6 +3,8 @@ category: HTML5
 date: '2013-05-20'
 layout: article
 redirect_from: '/HTML5/mobile-app-architecture/'
+redirect_from: '/HTML5/basic-mobile-app-architecture/'
+redirect_from: '/art/basic-mobile-app-architecture/'
 slug: 'mobile-app-architecture'
 summary: |
     I want to discuss some weirder things on this blog, but I think it'd be

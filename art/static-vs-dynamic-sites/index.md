@@ -48,7 +48,7 @@ Statically Deployed
     production you really might as well deploy the compiled versions as
     static files which change only when the site is redeployed. For
     example, [this blog is statically generated using
-    Pelican](http://nick.zoic.org/etc/new-static-blog-site/) and then
+    Pelican](../new-static-site/) and then
     copied up to [AWS S3](http://aws.amazon.com/s3/).
 
 Periodically Updated

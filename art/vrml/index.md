@@ -11,7 +11,7 @@ tags:
 title: 'VRML: Very Odd.'
 ---
 
-So the [VRML](http://en.wikipedia.org/wiki/VRML) rendering thing isn’t
+So the [VRML](https://en.wikipedia.org/wiki/VRML) rendering thing isn’t
 panning out so well. “Making the simple things simple by making the
 difficult things impossible”.
 

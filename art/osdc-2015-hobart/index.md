@@ -14,8 +14,8 @@ tags:
 title: OSDC 2015 Hobart
 ---
 
-I'm in Hobart in for [OSDC 2015](https://2015.osdc.com.au/) ... [last
-year](/etc/osdc-2014-gold-coast/) was a hoot and while I'm not going to
+I'm in Hobart in for OSDC 2015 ... [last
+year](../osdc-2014-gold-coast/) was a hoot and while I'm not going to
 be quite so omnipresent, I've got one 'proper' presentation to do and I
 might have had a part to play in a Lightning talk ...
 

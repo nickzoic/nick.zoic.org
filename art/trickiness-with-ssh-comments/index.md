@@ -86,7 +86,7 @@ echo disconnected.
 fi
 ~~~
 
-[Halil Baysal](http://h-network.eu/) replies:
+Halil Baysal replies:
 =============================================
 
 Hi,

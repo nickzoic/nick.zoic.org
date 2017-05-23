@@ -40,7 +40,7 @@ But at the end of the day scribbling all over a canvas isn't all that
 useful. You could save it as a bitmap using
 `BSAVE HELLO WORLD,$A2000,$L2000` ... no wait, that was the Apple \]\[
 talking. Yes, you [can save the canvas to a
-bitmap](http://www.nihilogic.dk/labs/canvas2image/), but it isn't very
+bitmap](https://www.npmjs.com/package/canvas2image), but it isn't very
 elegant.
 
 Instead, this article looks at how to reduce the actual gesture / stroke

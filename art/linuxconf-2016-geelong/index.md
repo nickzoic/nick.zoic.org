@@ -25,9 +25,7 @@ Javascript](../the-emperors-new-closure-functional-programming-in-javascript/)
 Other Videos
 ============
 
-Lots of other videos are up at
-[mirror.linux.org.au](http://mirror.linux.org.au/linux.conf.au/2016/) or
-at the [youtube channel](https://www.youtube.com/user/linuxconfau2016).
+Lots of other videos are up at the [youtube channel](https://www.youtube.com/user/linuxconfau2016).
 I intend to write up a summary of the ones I thought were especially
 interesting, but here's a few links to get you started:
 

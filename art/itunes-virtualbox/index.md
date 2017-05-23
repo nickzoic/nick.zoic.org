@@ -56,11 +56,11 @@ mode. DAMHIK.:
 Refs / Thanks To
 ================
 
-> -   <http://teknofire.net/articles/2009/07/06/ubuntu-vmware-and-accessing-the-iphone/>
-> -   <http://swiss.ubuntuforums.org/showthread.php?t=1285097>
-> -   <http://ubuntuforums.org/showthread.php?t=1318160>
-> -   <http://blahonga.yanson.org/2009/07/pain-upgrading-iphone-to-30-under.html>
-> -   <http://forums.virtualbox.org/viewtopic.php?f=2&t=18852>
+-   http://teknofire.net/articles/2009/07/06/ubuntu-vmware-and-accessing-the-iphone/
+-   http://swiss.ubuntuforums.org/showthread.php?t=1285097
+-   http://ubuntuforums.org/showthread.php?t=1318160
+-   http://blahonga.yanson.org/2009/07/pain-upgrading-iphone-to-30-under.html
+-   http://forums.virtualbox.org/viewtopic.php?f=2&t=18852
 
 Update
 ======

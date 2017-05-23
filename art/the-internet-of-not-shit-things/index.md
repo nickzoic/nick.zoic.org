@@ -32,7 +32,7 @@ Very Valid Criticisms
 There are a lot of criticisms out there, but for me the top ones are:
 
 -   [If you're not the customer, you're the
-    product](http://www.information-age.com/technology/security/1290603/facebook-is-%22deliberately-killing-privacy%22-says-schneier).
+    product](https://www.schneier.com/blog/archives/2013/06/more_on_feudal.html)
     The backend services have to get paid for somehow. and if you're not
     paying directly, you're paying by accepting advertising and/or by
     having your privacy sold.
@@ -44,8 +44,8 @@ There are a lot of criticisms out there, but for me the top ones are:
 -   Crypto support on IoT devices is often very weak. Partly because of
     lack of entropy, lack of CPU resources, etc. It's tricky to use a
     protocol like SSL on a tiny CPU.
--   It's hard enough to get people to [change their smoke alarm
-    batteries](http://duracellfiresafety.com.au/) or [update Internet
+-   It's hard enough to get people to change their smoke alarm
+    batteries or [update Internet
     Explorer](https://heimdalsecurity.com/blog/security-alert-millions-exposed-internet-explorer-vulnerability/).
     No-one ever is going to reflash their thermostat.
 -   The software for things like lightbulbs is often

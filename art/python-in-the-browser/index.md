@@ -28,7 +28,7 @@ Why Would This Be A Good Thing
 
 I read a blog post recently by Ian Bicking which describes [running the
 same language on client and server as "not a big
-deal"](http://blog.ianbicking.org/2011/03/30/js-on-server-and-client-is-not-a-big-deal/)
+deal"](http://blog.ianbicking.org/2011/03/30/js-on-server-and-client-is-not-a-big-deal.html)
 (admittedly, talking about Node.js, eg: JavaScript running on the
 server). I don't tend to agree ...
 
@@ -111,7 +111,7 @@ server code in JavaScript.
 There's also the possibility of writing your own language which runs on
 both platforms, for example:
 [Links](http://lambda-the-ultimate.org/node/1441).
-[CoffeeScript](http://jashkenas.github.com/coffee-script/) might also be
+[CoffeeScript](http://coffeescript.org/) might also be
 a possibility here,
 
 I can't help thinking that one of the Lisp family would be a good

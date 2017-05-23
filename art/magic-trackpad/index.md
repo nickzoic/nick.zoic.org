@@ -16,18 +16,17 @@ summary: (rather out of date)
 Well, I’ve decided to declare 2011 the year of finally getting my
 ergonomics sorted out, and to that end I went and splashed out on a
 [Kinesis Freestyle split
-keyboard](http://www.kinesis-ergo.com/freestyle.htm), and an [Apple
+keyboard](https://www.kinesis-ergo.com/freestyle.htm), and an [Apple
 Magic Trackpad](http://www.apple.com/magictrackpad/). More on the
 keyboard later, this post is all about the Magic Trackpad.
 
-The Magic Trackpad is, sadly, a bluetooth device which means [a certain
-amount of messing around with
-hidd](http://www.excession.org.uk/blog/apple-magic-trackpad-and-ubuntu-lucid.html).
+The Magic Trackpad is, sadly, a bluetooth device which means a certain
+amount of messing around with hidd.
 The missing link for me was that there needs to be a bluetooth PIN agent
 running to prompt you for the PIN you want to connect with:
 `hidd --connect` won’t do that for you. There are all sorts of gnomic
 things, but the simplest one is the
-[simple-agent](http://gitorious.org/bluez/mainline/blobs/master/test/simple-agent)
+'simple-agent'
 which comes as part of the bluez distro ... run this in another
 terminal, now when hidd tries to connect it’ll contact the simple-agent,
 you can enter the proper PIN [^1], and it'll connect.

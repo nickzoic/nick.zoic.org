@@ -145,7 +145,7 @@ Other Stuff
 -   I seem to remember ranting on about [Design Patterns in Dynamic
     Programming](http://norvig.com/design-patterns/), and [Design
     Patterns in
-    Python](http://www.python.org/workshops/1997-10/proceedings/savikko.html).
+    Python](http://legacy.python.org/workshops/1997-10/proceedings/savikko.html).
 -   I probably also went on about the amazing work of [Doug
     Engelbart](http://en.wikipedia.org/wiki/Douglas_Engelbart) (1925 -
     2013), especially the [Mother of All

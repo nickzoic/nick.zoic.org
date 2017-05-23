@@ -13,7 +13,7 @@ summary: Getting data onto curmudgeonly devices
 ---
 
 The [Roving Networks](http://rovingnetworks.com/)
-[RN-42](http://www.rovingnetworks.com/products/RN_42) modules are handy
+RN-42 modules are handy
 pieces of kit, and can be obtained neatly packaged up as the [SparkFun
 BlueSMiRF](https://www.sparkfun.com/categories/115).
 
@@ -41,9 +41,7 @@ Command Mode
 
 The RN-42 runs in two modes: "Command Mode" and "Data Mode".
 
-From the [Advanced User
-Manual](http://www.rovingnetworks.com/resources/download/47/Advanced_User_Manual)
-section 3.1:
+From the Advanced User Manual section 3.1:
 
 > Upon power up the device will be in data mode. To enter command mode,
 > send the characters "\$\$\$" through the serial port or from the

@@ -228,7 +228,7 @@ Agility
 
 I talked a bit about the [Agile Manifesto](http://agilemanifesto.org/)
 and whether or not it was [still
-relevant](http://pragdave.me/blog/2014/03/04/time-to-kill-agile/). I
+relevant](http://pragdave.me/blog/2014/03/04/time-to-kill-agile.html). I
 won't recap it all here since there is no shortage of discussion on the
 web.
 

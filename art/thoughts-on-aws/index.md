@@ -165,7 +165,7 @@ When [configured in a
 RAID0](http://www.gabrielweinberg.com/blog/2011/05/raid0-ephemeral-storage-on-aws-ec2.html),
 the local ephemeral storage can offer ["extremely high throughput and an
 acceptable random seek
-performance"](http://victortrac.com/EC2_Ephemeral_Disks_vs_EBS_Volumes)
+performance"](https://victortrac.com/ec2-ephemeral-disks-vs-ebs-volumes-in-raid.html)
 . so this may be an attractive option if SimpleDB is insufficiently
 flexible for your needs.
 

@@ -10,10 +10,8 @@ title: Universal Authenticators
 
 I was checking out of my hotel the other day, fumbling a
 [magstripe](https://en.wikipedia.org/wiki/Magnetic_stripe_card) hotel
-door key, a [proximity car
-key](http://www.toyota.com.au/rav4/features/technology/keyless-entry)
-and a wallet full of [Paywave
-RFID](http://www.visa.com.au/cardholders/paywave/) cards, and it occured
+door key, a proximity car key and a wallet full of Paywave
+RFID cards, and it occured
 to me that we're really doing this key thing all wrong.
 
 *Would it not be nice if I could just have one device to do all of these

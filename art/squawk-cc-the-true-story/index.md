@@ -14,7 +14,7 @@ title: 'Squawk.CC -- The true story'
 Metadata Retention
 ==================
 
-On Monday, before [OSDC 2015](https://2015.osdc.com.au/) got started,
+On Monday, before OSDC 2015 got started,
 some of us attendees were sitting around a bar in Salamanca Place and
 the topic of [Australia's new Metadata Retention
 legislation](https://www.ag.gov.au/dataretention) came up, as it tends
@@ -92,7 +92,7 @@ On Thursday's lightning talks at OSDC 2015, he announced
 [squawk.cc](http://squawk.cc/), which by this point had not just a
 domain name but [a github repo](https://github.com/bendechrai/squawk), a
 logo contributed by
-[Donna](https://2015.osdc.com.au/speaker/profile/38/) and an SSL
+Donna Benjamin and an SSL
 certificate is on its way from [Let's
 Encrypt](https://letsencrypt.org/).
 

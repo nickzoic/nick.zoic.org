@@ -100,7 +100,7 @@ For example, your news site could:
     be used to customize the user's experience.
 
 Making this work elegantly may involve some messing around with [Cache
-Manifests](http://localhost:8000/html5/taming-cachemanifest-caching/)
+Manifests](../taming-cache-manifest-caching/)
 and [Cross-Origin Request
 Sharing](http://en.wikipedia.org/wiki/Cross-origin_resource_sharing) but
 it has the potential to radically decrease the amount of infrastructure

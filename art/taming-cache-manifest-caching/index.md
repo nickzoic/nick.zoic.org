@@ -10,8 +10,7 @@ tags:
 title: 'Taming "cache.manifest" Caching'
 ---
 
-HTML5 apps can use [Cache
-Manifests](http://www.w3.org/TR/html5/offline.html#manifests) to
+HTML5 apps can use [Cache Manifests](https://www.w3.org/TR/2011/WD-html5-20110525/offline.html) to
 configure the browser's Application Cache, allowing faster startup of
 HTML5 apps and also offline operation.
 

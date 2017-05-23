@@ -47,6 +47,5 @@ Other Sites
 -   [Twitter](https://twitter.com/nickzoic/)
 -   [LinkedIn](http://www.linkedin.com/in/nickzoic)
 -   [Stack Overflow](http://stackoverflow.com/users/90927/nickzoic)
--   [Careers 2.0](http://careers.stackoverflow.com/nickzoic)
 -   [GitHub](http://github.com/nickzoic)
 -   [Hacker News](http://news.ycombinator.com/threads?id=nickzoic)

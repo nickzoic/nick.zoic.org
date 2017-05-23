@@ -1,0 +1,98 @@
+<html>
+    <head>
+        <title>Mouse/Canvas Test</title>
+        <meta name="apple-mobile-web-app-capable" content="yes"/>
+        <meta name="viewport" content="user-scalable=no, width=device-width"/>
+        
+        <style type="text/css">
+            canvas { border: 1px dashed red;}
+        </style>
+
+        <script type="text/javascript" src="numeric-1.2.6.min.js"></script>
+        <script type="text/javascript">
+         
+            window.onload = function() {
+                var canvas = document.getElementById("canvas");
+                var context = canvas.getContext("2d");
+                
+                function draw_marker(x, y, r) {
+                    context.beginPath();
+                    context.arc(x, y, r, 0, Math.PI*2);
+                    context.closePath();
+                    context.fillStyle = "#0F0";
+                    context.fill();
+                }
+                
+                function draw_segment(x1, y1, x2, y2) {
+                    context.beginPath();
+                    context.moveTo(x1, y1);
+                    context.lineTo(x2, y2);
+                    context.strokeStyle = "#0F0";
+                    context.stroke();
+                    context.closePath();
+                }
+                
+                function draw_spline(spline, style) {
+                    var xys = spline.at(numeric.linspace(0,1,100));
+                    context.beginPath();
+                    context.moveTo(xys[0][0], xys[0][1]);
+                    for (var i=1; i<xys.length; i++) {
+                        context.lineTo(xys[i][0], xys[i][1]);
+                    }
+                    context.strokeStyle = style;
+                    context.stroke();
+                    context.closePath();
+                }
+                
+                canvas.onmousedown = canvas.ontouchstart = function (e) {
+                    
+                    var td = 0;
+                    var ox = e.clientX || e.touches[0].pageX;
+                    var oy = e.clientY || e.touches[0].pageY;
+                    var xys = [ [ox, oy] ];
+                    var dds = [ 0 ]; 
+                    draw_marker(ox, oy);
+                    
+                    canvas.onmousemove = canvas.ontouchmove = function (e) {
+                        e.preventDefault();
+                        
+                        var nx = e.clientX || e.touches[0].pageX;
+                        var ny = e.clientY || e.touches[0].pageY;
+                        
+                        var dx = nx - ox;
+                        var dy = ny - oy;
+                        var dd = Math.sqrt(dx*dx + dy*dy);
+                        if (dd > 10) {
+                            draw_segment(ox, oy, nx, ny);
+                            draw_marker(nx, ny, 5);
+                            xys.push([nx, ny]);
+                            td += dd;
+                            dds.push(td);
+                            ox = nx;
+                            oy = ny;
+                        }
+                    }
+                    
+                    canvas.onmouseup = canvas.onmouseout = canvas.ontouchend = function (e) {
+                        canvas.onmousemove = canvas.ontouchmove = null;
+                        
+                        if (dds.length > 1) {
+                            var ts = [];
+                            for (var i in dds) {
+                                ts.push(dds[i]/td);
+                            }
+                            var ss = numeric.spline(ts, xys);
+                            draw_spline(ss, "#F00");
+                        }    
+                    };
+                    
+                }
+                
+                
+            };            
+        </script>
+    </head>
+    <body>
+        <canvas id="canvas" width="600" height="400"></canvas>
+    </body>
+</html>

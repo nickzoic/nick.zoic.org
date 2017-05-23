@@ -33,26 +33,26 @@ IoT Miniconf: ESP and MicroPython
 =================================
 
 -   [ESP8266 and
-    Micropython (Slides)](/pycon2016/esp8266-and-micropython/)
+    Micropython (Slides)](../../talk/pycon2016/esp8266-and-micropython/)
 -   [ESP8266 and
     Micropython (Video)](https://www.youtube.com/watch?v=C19fFU-TVWU)
 
 I'd previously talked about some of this stuff at Buzzconf Nights:
 
--   [The Internet of Toys](/etc/buzzconf-nights-esp8266-flobot-ciril/)
+-   [The Internet of Toys](../buzzconf-nights-esp8266-flobot-ciril/)
 
 IoT Miniconf: The Internet of (Better) Things
 =============================================
 
 -   [The Internet of (Better)
-    Things (Slides)](/pycon2016/internet-of-not-shit-things/)
+    Things (Slides)](/../../talk/pycon2016/internet-of-not-shit-things/)
 -   [The Internet of (Better)
     Things (Video)](https://www.youtube.com/watch?v=dcXMZOuU0HA)
 
 This was based on a blog post:
 
 -   [The Internet of Not Shit
-    Things](/etc/the-internet-of-not-shit-things/)
+    Things](../the-internet-of-not-shit-things/)
 
 I think the Miniconf went very well and I believe we'll be doing it
 again next year. Hopefully I'll have lots more fun things to talk about!
@@ -63,7 +63,7 @@ Lightning Talk: Flobot
 Several people asked about this after the Micropython talk, so ...
 
 -   [Flobot Lightning
-    Talk (Slides)](/pycon2016/flobot-visual-programming/)
+    Talk (Slides)](../../talk/pycon2016/flobot-visual-programming/)
 -   [Flobot Lightning
     Talk (Video)](https://www.youtube.com/watch?v=vgbZInw6rNM#t=2m20s)
 
@@ -74,12 +74,12 @@ entire thing is MIT licensed.
 There's heaps more stuff about Flobot:
 
 -   [Flobot original blog
-    post](/etc/flobot-graphical-dataflow-language-for-robots/)
--   [Flobot continued](/etc/flobot-continued/)
+    post](../flobot-graphical-dataflow-language-for-robots/)
+-   [Flobot continued](../flobot-continued/)
 -   [Flobot on Github](https://github.com/mnemote/flobot/)
 
 I also discuss and demo in \* [The Internet of
-Toys](/etc/buzzconf-nights-esp8266-flobot-ciril/)
+Toys](../buzzconf-nights-esp8266-flobot-ciril/)
 
 The little prototype robot I demoed with is called Ciril. I've also been
 working on getting Flobot to work on an ESP chip riding on top of an

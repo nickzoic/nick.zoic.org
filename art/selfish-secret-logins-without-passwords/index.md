@@ -113,7 +113,7 @@ worse.
 =========
 
 I put together a little demo of this principle at
-[kringle.zoic.org](http://kringle.zoic.org/), not exactly a high
+kringle.zoic.org (now defunct), not exactly a high
 security application but I thought a nice demo.
 
 I invited a bunch of friends to try it out for our annual "Christmas in

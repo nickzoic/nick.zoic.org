@@ -34,8 +34,8 @@ methods, and before you know it you've written a sketching program. Pick
 up *touch* events instead of *mouse* events, and you can even run it on
 one of those newfangled tablet things.
 
-<iframe src="/files/demo-mouse-canvas.html" width="100%" height="420px" frameborder="0"></iframe>
-<a href="/files/demo-mouse-canvas.html">source</a>
+<iframe src="demo-mouse-canvas.html" width="100%" height="420px" frameborder="0"></iframe>
+<a href="demo-mouse-canvas.html">source</a>
 But at the end of the day scribbling all over a canvas isn't all that
 useful. You could save it as a bitmap using
 `BSAVE HELLO WORLD,$A2000,$L2000` ... no wait, that was the Apple \]\[
@@ -89,8 +89,8 @@ them in an array and then feed the array to the spline function,
 creating a handy vector spline which can be used to interpolate the line
 at any point.
 
-<iframe src="/files/demo-mouse-canvas-splines.html" width="100%" height="420px" frameborder="0"></iframe>
-<a href="/files/demo-mouse-canvas-splines.html">source</a>
+<iframe src="demo-mouse-canvas-splines.html" width="100%" height="420px" frameborder="0"></iframe>
+<a href="demo-mouse-canvas-splines.html">source</a>
 Because we're interpolating, we can reduce the number of points we're
 keeping track of and our result will still follow the user's movements
 closely. In the above example, we only record a point when the pointer
@@ -110,8 +110,8 @@ places where it diverges from the original, and add a node whereever the
 divergence is worst. Repeat several times, and you've got a very close
 approximation.
 
-<iframe src="/files/demo-mouse-canvas-splines-simplify.html" width="100%" height="420px" frameborder="0"></iframe>
-<a href="/files/demo-mouse-canvas-splines-simplify.html">source</a>
+<iframe src="demo-mouse-canvas-splines-simplify.html" width="100%" height="420px" frameborder="0"></iframe>
+<a href="demo-mouse-canvas-splines-simplify.html">source</a>
 The above example has several flaws, but does fairly well on hand-drawn
 shapes of modest complexity. The original stroke is shown in green, then
 the initial spline in red and the simplified spline in blue. Blue dots

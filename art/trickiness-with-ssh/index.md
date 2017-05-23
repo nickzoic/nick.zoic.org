@@ -108,4 +108,4 @@ Comments
 ========
 
 This is my only blog post which has ever received useful comments, so
-I've [reproduced them here](./comments.html).
+I've [reproduced them here](../trickiness-with-ssh-comments/).

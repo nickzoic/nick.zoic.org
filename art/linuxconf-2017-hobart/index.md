@@ -31,7 +31,7 @@ Hardware Miniconf on Tuesday.
 
 I've been lucky enough to be involved with this port and would like to
 thank Damien for his help getting started and
-[Microbric](https://microbric.com/) for their support of this effort.
+[Microbric](http://www.microbric.com/) for their support of this effort.
 
 -   [MicroPython on ESP32 Slides](/talk/lca2017/)
 -   [MicroPython on ESP32 Video](https://youtu.be/-MrqCmq3Z5k)

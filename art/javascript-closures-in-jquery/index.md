@@ -7,7 +7,7 @@ slug: 'javascript-closures-in-jquery'
 tags:
     - html5
     - javascript
-    - functional programming
+    - functional-programming
 title: Using Closures in Javascript
 ---
 
@@ -107,3 +107,8 @@ I've written a bunch of HTML5 / javascript stuff in recent years which
 uses closures as a way of never actually having to traverse the DOM. It
 is easy, fast, works well within the Chrome debugger and reduces your
 reliance on jQuery (etc).
+
+## UPDATE
+
+More on this at [The Emperor's New Closure: Functional Programming in Javascript](../the-emperors-new-closure-functional-programming-in-javascript/)
+

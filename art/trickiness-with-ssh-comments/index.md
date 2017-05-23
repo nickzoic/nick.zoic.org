@@ -11,7 +11,7 @@ title: Comments On More Trickiness With SSH
 summary: the only useful blog post comments I ever got before I turned them off forever
 ---
 
-[More Trickiness With SSH](./) is my only blog post which has ever
+[More Trickiness With SSH](../trickiness-with-ssh/) is my only blog post which has ever
 received useful comments, so I'd hate to lose them while converting
 files. Hopefully these comments aren't too mangled in transit. Thanks to
 the original authors:

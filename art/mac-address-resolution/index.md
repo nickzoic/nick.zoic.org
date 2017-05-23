@@ -81,7 +81,7 @@ available to a client.
 A '.mac' TLD would make this information available. A device
 manufactured with address (eg) AA:BB:CC:DD:EE:FF and exposing a web
 configuration interface could be labeled with a URL
-'<http://aabbccddeeff.mac/>' which can be used to look up what its IP
+`http://aabbccddeeff.mac` which can be used to look up what its IP
 address is.
 
 When it joins a network, the DHCP server issues it an address ... say

@@ -1,0 +1,130 @@
+<html>
+    <head>
+        <title>Mouse/Canvas Test</title>
+        <meta name="apple-mobile-web-app-capable" content="yes"/>
+        <meta name="viewport" content="user-scalable=no, width=device-width"/>
+        
+        <style type="text/css">
+            canvas { border: 1px dashed red;}
+        </style>
+
+        <script type="text/javascript" src="numeric-1.2.6.min.js"></script>
+        <script type="text/javascript">
+         
+            window.onload = function() {
+                var context1 = canvas1.getContext("2d");
+                var context2 = canvas2.getContext("2d");
+                
+                function min() {
+                    var m = arguments[0];
+                    for (var i=1; i<arguments.length; i++) {
+                        if (arguments[i] < m) m = arguments[i];
+                    }
+                    return m;
+                }
+                
+                function draw_segment(context, x1, y1, x2, y2) {
+                    context.beginPath();
+                    context.moveTo(x1, y1);
+                    context.lineTo(x2, y2);
+                    context.strokeStyle = "#0F0";
+                    context.stroke();
+                    context.closePath();
+                }
+                
+                function draw_box(context, x1, y1, x2, y2) {
+                    context.beginPath();
+                    context.moveTo(x1, y1);
+                    context.lineTo(x1, y2);
+                    context.lineTo(x2, y2);
+                    context.lineTo(x2, y1);
+                    context.lineTo(x1, y1);
+                    context.strokeStyle = "#F00";
+                    context.stroke();
+                    context.closePath();
+                }
+                
+                frame.onmousedown = frame.ontouchstart = function (e) {
+                    
+                    var td = 0;
+                    var ox = e.x || e.touches[0].pageX;
+                    var oy = e.y || e.touches[0].pageY;
+                    var xys = [ [ox, oy] ];
+                    var dds = [ 0 ]; 
+                    
+                    frame.onmousemove = frame.ontouchmove = function (e) {
+                        e.preventDefault();
+                        
+                        var nx = e.x || e.touches[0].pageX;
+                        var ny = e.y || e.touches[0].pageY;
+                        
+                        var dx = nx - ox;
+                        var dy = ny - oy;
+                        var dd = Math.sqrt(dx*dx + dy*dy);
+                        if (dd > 10) {
+                            draw_segment(context2, ox, oy, nx, ny);
+                            xys.push([nx, ny]);
+                            td += dd;
+                            dds.push(td);
+                            ox = nx;
+                            oy = ny;
+                        }
+                    }
+                    
+                    frame.onmouseup = frame.onmouseout = frame.ontouchend = function (e) {
+                        frame.onmousemove = frame.ontouchmove = null;
+                        frame.onmouseup = frame.onmouseout = frame.ontouchend = null;
+                        
+                        var x1 = xys[0][0], x2 = xys[0][0], y1 = xys[0][1], y2 = xys[0][1];
+                        for (var i=1; i<xys.length; i++) {
+                            if (xys[i][0] < x1) x1 = xys[i][0];
+                            if (xys[i][0] > x2) x2 = xys[i][0];
+                            if (xys[i][1] < y1) y1 = xys[i][1];
+                            if (xys[i][1] > y2) y2 = xys[i][1];
+                        }
+                        
+                        var tc=0, bc=0, lc=0, rc=0;
+                        var ddr = 0;
+                        var ddc = 0;
+                        for (var i=0; i<xys.length; i++) {
+                            var dr = min(xys[i][0] - x1, x2 - xys[i][0], xys[i][1] - y1, y2 - xys[i][1]);
+                            ddr += dr * dr;
+                            
+                            var dex = (xys[i][0] - (x1+x2)/2) / (x2-x1);
+                            var dey = (xys[i][1] - (y1+y2)/2) / (y2-y1);
+                            var dexy = Math.sqrt(dex*dex + dey*dey);
+                            debug.innerText += dexy + " ";
+                            ddc += Math.abs(0.5 - dexy);
+                            
+                            if (xys[i][0] - x1 < 20) lc++;
+                            if (x2 - xys[i][0] < 20) rc++;
+                            if (xys[i][1] - y1 < 20) tc++;
+                            if (y2 - xys[i][0] < 20) bc++;
+                        }
+                        
+                        ddr /= xys.length;
+                        ddc /= xys.length;
+                        
+                        debug.innerText = ddr + " " + ddc;
+                        
+                        if (ddr < 2000 && lc > 5 && rc > 5 && tc > 5 && bc > 5) {
+                            draw_box(context1, x1, y1, x2, y2);
+                        }
+                        
+                        canvas2.width = canvas2.width;
+                    };
+                    
+                }
+                
+                
+            };            
+        </script>
+    </head>
+    <body>
+        <div id="frame" style="position: relative">
+            <canvas id="canvas1" width="800" height="600" style="position: absolute"></canvas>
+            <canvas id="canvas2" width="800" height="600" style="position: absolute"></canvas>
+        </div>
+        <span id="debug"></span>
+    </body>
+</html>

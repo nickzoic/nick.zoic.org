@@ -28,7 +28,7 @@ old site, and here it is!
 The wallpaper is from: [Subtle Patterns](http://subtlepatterns.com/3px-tile/).
 
 "Bitter" and "Source Sans Pro" font suggestion thanks to: [inSquare
-Media](http://www.insquaremedia.com/blog/15-web-design-stuff/50-our-favourite-google-font-combinations).
+Media](http://www.insquaremedia.com/).
 
 HTTPS
 =====

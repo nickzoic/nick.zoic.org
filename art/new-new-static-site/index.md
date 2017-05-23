@@ -18,6 +18,11 @@ Now we're shifting over to running on [Jekyll](https://jekyllrb.com/) /
 
 Some things are still a bit borken, but I'm slowly cleaning them up.
 
+UPDATE: This turned out to be a bit epic, due to some mistakes in the way internal links
+were converted, and link rot on the external resources turned out to be a huge problem.
+Still, [LinkChecker](https://wummel.github.io/linkchecker/) finally returns without errors,
+so hopefully most of the links are meaningful again.
+
 Theme
 =====
 

@@ -118,6 +118,27 @@ pre {
     padding: 5px;
 }
 
+table {
+    margin: auto;
+    border-collapse: collapse;
+}
+
+table th {
+    background-color: #DDD;
+}
+
+table td, table th {
+    border: 1px solid #666;
+    padding: 10px;
+    min-width: 25%;
+    text-align: center;
+}
+   
+table b, pre b {
+    font-weight: normal;
+    color: #FF0000;
+}
+
 body.flip pre {
     background-color: #666;
     padding: 10px;

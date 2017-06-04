@@ -284,11 +284,213 @@ srv5.set(0.9)</pre>
     </div>
 
     <div class="slide">
+	            <h3>MicroPython ESP32 Repo Files</h3>
+		            <pre>ACKNOWLEDGEMENTS    esp32/     minimal/    teensy/
+bare-arm/           esp8266/   mpy-cross/  tests/
+cc3200/             examples/  pic16bit/   tools/
+CODECONVENTIONS.md  extmod/    py/         unix/
+CONTRIBUTING.md     lib/       qemu-arm/   windows/
+docs/               LICENSE    README.md   zephyr/
+drivers/            logo/      stmhal/</pre>
+			        </div>
+
+				    <div class="slide">
+					            <h3>MicroPython ESP32 Repo &mdash; Files (Docs)</h3>
+						            <pre><b>ACKNOWLEDGEMENTS</b>    esp32/     minimal/    teensy/
+bare-arm/           esp8266/   mpy-cross/  <b>tests/</b>
+cc3200/             <b>examples/</b>  pic16bit/   tools/
+<b>CODECONVENTIONS.md</b>  extmod/    py/         unix/
+<b>CONTRIBUTING.md</b>     lib/       qemu-arm/   windows/
+<b>docs/</b>               <b>LICENSE</b>    <b>README.md</b>   zephyr/
+drivers/            <b>logo/</b>      stmhal/</pre>
+							        <p>Documentation, Examples, Tests</p>
+								    </div>
+
+								        <div class="slide">
+										        <h3>MicroPython ESP32 Repo &mdash; Files (Shared)</h3>
+											        <pre>ACKNOWLEDGEMENTS    esp32/     minimal/    teensy/
+bare-arm/           esp8266/   <b>mpy-cross/</b>  tests/
+cc3200/             examples/  pic16bit/   <b>tools/</b>
+CODECONVENTIONS.md  <b>extmod/</b>    <b>py/</b>         unix/
+CONTRIBUTING.md     <b>lib/</b>       qemu-arm/   windows/
+docs/               LICENSE    README.md   zephyr/
+<b>drivers/</b>            logo/      stmhal/</pre>
+												    <p>Shared between ports</p>
+												        </div>
+													    <div class="slide">
+														            <h3>MicroPython ESP32 Repo &mdash; Files (Ports)</h3>
+															            <pre>ACKNOWLEDGEMENTS    <b>esp32/</b>     <b>minimal/</b>    <b>teensy/</b>
+<b>bare-arm/</b>           <b>esp8266/</b>   mpy-cross/  tests/
+<b>cc3200/</b>             examples/  <b>pic16bit/</b>   tools/
+CODECONVENTIONS.md  extmod/    py/         <b>unix/</b>
+CONTRIBUTING.md     lib/       <b>qemu-arm/</b>   <b>windows/</b>
+docs/               LICENSE    README.md   <b>zephyr/</b>
+drivers/            logo/      <b>stmhal/</b></pre>
+																            <p>Ports to specific platforms</p>
+																	        </div>
+																		    <div class="slide">
+																			            <h3>MicroPython ESP32 Repo &mdash; Files (Ports)</h3>
+																				            <pre>ACKNOWLEDGEMENTS    <b>esp32/</b>     minimal/    teensy/
+bare-arm/           esp8266/   mpy-cross/  tests/
+cc3200/             examples/  pic16bit/   tools/
+CODECONVENTIONS.md  extmod/    py/         unix/
+CONTRIBUTING.md     lib/       qemu-arm/   windows/
+docs/               LICENSE    README.md   zephyr/
+drivers/            logo/      stmhal/</pre>
+																					    <p>The ESP32 port!</p>
+																					        </div>
+																						    <div class="slide">
+																							            <h3>esp32 port &mdash; Files</h3>
+																								            <pre>esp32.custom_common.ld  modesp.c        mphalport.c
+fatfs_port.c            modmachine.c    mphalport.h
+gccollect.c             modmachine.h    qstrdefsport.h
+gccollect.h             modnetwork.c    <b>README.md</b>
+help.c                  modsocket.c     sdkconfig.h
+machine_pin.c           modules/        uart.c
+main.c                  moduos.c        uart.h
+<b>Makefile</b>                modutime.c
+memory.h                mpconfigport.h</pre>
+																									    <p>README and Makefile</p>
+																									        </div>
+
+																										    <div class="slide">
+																											            <h3>esp32 port &mdash; Files (Modules)</h3>
+																												            <pre>esp32.custom_common.ld  <b>modesp.c</b>        mphalport.c
+fatfs_port.c            <b>modmachine.c</b>    mphalport.h
+gccollect.c             modmachine.h    qstrdefsport.h
+gccollect.h             <b>modnetwork.c</b>    README.md
+help.c                  <b>modsocket.c</b>     sdkconfig.h
+machine_pin.c           modules/        uart.c
+main.c                  <b>moduos.c</b>        uart.h
+Makefile                <b>modutime.c</b>
+memory.h                mpconfigport.h</pre>
+																													    <p>Modules implemented in C</p>
+																													        </div>
+
+																														    <div class="slide">
+																															            <h3>How do C modules work? &mdash; 1</h3>
+																																            <pre><b>&gt;&gt;&gt; import esp</b>
+<b>&gt;&gt;&gt; dir(esp)</b>
+['__name__', 'flash_read', 'flash_write', 'flash_erase',
+ 'flash_size', 'flash_user_start']
+<b>&gt;&gt;&gt; esp.flash_size()</b>
+4194304</pre>
+																																	        </div>
+
+																																		    <div class="slide">
+																																			            <h3>How do C modules work? &mdash; 2</h3>
+																																				            <p>esp-idf/components/spi_flash/include/esp_spi_flash.h</p>
+																																					            <pre class="medium">/**
+ * @brief  Get flash chip size, as set in binary image header
+ *
+ * @note This value does not necessarily match real flash size.
+ *
+ * @return size of flash chip, in bytes
+ */
+size_t <b>spi_flash_get_chip_size</b>();</pre>
+																																						        </div>
+
+																																							    <div class="slide">
+																																								            <h3>How do C modules work? &mdash; 3</h3>
+																																									            <p>esp32/modesp.c</p>
+																																										            <pre class="medium">#include "<b>esp_spi_flash.h</b>"
+
+STATIC mp_obj_t esp_flash_size(void) {
+    return mp_obj_new_int_from_uint(<b>spi_flash_get_chip_size()</b>);
+}</pre>
+																																											        </div>
+
+																																												    <div class="slide">
+																																													            <h3>How do C modules work? &mdash; 4</h3>
+																																														            <p>esp32/modesp.c</p>
+																																															            <pre class="medium">#include "esp_spi_flash.h"
+
+STATIC <b>mp_obj_t esp_flash_size(void)</b> {
+    <b>return mp_obj_new_int_from_uint(</b>spi_flash_get_chip_size()<b>)</b>;
+}</pre>
+																																																        </div>
+
+																																																	    <div class="slide">
+																																																		            <h3>How do C modules work? &mdash; 5</h3>
+																																																			            <p>esp32/modesp.c</p>
+																																																				            <pre class="medium">#include "esp_spi_flash.h"
+
+STATIC mp_obj_t esp_flash_size(void) {
+    return mp_obj_new_int_from_uint(spi_flash_get_chip_size());
+}
+STATIC <b>MP_DEFINE_CONST_FUN_OBJ_0(esp_flash_size_obj, esp_flash_size)</b>;</pre>
+																																																					        </div>
+																																																						    <div class="slide">
+																																																							            <h3>How do C modules work? &mdash; 6</h3>
+																																																								            <p>esp32/modesp.c</p>
+																																																									            <pre class="medium">#include "esp_spi_flash.h"
+
+STATIC mp_obj_t esp_flash_size(void) {
+    return mp_obj_new_int_from_uint(spi_flash_get_chip_size());
+}
+STATIC MP_DEFINE_CONST_FUN_OBJ_0(esp_flash_size_obj, esp_flash_size);
+
+STATIC const mp_rom_map_elem_t <b>esp_module_globals_table</b>[] = {
+    { MP_ROM_QSTR(MP_QSTR___name__), MP_ROM_QSTR(MP_QSTR_esp) },
+    { MP_ROM_QSTR(MP_QSTR_<b>flash_size</b>), MP_ROM_PTR(&amp;<b>esp_flash_size_obj</b>) },
+};
+    </div>
+
+    <div class="slide">
+        <h3>How do C modules work? &mdash; 7</h3>
+        <p>esp32/modesp.c</p>
+        <pre class="medium">#include "esp_spi_flash.h"
+
+STATIC mp_obj_t esp_flash_size(void) {
+    return mp_obj_new_int_from_uint(spi_flash_get_chip_size());
+}
+STATIC MP_DEFINE_CONST_FUN_OBJ_0(esp_flash_size_obj, esp_flash_size);
+
+STATIC const mp_rom_map_elem_t esp_module_globals_table[] = {
+    { MP_ROM_QSTR(MP_QSTR___name__), MP_ROM_QSTR(MP_QSTR_esp) },
+    { MP_ROM_QSTR(MP_QSTR_flash_size), MP_ROM_PTR(&amp;esp_flash_size_obj) },
+};
+STATIC MP_DEFINE_CONST_DICT(<b>esp_module_globals</b>, esp_module_globals_table);
+
+const mp_obj_module_t esp_module = {
+    .base = { &amp;mp_type_module },
+    .globals = (mp_obj_dict_t*)&amp;<b>esp_module_globals</b>,
+};</pre>
+	    </div>
+
+	        <div class="slide">
+			        <h3>How do C modules work? &mdash; 8</h3>
+				        <p>esp32/mpconfigport.h</p>
+					        <pre class="medium">extern const struct _mp_obj_module_t <b>esp_module</b>;
+
+#define MICROPY_PORT_BUILTIN_MODULES \
+    { MP_OBJ_NEW_QSTR(MP_QSTR_<b>esp</b>), (mp_obj_t)&amp;<b>esp_module</b> }, \</pre>
+
+						        <p>esp32/Makefile</p>
+							        <pre class="medium">SRC_C = \
+        <b>modesp.c</b> \</pre>
+								    </div>
+
+								        <div class="slide">
+										        <h3>How do C modules work? &mdash; 9</h3>
+											        <pre><b>&gt;&gt;&gt; import esp</b>
+<b>&gt;&gt;&gt; dir(esp)</b>
+['__name__', 'flash_read', 'flash_write', 'flash_erase',
+ 'flash_size', 'flash_user_start']
+<b>&gt;&gt;&gt; esp.flash_size()</b>
+4194304</pre>
+												    </div>
+												    
+
+
+    <div class="slide">
        <h3>Summary</h3>
        <p>If you're interested in Microcontrollers / IoT / Robotics:</p>
        <ul>
           <li>ESP32 is about the cheapest</li>
           <li>MicroPython is about the easiest</li>
+	  <li>Contributions Welcome!<br/>
+		  (Pull Requests / Issues / Feedback)</li>
        </ul>
     </div>
 

@@ -6,6 +6,9 @@
   </head>
   <body>
 
+	   <!-- hey yeah I wrote this in HTML because it seemed like a good idea at the time.
+	             The whole flip.js thing is mine too, feel free to use it yourself though. -->
+		     
     <div class="slide">
       <h1>ESP32 and MicroPython</h1>
       <h3>Nick Moore<br/>
@@ -15,7 +18,7 @@
     <div class="slide">
        <h1>ESP32</h1>
        <img class="whiteborder" src="img/esp32-package.jpg" height="50%"/>
-       <!-- XXX better photo -->
+       <!-- XXX find a better photo -->
        <p class="small">original image: <a href="https://aliexpress.com">aliexpress.com</a></p>
     </div>
 
@@ -30,10 +33,15 @@
     </div>
 
     <div class="slide">
-       <p>Originally the ESP32 came to prominence as a WiFi controller for AVR
+       <img src="img/esp32-zoom-1024.jpg" height="90%"/>
+       <p class="small">original image: <a href="https://zeptobars.com/en/read/Espressif-ESP32-Wi-Fi-Bluetooth-2.4Ghz-ISM">zeptobars.com</a></p>
+    </div>
+
+    <div class="slide">
+       <p>Originally the ESP8266 came to prominence as a WiFi controller for AVR
           and similar, but ...</p>
        <table>
-        <tr><th>Arduino</th><th><b>ESP32</b></th><th>RPi 2</th></tr>
+        <tr><th>Arduino</th><th><b>ESP8266</b></th><th>RPi 2</th></tr>
 	      <tr><td>AVR<br/>ATMega328P</td><td><b>Tensilica<br/>Xtensa LX106</b></td><td>ARM<br/>Cortex A53</td></tr>
         <tr><td>8 bit</td><td><b>32 bit</b></td><td>32 bit</td></tr>
         <tr><td>1 core</td><td><b>1 core</b></td><td>4 core</td></tr>
@@ -46,7 +54,7 @@
     <div class="slide">
        <h3>New: ESP32</h3>
        <table>
-        <tr><th>Arduino</th><th>ESP32</th><th><b>ESP32</b></th><th>RPi 2</th></tr>
+        <tr><th>Arduino</th><th>ESP8266</th><th><b>ESP32</b></th><th>RPi 2</th></tr>
 	      <tr><td>AVR<br/>ATMega328P</td><td>Tensilica<br/>Xtensa LX106</td><td><b>Tensilica<br/>Xtensa LX6</b></td><td>ARM<br/>Cortex A53</td></tr>
         <tr><td>8 bit</td><td>32 bit</td><td><b>32 bit</b></td><td>32 bit</td></tr>
         <tr><td>1 core</td><td>1 core</td><td><b>2 core</b></td><td>4 core</td></tr>
@@ -55,48 +63,67 @@
         <tr><td>32 KB Flash</td><td>4 MB Flash</td><td><b>16 MB Flash</b></td><td>MicroSDHC</td></tr>
        </table>
     </div>
- 
+
     <div class="slide">
-       <h3>XXX modules</h3>
+        <h3>ESP32 Features</h3>
+
+	<ul>
+		<li>WiFi 2.4GHz</li>
+		<li>Bluetooth (BLE)</li>
+		<li>Many I/O lines</li>
+		<li>ADC, DAC, PWM, Capacitive Touch</li>
+		<li>ULP Processor, Hall effect sensor</li>
+	</ul>
     </div>
 
     <div class="slide">
-       <h3>Programming the ESP32/h3>
+       <h3>ESP32 Modules</h3>
+       <p>WROOM-32 or ESP-32S</p>
+       <img src="img/esp-wroom-32.jpg"/>
+       <p class="small">original image: <a href="https://espressif.com/">espressif.com</a></p>
+    </div>
+
+    <div class="slide">
+       <h3>ESP32 Boards</h3>
+       <p>Sparkfun ESP32 Thing / ESP32-DevKitC / AdaFruit HUZZAH32</p>
+       <img src="img/esp32-devkitc-adafruit.jpg" width="30%"/>
+       <img src="img/sparkfun-esp32-thing.jpg" width="30%"/>
+       <img src="img/esp32-adafruit.jpg" width="30%"/>
+       <p class="small">original images: <a href="https://sparkfun.com">sparkfun.com</a> and
+         <a href="https://espressif.com/">espressif.com</a> and
+         <a href="https://adafruit.com/">adafruit.com</a></p>
+    </div>
+
+    <div class="slide">
+       <h3>Programming the ESP32</h3>
        <ul>
          <li>Serial programming mode to flash memory
             <br/>by pulling GPIO0 low at reset</li>
          <li>Any of the usual RS232-TTL converters</li>
-         <li>3.3v at 250mA ...</li>
-         <li>... bad power gives unpredictable results!</li>
+	 <li>2.2 to 3.6V at 250mA ...</li>
+         <li>... too low current gives unpredictable results</li>
+	 <li>... too high voltage gives predictable failure!</li>
        </ul>
     </div>
 
     <div class="slide">
-       <h3>The easy way: Boards</h3>
-       <p>XXX</p>
-    </div>
-
-    <div class="slide">
        <h3>esptool</h3>
-       <p><a href="https://github.com/themadinventor/esptool">github: themadinventor/esptool</a></p>
+       <p><a href="https://github.com/espressif/esptool">github: espressif/esptool</a></p>
        
-       <pre class="medium"><b>$</b> git clone https://github.com/themadinventor/esptool.git</pre>
-<br/>or<br/>
-<pre class="medium"><b>$</b> pip install esptool</pre>
-<br/>or<br/>
-<pre class="medium"><b>$</b> apt install esptool</pre>
+       <pre class="medium"><b>$</b> git clone https://github.com/espressif/esptool.git
+<b>$</b> cd esptool
+<b>$</b> python setup.py install</pre>
 
+       <p>pypi and ubuntu repositories are <b>not</b> up to date here ...</p>
     </div>
 
     <div class="slide">
       <h3>ESP-IDF</h3>
-      <p>XXX</p>
-    </div>
-
-    <div class="slide">
-       <h3>Other Languages</h3>
-       <p>XXX</p>
-       <p>... and thanks to <a href="https://www.kickstarter.com/projects/214379695/micropython-on-the-esp32-beautifully-easy-iot">a successful Kickstarter campaign</a> and Damien George ...</p>
+       <p><a href="https://github.com/espressif/esp-idf">github: espressif/esp-idf</a></p>
+       <p><em>IoT Development Framework</em></p>
+       <p>C SDK for building programs to run on ESP32</p>
+       <p>Contains LWIP, examples, instructions for building toolchain</p>
+      <pre class="medium"><b>$</b> git clone --recursive https://github.com/espressif/esp-idf.git</b></pre>
     </div>
 
     <div class="slide">
@@ -105,28 +132,58 @@
        <h4><a href="https://micropython.org/">micropython.org</a></h4>
     </div>
 
+
     <div class="slide">
+        <h3>MicroPython</h3>
+	          <ul>
+			           <li>Python 3.4</li>
+				   <li>Quite a lot of the standard libraries</li>
+				            <li>Written in C99</li>
+					             <li>MIT-licensed</li>
+						            </ul>
+							       </div>
+							       
+     <div class="slide">
+         <h3>MicroPython Platforms</h3>
+        <ul>
+           <li><a href="https://store.micropython.org/#/features">PyBoard</a> (ARM Cortex)</li>
+           <li>16-bit PIC</li>
+            <li>ESP8266</li>
+           <li><b>ESP32</b></li>
+        </ul>
+	<p>For more background, see<br/><a href="https://www.youtube.com/watch?v=Zm08hXeuv-I">Damien's talk about the Kickstarter campaign</a><br/>from PyConAU 2016</p>
+	<p>Development of esp32 port was sponsored in part by<br/><a href="http://www.microbric.com/">Microbric Pty Ltd</a></p>
+     </div>    
+
+    <div class="slide">     
        <h3>Getting MicroPython</h3>
        <ul>
-         <li>Git Repo: <a href="https://github.com/micropython/micropython.git">https://github.com/micropython/micropython.git</a></li>
          <li>Download firmware from <a href="https://micropython.org/download#esp32">https://micropython.org/download#esp32</a></li>
        </ul>
        <p>Use esptool to load onto board:</p>
 <pre><b>$</b> export ESPTOOL_PORT=/dev/ttyUSB0
 <b>$</b> export ESPTOOL_BAUD=115200
-<b>$</b> export ESPTOOL_FS=32m
-<b>$</b> esptool write_flash 0 esp32-20161017-v1.8.5.bin</pre>
+<b>$</b> export ESPTOOL_FS=detect
+<b>$</b> esptool write_flash 0 \
+    esp32-20170604-v1.8.7-964-g62d40e8b.bin</pre>
+<ul><li>May need <tt>--flash_mode dio</tt></li>
+	<li>May be able to use <tt>ESPTOOL_BAUD=921600</tt></li></ul>
     </div>
 
     <div class="slide">
         <h3>MicroPython REPL</h3>
-        <pre class="medium"><b>$</b> cu -l /dev/ttyUSB0 -s 115200
-<b>MicroPython v1.8.5-10-g0e69e6b on 2016-10-17; ESP module with ESP32
+        <pre class="medium"><b>$</b> miniterm.py /dev/ttyUSB0 115200 --raw
+<b>MicroPython v1.8.7-964-g62d40e8b on 2017-06-04; ESP module with ESP32
 Type "help()" for more information.</b>
 <b>&gt;&gt;&gt;</b> dir()
-<b>['uos', '__name__', 'gc', 'bdev', 'vfs']</b>
+<b>['uos', 'gc', '__name__', 'bdev']</b>
 <b>&gt;&gt;&gt;</b> print("Hello, World!")
 <b>Hello, World!</b>
+<b>&gt;&gt;&gt;</b> 2**100
+<b>1267650600228229401496703205376</b>
+<b>&gt;&gt;&gt;</b> import os
+<b>&gt;&gt;&gt;</b> os.listdir(".")
+<b>['boot.py']</b>
 <b>&gt;&gt;&gt;</b></pre>
     </div>
 
@@ -134,14 +191,13 @@ Type "help()" for more information.</b>
         <h3>MicroPython I/O &mdash; 1</h3>
         <pre class="medium"><b>&gt;&gt;&gt;</b> import machine
 <b>&gt;&gt;&gt;</b> import time
-<b>&gt;&gt;&gt;</b> pin2 = machine.Pin(2)
-<b>&gt;&gt;&gt;</b> pin2.init(machine.Pin.OUT)
+<b>&gt;&gt;&gt;</b> pin5 = machine.Pin(5, machine.Pin.OUT)
 <b>&gt;&gt;&gt;</b> while True:
-<b>...</b>     pin2.low()
+<b>...</b>     pin5.value(0)
 <b>...</b>     time.sleep(0.5)
-<b>...</b>     pin2.high()
+<b>...</b>     pin5.value(1)
 <b>...</b>     time.sleep(0.5)</pre>
-      <img src="img/nodemcu-blinky.gif" height="50%"/>
+      <img src="img/blinky-esp32.gif" height="50%"/>
     </div>
 
     <div class="slide">
@@ -157,8 +213,10 @@ class Servo:
         pulse_us = 1000 + 1000 * min(1,max(pos,0))
         self.pwm.duty(int(pulse_us * self.pwm.freq() * 0.001024))
 
-p2 = machine.Pin(2, machine.Pin.OUT)
-s2 = Servo(p2)</pre>
+pin5 = machine.Pin(5, machine.Pin.OUT)
+srv5 = Servo(pin5)
+srv5.set(0.25)
+srv5.set(0.9)</pre>
     </div>
 
     <div class="slide">
@@ -167,7 +225,14 @@ s2 = Servo(p2)</pre>
 <b>&gt;&gt;&gt;</b> sta_if = network.WLAN(network.STA_IF)
 <b>&gt;&gt;&gt;</b> sta_if.active(True)
 <b>&gt;&gt;&gt;</b> sta_if.scan()
+<b>&gt;&gt;&gt;</b> sta_if.isconnected()
+<b>False</b>
 <b>&gt;&gt;&gt;</b> sta_if.connect("my_ap", "my_password")
+<b>&gt;&gt;&gt;</b> sta_if.isconnected()
+<b>True</b>
+<b>&gt;&gt;&gt;</b> sta_if.ifconfig()
+<b>('10.107.1.124', '255.255.255.0', '10.107.1.1', '10.107.1.1')</b>
+
     </div>
 
     <div class="slide">
@@ -181,31 +246,15 @@ s2 = Servo(p2)</pre>
     </div>
 
     <div class="slide">
-      <h3>Python Files</h3>
-      <ul>
-        <li>Frozen in the firmware ...
-          <ul>
-            <li><b>micropython/esp32/modules/</b>: precompiled and then frozen into the firmware</li>
-            <li><b>micropython/esp32/scripts/</b>: frozen into the firmware as python source</li>
-          </ul>
-        </li>
-        <li>... or copied in later to the internal VFAT FS
-        <ul>
-          <li><b>WebRepl</b>: copy files through the webrepl interface</li>
-          <li><b>mpy-utils</b>: copy files through the serial port REPL<br/>
-            <a href="https://github.com/nickzoic/mpy-utils">github: nickzoic/mpy-utils</a></li>
-          </ul>
-        </li>
-        </ul>
-    </div>
+	    <h3>Copying Files</h3>
 
-    <div class="slide">
-      <h3>Micropip</h3>
-      <pre><b>$</b> (cd unix; make axtls; make)
-<b>$</b> unix/micropython -m upip install \
-    -p esp32/modules micropython-functools</pre>
-
-      <p><a href="https://github.com/micropython/micropython-lib">github: micropython/micropython-lib</a></p>
+	    <p><a href="https://github.com/nickzoic/mpy-utils">github: nickzoic/mpy-utils</a></p>
+	    <ul>
+	    <li>mpy-upload : copy files in to a device using only the REPL.</li>
+	    <li>mpy-sync : copy whole directory structure.</li>
+	    <li>mpy-fuse : mount a device into the filesystem using FUSE ...</li>
+	    <li>mpy-watch : watch a directory for changes and send the diffs</li>
+	    </ul>
     </div>
 
     <div class="slide">
@@ -219,14 +268,19 @@ s2 = Servo(p2)</pre>
     </div>
 
     <div class="slide">
-      <h3>My Projects ...</h3>
-      <img style="float: left" src="img/flobot-example.png" width="60%"/>
-      <ul>
-        <li>mpy-utils</li>
-        <li>Nicer WebREPL</li>
-        <li>mDNS (mcast UDP)</li>
-        <li>Flobot</li>
-      </ul>
+<h3>Contributing to MicroPython</h3>
+    <p><a href="https://github.com/micropython/micropython-esp32">github: micropython/micropython-esp32</a></p>
+    <pre class="medium"><b>$</b> git clone https://github.com/micropython/micropython-esp32
+<b>$</b> git clone --recursive https://github.com/espressif/esp-idf 
+<b>$</b> wget https://dl.espressif.com/dl/xtensa-esp32-elf-linux64-1.22.0-59.tar.gz
+<b>$</b> tar xzf xtensa-esp32-elf-linux64-1.22.0-59.tar.gz 
+<b>$</b> export ESPIDF=`realpath esp-idf`
+<b>$</b> export PATH=`realpath xtensa-esp32-elf/bin`:$PATH
+<b>$</b> cd micropython-esp32
+<b>$</b> make -C mpy-cross
+<b>$</b> make -C esp32
+    </pre>
+
     </div>
 
     <div class="slide">
@@ -240,7 +294,7 @@ s2 = Servo(p2)</pre>
 
     <div class="slide">
        <h3>PyCon AU</h3>
-       <img src="img/pycon-logo-mel.png" width="90%"/>
+       <img src="img/pycon-logo-mel.png" width="50%"/>
        <p class="small">original image: <a href="https://2017.pycon-au.org/">2017.pycon-au.org</a></p>
     </div>
 
@@ -254,13 +308,13 @@ s2 = Servo(p2)</pre>
       </ul>
       <p>Slides:</p>
       <ul>
-         <li><a href="http://nick.zoic.org/luv1/">http://nick.zoic.org/luv1/</a></li>
+         <li><a href="http://nick.zoic.org/luv1/">http://nick.zoic.org/talk/mpug1/</a></li>
       </ul>
       <p class="small">Content and images &copy; Mnemote Pty Ltd except where otherwise noted</p>
     </div>
 
     <div class="footer">
-      <span><img class="logo" src="img/mnemote-logo-color.svg"/>Nick Moore &lt;nick@mnemote.com&gt; for <a href="https://luv.asn.au/2016/11/02/">LUV</a></span>
+      <span><img class="logo" src="img/mnemote-logo-color.svg"/>Nick Moore &lt;nick@mnemote.com&gt; for <a href="https://wiki.python.org/moin/MelbournePUG">Melbourne Python Users Group</a></span>
     </div>
 
   </body>

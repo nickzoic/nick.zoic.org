@@ -41,3 +41,16 @@ conferences such as [YOW Lambda Jam](http://lambdajam.yowconference.com.au/) so 
 And of course I'm looking forward to [BuzzConf](https://buzzconf.io/) at the end of the year!
 
 All this cool stuff, in and around Melbourne ... is there anything I've missed?
+
+UPDATE:
+
+Slides are up for [MicroPython and ESP32 at MPUG](http://nick.zoic.org/talk/mpug1/) 
+
+I've also put a couple of proposals in for
+[Developers! Developers! Developers!](https://www.dddmelbourne.com/)
+so we'll see how that goes. It collided with PyCon last year but I've heard good things about it.
+
+And I'm considering trying to find something worth saying at
+[Compose Melbourne](http://www.composeconference.org/2017-melbourne/), which I went to
+last year and found really fascinating, if often a little over my depth.  But I still
+enjoyed it for the brain stretching exercise.

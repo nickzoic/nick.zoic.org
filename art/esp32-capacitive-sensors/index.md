@@ -296,6 +296,8 @@ contact would have, something closer to the width of a fingertip.  So I cut that
 square in half and connected the halves to channels 5 and 6.  The old channel 6 contact
 is now on channel 7.
 
+![Narrower Contacts](img/IMG_20170613_171703.jpg)
+
 You can clearly see the difference between the middle, narrow contacts and the other wide
 ones in their rest state.  Plus there's a lot less dead area in the middle.
 

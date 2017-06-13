@@ -233,6 +233,7 @@ while True:
         pass
 
 ```
+[source](src/main.py)
 
 Then I can just connect to this like so to collect data (yes, you need to know what IP
 address your device will DHCP as ...) and write it out in a format convenient for 
@@ -285,6 +286,8 @@ Notice that the signal is also larger though: the divisions on this one are twic
 size of the other charts, so we're seeing a drop for channel 6 of 1300 - 850 = 450 units
 where the same channel with a backplane was dropping 890 - 640 = 250 units.
 
+<a name="update2"></a>
+
 Narrower contacts
 -----------------
 
@@ -300,6 +303,16 @@ ones in their rest state.  Plus there's a lot less dead area in the middle.
 
 It should be possible, I think, to find a formula which takes in the values for the
 four channels and interpolates a fingertip position.  
+
+Battery vs. USB
+---------------
+
+Gus also asked if plugging into USB made much of a difference. This one shows the
+readings with and without a USB connection.  The scale moves around, but the signals
+aren't much different.  I've still got to try actually wearing this thing as a badge
+and see how it behaves.
+
+[![Plot7](img/touch7.svg)](img/touch7.svg)
 
 Conclusions
 -----------

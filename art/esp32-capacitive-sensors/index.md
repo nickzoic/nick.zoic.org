@@ -124,6 +124,8 @@ Interestingly, the oscillator output isn't constant, but occurs in about
 
 ![scope bursts](img/A2141664.JPG)
 
+<a name="update1"></a>
+
 UPDATE
 ======
 
@@ -240,13 +242,17 @@ address your device will DHCP as ...) and write it out in a format convenient fo
 nc 10.107.1.125 9999 | tee -a touchpad.dat
 ```
 
+... and New Charts!
+-------------------
+
 (Sorry about the tiny fonts.  Vertical axes are the output of the machine.TouchPad.read()
 function, with 50 unit divisions.  Horizontal axes are time, with 500ms divisions.  The
 images are SVGs, so open them to zoom ...)
 
 First up, the zigzag side.  The first plot shows a slow swipe from left to right.
-You can see a slow transfer between the two touchpads, so I'm calling that a success
-despite my clumsy engraving.
+You can see a slow transfer between the two touchpads, it is fairly linear so I'm
+calling that a success despite my clumsy engraving.  Redoing this with a properly
+etched PCB would be nice!
 
 [![Plot1](img/touch1.svg)](img/touch1.svg)
 
@@ -282,8 +288,7 @@ where the same channel with a backplane was dropping 890 - 640 = 250 units.
 Conclusions
 -----------
 
-* The zigzag trick definitely works.
+* The zigzag trick definitely works to make a "slider" between two contacts.
 * You can get pretty good slider behaviour out of multiple contacts instead though.
-* Ground plane definitely helps with noise rejection.
-
+* Having a ground plane definitely helps with noise rejection.
 

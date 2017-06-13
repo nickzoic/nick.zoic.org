@@ -232,27 +232,58 @@ while True:
 
 ```
 
-Then I can just connect to this like so:
+Then I can just connect to this like so to collect data (yes, you need to know what IP
+address your device will DHCP as ...) and write it out in a format convenient for 
+[gnuplot](http://www.gnuplot.info/).
 
 ```
 nc 10.107.1.125 9999 | tee -a touchpad.dat
 ```
 
+(Sorry about the tiny fonts.  Vertical axes are the output of the machine.TouchPad.read()
+function, with 50 unit divisions.  Horizontal axes are time, with 500ms divisions.  The
+images are SVGs, so open them to zoom ...)
 
-![Plot1](img/touch1.svg)
-![Plot2](img/touch2.svg)
-![Plot3](img/touch3.svg)
-![Plot4](img/touch4.svg)
+First up, the zigzag side.  The first plot shows a slow swipe from left to right.
+You can see a slow transfer between the two touchpads, so I'm calling that a success
+despite my clumsy engraving.
 
-```
-plot "touchpad.dat" using 1:2 with lines title "touch0", \
-     "touchpad.dat" using 1:3 with lines title "touch2", \
-     "touchpad.dat" using 1:4 with lines title "touch4", \
-     "touchpad.dat" using 1:5 with lines title "touch5", \
-     "touchpad.dat" using 1:6 with lines title "touch6"
-```
+[![Plot1](img/touch1.svg)](img/touch1.svg)
 
+The second plot shows three taps on the left hand, middle and right hand end of the
+"slider".  It's pretty easy to see which "button" is which.
 
+[![Plot2](img/touch2.svg)](img/touch2.svg)
 
+Next I tried the "three squares" side, with the same experiments.
+
+[![Plot3](img/touch3.svg)](img/touch3.svg)
+
+This shows tapping 1 - 2 - 3 - 2 - 1
+
+[![Plot4](img/touch4.svg)](img/touch4.svg)
+
+I also tried the same experiment without the ground plane, and, well, turns out that
+a ground plane is a very good idea:
+
+[![Plot5](img/touch5.svg)](img/touch5.svg)
+
+Channels 4 and 5 are very noisy, and actually increase in frequency when channel 4
+is touched, which is weird.  Channel 6 was much less effected by noise, probably 
+because it is surrounded on two sides by ground plane and also the solder joint 
+to the blue wire there is very close to the ground plane which might give it just a 
+little more capacitance to ground.  Or it might be that 4 and 5 are interfering with
+each other.
+
+Notice that the signal is also larger though: the divisions on this one are twice the
+size of the other charts, so we're seeing a drop for channel 6 of 1300 - 850 = 450 units
+where the same channel with a backplane was dropping 890 - 640 = 250 units.
+
+Conclusions
+-----------
+
+* The zigzag trick definitely works.
+* You can get pretty good slider behaviour out of multiple contacts instead though.
+* Ground plane definitely helps with noise rejection.
 
 

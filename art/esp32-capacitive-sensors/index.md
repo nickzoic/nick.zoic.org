@@ -285,6 +285,22 @@ Notice that the signal is also larger though: the divisions on this one are twic
 size of the other charts, so we're seeing a drop for channel 6 of 1300 - 850 = 450 units
 where the same channel with a backplane was dropping 890 - 640 = 250 units.
 
+Narrower contacts
+-----------------
+
+Having had a look at the charts, I also wanted to see what effect having a narrower
+contact would have, something closer to the width of a fingertip.  So I cut that middle
+square in half and connected the halves to channels 5 and 6.  The old channel 6 contact
+is now on channel 7.
+
+You can clearly see the difference between the middle, narrow contacts and the other wide
+ones in their rest state.  Plus there's a lot less dead area in the middle.
+
+[![Plot6](img/touch6.svg)](img/touch6.svg)
+
+It should be possible, I think, to find a formula which takes in the values for the
+four channels and interpolates a fingertip position.  
+
 Conclusions
 -----------
 

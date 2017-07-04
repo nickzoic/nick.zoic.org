@@ -46,11 +46,14 @@ UPDATE:
 
 Slides are up for [MicroPython and ESP32 at MPUG](http://nick.zoic.org/talk/mpug1/) 
 
-I've also put a couple of proposals in for
+I've also put proposals in for
 [Developers! Developers! Developers!](https://www.dddmelbourne.com/)
-so we'll see how that goes. It collided with PyCon last year but I've heard good things about it.
-
-And I'm considering trying to find something worth saying at
-[Compose Melbourne](http://www.composeconference.org/2017-melbourne/), which I went to
+and 
+[Compose Melbourne](http://www.composeconference.org/2017-melbourne/),
+so we'll see how that goes. DDD collided with PyCon last year but I've heard good things about it.  Compose I went to
 last year and found really fascinating, if often a little over my depth.  But I still
 enjoyed it for the brain stretching exercise.
+
+And now CfPs are open for 
+[BuzzConf](https://buzzconf.typeform.com/to/R0VaZw) and 
+[Linux Conf AU](https://linux.conf.au/proposals/) so busy busy busy.

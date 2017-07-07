@@ -41,10 +41,13 @@ MicroPython itself is written in C, so C knowledge is obviously very helpful,
 but we also need Python skills ... we're aiming to make MicroPython as Pythonic
 as possible!
 
+[You can register here](https://www.meetup.com/MicroPython-Meetup/events/241386881/) ...
+
 MicroPython Meetup
 ==================
 
-There's also a [Melbourne MicroPython Meetup](https://www.meetup.com/MicroPython-Meetup/)
+There's also a regular
+[Melbourne MicroPython Meetup](https://www.meetup.com/MicroPython-Meetup/)
 so if you're based in Melbourne you might find that interesting.
 [Our next meeting](https://www.meetup.com/MicroPython-Meetup/events/241165971/) is just before
 PyConAU so we'll probably use that time to work out what to sprint on.

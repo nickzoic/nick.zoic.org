@@ -19,10 +19,10 @@ specifically the [ESP32 port of MicroPython](https://github.com/micropython/micr
 [Damien George](http://dpgeorge.net/) and [I](http://nick.zoic.org/) will
 be there and I hope you can come too!
 
-(To clarify: this is for registered PyConAU attendees only, and you need to be 
+<b>(To clarify: this is for registered PyConAU attendees only, and you need to be 
 registered for the sprint days, which costs an extra $5 or so ... if you're interested
 in working on MicroPython but you're not registered for PyConAU, let me know and
-we'll organize something for another day ...)
+we'll organize something for another day ...)</b>
 
 Bring a laptop and Micro USB cable along ... thanks to [Espressif](http://www.espressif.com/)
 we'll have plenty of ESP32 boards on hand to work with.  Have a look at the 
@@ -51,6 +51,8 @@ as possible!
 
 [You can register here](https://www.meetup.com/MicroPython-Meetup/events/241386881/) ...
 but make sure you're registered for the sprints with PyConAU as well.
+
+<b>UPDATE: Sold out!  If you're still interested, see below</b>
 
 MicroPython Meetup
 ==================

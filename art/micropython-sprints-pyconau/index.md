@@ -1,8 +1,6 @@
 ---
-category: Python
 date: '2017-07-07'
 layout: article
-slug: micropython
 tags:
     - python
     - micropython
@@ -31,6 +29,11 @@ we'll have plenty of ESP32 boards on hand to work with.  Have a look at the
 [Issues](https://github.com/micropython/micropython-esp32/issues) (and the 
 [Issues](https://github.com/micropython/micropython/issues) for the parent project!) and
 see if there's something there you'd like to contribute to.
+
+Additionally, [Tim 'mithro' Ansell](https://blog.mithis.net/)
+will be bringing along some FPGA boards to work on the
+[Micropython on FPGA](https://upy-fpga.github.io/) project, which is a port of MicroPython
+to run on the [MiSoC](https://github.com/m-labs/misoc) reconfigurable FPGA SoC.
 
 Damien and I will also be talking about MicroPython as part of the
 [PyConAU IoT Miniconf](https://2017.pycon-au.org/program/internet-things-iot-miniconf/)

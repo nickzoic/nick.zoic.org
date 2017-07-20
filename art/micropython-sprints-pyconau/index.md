@@ -54,6 +54,17 @@ but make sure you're registered for the sprints with PyConAU as well.
 
 <b>UPDATE: Sold out!  If you're still interested, see below</b>
 
+UPDATE 2017-07-20
+=================
+
+There may still be spots available ... check when you register for PyConAU ...
+
+We're also very excited to welcome Espressif on board as a
+[Sponsor of PyConAU](https://pycon-au.org/sponsors/) and thank them for providing
+us some ESP32 hardware to play with:
+
+![ESP32 DevKits](esp32-devkits.jpg)
+
 MicroPython Meetup
 ==================
 

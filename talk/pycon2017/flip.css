@@ -50,7 +50,7 @@ pre, ul, ol {
     text-align: left;
     margin: 15px;
     max-width: 90%;
-    list-style-type: square;
+    list-style: disc;
 }
 
 body.flip { 
@@ -145,9 +145,12 @@ body.flip div.footer span {
     padding-right: 30px;
 }
 
+img {
+	vertical-align: middle;
+}
+
 div.footer img.logo {
     height: 1.5em;
-    vertical-align: middle;
     padding-right: 1em;
 }
 

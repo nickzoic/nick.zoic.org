@@ -37,10 +37,6 @@ span.strike span {
     color: black;
 }
 
-body.flip span.strike span {
-    color: white;
-}
-
 .hide {
     visibility: hidden;
 }
@@ -58,8 +54,6 @@ pre, ul, ol {
 }
 
 body.flip { 
-   background-color: black;
-   color: white;
    font-size: 50px;
    height: 100%;
    padding: 0px;
@@ -89,12 +83,10 @@ body.flip > div {
 } 
 
 body.flip-unhide {
-    background-color: white;
     transition: background-color 2000ms;
 }
 
 body.flip-hide {
-   background-color: black;
    transition: background-color 2000ms;
 }
 
@@ -128,8 +120,8 @@ body.flip a {
     text-decoration: none;
 }
 
-body.flip b, body.flip .top {
-    color: #FF6;
+b, .top {
+    color: #C00;
 }
 
 div.footer {
@@ -138,7 +130,7 @@ div.footer {
 
 body.flip div.footer {
     margin: auto;
-    color: grey;
+    color: #666;
     opacity: 1;
     position: fixed;
     top: auto;
@@ -163,15 +155,18 @@ body.flip .small { font-size: 20px; }
 
 body.flip table {
     font-size: 40px;
+}
+
+table {
     margin: auto;
     border-collapse: collapse;
 }
 
-body.flip table tr:first-child th {
+table tr:first-child th {
     background-color: #666;
 }
 
-body.flip table td, body.flip table th {
+table td, table th {
     border: 3px solid #666;
     padding: 10px;
     min-width: 25%;

@@ -1,205 +1,27 @@
 <html>
   <head>
-    <meta charset="UTF-8">
-    <link rel="stylesheet" href="flip.css"/>
-    <script src="flip.js"></script>
-    <title>ESP32 and MicroPython</title>
+    <title>PyConAU IoT Miniconf 2017 &mdash; Nick Moore</title>
   </head>
   <body>
 
-    <div class="slide">
-      <h1>ESP32 and MicroPython</h1>
-      <img src="img/micropython-logo.jpg" height="33%">
-      <h4>Nick Moore<br/>
-        <a href="mailto:nick@zoic.org">nick@mnemote.com</a><br/>
-        <a href="https://twitter.com/mnemote/">@mnemote</a></h4>
-    </div>
+    <h1>PyConAU 2017<h1>
 
-    <div class="slide">
-      <h3>MicroPython</h3>
-      <p><a href="https://micropython.org/">micropython.org</a></p>
-      <p>MicroPython is an MIT-licensed Python ~3.4 for ...</p>
-      <ul>
-	      <li>PyBoard</li>
-	      <li>Micro:Bit</li>
-	      <li>ESP8266</li>
-      </ul>
-      <p>... and now ...</p>
-      <ul>
-	      <li>ESP32</li>
-      </ul>
-    </div>
+    <p>Presentations at <a href="https://2017.pycon-au.org/">PyCon AU 2017</a> ...</p>
 
-    <div class="slide">
-       <h2>ESP8266 / ESP32</h2>
-       <img src="img/espressif-logo.png" height="20%"/>
-       <p></p>
-       <img class="whiteborder" src="img/esp8266-package.jpg" height="50%"/>
-       <img class="whiteborder" src="img/esp32-package.jpg" height="50%"/>
-    </div>
+    <h2>IoT Miniconf:</h2>
+    <ul>
+      <li><a href="micropython-esp32/">Micropython on ESP32</a></li>
+    </ul>
 
-    <div class="slide">
-       <h3>Espressif ESP8266</h3>
-       <table>
-	       <tr><th>Arduino</th><th><b>ESP8266</b></th><th>ESP32</th><th>RPi 0 W</th></tr>
-	       <tr><td>AVR<br/>ATMega328P</td><td><b>Tensilica<br/>Xtensa LX106</b></td><td>Tensilica<br/>Xtensa LX6</td><td>ARM<br/>BCM 2835</td></tr>
-	       <tr><td>8 bit</td><td><b>32 bit</b></td><td>32 bit</td><td>32 bit</td></tr>
-	       <tr><td>1 core</td><td><b>1 core</b></td><td>2 core<br/>plus ULP</td><td>1 core<br/>plus GPU</td></tr>
-	       <tr><td>20 MHz</td><td><b>80-160 MHz</b></td><td>240 MHz</td><td>1 GHz</td></tr>
-	       <tr><td>2 KB RAM</td><td><b>160 KB RAM</b></td><td>520 KB RAM</td><td>512 MB RAM</td></tr>
-	       <tr><td>32 KB Flash</td><td><b>4 MB Flash</b></td><td>16 MB Flash</td><td>MicroSD</td></tr>
-       </table>
-    </div>
+    <h2>Lightning Talks:</h2>
+    <ul>
+      <li><a href="omnicode/">OMNICODE</a></li>
+    </ul>
 
-    <div class="slide">
-       <h3>Espressif ESP32</h3>
-       <table>
-        <tr><th>Arduino</th><th>ESP8266</th><th><b>ESP32</b></th><th>RPi 0 W</th></tr>
-              <tr><td>AVR<br/>ATMega328P</td><td>Tensilica<br/>Xtensa LX106</td><td><b>Tensilica<br/>Xtensa LX6</b></td><td>ARM<br/>BCM 2835</td></tr>
-        <tr><td>8 bit</td><td>32 bit</td><td><b>32 bit</b></td><td>32 bit</td></tr>
-        <tr><td>1 core</td><td>1 core</td><td><b>2 core<br/>plus ULP</b></td><td>1 core<br/>plus GPU</td></tr>
-        <tr><td>20 MHz</td><td>80-160 MHz</td><td><b>240 MHz</b></td><td>1 GHz</td></tr>
-        <tr><td>2 KB RAM</td><td>160 KB RAM</td><td><b>520 KB RAM</b></td><td>512 MB RAM</td></tr>
-        <tr><td>32 KB Flash</td><td>4 MB Flash</td><td><b>16 MB Flash</b></td><td>MicroSD</td></tr>
-       </table>
-    </div>
-
-    <div class="slide">
-        <h3>ESP32 Features</h3>
-        <ul>
-                <li>WiFi 2.4GHz</li>
-                <li>Bluetooth (BLE)</li>
-                <li>Many I/O lines</li>
-                <li>ADC, DAC, PWM, Capacitive Touch</li>
-                <li>ULP Processor, Hall effect sensor</li>
-        </ul>
-    </div>
-
-    <div class="slide">
-       <img src="img/esp32-HD-1024.jpg" height="90%"/>
-       <p class="small">original image: <a href="https://zeptobars.com/en/read/Espressif-ESP32-Wi-Fi-Blu
-etooth-2.4Ghz-ISM">zeptobars.com</a></p>
-    </div>
-
-    <div class="slide">
-       <img src="img/esp32-rf-HD-1024.jpg" height="90%"/>
-       <p class="small">original image: <a href="https://zeptobars.com/en/read/Espressif-ESP32-Wi-Fi-Blu
-etooth-2.4Ghz-ISM">zeptobars.com</a></p>
-    </div>
-
-    <div class="slide">
-       <img src="img/esp32-zoom-1024.jpg" height="90%"/>
-       <p class="small">original image: <a href="https://zeptobars.com/en/read/Espressif-ESP32-Wi-Fi-Blu
-etooth-2.4Ghz-ISM">zeptobars.com</a></p>
-    </div>
-
-    <div class="slide">
-       <h3>ESP32 Modules</h3>
-       <p>WROOM-32 or ESP-32S</p>
-       <img src="img/esp-wroom-32.jpg"/>
-       <p class="small">original image: <a href="https://espressif.com/">espressif.com</a></p>
-    </div>
-
-    <div class="slide">
-       <h3>ESP32 Boards</h3>
-       <p>Sparkfun ESP32 Thing / ESP32-DevKitC / AdaFruit HUZZAH32</p>
-       <img src="img/esp32-devkitc-adafruit.jpg" width="30%"/>
-       <img src="img/sparkfun-esp32-thing.jpg" width="30%"/>
-       <img src="img/esp32-adafruit.jpg" width="30%"/>
-       <p class="small">original images: <a href="https://sparkfun.com">sparkfun.com</a> and
-         <a href="https://espressif.com/">espressif.com</a> and
-         <a href="https://adafruit.com/">adafruit.com</a></p>
-    </div>
-
-    <div class="slide">
-	    <h3>MicroPython: Community</h3>
-	    <img src="img/galileo.png" height="80%"/>
-	    <br/>
-	    <span class="small">(<a href="https://www.theregister.co.uk/2017/06/20/intel_joules_edison_galileo/">The Register</a>)</span>
-    </div>
-    
-    <div class="slide">
-      <h3>Progress &mdash; 1</h3>
-      <p>
-      <ul>
-	      <li><b>2016-08:</b> PyConAU 2016 IoT MiniConf!</li>
-	      <li><b>2016-11:</b> ESP32 modules start becoming available</li>
-	      <li><b>2016-12:</b> Initial port to ESP32 w/ REPL (Damien George)</li>
-	      <li><b>2016-12:</b> WiFi, Sockets, GPIO (Nick Moore)</li>
-      </ul>
-      </p>
-      <img src="img/microbric-logo.jpg" height="15%"/>
-      <img src="img/microbric-edison.jpg" height="33%"/>
-    </div>
-
-    <div class="slide">
-      <h3>Progress &mdash; 2</h3>
-      <ul>
-	      <li><b>2016-12:</b> ESP32 branch on Github!</li>
-	      <li><b>2017-01:</b> LinuxConfAU featuring "IoTuz"</li>
-	      <li><b>2017-01:</b> Support for NeoPixels (tyggerjai) </li>
-	      <li><b>2017-02:</b> More I/O functions</li>
-	      <li><b>2017-03:</b> Hardware SPI (Eric Poulsen)</li>
-      </ul>
-      </p>
-      <img src="img/iotuz-render.jpg" height="33%"/>
-    </div>
-
-    <div class="slide">
-      <h3>Progress &mdash; 3</h3>
-      <ul>
-	      <li><b>2017-04:</b> machine.PWM and hardware SHA (Andy Valencia)</li>
-	      <li><b>2017-05:</b> UART support (Odd Stråbø)</li>
-	      <li><b>2017-06:</b> Hardware Timers (Alex King)</li>
-	      <li><b>2017-08:</b> PyConAU again!</li>
-      </ul>
-    </div>
-
-    <div class="slide">
-      <h3>Progress &mdash; 4</h3>
-      <ul>
-	      <li>BLE Implementation (#86)</li>
-	      <li>Deepsleep modes (#32)</li>
-	      <li>MCPWM (#94)</li>
-	      <li>Ultra Low Power CPU</li>
-	      <li>psRAM<br/><small>(Serial attached RAM in WROVER, ESP32-PRO, ALB32-WROVER)</small></li>
-	      <li>Bitmap displays / framebuffers</li>
-      </ul>
-    </div>
-
-    <div class="slide">
-        <h3>MicroPython / ESP32 Sprint</h3>
-    	<h4>Monday!</h4>
-	<img src="img/espressif-logo.png" height="20%" class="whiteborder"/><br/>
-	<img src="img/esp32-box.jpg" height="50%" class="whiteborder"/>
-    </div>
-
-    <div class="slide">
-        <h3>MicroPython / FPGA Sprint</h3>
-    	<h4>Monday!</h4>
-	<a href="https://upy-fpga.github.io/">upy-fpga.github.io</a>
-	<br/>
-	<img src="img/mimas-v2.jpg" height="50%" class="whiteborder"/>
-    </div>
-
-    <div class="slide">
-        <h3>MicroPython Meetup Group</h3>
-    	<h4>4th Wednesday, CCHS</h4>
-	<a href="https://www.meetup.com/MicroPython-Meetup/">meetup.com/MicroPython-Meetup</a>
-	<br/>
-	<img src="img/cchs-logo.png" height="25%" class="whiteborder"/>
-    </div>
-
-    <div class="slide">
-      <h3>Questions?</h3>
-      <img src="img/micropython-logo.jpg" height="33%">
-      <h4>Nick Moore<br/>
-        <a href="mailto:nick@zoic.org">nick@mnemote.com</a><br/>
-        <a href="https://twitter.com/mnemote/">@mnemote</a></h4>
-    </div>
-
-    <div class="footer">
-      <span><img class="logo" src="img/mnemote-logo-color.svg"/>Nick Moore &lt;nick@mnemote.com&gt; for <a href="https://2017.pycon-au.org/">PyCon AU 2017</a></span>
-    </div>
+    <h2>More Stuff:</h2>
+    <ul>
+      <li><a href="../../art/pycon-2017-melbourne/">Blog Post</a></li>
+      <li><a href="../../art/omnicode/">Omnicode!</a></li>
+    </ul>
   </body>
 </html>

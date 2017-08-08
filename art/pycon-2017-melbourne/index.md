@@ -9,7 +9,7 @@ title: 'Talking MicroPython at PyConAU 2017 ...'
 ---
 
 I'm at [PyCon2017](https://2017.pycon-au.org) talking about
-[MicroPython](https://micropython.org/) ... there's about 700 delegates here talking about a whole
+[MicroPython](https://micropython.org/) ... there's over 700 delegates here talking about a whole
 range of stuff Python and otherwise ...
 
 # MicroPython on ESP32
@@ -43,4 +43,11 @@ Some fairly arbitrary choices of things which grabbed me:
 
 # Sprinting on MicroPython / ESP32
 
-We also did a sprint session on the ESP32 port on Monday, more about this later ...
+About 100 people attended the Monday sprints, with about 20 working on MicroPython / ESP32 
+related topics.  Thanks to sponsorship from [Espressif](https://espressif.com/) we were able to 
+give away a whole bunch of ESP32 DevKitCs to attendees interested in working on the port.
+
+If you're in Melbourne and interested in doing further work on MicroPython in a friendly
+and supportive environment, check out the 
+[Melbourne MicroPython Meetup](https://www.meetup.com/MicroPython-Meetup/)
+

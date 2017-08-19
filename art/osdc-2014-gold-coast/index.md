@@ -5,8 +5,7 @@ layout: article
 redirect_from: '/etc/osdc-2014-gold-coast/'
 slug: 'osdc-2014-gold-coast'
 summary: |
-    My presentations at [OSDC 2014](http://2014.osdc.com.au/) on the Gold
-    Coast!
+    My presentations at OSDC 2014 on the Gold Coast!
 tags:
     - conference
     - agile

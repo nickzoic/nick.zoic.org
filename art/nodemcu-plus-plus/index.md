@@ -9,6 +9,8 @@ tags:
     - robots
     - microcontrollers
     - electronics
+    - esp32
+    - esp8266
 title: 'NodeMCU++ ?'
 ---
 
@@ -71,3 +73,19 @@ this page as I go along.
 
 Eventually, this work may feed in to the [Cubic Inch
 Robot](http://ciril.mnemote.com/) project.
+
+UPDATE 2017-09-12
+=================
+
+The same thing applies to the [ESP32](/tag/esp32/), and with even more flash the need for
+faster communications is more pressing.  I've started looking at the
+[STM32F070](http://www.st.com/content/st_com/en/products/microcontrollers/stm32-32-bit-arm-cortex-mcus/stm32-mainstream-mcus/stm32f0-series/stm32f0x0-value-line/stm32f070cb.html)
+or similar as a possible controller for this.  
+
+The controller would be able to pull the main CPU in and out of programming mode and possibly
+even access the main flash while the main CPU is disabled.
+
+I'm still working on how to hook one to the other, but in the meantime I've playing around
+with some old-school AVRs and I've asked [pid.codes](http://pid.codes/)
+for a PID for the device!
+

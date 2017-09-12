@@ -5,6 +5,7 @@ tags:
     - python
     - micropython
     - conferences
+    - esp32
 title: 'MicroPython Sprints at PyConAU'
 summary: "Want to sprint on MicroPython?"
 ---

@@ -1,0 +1,208 @@
+@import url(http://fonts.googleapis.com/css?family=Source+Sans+Pro|Oxygen+Mono|Bitter:400,700);
+
+body {
+    font-family: "Source Sans Pro", sans-serif;
+    font-weight: 400;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: Bitter, Impact, sans-serif;
+    font-weight: 400;
+    margin: 15px;
+}
+
+body.flip h1 {
+    font-size: 300%;
+    padding-bottom: 0.5ex;
+}
+
+h1, h2 { font-weight: 700; }
+
+body.flip h1, body.flip h3 { border-bottom: 3px solid #666; }
+
+pre, .fixed {
+    font-family: "Oxygen Mono", mono;
+}
+
+p {
+    margin: 15px;
+}
+
+span.strike {
+    color: red;
+    text-decoration: line-through;
+}
+
+span.strike span {
+    color: black;
+}
+
+.hide {
+    visibility: hidden;
+}
+
+pre.medium { font-size: 60% }
+
+p.small { font-size: 72% }
+
+pre, ul, ol {
+    display: inline-block;
+    text-align: left;
+    margin: 15px;
+    max-width: 90%;
+    list-style: disc;
+}
+
+body.flip { 
+   font-size: 50px;
+   height: 100%;
+   padding: 0px;
+   margin: 0px;
+}
+
+body > div {
+    text-align: center;
+    border-top: 1px solid black;
+    padding: 5px;
+}
+
+body > div:first-child {
+    border-top: none;
+}
+
+body.flip > div {
+    border: 0;
+    margin: auto;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    opacity: 0;
+    transition: opacity 250ms;
+} 
+
+body.flip-unhide {
+    transition: background-color 2000ms;
+}
+
+body.flip-hide {
+   transition: background-color 2000ms;
+}
+
+body.flip-hide > div, body.flip-unhide > div {
+    opacity: 0;
+    transition: opacity: 2000ms;
+}
+
+div.slide {
+    page-break-inside: avoid;
+    clear: both;
+}
+
+body.flip > div.show {
+    opacity: 1;
+    transition: opacity 250ms;
+}
+
+pre { 
+    background-color: #DDD;
+    padding: 5px;
+}
+
+body.flip pre {
+    background-color: #666;
+    padding: 10px;
+}
+
+body.flip a {
+    color: #00F;
+    text-decoration: none;
+}
+
+b, .top {
+    color: #800;
+}
+
+div.footer {
+    border: none;
+}
+
+body.flip div.footer {
+    margin: auto;
+    color: #666;
+    opacity: 1;
+    position: fixed;
+    top: auto;
+    bottom: 0px;
+    width: 100%;
+    font-size: 20px;
+}
+
+body.flip div.footer span {
+    border-top: 3px solid #666;
+    padding-left: 30px;
+    padding-right: 30px;
+}
+
+img {
+	vertical-align: middle;
+}
+
+div.footer img.logo {
+    height: 1.5em;
+    padding-right: 1em;
+}
+
+body.flip .small { font-size: 20px; }
+
+body.flip table {
+    font-size: 40px;
+}
+
+table {
+    margin: auto;
+    border-collapse: collapse;
+}
+
+table tr:first-child th {
+    background-color: #666;
+}
+
+table td, table th {
+    border: 3px solid #666;
+    padding: 10px;
+    min-width: 25%;
+    text-align: center;
+}
+
+img.whiteborder {
+    background-color: white;
+    border: 10px solid white;
+}
+
+img.eighty {
+    max-width: 20em;
+    max-height: 75%;
+}
+
+img.ninety {
+    max-width: 25em;
+    max-height: 90%;
+}
+
+.floatleft {
+    float: left;
+    max-width: 40%;
+}
+
+.floatleft img, .floatright img {
+    margin-left: 25%;
+    /*margin-right: 25%;*/
+}
+
+body.flip ul.floatright {
+    float: right;
+    max-width: 50%;
+}
+

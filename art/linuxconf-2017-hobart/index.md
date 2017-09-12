@@ -11,6 +11,7 @@ tags:
     - conference
     - micropython
     - microcontrollers
+    - esp32
 title: LinuxConf 2017 in Hobart
 ---
 

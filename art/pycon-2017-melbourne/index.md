@@ -8,6 +8,7 @@ tags:
 - conference
 - python
 - micropython
+- esp32
 title: 'Talking MicroPython at PyConAU 2017 ...'
 ---
 

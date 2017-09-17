@@ -1,0 +1,445 @@
+<html>
+  <head>
+    <link rel="stylesheet" href="flip.css"/>
+    <script src="flip.js"></script>
+    <title>MicroPython on ESP32</title>
+  </head>
+  <body>
+
+    <!-- hey yeah I wrote this in HTML because it seemed like a good idea at the time.
+         The whole flip.js thing is mine too, feel free to use it yourself though. -->
+
+    <div class="slide">
+      <h1>MicroPython on ESP32</h1>
+      <h3>Nick Moore<br/>
+        <a href="https://twitter.com/mnemote/">@mnemote</a><br/>
+        <a href="mailto:nick@mnemote.com">nick@mnemote.com</a>
+      </h3>
+    </div>
+
+    <div class="slide">
+       <h1>ESP32</h1>
+       <img class="whiteborder" src="img/esp-32x.png" height="50%"/>
+       <p class="small">original image: <a href="http://sherry-aithinker.blogspot.com.au/2016/08/esp-32-coming_5.html">sherry-aithinker</a></p>
+    </div>
+
+    <div class="slide">
+       <h3>ESP8266 CPU</h3>
+       <table>
+        <tr><th>Arduino</th><th><b>ESP8266</th></tr>
+	      <tr><td>AVR<br/>ATMega328P</td><td><b>Tensilica<br/>Xtensa LX106</b></td></tr>
+        <tr><td>8 bit</td><td><b>32 bit</b></td></tr>
+        <tr><td>1 core</td><td><b>1 core</b></td></tr>
+        <tr><td>20 MHz</td><td><b>80/160 MHz</b></td></tr>
+        <tr><td>2 KB RAM</td><td><b>160 KB RAM</b></td></tr>
+        <tr><td>32 KB Flash</td><td><b>4 MB Flash</b></td></tr>
+       </table>
+    </div>
+
+    <div class="slide">
+       <h3>ESP32 CPU</h3>
+       <table>
+        <tr><th>Arduino</th><th>ESP8266</th><th><b>ESP32</b></th></tr>
+	      <tr><td>AVR<br/>ATMega328P</td><td>Tensilica<br/>Xtensa LX106</td><td><b>Tensilica<br/>Xtensa LX6</b></td></tr>
+        <tr><td>8 bit</td><td>32 bit</td><td><b>32 bit</b></td></tr>
+        <tr><td>1 core</td><td>1 core</td><td><b>2 core *</b></td></tr>
+        <tr><td>20 MHz</td><td>80/160 MHz</td><td><b>160/240 MHz</b></td></tr>
+        <tr><td>2 KB RAM</td><td>160 KB RAM</td><td><b>520 KB RAM</b></td></tr>
+        <tr><td>32 KB Flash</td><td>1 - 4 MB Flash</td><td><b>4 - 16 MB Flash</b></td></tr>
+       </table>
+    </div>
+
+    <div class="slide">
+        <h3>ESP32 Networking</h3>
+        <ul>
+          <li>WiFi 802.11 b/g/n</li>
+          <li>Bluetooth</li>
+          <li>Bluetooth LE</li>
+          <li>Ethernet MAC</li>
+          <li>UART / I2C / I2S / SPI</li>
+        </ul>
+    </div>
+    <div class="slide">
+        <h3>ESP32 I/O</h3>
+        <ul>
+          <li>Digital I/O</li>
+          <li>ADC inputs</li>
+          <li>DAC outputs</li>
+          <li>PWM outputs</li>
+          <li>Capacitive Touch Inputs</li>
+        </ul>
+    </div>
+
+    <div class="slide">
+        <h3>ESP IDF</h3>
+        <p><em>IoT Development Framework</em></p>
+        <p>C SDK for building programs to run on ESP32</p>
+        <p>Contains LWIP, examples, instructions for building toolchain</p>
+        <ul>
+          <li><a href="https://github.com/espressif/esp-idf">github: espressif/esp-idf</a></li>
+        </ul>
+    </div>
+
+    <div class="slide">
+       <h1>MicroPython</h1>
+       <img class="whiteborder" src="img/micropython-logo.png" height="50%"/>
+       <h4><a href="https://micropython.org/">micropython.org</a></h4>
+    </div>
+
+    <div class="slide">
+        <h3>MicroPython</h3>
+        <ul>
+          <li>Python 3.4</li>
+          <li>C99</li>
+          <li>MIT-licensed</li>
+        </ul>
+    </div>
+ 
+    <div class="slide">
+        <h3>MicroPython Platforms</h3>
+        <ul>
+          <li><a href="https://store.micropython.org/#/features">PyBoard</a> (ARM Cortex)</li>
+          <li>16-bit PIC</li>
+          <li>ESP8266</li>
+          <li><b>ESP32</b></li>
+        </ul>
+        <p>For more background, see <a href="https://www.youtube.com/watch?v=Zm08hXeuv-I">Damien's talk about the Kickstarter campaign</a> from PyConAU 2016</p>
+        <p>Development of esp32 port was sponsored in part by <a href="http://www.microbric.com/">Microbric Pty Ltd</a></p>
+    </div>    
+
+    <div class="slide">
+        <h3>MicroPython for ESP32</h3>
+        <p><a href="https://github.com/micropython/micropython-esp32">github: micropython/micropython-esp32</a></p>
+        <pre class="medium">git clone --recursive https://github.com/micropython/micropython-esp32.git</pre>
+        <p>Support for:</p>
+        <ul>
+          <li>Basic I/O</li>
+          <li>WiFi initialization</li>
+          <li>TCP / IPv4</li>
+        </ul>
+    </div>
+
+    <div class="slide">
+        <h3>Running MicroPython</h3>
+        <p>Connect to REPL</p>
+        <pre>$ <b>cu -l /dev/ttyUSB0 -s 115200</b>
+MicroPython v1.8.6-284-g7b3ce01 on 2017-01-13;
+ESP32 module with ESP32
+Type "help()" for more information.
+&gt;&gt;&gt;</pre>
+   </div>
+
+    <div class="slide">
+        <h3>Running MicroPython</h3>
+        <p>Connect to REPL</p>
+        <pre>$ <b>cu -l /dev/ttyUSB0 -s 115200</b>
+MicroPython v1.8.6-284-g7b3ce01 on 2017-01-13;
+ESP32 module with ESP32
+Type "help()" for more information.
+&gt;&gt;&gt; <b>import machine</b>
+&gt;&gt;&gt; <b>pin = machine.Pin(5, machine.Pin.OUT)</b>
+&gt;&gt;&gt; <b>pin.value(True)</b></pre>
+    </div>
+
+    <div class="slide">
+        <h3>Running MicroPython</h3>
+        <p>Connect to REPL</p>
+        <pre>
+&gt;&gt;&gt; <b>import machine</b>
+&gt;&gt;&gt; <b>import time</b>
+&gt;&gt;&gt; <b>pin = machine.Pin(5, machine.Pin.OUT)</b>
+&gt;&gt;&gt; <b>while True:</b>
+...     <b>pin.value(True)</b>
+...     <b>time.sleep(1)</b>
+...     <b>pin.value(False)</b>
+...     <b>time.sleep(1)</b></pre> 
+    </div>
+
+    <div class="slide">
+        <h3>Running MicroPython</h3>
+        <img src="img/hellohello.png" height="75%">
+        <p class="small">With thanks to <a href="https://www.scullinsteel.com/apple//e">apple //jse</a></p>
+    </div>
+
+    <div class="slide">
+       <h3>Programming MicroPython &mdash; Filesystem</h3>
+       <pre>>>> <b>import os</b>
+>>> <b>os.listdir()</b>
+['boot.py']
+>>> <b>f = open('hello.world', "w")</b>
+>>> <b>f.write("Hello, World!")</b>
+13
+>>> <b>f.close()</b>
+>>> <b>os.listdir()</b>
+['boot.py', 'hello.world']</pre>
+    </div>
+
+    <div class="slide">
+       <h3>Programming MicroPython &mdash; WebREPL</h3>
+       <img src="img/webrepl.png" height="60%"/>
+       <p class="small">Not actually working on ESP32 yet, this is the ESP8266 version</p>
+    </div>
+
+    <div class="slide">
+       <h3>Programming MicroPython &mdash; mpy-utils</h3>
+       <p><a href="https://github.com/nickzoic/mpy-utils/">github: nickzoic/mpy-utils</a></p>
+       <ul>
+         <li>File transfer</li>
+         <li>FUSE mount</li>
+       </ul>
+       <p>Using REPL as a file transfer protocol: slow and very alpha</p>
+    </div>
+
+    <div class="slide">
+       <h3>Programming MicroPython &mdash; modules/ and scripts/</h3>
+       <ul>
+         <li><pre>modules/</pre>: pre-compiled and frozen into the runtime</pre></li>
+         <li><pre>scripts/</pre>: source frozen into the runtime</pre></li>
+       </ul>
+       <p>Also <b>upip</b>, a micropython package manager</p>
+    </div>
+
+    <div class="slide">
+        <h1>Developing MicroPython</h1>
+        <img src="img/under-construction-256.png" height="50%">
+        <p class="small">image from <a href="http://www.iconsplace.com/icons/preview/yellow/under-construction-256.png">iconsplace.com</a></p>
+    </div>
+
+    <div class="slide">
+       <img src="img/bugs.png" height="80%"/>
+    </div>
+
+    <div class="slide">
+        <h3>MicroPython ESP32 Repo Files</h3>
+        <pre>ACKNOWLEDGEMENTS    esp32/     minimal/    teensy/
+bare-arm/           esp8266/   mpy-cross/  tests/
+cc3200/             examples/  pic16bit/   tools/
+CODECONVENTIONS.md  extmod/    py/         unix/
+CONTRIBUTING.md     lib/       qemu-arm/   windows/
+docs/               LICENSE    README.md   zephyr/
+drivers/            logo/      stmhal/</pre>
+    </div>
+
+    <div class="slide">
+        <h3>MicroPython ESP32 Repo &mdash; Files (Docs)</h3>
+        <pre><b>ACKNOWLEDGEMENTS</b>    esp32/     minimal/    teensy/
+bare-arm/           esp8266/   mpy-cross/  <b>tests/</b>
+cc3200/             <b>examples/</b>  pic16bit/   tools/
+<b>CODECONVENTIONS.md</b>  extmod/    py/         unix/
+<b>CONTRIBUTING.md</b>     lib/       qemu-arm/   windows/
+<b>docs/</b>               <b>LICENSE</b>    <b>README.md</b>   zephyr/
+drivers/            <b>logo/</b>      stmhal/</pre>
+    <p>Documentation, Examples, Tests</p>
+    </div>
+
+    <div class="slide">
+        <h3>MicroPython ESP32 Repo &mdash; Files (Shared)</h3>
+        <pre>ACKNOWLEDGEMENTS    esp32/     minimal/    teensy/
+bare-arm/           esp8266/   <b>mpy-cross/</b>  tests/
+cc3200/             examples/  pic16bit/   <b>tools/</b>
+CODECONVENTIONS.md  <b>extmod/</b>    <b>py/</b>         unix/
+CONTRIBUTING.md     <b>lib/</b>       qemu-arm/   windows/
+docs/               LICENSE    README.md   zephyr/
+<b>drivers/</b>            logo/      stmhal/</pre>
+    <p>Shared between ports</p>
+    </div>
+    <div class="slide">
+        <h3>MicroPython ESP32 Repo &mdash; Files (Ports)</h3>
+        <pre>ACKNOWLEDGEMENTS    <b>esp32/</b>     <b>minimal/</b>    <b>teensy/</b>
+<b>bare-arm/</b>           <b>esp8266/</b>   mpy-cross/  tests/
+<b>cc3200/</b>             examples/  <b>pic16bit/</b>   tools/
+CODECONVENTIONS.md  extmod/    py/         <b>unix/</b>
+CONTRIBUTING.md     lib/       <b>qemu-arm/</b>   <b>windows/</b>
+docs/               LICENSE    README.md   <b>zephyr/</b>
+drivers/            logo/      <b>stmhal/</b></pre>
+        <p>Ports to specific platforms</p>
+    </div>
+    <div class="slide">
+        <h3>MicroPython ESP32 Repo &mdash; Files (Ports)</h3>
+        <pre>ACKNOWLEDGEMENTS    <b>esp32/</b>     minimal/    teensy/
+bare-arm/           esp8266/   mpy-cross/  tests/
+cc3200/             examples/  pic16bit/   tools/
+CODECONVENTIONS.md  extmod/    py/         unix/
+CONTRIBUTING.md     lib/       qemu-arm/   windows/
+docs/               LICENSE    README.md   zephyr/
+drivers/            logo/      stmhal/</pre>
+    </div>
+
+    <div class="slide">
+        <h3>esp32 port &mdash; Files</h3>
+        <pre>esp32.custom_common.ld  modesp.c        mphalport.c
+fatfs_port.c            modmachine.c    mphalport.h
+gccollect.c             modmachine.h    qstrdefsport.h
+gccollect.h             modnetwork.c    <b>README.md</b>
+help.c                  modsocket.c     sdkconfig.h
+machine_pin.c           modules/        uart.c
+main.c                  moduos.c        uart.h
+<b>Makefile</b>                modutime.c
+memory.h                mpconfigport.h</pre>
+    </div>
+
+    <div class="slide">
+        <h3>esp32 port &mdash; Files (Modules)</h3>
+        <pre>esp32.custom_common.ld  <b>modesp.c</b>        mphalport.c
+fatfs_port.c            <b>modmachine.c</b>    mphalport.h
+gccollect.c             modmachine.h    qstrdefsport.h
+gccollect.h             <b>modnetwork.c</b>    README.md
+help.c                  <b>modsocket.c</b>     sdkconfig.h
+machine_pin.c           modules/        uart.c
+main.c                  <b>moduos.c</b>        uart.h
+Makefile                <b>modutime.c</b>
+memory.h                mpconfigport.h</pre>
+    </div>
+
+    <div class="slide">
+        <h3>How do C modules work? &mdash; 1</h3>
+        <pre><b>&gt;&gt;&gt; import esp</b>
+<b>&gt;&gt;&gt; dir(esp)</b>
+['__name__', 'flash_read', 'flash_write', 'flash_erase',
+ 'flash_size', 'flash_user_start']
+<b>&gt;&gt;&gt; esp.flash_size()</b>
+4194304</pre>
+    </div>
+
+    <div class="slide">
+        <h3>How do C modules work? &mdash; 2</h3>
+        <p>esp-idf/components/spi_flash/include/esp_spi_flash.h</p>
+        <pre class="medium">/**
+ * @brief  Get flash chip size, as set in binary image header
+ *
+ * @note This value does not necessarily match real flash size.
+ *
+ * @return size of flash chip, in bytes
+ */
+size_t <b>spi_flash_get_chip_size</b>();</pre>
+    </div>
+
+    <div class="slide">
+        <h3>How do C modules work? &mdash; 3</h3>
+        <p>esp32/modesp.c</p>
+        <pre class="medium">#include "<b>esp_spi_flash.h</b>"
+
+STATIC mp_obj_t esp_flash_size(void) {
+    return mp_obj_new_int_from_uint(<b>spi_flash_get_chip_size()</b>);
+}</pre>
+    </div>
+
+    <div class="slide">
+        <h3>How do C modules work? &mdash; 4</h3>
+        <p>esp32/modesp.c</p>
+        <pre class="medium">#include "esp_spi_flash.h"
+
+STATIC <b>mp_obj_t esp_flash_size(void)</b> {
+    <b>return mp_obj_new_int_from_uint(</b>spi_flash_get_chip_size()<b>)</b>;
+}</pre>
+    </div>
+
+    <div class="slide">
+        <h3>How do C modules work? &mdash; 5</h3>
+        <p>esp32/modesp.c</p>
+        <pre class="medium">#include "esp_spi_flash.h"
+
+STATIC mp_obj_t esp_flash_size(void) {
+    return mp_obj_new_int_from_uint(spi_flash_get_chip_size());
+}
+STATIC <b>MP_DEFINE_CONST_FUN_OBJ_0(esp_flash_size_obj, esp_flash_size)</b>;</pre>
+    </div>
+
+    <div class="slide">
+        <h3>How do C modules work? &mdash; 6</h3>
+        <p>esp32/modesp.c</p>
+        <pre class="medium">#include "esp_spi_flash.h"
+
+STATIC mp_obj_t esp_flash_size(void) {
+    return mp_obj_new_int_from_uint(spi_flash_get_chip_size());
+}
+STATIC MP_DEFINE_CONST_FUN_OBJ_0(esp_flash_size_obj, esp_flash_size);
+
+STATIC const mp_rom_map_elem_t <b>esp_module_globals_table</b>[] = {
+    { MP_ROM_QSTR(MP_QSTR___name__), MP_ROM_QSTR(MP_QSTR_esp) },
+    { MP_ROM_QSTR(MP_QSTR_<b>flash_size</b>), MP_ROM_PTR(&<b>esp_flash_size_obj</b>) },
+};
+    </div>
+
+    <div class="slide">
+        <h3>How do C modules work? &mdash; 7</h3>
+        <p>esp32/modesp.c</p>
+        <pre class="medium">#include "esp_spi_flash.h"
+
+STATIC mp_obj_t esp_flash_size(void) {
+    return mp_obj_new_int_from_uint(spi_flash_get_chip_size());
+}
+STATIC MP_DEFINE_CONST_FUN_OBJ_0(esp_flash_size_obj, esp_flash_size);
+
+STATIC const mp_rom_map_elem_t esp_module_globals_table[] = {
+    { MP_ROM_QSTR(MP_QSTR___name__), MP_ROM_QSTR(MP_QSTR_esp) },
+    { MP_ROM_QSTR(MP_QSTR_flash_size), MP_ROM_PTR(&esp_flash_size_obj) },
+};
+STATIC MP_DEFINE_CONST_DICT(<b>esp_module_globals</b>, esp_module_globals_table);
+
+const mp_obj_module_t esp_module = {
+    .base = { &mp_type_module },
+    .globals = (mp_obj_dict_t*)&<b>esp_module_globals</b>,
+};</pre>
+    </div>
+
+    <div class="slide">
+        <h3>How do C modules work? &mdash; 8</h3>
+        <p>esp32/mpconfigport.h</p>
+        <pre class="medium">extern const struct _mp_obj_module_t <b>esp_module</b>;
+
+#define MICROPY_PORT_BUILTIN_MODULES \
+    { MP_OBJ_NEW_QSTR(MP_QSTR_<b>esp</b>), (mp_obj_t)&<b>esp_module</b> }, \</pre>
+
+        <p>esp32/Makefile</p>
+        <pre class="medium">SRC_C = \
+        <b>modesp.c</b> \</pre>
+    </div>
+
+    <div class="slide">
+        <h3>How do C modules work? &mdash; 9</h3>
+        <pre><b>&gt;&gt;&gt; import esp</b>
+<b>&gt;&gt;&gt; dir(esp)</b>
+['__name__', 'flash_read', 'flash_write', 'flash_erase',
+ 'flash_size', 'flash_user_start']
+<b>&gt;&gt;&gt; esp.flash_size()</b>
+4194304</pre>
+    </div>
+
+    <div class="slide">
+        <h3>Resources</h3>
+
+        <h4>MicroPython</h4>
+        <ul>
+          <li><a href="http://micropython.org/">micropython.org</a></li>
+          <li><a href="https://github.com/micropython/micropython-esp32">github: micropython/micropython-esp32</a></li>
+        </ul>
+
+        <h4>ESP32</h4>
+        <ul>
+          <li><a href="http://esp32.net/">esp32.net</a></li>
+          <li><a href="https://github.com/espressif/esp-idf">github: espressif/esp-idf</a></li>
+        </ul>
+    </div>
+
+    <div class="slide">
+      <h3>Questions / Comments</h3>
+      <p>Nick Moore<br/>Mnemote Pty Ltd</p>
+      <ul>
+        <li><a href="mailto:nick@mnemote.com">nick@mnemote.com</a></li>
+        <li><a href="http://mnemote.com/">http://mnemote.com/</a></li>
+        <li><a href="https://twitter.com/mnemote/">@mnemote</a></li>
+      </ul>
+      <p>Slides:</p>
+      <ul>
+         <li><a href="http://nick.zoic.org/talk/lca2017/">http://nick.zoic.org/talk/lca2017/</a></li>
+      </ul>
+      <p class="small">Content and images &copy; Mnemote Pty Ltd except where otherwise noted</p>
+    </div>
+
+    <div class="footer">
+      <span><img class="logo" src="img/mnemote-logo-color.svg"/>Nick Moore &lt;nick@mnemote.com&gt; for <a href="https://linux.conf.au/">Linux Conf AU 2017</a></span>
+    </div>
+
+  </body>
+</html>

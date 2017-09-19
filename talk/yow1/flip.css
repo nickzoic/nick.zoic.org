@@ -112,6 +112,7 @@ div.slide {
     clear: both;
 }
 
+
 body.flip > div.show {
     opacity: 1;
     transition: opacity 250ms;
@@ -155,6 +156,16 @@ body.flip div.footer span {
     border-top: 3px solid #666;
     padding-left: 30px;
     padding-right: 30px;
+}
+
+div.pause {
+	width: 100%;
+	background-color: black;
+	height: 5px;
+}
+
+body.flip div.pause {
+	height: 100%;
 }
 
 img {

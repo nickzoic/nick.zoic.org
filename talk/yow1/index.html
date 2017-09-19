@@ -194,6 +194,36 @@ Type "help()" for more information.
 
     <div class="slide">
         <h3>Running MicroPython</h3>
+        <pre>$ <b>miniterm.py /dev/ttyUSB0 115200 --raw</b>
+MicroPython v1.9.2-272-g0d183d7f on 2017-09-19;
+ESP32 module with ESP32
+Type "help()" for more information.
+&gt;&gt;&gt; <b>help()</b>
+Welcome to MicroPython on the ESP32!</pre>
+	<p>(... etc ...)</p>
+    </div>
+
+    <div class="slide">
+        <h3>Running MicroPython</h3>
+            <pre class="medium">&gt;&gt;&gt; <b>help('modules')</b>
+__main__          flashbdev         random            uos
+_boot             framebuf          re                upip
+_onewire          gc                select            upip_utarfile
+_thread           hashlib           socket            urandom
+apa106            heapq             ssl               ure
+array             inisetup          struct            uselect
+binascii          io                sys               usocket
+btree             json              time              ussl
+builtins          machine           ubinascii         ustruct
+cmath             math              ucollections      utime
+collections       micropython       uctypes           utimeq
+dht               neopixel          uerrno            uzlib
+ds18x20           network           uheapq            zlib
+errno             onewire           uio
+esp               os                ujson</pre>
+   </div>
+    <div class="slide">
+        <h3>Running MicroPython</h3>
 	<pre>$ <b>miniterm.py /dev/ttyUSB0 115200 --raw</b>
 MicroPython v1.9.2-272-g0d183d7f on 2017-09-19;
 ESP32 module with ESP32
@@ -214,6 +244,7 @@ Type "help()" for more information.
 ...     <b>time.sleep(1)</b>
 ...     <b>pin.value(False)</b>
 ...     <b>time.sleep(1)</b></pre> 
+	<img src="img/blinky-esp32.gif"/>
     </div>
 
     <div class="slide">
@@ -459,67 +490,7 @@ const mp_obj_module_t esp_module = {
     </div>
 
     <div class="slide">
-        <h3>Resources</h3>
-
-        <h4>MicroPython</h4>
-        <ul>
-          <li><a href="http://micropython.org/">micropython.org</a></li>
-          <li><a href="https://github.com/micropython/micropython-esp32">github: micropython/micropython-esp32</a></li>
-        </ul>
-
-        <h4>ESP32</h4>
-        <ul>
-          <li><a href="http://esp32.net/">esp32.net</a></li>
-          <li><a href="https://github.com/espressif/esp-idf">github: espressif/esp-idf</a></li>
-        </ul>
-    </div>
-
-    <div class="slide">
-	    <h1>The Internet of (Not Shit) Things</h1>
-    </div>
-
-    <div class="slide">
-      <h3>Panacea?</h3>
-      <img class="whiteborder" src="img/panacea.jpg" height="70%"/>
-      <p class="small">image: <a href="http://revistamundonatural.com/noticia.cfm?n=1166">revistamundonatural.com</a></p>
-    </div>
-
-    <div class="slide">
-      <h3>Panopticon?</h3>
-      <img class="whiteborder" src="img/panopticon.jpg" height="70%"/>
-      <p class="small">image: <a href="http://foucault.info/doc/documents/disciplineandpunish/foucault-disciplineandpunish-panopticism-html">focault.info</a></p>
-    </div>
-
-    <div class="slide">
-      <img class="whiteborder" src="img/surveillance.jpg">
-      <p class="small">
-        image:
-        <a href="https://upload.wikimedia.org/wikipedia/commons/a/a1/Three_Surveillance_cameras.jpg">wikimedia commons</a>
-      </p>
-    </div>
-
-    <div class="slide">
-      <img class="whiteborder" src="img/surveillance.jpg">
-      <img class="whiteborder" src="img/police_photo.jpg">
-      <p class="small">
-        images:
-        <a href="https://upload.wikimedia.org/wikipedia/commons/a/a1/Three_Surveillance_cameras.jpg">wikimedia commons</a> /
-        <a href="http://www.diyphotography.net/texas-bill-threatens-to-criminalize-photographers-must-stay-25-feet-away-from-police/">diyphotography.net</a>
-      </p>
-    </div>
-
-    <div class="slide">
-      <span class="huge">not a<br/>TECHNICAL<br/>issue</span>
-    </div>
-
-    <div class="slide">
-      <span class="huge">CONTROL</span>
-      <p>On the one hand information wants to be expensive, because it's so valuable.
-        The right information in the right place just changes your life.</p>
-      <p>On the other hand, <b>information wants to be free</b>, because the cost of getting it
-        out is getting lower and lower all the time. So you have these two fighting
-        against each other.</p>
-      <span class="small">Stewart Brand, 1st Hackers Conference 1984</span>
+	    <h1>The State of the IoT</h1>
     </div>
 
     <div class="slide">
@@ -534,14 +505,23 @@ const mp_obj_module_t esp_module = {
     </div>
 
     <div class="slide">
-      <h3>The State of the IoT</h3>
-      <p>The Internet of Shit</p>
+	    <p>On the one hand<br/><b>information wants to be expensive</b>,<br/>because it's so valuable.</p>
+	    <p>The right information in the right place<br/>just changes your life.</p>
+	    <p>&nbsp;</p>
+	    <p>On the other hand,<br/><b>information wants to be free</b>,<br/>
+	    because the cost of getting it out</br>
+	    is getting lower and lower all the time.</p>
+	    <p>&nbsp;</p>
+	    <p>So you have these two fighting against each other.</p>
+	    <p>&nbsp;</p>
+      <span class="small">Stewart Brand, 1st Hackers Conference 1984</span>
+    </div>
 
-      <ul>
-      <li><a href="http://twitter.com/internetofshit/">@internetofshit</a></li>
-      <li><a href="https://www.reddit.com/r/theinternetofshit/">/r/theinternetofshit</a></li>
-      </ul>
-
+    <div class="slide">
+      <h3>Panacea or Panopticon?</h3>
+      <img class="whiteborder" src="img/panacea.jpg" height="50%"/>
+      <img class="whiteborder" src="img/panopticon.jpg" height="50%"/>
+      <p class="small">images: <a href="http://revistamundonatural.com/noticia.cfm?n=1166">revistamundonatural.com</a> / <a href="http://foucault.info/doc/documents/disciplineandpunish/foucault-disciplineandpunish-panopticism-html">focault.info</a></p>
     </div>
 
     <div class="slide">
@@ -551,16 +531,21 @@ const mp_obj_module_t esp_module = {
         <li><b>Requirements</b> for it to be less bad</li>
         <li><b>Solutions</b> which meet those requirements</li>
       </ul>
+      <p>&nbsp;</p>
+      <ul>
+      <li><a href="http://twitter.com/internetofshit/">@internetofshit</a></li>
+      <li><a href="https://www.reddit.com/r/theinternetofshit/">/r/theinternetofshit</a></li>
+      </ul>
     </div>
 
     <div class="slide">
       <h3>1. If you're not the customer, you're the product.</h3>
       <ul>
         <li>The backend services have to get paid for somehow.</li>
-        <li>If you're not paying directly, you're paying indirectly
-          <ul><li>... by accepting advertising</li>
-            <li>... by having your privacy sold.</li>
-            </ul></li>
+	<li>If you're not paying directly, you're paying indirectly:<br/>
+		... by accepting advertising<br/>
+                ... by having your privacy sold.
+           </li>
         <li>This has led to a conflation of IoT and Big Data</li>
       </ul>
     </div>
@@ -568,7 +553,7 @@ const mp_obj_module_t esp_module = {
     <div class="slide">
       <h3>2. End Of Life</h3>
       <ul>
-        <li>Your hi-tech device may suddenly turn into a doorstop if the service provider no longer feels like supporting it.</li>
+	      <li>Your hi-tech device may suddenly turn into a doorstop<br/>if the service provider no longer feels like supporting it.</li>
         <li>Not much cross-brand compatibility</li>
       </ul>
       <img src="img/revolv-hummus.jpeg"/>
@@ -599,8 +584,8 @@ const mp_obj_module_t esp_module = {
     <div class="slide">
       <h3>5. Awful Software</h3>
       <ul>
-        <li>The software for things like lightbulbs is often awful, and open to all kinds of exploitation.</li>
-        <li>This shouldn't be too surprising since even the manufacturers of electronic locks have trouble getting this right.</li>
+	      <li>The software for things like lightbulbs is often awful,<br/>and open to all kinds of exploitation.</li>
+	      <li>This shouldn't be too surprising since even the manufacturers of<br/>electronic locks have trouble getting this right.</li>
       </ul>
       <div style="display: inline-block" width="60%">
         <ul>
@@ -641,7 +626,7 @@ const mp_obj_module_t esp_module = {
         <li>Client/Server &rarr; Peer to Peer</li>
         <li>Standards-based Hardware Description Language</li>
         <li>Shared Secrets, initialized by QR code</li>
-        <li>Simpler development with Micropython!</li>
+	<li>Simpler development with <b>MicroPython!</b></li>
       </ul>
     </div>
 

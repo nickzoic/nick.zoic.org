@@ -65,6 +65,33 @@ pre, ul, ol {
     list-style: disc;
 }
 
+div.quote {
+	max-width: 75%;
+	margin: auto;
+	border: 3px dashed #800;
+	margin-bottom: 50px;
+}
+
+div.circle {
+	display: inline-block;
+	border: 3px dashed #800;
+	border-radius: 1000px;
+	width: 10em;
+	height: 10em;
+	margin-left: -1em;
+	margin-right: -1em;
+	position: relative;
+}
+
+div.circle div {
+	position: absolute;
+	margin: auto;
+	top: 15%;
+	left: 0;
+	right: 0;
+	height: 100%;
+}
+
 body.flip { 
    font-size: 50px;
    height: 100%;

@@ -18,12 +18,21 @@
     </div>
 
     <div class="slide">
-       <h1>SoCs</h1>
+       <h1>ESP8266 / ESP32 SoCs</h1>
     </div>
 
     <div class="slide">
-	    <h2>What is a SoC</h2>
-	    XXX
+	    <h3>What is a SoC</h3>
+	    <p>System on a Chip, or System on a Module</p>
+	    <div class="circle">
+		    <div><u>Microcontroller</u><br/><br/>Atmel ATMega<br/>PIC16<br/>Cortex M0<br/><br/><br/>No OS</div>
+	    </div>
+	    <div class="circle">
+		    <div><u>SoC / SoM</u><br/><br/>Cortex M4+<br/>PIC32<br/>ESP32<br/><br/><br/>FreeRTOS</div>  
+	    </div>
+	    <div class="circle">
+		    <div><u>Embedded</u><br/><br/>x86<br/>x86-64</br>ARM-v8<br/><br/><br/>Linux</div>  
+	    </div>
     </div>
 
     <div class="slide">
@@ -34,28 +43,6 @@
        <img class="whiteborder" src="img/esp32-package.jpg" height="50%"/>
     </div>
 
-    <div class="slide">
-       <img src="img/esp32-HD-1024.jpg" height="90%"/>
-       <p class="small">original image: <a href="https://zeptobars.com/en/read/Espressif-ESP32-Wi-Fi-Blu
-etooth-2.4Ghz-ISM">zeptobars.com</a></p>
-    </div>
-
-    <div class="slide">
-       <img src="img/esp32-rf-HD-1024.jpg" height="90%"/>
-       <p class="small">original image: <a href="https://zeptobars.com/en/read/Espressif-ESP32-Wi-Fi-Blu
-etooth-2.4Ghz-ISM">zeptobars.com</a></p>
-    </div>
-
-    <div class="slide">
-       <img src="img/esp32-zoom-1024.jpg" height="90%"/>
-       <p class="small">original image: <a href="https://zeptobars.com/en/read/Espressif-ESP32-Wi-Fi-Blu
-etooth-2.4Ghz-ISM">zeptobars.com</a></p>
-    </div>
-
-    <div>
-       <h1>ESP32</h1>
-       <img class="whiteborder" src="img/esp-32x.png" height="50%"/>
-       <p class="small">original image: <a href="http://sherry-aithinker.blogspot.com.au/2016/08/esp-32-coming_5.html">sherry-aithinker</a></p>
     </div>
 
     <div class="slide">
@@ -82,6 +69,39 @@ etooth-2.4Ghz-ISM">zeptobars.com</a></p>
         <tr><td>2 KB RAM</td><td>160 KB RAM</td><td><b>520 KB RAM</b></td></tr>
         <tr><td>32 KB Flash</td><td>1 - 4 MB Flash</td><td><b>4 - 16 MB Flash</b></td></tr>
        </table>
+    </div>
+
+    <div class="slide">
+       <img src="img/esp32-HD-1024.jpg" height="90%"/>
+       <p class="small">original image: <a href="https://zeptobars.com/en/read/Espressif-ESP32-Wi-Fi-Bluetooth-2.4Ghz-ISM">zeptobars.com</a></p>
+    </div>
+
+    <div class="slide">
+       <img src="img/esp32-rf-HD-1024.jpg" height="90%"/>
+       <p class="small">original image: <a href="https://zeptobars.com/en/read/Espressif-ESP32-Wi-Fi-Bluetooth-2.4Ghz-ISM">zeptobars.com</a></p>
+    </div>
+
+    <div class="slide">
+       <img src="img/esp32-zoom-1024.jpg" height="90%"/>
+       <p class="small">original image: <a href="https://zeptobars.com/en/read/Espressif-ESP32-Wi-Fi-Bluetooth-2.4Ghz-ISM">zeptobars.com</a></p>
+    </div>
+
+    <div class="slide">
+       <h3>ESP32 Modules</h3>
+       <p>WROOM-32 or ESP-32S</p>
+       <img src="img/esp-wroom-32.jpg"/>
+       <p class="small">original image: <a href="https://espressif.com/">espressif.com</a></p>
+    </div>
+
+    <div class="slide">
+       <h3>ESP32 Boards</h3>
+       <p>Sparkfun ESP32 Thing / ESP32-DevKitC / AdaFruit HUZZAH32</p>
+       <img src="img/esp32-devkitc-adafruit.jpg" width="30%"/>
+       <img src="img/sparkfun-esp32-thing.jpg" width="30%"/>
+       <img src="img/esp32-adafruit.jpg" width="30%"/>
+       <p class="small">original images: <a href="https://sparkfun.com">sparkfun.com</a> and
+         <a href="https://espressif.com/">espressif.com</a> and
+         <a href="https://adafruit.com/">adafruit.com</a></p>
     </div>
 
     <div class="slide">
@@ -179,7 +199,7 @@ etooth-2.4Ghz-ISM">zeptobars.com</a></p>
     </div>
 
     <div class="slide">
-        <h3>Running MicroPython</h3>
+        <h3>Running MicroPython &mdash; 1</h3>
         <pre>$ <b>miniterm.py /dev/ttyUSB0 115200 --raw</b>
 MicroPython v1.9.2-272-g0d183d7f on 2017-09-19;
 ESP32 module with ESP32
@@ -188,7 +208,7 @@ Type "help()" for more information.
    </div>
 
     <div class="slide">
-        <h3>Running MicroPython</h3>
+        <h3>Running MicroPython &mdash; 2</h3>
         <pre>$ <b>miniterm.py /dev/ttyUSB0 115200 --raw</b>
 MicroPython v1.9.2-272-g0d183d7f on 2017-09-19;
 ESP32 module with ESP32
@@ -199,7 +219,7 @@ Welcome to MicroPython on the ESP32!</pre>
     </div>
 
     <div class="slide">
-        <h3>Running MicroPython</h3>
+        <h3>Running MicroPython &mdash; 3</h3>
             <pre class="medium">&gt;&gt;&gt; <b>help('modules')</b>
 __main__          flashbdev         random            uos
 _boot             framebuf          re                upip
@@ -218,7 +238,7 @@ errno             onewire           uio
 esp               os                ujson</pre>
    </div>
     <div class="slide">
-        <h3>Running MicroPython</h3>
+        <h3>Running MicroPython &mdash; 4</h3>
 	<pre>$ <b>miniterm.py /dev/ttyUSB0 115200 --raw</b>
 MicroPython v1.9.2-272-g0d183d7f on 2017-09-19;
 ESP32 module with ESP32
@@ -229,7 +249,20 @@ Type "help()" for more information.
     </div>
 
     <div class="slide">
-        <h3>Running MicroPython</h3>
+        <h3>Running MicroPython &mdash; 5</h3>
+        <pre>
+&gt;&gt;&gt; <b>import machine</b>
+&gt;&gt;&gt; <b>import time</b>
+&gt;&gt;&gt; <b>pin = machine.Pin(5, machine.Pin.OUT)</b>
+&gt;&gt;&gt; <b>while True:</b>
+...     <b>pin.value(True)</b>
+...     <b>time.sleep(1)</b>
+...     <b>pin.value(False)</b>
+...     <b>time.sleep(1)</b></pre> 
+    </div>
+
+    <div class="slide">
+        <h3>Running MicroPython &mdash; 6</h3>
         <pre>
 &gt;&gt;&gt; <b>import machine</b>
 &gt;&gt;&gt; <b>import time</b>
@@ -243,7 +276,7 @@ Type "help()" for more information.
     </div>
 
     <div class="slide">
-        <h3>Running MicroPython</h3>
+        <h3>Running MicroPython &mdash; 7</h3>
         <img src="img/hellohello.gif" height="75%">
         <p class="small">With thanks to <a href="https://www.scullinsteel.com/apple//e">apple //jse</a></p>
     </div>
@@ -282,7 +315,7 @@ Type "help()" for more information.
     </div>
 
     <div class="slide">
-       <h3>Programming MicroPython &mdash; Networking 1</h3>
+       <h3>Programming MicroPython &mdash; Networking &mdash; 1</h3>
        <pre>&gt;&gt;&gt; <b>import network</b>
 &gt;&gt;&gt; <b>w = network.WLAN(network.STA_IF)</b>
 &gt;&gt;&gt; <b>w.active(True)</b>
@@ -293,7 +326,7 @@ Type "help()" for more information.
     </div>
 
     <div class="slide">
-       <h3>Programming MicroPython &mdash; Networking 2</h3>
+       <h3>Programming MicroPython &mdash; Networking &mdash; 2</h3>
        <pre>&gt;&gt;&gt; <b>import socket</b>
 &gt;&gt;&gt; <b>s = socket.socket()</b>
 &gt;&gt;&gt; <b>s.connect(('example.com', 80))</b>
@@ -307,7 +340,7 @@ b'HTTP/1.0 200 OK\r\n'
     </div>
 
     <div class="slide">
-        <h3>Programming MicroPython &mdash; I2C 1</h3>
+        <h3>Programming MicroPython &mdash; I2C &mdash; 1</h3>
         <img src="img/rocket-surgery-proto.jpg" height="75%">
 	<pre>&gt;&gt;&gt; <b>import machine</b>
 &gt;&gt;&gt; <b>i2c = machine.I2C(</b>
@@ -320,7 +353,7 @@ b'HTTP/1.0 200 OK\r\n'
     </div>
     
     <div class="slide">
-       <h3>Programming MicroPython &mdash; I2C 2</h3>
+       <h3>Programming MicroPython &mdash; I2C &mdash; 2</h3>
        <pre>&gt;&gt;&gt; <b>import machine</b>
 &gt;&gt;&gt; <b>i2c = machine.I2C(</b>
 ... <b>  freq=400000,</b>
@@ -332,7 +365,7 @@ b'\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'</pre>
     </div>
 
     <div class="slide">
-       <h3>Programming MicroPython &mdash; I2C 3</h3>
+       <h3>Programming MicroPython &mdash; I2C &mdash; 3</h3>
        <pre>&gt;&gt;&gt; <b>import machine</b>
 &gt;&gt;&gt; <b>i2c = machine.I2C(</b>
 ... <b>  freq=400000,</b>
@@ -345,7 +378,7 @@ b'\xf3\x90\x00\x0cB\xa0\xf6\x10\xfd\x1d\x00\xa4\xff\x9d'</pre>
     </div>
 
     <div class="slide">
-       <h3>Programming MicroPython &mdash; I2C 4</h3>
+       <h3>Programming MicroPython &mdash; I2C &mdash; 4</h3>
        <pre>&gt;&gt;&gt; <b>import machine</b>
 &gt;&gt;&gt; <b>import struct</b>
 &gt;&gt;&gt; <b>i2c = machine.I2C(</b>
@@ -360,6 +393,21 @@ b'\xf3\x90\x00\x0cB\xa0\xf6\x10\xfd\x1d\x00\xa4\xff\x9d'</pre>
 ... <b>)</b>
 (-3016, 32, 17024, -2768, -758, 224, -133)</pre>
     </div>
+
+    <div class="slide">
+       <h3>Programming MicroPython &mdash; I2C &mdash; 5</h3>
+       <pre><b>class</b> Accelerometer:
+    <b>def</b> __init__(self, i2c=<b>None</b>, address=104):
+	self.i2c = i2c <b>or</b> machine.I2C(freq=400000,
+                scl=machine.Pin(22), sda=machine.Pin(21))
+        self.address = address
+	self.i2c.writeto_mem(self.address, 107, <b>bytes</b>([0])
+
+    <b>def</b> read_xyz(self):
+	<b>return</b> struct.unpack(
+            "&gt;3h", self.i2c.readfrom_mem(104, 59, 6)
+        )</pre>
+   </div>
 
     <div class="slide">
 	    <div class="pause"></div>
@@ -508,6 +556,7 @@ const mp_obj_module_t esp_module = {
     </div>
 
     <div class="slide">
+	    <div class="quote">
 	    <p>On the one hand<br/><b>information wants to be expensive</b>,<br/>because it's so valuable.</p>
 	    <p>The right information in the right place<br/>just changes your life.</p>
 	    <p>&nbsp;</p>
@@ -516,8 +565,9 @@ const mp_obj_module_t esp_module = {
 	    is getting lower and lower all the time.</p>
 	    <p>&nbsp;</p>
 	    <p>So you have these two fighting against each other.</p>
-	    <p>&nbsp;</p>
-      <span class="small">Stewart Brand, 1st Hackers Conference 1984</span>
+	    </div>
+
+      <span>Stewart Brand, 1st Hackers Conference 1984</span>
     </div>
 
     <div class="slide">
@@ -681,6 +731,11 @@ const mp_obj_module_t esp_module = {
          <li><a href="http://nick.zoic.org/talk/iot-aus/">http://nick.zoic.org/talk/yow1/</a></li>
       </ul>
       <p class="small">Content &copy; Mnemote Pty Ltd except where otherwise noted</p>
+    </div>
+
+    <div class="slide">
+	    <div class="pause">
+	    </div>
     </div>
 
     <div class="footer">

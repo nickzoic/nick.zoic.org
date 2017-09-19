@@ -10,7 +10,7 @@
          The whole flip.js thing is mine too, feel free to use it yourself though. -->
 
     <div class="slide">
-      <h1>MicroPython on ESP32</h1>
+	    <h1>Easy IoT<br/>with MicroPython</br>on ESP SoCs</h1>
       <h3>Nick Moore<br/>
         <a href="https://twitter.com/mnemote/">@mnemote</a><br/>
         <a href="mailto:nick@mnemote.com">nick@mnemote.com</a>
@@ -18,6 +18,50 @@
     </div>
 
     <div class="slide">
+       <ul>
+       <li>ESP SoCs</li>
+       <li>with MicroPython</li>
+       <li>Easy IoT</li>
+
+       <a href="http://nick.zoic.org/talk/yow1/">http://nick.zoic.org/talk/yow1/</a>
+    </div>
+
+    <div class="slide">
+       <h1>SoCs</h1>
+    </div>
+
+    <div class="slide">
+	    <h2>What is a SoC</h2>
+	    XXX
+    </div>
+
+    <div class="slide">
+       <h2>ESP8266 / ESP32</h2>
+       <img src="img/espressif-logo.png" height="15%"/>
+       <p></p>
+       <img class="whiteborder" src="img/esp8266-package.jpg" height="50%"/>
+       <img class="whiteborder" src="img/esp32-package.jpg" height="50%"/>
+    </div>
+
+    <div class="slide">
+       <img src="img/esp32-HD-1024.jpg" height="90%"/>
+       <p class="small">original image: <a href="https://zeptobars.com/en/read/Espressif-ESP32-Wi-Fi-Blu
+etooth-2.4Ghz-ISM">zeptobars.com</a></p>
+    </div>
+
+    <div class="slide">
+       <img src="img/esp32-rf-HD-1024.jpg" height="90%"/>
+       <p class="small">original image: <a href="https://zeptobars.com/en/read/Espressif-ESP32-Wi-Fi-Blu
+etooth-2.4Ghz-ISM">zeptobars.com</a></p>
+    </div>
+
+    <div class="slide">
+       <img src="img/esp32-zoom-1024.jpg" height="90%"/>
+       <p class="small">original image: <a href="https://zeptobars.com/en/read/Espressif-ESP32-Wi-Fi-Blu
+etooth-2.4Ghz-ISM">zeptobars.com</a></p>
+    </div>
+
+    <div>
        <h1>ESP32</h1>
        <img class="whiteborder" src="img/esp-32x.png" height="50%"/>
        <p class="small">original image: <a href="http://sherry-aithinker.blogspot.com.au/2016/08/esp-32-coming_5.html">sherry-aithinker</a></p>
@@ -59,6 +103,7 @@
           <li>UART / I2C / I2S / SPI</li>
         </ul>
     </div>
+
     <div class="slide">
         <h3>ESP32 I/O</h3>
         <ul>
@@ -67,6 +112,8 @@
           <li>DAC outputs</li>
           <li>PWM outputs</li>
           <li>Capacitive Touch Inputs</li>
+	  <li>Hall Effect Sensor</li>
+	  <li>RMT "Remote Control" module</li>
         </ul>
     </div>
 
@@ -78,6 +125,23 @@
         <ul>
           <li><a href="https://github.com/espressif/esp-idf">github: espressif/esp-idf</a></li>
         </ul>
+    </div>
+
+    <div class="slide">
+	<h3>The Internet of Toys &mdash; 1</h3>
+         <img src="img/junkbot.jpg" height="80%"/>
+    </div>
+
+    <div class="slide">
+	    <h3>The Internet of Toys &mdash; 2</h3>
+	    <div style="height: 80%; width: 100%">
+	    <div style="position: relative; margin: auto; width: 90%; height: 100%;">
+    <img src="img/rocket-surgery.jpg" style="position: absolute; left: 0; right: 0; top: 0; bottom: 0; width: 100%"/>
+    <img src="img/BuzzConf_logo.png" style="position: absolute; top: 20px; right: 20px; width: 33%"/>
+	    </div></div>
+        <a href="https://buzzconf.io/sessions/airborne-iot-build-a-rocket/">https://buzzconf.io/sessions/airborne-iot-build-a-rocket/</a>
+
+
     </div>
 
     <div class="slide">
@@ -103,27 +167,26 @@
           <li>ESP8266</li>
           <li><b>ESP32</b></li>
         </ul>
-        <p>For more background, see <a href="https://www.youtube.com/watch?v=Zm08hXeuv-I">Damien's talk about the Kickstarter campaign</a> from PyConAU 2016</p>
-        <p>Development of esp32 port was sponsored in part by <a href="http://www.microbric.com/">Microbric Pty Ltd</a></p>
+	<p>For more background, see<br/>
+	<a href="https://www.youtube.com/watch?v=Zm08hXeuv-I">Damien's talk about the Kickstarter campaign</a><br/>from PyConAU 2016</p>
     </div>    
 
     <div class="slide">
         <h3>MicroPython for ESP32</h3>
         <p><a href="https://github.com/micropython/micropython-esp32">github: micropython/micropython-esp32</a></p>
-        <pre class="medium">git clone --recursive https://github.com/micropython/micropython-esp32.git</pre>
-        <p>Support for:</p>
-        <ul>
-          <li>Basic I/O</li>
-          <li>WiFi initialization</li>
-          <li>TCP / IPv4</li>
-        </ul>
+	<pre class="medium"><b>$</b> git clone --recursive https://github.com/micropython/micropython-esp32.git
+<b>$</b> more micropython-esp32/ports/esp32/README.md</pre>
+	<p><b>OR</b></p>
+	<p><a href="https://micropython.org/downloads#esp32">http://micropython.org/downloads#esp32</a></p>
+	<pre class="medium"><b>$</b> pip install esptool
+<b>$</b> esptool.py write_flash --flash_mode dio 0x1000 esp32-20170919-v1.9.2-272-g0d183d7f.bin</pre>
+	
     </div>
 
     <div class="slide">
         <h3>Running MicroPython</h3>
-        <p>Connect to REPL</p>
-        <pre>$ <b>cu -l /dev/ttyUSB0 -s 115200</b>
-MicroPython v1.8.6-284-g7b3ce01 on 2017-01-13;
+        <pre>$ <b>miniterm.py /dev/ttyUSB0 115200 --raw</b>
+MicroPython v1.9.2-272-g0d183d7f on 2017-09-19;
 ESP32 module with ESP32
 Type "help()" for more information.
 &gt;&gt;&gt;</pre>
@@ -131,9 +194,8 @@ Type "help()" for more information.
 
     <div class="slide">
         <h3>Running MicroPython</h3>
-        <p>Connect to REPL</p>
-        <pre>$ <b>cu -l /dev/ttyUSB0 -s 115200</b>
-MicroPython v1.8.6-284-g7b3ce01 on 2017-01-13;
+	<pre>$ <b>miniterm.py /dev/ttyUSB0 115200 --raw</b>
+MicroPython v1.9.2-272-g0d183d7f on 2017-09-19;
 ESP32 module with ESP32
 Type "help()" for more information.
 &gt;&gt;&gt; <b>import machine</b>
@@ -143,7 +205,6 @@ Type "help()" for more information.
 
     <div class="slide">
         <h3>Running MicroPython</h3>
-        <p>Connect to REPL</p>
         <pre>
 &gt;&gt;&gt; <b>import machine</b>
 &gt;&gt;&gt; <b>import time</b>
@@ -157,27 +218,8 @@ Type "help()" for more information.
 
     <div class="slide">
         <h3>Running MicroPython</h3>
-        <img src="img/hellohello.png" height="75%">
+        <img src="img/hellohello.gif" height="75%">
         <p class="small">With thanks to <a href="https://www.scullinsteel.com/apple//e">apple //jse</a></p>
-    </div>
-
-    <div class="slide">
-       <h3>Programming MicroPython &mdash; Filesystem</h3>
-       <pre>>>> <b>import os</b>
->>> <b>os.listdir()</b>
-['boot.py']
->>> <b>f = open('hello.world', "w")</b>
->>> <b>f.write("Hello, World!")</b>
-13
->>> <b>f.close()</b>
->>> <b>os.listdir()</b>
-['boot.py', 'hello.world']</pre>
-    </div>
-
-    <div class="slide">
-       <h3>Programming MicroPython &mdash; WebREPL</h3>
-       <img src="img/webrepl.png" height="60%"/>
-       <p class="small">Not actually working on ESP32 yet, this is the ESP8266 version</p>
     </div>
 
     <div class="slide">
@@ -186,6 +228,7 @@ Type "help()" for more information.
        <ul>
          <li>File transfer</li>
          <li>FUSE mount</li>
+	 <li>Diff</li>
        </ul>
        <p>Using REPL as a file transfer protocol: slow and very alpha</p>
     </div>
@@ -200,95 +243,102 @@ Type "help()" for more information.
     </div>
 
     <div class="slide">
+       <h3>Programming MicroPython &mdash; Filesystem</h3>
+       <pre>&gt;&gt;&gt; <b>import os</b>
+&gt;&gt;&gt; <b>os.listdir()</b>
+['boot.py']
+&gt;&gt;&gt; <b>f = open('hello.world', "w")</b>
+&gt;&gt;&gt; <b>f.write("Hello, World!")</b>
+13
+&gt;&gt;&gt; <b>f.close()</b>
+&gt;&gt;&gt; <b>os.listdir()</b>
+['boot.py', 'hello.world']</pre>
+    </div>
+
+    <div class="slide">
+       <h3>Programming MicroPython &mdash; Networking 1</h3>
+       <pre>&gt;&gt;&gt; <b>import network</b>
+&gt;&gt;&gt; <b>w = network.WLAN(network.STA_IF)</b>
+&gt;&gt;&gt; <b>w.active(True)</b>
+&gt;&gt;&gt; <b>w.connect("SSID","PASSWORD")</b>
+&gt;&gt;&gt; <b>w.ifconfig()</b>
+('192.168.1.101', '255.255.255.0', '192.168.1.1',
+'192.168.1.1')</pre>
+    </div>
+
+    <div class="slide">
+       <h3>Programming MicroPython &mdash; Networking 2</h3>
+       <pre>&gt;&gt;&gt; <b>import socket</b>
+&gt;&gt;&gt; <b>s = socket.socket()</b>
+&gt;&gt;&gt; <b>s.connect(('example.com', 80))</b>
+&gt;&gt;&gt; <b>s.write('GET / HTTP/1.0\r\n')</b>
+16
+&gt;&gt;&gt; <b>s.write('Host: example.com\r\n\r\n')</b>
+21
+&gt;&gt;&gt; <b>s.readline()</b>
+b'HTTP/1.0 200 OK\r\n'
+&gt;&gt;&gt; <b>s.close()</b>
+    </div>
+
+    <div class="slide">
+        <h3>Programming MicroPython &mdash; I2C 1</h3>
+        <img src="img/rocket-surgery-proto.jpg" height="75%">
+	<pre>&gt;&gt;&gt; <b>import machine</b>
+&gt;&gt;&gt; <b>i2c = machine.I2C(</b>
+... <b>  freq=400000,</b>
+... <b>  scl=machine.Pin(22),</b>
+... <b>  sda=machine.Pin(21)</b>
+... <b>)</b>
+&gt;&gt;&gt; <b>i2c.scan()</b>
+[104]</pre>
+    </div>
+    
+    <div class="slide">
+       <h3>Programming MicroPython &mdash; I2C 2</h3>
+       <pre>&gt;&gt;&gt; <b>import machine</b>
+&gt;&gt;&gt; <b>i2c = machine.I2C(</b>
+... <b>  freq=400000,</b>
+... <b>  scl=machine.Pin(22),</b>
+... <b>  sda=machine.Pin(21)</b>
+... <b>)</b>
+&gt;&gt;&gt; <b>i2c.readfrom_mem(104, 59, 14)</b>
+b'\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'</pre>
+    </div>
+
+    <div class="slide">
+       <h3>Programming MicroPython &mdash; I2C 3</h3>
+       <pre>&gt;&gt;&gt; <b>import machine</b>
+&gt;&gt;&gt; <b>i2c = machine.I2C(</b>
+... <b>  freq=400000,</b>
+... <b>  scl=machine.Pin(22),</b>
+... <b>  sda=machine.Pin(21)</b>
+... <b>)</b>
+&gt;&gt;&gt; <b>i2c.writeto_mem(104, 107, bytes([0]))</b>
+&gt;&gt;&gt; <b>i2c.readfrom_mem(104, 59, 14)</b>
+b'\xf3\x90\x00\x0cB\xa0\xf6\x10\xfd\x1d\x00\xa4\xff\x9d'</pre>
+    </div>
+
+    <div class="slide">
+       <h3>Programming MicroPython &mdash; I2C 4</h3>
+       <pre>&gt;&gt;&gt; <b>import machine</b>
+&gt;&gt;&gt; <b>import struct</b>
+&gt;&gt;&gt; <b>i2c = machine.I2C(</b>
+... <b>  freq=400000,</b>
+... <b>  scl=machine.Pin(22),</b>
+... <b>  sda=machine.Pin(21)</b>
+... <b>)</b>
+&gt;&gt;&gt; <b>i2c.writeto_mem(104, 107, bytes([0]))</b>
+&gt;&gt;&gt; <b>struct.unpack(</b>
+... <b>  ">7h",</b>
+... <b>  i2c.readfrom_mem(104, 59, 14)</b>
+... <b>)</b>
+(-3016, 32, 17024, -2768, -758, 224, -133)</pre>
+    </div>
+
+    <div class="slide">
         <h1>Developing MicroPython</h1>
         <img src="img/under-construction-256.png" height="50%">
-        <p class="small">image from <a href="http://www.iconsplace.com/icons/preview/yellow/under-construction-256.png">iconsplace.com</a></p>
-    </div>
-
-    <div class="slide">
-       <img src="img/bugs.png" height="80%"/>
-    </div>
-
-    <div class="slide">
-        <h3>MicroPython ESP32 Repo Files</h3>
-        <pre>ACKNOWLEDGEMENTS    esp32/     minimal/    teensy/
-bare-arm/           esp8266/   mpy-cross/  tests/
-cc3200/             examples/  pic16bit/   tools/
-CODECONVENTIONS.md  extmod/    py/         unix/
-CONTRIBUTING.md     lib/       qemu-arm/   windows/
-docs/               LICENSE    README.md   zephyr/
-drivers/            logo/      stmhal/</pre>
-    </div>
-
-    <div class="slide">
-        <h3>MicroPython ESP32 Repo &mdash; Files (Docs)</h3>
-        <pre><b>ACKNOWLEDGEMENTS</b>    esp32/     minimal/    teensy/
-bare-arm/           esp8266/   mpy-cross/  <b>tests/</b>
-cc3200/             <b>examples/</b>  pic16bit/   tools/
-<b>CODECONVENTIONS.md</b>  extmod/    py/         unix/
-<b>CONTRIBUTING.md</b>     lib/       qemu-arm/   windows/
-<b>docs/</b>               <b>LICENSE</b>    <b>README.md</b>   zephyr/
-drivers/            <b>logo/</b>      stmhal/</pre>
-    <p>Documentation, Examples, Tests</p>
-    </div>
-
-    <div class="slide">
-        <h3>MicroPython ESP32 Repo &mdash; Files (Shared)</h3>
-        <pre>ACKNOWLEDGEMENTS    esp32/     minimal/    teensy/
-bare-arm/           esp8266/   <b>mpy-cross/</b>  tests/
-cc3200/             examples/  pic16bit/   <b>tools/</b>
-CODECONVENTIONS.md  <b>extmod/</b>    <b>py/</b>         unix/
-CONTRIBUTING.md     <b>lib/</b>       qemu-arm/   windows/
-docs/               LICENSE    README.md   zephyr/
-<b>drivers/</b>            logo/      stmhal/</pre>
-    <p>Shared between ports</p>
-    </div>
-    <div class="slide">
-        <h3>MicroPython ESP32 Repo &mdash; Files (Ports)</h3>
-        <pre>ACKNOWLEDGEMENTS    <b>esp32/</b>     <b>minimal/</b>    <b>teensy/</b>
-<b>bare-arm/</b>           <b>esp8266/</b>   mpy-cross/  tests/
-<b>cc3200/</b>             examples/  <b>pic16bit/</b>   tools/
-CODECONVENTIONS.md  extmod/    py/         <b>unix/</b>
-CONTRIBUTING.md     lib/       <b>qemu-arm/</b>   <b>windows/</b>
-docs/               LICENSE    README.md   <b>zephyr/</b>
-drivers/            logo/      <b>stmhal/</b></pre>
-        <p>Ports to specific platforms</p>
-    </div>
-    <div class="slide">
-        <h3>MicroPython ESP32 Repo &mdash; Files (Ports)</h3>
-        <pre>ACKNOWLEDGEMENTS    <b>esp32/</b>     minimal/    teensy/
-bare-arm/           esp8266/   mpy-cross/  tests/
-cc3200/             examples/  pic16bit/   tools/
-CODECONVENTIONS.md  extmod/    py/         unix/
-CONTRIBUTING.md     lib/       qemu-arm/   windows/
-docs/               LICENSE    README.md   zephyr/
-drivers/            logo/      stmhal/</pre>
-    </div>
-
-    <div class="slide">
-        <h3>esp32 port &mdash; Files</h3>
-        <pre>esp32.custom_common.ld  modesp.c        mphalport.c
-fatfs_port.c            modmachine.c    mphalport.h
-gccollect.c             modmachine.h    qstrdefsport.h
-gccollect.h             modnetwork.c    <b>README.md</b>
-help.c                  modsocket.c     sdkconfig.h
-machine_pin.c           modules/        uart.c
-main.c                  moduos.c        uart.h
-<b>Makefile</b>                modutime.c
-memory.h                mpconfigport.h</pre>
-    </div>
-
-    <div class="slide">
-        <h3>esp32 port &mdash; Files (Modules)</h3>
-        <pre>esp32.custom_common.ld  <b>modesp.c</b>        mphalport.c
-fatfs_port.c            <b>modmachine.c</b>    mphalport.h
-gccollect.c             modmachine.h    qstrdefsport.h
-gccollect.h             <b>modnetwork.c</b>    README.md
-help.c                  <b>modsocket.c</b>     sdkconfig.h
-machine_pin.c           modules/        uart.c
-main.c                  <b>moduos.c</b>        uart.h
-Makefile                <b>modutime.c</b>
-memory.h                mpconfigport.h</pre>
+        <p class="small">original image: <a href="http://www.iconsplace.com/icons/preview/yellow/under-construction-256.png">iconsplace.com</a></p>
     </div>
 
     <div class="slide">
@@ -296,7 +346,8 @@ memory.h                mpconfigport.h</pre>
         <pre><b>&gt;&gt;&gt; import esp</b>
 <b>&gt;&gt;&gt; dir(esp)</b>
 ['__name__', 'flash_read', 'flash_write', 'flash_erase',
- 'flash_size', 'flash_user_start']
+'flash_size', 'flash_user_start', 'gpio_matrix_in',
+'gpio_matrix_out', 'neopixel_write', 'dht_readinto']
 <b>&gt;&gt;&gt; esp.flash_size()</b>
 4194304</pre>
     </div>
@@ -316,7 +367,7 @@ size_t <b>spi_flash_get_chip_size</b>();</pre>
 
     <div class="slide">
         <h3>How do C modules work? &mdash; 3</h3>
-        <p>esp32/modesp.c</p>
+        <p>ports/esp32/modesp.c</p>
         <pre class="medium">#include "<b>esp_spi_flash.h</b>"
 
 STATIC mp_obj_t esp_flash_size(void) {
@@ -326,7 +377,7 @@ STATIC mp_obj_t esp_flash_size(void) {
 
     <div class="slide">
         <h3>How do C modules work? &mdash; 4</h3>
-        <p>esp32/modesp.c</p>
+        <p>ports/esp32/modesp.c</p>
         <pre class="medium">#include "esp_spi_flash.h"
 
 STATIC <b>mp_obj_t esp_flash_size(void)</b> {
@@ -336,7 +387,7 @@ STATIC <b>mp_obj_t esp_flash_size(void)</b> {
 
     <div class="slide">
         <h3>How do C modules work? &mdash; 5</h3>
-        <p>esp32/modesp.c</p>
+        <p>ports/esp32/modesp.c</p>
         <pre class="medium">#include "esp_spi_flash.h"
 
 STATIC mp_obj_t esp_flash_size(void) {
@@ -347,7 +398,7 @@ STATIC <b>MP_DEFINE_CONST_FUN_OBJ_0(esp_flash_size_obj, esp_flash_size)</b>;</pr
 
     <div class="slide">
         <h3>How do C modules work? &mdash; 6</h3>
-        <p>esp32/modesp.c</p>
+        <p>ports/esp32/modesp.c</p>
         <pre class="medium">#include "esp_spi_flash.h"
 
 STATIC mp_obj_t esp_flash_size(void) {
@@ -357,13 +408,13 @@ STATIC MP_DEFINE_CONST_FUN_OBJ_0(esp_flash_size_obj, esp_flash_size);
 
 STATIC const mp_rom_map_elem_t <b>esp_module_globals_table</b>[] = {
     { MP_ROM_QSTR(MP_QSTR___name__), MP_ROM_QSTR(MP_QSTR_esp) },
-    { MP_ROM_QSTR(MP_QSTR_<b>flash_size</b>), MP_ROM_PTR(&<b>esp_flash_size_obj</b>) },
+    { MP_ROM_QSTR(MP_QSTR_<b>flash_size</b>), MP_ROM_PTR(&amp;<b>esp_flash_size_obj</b>) },
 };
     </div>
 
     <div class="slide">
         <h3>How do C modules work? &mdash; 7</h3>
-        <p>esp32/modesp.c</p>
+        <p>ports/esp32/modesp.c</p>
         <pre class="medium">#include "esp_spi_flash.h"
 
 STATIC mp_obj_t esp_flash_size(void) {
@@ -373,23 +424,23 @@ STATIC MP_DEFINE_CONST_FUN_OBJ_0(esp_flash_size_obj, esp_flash_size);
 
 STATIC const mp_rom_map_elem_t esp_module_globals_table[] = {
     { MP_ROM_QSTR(MP_QSTR___name__), MP_ROM_QSTR(MP_QSTR_esp) },
-    { MP_ROM_QSTR(MP_QSTR_flash_size), MP_ROM_PTR(&esp_flash_size_obj) },
+    { MP_ROM_QSTR(MP_QSTR_flash_size), MP_ROM_PTR(&amp;esp_flash_size_obj) },
 };
 STATIC MP_DEFINE_CONST_DICT(<b>esp_module_globals</b>, esp_module_globals_table);
 
 const mp_obj_module_t esp_module = {
-    .base = { &mp_type_module },
-    .globals = (mp_obj_dict_t*)&<b>esp_module_globals</b>,
+    .base = { &amp;mp_type_module },
+    .globals = (mp_obj_dict_t*)&amp;<b>esp_module_globals</b>,
 };</pre>
     </div>
 
     <div class="slide">
         <h3>How do C modules work? &mdash; 8</h3>
-        <p>esp32/mpconfigport.h</p>
+        <p>ports/esp32/mpconfigport.h</p>
         <pre class="medium">extern const struct _mp_obj_module_t <b>esp_module</b>;
 
 #define MICROPY_PORT_BUILTIN_MODULES \
-    { MP_OBJ_NEW_QSTR(MP_QSTR_<b>esp</b>), (mp_obj_t)&<b>esp_module</b> }, \</pre>
+    { MP_OBJ_NEW_QSTR(MP_QSTR_<b>esp</b>), (mp_obj_t)&amp;<b>esp_module</b> }, \</pre>
 
         <p>esp32/Makefile</p>
         <pre class="medium">SRC_C = \
@@ -401,7 +452,8 @@ const mp_obj_module_t esp_module = {
         <pre><b>&gt;&gt;&gt; import esp</b>
 <b>&gt;&gt;&gt; dir(esp)</b>
 ['__name__', 'flash_read', 'flash_write', 'flash_erase',
- 'flash_size', 'flash_user_start']
+'flash_size', 'flash_user_start', 'gpio_matrix_in',
+'gpio_matrix_out', 'neopixel_write', 'dht_readinto']
 <b>&gt;&gt;&gt; esp.flash_size()</b>
 4194304</pre>
     </div>
@@ -423,6 +475,208 @@ const mp_obj_module_t esp_module = {
     </div>
 
     <div class="slide">
+	    <h1>The Internet of (Not Shit) Things</h1>
+    </div>
+
+    <div class="slide">
+      <h3>Panacea?</h3>
+      <img class="whiteborder" src="img/panacea.jpg" height="70%"/>
+      <p class="small">image: <a href="http://revistamundonatural.com/noticia.cfm?n=1166">revistamundonatural.com</a></p>
+    </div>
+
+    <div class="slide">
+      <h3>Panopticon?</h3>
+      <img class="whiteborder" src="img/panopticon.jpg" height="70%"/>
+      <p class="small">image: <a href="http://foucault.info/doc/documents/disciplineandpunish/foucault-disciplineandpunish-panopticism-html">focault.info</a></p>
+    </div>
+
+    <div class="slide">
+      <img class="whiteborder" src="img/surveillance.jpg">
+      <p class="small">
+        image:
+        <a href="https://upload.wikimedia.org/wikipedia/commons/a/a1/Three_Surveillance_cameras.jpg">wikimedia commons</a>
+      </p>
+    </div>
+
+    <div class="slide">
+      <img class="whiteborder" src="img/surveillance.jpg">
+      <img class="whiteborder" src="img/police_photo.jpg">
+      <p class="small">
+        images:
+        <a href="https://upload.wikimedia.org/wikipedia/commons/a/a1/Three_Surveillance_cameras.jpg">wikimedia commons</a> /
+        <a href="http://www.diyphotography.net/texas-bill-threatens-to-criminalize-photographers-must-stay-25-feet-away-from-police/">diyphotography.net</a>
+      </p>
+    </div>
+
+    <div class="slide">
+      <span class="huge">not a<br/>TECHNICAL<br/>issue</span>
+    </div>
+
+    <div class="slide">
+      <span class="huge">CONTROL</span>
+      <p>On the one hand information wants to be expensive, because it's so valuable.
+        The right information in the right place just changes your life.</p>
+      <p>On the other hand, <b>information wants to be free</b>, because the cost of getting it
+        out is getting lower and lower all the time. So you have these two fighting
+        against each other.</p>
+      <span class="small">Stewart Brand, 1st Hackers Conference 1984</span>
+    </div>
+
+    <div class="slide">
+      <h3>The State of the IoT</h3>
+      <ul>
+        <li>New legal, ethical, etiquette challenges</li>
+        <li>Many manufacturers and experimenters breaking new ground</li>
+        <li>Market isn't really settled yet</li>
+      </ul>
+      <p>... a bit like mobile phones in the 1990s</p>
+      <p>... or motorcars in the 1920s</p>
+    </div>
+
+    <div class="slide">
+      <h3>The State of the IoT</h3>
+      <p>The Internet of Shit</p>
+
+      <ul>
+      <li><a href="http://twitter.com/internetofshit/">@internetofshit</a></li>
+      <li><a href="https://www.reddit.com/r/theinternetofshit/">/r/theinternetofshit</a></li>
+      </ul>
+
+    </div>
+
+    <div class="slide">
+      <h3>The State of the IoT</h3>
+      <ul>
+        <li><b>Analysis</b> of the ways IoT is currently bad</li>
+        <li><b>Requirements</b> for it to be less bad</li>
+        <li><b>Solutions</b> which meet those requirements</li>
+      </ul>
+    </div>
+
+    <div class="slide">
+      <h3>1. If you're not the customer, you're the product.</h3>
+      <ul>
+        <li>The backend services have to get paid for somehow.</li>
+        <li>If you're not paying directly, you're paying indirectly
+          <ul><li>... by accepting advertising</li>
+            <li>... by having your privacy sold.</li>
+            </ul></li>
+        <li>This has led to a conflation of IoT and Big Data</li>
+      </ul>
+    </div>
+
+    <div class="slide">
+      <h3>2. End Of Life</h3>
+      <ul>
+        <li>Your hi-tech device may suddenly turn into a doorstop if the service provider no longer feels like supporting it.</li>
+        <li>Not much cross-brand compatibility</li>
+      </ul>
+      <img src="img/revolv-hummus.jpeg"/>
+      <p><a href="https://arlogilbert.com/the-time-that-tony-fadell-sold-me-a-container-of-hummus-cb0941c762c1">arlogilbert.com</a></p>
+    </div>
+
+    <div class="slide">
+      <h3>3. Internet Not Found</h3>
+      <ul>
+        <li>Most devices useless if the Internet isn't available.</li>
+        <li>Even the most reliable networks sometimes go down.</li>
+        <li>Consumer-grade routers fail frequently.</li>
+      </ul>
+      <img src="img/pet-feeder.png"/>
+      <p><a href="http://www.telegraph.co.uk/technology/2016/07/28/smart-feeder-outage-left-pets-hungry-for-10-hours/">telegraph.co.uk</a></p>
+    </div>
+
+    <div class="slide">
+      <h3>4. Cryptography</h3>
+      <ul>
+        <li>Crypto support on IoT devices is often very weak.</li>
+        <li>Partly because of lack of entropy, CPU, RAM.</li>
+        <li>It's tricky to use a protocol like SSL on a tiny CPU.</li>
+        <li>(... but getting easier ...)</li>
+      </ul>
+    </div>
+
+    <div class="slide">
+      <h3>5. Awful Software</h3>
+      <ul>
+        <li>The software for things like lightbulbs is often awful, and open to all kinds of exploitation.</li>
+        <li>This shouldn't be too surprising since even the manufacturers of electronic locks have trouble getting this right.</li>
+      </ul>
+      <div style="display: inline-block" width="60%">
+        <ul>
+          <li><a href="https://mjg59.dreamwidth.org/40397.html">Matthew Garrett on iRainbow Lightbulbs</a></li>
+          <li><a href="http://blog.trendmicro.com/let-get-door-remote-root-vulnerability-hid-door-controllers/">TrendMicro on HID remote door unlocks</a></li>
+          <li><a href="https://en.wikipedia.org/wiki/Mirai_(malware)">Mirai DDoS</a></li>
+        </ul>
+      </div>
+      <img src="img/irainbow.jpg" width="30%"/>
+    </div>
+
+    <div class="slide">
+      <h3>6. Update Cycle</h3>
+<div style="display: inline-block; width: 50%">
+<ul>
+        <li>It's hard enough to get people to change their smoke alarm batteries or update Internet Explorer.</li>
+        <li>No-one ever is going to reflash their thermostat.</li>
+        <li>While devices are reloading, they are generally unavailable.</li>
+      </ul>
+</div>
+      <img src="img/hue-updating.jpg" height="70%"/>
+   </div>
+
+    <div class="slide">
+      <h3>Complaints &rarr; Requirements</h3>
+      <ol>
+        <li><span class="strike">Internet Mediation</span> Internet Independence</li>
+        <li><span class="strike">Vendor Lockin</span> Generic Interfaces</li>
+        <li><span class="strike">SSL</span> Simplified Cryptography</li>
+        <li><span class="strike">C / Linux</span> Easier development</li>
+      </ol>
+    </div>
+
+    <div class="slide">
+      <h3>Requirements &rarr; Potential Solutions</h3>
+      
+      <ul>
+        <li>Client/Server &rarr; Peer to Peer</li>
+        <li>Standards-based Hardware Description Language</li>
+        <li>Shared Secrets, initialized by QR code</li>
+        <li>Simpler development with Micropython!</li>
+      </ul>
+    </div>
+
+    <div class="slide">
+	    <h3>MicroPython Meetup</h3>
+	    <img src="img/cchs-logo.png" height="40%"/>
+	    <p>&nbsp;</p>
+	    <p>Wednesday, September 27</p>
+	    <p>Connected Community HackerSpace (CCHS)</p>
+	    <p>&nbsp;</p>
+	    <p><a href="https://www.meetup.com/MicroPython-Meetup/">https://www.meetup.com/MicroPython-Meetup/</a></p>
+	    <p><a href="http://hackmelbourne.org/">http://hackmelbourne.org</a></p>
+    </div>
+
+    <div class="slide">
+	    <h3>BuzzConf Nights</h3>
+	    <img src="img/BuzzConf_logo.png" height="40%"/>
+	    <p>&nbsp;</p>
+	    <p>Thursday, September 28</p>
+	    <p>Loop Bar</p>
+	    <p>&nbsp;</p>
+	    <a href="https://www.meetup.com/BuzzConf/">https://www.meetup.com/BuzzConf/</a>
+    </div>
+
+    <div class="slide">
+	    <h3>LinuxConf 2018</h3>
+            <img src="img/LCA18_full.svg" height="40%"/>
+	    <p>&nbsp;</p>
+	    <p>Tutorial:</p>
+	    <p>"Getting Started with MicroPython"</p>
+	    <p>&nbsp;</p>
+	    <p><a href="https://linux.conf.au/">https://linux.conf.au/</a></p>
+    </div>
+
+    <div class="slide">
       <h3>Questions / Comments</h3>
       <p>Nick Moore<br/>Mnemote Pty Ltd</p>
       <ul>
@@ -432,14 +686,16 @@ const mp_obj_module_t esp_module = {
       </ul>
       <p>Slides:</p>
       <ul>
-         <li><a href="http://nick.zoic.org/talk/lca2017/">http://nick.zoic.org/talk/lca2017/</a></li>
+         <li><a href="http://nick.zoic.org/talk/iot-aus/">http://nick.zoic.org/talk/yow1/</a></li>
       </ul>
-      <p class="small">Content and images &copy; Mnemote Pty Ltd except where otherwise noted</p>
+      <p class="small">Content &copy; Mnemote Pty Ltd except where otherwise noted</p>
     </div>
 
     <div class="footer">
-      <span><img class="logo" src="img/mnemote-logo-color.svg"/>Nick Moore &lt;nick@mnemote.com&gt; for <a href="https://linux.conf.au/">Linux Conf AU 2017</a></span>
+	    <span><a href="http://mnemote.com/"><img class="logo" src="img/mnemote-logo-color.svg"/></a>Nick Moore &lt;nick@mnemote.com&gt; for <a href="http://connected.yowconference.com.au/">YOW! Connected 2017</a></span>
     </div>
 
   </body>
 </html>
+
+

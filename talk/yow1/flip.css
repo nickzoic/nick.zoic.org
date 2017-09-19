@@ -1,15 +1,27 @@
-@import url(http://fonts.googleapis.com/css?family=Source+Sans+Pro|Oxygen+Mono|Bitter:400,700);
+@import url(http://fonts.googleapis.com/css?family=Oxygen:400,700|Oxygen+Mono);
 
 body {
-    font-family: "Source Sans Pro", sans-serif;
+    font-family: Oxygen, sans-serif;
     font-weight: 400;
 }
 
 h1, h2, h3, h4, h5, h6 {
-    font-family: Bitter, Impact, sans-serif;
-    font-weight: 400;
+    font-family: Oxygen, Impact, sans-serif;
+    font-weight: 700;
     margin: 15px;
 }
+
+div.huge {
+   position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+}
+
+div.huge span, span.huge {
+    font-size: 400%;
+    font-family: "Source Sans Pro", Impact, sans-serif;
+    height: 100%;
+}
+
 
 body.flip h1 {
     font-size: 300%;
@@ -37,10 +49,6 @@ span.strike span {
     color: black;
 }
 
-body.flip span.strike span {
-    color: white;
-}
-
 .hide {
     visibility: hidden;
 }
@@ -53,13 +61,11 @@ pre, ul, ol {
     display: inline-block;
     text-align: left;
     margin: 15px;
-    max-width: 90%;
-    list-style-type: square;
+    max-width: 95%;
+    list-style: disc;
 }
 
 body.flip { 
-   background-color: black;
-   color: white;
    font-size: 50px;
    height: 100%;
    padding: 0px;
@@ -89,12 +95,10 @@ body.flip > div {
 } 
 
 body.flip-unhide {
-    background-color: white;
     transition: background-color 2000ms;
 }
 
 body.flip-hide {
-   background-color: black;
    transition: background-color 2000ms;
 }
 
@@ -118,39 +122,18 @@ pre {
     padding: 5px;
 }
 
-table {
-    margin: auto;
-    border-collapse: collapse;
-}
-
-table th {
-    background-color: #DDD;
-}
-
-table td, table th {
-    border: 1px solid #666;
-    padding: 10px;
-    min-width: 25%;
-    text-align: center;
-}
-   
-table b, pre b {
-    font-weight: normal;
-    color: #FF0000;
-}
-
 body.flip pre {
-    background-color: #666;
+    background-color: #BBB;
     padding: 10px;
 }
 
 body.flip a {
-    color: #AAF;
+    color: #00F;
     text-decoration: none;
 }
 
-body.flip b, body.flip .top {
-    color: #FF6;
+b, .top {
+    color: #800;
 }
 
 div.footer {
@@ -159,7 +142,7 @@ div.footer {
 
 body.flip div.footer {
     margin: auto;
-    color: grey;
+    color: #666;
     opacity: 1;
     position: fixed;
     top: auto;
@@ -174,9 +157,12 @@ body.flip div.footer span {
     padding-right: 30px;
 }
 
+img {
+	vertical-align: middle;
+}
+
 div.footer img.logo {
     height: 1.5em;
-    vertical-align: middle;
     padding-right: 1em;
 }
 
@@ -184,15 +170,18 @@ body.flip .small { font-size: 20px; }
 
 body.flip table {
     font-size: 40px;
+}
+
+table {
     margin: auto;
     border-collapse: collapse;
 }
 
-body.flip table tr:first-child th {
+table tr:first-child th {
     background-color: #666;
 }
 
-body.flip table td, body.flip table th {
+table td, table th {
     border: 3px solid #666;
     padding: 10px;
     min-width: 25%;

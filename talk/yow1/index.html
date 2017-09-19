@@ -2,7 +2,7 @@
   <head>
     <link rel="stylesheet" href="flip.css"/>
     <script src="flip.js"></script>
-    <title>MicroPython on ESP32</title>
+    <title>Easy IoT with MicroPython on ESP SoCs</title>
   </head>
   <body>
 
@@ -89,7 +89,7 @@
     <div class="slide">
        <h3>ESP32 Modules</h3>
        <p>WROOM-32 or ESP-32S</p>
-       <img src="img/esp-wroom-32.jpg"/>
+       <img src="img/esp-wroom-32.jpg" height="70%"/>
        <p class="small">original image: <a href="https://espressif.com/">espressif.com</a></p>
     </div>
 
@@ -99,9 +99,11 @@
        <img src="img/esp32-devkitc-adafruit.jpg" width="30%"/>
        <img src="img/sparkfun-esp32-thing.jpg" width="30%"/>
        <img src="img/esp32-adafruit.jpg" width="30%"/>
-       <p class="small">original images: <a href="https://sparkfun.com">sparkfun.com</a> and
+       <p class="small">original images:
          <a href="https://espressif.com/">espressif.com</a> and
-         <a href="https://adafruit.com/">adafruit.com</a></p>
+         <a href="https://sparkfun.com">sparkfun.com</a> and
+         <a href="https://adafruit.com/">adafruit.com</a>
+       </p>
     </div>
 
     <div class="slide">
@@ -145,9 +147,9 @@
 
     <div class="slide">
 	    <h3>The Internet of Toys &mdash; 2</h3>
-	    <div style="height: 80%; width: 100%">
-	    <div style="position: relative; margin: auto; width: 90%; height: 100%;">
-    <img src="img/rocket-surgery.jpg" style="position: absolute; left: 0; right: 0; top: 0; bottom: 0; width: 100%"/>
+	    <div style="height: 75%; width: 80%">
+	    <div style="position: relative; margin-left: 12.5%; width: 90%; height: 100%;">
+    <img src="img/rocket-surgery.jpg" style="position: absolute; left: 10%; right: 0; top: 0; bottom: 0; width: 90%"/>
     <img src="img/BuzzConf_logo.png" style="position: absolute; top: 20px; right: 20px; width: 33%"/>
 	    </div></div>
         <a href="https://buzzconf.io/sessions/airborne-iot-build-a-rocket/">https://buzzconf.io/sessions/airborne-iot-build-a-rocket/</a>
@@ -263,7 +265,7 @@ Type "help()" for more information.
 
     <div class="slide">
         <h3>Running MicroPython &mdash; 6</h3>
-        <pre>
+        <pre class="medium">
 &gt;&gt;&gt; <b>import machine</b>
 &gt;&gt;&gt; <b>import time</b>
 &gt;&gt;&gt; <b>pin = machine.Pin(5, machine.Pin.OUT)</b>
@@ -272,6 +274,7 @@ Type "help()" for more information.
 ...     <b>time.sleep(1)</b>
 ...     <b>pin.value(False)</b>
 ...     <b>time.sleep(1)</b></pre> 
+	<br/>
 	<img src="img/blinky-esp32.gif"/>
     </div>
 
@@ -339,9 +342,13 @@ b'HTTP/1.0 200 OK\r\n'
 &gt;&gt;&gt; <b>s.close()</b>
     </div>
 
+<div class="slide">
+<h3>Programming MicroPython &mdash; I2C &mdash; 1</h3>
+        <img src="img/rocket-surgery-proto.jpg" height="75%"/>
+</div>
     <div class="slide">
-        <h3>Programming MicroPython &mdash; I2C &mdash; 1</h3>
-        <img src="img/rocket-surgery-proto.jpg" height="75%">
+        <h3>Programming MicroPython &mdash; I2C &mdash; 2</h3>
+        <div style="display: inline-block">
 	<pre>&gt;&gt;&gt; <b>import machine</b>
 &gt;&gt;&gt; <b>i2c = machine.I2C(</b>
 ... <b>  freq=400000,</b>
@@ -350,10 +357,11 @@ b'HTTP/1.0 200 OK\r\n'
 ... <b>)</b>
 &gt;&gt;&gt; <b>i2c.scan()</b>
 [104]</pre>
+	</div>
     </div>
     
     <div class="slide">
-       <h3>Programming MicroPython &mdash; I2C &mdash; 2</h3>
+       <h3>Programming MicroPython &mdash; I2C &mdash; 3</h3>
        <pre>&gt;&gt;&gt; <b>import machine</b>
 &gt;&gt;&gt; <b>i2c = machine.I2C(</b>
 ... <b>  freq=400000,</b>
@@ -365,28 +373,15 @@ b'\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'</pre>
     </div>
 
     <div class="slide">
-       <h3>Programming MicroPython &mdash; I2C &mdash; 3</h3>
-       <pre>&gt;&gt;&gt; <b>import machine</b>
-&gt;&gt;&gt; <b>i2c = machine.I2C(</b>
-... <b>  freq=400000,</b>
-... <b>  scl=machine.Pin(22),</b>
-... <b>  sda=machine.Pin(21)</b>
-... <b>)</b>
-&gt;&gt;&gt; <b>i2c.writeto_mem(104, 107, bytes([0]))</b>
+       <h3>Programming MicroPython &mdash; I2C &mdash; 4</h3>
+       <pre>&gt;&gt;&gt; <b>i2c.writeto_mem(104, 107, bytes([0]))</b>
 &gt;&gt;&gt; <b>i2c.readfrom_mem(104, 59, 14)</b>
 b'\xf3\x90\x00\x0cB\xa0\xf6\x10\xfd\x1d\x00\xa4\xff\x9d'</pre>
     </div>
 
     <div class="slide">
-       <h3>Programming MicroPython &mdash; I2C &mdash; 4</h3>
-       <pre>&gt;&gt;&gt; <b>import machine</b>
-&gt;&gt;&gt; <b>import struct</b>
-&gt;&gt;&gt; <b>i2c = machine.I2C(</b>
-... <b>  freq=400000,</b>
-... <b>  scl=machine.Pin(22),</b>
-... <b>  sda=machine.Pin(21)</b>
-... <b>)</b>
-&gt;&gt;&gt; <b>i2c.writeto_mem(104, 107, bytes([0]))</b>
+       <h3>Programming MicroPython &mdash; I2C &mdash; 5</h3>
+       <pre>&gt;&gt;&gt; <b>import struct</b>
 &gt;&gt;&gt; <b>struct.unpack(</b>
 ... <b>  ">7h",</b>
 ... <b>  i2c.readfrom_mem(104, 59, 14)</b>
@@ -395,7 +390,7 @@ b'\xf3\x90\x00\x0cB\xa0\xf6\x10\xfd\x1d\x00\xa4\xff\x9d'</pre>
     </div>
 
     <div class="slide">
-       <h3>Programming MicroPython &mdash; I2C &mdash; 5</h3>
+       <h3>Programming MicroPython &mdash; I2C &mdash; 6</h3>
        <pre><b>class</b> Accelerometer:
     <b>def</b> __init__(self, i2c=<b>None</b>, address=104):
 	self.i2c = i2c <b>or</b> machine.I2C(freq=400000,
@@ -559,15 +554,14 @@ const mp_obj_module_t esp_module = {
 	    <div class="quote">
 	    <p>On the one hand<br/><b>information wants to be expensive</b>,<br/>because it's so valuable.</p>
 	    <p>The right information in the right place<br/>just changes your life.</p>
-	    <p>&nbsp;</p>
+	    <br/>
 	    <p>On the other hand,<br/><b>information wants to be free</b>,<br/>
 	    because the cost of getting it out</br>
 	    is getting lower and lower all the time.</p>
-	    <p>&nbsp;</p>
-	    <p>So you have these two fighting against each other.</p>
+	    <!-- p>So you have these two fighting against each other.</p -->
 	    </div>
 
-      <span>Stewart Brand, 1st Hackers Conference 1984</span>
+	    <span><br/><em>Stewart Brand, 1st Hackers Conference 1984</em></span>
     </div>
 
     <div class="slide">
@@ -689,7 +683,7 @@ const mp_obj_module_t esp_module = {
 
     <div class="slide">
 	    <h3>MicroPython Meetup</h3>
-	    <img src="img/cchs-logo.png" height="40%"/>
+	    <img src="img/cchs-logo.png" height="30%"/>
 	    <p>&nbsp;</p>
 	    <p>Wednesday, September 27</p>
 	    <p>Connected Community HackerSpace (CCHS)</p>
@@ -700,7 +694,7 @@ const mp_obj_module_t esp_module = {
 
     <div class="slide">
 	    <h3>BuzzConf Nights</h3>
-	    <img src="img/BuzzConf_logo.png" height="40%"/>
+	    <img src="img/BuzzConf_logo.png" height="30%"/>
 	    <p>&nbsp;</p>
 	    <p>Thursday, September 28</p>
 	    <p>Loop Bar</p>
@@ -710,7 +704,7 @@ const mp_obj_module_t esp_module = {
 
     <div class="slide">
 	    <h3>LinuxConf 2018</h3>
-            <img src="img/LCA18_full.svg" height="40%"/>
+            <img src="img/LCA18_full.svg" height="30%"/>
 	    <p>&nbsp;</p>
 	    <p>Tutorial:</p>
 	    <p>"Getting Started with MicroPython"</p>

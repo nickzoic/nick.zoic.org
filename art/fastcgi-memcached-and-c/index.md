@@ -50,42 +50,37 @@ My first approach was to use [Python](http://python.org/) and
 a global variable `ticket_number`, and whenever there is a request it
 gets incremented and returned. Pretty simple:
 
-``` {.sourceCode .python}
-#!/usr/bin/env python
+    #!/usr/bin/env python
 
-import sys
+    import sys
 
-import tornado.web
-import tornado.httpserver
-import tornado.template
+    import tornado.web
+    import tornado.httpserver
+    import tornado.template
 
 
-ticket_number = 0
+    ticket_number = 0
 
-class TicketHandler(tornado.web.RequestHandler):
+    class TicketHandler(tornado.web.RequestHandler):
 
-    def get(self):
+        def get(self):
+            global ticket_number
+            ticket_number += 1
+            self.finish("ticket number %010d" % ticket_number)
 
-        global ticket_number
+    handlers = [
+        (r"/$", TicketHandler),
+    ]
 
-        ticket_number += 1
-
-        self.finish("ticket number %010d" % ticket_number)
-
-handlers = [
-    (r"/$", TicketHandler),
-]
-
-def main():
-    portnum = int(sys.argv[1]) if len(sys.argv) > 1 else 8000
-    application = tornado.web.Application(handlers, template_path="template")   
-    http_server = tornado.httpserver.HTTPServer(application)
-    http_server.listen(portnum)
-    tornado.ioloop.IOLoop.instance().start()
-
-if __name__ == '__main__':
-    main()
-```
+    def main():
+        portnum = int(sys.argv[1]) if len(sys.argv) > 1 else 8000
+        application = tornado.web.Application(handlers, template_path="template")   
+        http_server = tornado.httpserver.HTTPServer(application)
+        http_server.listen(portnum)
+        tornado.ioloop.IOLoop.instance().start()
+    
+    if __name__ == '__main__':
+        main()
 
 It's also pretty quick, right up until you try to handle thousands of
 simultaneous connections, at which point performance tapers off rapidly.
@@ -124,39 +119,36 @@ memcache record to act as an atomic counter. It also has a rather simple
 C API, so it is easy to write a small piece of C to join FastCGI to
 Memcached:
 
-``` {.sourceCode .c}
-// Based on http://www.fastcgi.com/devkit/doc/fastcgi-prog-guide/ch2c.htm
+    // Based on http://www.fastcgi.com/devkit/doc/fastcgi-prog-guide/ch2c.htm
 
-#include <fcgi_stdio.h>
-#include <stdlib.h>
-#include <libmemcached/memcached.h>
+    #include <fcgi_stdio.h>
+    #include <stdlib.h>
+    #include <libmemcached/memcached.h>
 
 
-char key[] = "tick";
+    char key[] = "tick";
+    
+    int main(int argc, char **argv)
+    {
+        const char *mc_config = "--SERVER=127.0.0.1:11211 --BINARY-PROTOCOL";
+        memcached_st *mc_handle = memcached(mc_config, strlen(mc_config));
+        memcached_return rc;
 
-int main(int argc, char **argv)
-{
-    const char *mc_config = "--SERVER=127.0.0.1:11211 --BINARY-PROTOCOL";
-    memcached_st *mc_handle = memcached(mc_config, strlen(mc_config));
-    memcached_return rc;
+        uint64_t ticket_number;
 
-    uint64_t ticket_number;
+        while (FCGI_Accept() >= 0)   {
 
-    while (FCGI_Accept() >= 0)   {
+            rc = memcached_increment_with_initial(mc_handle, key, sizeof(key), 1, 1, 0x7FFFFFFF, &ticket_number);
 
-        rc = memcached_increment_with_initial(mc_handle, key, sizeof(key), 1, 1, 0x7FFFFFFF, &ticket_number);
-
-        if (rc != MEMCACHED_SUCCESS) {
-            printf("Status: 500 Server Error\r\n\r\nMemcache %d %s\r\n", rc, memcached_strerror(mc_handle, rc));
-        } else {
-
-            printf("Content-type: text/plain\r\n\r\nticket number %010d\r\n", ticket_number);
+            if (rc != MEMCACHED_SUCCESS) {
+                printf("Status: 500 Server Error\r\n\r\nMemcache %d %s\r\n", rc, memcached_strerror(mc_handle, rc));
+            } else {
+                printf("Content-type: text/plain\r\n\r\nticket number %010d\r\n", ticket_number);
+            }
         }
-    }
 
-    return 0;
-}
-```
+        return 0;
+    }
 
 Using this method, my laptop was able to handle a hundred thousand
 connections in ten seconds, which isn't too shoddy, and well and truly

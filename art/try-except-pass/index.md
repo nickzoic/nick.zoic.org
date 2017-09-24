@@ -22,12 +22,10 @@ less dynamic languages. There's a function which you want to call,
 exception and in that case you're happy for the code to continue as if
 the function were never run. So you write something like this:
 
-``` {.sourceCode .python}
-try:
-    do_something_amazing()
-except:
-    pass
-```
+    try:
+        do_something_amazing()
+    except:
+        pass
 
 This works fine, so you commit the patch and move on.
 
@@ -62,12 +60,10 @@ Javascript
 I've picked on Python here, but there's an equivalent mistake in
 Javascript too:
 
-``` {.sourceCode .javascript}
-try { 
-    do_something_amazing();
-} catch (e) {
-// do nothing
-}
-```
+    try { 
+        do_something_amazing();
+    } catch (e) {
+        // do nothing
+    }
 
 ... this is just as pernicious, and probably more commonly spotted.

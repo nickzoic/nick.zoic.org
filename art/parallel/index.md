@@ -39,10 +39,8 @@ slides, so see you in a while :-)
 
 OK, so here’s the classic Haskell length function:
 
-``` {.sourceCode .haskell}
-length [] = 0
-length a:x = 1 + length x
-```
+    length [] = 0
+    length a:x = 1 + length x
 
 Imagine we could use the operator ++ on the left hand side (let’s not
 call this language Haskell++). Where it normally joins two lists into
@@ -50,11 +48,9 @@ one, it would instead split one list into two … IF the list can be split
 this way. If this list is empty or singleton, the match fails … just
 like the match a:x would fail on an empty list:
 
-``` {.sourceCode .haskell}
-length [] = 0
-length (x++y) = length x + length y
-length _ = 1
-```
+    length [] = 0
+    length (x++y) = length x + length y
+    length _ = 1
 
 Having length x + length y would normally be a bad thing, preventing
 tail call optimization, but as Guy points out at about the 20 minute

@@ -61,27 +61,25 @@ of these rather opaque error messages:
 
 But after much messing around, I found that the following works:
 
-``` {.sourceCode .python}
-import base64
-import json
-import requests
+    import base64
+    import json
+    import requests
 
-def send_apple_receipt(receipt_data):
-    receipt_base64 = base64.b64encode(receipt_data)
-    receipt_json = json.dumps({"receipt-data": receipt_base64})
+    def send_apple_receipt(receipt_data):
+        receipt_base64 = base64.b64encode(receipt_data)
+        receipt_json = json.dumps({"receipt-data": receipt_base64})
 
-    response = requests.request(
-        method='POST',
-        url='https://sandbox.itunes.apple.com/verifyReceipt',
-        headers={'Content-Type': 'application/x-www-form-urlencoded'},
-        data=receipt_json
-    )
+        response = requests.request(
+            method='POST',
+            url='https://sandbox.itunes.apple.com/verifyReceipt',
+            headers={'Content-Type': 'application/x-www-form-urlencoded'},
+            data=receipt_json
+        )
 
-    if response.status_code == 200:
-        return response.json()
-    else:
-        raise SomeOtherException()
-```
+        if response.status_code == 200:
+            return response.json()
+        else:
+            raise SomeOtherException()
 
 Validating the Receipt with PKCS7
 =================================
@@ -94,41 +92,39 @@ Unfortunately the APIs here are a bit weird, so we end up doing things
 like wrapping up out PKCS7 receipts in ASCII so that OpenSSL can unwrap
 them again ... I'd like to find a better way.
 
-``` {.sourceCode .python}
-from pyasn1.codec.der import decoder as decoder
-from M2Crypto import SMIME, X509, BIO
-import base64
+    from pyasn1.codec.der import decoder as decoder
+    from M2Crypto import SMIME, X509, BIO
+    import base64
 
-certfile = 'AppleIncRootCertificate.cer'
+    certfile = 'AppleIncRootCertificate.cer'
 
-def verify_apple_receipt(receipt):
+    def verify_apple_receipt(receipt):
 
-    x509_cert = X509.load_cert(certfile, format=X509.FORMAT_DER)
+        x509_cert = X509.load_cert(certfile, format=X509.FORMAT_DER)
+    
+        smime = SMIME.SMIME()
+        smime.set_x509_stack(X509.X509_Stack())
 
-    smime = SMIME.SMIME()
-    smime.set_x509_stack(X509.X509_Stack())
+        x509_store = X509.X509_Store()
+        x509_store.add_x509(x509_cert)
+        smime.set_x509_store(x509_store)
 
-    x509_store = X509.X509_Store()
-    x509_store.add_x509(x509_cert)
-    smime.set_x509_store(x509_store)
+        receipt_cooked = (
+            '-----BEGIN PKCS7-----\n' +
+            base64.encodestring(receipt) +
+            '-----END PKCS7-----\n'
+        )
+        receipt_bio = BIO.MemoryBuffer(receipt_cooked)
+        receipt_smime = SMIME.load_pkcs7_bio(receipt_bio)
+    
+        receipt_asn1 = smime.verify(receipt_smime)
+        return decoder.decode(receipt_asn1)
 
-    receipt_cooked = (
-        '-----BEGIN PKCS7-----\n' +
-        base64.encodestring(receipt) +
-        '-----END PKCS7-----\n'
-    )
-    receipt_bio = BIO.MemoryBuffer(receipt_cooked)
-    receipt_smime = SMIME.load_pkcs7_bio(receipt_bio)
+    with open('sandboxReceipt') as fh:
+        receipt = fh.read()
 
-    receipt_asn1 = smime.verify(receipt_smime)
-    return decoder.decode(receipt_asn1)
-
-with open('sandboxReceipt') as fh:
-    receipt = fh.read()
-
-receipt_data = verify_apple_receipt(receipt)
-print receipt_data
-```
+    receipt_data = verify_apple_receipt(receipt)
+    print receipt_data
 
 What comes out? A parsed ASN1 structure which hopefully resembles the
 structure in the Apple docco. On the other hand, perhaps it was easier

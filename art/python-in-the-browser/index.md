@@ -46,15 +46,13 @@ Machine-readable descriptions like XML Schema and WSDL attempt to fix
 part of that problem ... but wouldn't it be nice to just declare this
 stuff just as functions which call other functions?
 
-``` {.sourceCode .python}
-@runs_on_the_server
-def get_user(username, password)
-    return db.tables['user'].select(username=username, password=password)
+    @runs_on_the_server
+    def get_user(username, password)
+        return db.tables['user'].select(username=username, password=password)
 
-@runs_on_the_client
-def handle_login(form):
-    user = get_user(form.username, form.password)
-```
+    @runs_on_the_client
+    def handle_login(form):
+        user = get_user(form.username, form.password)
 
 The python compiler can see that a function which runs\_on\_the\_client
 is calling a function which runs\_on\_the\_server, and can go away and
@@ -79,11 +77,9 @@ on exactly this -- but not all validation steps can be sanely expressed
 as regular expressions. If you're going to have to write a validator
 function, you should only have to write it once:
 
-``` {.sourceCode .python}
-@runs_on_both
-def validate_number(n):
-    return n % 13 != 0
-```
+    @runs_on_both
+    def validate_number(n):
+        return n % 13 != 0
 
 "But how hard can it be to write \_that\_ twice", you say. But the point
 is, if it is only written in one place then it can't get out of sync
@@ -126,22 +122,27 @@ But, sticking with Python:
     would have to be supported for multiple browsers and no-one likes
     installing plugins anyway so getting any kind of traction would be
     near impossible.
+
 -   Another bad idea would be implementing the Python VM in JavaScript.
     I'm pretty sure that writing an interpreter in an interpreted
     language is a mortal sin, even if JavaScript is mostly JITted these
     days anyway.
+
 -   [Pyjamas](http://pyjs.org/) is more-or-less a GWT for Python, and
     allows you to write Python apps which can either run locally or by
     translating from Python's AST to JavaScript and using AJAX.
+
 -   There are also [several projects called
     py2js](http://google.com/search?q=py2js) all of which seem to do AST
     to JavaScript conversion. I'm still trying to work out which of them
     are separate projects, and how they relate to Pyjamas' "pyjs" code.
+
 -   And finally, before I noticed python's
     [inspect.getsource](http://docs.python.org/library/inspect.html#retrieving-source-code)
     I started work on a Python Bytecode to Javascript decompiler. It was
     actually working pretty well, and the idea of avoiding another
     load-and-compile-to-AST cycle still appeals.
+
 -   Conceivably, a Python to JS converter could provide a "beachhead"
     for the use of a Python plugin ... or, indeed, for a total
     replacement of the browser!

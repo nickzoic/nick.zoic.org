@@ -40,12 +40,10 @@ rather than having to load the whole list upfront.
 For example, a postcode selector could be implemented something like
 this:
 
-``` {.sourceCode .javascript}
-$("input.postcode").autocomplete({
-minLength: 2,
-source: '/api/postcodes/'
-});
-```
+    $("input.postcode").autocomplete({
+        minLength: 2,
+        source: '/api/postcodes/'
+    });
 
 ... and on the backend, the `/api/postcodes/` URL would connect to a
 handler (django view, etc) which asks the database to
@@ -66,30 +64,26 @@ The autocomplete widget will accept a function as the data source, so we
 can have more control over the URL which is used to retrieve the data.
 For example, we can change the URL format used:
 
-``` {.sourceCode .javascript}
-$("input.postcode").autocomplete({
-minLength: 2,
-source: function(request, response) {
-        var match = request.term.toUpperCase().match(/[A-Z]{2}/);
-        if (match) {
-        $.ajax(
-            '/postcodes/search_' + match[0] + '.json'
-        ).done(function (data) {
-        var termre = new RegExp($.ui.autocomplete.escapeRegex(request.term));
-        response(data.filter(
-                    function (x) {
-            return termre.test(x);
-                    })
-                );
-            }).fail(function () {
-        response([]);
-            });
-        } else {
-    response([]);
+    $("input.postcode").autocomplete({
+        minLength: 2,
+        source: function(request, response) {
+            var match = request.term.toUpperCase().match(/[A-Z]{2}/);
+            if (match) {
+                $.ajax(
+                    '/postcodes/search_' + match[0] + '.json'
+                ).done(function (data) {
+                    var termre = new RegExp($.ui.autocomplete.escapeRegex(request.term));
+                    response(data.filter(
+                        function (x) { return termre.test(x); }
+                     ));
+                }).fail(function () {
+                    response([]);
+                });
+            } else {
+                response([]);
+            }
         }
-}
-});
-```
+    });
 
 ... this appears to be dynamic, in that the user gets a filtered list,
 but it is actually being fed from a group of small JSON files in the
@@ -109,42 +103,36 @@ dynamically in development and statically in production
 
 `models.py`:
 
-``` {.sourceCode .python}
-from django.db import models
+    from django.db import models
 
-class Postcode(models.Model):
-    code = models.CharField(max_length=4)
-    name = models.CharField(max_length=200)
-```
+    class Postcode(models.Model):
+        code = models.CharField(max_length=4)
+        name = models.CharField(max_length=200)
 
 `views.py`:
 
-``` {.sourceCode .python}
-from postcode.models import Postcode
-from django.http import HttpResponse
-import json
+    from postcode.models import Postcode
+    from django.http import HttpResponse
+    import json
 
-def postcode_search(request, term):
-    data = [
-        "%s %s" % (pc.name, pc.code)
-        for pc in Postcode.objects.filter(name__istartswith=term)
-    ]
-    return HttpResponse(
-        json.dumps(data),
-        mimetype="application/json"
-    )
-```
+    def postcode_search(request, term):
+        data = [
+            "%s %s" % (pc.name, pc.code)
+            for pc in Postcode.objects.filter(name__istartswith=term)
+        ]
+        return HttpResponse(
+            json.dumps(data),
+            mimetype="application/json"
+        )
 
 `urls.py`:
 
-``` {.sourceCode .python}
-from django.conf.urls import patterns, include, url
-from postcode.views import *
+    from django.conf.urls import patterns, include, url
+    from postcode.views import *
 
-urlpatterns = patterns('',
-    url(r'^postcode/search_(?P<term>\w+).json', postcode_search),
-)
-```
+    urlpatterns = patterns('',
+        url(r'^postcode/search_(?P<term>\w+).json', postcode_search),
+    )
 
 Going Static With Django Medusa
 ===============================
@@ -154,21 +142,19 @@ easy way to replicate your dynamic content to static content instead.
 Medusa needs some hints as to which files to generate, which go in a
 file called `renderers.py`:
 
-``` {.sourceCode .python}
-from django_medusa.renderers import StaticSiteRenderer
-import string
+    from django_medusa.renderers import StaticSiteRenderer
+    import string
 
-class PostcodeSearchRenderer(StaticSiteRenderer):
+    class PostcodeSearchRenderer(StaticSiteRenderer):
 
-    def get_paths(self):
-        for a in string.uppercase:
-            for b in string.uppercase:
-                yield "/postcode/search_%s.json" % (a+b)
+        def get_paths(self):
+            for a in string.uppercase:
+                for b in string.uppercase:
+                    yield "/postcode/search_%s.json" % (a+b)
 
-renderers = [
-    PostcodeSearchRenderer,
-]
-```
+    renderers = [
+        PostcodeSearchRenderer,
+    ]
 
 Now when you run `manage.py staticsitegen`, all 676 itty bitty JSON
 files will be created.

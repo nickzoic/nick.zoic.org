@@ -61,12 +61,10 @@ the draw the line by varying *t*.
 
 In numeric.js, we construct this like:
 
-``` {.sourceCode .javascript}
-var ts = [ 0, 0.2, 0.4, 0.6, 0.8, 1 ];
-var xys = [ [ 0, 1 ], [ 1, 2 ], [ 2, 1 ], [ 1, 0 ], [ 0, 1 ] ]; 
+    var ts = [ 0, 0.2, 0.4, 0.6, 0.8, 1 ];
+    var xys = [ [ 0, 1 ], [ 1, 2 ], [ 2, 1 ], [ 1, 0 ], [ 0, 1 ] ]; 
 
-var spline = numeric.spline(ts, xys);
-```
+    var spline = numeric.spline(ts, xys);
 
 We construct these lists by appending to them as the user moves the
 mouse, and then 'normalizing' `ts` to the range *\[0,1\]* once the user
@@ -75,14 +73,12 @@ has stopped drawing.
 And we can interate along the spline and plot a line using Canvas, like
 so:
 
-``` {.sourceCode .javascript}
-var xys = spline.at(numeric.linspace(0,1,100));
-context.moveTo(xys[0][0], xys[0][1]);
-for (var i=1; i<xys.length; i++) {
-    context.lineTo(xys[i][0], xys[i][1]);
-}
-context.stroke();
-```
+    var xys = spline.at(numeric.linspace(0,1,100));
+    context.moveTo(xys[0][0], xys[0][1]);
+    for (var i=1; i<xys.length; i++) {
+        context.lineTo(xys[i][0], xys[i][1]);
+    }
+    context.stroke();
 
 As well as drawing line segments on the screen, we can keep track of
 them in an array and then feed the array to the spline function,

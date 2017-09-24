@@ -42,23 +42,21 @@ I'd agree about the data-post-id kludge ... it is a horrible wart in
 jQuery. However, Javascript has a much nicer way of doing these things,
 using *closures*:
 
-``` {.sourceCode .javascript}
-function show_comment(parent, comment_id, content) {
-    var comment_div = $('<div>').addClass('comment').text(content).appendTo(parent);
-    var comment_like = $('<button>Like</button>').appendTo(comment_div);
-    comment_like.click(function() {
-        // Closure #1
-        $.ajax('/me_too', {
-            data: { comment_id: comment_id },
-            success: function () {
-                // Closure #2,
-                comment_div.addClass("liked");
-                comment_like.hide();
-            }
+    function show_comment(parent, comment_id, content) {
+        var comment_div = $('<div>').addClass('comment').text(content).appendTo(parent);
+        var comment_like = $('<button>Like</button>').appendTo(comment_div);
+        comment_like.click(function() {
+            // Closure #1
+            $.ajax('/me_too', {
+                data: { comment_id: comment_id },
+                success: function () {
+                    // Closure #2,
+                    comment_div.addClass("liked");
+                    comment_like.hide();
+                }
+            });
         });
-    });
-}
-```
+    }
 
 `comment_id`, `comment_div` and `comment_like` are kept in the lexical
 scope of the `show_comment` function, and so are still available when
@@ -70,17 +68,15 @@ scope with its own values to remember.
 There is one major trap: *functions* create lexical scopes, not
 *blocks*. So the following:
 
-``` {.sourceCode .javascript}
-function not_going_to_work() {
-    for (var i=0; i<10; i++) {
-    $('<button>').text("Button "+i).click(
-            function () {
-                alert("Button " + i + " Clicked");
-            }
-        ).appendTo(document.body);
+    function not_going_to_work() {
+        for (var i=0; i<10; i++) {
+        $('<button>').text("Button "+i).click(
+                function () {
+                    alert("Button " + i + " Clicked");
+                }
+            ).appendTo(document.body);
+        }
     }
-}
-```
 
 ... isn't going to work. Whichever button you click, it'll say "Button
 10 Clicked", because the loop counter `i` exists in only one scope, that
@@ -89,19 +85,17 @@ of the `not_going_to_work` function.
 To get around this, we add an anonymous inner function so that each
 button has its own associated scope:
 
-``` {.sourceCode .javascript}
-function is_going_to_work() {
-    for (var i=0; i<10; i++) {
-        (function (n) {
-        $('<button>').text("Button "+n).click(
-                function () {
-                    alert("Button " + n + " Clicked");
-                }
-            ).appendTo(document.body);
-        })(i);
+    function is_going_to_work() {
+        for (var i=0; i<10; i++) {
+            (function (n) {
+            $('<button>').text("Button "+n).click(
+                    function () {
+                        alert("Button " + n + " Clicked");
+                    }
+                ).appendTo(document.body);
+            })(i);
+        }
     }
-}
-```
 
 I've written a bunch of HTML5 / javascript stuff in recent years which
 uses closures as a way of never actually having to traverse the DOM. It

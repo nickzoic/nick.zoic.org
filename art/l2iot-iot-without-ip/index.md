@@ -9,15 +9,14 @@ summary: IoT Networks without IP?  Madness.  But ... maybe ...
 ---
 
 I've already discussed 
+[problems with IoT address resolution](/art/mac-address-resolution/)
+but I think it's worth questioning a few more assumptions here.
+
 ["The world in which IPv6 was a good design"](http://apenwarr.ca/log/?m=201708#10)
 provides a lot of really good background on the evolution of modern networks too.
 
 Much Ado about Lightbulbs ...
 =============================
-
-I've already discussed
-[problems with IoT address resolution](/art/mac-address-resolution/)
-but I think it's worth questioning a few more assumptions here.
 
 We have [a few problems with IoT](/art/the-internet-of-not-shit-things/)  
 

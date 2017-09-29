@@ -71,8 +71,8 @@ A small piece of MicroPython code is enough to connect the device to a
     # Then wake up the acc/gyr module by writing to its status register.
 
     import machine
-    i2c = machine.I2C[freq=400000,scl=machine.Pin[22),sda=machine.Pin[21))
-    i2c.writeto_mem[104,107,bytes[[0]))
+    i2c = machine.I2C(freq=400000,scl=machine.Pin(22),sda=machine.Pin(21))
+    i2c.writeto_mem(104,107,bytes([0]))
 
     import time
 
@@ -80,28 +80,28 @@ A small piece of MicroPython code is enough to connect the device to a
     # seven signed numbers: ax, ay, az, temperature, gx, gy and gz.
 
     import struct
-    def read_acc[):
-        return struct.unpack[">7h", i2c.readfrom_mem[104,0x3b,14))
+    def read_acc():
+        return struct.unpack(">7h", i2c.readfrom_mem(104,0x3b,14))
 
     # Wait for the WLAN to be available.
 
-    while not network.WLAN[).isconnected[):
-        time.sleep[0.1)
+    while not network.WLAN().isconnected():
+        time.sleep(0.1)
 
     # Connect up to an MQTT server
 
     import umqtt.simple
 
-    cli = umqtt.simple.MQTTClient['r0kk1t', 'iot.eclipse.org')
-    cli.connect[)
+    cli = umqtt.simple.MQTTClient('r0kk1t', 'iot.eclipse.org')
+    cli.connect()
 
     # Grab data and send timestamp plus data in an MQTT message.
 
     while True:
-        zz = [ time.ticks_ms[) ) + list[read_acc[))
-        msg = ' '.join["%d" % x for x in zz)
-        cli.publish['r0kk1t', msg)
-        time.sleep[0.1)
+        zz = [ time.ticks_ms() ] + list(read_acc())
+        msg = ' '.join("%d" % x for x in zz)
+        cli.publish('r0kk1t', msg)
+        time.sleep(0.1)
 
 It's not much of a thing, but it's enough to see some interesting things about
 the flight of our cardboard missile.  Here's some data I captured at home using the prototype,

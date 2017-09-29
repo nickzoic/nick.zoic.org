@@ -44,14 +44,14 @@ radio into a package the size of your thumbnail.  Even better, it can run
 I put together a quick prototype for
 [BuzzConf Nights](https://www.meetup.com/BuzzConf/events/243244039/)
 out of stuff I had lying around: there's a 
-[Sparkfun ESP32 Thing](https://www.sparkfun.com/products/13907], 
+[Sparkfun ESP32 Thing](https://www.sparkfun.com/products/13907), 
 a [GY521 / MPU-6050 6DOF Accelerometer / Gyrometer](https://playground.arduino.cc/Main/MPU-6050)
 and a 180mAh RC heli LiPo cell.
 
 ![Telemetry Prototype](img/tennis4.jpg)
 ![Telemetry Prototype](img/tennis5.jpg)
 
-Also some foam, tape, a tennis ball [new) and a pizza box [used).
+Also some foam, tape, a tennis ball (new) and a pizza box (used).
 The end result was this:
 
 ![Cardboard Test Rocket](img/tennis1.jpg)
@@ -105,7 +105,7 @@ A small piece of MicroPython code is enough to connect the device to a
 
 It's not much of a thing, but it's enough to see some interesting things about
 the flight of our cardboard missile.  Here's some data I captured at home using the prototype,
-although using my own local MQTT server ([Mosquitto](https://mosquitto.org/() instead of
+although using my own local MQTT server ([Mosquitto](https://mosquitto.org/)) instead of
 transmitting all the data over the Internet and back, and a slightly higher capture rate ...
 
 ![Cardboard Missile Graph](img/cardboard-graph1.png)

@@ -127,6 +127,10 @@ management on board, but I've got a small module to add that on.
 I've also got on order a slightly more sophisticated
 IMU, the [MPU-9250](https://www.invensense.com/products/motion-tracking/9-axis/mpu-9250/).
 
+Mark put me onto these articles:
+[LSM9DS1 vs. MPU-9250 vs. BMX055](https://github.com/kriswiner/MPU6050/issues/6)
+[AHRS for Adafruit's 9-DOF, 10-DOF, LSM9DS0 Breakouts](https://learn.adafruit.com/ahrs-for-adafruits-9-dof-10-dof-breakout) which look helpful.  
+
 This is [available on a module](https://www.banggood.com/GY-91-MPU9250-BMP280-10DOF-Acceleration-Gyroscope-Compass-Nine-Shaft-Sensor-Module-p-1129541.html) along with a
 [BMP280](https://www.bosch-sensortec.com/bst/products/all\_products/bmp280) Barometric Pressure Sensor, 
 which should give us a pretty accurate altitude estimate as well.

@@ -139,6 +139,9 @@ Also, I'd like to explore the [ESPNow](http://espressif.com/en/products/software
 and [802.11 LR](http://esp-idf.readthedocs.io/en/latest/api-guides/wifi.html#wi-fi-protocol-mode) 
 or even [Raw 802.11](https://github.com/Jeija/esp32free80211)
 transports for better range and reliability for our telemetry data.
+I'm thinking than another ESP32 can receive the ESP-Now datagrams over 802.11 LR and forward
+them to the campsite MQTT server via regular 802.11 or even
+[wired Ethernet](https://github.com/micropython/micropython-esp32/pull/187)
 
 I'm working on pull requests to add these features to MicroPython.  So far I've had some 
 success: devices can be configured to use the LR protocol and I've been able to send small

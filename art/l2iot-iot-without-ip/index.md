@@ -182,3 +182,9 @@ Further Work
 
 First step is to get raw sockets working on MicroPython and see if I can 
 get a demo working on a couple of $1 ESP-01 modules ...
+
+UPDATE
+======
+
+Also check out [ESP-Now](http://esp-idf.readthedocs.io/en/latest/api-reference/wifi/esp_now.html#send-esp-now-data)
+which is Espressif's take on this, and [Raw 802.11](https://github.com/Jeija/esp32free80211) transport for ESP as well.

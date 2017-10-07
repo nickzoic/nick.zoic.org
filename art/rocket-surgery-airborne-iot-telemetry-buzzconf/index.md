@@ -140,7 +140,9 @@ and [802.11 LR](http://esp-idf.readthedocs.io/en/latest/api-guides/wifi.html#wi-
 or even [Raw 802.11](https://github.com/Jeija/esp32free80211)
 transports for better range and reliability for our telemetry data.
 
-All these things will need MicroPython libraries wrapped around them, watch this space!
+I'm working on pull requests to add these features to MicroPython.  So far I've had some 
+success: devices can be configured to use the LR protocol and I've been able to send small
+datagrams around using ESP-Now.
 
 # Production Form
 
@@ -152,3 +154,8 @@ It's very cheap to do a run of 10 small PCBs these days, so I'll have to get to 
 PCB design software.  I'm going to avoid dealing with the tiny packages directly by soldering
 modules to the PCB rather than trying to use the sensors directly.  This should mean I can 
 get away with a fairly sparse 2 layer board.
+
+I'm also a bit leery of LiPo batteries: I dunno, they seem a bit explodey at the best of times,
+and being fired into the air atop a jet of water may not agree with them.  I bought some
+[AAAA cell batteries](https://en.wikipedia.org/wiki/AAAA_battery) on Ebay so I'll try them out.
+Annoyingly, none of the 9V batteries I levered open contained LR61 cells.

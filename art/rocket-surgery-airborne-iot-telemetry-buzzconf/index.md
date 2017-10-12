@@ -139,7 +139,7 @@ a teeny bit hot when charging ... better fix that.
 By replacing the existing 2.2k&#x2126;
 resistor with a 10k&#x2126; one, the charge rate is dropped from about 450mA to 100mA.
 Desoldering the tiny SMD resistor and replacing it with an enormous through-hole one was 
-a bit hair, but seems to have worked.  The resistor leg is soldered directly to pin 5 of the
+a bit hairy, but seems to have worked.  The resistor leg is soldered directly to pin 5 of the
 regulator and to the original resistor pad to try and give it more mechanical strength.
 
 # Better Protocol

@@ -71,7 +71,7 @@ along with Andy and Andrew from [CCHS](http://hackmelbourne.org/).  Come along, 
 BUT WAIT THERE'S MORE
 =====================
 
-[YOW! Connected](http://connected.yowconference.com.au/) slides are [/talk/yow1/](up).
+[YOW! Connected](http://connected.yowconference.com.au/) slides are [up](/talk/yow1/).
 
 I put a just plain silly number of entries in for [Linux Conf AU](https://linux.conf.au/proposals/)
 which is what they get for putting the CfP deadline during PyConAU when all the ideas are bouncing around
@@ -82,7 +82,9 @@ and will now have to write up as a very long blog post instead, but the good new
 
 I'll be running a tutorial *Getting Started with MicroPython*:
 
-    MicroPython is a Python3 for resource constrained systems, allowing you to develop software in a pleasant high-level language and run it on a cheap microcontroller. We'll look at compiling MicroPython, flashing devices, and how to connecting to the REPL and filesystem. Then we'll get started on development of an example IoT application in Python (and optionally, look at extending MicroPython in C). 
+> MicroPython is a Python3 for resource constrained systems, allowing you to develop software in a pleasant high-level language and run it on a cheap microcontroller. We'll look at compiling MicroPython, flashing devices, and how to connecting to the REPL and filesystem. Then we'll get started on development of an example IoT application in Python (and optionally, look at extending MicroPython in C). 
+
+I'll also be helping out with the Open Hardware [MiniConf](https://linux.conf.au/programme/miniconfs.html).
 
 MORE 2018
 =========

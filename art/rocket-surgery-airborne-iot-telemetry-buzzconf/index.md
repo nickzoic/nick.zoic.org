@@ -142,9 +142,54 @@ and it seems to be working really well ... running flat out it's transmitting a 
 5.5 ms ... and the 180mAh battery manages about 17 minutes of that before
 browning out and bouncing.
 
+example rocket code:
+
+    import network
+    w = network.WLAN(network.STA_IF)
+    w.active(True)
+    w.config(protocol=network.MODE_LR)
+
+    from esp import espnow
+    espnow.init()
+
+    espnow_bcast = b'\xFF' * 6
+    espnow.add_peer(w, espnow_bcast)
+
+    import machine
+    i2c = machine.I2C(freq=400000,scl=machine.Pin(22),sda=machine.Pin(21))
+    i2c.writeto_mem(104,107,bytes([0]))
+
+    import time
+    import struct
+
+    seq = 0
+    while True:
+        msg = struct.pack(">ll", seq, time.ticks_ms()) + i2c.readfrom_mem(104,0x3b,14)
+        espnow.send(espnow_bcast, msg)
+        time.sleep(0.004)
+        seq += 1
+
 Another ESP32 can receive the ESP-Now datagrams over 802.11 LR and forward
 them to the campsite MQTT server via regular 802.11 or even
 [wired Ethernet](https://github.com/micropython/micropython-esp32/pull/187)
+
+And ground control too:
+
+    import network
+    w = network.WLAN()
+    w.active(True)
+    w.config(protocol=network.MODE_LR)
+
+    from esp import espnow
+    espnow.init()
+
+    import struct
+    pfmt = "%12d %12d" + " %6d" * 7
+
+    while True:
+        msg = espnow.recv()
+        if msg:
+            print(pfmt % struct.unpack(">LL7h", msg[1]))
 
 I'm working on pull requests to add these features to MicroPython so watch this space!
 

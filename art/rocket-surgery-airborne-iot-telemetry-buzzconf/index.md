@@ -134,6 +134,14 @@ sided tape ... the only thing I forgot is to replace the R<sub>PROG</sub> resist
 on the battery board with something more appropriate to such a tiny battery, so it runs
 a teeny bit hot when charging ... better fix that.
 
+![Fixing Charge Rate](img/chargerate.jpg)
+
+By replacing the existing 2.2k&#x2126;
+resistor with a 10k&#x2126; one, the charge rate is dropped from about 450mA to 100mA.
+Desoldering the tiny SMD resistor and replacing it with an enormous through-hole one was 
+a bit hair, but seems to have worked.  The resistor leg is soldered directly to pin 5 of the
+regulator and to the original resistor pad to try and give it more mechanical strength.
+
 # Better Protocol
 
 I've switched to sending [ESP-Now](http://espressif.com/en/products/software/esp-now/overview)

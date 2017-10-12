@@ -33,13 +33,11 @@ contained in it change.
 This script uses [sed](http://en.wikipedia.org/wiki/Sed), and
 illustrates the approach:
 
-``` {.sourceCode .bash}
-#!/bin/bash
+    #!/bin/bash
 
-DATETIME=`date +%Y-%m-%d\ %H:%M:%S`
+    DATETIME=`date +%Y-%m-%d\ %H:%M:%S`
 
-sed -i -e "s/^#DATE.*/#DATE $DATETIME/" cache.manifest
-```
+    sed -i -e "s/^#DATE.*/#DATE $DATETIME/" cache.manifest
 
 This looks for comment lines starting with `#DATE` and fills in the
 current date. The `-i` option causes sed to modify the original file.
@@ -72,14 +70,12 @@ browser to reload the files.
 
 In Apache, the configuration looks something like this:
 
-``` {.sourceCode .apache}
-Alias /whatever /var/www/whatever
-<Directory /var/www/whatever>
-     Options +Includes
-     AddHandler server-parsed .manifest
-</Directory>
-CacheDisable /whatever/ihealth.manifest
-```
+    Alias /whatever /var/www/whatever
+    <Directory /var/www/whatever>
+         Options +Includes
+         AddHandler server-parsed .manifest
+    </Directory>
+    CacheDisable /whatever/ihealth.manifest
 
 You are, of course, paying a penalty in terms of server overhead: the
 server has to `stat` several files, and always returns the entire

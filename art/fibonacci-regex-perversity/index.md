@@ -39,14 +39,12 @@ changing. So for example, our string might mutate as follows:
 Expanding the path of `fiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiib` is left as an
 exercise to the reader, although this perl script might help:
 
-``` {.sourceCode .perl}
-#!/usr/bin/perl -w
+    #!/usr/bin/perl -w
 
-$_ = "fiiiiib";
-print "$_\n";
+    $_ = "fiiiiib";
+    print "$_\n";
 
-print "$_\n" while s/fi?b/i/g || s/fii(i*)b/f$1bfi$1b/g;    
-```
+    print "$_\n" while s/fi?b/i/g || s/fii(i*)b/f$1bfi$1b/g;    
 
 What on earth is this all this substituion doing? Well, it is
 calculating [Fibonacci
@@ -96,18 +94,18 @@ as an example, using `0` and `1` for the tape symbols 0 and 1, and using
 `H` for the head when halted. Translating to that notation, the state
 transitions are:
 
-  Current State   Current Symbol   New Symbol   Move Head   New State
-  --------------- ---------------- ------------ ----------- -----------
-  A               0                                         H
-  A               1                0            R           B
-  B               0                0            R           C
-  B               1                1            R           B
-  C               0                1            L           D
-  C               1                1            R           C
-  D               0                0            L           E
-  D               1                1            L           D
-  E               0                1            R           A
-  E               1                1            L           E
+    Current State   Current Symbol   New Symbol   Move Head   New State
+    --------------- ---------------- ------------ ----------- -----------
+    A               0                                         H
+    A               1                0            R           B
+    B               0                0            R           C
+    B               1                1            R           B
+    C               0                1            L           D
+    C               1                1            R           C
+    D               0                0            L           E
+    D               1                1            L           D
+    E               0                1            R           A
+    E               1                1            L           E
 
 We can cope with the unbound tape by either matching `$` (end-of-string)
 as if it were a `0`, or by simply extending the tape any time the head
@@ -135,38 +133,36 @@ symbol:
 
 We can write this into a Perl script too:
 
-``` {.sourceCode .perl}
-#!/usr/bin/perl -w
+    #!/usr/bin/perl -w
 
-# Initial state of the tape.
-$_ = "A1111";
-print "$_\n";
-
-# Look out for the halting state
-while (! /H/) {
-
-    # If we're at the end of the tape, extend it.
-    s/([A-Z])$/${1}0/;
-
-    # Do exactly one substitution.
-    s/A0/H0/   ||
-    s/A1/0B/   ||
-    s/B0/0C/   ||
-    s/B1/1B/   ||
-    s/0C0/D01/ ||
-    s/1C0/D11/ ||
-    s/C1/1C/   ||
-    s/0D0/E00/ ||
-    s/1D0/E10/ ||
-    s/0D1/D01/ ||
-    s/1D1/D11/ ||
-    s/E0/1A/   ||
-    s/0E1/E01/ ||
-    s/1E1/E11/ ;
-
+    # Initial state of the tape.
+    $_ = "A1111";
     print "$_\n";
-}
-```
+
+    # Look out for the halting state
+    while (! /H/) {
+
+        # If we're at the end of the tape, extend it.
+        s/([A-Z])$/${1}0/;
+
+        # Do exactly one substitution.
+        s/A0/H0/   ||
+        s/A1/0B/   ||
+        s/B0/0C/   ||
+        s/B1/1B/   ||
+        s/0C0/D01/ ||
+        s/1C0/D11/ ||
+        s/C1/1C/   ||
+        s/0D0/E00/ ||
+        s/1D0/E10/ ||
+        s/0D1/D01/ ||
+        s/1D1/D11/ ||
+        s/E0/1A/   ||
+        s/0E1/E01/ ||
+        s/1E1/E11/ ;
+    
+        print "$_\n";
+    }
 
 and when we run it we can watch the turing machine at work:
 

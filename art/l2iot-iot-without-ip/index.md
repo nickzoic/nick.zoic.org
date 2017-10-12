@@ -9,15 +9,14 @@ summary: IoT Networks without IP?  Madness.  But ... maybe ...
 ---
 
 I've already discussed 
+[problems with IoT address resolution](/art/mac-address-resolution/)
+but I think it's worth questioning a few more assumptions here.
+
 ["The world in which IPv6 was a good design"](http://apenwarr.ca/log/?m=201708#10)
 provides a lot of really good background on the evolution of modern networks too.
 
 Much Ado about Lightbulbs ...
 =============================
-
-I've already discussed
-[problems with IoT address resolution](/art/mac-address-resolution/)
-but I think it's worth questioning a few more assumptions here.
 
 We have [a few problems with IoT](/art/the-internet-of-not-shit-things/)  
 
@@ -183,3 +182,9 @@ Further Work
 
 First step is to get raw sockets working on MicroPython and see if I can 
 get a demo working on a couple of $1 ESP-01 modules ...
+
+UPDATE
+======
+
+Also check out [ESP-Now](http://esp-idf.readthedocs.io/en/latest/api-reference/wifi/esp_now.html#send-esp-now-data)
+which is Espressif's take on this, and [Raw 802.11](https://github.com/Jeija/esp32free80211) transport for ESP as well.

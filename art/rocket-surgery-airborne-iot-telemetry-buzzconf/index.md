@@ -122,7 +122,36 @@ In any case, this is just raw data and I need to look at the more advanced super
 As it turns out, the board I used is just a bit too large to fit inside a tennis ball, 
 so I'm going to use a slightly smaller board, the
 [ESPea32](https://blog.aprbrother.com/product/espea32).  This doesn't have the battery
-management on board, but I've got a small module to add that on.
+management on board, but there's a
+matching [ESPea Battery Shield](https://blog.aprbrother.com/product/espea-battery-shield).
+It feels weird to snap a brand new board in half, but here we go ...
+
+![Prototype 1 and a bit](img/prototype2.jpg)
+
+As well as the main board and the battery shield, there's the same accelerometer module
+and 180mAh battery as before, and some packing foam, kapton tape, electrical tape, double
+sided tape ... the only thing I forgot is to replace the R<sub>PROG</sub> resistor
+on the battery board with something more appropriate to such a tiny battery, so it runs
+a teeny bit hot when charging ... better fix that.
+
+# Better Protocol
+
+I've switched to sending [ESP-Now](http://espressif.com/en/products/software/esp-now/overview)
+over [802.11 LR](http://esp-idf.readthedocs.io/en/latest/api-guides/wifi.html#wi-fi-protocol-mode) 
+and it seems to be working really well ... running flat out it's transmitting a frame about every 
+5.5 ms ... and the 180mAh battery manages about 17 minutes of that before
+browning out and bouncing.
+
+Another ESP32 can receive the ESP-Now datagrams over 802.11 LR and forward
+them to the campsite MQTT server via regular 802.11 or even
+[wired Ethernet](https://github.com/micropython/micropython-esp32/pull/187)
+
+I'm working on pull requests to add these features to MicroPython so watch this space!
+
+(There's also [Raw 802.11](https://github.com/Jeija/esp32free80211) ... so I could still skip
+this bit if it's too much of a pain in the butt ...)
+
+# Better IMU
 
 I've also got on order a slightly more sophisticated
 IMU, the [MPU-9250](https://www.invensense.com/products/motion-tracking/9-axis/mpu-9250/).
@@ -134,18 +163,6 @@ Mark put me onto these articles:
 This is [available on a module](https://www.banggood.com/GY-91-MPU9250-BMP280-10DOF-Acceleration-Gyroscope-Compass-Nine-Shaft-Sensor-Module-p-1129541.html) along with a
 [BMP280](https://www.bosch-sensortec.com/bst/products/all\_products/bmp280) Barometric Pressure Sensor, 
 which should give us a pretty accurate altitude estimate as well.
-
-Also, I'd like to explore the [ESPNow](http://espressif.com/en/products/software/esp-now/overview)
-and [802.11 LR](http://esp-idf.readthedocs.io/en/latest/api-guides/wifi.html#wi-fi-protocol-mode) 
-or even [Raw 802.11](https://github.com/Jeija/esp32free80211)
-transports for better range and reliability for our telemetry data.
-I'm thinking than another ESP32 can receive the ESP-Now datagrams over 802.11 LR and forward
-them to the campsite MQTT server via regular 802.11 or even
-[wired Ethernet](https://github.com/micropython/micropython-esp32/pull/187)
-
-I'm working on pull requests to add these features to MicroPython.  So far I've had some 
-success: devices can be configured to use the LR protocol and I've been able to send small
-datagrams around using ESP-Now.
 
 # Production Form
 

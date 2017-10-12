@@ -130,17 +130,19 @@ It feels weird to snap a brand new board in half, but here we go ...
 
 As well as the main board and the battery shield, there's the same accelerometer module
 and 180mAh battery as before, and some packing foam, kapton tape, electrical tape, double
-sided tape ... the only thing I forgot is to replace the R<sub>PROG</sub> resistor
-on the battery board with something more appropriate to such a tiny battery, so it runs
-a teeny bit hot when charging ... better fix that.
+sided tape ... all up it weighs about 15 grams, which is plenty light enough, and because
+it is a compact little hamburger it will fit inside my tennis ball easily enough.
 
-![Fixing Charge Rate](img/chargerate.jpg)
+![Telemetry Burger](img/hamburger.jpg)
 
-By replacing the existing 2.2k&#x2126;
+By replacing the existing 2.2k&#x2126; R<sub>PROG</sub>
 resistor with a 10k&#x2126; one, the charge rate is dropped from about 450mA to 100mA.
 Desoldering the tiny SMD resistor and replacing it with an enormous through-hole one was 
 a bit hairy, but seems to have worked.  The resistor leg is soldered directly to pin 5 of the
 regulator and to the original resistor pad to try and give it more mechanical strength.
+With this modification, the charging temperature is much more sensible.
+
+![Fixing Charge Rate](img/chargerate.jpg)
 
 # Better Protocol
 

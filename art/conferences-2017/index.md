@@ -60,7 +60,7 @@ either, but I went to Compose
 last year and found really fascinating, if often a little over my depth.
 So I'm heading there this year as well!
 
-I *did* end up getting a talk into [http://connected.yowconference.com.au/](YOW! Connected),
+I *did* end up getting a talk into [YOW! Connected](http://connected.yowconference.com.au/),
 and I'll be talking [IoT](/tag/iot/), [MicroPython](/tag/micropython/) and [ESP32](/tag/esp32/) ... okay, so the talking slots are a bit longer
 than at PyCon so probably a mix of my ["Internet of (Not Shit) Things"](/art/the-internet-of-not-shit-things/)
 and "MicroPython for ESP32" talks, more or less.
@@ -68,12 +68,24 @@ and "MicroPython for ESP32" talks, more or less.
 And in December I'll be doing [Rocket Surgery at BuzzConf](https://buzzconf.io/sessions/airborne-iot-build-a-rocket/)
 along with Andy and Andrew from [CCHS](http://hackmelbourne.org/).  Come along, it'll be a hoot.
 
-... 2018
-========
+BUT WAIT THERE'S MORE
+=====================
+
+[YOW! Connected](http://connected.yowconference.com.au/) slides are [/talk/yow1/](up).
 
 I put a just plain silly number of entries in for [Linux Conf AU](https://linux.conf.au/proposals/)
 which is what they get for putting the CfP deadline during PyConAU when all the ideas are bouncing around
 in my head.
-Hopefully something will get picked, but in any case I'll be there in Sydney 2018.
 
-... and heading back to Sydney as well is [PyConAU 2018](https://2018.pycon-au.org/) I can hardly wait!
+4 got rejected, including one I really really thought would get through
+and will now have to write up as a very long blog post instead, but the good news is ...
+
+I'll be running a tutorial *Getting Started with MicroPython*:
+
+    MicroPython is a Python3 for resource constrained systems, allowing you to develop software in a pleasant high-level language and run it on a cheap microcontroller. We'll look at compiling MicroPython, flashing devices, and how to connecting to the REPL and filesystem. Then we'll get started on development of an example IoT application in Python (and optionally, look at extending MicroPython in C). 
+
+MORE 2018
+=========
+
+... and heading back to Sydney as well is [PyConAU 2018](https://2018.pycon-au.org/).
+I can hardly wait!

@@ -173,7 +173,9 @@ Another ESP32 can receive the ESP-Now datagrams over 802.11 LR and forward
 them to the campsite MQTT server via regular 802.11 or even
 [wired Ethernet](https://github.com/micropython/micropython-esp32/pull/187)
 
-And ground control too:
+At the moment, this just grabs the broadcast packets and prints them.
+At 115200 baud the UART can just barely keep up with the data rate, so we
+end up losing ~15% of frames but that's okay, this is not the long term solution:
 
     import network
     w = network.WLAN()
@@ -194,7 +196,8 @@ And ground control too:
 I'm working on pull requests to add these features to MicroPython so watch this space!
 
 (There's also [Raw 802.11](https://github.com/Jeija/esp32free80211) ... so I could still skip
-this bit if it's too much of a pain in the butt ...)
+the ground control bit if it's too much of a pain in the butt ... but I think having the extra
+range from the LR will make it worthwhile ...)
 
 # Better IMU
 

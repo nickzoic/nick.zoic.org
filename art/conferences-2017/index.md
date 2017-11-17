@@ -58,20 +58,22 @@ I didn't end up getting picked for
 [Compose Melbourne](http://www.composeconference.org/2017-melbourne/)
 either, but I went to Compose 
 last year and found really fascinating, if often a little over my depth.
-So I'm heading there this year as well!
+So I went along this year as well, and learnt a little more about FP.
 
 I *did* end up getting a talk into [YOW! Connected](http://connected.yowconference.com.au/),
 and I'll be talking [IoT](/tag/iot/), [MicroPython](/tag/micropython/) and [ESP32](/tag/esp32/) ... okay, so the talking slots are a bit longer
-than at PyCon so probably a mix of my ["Internet of (Not Shit) Things"](/art/the-internet-of-not-shit-things/)
-and "MicroPython for ESP32" talks, more or less.
+than at PyCon so it's kind of a mix of my ["Internet of (Not Shit) Things"](/art/the-internet-of-not-shit-things/)
+and "MicroPython for ESP32" talks, more or less.  
+
+It went pretty well: [slides](/talk/yow1/) / [video](http://youtu.be/A__Bg9dcpbo)
 
 And in December I'll be doing [Rocket Surgery at BuzzConf](https://buzzconf.io/sessions/airborne-iot-build-a-rocket/)
-along with Andy and Andrew from [CCHS](http://hackmelbourne.org/).  Come along, it'll be a hoot.
+along with Andy and Andrew from [CCHS](http://hackmelbourne.org/).  Come along, it'll be a hoot.  There's lots more
+details here at [Rocket Surgery Build Log](/art/rocket-surgery-airborne-iot-telemetry-buzzconf/).
+
 
 BUT WAIT THERE'S MORE
 =====================
-
-[YOW! Connected](http://connected.yowconference.com.au/) slides are [up](/talk/yow1/).
 
 I put a just plain silly number of entries in for [Linux Conf AU](https://linux.conf.au/proposals/)
 which is what they get for putting the CfP deadline during PyConAU when all the ideas are bouncing around

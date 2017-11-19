@@ -237,3 +237,5 @@ I'm also a bit leery of LiPo batteries: I dunno, they seem a bit explodey at the
 and being fired into the air atop a jet of water may not agree with them.  I bought some
 [AAAA cell batteries](https://en.wikipedia.org/wiki/AAAA_battery) on Ebay so I'll try them out.
 Annoyingly, none of the 9V batteries I levered open contained LR61 cells.
+
+[Prototype 3](img/prototype3.jpg)

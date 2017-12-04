@@ -224,6 +224,24 @@ which should give us a pretty accurate altitude estimate as well.
 
 # Production Form
 
+Ideally, I'd like these devices to be based on an WROOM32 module soldered directly to a little
+board, with the IMU module(s) soldered directly as well, and so on.  But I ran out of time to make
+boards, so instead we have some hand soldering to do. Fortunately, there's a module
+GY-91 which has both a MPU-9250 and a BMP280 on the same module, simplifying the soldering.
+
+And the LoLin32-Lite is a nice little module which combines an ESP32 with battery management.
+By a happy coincidence, they're a nice fit with just a four pin header between them.
+Additionally, I found a
+[Tiny LiPo at HobbyKing](https://hobbyking.com/en_us/turnigy-200mah-1s-20c.html)
+which is just the right size to backpack onto a LoLin module (sadly it's battery
+connector is backwards.  What? Why? Never mind, easily swapped). With a capacity of
+200mAh and a max charge rate of 2C ... well, the charge controller is meant to charge
+at around 500mAh but unlike with the previous LiPos nothing gets warm so I figure we're okay.
+
+![Prototype 3](img/prototype3.jpg)
+
+# Further Work
+
 The aim is to produce about 10 of these telemetry devices: we want to have multiple rockets
 to experiment with and some spares on hand, plus I think it'd be fun to dangle one off a kite
 like a very low altitude [Statite](https://en.wikipedia.org/wiki/Statite)
@@ -233,7 +251,8 @@ PCB design software.  I'm going to avoid dealing with the tiny packages directly
 modules to the PCB rather than trying to use the sensors directly.  This should mean I can 
 get away with a fairly sparse 2 layer board.
 
-I'm also a bit leery of LiPo batteries: I dunno, they seem a bit explodey at the best of times,
+I'm also a bit leery of LiPo batteries: I dunno, they seem a bit [explodey](img/explodey.jpg)
+at the best of times,
 and being fired into the air atop a jet of water may not agree with them.  I bought some
 [AAAA cell batteries](https://en.wikipedia.org/wiki/AAAA_battery) on Ebay so I'll try them out.
 Annoyingly, none of the 9V batteries I levered open contained LR61 cells.

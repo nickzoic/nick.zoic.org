@@ -272,7 +272,16 @@ The software used is all [on github](https://github.com/nodebotsau/water-rocket)
 
 ![Launch 2](img/launch-2.jpg)
 
-The shape of the exhaust is very interesting.
+The shape of the exhaust is very interesting.  I'd love to get some slow-mo video of this so we could 
+see when each of those different kinds of spray and mist are produced.
+
+![Exhaust](img/exhaust.jpg)
+
+The telemetry worked well some of the time :-)
+
+![Graph](img/buzzconf-graph1.png)
+
+(chart thanks to Andrew Fisher)
 
 ## Some other people's videos
 

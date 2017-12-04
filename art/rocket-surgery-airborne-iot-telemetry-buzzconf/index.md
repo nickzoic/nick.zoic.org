@@ -239,3 +239,22 @@ and being fired into the air atop a jet of water may not agree with them.  I bou
 Annoyingly, none of the 9V batteries I levered open contained LR61 cells.
 
 [Prototype 3](img/prototype3.jpg)
+
+# Update 2017-12-04
+
+Well, BuzzConf time came and despite [really crappy weather](http://media.bom.gov.au/releases/407/severe-weather-update-heavy-rain-and-flooding-in-victoria-and-southeastern-new-south-wales/)
+the rocket workshop was a pretty big success.  We got lots of engagement, several groups of rocket builders
+and quite a few flights.  We learned a lot about our telemetry and our launch platform, and I think we're all eager
+to have another go.
+
+![Launch1](img/AC20023X.JPG)
+![Launch2](img/AC20084X.JPG)
+
+My notes:
+
+1. Experiment with "infrastructureless" mode: rocket as AP, serving up responsive web page with graph, and/or rocket as STA with MDNS and otherwise ditto.
+2. 700 kPa sensor in top of pressure bottle: this was close to working but not quite in time for buzzconf, I think it'd be interesting though
+3. custom board mounted directly to top of pressure bottle and taped in place, this could also have some downward-facing LEDs.
+4. mount barometer sideways to prevent acceleration interfering with barometer reading on takeoff (or correct in software)
+5. Move USB-\>serial converter and charge controller off board and use a soldered-on battery to avoid messing with connectors falling off.
+6. Experiment with modifying nosecone to crumple on impact

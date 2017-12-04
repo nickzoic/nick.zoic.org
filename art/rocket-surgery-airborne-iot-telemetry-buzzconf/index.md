@@ -240,7 +240,7 @@ at around 500mAh but unlike with the previous LiPos nothing gets warm so I figur
 
 ![Prototype 3](img/prototype3.jpg)
 
-# Further Work
+# Further Work (outdated)
 
 The aim is to produce about 10 of these telemetry devices: we want to have multiple rockets
 to experiment with and some spares on hand, plus I think it'd be fun to dangle one off a kite
@@ -266,11 +266,21 @@ to have another go.
 
 The software used is all [on github](https://github.com/nodebotsau/water-rocket)
 
+## A couple of photos from me:
+
 ![Launch 1](img/launch-1.jpg)
 
 ![Launch 2](img/launch-2.jpg)
 
-My notes:
+The shape of the exhaust is very interesting.
+
+## Some other people's videos
+
+[Hai's video](https://vimeo.com/245499518)
+
+[John's launchcam supercut](https://www.youtube.com/watch?v=OJZUO9iy5Bg)
+
+# Further Work (new!)
 
 1. Experiment with "infrastructureless" mode: rocket as AP, serving up responsive web page with graph, and/or rocket as STA with MDNS and otherwise ditto.
 2. 700 kPa sensor in top of pressure bottle: this was close to working but not quite in time for buzzconf, I think it'd be interesting though
@@ -278,3 +288,5 @@ My notes:
 4. mount barometer sideways to prevent acceleration interfering with barometer reading on takeoff (or correct in software)
 5. Move USB-\>serial converter and charge controller off board and use a soldered-on battery to avoid messing with connectors falling off.
 6. Experiment with modifying nosecone to crumple on impact
+
+Really, we missed an opportunity by not having every rocket launch tweet at apogee!

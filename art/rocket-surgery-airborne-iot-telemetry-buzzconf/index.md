@@ -257,8 +257,6 @@ and being fired into the air atop a jet of water may not agree with them.  I bou
 [AAAA cell batteries](https://en.wikipedia.org/wiki/AAAA_battery) on Ebay so I'll try them out.
 Annoyingly, none of the 9V batteries I levered open contained LR61 cells.
 
-[Prototype 3](img/prototype3.jpg)
-
 # Update 2017-12-04
 
 Well, BuzzConf time came and despite [really crappy weather](http://media.bom.gov.au/releases/407/severe-weather-update-heavy-rain-and-flooding-in-victoria-and-southeastern-new-south-wales/)
@@ -266,8 +264,11 @@ the rocket workshop was a pretty big success.  We got lots of engagement, severa
 and quite a few flights.  We learned a lot about our telemetry and our launch platform, and I think we're all eager
 to have another go.
 
-![Launch1](img/AC20023X.JPG)
-![Launch2](img/AC20084X.JPG)
+The software used is all [on github](https://github.com/nodebotsau/water-rocket)
+
+![Launch 1](img/launch-1.jpg)
+
+![Launch 2](img/launch-2.jpg)
 
 My notes:
 

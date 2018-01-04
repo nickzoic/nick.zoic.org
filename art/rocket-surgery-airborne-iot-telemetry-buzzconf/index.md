@@ -240,7 +240,7 @@ at around 500mAh but unlike with the previous LiPos nothing gets warm so I figur
 
 ![Prototype 3](img/prototype3.jpg)
 
-# Further Work
+# Further Work (outdated)
 
 The aim is to produce about 10 of these telemetry devices: we want to have multiple rockets
 to experiment with and some spares on hand, plus I think it'd be fun to dangle one off a kite
@@ -257,4 +257,45 @@ and being fired into the air atop a jet of water may not agree with them.  I bou
 [AAAA cell batteries](https://en.wikipedia.org/wiki/AAAA_battery) on Ebay so I'll try them out.
 Annoyingly, none of the 9V batteries I levered open contained LR61 cells.
 
+# Update 2017-12-04
 
+Well, BuzzConf time came and despite [really crappy weather](http://media.bom.gov.au/releases/407/severe-weather-update-heavy-rain-and-flooding-in-victoria-and-southeastern-new-south-wales/)
+the rocket workshop was a pretty big success.  We got lots of engagement, several groups of rocket builders
+and quite a few flights.  We learned a lot about our telemetry and our launch platform, and I think we're all eager
+to have another go.
+
+The software used is all [on github](https://github.com/nodebotsau/water-rocket)
+
+## A couple of photos from me:
+
+![Launch 1](img/launch-1.jpg)
+
+![Launch 2](img/launch-2.jpg)
+
+The shape of the exhaust is very interesting.  I'd love to get some slow-mo video of this so we could 
+see when each of those different kinds of spray and mist are produced.
+
+![Exhaust](img/exhaust.jpg)
+
+The telemetry worked well some of the time :-)
+
+![Graph](img/buzzconf-graph1.png)
+
+(chart thanks to Andrew Fisher)
+
+## Some other people's videos
+
+[Hai's video](https://vimeo.com/245499518)
+
+[John's launchcam supercut](https://www.youtube.com/watch?v=OJZUO9iy5Bg)
+
+# Further Work (new!)
+
+1. Experiment with "infrastructureless" mode: rocket as AP, serving up responsive web page with graph, and/or rocket as STA with MDNS and otherwise ditto.
+2. 700 kPa sensor in top of pressure bottle: this was close to working but not quite in time for buzzconf, I think it'd be interesting though
+3. custom board mounted directly to top of pressure bottle and taped in place, this could also have some downward-facing LEDs.
+4. mount barometer sideways to prevent acceleration interfering with barometer reading on takeoff (or correct in software)
+5. Move USB-\>serial converter and charge controller off board and use a soldered-on battery to avoid messing with connectors falling off.
+6. Experiment with modifying nosecone to crumple on impact
+
+Really, we missed an opportunity by not having every rocket launch tweet at apogee!

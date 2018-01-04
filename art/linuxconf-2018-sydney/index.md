@@ -10,7 +10,8 @@ tags:
     - micropython
     - microcontrollers
     - esp32
-title: LinuxConf 2017 in Hobart
+    - esp8266
+title: LinuxConf 2018 in Sydney
 ---
 
 # Tutorial: Getting Started with MicroPython

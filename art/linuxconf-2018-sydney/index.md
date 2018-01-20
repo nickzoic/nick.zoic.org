@@ -25,6 +25,7 @@ LinuxConf 2018 in Sydney to present a tutorial:
 
 [Getting Started with MicroPython: Materials](https://github.com/nickzoic/mpy-tut)
 
+Slides: [Getting Started with MicroPython](/talk/lca2018/getting-started-with-micropython/)
 
 # Open Hardware Miniconf: LoliBot
 

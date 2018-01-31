@@ -56,7 +56,7 @@ gets around this by using an audio channel to transmit programs to the controlle
 Now *that's* getting closer to a good out of box experience.  I only take issue
 with "your favorite text editor".  Text editors have, over the years, caused 
 [some controversy](https://en.wikipedia.org/wiki/Editor_war), and actual beginners
-quite possibly don't yet have one.
+quite possibly don't yet have a favourite one.
 
 But mounting the filesystem and the inclusion of a big `README.txt` and an example
 `main.py` are a very good start.  
@@ -93,6 +93,8 @@ could handle the USB conversion more sensibly and give us more flexibility.  I
 good idea ... also I went and [reserved a VID/PID](http://pid.codes/org/MicroPython/) for
 this purpose.  Then the device needs to export a descriptor which allows the browser to
 communicate with it.
+
+### Second Brain
 
 There are a lot of options here, including ARM Cortex M0 chips like the
 [STM32F103](http://www.st.com/content/st_com/en/products/microcontrollers/stm32-32-bit-arm-cortex-mcus/stm32-mainstream-mcus/stm32f1-series/stm32f103/stm32f103c8.html) or 
@@ -142,12 +144,13 @@ immense gulfs of time between keystrokes.
 ## So, where to next
 
 * Identify an appropriate USB controller, preferably in the junkbox already.
+* Work out how to get WebUSB descriptors to work across OSes.
 * Work out what kind of API to offer up: just a serial-converter-but-available-in-
   the-browser, or something a little more thorough?
 * Work out if the same device can also present itself as a mass storage device
   ala the Trinket.
 * Integrate [Ace](https://en.wikipedia.org/wiki/Ace_\(editor\)) or similar
-* Work out how packages would work.
+* Work out how installing micropython packages would work ... 
 
 
   

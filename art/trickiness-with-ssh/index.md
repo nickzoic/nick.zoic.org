@@ -2,7 +2,7 @@
 category: Systems
 date: '2011-04-28'
 layout: article
-redirect_from: '/Systems/trickiness-with-ssh/', '/art/etc/ssh_tricks/'
+redirect_from: '/Systems/trickiness-with-ssh/'
 slug: 'trickiness-with-ssh'
 tags:
     - systems

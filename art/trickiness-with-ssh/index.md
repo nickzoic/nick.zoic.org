@@ -2,7 +2,7 @@
 category: Systems
 date: '2011-04-28'
 layout: article
-redirect_from: '/Systems/trickiness-with-ssh/'
+redirect_from: '/Systems/trickiness-with-ssh/', '/art/etc/ssh_tricks/'
 slug: 'trickiness-with-ssh'
 tags:
     - systems
@@ -15,8 +15,7 @@ trickery](http://codytaylor.org/?p=13988). SSH is a very subversive
 protocol, able to work around many kinds of unwise security policies.
 Here’s a couple more useful things to know.
 
-1. Better Lurking Through .ssh/config-ery.
-==========================================
+## 1. Better Lurking Through .ssh/config-ery.
 
 Where you’ve got machines lurking behind other machines, inaccesible
 from the Internet, you can add a clause like this to your `.ssh/config`
@@ -30,8 +29,7 @@ use nc (may be called netcat on your system, or you may have to install
 it yourself) to connect on to lurker (the %h %p interpolates the target
 hostname and port into the proxy command)
 
-2. Reverse Tunnelling
-=====================
+## 2. Reverse Tunnelling
 
 So you’ve noticed the -L option, right, and you understand that by
 running:
@@ -52,8 +50,7 @@ your internal proxy: ditto. All you can do is ssh into it. Try this:
 From your shell on dmzbox, you can now configure the http proxy as
 localhost:3128 and start sucking down packages via the reverse tunnel.
 
-3. Tunnel Tunnelling
-====================
+## 3. Tunnel Tunnelling
 
 Every now and then, you need to get control of a box which is sadly
 hidden away behind a broken hotel NAT network or some kind of Get Smart
@@ -67,8 +64,7 @@ which, when run on the remote box, opens an ssh tunnel back home,
 through which you can ssh back into the remote box with ssh -p 2222
 localhost
 
-4. ssh tunnels with tap and -w
-==============================
+## 4. ssh tunnels with tap and -w
 
 There's also a (newish) “-w” option, which turns ssh into a full-on VPN
 solution rather than just a port-at-a-time port forwarder.
@@ -104,8 +100,7 @@ And the tunnel will be up and running, without needing to create the
 tunnel as root. You could easily take this one further for an automatic
 tunnel, setting
 
-Comments
-========
+## Comments
 
 This is my only blog post which has ever received useful comments, so
 I've [reproduced them here](../trickiness-with-ssh-comments/).

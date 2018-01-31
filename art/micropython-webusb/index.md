@@ -101,9 +101,11 @@ There are a lot of options here, including ARM Cortex M0 chips like the
 comparitively old chips like ATMega8U2.  For the final product, the decision
 is probably more about supply chain and price than technical amazingness.
 In the presentation linked above, Bunnie identified the
-[Kinetis KL02](https://www.nxp.com/products/processors-and-microcontrollers/arm-based-processors-and-mcus/kinetis-cortex-m-mcus/l-seriesultra-low-powerm0-plus/kinetis-kl0x-48-mhz-entry-level-ultra-low-power-microcontrollers-mcus-based-on-arm-cortex-m0-plus-core:KL0x?&tab=Documentation_Tab&linkline=Data-Sheet) family as being worth a look, so that's another option.  This second CPU could be built
-onto a larger module, or provided as a "programming interface" to a bare ESP32 module.
+[Kinetis KL02](https://www.nxp.com/products/processors-and-microcontrollers/arm-based-processors-and-mcus/kinetis-cortex-m-mcus/l-seriesultra-low-powerm0-plus/kinetis-kl0x-48-mhz-entry-level-ultra-low-power-microcontrollers-mcus-based-on-arm-cortex-m0-plus-core:KL0x?&tab=Documentation_Tab&linkline=Data-Sheet)
+family as being worth a look, so that's another option.
 
+This second CPU could be built
+onto a larger module, or provided as a "programming interface" to a bare ESP32 module.
 Alternatively, the [ESP32 itself could bit-bang USB](http://bbs.esp32.com/viewtopic.php?f=13&t=2162)
 but that a) sounds pretty flakey and b) would require a boot loader out of the box.
 Perhaps still simpler than a dual CPU dev board though ...?
@@ -111,7 +113,8 @@ Perhaps still simpler than a dual CPU dev board though ...?
 ## Continuous Development
 
 I'm a big fan of developing in the REPL, for the reasons outlined here:
-[Software development at 1 Hz](https://hackernoon.com/software-development-at-1-hz-5530bb58fc0e)
+[Software development at 1 Hz](https://hackernoon.com/software-development-at-1-hz-5530bb58fc0e).
+
 But doing this kind of thing isn't limited to Lisp-y langauges,
 [Here's a demo doing the same thing with shaders](https://youtu.be/NyiCoRZTYS8?t=990)
 You can see that the left side of the screen is source code, the right is a rendered surface,
@@ -130,7 +133,7 @@ I'd like MicroPython to work somewhat similarly ... my first stab at this is
 decent demo of, perhaps for PyConAU 2018.  It's rather similar to 
 [Jupyter Notebooks](http://jupyter.org/) only controlling hardware.
 
-## Distribution of Resource Usage
+### Distribution of Resource Usage
 
 It's pretty frustrating that MicroPython introduces some pretty large overheads onto
 the target system: the RAM requirements alone put it out of the scope of a lot of the
@@ -141,7 +144,7 @@ system: almost none.  I'm using a Core i7 CPU to do the job of a VT220 terminal 
 the 1980s.  We could get that machine to do a lot more work in the comparatively 
 immense gulfs of time between keystrokes.
 
-## So, where to next
+## So: where to next?
 
 * Identify an appropriate USB controller, preferably in the junkbox already.
 * Work out how to get WebUSB descriptors to work across OSes.

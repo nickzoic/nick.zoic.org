@@ -141,6 +141,19 @@ system: almost none.  I'm using a Core i7 CPU to do the job of a VT220 terminal 
 the 1980s.  We could get that machine to do a lot more work in the comparatively 
 immense gulfs of time between keystrokes.
 
+Rather than having our PC send text files, and then have our microcontroller have to parse
+and compile them, perhaps we could have the PC do the parsing and compilation and send only
+the bytecode ready for the MicroPython VM to run.
+Given the size of programs we're talking about, compiling on the fly to
+native code wouldn't be impossible either ... imagine a compiler which runs continuously
+and pushes new code whenever it successfully compiles!
+
+Another thing I'd like to explore, which I can't believe I haven't written up 
+for this blog yet, is the idea of an editor which edits the AST directly instead of
+editing a text file which is then parsed into the AST.  I've been poking around at these
+ideas for a while now ... particularly for homoiconic languages but there's no 
+reason this kind of approach couldn't be adapted for Python too.
+
 ## So, where to next
 
 * Identify an appropriate USB controller, preferably in the junkbox already.

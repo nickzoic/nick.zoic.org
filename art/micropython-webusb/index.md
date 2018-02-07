@@ -155,6 +155,29 @@ immense gulfs of time between keystrokes.
 * Integrate [Ace](https://en.wikipedia.org/wiki/Ace_\(editor\)) or similar
 * Work out how installing micropython packages would work ... 
 
+# UPDATE 2018-02-07
+
+I found a [DigiStump DigiSpark Pro](http://digistump.com/getpro) lurking in the junkbox.
+This is an [ATtiny167](https://www.microchip.com/wwwproducts/en/ATtiny167) with a USB
+connector [directly connected to PB3 and PB6](https://s3.amazonaws.com/digistump-resources/files/d312a4a8_ProFinal.pdf)
+and the [MicroNucleus](https://github.com/micronucleus/micronucleus) bootloader already
+on board, making it easy to program over USB. It's probably not the greatest choice but 
+since I already have one handy it is expedient.
+
+[V-USB](https://www.obdev.at/products/vusb/index.html) runs on the ATtiny167 and seems 
+relatively simple to work with.  The example code is pretty good and within a few minutes
+I had their HID mouse demo up and running on the DigiStump (using the MicroNucleus loader
+instead of AVRdude).  The only snag I hit is that this particular chip has a different
+UART configuration to the typical ones, so the usual debug-by-uart libraries didn't work ...
+I might upstream a change for this but in the meantime it was easy enough to work around
+and I could get the onboard UART logging out at 38400 baud.  Going higher may be a problem
+due to the very limited clock dividers available, I'll have to see ... 
+
+The next step was to saw off all the bits I didn't need, and get "Hello, World!".
+There's a very early version of this code at [espplus](https://github.com/nickzoic/espplus/)
+
+
+
 
   
 

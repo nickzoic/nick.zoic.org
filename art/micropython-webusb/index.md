@@ -101,9 +101,11 @@ There are a lot of options here, including ARM Cortex M0 chips like the
 comparitively old chips like ATMega8U2.  For the final product, the decision
 is probably more about supply chain and price than technical amazingness.
 In the presentation linked above, Bunnie identified the
-[Kinetis KL02](https://www.nxp.com/products/processors-and-microcontrollers/arm-based-processors-and-mcus/kinetis-cortex-m-mcus/l-seriesultra-low-powerm0-plus/kinetis-kl0x-48-mhz-entry-level-ultra-low-power-microcontrollers-mcus-based-on-arm-cortex-m0-plus-core:KL0x?&tab=Documentation_Tab&linkline=Data-Sheet) family as being worth a look, so that's another option.  This second CPU could be built
-onto a larger module, or provided as a "programming interface" to a bare ESP32 module.
+[Kinetis KL02](https://www.nxp.com/products/processors-and-microcontrollers/arm-based-processors-and-mcus/kinetis-cortex-m-mcus/l-seriesultra-low-powerm0-plus/kinetis-kl0x-48-mhz-entry-level-ultra-low-power-microcontrollers-mcus-based-on-arm-cortex-m0-plus-core:KL0x?&tab=Documentation_Tab&linkline=Data-Sheet)
+family as being worth a look, so that's another option.
 
+This second CPU could be built
+onto a larger module, or provided as a "programming interface" to a bare ESP32 module.
 Alternatively, the [ESP32 itself could bit-bang USB](http://bbs.esp32.com/viewtopic.php?f=13&t=2162)
 but that a) sounds pretty flakey and b) would require a boot loader out of the box.
 Perhaps still simpler than a dual CPU dev board though ...?
@@ -111,7 +113,8 @@ Perhaps still simpler than a dual CPU dev board though ...?
 ## Continuous Development
 
 I'm a big fan of developing in the REPL, for the reasons outlined here:
-[Software development at 1 Hz](https://hackernoon.com/software-development-at-1-hz-5530bb58fc0e)
+[Software development at 1 Hz](https://hackernoon.com/software-development-at-1-hz-5530bb58fc0e).
+
 But doing this kind of thing isn't limited to Lisp-y langauges,
 [Here's a demo doing the same thing with shaders](https://youtu.be/NyiCoRZTYS8?t=990)
 You can see that the left side of the screen is source code, the right is a rendered surface,
@@ -130,7 +133,7 @@ I'd like MicroPython to work somewhat similarly ... my first stab at this is
 decent demo of, perhaps for PyConAU 2018.  It's rather similar to 
 [Jupyter Notebooks](http://jupyter.org/) only controlling hardware.
 
-## Distribution of Resource Usage
+### Distribution of Resource Usage
 
 It's pretty frustrating that MicroPython introduces some pretty large overheads onto
 the target system: the RAM requirements alone put it out of the scope of a lot of the
@@ -154,7 +157,7 @@ editing a text file which is then parsed into the AST.  I've been poking around 
 ideas for a while now ... particularly for homoiconic languages but there's no 
 reason this kind of approach couldn't be adapted for Python too.
 
-## So, where to next
+## So: where to next?
 
 * Identify an appropriate USB controller, preferably in the junkbox already.
 * Work out how to get WebUSB descriptors to work across OSes.
@@ -164,6 +167,29 @@ reason this kind of approach couldn't be adapted for Python too.
   ala the Trinket.
 * Integrate [Ace](https://en.wikipedia.org/wiki/Ace_\(editor\)) or similar
 * Work out how installing micropython packages would work ... 
+
+# UPDATE 2018-02-07
+
+I found a [DigiStump DigiSpark Pro](http://digistump.com/getpro) lurking in the junkbox.
+This is an [ATtiny167](https://www.microchip.com/wwwproducts/en/ATtiny167) with a USB
+connector [directly connected to PB3 and PB6](https://s3.amazonaws.com/digistump-resources/files/d312a4a8_ProFinal.pdf)
+and the [MicroNucleus](https://github.com/micronucleus/micronucleus) bootloader already
+on board, making it easy to program over USB. It's probably not the greatest choice but 
+since I already have one handy it is expedient.
+
+[V-USB](https://www.obdev.at/products/vusb/index.html) runs on the ATtiny167 and seems 
+relatively simple to work with.  The example code is pretty good and within a few minutes
+I had their HID mouse demo up and running on the DigiStump (using the MicroNucleus loader
+instead of AVRdude).  The only snag I hit is that this particular chip has a different
+UART configuration to the typical ones, so the usual debug-by-uart libraries didn't work ...
+I might upstream a change for this but in the meantime it was easy enough to work around
+and I could get the onboard UART logging out at 38400 baud.  Going higher may be a problem
+due to the very limited clock dividers available, I'll have to see ... 
+
+The next step was to saw off all the bits I didn't need, and get "Hello, World!".
+There's a very early version of this code at [espplus](https://github.com/nickzoic/espplus/)
+
+
 
 
   

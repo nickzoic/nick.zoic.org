@@ -20,7 +20,7 @@ I did a ["Getting Started with MicroPython" tutorial](/talk/lca2018/) at LinuxCo
 I'd previously talked about [MicroPython](https://micropython.org/) at the
 [Open Hardware MiniConf](https://openhardwareconf.org/) at 
 [LinuxConf](https://linux.conf.au/) 2017 and at
-[/../pycon-2017-melbourne](PyConAU 2017)
+[PyConAU 2017](/art/pycon-2017-melbourne/)
 
 I'd like to do more with this tutorial material as time permits ...
 

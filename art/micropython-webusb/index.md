@@ -157,6 +157,10 @@ editing a text file which is then parsed into the AST.  I've been poking around 
 ideas for a while now ... particularly for homoiconic languages but there's no 
 reason this kind of approach couldn't be adapted for Python too.
 
+(There's some prior art here in
+[the micro:bit Python editor](https://python-editor-1-0-0.microbit.org/help.html)
+... imagine that without the download button ...)
+
 ## So: where to next?
 
 * Identify an appropriate USB controller, preferably in the junkbox already.

@@ -89,3 +89,6 @@ I'm still working on how to hook one to the other, but in the meantime I've play
 with some old-school AVRs and I've asked [pid.codes](http://pid.codes/)
 for a PID for the device!
 
+# UPDATE 2018
+
+[Still working on this ...](/art/micropython-webusb/)

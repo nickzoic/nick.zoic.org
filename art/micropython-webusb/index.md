@@ -193,6 +193,26 @@ due to the very limited clock dividers available, I'll have to see ...
 The next step was to saw off all the bits I didn't need, and get "Hello, World!".
 There's a very early version of this code at [espplus](https://github.com/nickzoic/espplus/)
 
+# UPDATE 2018-02-14
+
+I've made *some* progress on the "espplus" code linked above, and can connect to it 
+from the browser!  In a great moment of irony, it turns out that the main barrier to
+having WebUSB talk directly to a CP2102 or HL-340 etc serial converter is that Linux
+*does* support them, and so 'claims' the devices' interfaces and won't let them be
+accessed from WebUSB ("Failed to claim interface 0").
+
+Also my WINUSB descriptor is apparently wrong and Windows 10 cracks it, but that's
+neither here nor there and I'll get around to it.
+
+*(Maybe I should be just making a project for a serial converter which speaks both
+[USB CDC](https://en.wikipedia.org/wiki/USB_communications_device_class)
+and WebUSB simultaneously, independently of MicroPython ... that would then work 
+with many different microcontrollers (etc).  It could support multiple UARTs and some
+control pins, which would cover the usual bases of console, logging, resetting.)*
+
+
+
+
 
 
 

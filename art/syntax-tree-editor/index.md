@@ -51,7 +51,7 @@ job of this: once you specify a schema, XML documents are very tightly restricte
 can possibly go where so the UI was able to guide you pretty effectively as I recall.
 
 *I've been playing around with this using HTML5 and [Ractive](https://ractive.js.org/),
-I hope to put an example up on Github soon* 
+There's some pretty lame prototype code [here](https://github.com/nickzoic/tred/)* 
 
 ## Programming beyond files
 
@@ -80,4 +80,6 @@ filesystem being replaced by an append-only tree of nodes, treated homogeneously
 from the root of the filesystem to the individual atom of a parsed program.  We'd lose
 a lot of our old friends like `find` and `grep` and `diff3`, but think of what we'd gain ...
 
-
+I think this applies especially well to [MicroPython](/art/micropython-webusb/) where
+the concept of a "file system" as distinct from the code doesn't really make a lot of 
+sense anyway. 

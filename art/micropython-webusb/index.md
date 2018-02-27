@@ -157,6 +157,8 @@ editing a text file which is then parsed into the AST.  I've been poking around 
 ideas for a while now ... particularly for homoiconic languages but there's no 
 reason this kind of approach couldn't be adapted for Python too.
 
+*UPDATE: Here's the [Syntax Tree Editor](/art/syntax-tree-editor/) article ...*
+
 (There's some prior art here in
 [the micro:bit Python editor](https://python-editor-1-0-0.microbit.org/help.html)
 ... imagine that without the download button ...)

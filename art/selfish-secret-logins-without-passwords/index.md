@@ -13,8 +13,7 @@ title: 'The Selfish Secret: Logins Without Passwords'
 > or more browsers, and the password is merely a mechanism to prove the
 > browser worthy of the secret ...
 
-1. The Selfish Secret
-=====================
+## 1. The Selfish Secret
 
 There's a concept in evolutionary biology called the [Gene-centered view
 of
@@ -61,8 +60,7 @@ desired result is to share a secret key between the server and one or
 more browsers, and the password is merely a mechanism to prove the
 browser worthy of the secret ...
 
-2. Logins without Passswords
-============================
+## 2. Logins without Passswords
 
 The mechanism is simple:
 
@@ -93,8 +91,7 @@ typically used.
 
 (see also [You've got NO MAIL](/etc/youve-got-no-mail/))
 
-3. ... but there's a problem
-============================
+## 3. ... but there's a problem
 
 But there's a problem. Cookies are not really treated as sensitive
 information by most browsers, they're just thrown into a file in your
@@ -109,8 +106,7 @@ generally quite long-lived, your sessions weren't really very secure in
 the first place, so using passwordless cookies isn't necessarily much
 worse.
 
-4. UPDATE
-=========
+## 4. UPDATE
 
 I put together a little demo of this principle at
 kringle.zoic.org (now defunct), not exactly a high

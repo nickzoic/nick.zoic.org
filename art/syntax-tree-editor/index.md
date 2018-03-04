@@ -50,8 +50,15 @@ I haven't used it in years, but [Oxygen XML](https://www.oxygenxml.com/) did a p
 job of this: once you specify a schema, XML documents are very tightly restricted in what
 can possibly go where so the UI was able to guide you pretty effectively as I recall.
 
-*I've been playing around with this using HTML5 and [Ractive](https://ractive.js.org/),
-There's some pretty lame prototype code [here](https://github.com/nickzoic/tred/)* 
+### UPDATE
+
+I've been playing around with this using HTML5 and [Ractive](https://ractive.js.org/),
+trying to make a fairly generic tree editor called "tred".
+
+* [repo](https://github.com/nickzoic/tred/)
+* [demo](https://nickzoic.github.io/tred/tred.html)
+
+I think this idea applies especially well to [MicroPython](/art/micropython-webusb/) ...
 
 ## Programming beyond files
 
@@ -80,6 +87,3 @@ filesystem being replaced by an append-only tree of nodes, treated homogeneously
 from the root of the filesystem to the individual atom of a parsed program.  We'd lose
 a lot of our old friends like `find` and `grep` and `diff3`, but think of what we'd gain ...
 
-I think this applies especially well to [MicroPython](/art/micropython-webusb/) where
-the concept of a "file system" as distinct from the code doesn't really make a lot of 
-sense anyway. 

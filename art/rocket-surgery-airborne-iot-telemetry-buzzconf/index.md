@@ -152,6 +152,9 @@ and it seems to be working really well ... running flat out it's transmitting a 
 5.5 ms ... and the 180mAh battery manages about 17 minutes of that before
 browning out and bouncing.
 
+**(Note: this code uses a library from a PR which hasn't been merged yet ... I need to translate
+it to the new repo.  See [MicroPython ESP-Now PR](https://github.com/micropython/micropython-esp32/pull/226))**
+
 example rocket code:
 
     import network

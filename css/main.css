@@ -71,4 +71,20 @@ div.highlighter-rouge {
 }
 
 img { width: 100% }
+
+img.medium, img.medium + em {
+	width: 67%;
+	display: block;
+	margin: auto;
+}
+
+img.narrow, img.narrow + em {
+	width: 50%;
+	display: block;
+	margin: auto;
+}
+
+img + em {
+	width: 50%;
+
 .footer { clear: both; text-align: center; width: 800px; }

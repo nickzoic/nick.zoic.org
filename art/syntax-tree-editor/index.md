@@ -18,6 +18,10 @@ is pick a text editor "that reflects [your] personal style".  In old-school Unix
 that's probably `vi` or `emacs`, but even modern IDEs are really a tangle of
 enhancements wrapped around a text editor.
 
+![VT100 Terminal](dec-vt100.jpg)
+*[DEC VT 100 terminal](https://en.wikipedia.org/wiki/VT100).
+[Photo by Jason Scott - Flickr: IMG_9976, CC BY 2.0](https://commons.wikimedia.org/w/index.php?curid=29457452)*
+
 And code style is a subject for endless debate.
 [80-(ish)-column typewriters](https://en.wikipedia.org/wiki/Characters_per_line) led to 
 [80-column punched cards](https://en.wikipedia.org/wiki/Punched_card#IBM_80-column_punched_card_format_and_character_codes)
@@ -27,6 +31,14 @@ Even [punctuation](https://en.wikipedia.org/wiki/Digraphs_and_trigraphs#C) and
 [whitespace](https://www.python.org/dev/peps/pep-0008/)
 turn out to be fraught, and endless arguments ensue.
 
+![Margaret Hamilton](img/margaret-hamilton-800px.jpg)
+*[Margaret Hamilton](https://en.wikipedia.org/wiki/Margaret_Hamilton_(scientist\))
+pictured next to printouts of the Apollo mission software.
+[Public Domain, retouched by Adam Cuerden](https://commons.wikimedia.org/wiki/File:Margaret_Hamilton_-_restoration.jpg)*
+
+Back when monitors were small and computer time was expensive, we used to print out listings
+so we could take our programs away to think about.  When did you last print out a program?
+
 ## Programming beyond Text
 
 But that's not the only way to program:
@@ -35,7 +47,7 @@ allow you to edit a syntax tree with drag-and-drop actions and some
 [Visual Languages](art/flobot-graphical-dataflow-language-for-robots/)
 may even do away with the syntax tree!  This can be great for avoiding getting bogged
 down in typing and syntax, but they do place a lot of reliance on mousing,
-annoying fluet typists.
+annoying fluent typists.
 
 Languages with very little syntax, like Lisp, are very well suited to writing such an 
 editor.  JSON is only a little harder.  Python is not going to be all that easy.

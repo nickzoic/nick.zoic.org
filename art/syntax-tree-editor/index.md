@@ -18,7 +18,7 @@ is pick a text editor "that reflects [your] personal style".  In old-school Unix
 that's probably `vi` or `emacs`, but even modern IDEs are really a tangle of
 enhancements wrapped around a text editor.
 
-![VT100 Terminal](dec-vt100.jpg)
+![VT100 Terminal](img/dec-vt100.jpg)
 *[DEC VT 100 terminal](https://en.wikipedia.org/wiki/VT100).
 [Photo by Jason Scott - Flickr: IMG_9976, CC BY 2.0](https://commons.wikimedia.org/w/index.php?curid=29457452)*
 

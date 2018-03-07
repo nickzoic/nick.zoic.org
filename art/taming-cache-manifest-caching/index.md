@@ -15,16 +15,14 @@ configure the browser's Application Cache, allowing faster startup of
 HTML5 apps and also offline operation.
 
 There is a problem, however. The behaviour of cache manifests can make
-development [a smidge
-tricky](http://diveintohtml5.org/offline.html#debugging) . This is
+development [a smidge tricky](http://diveintohtml5.org/offline.html#debugging) . This is
 because the browser will only check if the contents of the Application
 Cache have changed if the Cache Manifest has changed. You can manually
 edit this file every time, but you'd probably rather not.
 
 So here's some alternatives:
 
-1. Updating `cache.manifest` using a "Go Live" script
-=====================================================
+## 1. Updating `cache.manifest` using a "Go Live" script
 
 If you stage your code to a development server using a "Go Live" script,
 you can update the `cache.manifest` contents whenever the files
@@ -43,12 +41,10 @@ This looks for comment lines starting with `#DATE` and fills in the
 current date. The `-i` option causes sed to modify the original file.
 
 Whenever you run the script, the manifest file is updated, and since
-files are reloaded [unless the cache.manifest is byte-for-byte
-identical](http://www.w3.org/TR/html5/offline.html#downloading-or-updating-an-application-cache),
+files are reloaded [unless the cache.manifest is byte-for-byte identical](http://www.w3.org/TR/html5/offline.html#downloading-or-updating-an-application-cache),
 the changed comment is enough to cause it to reload.
 
-2. Dynamic `cache.manifest` using SSI
-=====================================
+## 2. Dynamic `cache.manifest` using SSI
 
 If your web server supports [Server Side
 Includes](http://en.wikipedia.org/wiki/Server_Side_Includes), you can

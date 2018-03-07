@@ -18,7 +18,7 @@ is pick a text editor "that reflects [your] personal style".  In old-school Unix
 that's probably `vi` or `emacs`, but even modern IDEs are really a tangle of
 enhancements wrapped around a text editor.
 
-![VT100 Terminal](img/dec-vt100.jpg | width=60%)
+<img src="img/dec-vt100.jpg" width="50%" alt="DEC VT100 Terminal"/>
 *[DEC VT 100 terminal](https://en.wikipedia.org/wiki/VT100).
 [Photo by Jason Scott - Flickr: IMG_9976, CC BY 2.0](https://commons.wikimedia.org/w/index.php?curid=29457452)*
 
@@ -31,7 +31,7 @@ Even [punctuation](https://en.wikipedia.org/wiki/Digraphs_and_trigraphs#C) and
 [whitespace](https://www.python.org/dev/peps/pep-0008/)
 turn out to be fraught, and endless arguments ensue.
 
-![Margaret Hamilton](img/margaret-hamilton-800px.jpg | width=60%)
+<img src="img/margaret-hamilton-800px.jpg" width="50%" alt="Margaret Hamilton"/>
 *[Margaret Hamilton](https://en.wikipedia.org/wiki/Margaret_Hamilton_(scientist\))
 pictured next to printouts of the Apollo mission software.
 [Public Domain, retouched by Adam Cuerden](https://commons.wikimedia.org/wiki/File:Margaret_Hamilton_-_restoration.jpg)*

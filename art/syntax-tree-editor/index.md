@@ -44,7 +44,7 @@ so we could take our programs away to think about.  When did you last print out 
 But that's not the only way to program:
 [Scratchlikes](https://wiki.scratch.mit.edu/wiki/Alternatives_to_Scratch#Drag_and_Drop_Programming)
 allow you to edit a syntax tree with drag-and-drop actions and some 
-[Visual Languages](art/flobot-graphical-dataflow-language-for-robots/)
+[Visual Languages](/art/flobot-graphical-dataflow-language-for-robots/)
 may even do away with the syntax tree!  This can be great for avoiding getting bogged
 down in typing and syntax, but they do place a lot of reliance on mousing,
 annoying fluent typists.

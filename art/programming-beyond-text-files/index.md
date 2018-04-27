@@ -2,7 +2,7 @@
 date: '2018-02-09'
 layout: article
 slug: 'programming-beyond-text-files'
-redirect\_from: 'syntax-tree-editors'
+redirect_from: '/art/syntax-tree-editors/'
 summary: 'Are programs really text files?'
 tags:
   - languages

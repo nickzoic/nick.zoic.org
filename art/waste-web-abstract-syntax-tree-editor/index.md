@@ -1,13 +1,11 @@
 ---
 date: '2018-03-12'
 layout: article
-slug: 'waste-web-abstract-syntax-tree-editor'
 summary: 'Editing an AST in the browser'
 tags:
   - languages
   - www
   - python
-title: WASTE: Web Abstract Syntax Tree Editor
 ---
 
 I've been playing around with this using HTML5 and [Ractive](https://ractive.js.org/),

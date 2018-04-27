@@ -1,7 +1,7 @@
 ---
 date: '2018-03-12'
 layout: article
-slug: 'waste-web-abstract-syntax-tree-editor
+slug: 'waste-web-abstract-syntax-tree-editor'
 summary: 'Editing an ASTs in the browser'
 tags:
   - languages

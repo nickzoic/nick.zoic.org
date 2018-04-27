@@ -65,10 +65,10 @@ can possibly go where so the UI was able to guide you pretty effectively as I re
 ### UPDATE
 
 I've been playing around with this using HTML5 and [Ractive](https://ractive.js.org/),
-trying to make a fairly generic tree editor called "tred".
+trying to make a fairly generic tree editor called "WASTE": Web Abstract Syntax Tree Editor
 
-* [repo](https://github.com/nickzoic/tred/)
-* [demo](https://nickzoic.github.io/tred/tred.html)
+* [repo](https://github.com/nickzoic/waste/)
+* [demo](https://nickzoic.github.io/waste/waste.html)
 
 I think this idea applies especially well to [MicroPython](/art/micropython-webusb/) ...
 

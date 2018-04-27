@@ -1,4 +1,5 @@
 ---
+title: 'WASTE: Web Abstract Syntax Tree Editor'
 date: '2018-03-12'
 layout: article
 summary: 'Editing an AST in the browser'

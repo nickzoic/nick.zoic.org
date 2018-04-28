@@ -9,15 +9,51 @@ tags:
   - python
 ---
 
-I've been playing around with this using HTML5 and [Ractive](https://ractive.js.org/),
-trying to make a fairly generic tree editor called "WASTE": Web Abstract Syntax Tree Editor.
+I'm interested in the idea of [Programming beyond Text Files](/art/programming-beyond-text-files/) and
+I've been playing around with this using HTML5 and [Ractive](https://ractive.js.org/).
+
+I'm trying to make a fairly generic editor which can be adapted to many grammars, including
+JSON, Markdown and Python.  Why in the browser?  Well, I recently switched across to 
+[Fastmail](https://fastmail.com/) who really are proof that a browser based client can be 
+just as good as a native one, and developing in the browser environment means that the 
+app is cross platform from day one.
+
+I'm calling it "WASTE": Web Abstract Syntax Tree Editor.
 
 * [repo](https://github.com/nickzoic/waste/)
 * [demo](https://nickzoic.github.io/waste/waste.html)
 
-I think this idea applies especially well to [MicroPython](/art/micropython-webusb/) ...
+I think this idea applies especially well to [MicroPython and WebUSB](/art/micropython-webusb/) ...
+the device can serve up its own IDE.
 
 ## Details
+
+When a program text file is opened, it is parsed into a tree of objects by a PEG parser.
+(This may be a problem for Python: [peg.js](https://pegjs.org/) doesn't support
+pythonesque punctuation -- however [chevrotain](https://github.com/SAP/chevrotain) apparently
+does, so maybe that's a better way to go)
+
+Anyway, each AST node is a Javascript object with a "type" and a "value".  
+For JSON, `true` is represented by `{ 'type': 'atom', 'value': 'true' }`
+and `{ "foo": 23, "bar": "baz" }` by
+
+```
+{ 'type': 'object', 'value': [
+   [ { "type": "string", "value": "foo" }, { "type": "number": "value": "23" } ],
+   [ { "type": "string", "value": "bar" }, { "type": "string": "value": "baz" } ]
+] }
+```
+
+This is a lot wordier than native JSON representatio, but lets us iterate over
+key/value pairs and represent values exactly as they are in the JSON, for example.
+
+This is then translated to HTML via a Ractive template which uses recursion
+(`{{>thing}}`) to traverse the structure and convert it to HTML.  Ractive also
+carries changes and events back from the HTML to the underlying AST.
+
+To save the file, we serialize it back ... or maybe compile it directly!
+
+## Bindings
 
 The trickiest thing with the editor has got to be coming up with a mapping of keyboard
 and mouse operations to tree transformations.  Subtrees can be dragged and dropped into 

@@ -50,6 +50,8 @@ may even do away with the syntax tree!  This can be great for avoiding getting b
 down in typing and syntax, but they do place a lot of reliance on mousing,
 annoying fluent typists.
 
+Perhaps instead we could edit the AST directly, but in a keyboard oriented way.
+ 
 Languages with very little syntax, like Lisp, are very well suited to writing such an 
 editor.  JSON is only a little harder.  Python is not going to be all that easy.
 The trick will be to balance keystroke driven operations with automatic tree operations,

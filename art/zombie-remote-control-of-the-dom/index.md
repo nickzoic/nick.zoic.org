@@ -27,8 +27,6 @@ This isn't the [silliest](../squilla-http-serving-up-stored-procedures/)
 [thing](../omnicode/) [I've](../squawk-cc-the-true-story/)
 [written](../youve-got-no-mail/) about on this blog, so here goes:*
 
-# ZOMBIE: Remote Control of the DOM
-
 ## Frontend and Backend
 
 It's pretty common the write a web application in two parts: a frontend, 
@@ -64,13 +62,29 @@ and to run snippets of Javascript.  Those snippets, in turn, can send messages b
 to the server.  The browser is no longer an independent process with its own mind:
 it is a zombie, under control of the server process.
 
+*something like:*
+
+```
+(function () {
+  function Z () {
+    var xhr = new XMLHttpRequest();
+    xhr.onload = function () {
+      (new Function('Z', xhr.responseText))(Z);
+    };
+    xhr.open("POST", "/zombie/1");
+    xhr.send();
+  }
+  Z();
+})();
+```
+
 The server could be implemented in just about any language, the messaging protocol could run
 over [POST requests](http://blog.fanout.io/2013/03/04/long-polling-doesnt-totally-suck/)
 or over [WebSockets](https://developer.mozilla.org/en-US/docs/Web/API/WebSockets_API)
 or whatever technology the browser people come up with next.  So long as the zombie
 messaging protocol is agreed upon, it doesn't really matter.
 
-### That's horrible!
+### That's horrible ...
 
 Yes, this all sounds horribly inefficient and in a lot of ways it is: your backend 
 is sending chunks of HTML instead of neat snippets of JSON, and there's some extra
@@ -83,7 +97,13 @@ no need for a build pipeline, no need to document or implement an API.  The time
 we would have spent on that stuff we can spend on developing features our users
 actually care about.
 
-### What about RESTful and Microservices and so on?
+### ... and insecure!
+
+The zombie loader is indeed `eval()`ing code (more or less), and that sounds like
+a scary thing, but that code is coming from the same server from which the loader
+was loaded: you've already been bitten, you might as well start staggering around.
+
+### But what about RESTful and Microservices and so on?
 
 So rather than your HTML5 frontends consuming your microservices directly, they
 talk to their Zombie [BFF (Backend for Frontend)](https://samnewman.io/patterns/architectural/bff/)
@@ -91,13 +111,13 @@ which talks to those services on their behalf: easy peasy.  The BFF layer doesn'
 hold much state, maybe just a little bit of per-user cache and session info, so can
 be scaled out horizontally, geographically dispersed and killed off on a whim.
 
-(at this point, the BRAINS! jokes are just writing themselves)
+(at this point, the `BRAINS!` jokes are just writing themselves)
 
 ## zombie.py
 
+To be continued ...
 
-
-
-
+* [bottle](https://bottlepy.org/docs/dev/index.html) example
+* [django](https://djangoproject.com/) example
 
 

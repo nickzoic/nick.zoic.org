@@ -2,7 +2,7 @@
 category: etc
 date: '2018-05-01'
 layout: draft
-title: ZOMBIE: Remote control of the DOM
+title: 'ZOMBIE: Remote control of the DOM'
 summary: |
     What if you could have a rich web frontend without developing
     one?
@@ -92,6 +92,9 @@ hold much state, maybe just a little bit of per-user cache and session info, so 
 be scaled out horizontally, geographically dispersed and killed off on a whim.
 
 (at this point, the BRAINS! jokes are just writing themselves)
+
+## zombie.py
+
 
 
 

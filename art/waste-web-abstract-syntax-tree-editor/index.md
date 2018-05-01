@@ -26,15 +26,19 @@ I'm calling it "WASTE": Web Abstract Syntax Tree Editor.
 I think this idea applies especially well to [MicroPython and WebUSB](/art/micropython-webusb/) ...
 the device can serve up its own IDE.
 
-## Details
+## Parsing into AST
 
-When a program text file is opened, it is parsed into a tree of objects by a PEG parser.
-(This may be a problem for Python: [peg.js](https://pegjs.org/) doesn't support
-pythonesque punctuation -- however [chevrotain](https://github.com/SAP/chevrotain) apparently
-does, so maybe that's a better way to go)
+When a program text file is opened, it is parsed into a tree of objects
+which we can manipulate.
 
-Anyway, each AST node is a Javascript object with a "type" and a "value".  
-For JSON, `true` is represented by `{ 'type': 'atom', 'value': 'true' }`
+### JSON
+
+We parse JSON using [peg.js](https://pegjs.org/) --
+the native JSON parser isn't suitable because
+there's a slight mismatch between JSON and JS types.
+
+When dealing with JSON, each AST node is a Javascript object with a "type" and a "value".  
+For example, JSON `true` is represented by `{ 'type': 'atom', 'value': 'true' }`
 and `{ "foo": 23, "bar": "baz" }` by
 
 ```
@@ -44,14 +48,35 @@ and `{ "foo": 23, "bar": "baz" }` by
 ] }
 ```
 
-This is a lot wordier than native JSON representatio, but lets us iterate over
-key/value pairs and represent values exactly as they are in the JSON, for example.
+This is a lot wordier than native JSON representation, but lets us iterate over
+key/value pairs and represent values exactly as they are in the JSON.
 
-This is then translated to HTML via a Ractive template which uses recursion
-(`{{>thing}}`) to traverse the structure and convert it to HTML.  Ractive also
-carries changes and events back from the HTML to the underlying AST.
+### Python
 
-To save the file, we serialize it back ... or maybe compile it directly!
+I'd like to work up to editing Python ... but
+[Python 3's Grammar](https://docs.python.org/3/reference/grammar.html) is a lot
+more complicated than JSON's.  
+
+[peg.js](https://pegjs.org/) doesn't support pythonesque punctuation --
+however [chevrotain](https://github.com/SAP/chevrotain) apparently
+does, so maybe that's a better way to go.  Unfortunately I can't find an
+existing Python grammar to work from so I'll have to write my own.
+
+## Presenting and Editing
+
+The AST is then translated to HTML via a Ractive template which uses recursion
+(`{{>thing}}`) to traverse the structure and convert it to HTML.
+The type of each AST node carries into a class on the HTML node, so 
+syntax highlighting can be done in CSS.
+
+Ractive also carries changes and events back from the HTML to the underlying AST,
+using a recursive matching rule (`root.**`).  Simple edits (adding characters 
+to an identifier, for example) just work, more complicated edits (such as splitting an 
+item in two) are done by intercepting keyboard events.
+
+The nice thing about Ractive is that it provides a two-way binding between
+the AST and the DOM tree, meaning we can mostly avoid dealing with the DOM 
+directly.  It's not necessarily the best way to do it though.
 
 ## Bindings
 
@@ -68,7 +93,7 @@ Escape | Parent
 Enter | Depends on contact: First Child / Next Sibling / Next-Sib-Of-Parent
 Delete | Delete current node
 
-## Editing Python
+### Editing Python
 
 For typing a language like Python, the syntax can follow your typing, to automatically
 parse code as you type, much like a Pratt parser.  To keep the syntax tree valid while

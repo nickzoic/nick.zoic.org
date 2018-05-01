@@ -13,16 +13,15 @@ tags:
     - python
 ---
 
-*I've talked a lot about
-[mobile app architecture](../mobile-app-architecture/) and
-[mobile application APIs](../tranquil-apis/) and
-so on on this blog, but I don't think I've mentioned this before
-and it came up in conversation so I thought I'd write it.*
-
 *I was originally thinking about this ... I don't know, some time
 after 2006 which was when I got into Python but before 2011 which 
 is when the idea morphed into
 [Python in the Browser](../python-in-the-browser/) and crawled off to die.
+
+I've talked a lot about
+[mobile app architecture](../mobile-app-architecture/) and
+[mobile application APIs](../tranquil-apis/) and
+so on on this blog, but I don't think I've mentioned this before.
 This isn't the [silliest](../squilla-http-serving-up-stored-procedures/)
 [thing](../omnicode/) [I've](../squawk-cc-the-true-story/)
 [written](../youve-got-no-mail/) about on this blog, so here goes:*
@@ -30,17 +29,19 @@ This isn't the [silliest](../squilla-http-serving-up-stored-procedures/)
 ## Frontend and Backend
 
 It's pretty common the write a web application in two parts: a frontend, 
-perhaps using [Angular](https://angular.io/) or [Knockout](http://knockoutjs.com/)
-or some similar framework, and a backend, perhaps using [Django](https://www.djangoproject.com/)
+perhaps using [Angular](https://angular.io/) or [Knockout](http://knockoutjs.com/);
+and a backend, perhaps using [Django](https://www.djangoproject.com/)
 or [Rails](http://rubyonrails.org/) or some similar framework.  The two codebases
 are largely independent, joined only by an API between them, perhaps conforming
-to REST principles.
+to REST principles and maybe even a [Swagger](https://swagger.io/) or
+[Pact](https://docs.pact.io/) defining the API.
 
-That means three conjoined components already, and we haven't even considered
+But that means three conjoined components already, and we haven't even considered
 the database, or any external components or gateways.   
 Sure, you could forego a separate frontend and just write everything as HTML
-templates, but then you'd have actual page loads and people would think you
-were uncool.
+templates, but then you'd have to do actual page loads and people would think you
+were uncool (to be fair: AJAX partial content loads are one of the few things
+which are actually good about the modern web)
 
 ### Compiling to Javascript
 
@@ -56,8 +57,8 @@ Zombie takes a rather stupider, more direct approach.
 ## zombie.js
 
 The browser loads a dummy page with content suitable for SEO.  At the end of that
-page is the `zombie.js` loader, which established a connection back to the server
-to ask it what to do next.  The server can reply with commands to update the DOM
+page is the `zombie.js` loader, which establishes a connection back to the server
+and asks it what to do next.  The server can reply with commands to update the DOM
 and to run snippets of Javascript.  Those snippets, in turn, can send messages back
 to the server.  The browser is no longer an independent process with its own mind:
 it is a zombie, under control of the server process.

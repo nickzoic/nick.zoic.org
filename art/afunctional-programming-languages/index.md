@@ -94,10 +94,20 @@ my anonymous function is getting called when it is ready.
 
 * probably should mention CSP / Actors in here at some point
 * async vs sync loops - hassle of converting between them
+* distinction between callbacks and messages?
 
 ## How?
 
 * unix pipes
 * C runtime
 
+## Components
+
+* Types - Sources, Transformers, Sinks
+* Map, Reduce, etc
+
+## Syntax
+
+* Composition with `|` and `;` and `[ ]`
+* Error redirection
 

@@ -3,35 +3,9 @@ layout: nil
 ---
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-
-  <!--  Homepage -->
-  <url>
-    <loc>http://{{ site.domain }}/</loc>
-    <lastmod>{{ site.time | date: "%Y-%m-%d" }}</lastmod>
-  </url>
-
-  {% for page in site.posts %}
-  <url>
-    {% if page.layout != 'draft' %}
-      <loc>http://{{ site.domain }}{{ page.url }}</loc>
-      {% if page.last_updated %}
-        <lastmod>{{ page.last_updated | date: "%Y-%m-%d" }}</lastmod>
-      {% elsif page.date %}
-        <lastmod>{{ page.date | date: "%Y-%m-%d" }}</lastmod>
-      {% endif %}
-    {% endif %}
-  </url>
-  {% endfor %}
-
-  {% for page in site.html_pages %}
-  <url>
-    <loc>http://{{ site.domain }}{{ page.url }}</loc>
-    {% if page.last_updated %}
-    <lastmod>{{ page.last_updated | date: "%Y-%m-%d" }}</lastmod>
-    {% elsif page.date %}
-    <lastmod>{{ page.date | date: "%Y-%m-%d" }}</lastmod>
-    {% endif %}
-  </url>
-  {% endfor %}
-
+<url><loc>{{ site.url }}/</loc></url>
+{% for page in site.posts %}{% if page.layout == 'article' %}<url><loc>{{ site.url }}{{ page.url }}</loc></url>
+{% endif %}{% endfor %}
+{% for page in site.html_pages %}<url><loc>{{ site.url }}{{ page.url }}</loc></url>
+{% endfor %}
 </urlset>

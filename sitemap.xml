@@ -3,9 +3,13 @@ layout: nil
 ---
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<!-- W -->
 <url><loc>{{ site.url }}/</loc></url>
-{% for page in site.posts %}{% if page.layout == 'article' %}<url><loc>{{ site.url }}{{ page.url }}</loc></url>
+<!-- X -->
+{% for page in site.posts %}{% if page.layout == 'article' and page.url contains '/art/' %}<url><loc>{{ site.url }}{{ page.url }}</loc></url>
 {% endif %}{% endfor %}
+<!-- Y -->
 {% for page in site.html_pages %}<url><loc>{{ site.url }}{{ page.url }}</loc></url>
 {% endfor %}
+<!-- Z -->
 </urlset>

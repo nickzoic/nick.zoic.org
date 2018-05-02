@@ -62,6 +62,10 @@ a:hover, a:active { text-decoration: underline; }
     padding: 20px 20px;
 }
 
+.footer { 
+    clear: both;
+}
+
 div.highlighter-rouge {
     background-color: #333;
     color: #CCC;

@@ -6,10 +6,10 @@ layout: nil
 <!-- W -->
 <url><loc>{{ site.url }}/</loc></url>
 <!-- X -->
-{% for page in site.posts %}{% if page.layout == 'article' and page.url contains '/art/' %}<url><loc>{{ site.url }}{{ page.url }}</loc></url>
+{% for page in site.pages %}{% if page.layout == 'article' and page.url contains '/art/' %}<url><loc>{{ site.url }}{{ page.url }}</loc></url>
 {% endif %}{% endfor %}
 <!-- Y -->
-{% for page in site.html_pages %}<url><loc>{{ site.url }}{{ page.url }}</loc></url>
+{% for page in site.html_files %}<url><loc>{{ site.url }}{{ page.path }}</loc></url>
 {% endfor %}
 <!-- Z -->
 </urlset>

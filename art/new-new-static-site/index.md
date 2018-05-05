@@ -38,6 +38,8 @@ Media](http://www.insquaremedia.com/).
 HTTPS
 =====
 
-I'm hoping to finally upgrade the site to HTTPS ... it is already available at 
-https://nickzoic.github.io/ but I'd
-[like the certificate to work for the custom domain as well](https://github.com/isaacs/github/issues/156) 
+(updated 2018-05-05)
+
+The magificent folks at Github and Lets Encrypt now support
+[HTTPS for Github Pages sites on custom domains](https://help.github.com/articles/securing-your-github-pages-site-with-https/)
+with no extra effort required.

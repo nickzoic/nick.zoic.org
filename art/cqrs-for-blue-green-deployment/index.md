@@ -9,8 +9,7 @@ summary: |
     and idempotent work queues.
 tags:
     - systems
-    - databases
-    - devops
+    - database
 title: 'CQRS for Blue-Green Deployment'
 ---
 

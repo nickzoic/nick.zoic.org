@@ -7,7 +7,6 @@ slug: parallel
 tags:
     - languages
     - functional-programming
-    - parallel-programming
 title: Functional Parallel Programming
 ---
 

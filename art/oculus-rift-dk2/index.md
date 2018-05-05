@@ -7,7 +7,6 @@ slug: 'oculus-rift-dk2'
 summary: 'The Oculus Rift DK2 ends a 20 year wait for consumer VR ...'
 tags:
     - vr
-    - oculus-rift
 title: Oculus Rift DK2
 ---
 

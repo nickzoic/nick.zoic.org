@@ -6,7 +6,6 @@ redirect_from: '/etc/credit-gateway-policy/'
 slug: 'credit-gateway-policy'
 tags:
     - www
-    - payments
 title: Credit Gateway Policies
 ---
 

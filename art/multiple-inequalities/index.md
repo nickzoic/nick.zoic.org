@@ -6,7 +6,6 @@ redirect_from: '/Python/multiple-inequalities/'
 slug: 'multiple-inequalities'
 tags:
     - python
-    - appengine
 title: Multiple Inequalities in Google AppEngine
 ---
 

@@ -1,4 +1,7 @@
-# Talks: Nick Moore
+---
+layout: article
+title: Talks: Nick Moore
+---
 
 * [BuzzConf Nights: The Internet of Toys](buzzconf1/)
 * [BuzzConf Nights: ESP8266 and MicroPython](buzzconf2/)

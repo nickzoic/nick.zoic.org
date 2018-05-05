@@ -5,9 +5,7 @@ layout: article
 redirect_from: '/etc/bluesmirf-bluetooth-hid-module-reset/'
 slug: 'bluesmirf-bluetooth-hid-module-reset'
 tags:
-    - bluetooth
     - electronics
-    - keyboard
 title: BlueSMiRF Bluetooth HID Module
 summary: Getting data onto curmudgeonly devices
 ---

@@ -6,7 +6,6 @@ redirect_from: '/etc/gcc-linker-libs/'
 slug: 'gcc-linker-libs'
 tags:
     - c
-    - unix
 title: 'GCC 4.6 linker switches'
 ---
 

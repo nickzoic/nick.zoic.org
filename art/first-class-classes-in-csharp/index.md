@@ -5,7 +5,7 @@ layout: article
 redirect_from: '/etc/first-class-classes-in-csharp/'
 slug: 'first-class-classes-in-csharp'
 tags:
-    - c-sharp
+    - c
     - functional-programming
 title: '(sort of) First Class Classes in C#'
 summary: It seems, at first, that C# doesn't have first-class classes.  But ...

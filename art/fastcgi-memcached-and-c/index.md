@@ -13,8 +13,6 @@ tags:
     - c
     - backend
     - python
-    - tornado
-    - atomic
 title: 'FastCGI and Memcached, all in C'
 ---
 

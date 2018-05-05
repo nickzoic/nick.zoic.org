@@ -6,8 +6,6 @@ redirect_from: '/etc/hyperterminal-eats-ascii-lf-0x0a/'
 slug: 'hyperterminal-eats-ascii-lf-0x0a'
 tags:
     - windows
-    - protocols
-    - rs232
 title: 'Hyperterminal “send text file” eats ASCII LF / 0x0A'
 ---
 

@@ -6,7 +6,6 @@ redirect_from: '/Python/syntax-error-keyword-argument-repeated/'
 slug: 'syntax-error-keyword-argument-repeated'
 tags:
     - python
-    - vcs
 title: 'SyntaxError: keyword argument repeated'
 ---
 

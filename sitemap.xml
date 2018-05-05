@@ -4,7 +4,5 @@ layout: nil
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <url><loc>{{ site.url }}/</loc></url>
-<url><loc>{{ site.url }}/nick-moore/</loc></url>
-<url><loc>{{ site.url }}/talk/</loc></url>
 {% for page in site.pages %}{% if page.layout == 'article' %}<url><loc>{{ site.url }}{{ page.url }}</loc></url>
 {% endif %}{% endfor %}</urlset>

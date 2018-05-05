@@ -8,10 +8,8 @@ summary: |
     My presentations at OSDC 2014 on the Gold Coast!
 tags:
     - conference
-    - agile
-    - enterprise
     - postgres
-    - nosql
+    - database
     - sql
     - architecture
     - www

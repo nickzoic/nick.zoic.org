@@ -6,8 +6,6 @@ redirect_from: '/etc/magic_trackpad/'
 slug: 'magic_trackpad'
 tags:
     - apple
-    - ergonomics
-    - bluetooth
     - linux
 title: 'Apple Magic Trackpad for Ubuntu Linux 10.10 Maverick'
 summary: (rather out of date)

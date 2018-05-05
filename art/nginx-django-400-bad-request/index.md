@@ -10,7 +10,6 @@ summary: |
     all Django would do was return `400 Bad Request`
 tags:
     - systems
-    - nginx
     - django
     - python
 title: 'Nginx proxy_pass to upstream Django always giving 400 Bad Request'

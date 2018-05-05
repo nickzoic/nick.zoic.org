@@ -7,8 +7,6 @@ slug: 'osdc-2015-hobart'
 summary: 'OSDC 2015 "Talking with Leviathan: Interfacing Open Source to SAP"'
 tags:
     - conference
-    - agile
-    - enterprise
     - architecture
     - html5
 title: OSDC 2015 Hobart

@@ -10,7 +10,6 @@ summary: |
     Apple's receipts in Python.
 tags:
   - apple
-  - payments
 title: 'Verifying Apple''s Signed Receipts'
 ---
 

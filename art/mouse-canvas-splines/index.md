@@ -11,7 +11,6 @@ summary: |
 tags:
     - html5
     - javascript
-    - canvas
 title: 'Mouse Events, Canvas and Splines in Javascript / HTML5'
 ---
 

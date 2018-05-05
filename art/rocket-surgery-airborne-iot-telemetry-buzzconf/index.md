@@ -14,7 +14,7 @@ Follow [mnemote on Twitter](https://twitter.com/mnemote) for updates.
 
 # Background
 
-[Andrew Fisher](ajfisher.me), [Andy Gelme](geekscape.org) and I are
+[Andrew Fisher](http://ajfisher.me/), [Andy Gelme](https://github.com/geekscape) and I are
 putting together a [Rocket Surgery Session](https://buzzconf.io/sessions/airborne-iot-build-a-rocket/)
 for [BuzzConf 2017](https://buzzconf.io/).
 

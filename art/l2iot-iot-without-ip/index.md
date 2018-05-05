@@ -2,7 +2,7 @@
 date: '2017-08-19'
 layout: article
 tags:
-- networking
+- networks
 - iot
 title: L2IoT ... IoT Networks without IP
 summary: IoT Networks without IP?  Madness.  But ... maybe ...

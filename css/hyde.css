@@ -62,6 +62,15 @@ html {
   background-color: #202020;
   background-image: url("px_by_Gre3g.png");
 }
+.sidebar-nav, .sidebar-tags, .sidebar-copy { display: none; }
+
+.footer {
+  padding: 2rem 1rem;
+  color: rgba(255,255,255,.5);
+  background-color: #202020;
+  background-image: url("px_by_Gre3g.png");
+}
+
 @media (min-width: 48em) {
   .sidebar {
     position: fixed;
@@ -71,6 +80,8 @@ html {
     width: 22rem;
     text-align: left;
   }
+  .sidebar-nav, .sidebar-tags, .sidebar-copy { display: block; }
+  .footer { display: none; }
 }
 
 /* Sidebar links */
@@ -84,7 +95,7 @@ html {
   margin-top: 0;
   font-family: "Acme", serif;
   font-size: 2.75rem;
-  width: 7em;
+  text-align: center;
 }
 
 /* Sidebar nav */

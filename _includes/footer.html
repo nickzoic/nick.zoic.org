@@ -1,14 +1,7 @@
-<div class="sidebar">
+<div class="footer">
   <div class="container">
-    <div class="sidebar-about">
-      <h1>
-        <a href="/">
-          ... and another thing ...
-        </a>
-      </h1>
-    </div>
 
-    <nav class="sidebar-nav">
+    <nav class="footer-nav">
       <a class="sidebar-nav-item{% if page.url == '/nick-moore/' %} active{% endif %}" href="/nick-moore/">Nick Moore</a>
 
       <h2>Recently:</h2>
@@ -25,7 +18,7 @@
       <p><a href="/everything/">More ...</a></p>
     </nav>
 
-    <nav class="sidebar-tags">
+    <nav class="footer-tags">
       <h2>Tags:</h2>
       {% assign sorted_pages = site.pages | sort:"title" %}
       <p style="font-size: 0.8em">
@@ -37,7 +30,7 @@
       </p>
     </nav>
 
-    <p class="sidebar-copy">All content Copyright © 2011-2018 Nick Moore unless otherwise noted</p>
+    <p class="footer-copy">All content Copyright © 2011-2018 Nick Moore unless otherwise noted</p>
 
   </div>
 </div>

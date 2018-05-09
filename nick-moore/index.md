@@ -3,12 +3,14 @@ layout: article
 title: Nick Moore
 ---
 
-I’m a [freelance](http://en.wikipedia.org/wiki/Freelancer#Etymology)
-Software Consultant, mostly working with Open Source technologies and
-web services. A lot of my work these days is in business analysis:
-working out what the problem actually is, as opposed to what it seems to
-be. I prefer to code in Python, but also work in Perl,
-C/C\#/Objective-C, SQL and (for my sins) JavaScript.
+I’m a [freelance](https://en.wikipedia.org/wiki/Freelancer#Etymology)
+Software Consultant, generally working through my company 
+[Mnemote Pty Ltd](https://mnemote.com/).
+
+I mostly work with Open Source technologies and
+web services, doing software and systems architecure, business analysis and
+software development. 
+I prefer to code in Python, but also work in C, JavaScript, SQL and various others.
 
 I've been on "the Internet" since
 [1990](http://en.wikipedia.org/wiki/Flood_%28They_Might_Be_Giants_album%29)
@@ -23,10 +25,8 @@ Standard](http://en.wikipedia.org/wiki/Internet_Standard#Proposed_Standard).
 I'm also very interested in [Mesh Networking](http://mesh.zoic.org/).
 
 I live in the suburbs of Melbourne, Australia with my wife, two
-daughters, a very antisocial
-[cat](http://zoic.smugmug.com/Family/Wally-the-Cat-1/i-Kwx4b72/0/L/IMG_3720-L.jpg)
-and a very enthusiastic dog. Also some fish and 
-[Spiny Leaf Insects](https://australianmuseum.net.au/care-of-stick-insects)
+daughters, an antisocial cat and a very enthusiastic dog. Also some fish and 
+[Spiny Leaf Insects](https://australianmuseum.net.au/care-of-stick-insects).
 
 Contact
 -------

@@ -27,7 +27,7 @@ Probabalistic Counters
 ======================
 
 Not so long ago, [Gangnam Style](https://www.youtube.com/watch?v=9bZkp7q19f0)
-became the first video to clock over 2<sup>31</sup> views, 
+became the first YouTube video to clock over 2<sup>31</sup> views, 
 [resulting in an integer overflow](https://arstechnica.com/business/2014/12/gangnam-style-overflows-int_max-forces-youtube-to-go-64-bit/)
 and forcing YouTube to update to 64 bit counters.
 
@@ -55,6 +55,10 @@ of incrementing the counter on its current value.  So, for example,
 
 Then we just need a function which can turn the recorded number back into an approximate
 'real' count.
+
+[Law of Large Numbers](https://en.wikipedia.org/wiki/Law_of_large_numbers)
+
+[Law of the Iterated Logarithm](https://en.wikipedia.org/wiki/Law_of_the_iterated_logarithm)
 
 Probabilities
 =============

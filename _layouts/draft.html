@@ -1,20 +1,17 @@
 ---
 layout: base
 ---
-    <div class="banner">
-      <h1 class="title">{{ page.title }}</h1>
-      <h2 class="date">{{ page.date }} (DRAFT)</h2>
-      {% if page.summary %}
-        <p class="summary">{{ page.summary }}</p>
-      {% endif %}
-      <div class="tags">
-        {% for tag in page.tags %}
-          <span class="tag"><a href="/tag/{{ tag }}">{{ tag }}</a></span>
-          {% unless forloop.last %} / {% endunless %}
-        {% endfor %}
-      </div>
-    </div>
-
-    <div class="content">
-      {{ content }}
-    </div>
+<div class="page">
+  <h1 class="page-title">{{ page.title }}</h1>
+  <h2>DRAFT</h2>
+  <span class="page-date">{{ page.date }}</span>
+  <span class="page-tags" style="float: right">
+    {% for tag in page.tags %}
+      <span class="tag"><a href="/tag/{{ tag }}">{{ tag }}</a></span>
+      {% unless forloop.last %} / {% endunless %}
+    {% endfor %}
+  </span>
+  <div style="clear: both; text-align: center"><em>{{ page.summary }}</em></div>
+  <hr/>
+  {{ content }}
+</div>

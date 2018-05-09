@@ -3,7 +3,6 @@ date: '2018-01-31'
 layout: article
 slug: micropython-webusb
 tags:
-    - python
     - micropython
     - microcontrollers
     - esp32

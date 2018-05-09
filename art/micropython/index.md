@@ -5,7 +5,6 @@ layout: article
 redirect_from: '/Python/micropython/'
 slug: micropython
 tags:
-    - python
     - micropython
     - microcontrollers
     - esp32

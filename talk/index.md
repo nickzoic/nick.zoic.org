@@ -1,6 +1,6 @@
 ---
 layout: article
-title: Talks: Nick Moore
+title: "Talks: Nick Moore"
 ---
 
 * [BuzzConf Nights: The Internet of Toys](buzzconf1/)

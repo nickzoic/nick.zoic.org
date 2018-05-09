@@ -1,0 +1,40 @@
+<div class="sidebar">
+  <div class="container">
+    <div class="sidebar-about">
+      <h1>
+        <a href="/">
+          ... and another thing ...
+        </a>
+      </h1>
+    </div>
+
+    <nav class="sidebar-nav">
+      <a class="sidebar-nav-item{% if page.url == '/nick-moore/' %} active{% endif %}" href="/nick-moore/">Nick Moore</a>
+
+      <h2>Recently:</h2>
+
+      {% assign pages_list = site.pages | sort:"date" | reverse %}
+      {% for node in pages_list limit:10 %}
+        {% if node.title != null %}
+          {% if node.layout == "article" %}
+            <a class="sidebar-nav-item{% if page.url == node.url %} active{% endif %}" href="{{ node.url }}">{{ node.title }}</a>
+          {% endif %}
+        {% endif %}
+      {% endfor %}
+
+      <p><a href="/everything/">More ...</a></p>
+    </nav>
+
+    <nav class="sidebar-tags">
+      <h2>Tags:</h2>
+      {% assign sorted_pages = site.pages | sort:"title" %}
+      <p style="font-size: 0.8em">
+      {% for node in sorted_pages %}
+        {% if node.layout == "tag" %}
+	<a class="sidebar-nav-item{% if page.url == node.url %} active{% endif %}" style="display: inline-block" href="{{ node.url }}">{{ node.title }}</a>
+	{% endif %}
+      {% endfor %}
+      </p>
+    </nav>
+  </div>
+</div>

@@ -43,3 +43,11 @@ HTTPS
 The magificent folks at Github and Lets Encrypt now support
 [HTTPS for Github Pages sites on custom domains](https://help.github.com/articles/securing-your-github-pages-site-with-https/)
 with no extra effort required.
+
+UPDATE THEME
+============
+
+(2018-05-09) I've kind of mashed together the old theme and 
+[Hyde](https://github.com/poole/hyde) with some tweaks here
+and there.  I hope at least some of you find it less ugly than
+it was before.

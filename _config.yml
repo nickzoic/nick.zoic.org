@@ -1,4 +1,8 @@
-site:
-  url: https://nick.zoic.org
+title: "... and another thing ..."
+baseurl: /
+url: https://nick.zoic.org
+
+highlighter: rouge
+
 gems:
   - jekyll-redirect-from

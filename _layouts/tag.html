@@ -1,11 +1,8 @@
 ---
-layout: sidebar
+layout: base
 ---
-    <div class="banner">
-      <h1 class="title">Articles tagged '{{ page.title }}'</h1>
-    </div>
-
-    <div class="content">
+    <div class="page">
+      <h1 class="page-title">Articles tagged '{{ page.title }}'</h1>
       {% assign sorted_pages = site.pages | sort:"title" %}
       {% for p in sorted_pages %}
         {% if p.layout == "article" %}

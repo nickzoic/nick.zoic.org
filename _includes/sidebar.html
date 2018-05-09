@@ -27,7 +27,7 @@
 
     <nav class="sidebar-tags">
       <h2>Tags:</h2>
-      {% assign sorted_pages = site.pages | sort:"title" %}
+      {% assign sorted_pages = site.pages | sort:"tag" %}
       <p style="font-size: 0.8em">
       {% for node in sorted_pages %}
         {% if node.layout == "tag" %}

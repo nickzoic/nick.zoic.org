@@ -6,7 +6,7 @@ redirect_from: '/Systems/trickiness-with-ssh/'
 slug: 'trickiness-with-ssh'
 tags:
     - systems
-    - crypto
+    - ssh
 title: More Trickiness With SSH
 ---
 

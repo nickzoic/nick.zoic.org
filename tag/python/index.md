@@ -1,5 +1,5 @@
 ---
 layout: tag
 tag: python
-title: python
+title: Python
 ---

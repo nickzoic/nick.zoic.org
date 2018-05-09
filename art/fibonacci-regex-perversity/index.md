@@ -3,10 +3,8 @@ category: Languages
 date: '2011-06-02'
 layout: article
 redirect_from: '/Languages/regex/'
-slug: regex
 tags:
     - languages
-    - regex
 title: Fibonacci Regex Perversity
 summary: Repeated substitutions are Turing Complete
 ---
@@ -94,18 +92,18 @@ as an example, using `0` and `1` for the tape symbols 0 and 1, and using
 `H` for the head when halted. Translating to that notation, the state
 transitions are:
 
-    Current State   Current Symbol   New Symbol   Move Head   New State
-    --------------- ---------------- ------------ ----------- -----------
-    A               0                                         H
-    A               1                0            R           B
-    B               0                0            R           C
-    B               1                1            R           B
-    C               0                1            L           D
-    C               1                1            R           C
-    D               0                0            L           E
-    D               1                1            L           D
-    E               0                1            R           A
-    E               1                1            L           E
+Current State | Current Symbol | New Symbol | Move Head | New State
+- | - | - | - | -
+A | 0 |   |   | H
+A | 1 | 0 | R | B
+B | 0 | 0 | R | C
+B | 1 | 1 | R | B
+C | 0 | 1 | L | D
+C | 1 | 1 | R | C
+D | 0 | 0 | L | E
+D | 1 | 1 | L | D
+E | 0 | 1 | R | A
+E | 1 | 1 | L | E
 
 We can cope with the unbound tape by either matching `$` (end-of-string)
 as if it were a `0`, or by simply extending the tape any time the head

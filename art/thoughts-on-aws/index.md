@@ -6,6 +6,7 @@ redirect_from: '/etc/thoughts-on-aws/'
 slug: 'thoughts-on-aws'
 tags: aws
 title: Some thoughts on AWS
+summary: The great EBS Outage of 2011
 ---
 
 There have been a lot of very interesting articles posted recently about

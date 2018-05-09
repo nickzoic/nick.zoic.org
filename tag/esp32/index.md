@@ -1,5 +1,5 @@
 ---
 layout: tag
 tag: esp32
-title: esp32
+title: ESP32
 ---

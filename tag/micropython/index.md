@@ -1,5 +1,5 @@
 ---
 layout: tag
 tag: micropython
-title: micropython
+title: MicroPython
 ---

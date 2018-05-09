@@ -7,7 +7,7 @@ layout: base
       {% for p in sorted_pages %}
         {% if p.layout == "article" %}
           {% for t in p.tags %}
-            {% if t == page.title %}
+            {% if t == page.tag %}
               <a href="{{ p.url }}"><h3>{{ p.title }}</h3></a>
               {% if p.summary %}<p>{{ p.summary }}</p>{% endif %}
               {% break %}

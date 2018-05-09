@@ -5,7 +5,7 @@ layout: article
 redirect_from: '/etc/deserialize-alter-serialize-antipattern/'
 slug: 'deserialize-alter-serialize-antipattern'
 summary: |
-    I was talking to \$PERSON from \$BIG\_COMPANY the other day, and they
+    I was talking to $PERSON from $BIG_COMPANY the other day, and they
     happened to mention that around 80% of their CPU time was spent on
     serializing and deserializing data ...
 tags:
@@ -20,9 +20,8 @@ CPU Time
 
 I was talking to \$PERSON from \$BIG\_COMPANY the other day, and they
 happened to mention that around 80% of their CPU time was spent on
-serializing and deserializing data. We're talking [Protocol Buffers and
-C++
-here](https://developers.google.com/protocol-buffers/docs/cpptutorial)
+serializing and deserializing data. We're talking
+[Protocol Buffers and C++ here](https://developers.google.com/protocol-buffers/docs/cpptutorial)
 so it isn't the usual suspects.
 
 Deserialize / Alter / Serialize
@@ -32,12 +31,12 @@ With anything web-related, once flushed from the cover of frameworks and
 libraries, an enormous proportion of operations end up looking something
 like:
 
-~~~
+{% highlight python %}
     def update_attribute(new_value):
         object = deserialize(input_stream)
         object.attribute = new_value
         output_stream.write(object.serialize())
-~~~
+{% endhighlight %}
 
 ... where the `input_stream` and `output_stream` are connections to a
 database of some kind. The serialization and deserialization may be
@@ -96,7 +95,7 @@ loading the whole thing into RAM at one time.
 This general idea could be used with other protocol languages too, so
 your new pseudocode looks like:
 
-~~~
+{% highlight python %}
     def update_attribute(new_value):
 
         def updater(key, value):
@@ -104,7 +103,7 @@ your new pseudocode looks like:
             else: return value
 
         update(input_stream, output_stream, updater)
-~~~
+{% endhighlight %}
 
 ... all `update` has to do is to call the `updater` function for every
 element in the structure, passing the name of the element within the

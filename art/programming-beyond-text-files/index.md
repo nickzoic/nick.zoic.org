@@ -6,7 +6,6 @@ redirect_from: '/art/syntax-tree-editors/'
 summary: 'Are programs really text files?'
 tags:
   - languages
-  - www
   - python
 title: Programming Beyond Text Files
 ---

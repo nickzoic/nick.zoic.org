@@ -10,6 +10,7 @@ layout: base
       {% unless forloop.last %} / {% endunless %}
     {% endfor %}
   </span>
-  <hr style="clear: both"/>
+  <div style="clear: both; text-align: center"><em>{{ page.summary }}</em></div>
+  <hr/>
   {{ content }}
 </div>

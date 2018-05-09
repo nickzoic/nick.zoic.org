@@ -6,7 +6,7 @@ redirect_from: '/etc/tortoise-svn/'
 slug: 'tortoise-svn'
 tags:
     - windows
-    - revision-control
+    - ssh
 title: 'Quick guide to setting up TortoiseCVS / TortoiseSVN'
 ---
 

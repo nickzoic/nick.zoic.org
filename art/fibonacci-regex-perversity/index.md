@@ -93,7 +93,7 @@ as an example, using `0` and `1` for the tape symbols 0 and 1, and using
 transitions are:
 
 Current State | Current Symbol | New Symbol | Move Head | New State
-- | - | - | - | -
+:---:|:---:|:---:|:---:|:---:
 A | 0 |   |   | H
 A | 1 | 0 | R | B
 B | 0 | 0 | R | C

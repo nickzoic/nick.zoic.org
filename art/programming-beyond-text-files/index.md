@@ -98,3 +98,6 @@ filesystem being replaced by an append-only tree of nodes, treated homogeneously
 from the root of the filesystem to the individual atom of a parsed program.  We'd lose
 a lot of our old friends like `find` and `grep` and `diff3`, but think of what we'd gain ...
 
+### UPDATE (again)
+
+Another interesting reference: the [New York Times' Oak Editor](https://open.nytimes.com/building-a-text-editor-for-a-digital-first-newsroom-f1cb8367fc21) which is kind of similar.

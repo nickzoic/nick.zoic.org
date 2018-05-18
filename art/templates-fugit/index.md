@@ -35,7 +35,7 @@ up. I don't count the time it takes to compile the templates, since the
 compiled templates are generally cached anyway
 
 [The benchmark source code is available
-here](http://code.zoic.org/templates_fugit/)
+here](templates_fugit.tgz)
 
 The Results
 ===========

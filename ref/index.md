@@ -10,15 +10,25 @@ sometimes I remember to follow up with a URL, sometimes I forget.
 So this is an attempt to round all those links up into one place
 with an easy to write URL ...
 
+(updated whenever I think of something)
+
+
 ## Computing History
 
 * [The Mother of All Demos](https://en.wikipedia.org/wiki/The_Mother_of_All_Demos)
 * [Project Xanadu](https://en.wikipedia.org/wiki/Project_Xanadu)
 
+
 ## Programming
 
 * [Software development at 1 Hz](https://hackernoon.com/software-development-at-1-hz-5530bb58fc0e)
 * [Design Patterns in Python](http://norvig.com/design-patterns/)
+
+
+## Fiction
+
+* [Maneki Neko](http://www.lightspeedmagazine.com/fiction/maneki-neko/) (by Bruce Sterling)
+
 
 ## Rats and Zombie Ants
 

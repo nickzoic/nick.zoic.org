@@ -211,6 +211,43 @@ and WebUSB simultaneously, independently of MicroPython ... that would then work
 with many different microcontrollers (etc).  It could support multiple UARTs and some
 control pins, which would cover the usual bases of console, logging, resetting.)*
 
+# UPDATE 2018-05-20
+
+## ATMega32U4
+
+USB throughput with the ATTiny seems pretty terrible ... I didn't measure it but
+typing through it was like typing at 300 baud.  This was pretty predictable: V-USB
+is bit-banging USB on a slow 8-bit micro, so performance is probably okay for a mouse
+or a keyboard but maybe not for uploading files.
+
+I thought I'd try out an [ATmega32u4](https://www.microchip.com/wwwproducts/en/ATmega32u4),
+which has hardware support for USB and works with [LUFA](http://www.lufa-lib.org/).
+I had an old
+[Sparkfun ATmega32u4 breakout board](https://www.sparkfun.com/products/retired/11117)
+in the junkbox ... they're no longer made, but there's the
+[Adafruit Teensy 2.0](https://www.adafruit.com/product/199) which is probably equivalent,
+and a bunch of Ebay boards too.
+
+A quick experiment with a modified version of the DualVirtualSerial demo code puts the 
+throughput at about 140kB/s full duplex (into /dev/ttyACM0 and out of /dev/ttyACM1)
+which seems about right for [low speed USB 1.1](https://en.wikipedia.org/wiki/USB#USB_1.x)
+and is pretty similar to the 115200 baud which we tend to program ESPs at anyway.
+I'm not clear if this is just a matter of configuration though.
+
+## `/dev/ttyACM0: Device or resource busy`
+
+As an aside, I'd been getting lots of `failed to open '/dev/ttyACM0': Device or resource busy`
+messages and was wondering why ... when I ran up my DualVirtualSerial example I could see that
+something was sending AT commands to the ports.  It turns out that this is 'modemmanager',
+"a unified high level API for communicating with mobile broadband modems".
+
+I could just `apt purge modemmanager` but it appears that that also has some role to play in
+configuring 4G interfaces, so I guess it has to stay.  Thankfully it looks like there's a
+[way to prevent ModemManager from interfering](https://linux-tips.com/t/prevent-modem-manager-to-capture-usb-serial-devices/284)
+
+
+
+
 
 
 

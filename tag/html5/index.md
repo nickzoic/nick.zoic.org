@@ -1,5 +1,5 @@
 ---
 layout: tag
 tag: html5
-title: html5
+title: HTML5
 ---

@@ -63,11 +63,20 @@ it is put in our `xhr` object, and the anonymous function we supplied as
 `xhr.onload` gets called to return control to us so we can do something,
 in this case write some stuff to the console.
 
+#### Callback Hell
+
 This way of programming is often derided as [Callback Hell](http://callbackhell.com/)
 because each action leads to a callback which leads to another action which leads to a callback,
 and so on, but by taking care we can avoid making our code too confusing.  If we wanted
 `get_example` to do something *after* it got the example, we'd need to pass it a callback
 to call once it was done.  And so on.
+
+A lot of this can be avoided by doing some simple metaprogramming, for example it is easy
+to write a function which runs a list of other functions in series or parallel, and always
+use it instead of a map or a loop.  But this comes at a performance penalty, and there's 
+a cognitive penalty in converting between the approaches.
+
+#### Promises
 
 There are alternatives such as
 [ES6 Promises](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise) and

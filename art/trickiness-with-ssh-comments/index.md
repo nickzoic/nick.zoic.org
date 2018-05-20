@@ -6,9 +6,9 @@ redirect_from: '/Systems/trickiness-with-ssh-comments/'
 slug: 'trickiness-with-ssh-comments'
 tags:
     - systems
-    - crypto
-title: Comments On More Trickiness With SSH
+    - ssh
 summary: the only useful blog post comments I ever got before I turned them off forever
+title: More Trickiness With SSH (Comments)
 ---
 
 [More Trickiness With SSH](../trickiness-with-ssh/) is my only blog post which has ever

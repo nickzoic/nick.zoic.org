@@ -20,24 +20,24 @@ construct a list of these classes, and call a “probe” classmethod on
 each of them to ask the class to go search out any devices which were
 available. In Python, this would look like :
 
-~~~
+{% highlight python %}
 device_classes = (FooDevice, BarDevice, BazDevice)
 
 for device_class in device_classes:
     device_class.probe()
-~~~
+{% endhighlight %}
 
 See? The classes are being treated just like any other variable, because
 they are, they’re just instances of type ‘classobj’ . But the equivalent
 doesn’t work in C\# — doing this:
 
-~~~
+{% highlight csharp %}
 Type[] DeviceClasses = {
     FooDevice,
     BarDevice,
     BazDevice
 };
-~~~
+{% endhighlight %}
 
 ... complains that “‘FooDevice’ is a ‘type’ but is used like a
 ‘variable’”. At first it seemed that C\# didn’t have first class
@@ -47,7 +47,7 @@ Thankfully after a bit more exploration it turns out that all that is
 needed is some syntactic nastiness … namely, typeof(), GetMethod() and
 Invoke() (Passing “null” to Invoke works for static methods):
 
-~~~
+{% highlight csharp %}
 Type[] DeviceClasses = {
     typeof(FooDevice),
     typeof(BarDevice),
@@ -57,7 +57,8 @@ Type[] DeviceClasses = {
 foreach (Type dct in DeviceClasses) {
     dct.GetMethod("Probe").Invoke(null, new object[] {} );
 }
-~~~
+{% endhighlight %}
+
 
 Now, quite why a shiny new programming language has to get saddled with
 such godawful syntax is a bit beyond me, but so it goes.

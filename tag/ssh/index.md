@@ -1,5 +1,5 @@
 ---
 layout: tag
-tag: iot
-title: IoT
+tag: ssh
+title: SSH
 ---

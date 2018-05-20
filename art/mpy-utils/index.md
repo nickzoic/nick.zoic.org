@@ -9,7 +9,6 @@ tags:
     - microcontrollers
     - esp8266
     - esp32
-    - python
 title: Micropython Utilities
 summary: some utility programs to copy and mount MicroPython filesystems from your computer
 ---

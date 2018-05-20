@@ -7,6 +7,7 @@ slug: 'gcc-linker-libs'
 tags:
     - c
 title: 'GCC 4.6 linker switches'
+summary: GCC 4.6 is slightly fussier about the order of its options than predecessors ...
 ---
 
 An odd little one: I was compiling some older code on gcc 4.6 / Ubuntu

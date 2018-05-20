@@ -8,7 +8,6 @@ summary: 'A short rant about a common beginner''s mistake in dynamic languages'
 tags:
     - python
     - javascript
-    - perl
 title: 'Try: Except: Pass'
 ---
 

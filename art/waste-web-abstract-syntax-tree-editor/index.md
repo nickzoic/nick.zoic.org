@@ -38,15 +38,20 @@ the native JSON parser isn't suitable because
 there's a slight mismatch between JSON and JS types.
 
 When dealing with JSON, each AST node is a Javascript object with a "type" and a "value".  
-For example, JSON `true` is represented by `{ 'type': 'atom', 'value': 'true' }`
+For example, JSON `true` is represented by
+
+{% highlight python %}
+{ 'type': 'atom', 'value': 'true' }
+{% endhighlight %}
+
 and `{ "foo": 23, "bar": "baz" }` by
 
-```
+{% highlight python %}
 { 'type': 'object', 'value': [
    [ { "type": "string", "value": "foo" }, { "type": "number": "value": "23" } ],
    [ { "type": "string", "value": "bar" }, { "type": "string": "value": "baz" } ]
 ] }
-```
+{% endhighlight %}
 
 This is a lot wordier than native JSON representation, but lets us iterate over
 key/value pairs and represent values exactly as they are in the JSON.
@@ -65,7 +70,7 @@ existing Python grammar to work from so I'll have to write my own.
 ## Presenting and Editing
 
 The AST is then translated to HTML via a Ractive template which uses recursion
-(`{{>thing}}`) to traverse the structure and convert it to HTML.
+(`{% raw %}{{>thing}}{% endraw %}`) to traverse the structure and convert it to HTML.
 The type of each AST node carries into a class on the HTML node, so 
 syntax highlighting can be done in CSS.
 

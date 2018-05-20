@@ -106,6 +106,6 @@ a lot of rows and throw most of them out again. The “best” (eg: most
 restrictive) inequality should go first, but which one is it?
 
 I've published the [Multiple Inequalities in Google AppEngine code
-here](http://code.zoic.org/inequality_mixin/) ... note that this is
+here](inequality_mixin.zip) ... note that this is
 still pretty sketchy and I'm not really interested in developing it
 further myself. Take it and run with it!

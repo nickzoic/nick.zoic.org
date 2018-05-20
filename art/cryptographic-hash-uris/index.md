@@ -9,6 +9,8 @@ tags:
     - www
     - speculation
     - crypto
+summary: |
+    Image a WWW using Cryptographic Hash URIs instead of URLs.
 title: 'Imagine There''s No URLs'
 ---
 

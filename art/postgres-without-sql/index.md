@@ -16,6 +16,7 @@ tags:
     - sql
     - c
     - backend
+    - postgres
 title: Postgres without SQL
 ---
 

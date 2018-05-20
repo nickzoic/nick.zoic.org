@@ -6,7 +6,6 @@ redirect_from: '/art/syntax-tree-editors/'
 summary: 'Are programs really text files?'
 tags:
   - languages
-  - www
   - python
 title: Programming Beyond Text Files
 ---
@@ -88,13 +87,17 @@ why not take that to the next level and have your tests constantly rerunning the
 whenever you touch code which they depend on?
 
 One of the arguments against doing this is that we have so many good tools for dealing
-with plain text files: [Diff3](/art/a-canticle-for-diff3/) for example.  But I think we
+with plain text files, but I think we
 could make even smarter tools with a better underlying data structure.  The Lisp
 world uses [homoiconicity](https://en.wikipedia.org/wiki/Homoiconicity) to its 
 advantage: treating programs as data and data as programs is easy when your language is
 
 Perhaps this is taking it all a little too far, but I love the idea of the whole 
 filesystem being replaced by an append-only tree of nodes, treated homogeneously all the way
-from the root of the filesystem to the individual atom of a parsed program.  We'd lose
-a lot of our old friends like `find` and `grep` and `diff3`, but think of what we'd gain ...
+from the root of the filesystem to the individual atom of a parsed program.  We'd
+[lose a lot of our old friends](/art/a-canticle-for-diff3/)
+like `find` and `grep` and `diff3`, but think of what we'd gain ...
 
+### UPDATE (again)
+
+Another interesting reference: the [New York Times' Oak Editor](https://open.nytimes.com/building-a-text-editor-for-a-digital-first-newsroom-f1cb8367fc21) which is kind of similar.

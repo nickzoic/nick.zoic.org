@@ -1,5 +1,5 @@
 ---
 layout: tag
 tag: apple
-title: apple
+title: Apple
 ---

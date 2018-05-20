@@ -8,6 +8,9 @@ tags:
   - architecture
   - systems
   - networks
+summary: |
+    IP-layer load balancing without an actual load balancer, by
+    abusing (well, extending) ARP.
 title: a Virtual Load Balancer
 ---
 
@@ -92,14 +95,14 @@ be spread around.
 
 The following address assignments are arbitrary but illustrative:
 
-    Server   Primary         Secondary
-    ======   ==============  =============
-    A        1,2,3,4,5       6,11,16,21,26
-    B        6,7,8,9,10      1,12,17,22,27
-    C        11,12,13,14,15  2,7,18,23,28
-    D        16,17,18,19,20  3,8,13,24,29
-    E        21,22,23,24,25  4,9,14,19,30
-    F        26,27,28,29,30  5,10,15,20,25
+Server | Primary | Secondary
+--- | --- | ---
+A | 1,2,3,4,5 | 6,11,16,21,26
+B | 6,7,8,9,10 | 1,12,17,22,27
+C | 11,12,13,14,15 | 2,7,18,23,28
+D | 16,17,18,19,20 | 3,8,13,24,29
+E | 21,22,23,24,25 | 4,9,14,19,30
+F | 26,27,28,29,30 | 5,10,15,20,25
 
 Specifically, each of the N(N-1) address has exactly one primary server
 and exactly one secondary server, and they aren't the same server. Each
@@ -109,11 +112,11 @@ and no server has the same address as primary and secondary.
 This could be extended to tertiary addresses to handle double failures.
 We'd need N(N-1)(N-2) routes & addresses:
 
-    Server   Primary         Secondary      Tertiary
-    ======   ==============  =============  =========
-    A        1,2             3,5            4,6 
-    B        3,4             1,6            2,5
-    C        5,6             2,4            1,3
+Server | Primary | Secondary | Tertiary
+--- | --- | --- | ---
+A | 1,2 | 3,5 | 4,6 
+B | 3,4 | 1,6 | 2,5
+C | 5,6 | 2,4 | 1,3
 
 'A' normally responds to address 1 and 2. If 'A' fails, 'B' picks up
 address 1 and 'C' picks up address 2. If 'B' fails as well, 'C' picks up

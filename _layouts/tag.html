@@ -1,16 +1,14 @@
 ---
-layout: sidebar
+layout: base
 ---
-    <div class="banner">
-      <h1 class="title">Articles tagged '{{ page.title }}'</h1>
-    </div>
-
-    <div class="content">
+    <div class="page">
+      <h1 class="page-title">Articles tagged '{{ page.title }}'</h1>
+      {{ content }}
       {% assign sorted_pages = site.pages | sort:"title" %}
       {% for p in sorted_pages %}
         {% if p.layout == "article" %}
           {% for t in p.tags %}
-            {% if t == page.title %}
+            {% if t == page.tag %}
               <a href="{{ p.url }}"><h3>{{ p.title }}</h3></a>
               {% if p.summary %}<p>{{ p.summary }}</p>{% endif %}
               {% break %}

@@ -9,7 +9,6 @@ summary: |
     in parallel. However, every now and then you bump into a problem where
     this just doesn't work ...
 tags:
-    - memcached
     - c
     - backend
     - python

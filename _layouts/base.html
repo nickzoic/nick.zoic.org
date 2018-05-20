@@ -1,15 +1,11 @@
-<html>
-  <head>
-    <link rel="stylesheet" href="/css/main.css"/>
-    <title>{{ page.title }} ... and another thing ...</title>
-  </head>
+<!DOCTYPE html>
+<html lang="en-us">
+  {% include head.html %}
   <body>
-   <div class="wrapper">
-     {{ content }}
-   </div>
-    
-   <div class="footer">
-      All content Copyright &copy; 2011-2018 Nick Moore unless otherwise noted
-   </div>
+    {% include sidebar.html %}
+    <div class="content container">
+        {{ content }}
+    </div>
+    {% include footer.html %}
   </body>
 </html>

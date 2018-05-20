@@ -1,5 +1,5 @@
 ---
 layout: tag
 tag: aws
-title: aws
+title: AWS
 ---

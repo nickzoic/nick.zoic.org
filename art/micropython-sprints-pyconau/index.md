@@ -2,7 +2,6 @@
 date: '2017-07-07'
 layout: article
 tags:
-    - python
     - micropython
     - conference
     - esp32

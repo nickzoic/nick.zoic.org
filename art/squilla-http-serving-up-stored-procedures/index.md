@@ -34,39 +34,39 @@ Views
 Django allows you to perform queries across multiple tables, pulling
 together related entities in a single query. For example, a query like:
 
-~~~
+{% highlight python %}
 Article.objects.get(id=7).select_related('comment_set')
-~~~
+{% endhighlight %}
 
 ... would pull in an Article, and pull in all Comments related to that
 article by doing something like:
 
-~~~
+{% highlight sql %}
 SELECT * FROM article
 LEFT JOIN comment ON (comment.article_id = article.id)
 WHERE article.id = 7;
-~~~
+{% endhighlight %}
 
 This is rather helpful, but the same thing could be done by setting up
 an article\_with\_comments
 [View](http://www.postgresql.org/docs/9.3/static/sql-createview.html)
 which performs the join internally.
 
-~~~
+{% highlight sql %}
 CREATE VIEW article_with_comments AS 
 SELECT *,
     (SELECT JSON_AGG(comment.*) FROM comment WHERE article_id=article.id) AS comments_json ,
     (SELECT MAX(id) FROM comment WHERE article_id=article.id) AS max_comment_id
 FROM article;
-~~~
+{% endhighlight %}
 
 You can now query the View, which encapsulates the underlying details.
 
-~~~
+{% highlight sql %}
 SELECT * FROM article_with_comments;
 
 SELECT * FROM article_with_comments WHERE max_comment_id > 3;
-~~~
+{% endhighlight %}
 
 Triggers
 ========
@@ -98,9 +98,8 @@ but just perhaps that makes them worth another look!
 Messages
 ========
 
-I've talked before about [APIs based on
-messages](../mobile-app-architecture/#messages). The general
-idea is that each of these messages translates into a stored procedure
+I've talked before about [APIs based on messages](../mobile-app-architecture/#messages).
+The general idea is that each of these messages translates into a stored procedure
 call. Each stored procedure runs a series of SQL commands, and sends
 back the result as JSON. This is very similar to what happens in a
 Django (etc) handler, only it is happening right there in the database
@@ -121,7 +120,7 @@ Sketchy Demo Code
 This very small bit of Python code demonstrates the general idea. It
 uses psycopg2 and wsgiref libraries:
 
-~~~
+{% highlight python %}
 from urlparse import parse_qsl
 
 import psycopg2
@@ -164,7 +163,7 @@ def application(environ, start_response):
 if __name__ == '__main__':
     from wsgiref.simple_server import make_server
     make_server('localhost', 8001, application).serve_forever()
-~~~
+{% endhighlight %}
 
 Drawbacks
 =========

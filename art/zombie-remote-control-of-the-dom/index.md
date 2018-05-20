@@ -1,11 +1,10 @@
 ---
 category: etc
 date: '2018-05-01'
-layout: draft
+layout: article
 title: 'ZOMBIE: Remote control of the DOM'
 summary: |
-    What if you could have a rich web frontend without developing
-    one?
+    What if you could have a rich web frontend without developing one?
 tags:
     - architecture
     - www
@@ -13,35 +12,25 @@ tags:
     - python
 ---
 
-*I was originally thinking about this ... I don't know, some time
-after 2006 which was when I got into Python but before 2011 which 
-is when the idea morphed into
-[Python in the Browser](../python-in-the-browser/) and crawled off to die.
-
-I've talked a lot about
-[mobile app architecture](../mobile-app-architecture/) and
-[mobile application APIs](../tranquil-apis/) and
-so on on this blog, but I don't think I've mentioned this before.
-This isn't the [silliest](../squilla-http-serving-up-stored-procedures/)
-[thing](../omnicode/) [I've](../squawk-cc-the-true-story/)
-[written](../youve-got-no-mail/) about on this blog, so here goes:*
-
 ## Frontend and Backend
 
-It's pretty common the write a web application in two parts: a frontend, 
+It's pretty common the write a web application in 
+[two parts](../mobile-app-architecture/): a frontend, 
 perhaps using [Angular](https://angular.io/) or [Knockout](http://knockoutjs.com/);
 and a backend, perhaps using [Django](https://www.djangoproject.com/)
 or [Rails](http://rubyonrails.org/) or some similar framework.  The two codebases
-are largely independent, joined only by an API between them, perhaps conforming
+are largely independent, joined only by an [API](../tranquil-apis/) between them, perhaps conforming
 to REST principles and maybe even a [Swagger](https://swagger.io/) or
 [Pact](https://docs.pact.io/) defining the API.
 
 But that means three conjoined components already, and we haven't even considered
 the database, or any external components or gateways.   
-Sure, you could forego a separate frontend and just write everything as HTML
-templates, but then you'd have to do actual page loads and people would think you
-were uncool (to be fair: AJAX partial content loads are one of the few things
-which are actually good about the modern web)
+Sure, you could forego a separate frontend and just write everything as
+[HTML templates](../templates-fugit/), but then you'd have to do actual page
+loads and people would think you
+were uncool (to be fair:
+[AJAX partial content loads](../static-jquery-dynamic/)
+are one of the few things which are actually good about the modern web)
 
 ### Compiling to Javascript
 
@@ -52,6 +41,11 @@ organising things.  Projects like [Haste](https://haste-lang.org/) and
 (long dead) [Tropyc](https://github.com/nickzoic/tropyc) aim to compile a source
 language up to Javascript to run selected parts of it in the browser.
 
+I was originally thinking about this ... I don't know, some time
+after 2006 which was when I got into Python but before 2011 which 
+is when the idea morphed into
+[Python in the Browser](../python-in-the-browser/) and crawled off to die.
+
 Zombie takes a rather stupider, more direct approach.
 
 ## zombie.js
@@ -59,12 +53,13 @@ Zombie takes a rather stupider, more direct approach.
 The browser loads a dummy page with content suitable for SEO.  There's not much 
 interesting about that page, but it includes the zombie loader:
 
-```
+{% highlight html %}
 <script src="/zombie"></script>
-```
+{% endhighlight %}
 That's going to make the browser `GET` the zombie loader code, which looks something
 like:
-```
+
+{% highlight javascript %}
 (function () {
   function Z (msg) {
     var xhr = new XMLHttpRequest();
@@ -76,7 +71,8 @@ like:
   }
   Z();
 })();
-```
+{% endhighlight %}
+
 This tiny snippet of code creates a function `Z`, which establishes a connection
 back to the server, passes over a message `args` and asks it what to do next.
 The server can reply with commands to update the DOM and to run snippets of Javascript.
@@ -109,7 +105,7 @@ The zombie loader is indeed `eval()`ing code (more or less), and that sounds lik
 a scary thing, but that code is coming from the same server from which the loader
 was loaded: you've already been bitten, you might as well start staggering around.
 
-### But what about RESTful and Microservices and so on?
+### ... and what about RESTful and Microservices and so on?
 
 So rather than your HTML5 frontends consuming your microservices directly, they
 talk to their Zombie [BFF (Backend for Frontend)](https://samnewman.io/patterns/architectural/bff/)
@@ -117,7 +113,12 @@ which talks to those services on their behalf: easy peasy.  The BFF layer doesn'
 hold much state, maybe just a little bit of per-user cache and session info, so can
 be scaled out horizontally, geographically dispersed and killed off on a whim.
 
-(at this point, the `BRAINS!` jokes are just writing themselves)
+### Why Zombie?
+
+At this point, the `BRAINS!` jokes are just writing themselves.
+For the real inspiration, see
+[Ophiocordyceps unilateralis](https://www.theatlantic.com/science/archive/2017/11/how-the-zombie-fungus-takes-over-ants-bodies-to-control-their-minds/545864/) 
+but there's no way I'm naming a project that.
 
 ## zombie.py
 

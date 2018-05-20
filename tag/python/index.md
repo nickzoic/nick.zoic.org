@@ -1,5 +1,7 @@
 ---
 layout: tag
 tag: python
-title: python
+title: Python
 ---
+
+See also [MicroPython](../micropython/)

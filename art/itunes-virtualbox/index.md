@@ -7,7 +7,8 @@ slug: 'itunes-virtualbox'
 tags:
     - apple
     - linux
-    - virtualbox
+summary: |
+    a very old article indeed!
 title: 'iPhone / iTunes / Windows XP / VirtualBox / Ubuntu 9.10'
 ---
 

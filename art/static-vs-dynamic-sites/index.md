@@ -12,7 +12,6 @@ tags:
     - html5
     - mobile
     - architecture
-    - memcached
     - aws
     - www
     - static

@@ -232,11 +232,31 @@ A quick experiment with a modified version of the DualVirtualSerial demo code pu
 throughput at about 140kB/s full duplex (into /dev/ttyACM0 and out of /dev/ttyACM1)
 which seems about right for [low speed USB 1.1](https://en.wikipedia.org/wiki/USB#USB_1.x)
 and is pretty similar to the 115200 baud which we tend to program ESPs at anyway.
-I'm not clear if this is just a matter of configuration though.
 
-## `/dev/ttyACM0: Device or resource busy`
+The default message size (`CDC_TXRX_EPSIZE`) is 16 bytes.  Increasing the packet size
+to 64 bytes (the maximum) and going to simplex messages increases this significantly:
 
-As an aside, I'd been getting lots of `failed to open '/dev/ttyACM0': Device or resource busy`
+| Size (B) | Duplex (kB/s) | Simplex (kB/s) |
+| --- | --- | --- |
+| 16 | 140 | 245 |
+| 32 | 205 | 295 |
+| 64 | 237 | 420 | 
+
+The fastest I've ever got an ESP32 serial port to talk reliably is 230400 bps
+(including stop and start bits, so call it 23kB/s), so this is, to my mind,
+Pretty Bloody Good.  It might be even better with protocols other than
+[CDC](https://en.wikipedia.org/wiki/USB_communications_device_class)
+which is designed to mimic a serial port.
+
+The bottleneck becomes the serial link between ATMega and ESP32.  With short traces, this 
+could maybe be pushed to work at 1 or 2 Mbit/s.
+Another alternative would be to have the ATMega hold the ESP32 in reset while it directly
+manipulates the contents of the ESP32 module's flash memory.  This might be very handy,
+especially for block device access.
+
+## /dev/ttyACM0: Device or resource busy
+
+As an aside, I'd been getting lots of sporadic `failed to open '/dev/ttyACM0': Device or resource busy`
 messages and was wondering why ... when I ran up my DualVirtualSerial example I could see that
 something was sending AT commands to the ports.  It turns out that this is 'modemmanager',
 "a unified high level API for communicating with mobile broadband modems".

@@ -267,6 +267,12 @@ configuring 4G interfaces, so I guess it has to stay.  Thankfully it looks like 
 
 ## UPDATE 2018-05-23
 
+![Prototype 1](img/espplus-proto1.jpg)
+
+*Top left: Sparkfun ATMega32U4 breakout.*
+*Top right: ESP32S module on a breakout board.*
+*Bottom: USBasp programming cable for JTAG*
+
 ### Wiring
 
 The LUFA version of the code is going okay ... it is really very messy at the moment but

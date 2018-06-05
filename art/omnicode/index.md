@@ -8,6 +8,8 @@ summary: 'Unicode? Too simple! Try Omnicode!'
 title: 'OMNICODE!'
 ---
 
+*Presented as a lightning talk at PyConAU 2017: [Omnicode!](/talk/pycon2017/omnicode/)*
+
 Unicode
 =======
 

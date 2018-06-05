@@ -248,6 +248,9 @@ Pretty Bloody Good.  It might be even better with protocols other than
 [CDC](https://en.wikipedia.org/wiki/USB_communications_device_class)
 which is designed to mimic a serial port.
 
+(okay, so 460800 is pretty practical for the genuine DevKitC ... most of the eBay 
+specials are a little more special though ...)
+
 The bottleneck becomes the serial link between ATMega and ESP32.  With short traces, this 
 could maybe be pushed to work at 1 or 2 Mbit/s.
 Another alternative would be to have the ATMega hold the ESP32 in reset while it directly

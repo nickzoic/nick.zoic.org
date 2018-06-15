@@ -268,7 +268,7 @@ I could just `apt purge modemmanager` but it appears that that also has some rol
 configuring 4G interfaces, so I guess it has to stay.  Thankfully it looks like there's a
 [way to prevent ModemManager from interfering](https://linux-tips.com/t/prevent-modem-manager-to-capture-usb-serial-devices/284)
 
-## UPDATE 2018-05-23
+# UPDATE 2018-05-23
 
 ![Prototype 1](img/espplus-proto1.jpg)
 
@@ -276,7 +276,7 @@ configuring 4G interfaces, so I guess it has to stay.  Thankfully it looks like 
 *Top right: ESP32S module on a breakout board.*
 *Bottom: USBasp programming cable for JTAG*
 
-### Wiring
+## Wiring
 
 The LUFA version of the code is going okay ... it is really very messy at the moment but
 I got an end-to-end test working with the browser talking to MicroPython running on the ESP8266,
@@ -302,7 +302,7 @@ Still, the one I've got here works, so perhaps I'm just lucky.  For a proper des
 I'd want to either run the ATMega at 5V, with level shifting between it and the ESP32,
 or reduce the ATMega clock speed to 10MHz or so.
 
-### Multiple Interfaces
+## Multiple Interfaces
 
 USB can configure multiple interfaces per device, each of which can be 'claimed' by 
 different programs.  So my aim here is to expose three separate interfaces with
@@ -322,14 +322,14 @@ overlapping functionality:
    allows direct access to the underlying block device (perhaps by directly bashing on the
    SPI bus, or perhaps using some serial bootloader zanyness)
 
-### Linux udev rules
+## Linux udev rules
 
 Under Linux, the CDC interface is picked up and presented as `/dev/ttyACM0` or similar.
 udev rules set its group to (variously) `plugdev` or `dialout`, so the user has to be 
 a member of some appropriate group.  Also, a udev rule is needed to stop that 
 'modemmanager' thing from typing `AT AT ~+~ ~+~` at the REPL ...
 
-### Windows Descriptors
+## Windows Descriptors
 
 On the other hand, I haven't had much luck getting Windows to accept my descriptors.
 USB Descriptors are quite complicated, with many strange extensions and diversions.
@@ -337,7 +337,7 @@ I've tried adding in a "Microsoft OS 2.0 Platform Capability Descriptor" along w
 everything else but while both the CDC and HID interfaces are visible in Device
 Manager they don't configure, which is annoying.
 
-### But what if WebUSB doesn't ...
+## But what if WebUSB doesn't ...
 
 I've also had a think about what to do if WebUSB never really standardizes and the
 Chrome team get bored of it and walk away.  Which could well happen.
@@ -350,6 +350,20 @@ HID before, and that was relatively easy, in fact easier than dealing with the
 vagaries of Windows COM ports.  So it'd be practical enough to write a native Windows
 app to do the same kind of thing, either serving up a websocket or embedding a web view.
 
+# UPDATE 2018-06-16
+
+Thanks to Adafruit for
+[sending some traffic my way](https://www.adafruitdaily.com/2018/02/16/micropython-with-webusb/)
+... yeah, I don't ever look at analytics so it took me several months to notice.
+
+Checkout the [NumWorks calculator](http://numworks.com/)'s WebUSB interface as part of 
+[#deskofladyada](https://www.youtube.com/watch?v=1e7SrAMvnHE?t=265) although that's 
+a pretty rough user experience and could be streamlined a lot.  
+
+I've also got some hardware on the way to program the SAMD21 processor on the
+[Adafruit Trinket M0](https://www.adafruit.com/product/3500) 
+so rather than starting from scratch I might have a go at adding WebUSB to 
+the existing USB stack.
 
 
 

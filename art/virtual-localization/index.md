@@ -16,7 +16,7 @@ the network, the map is spread across all nodes with each node having a
 small map of its immediate surroundings.
 
 I've also written some [papers on Virtual
-Localization](http://mesh.zoic.org/), but this post is an attempt to
+Localization](https://mesh.zoic.org/), but this post is an attempt to
 summarize what I'm doing and talk about why.
 
 Virtual Location
@@ -54,7 +54,7 @@ So I recently reworked my mesh network simulator to merge the “hardware”
 code in with the “simulator” code … so that they can share the
 implementation of the actual Virtual Localization algorithm. There’s
 some new VRML files [^1] based on simulation over at
-<http://mesh.zoic.org/> ... the idea is to eventually test the software
+<https://mesh.zoic.org/> ... the idea is to eventually test the software
 on hardware nodes.
 
 ![Screenshot of 100 nodes](100nodes.png)

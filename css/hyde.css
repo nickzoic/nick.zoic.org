@@ -272,3 +272,7 @@ h1.page-title {
   font-family: "Acme", serif;
   text-align: center;
 }
+
+nav.sidebar-nav, nav.sidebar-tags {
+  font-size: 0.8em;
+}

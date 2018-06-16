@@ -276,3 +276,7 @@ h1.page-title {
 nav.sidebar-nav, nav.sidebar-tags {
   font-size: 0.8em;
 }
+
+nav h2 {
+  font-size: 1rem;
+}

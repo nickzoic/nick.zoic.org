@@ -22,7 +22,9 @@ bit about Unix, Free Software and IP networking, which have pretty much
 defined my career ever since. One of my proudest career moments was
 getting [RFC 4429](http://tools.ietf.org/html/rfc4429) to [Proposed
 Standard](http://en.wikipedia.org/wiki/Internet_Standard#Proposed_Standard).
-I'm also very interested in [Mesh Networking](http://mesh.zoic.org/).
+I'm also very interested in [Mesh Networking](http://mesh.zoic.org/),
+[MicroPython](/tag/micropython) and [programming language design](/tag/languages)
+especially in [education](/tag/education).
 
 I live in the suburbs of Melbourne, Australia with my wife, two
 daughters, an antisocial cat and a very enthusiastic dog. Also some fish and 

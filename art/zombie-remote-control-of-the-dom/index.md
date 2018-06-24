@@ -50,28 +50,35 @@ Zombie takes a rather stupider, more direct approach.
 
 ## zombie.js
 
-The browser loads a dummy page with content suitable for SEO.  At the end of that
-page is the `zombie.js` loader, which establishes a connection back to the server
-and asks it what to do next.  The server can reply with commands to update the DOM
-and to run snippets of Javascript.  Those snippets, in turn, can send messages back
-to the server.  The browser is no longer an independent process with its own mind:
-it is a zombie, under control of the server process.
+The browser loads a dummy page with content suitable for SEO.  There's not much 
+interesting about that page, but it includes the zombie loader:
 
-The `zombie.js` loader would look something like:
+{% highlight html %}
+<script src="/zombie"></script>
+{% endhighlight %}
+That's going to make the browser `GET` the zombie loader code, which looks something
+like:
 
 {% highlight javascript %}
 (function () {
-  function Z () {
+  function Z (msg) {
     var xhr = new XMLHttpRequest();
     xhr.onload = function () {
       (new Function('Z', xhr.responseText))(Z);
     };
-    xhr.open("POST", "/zombie/1");
-    xhr.send();
+    xhr.open("POST", "/zombie");
+    xhr.send(msg);
   }
   Z();
 })();
 {% endhighlight %}
+
+This tiny snippet of code creates a function `Z`, which establishes a connection
+back to the server, passes over a message `args` and asks it what to do next.
+The server can reply with commands to update the DOM and to run snippets of Javascript.
+Those snippets, in turn, can use `Z` to send more messages back
+to the server.  The browser is no longer an independent process with its own mind:
+it is a zombie, under control of the server process.
 
 The server could be implemented in just about any language, the messaging protocol could run
 over [POST requests](http://blog.fanout.io/2013/03/04/long-polling-doesnt-totally-suck/)
@@ -115,9 +122,7 @@ but there's no way I'm naming a project that.
 
 ## zombie.py
 
-To be continued ...
-
-* [bottle](https://bottlepy.org/docs/dev/index.html) example
-* [django](https://djangoproject.com/) example
+To be continued ... very sketchy first experiments for a Python implementation of
+[Zombie on GitHub](https://github.com/nickzoic/zombie/)
 
 

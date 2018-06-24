@@ -12,7 +12,6 @@
       <a class="sidebar-nav-item{% if page.url == '/nick-moore/' %} active{% endif %}" href="/nick-moore/">Nick Moore</a>
 
       <h2>Recently:</h2>
-
       {% assign pages_list = site.pages | sort:"date" | reverse %}
       {% for node in pages_list limit:10 %}
         {% if node.title != null %}
@@ -21,20 +20,17 @@
           {% endif %}
         {% endif %}
       {% endfor %}
-
       <p><a href="/everything/">More ...</a></p>
     </nav>
 
     <nav class="sidebar-tags">
       <h2>Tags:</h2>
       {% assign sorted_pages = site.pages | sort:"tag" %}
-      <p style="font-size: 0.8em">
       {% for node in sorted_pages %}
         {% if node.layout == "tag" %}
 	<a class="sidebar-nav-item{% if page.url == node.url %} active{% endif %}" style="display: inline-block" href="{{ node.url }}">{{ node.title }}</a>
 	{% endif %}
       {% endfor %}
-      </p>
     </nav>
 
     <p class="sidebar-copy">All content Copyright © 2011-2018 Nick Moore unless otherwise noted</p>

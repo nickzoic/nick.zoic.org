@@ -33,6 +33,6 @@ with an easy to write URL ...
 ## Rats and Zombie Ants
 
 * [Rats in mazes](https://www.realclearscience.com/blog/2014/02/the_rat_experiment_you_dont_know_about_but_should.html)
-* [Rat Park](https://en.wikipedia.org/wiki/Rat_Park) (effects of environment on rat drug addiction)
+* Effects of environment on rat drug addiction in Rat Park: [Wikipedia](https://en.wikipedia.org/wiki/Rat_Park) / [Comic](http://www.stuartmcmillen.com/comic/rat-park/)
 * [Ophiocordyceps unilateralis](https://www.theatlantic.com/science/archive/2017/11/how-the-zombie-fungus-takes-over-ants-bodies-to-control-their-minds/545864/)
 

@@ -17,6 +17,7 @@ with an easy to write URL ...
 
 * [The Mother of All Demos](https://en.wikipedia.org/wiki/The_Mother_of_All_Demos)
 * [Project Xanadu](https://en.wikipedia.org/wiki/Project_Xanadu)
+* [Conway's Law](http://www.melconway.com/Home/Conways_Law.html)
 
 
 ## Programming

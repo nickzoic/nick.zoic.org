@@ -15,10 +15,10 @@ with an easy to write URL ...
 
 ## Computing History
 
-* [The Mother of All Demos](https://en.wikipedia.org/wiki/The_Mother_of_All_Demos)
-* [Project Xanadu](https://en.wikipedia.org/wiki/Project_Xanadu)
+* [The Mother of All Demos](http://www.dougengelbart.org/firsts/dougs-1968-demo.html) ([wikipedia](https://en.wikipedia.org/wiki/The_Mother_of_All_Demos)) (Douglas Engelbart)
+* [Computer Lib / Dream Machines](https://kupdf.net/download/ted-nelson-computer-lib-dream-machines_59bc49cd08bbc59209686eb8_pdf) (Ted Nelson)
+* [Project Xanadu](https://en.wikipedia.org/wiki/Project_Xanadu) (Ted Nelson)
 * [Conway's Law](http://www.melconway.com/Home/Conways_Law.html)
-
 
 ## Programming
 
@@ -28,12 +28,12 @@ with an easy to write URL ...
 
 ## Fiction
 
-* [Maneki Neko](http://www.lightspeedmagazine.com/fiction/maneki-neko/) (by Bruce Sterling)
+* [Maneki Neko](http://www.lightspeedmagazine.com/fiction/maneki-neko/) (Bruce Sterling)
 
 
 ## Rats and Zombie Ants
 
 * [Rats in mazes](https://www.realclearscience.com/blog/2014/02/the_rat_experiment_you_dont_know_about_but_should.html)
-* Effects of environment on rat drug addiction in Rat Park: [Wikipedia](https://en.wikipedia.org/wiki/Rat_Park) / [Comic](http://www.stuartmcmillen.com/comic/rat-park/)
+* Effects of environment on rat drug addiction in Rat Park: ([Wikipedia](https://en.wikipedia.org/wiki/Rat_Park) / [Comic](http://www.stuartmcmillen.com/comic/rat-park/))
 * [Ophiocordyceps unilateralis](https://www.theatlantic.com/science/archive/2017/11/how-the-zombie-fungus-takes-over-ants-bodies-to-control-their-minds/545864/)
 

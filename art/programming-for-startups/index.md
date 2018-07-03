@@ -180,7 +180,7 @@ like a website, it seems really quick compared to a website.
 
 Some of my favourite Web programming / HTML5 resources:
 
--   [Dive into HTML5](http://diveintohtml5.info/)
+-   [Dive into HTML5](http://www.diveintohtml5.net/)
 -   [Douglas Crockford on Javascript](http://javascript.crockford.com/)
 -   [CanIUse](http://caniuse.com/#cats=HTML5)
 -   I've also [written a few articles on HTML5 myself](../../tag/html5/).

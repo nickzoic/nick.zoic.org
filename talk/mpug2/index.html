@@ -106,6 +106,118 @@
     </div>
 
     <div class="slide">
+<pre>
+# Set up the i2c bus, which is on pins 21 and 22.
+# Then wake up the acc/gyr module by writing to
+# its status register.
+
+import machine
+i2c = machine.I2C(
+    freq=400000,
+    scl=machine.Pin(22),
+    sda=machine.Pin(21)
+)
+i2c.writeto_mem(104, 107, bytes([0]))
+
+</pre>
+    </div>
+
+    <div class="slide">
+<pre>
+# Read a single record from the acc/gyr and expand
+# it into a tuple of seven signed numbers:
+# ax, ay, az, temperature, gx, gy and gz.
+
+import struct
+
+def read_acc():
+    return struct.unpack(
+        "&gt;7h",
+        i2c.readfrom_mem(104, 0x3b, 14)
+    )
+</pre>
+    </div>
+
+    <div class="slide">
+<pre>
+import time
+
+# Wait for the WLAN to be available.
+
+while not network.WLAN().isconnected():
+    time.sleep(0.1)
+</pre>
+    </div>
+
+    <div class="slide">
+<pre>
+# Connect up to an MQTT server
+
+import umqtt.simple
+
+cli = umqtt.simple.MQTTClient(
+    'r0kk1t',
+    'iot.eclipse.org'
+)
+cli.connect()
+</pre>
+    </div>
+
+    <div class="slide">
+<pre>
+# Grab data and send timestamp plus data in an MQTT
+# message.
+
+while True:
+    zz = [ time.ticks_ms() ] + list(read_acc())
+    msg = ' '.join("%d" % x for x in zz)
+    cli.publish('r0kk1t', msg)
+    time.sleep(0.1)
+</pre>
+    </div>
+
+    <div class="slide">
+	    <img class="whiteborder" src="img/cardboard-graph1.png" height="95%">
+    </div>
+
+    <div class="slide">
+<pre>
+import network
+w = network.WLAN()
+w.active(True)
+w.config(protocol=network.MODE_LR)
+
+from esp import espnow
+espnow.init()
+</pre>
+    </div>
+
+    <div class="slide">
+<pre>
+import struct
+pfmt = "%12d %12d" + " %6d" * 7
+
+while True:
+    msg = espnow.recv()
+    if msg:
+        print(pfmt % struct.unpack("&gt;LL7h", msg[1]))
+</pre>
+</div>
+
+    <div class="slide">
+	    <img class="whiteborder" src="img/launch-1.jpg" height="95%">
+    </div>
+    <div class="slide">
+	    <img class="whiteborder" src="img/launch-2.jpg" height="95%">
+    </div>
+    <div class="slide">
+	    <img class="whiteborder" src="img/exhaust.jpg" height="95%">
+    </div>
+    <div class="slide">
+	    <img class="whiteborder" src="img/buzzconf-graph1.png" height="95%">
+    </div>
+
+    <div class="slide">
 	<video height="90%" autoplay>
             <source src="vid/rocket-john.mp4" type="video/mp4">
 	</video>

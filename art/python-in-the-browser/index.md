@@ -132,8 +132,8 @@ But, sticking with Python:
     allows you to write Python apps which can either run locally or by
     translating from Python's AST to JavaScript and using AJAX.
 
--   There are also [several projects called
-    py2js](http://google.com/search?q=py2js) all of which seem to do AST
+-   There are also [several projects called py2js](http://google.com/search?q=py2js)
+    all of which seem to do AST
     to JavaScript conversion. I'm still trying to work out which of them
     are separate projects, and how they relate to Pyjamas' "pyjs" code.
 
@@ -156,3 +156,9 @@ I put it on github anyway: [Tropyc](https://github.com/nickzoic/tropyc).
 I've come to terms with node.js in the meantime, partly because it has
 gotten better and partly because my understanding of Javascript has
 improved.
+
+UPDATE: Zombie
+==============
+
+See also [Zombie](../zombie-remote-control-of-the-dom/), a rethink of some
+of these ideas.

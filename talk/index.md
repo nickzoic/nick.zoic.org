@@ -31,4 +31,5 @@ title: "Talks: Nick Moore"
 * [PyConAU 2017](pycon2017/)
   * [Micropython on ESP32](pycon2017/micropython-esp32/)
   * [OMNICODE](pycon2017/omnicode/)
+* [Rocket Surgery](mpug2/)
 * [YOW Connected: Easy IoT with MicroPython on ESP SOCs](yow1/)

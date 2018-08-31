@@ -23,6 +23,7 @@ for both of those conferences and I decided not to submit anything and just go a
 'tourist'.
 
 ![Room 302: Found](img/room302found.jpg)
+*Room 302: Found*
 
 Thursday
 ========
@@ -32,7 +33,7 @@ I flew up on Thursday morning and headed up to Google's weirdly
 [Tim](https://github.com/mithro) and Ewen to learn a bit about
 [FuPy](https://fupy.github.io/).
 
-FuPy is a port of MicroPython running on softcores within a FPGA,
+FuPy is a port of MicroPython running on softcores within a [FPGA](https://en.wikipedia.org/wiki/Field-programmable_gate_array),
 with a set of libraries to make the custom FPGA gateware available to Python programs.
 After a certain amount of stuffing around with toolchains and a quite nice lunch at
 the cafeteria, I finally got my LEDs blinking and could make a start on modifying
@@ -43,6 +44,7 @@ like a challenge but a lot of fun too.  After dinner I ended up plugging my lapt
 the hotel TV and doing some more hacking on my newfound 55" monitor.
 
 ![Travel Tip: Always bring an HDMI cable.](img/havewegotatelly.jpg)
+*Travel Tip: Always bring an HDMI cable*
 
 Friday
 ======
@@ -90,8 +92,15 @@ I couldn't resist the temptation to get up and talk about
 I get started at [38:30](https://youtu.be/BmWLhVMWC9I?t=2317) but you really should watch
 [Felicity Robson at 33:00](https://youtu.be/BmWLhVMWC9I?t=1962) as well.
 
-I'm particularly interested in getting Hypothesis to work on MicroPython ... we've got a heap
-(forgive the pun) of new code in each port and fuzzing that code could help us find bugs.
+I'm particularly interested in getting [Hypothesis](https://hypothesis.works/)
+to work on (or, rather, against) MicroPython ... we've got a heap (forgive the pun)
+of new code in each port and fuzzing that code could help us find bugs.
+
+One interesting feature of this year was the
+[Self-organised Dinner](https://2018.pycon-au.org/talks/601-selforganiseddinner/) 
+which I thought was quite a good idea ... I've never been that keen on the kind
+of venues which can accomodate 750 conference-goers but with a whole city to choose
+from there's a lot of options all of a sudden!
 
 Sunday
 ======
@@ -100,7 +109,7 @@ And [one more day](https://2018.pycon-au.org/schedule/sunday):
 
 * Tracy Osborn [Clueless](https://2018.pycon-au.org/talks/tracy) 
 * Russell Keith-Magee [A Web without JavaScript](https://2018.pycon-au.org/talks/43077-a-web-without-javascript/)
-*  Elissa Shevinsky [Secret Histories: The Women of Python](https://2018.pycon-au.org/talks/41951-secret-histories-the-women-of-python/)
+* Elissa Shevinsky [Secret Histories: The Women of Python](https://2018.pycon-au.org/talks/41951-secret-histories-the-women-of-python/)
 * Caleb Hattingh [Multiplayer 2D games with Python Arcade](https://2018.pycon-au.org/talks/45332-multiplayer-2d-games-with-python-arcade/)
 * Sylvia Yap [Pact in Python](https://2018.pycon-au.org/talks/44811-pact-in-python/)
 * Christopher Swenson [Colossal Cave Adventure in Python... in the browser!](https://2018.pycon-au.org/talks/45228-colossal-cave-adventure-in-python-in-the-browser/)
@@ -110,7 +119,7 @@ Interesting how much work us Python people are willing to put into
 [avoiding JavaScript](https://nick.zoic.org/art/python-in-the-browser/),
 when in a lot of ways they are similar languages.
 
-I flew home Sunday night ... 
+After a pleasant dinner I flew home Sunday night ... 
 
 Monday
 ======
@@ -126,4 +135,5 @@ Highlights for me were:
 * George Wilson [Laws!](http://www.composeconference.org/2018-melbourne/speakers/#george_wilson)
 * Andrew McCluskey [Appetite for dysfunction](http://www.composeconference.org/2018-melbourne/speakers/#andrew_mccluskey)
 
-![Room 302: Found](img/room302found.jpg)
+... and at the end of Compose, after a quiet pint with friends and co-conspirators, it was off
+home to actually see my family and get some sleep!  Back to work on Tuesday!

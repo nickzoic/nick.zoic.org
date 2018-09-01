@@ -4,7 +4,7 @@ layout: draft
 tags:
     - micropython
     - c
-title: 'FuPy: MicroPython for FPGAs
+title: 'FuPy: MicroPython for FPGAs'
 summary: "FuPy is a port of MicroPython which runs inside an FPGA.  I take a look at it and try to get my head around how to program for it ..."
 ---
 
@@ -31,24 +31,31 @@ board flashed with MicroPython, so let's go from there.
 
 Summary of steps from Ewen's instructions for Artix 7:
 
+* Install Xilinx toolchain to /opt/Xilinx
 * set up environment (I use [direnv](https://direnv.net/):
+
 ```
 CPU=lm32
 PLATFORM=arty
 TARGET=base
 FIRMWARE=micropython
 ```
+
 * git clone https://github.com/timvideos/litex-buildenv.git
 * cd litex-buildenv
 * scripts/download-env.sh
+* sudo scripts/download-env-root.sh
 * source scripts/enter-env.sh
 * make gateware
 * scripts/build-micropython.sh
 * make gateware-load
 * make firmware-load
 
+The Xilinx tools are almost 6GB and the `scripts/download-env.sh` step downloads
+another couple of GB.
 The `make gateware` step is pretty CPU intensive as it tries to work out how to 
 fit all the stuff you asked for onto the FPGA.
+This may not be the best project to try out on the aeroplane.
 
 On Ubuntu 18.04, the `scripts/build-micropython.sh` step (or even just running `lm32-elf-newlib-gcc`)
 crashes out with a message:

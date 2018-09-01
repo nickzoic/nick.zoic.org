@@ -32,15 +32,11 @@ board flashed with MicroPython, so let's go from there.
 Summary of steps from Ewen's instructions for Artix 7:
 
 * Install Xilinx toolchain to /opt/Xilinx
-* set up environment (I use [direnv](https://direnv.net/):
-
-```
-CPU=lm32
-PLATFORM=arty
-TARGET=base
-FIRMWARE=micropython
-```
-
+* set up environment (I use [direnv](https://direnv.net/)):
+  * CPU=lm32
+  * PLATFORM=arty
+  * TARGET=base
+  * FIRMWARE=micropython
 * git clone https://github.com/timvideos/litex-buildenv.git
 * cd litex-buildenv
 * scripts/download-env.sh
@@ -57,12 +53,13 @@ The `make gateware` step is pretty CPU intensive as it tries to work out how to
 fit all the stuff you asked for onto the FPGA.
 This may not be the best project to try out on the aeroplane.
 
-On Ubuntu 18.04, the `scripts/build-micropython.sh` step (or even just running `lm32-elf-newlib-gcc`)
-crashes out with a message:
+On Ubuntu 18.04, the `scripts/build-micropython.sh` step (or even just
+running `lm32-elf-newlib-gcc`) crashes out with a message:
 
 ```
 lm32-elf-newlib-gcc: loadlocale.c:130: _nl_intern_locale_data:
-Assertion `cnt < (sizeof (_nl_value_type_LC_TIME) / sizeof (_nl_value_type_LC_TIME[0]))' failed.
+Assertion `cnt < (sizeof (_nl_value_type_LC_TIME) /
+sizeof (_nl_value_type_LC_TIME[0]))' failed.
 ```
 
 This seems to be some kind of glibc error loading locales.  Thanks to the hint in
@@ -70,7 +67,7 @@ This seems to be some kind of glibc error loading locales.  Thanks to the hint i
 post I found that either setting `LANG=/usr/locale/C.UTF-8/` (just for this command)
 or installing the Ubuntu `locales-all` package would fix this problem.
 
-If it gets stuck at the `BIOS>` prompt try pressing the hardware reset button, 
+If it gets stuck at the `[FLTERM] Starting...` message try pressing the hardware reset button, 
 
 Folllowing these instructions gets us as far as a serial REPL running on the Arty, 
 from which we can flash an LED:
@@ -116,8 +113,7 @@ _io = [
 ```
 
 These definitions map the [ridiculous number of I/O pins](https://www.xilinx.com/products/boards-and-kits/arty.html#hardware)
-to the [on-board hardware](https://reference.digilentinc.com/reference/programmable-logic/arty/reference-manual?redirect=1#basic_io).
-
+to the [development board hardware](https://reference.digilentinc.com/reference/programmable-logic/arty/reference-manual?redirect=1#basic_io).
 User LED 0 is connected on pin H5, and expects CMOS 3.3V voltages.  Etc.
 
 ## Targets / Gateware
@@ -141,11 +137,11 @@ The compilation step also produces a mapping of "Control Status Registers" aka C
 The gateware defined above is mapped into the softcore's memory, and accessed by memory reads
 and writes, just like on a lot of microcontrollers.
 
-`build/arty_base_lm32/software/include/generated/csr.h`
+The CSR map is written out as:
 
-`build/arty_base_lm32/test/csr.csv`
-
-* devicetree
+* C header file format: `build/arty_base_lm32/software/include/generated/csr.h`
+* CSV tabular format: `build/arty_base_lm32/test/csr.csv`
+* [devicetree](https://elinux.org/Device_Tree_Reference) (?)
 
 ## MicroPython
 

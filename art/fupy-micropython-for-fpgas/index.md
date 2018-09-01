@@ -86,6 +86,8 @@ Okay, so that's not the most exciting thing in the world, but its something!
 
 # Files & Repositories
 
+Before we change anything we've got to work out what's where.
+
 The [Litex Buildenv](https://github.com/timvideos/litex-buildenv.git) repository pulls in 
 a whole bunch of toolchain stuff as submodules, and also the build scripts pull in other
 modules including [FuPy](https://github.com/fupy/micropython.git).  All up there's about
@@ -113,16 +115,43 @@ _io = [
 ]
 ```
 
-These definitions map the [ridiculous number of I/O pins](https://www.xilinx.com/products/boards-and-kits/arty.html#hardware) to the [on-board hardware](https://reference.digilentinc.com/reference/programmable-logic/arty/reference-manual?redirect=1#basic_io)
+These definitions map the [ridiculous number of I/O pins](https://www.xilinx.com/products/boards-and-kits/arty.html#hardware)
+to the [on-board hardware](https://reference.digilentinc.com/reference/programmable-logic/arty/reference-manual?redirect=1#basic_io).
+
+User LED 0 is connected on pin H5, and expects CMOS 3.3V voltages.  Etc.
 
 ## Targets / Gateware
 
 The `targets/` directory contains descriptions of the SoC used on the target boards,
-pulling in submodules which implement individual bits of hardware.
+pulling in submodules which implement individual bits of hardware.  A lot of stuff is
+under the 'CAS' ("Control and Status") module.
 
-The `gateware/` directory contains implementations for the hardware. 
+The `gateware/` directory contains implementations for the hardware. For example, 
+`gateware/cas.py` includes code to enumerate all the LEDs defined in the `platforms/*.py` file,
+and turn them into constructs which can be compiled into the FPGA.
 
-## Gateware
+I'm still finding my way around this code ...
+
+When you `make gateware`, it is compiled into a binary description of the configuration of the
+gates on the FPGA, sometimes known as a "bitstream". 
+
+## CSR
+
+The compilation step also produces a mapping of "Control Status Registers" aka CSR.
+The gateware defined above is mapped into the softcore's memory, and accessed by memory reads
+and writes, just like on a lot of microcontrollers.
+
+`build/arty_base_lm32/software/include/generated/csr.h`
+
+`build/arty_base_lm32/test/csr.csv`
+
+* devicetree
+
+## MicroPython
+
+Finally, we can build micropython.  It is downloaded into 
+`third_party/micropython/` and the FuPy port is at `ports/fupy`.
+`modlitex.c` includes `csr.h` (see above) and uses that to find registers.
 
 
 

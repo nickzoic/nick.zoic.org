@@ -8,30 +8,45 @@ title: 'FuPy: MicroPython for FPGAs'
 summary: "FuPy is a port of MicroPython which runs inside an FPGA.  I take a look at it and try to get my head around how to program for it ..."
 ---
 
+*Thanks to [Tim Ansell](https://mithis.com/) and [Ewen McNeill](https://ewen.mcneill.gen.nz/blog/)
+for their help getting my head around FuPy and correcting my misunderstandings.
+Remaining mistakes are all my own!*
+
 [FuPy](https://fupy.github.io/) is a port of [MicroPython](https://micropython.org/)
 which runs on a [Soft Microprocessor](https://en.wikipedia.org/wiki/Soft_microprocessor) core
 implemented on an [FPGA](https://en.wikipedia.org/wiki/Field-programmable_gate_array).
 
-It builds on three other projects:
+It builds on four other projects:
 
-* [Migen](https://m-labs.hk/migen/), a Python tool for VLSI design, an alternative to VHDL and Verilog.
-* MiSoC, a system-on-chip library for Migen with lots of peripherals in Migen
-  and LM32 and OpenRISC cores (written in Verilog)
-* [Litex](https://github.com/enjoy-digital/litex), a build system for Migen designs
-  (not to be confused with the swimwear company, ballistic armour company or the football team)
+* [Migen](https://m-labs.hk/migen/), a Python tool for VLSI design.
+  It provides an alternative to designing chips in VHDL or Verilog.
+  Migen includes a system-on-a-chip library called MiSoC.
+* [LiteX](https://github.com/enjoy-digital/litex), a fork of MiSoC which includes lots
+  of peripherals implemented in Migen and a choice of CPU cores such as
+  [LatticeMico32](https://en.wikipedia.org/wiki/LatticeMico32),
+  [OpenRISC](https://openrisc.io/) and [RISC-V](https://en.wikipedia.org/wiki/RISC-V),
+  mostly written in Verilog.
+* [LiteX Buld Env](https://github.com/timvideos/litex-buildenv), a build system for LiteX SoC
+  designs.
+* [MicroPython](https://micropython.org/) a Python 3 implementation for resource-limited
+  systems. The [FuPy MicroPython fork](https://github.com/fupy/micropython/) adds support
+  for FPGA-based systems.
  
 I don't know a lot about FPGAs, but I was fortunate enough to have Tim and Ewen introduce me
 to FuPy at [PyConAU 2018](../pycon-2018-sydney/).
 Ewen has documented the process of
-[building FuPy for Mimas V2 and Artix A7 FPGAs](https://ewen.mcneill.gen.nz/blog/entry/2018-01-17-fupy-fpga-micropython-on-mimas-v2-and-arty-a7/)
-so this post starts up where that one leaves off: we have a build toolchain, and an Artix A7
-board flashed with MicroPython, so let's go from there.
+[building FuPy for Mimas V2 and Artix A7 FPGAs](https://ewen.mcneill.gen.nz/blog/entry/2018-01-17-fupy-fpga-micropython-on-mimas-v2-and-arty-a7/) and there's a
+[HowTo FuPy Arty A7](https://github.com/timvideos/litex-buildenv/wiki/HowTo-FuPy-Arty-A7) doc on the litex-buildenv Wiki,
+so this post starts up where those ones leaves off: we have a build toolchain, and an 
+[Arty A7](https://store.digilentinc.com/arty-a7-artix-7-fpga-development-board-for-makers-and-hobbyists/)
+board flashed with FuPy MicroPython, so let's go from there.
 
 # Building
 
 Summary of steps from Ewen's instructions for Artix 7:
 
-* Install Xilinx toolchain to /opt/Xilinx
+* Install Xilinx toolchain to /opt/Xilinx.
+  * see [Ewen's instructions to get Xilinx ISE WebPack](https://ewen.mcneill.gen.nz/blog/entry/2017-03-06-numato-mimas-v2-from-linux/)
 * set up environment (I use [direnv](https://direnv.net/)):
   * CPU=lm32
   * PLATFORM=arty
@@ -47,10 +62,11 @@ Summary of steps from Ewen's instructions for Artix 7:
 * make gateware-load
 * make firmware-load
 
-The Xilinx tools are almost 6GB and the `scripts/download-env.sh` step downloads
-another couple of GB.
+The Xilinx tools are about 16GB (!) and the `scripts/download-env.sh`
+step downloads another couple of GB.
 The `make gateware` step is pretty CPU intensive as it tries to work out how to 
-fit all the stuff you asked for onto the FPGA.
+arrange all the stuff you asked for onto the FPGA efficiently.
+It's a good way to get the dust out of your laptop's CPU fan.
 This may not be the best project to try out on the aeroplane.
 
 On Ubuntu 18.04, the `scripts/build-micropython.sh` step (or even just
@@ -139,15 +155,22 @@ and writes, just like on a lot of microcontrollers.
 
 The CSR map is written out as:
 
-* C header file format: `build/arty_base_lm32/software/include/generated/csr.h`
-* CSV tabular format: `build/arty_base_lm32/test/csr.csv`
-* [devicetree](https://elinux.org/Device_Tree_Reference) (?)
+* C header file format: `build/arty_base_lm32/software/include/generated/csr.h` ...
+  macro defines and wrapper functions for each register to make them available from C functions
+* CSV tabular format: `build/arty_base_lm32/test/csr.csv` ... the same information in
+  tabular form.
+* Possibly, in the future,
+  [LiteX could generate a DeviceTree](https://github.com/timvideos/litex-buildenv/wiki/DeviceTree)
+  and MicroPython could read that to discover the register mappings.
 
 ## MicroPython
 
 Finally, we can build micropython.  It is downloaded into 
 `third_party/micropython/` and the FuPy port is at `ports/fupy`.
-`modlitex.c` includes `csr.h` (see above) and uses that to find registers.
+
+The module `litex_leds.c` includes `csr.h` (see above) and uses that to find the
+registers corresponding to the LEDs.
+
 
 
 

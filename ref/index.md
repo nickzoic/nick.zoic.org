@@ -13,12 +13,20 @@ with an easy to write URL ...
 (updated whenever I think of something)
 
 
+## MicroPython
+
+* [MicroPython](https://micropython.org/)
+* [Differences from CPython](https://docs.micropython.org/en/latest/pyboard/genrst/index.html)
+* [FuPy](https://fupy.github.io/) (MicroPython for FPGAs)
+
+
 ## Computing History
 
 * [The Mother of All Demos](http://www.dougengelbart.org/firsts/dougs-1968-demo.html) ([wikipedia](https://en.wikipedia.org/wiki/The_Mother_of_All_Demos)) (Douglas Engelbart)
 * [Computer Lib / Dream Machines](https://kupdf.net/download/ted-nelson-computer-lib-dream-machines_59bc49cd08bbc59209686eb8_pdf) (Ted Nelson)
 * [Project Xanadu](https://en.wikipedia.org/wiki/Project_Xanadu) (Ted Nelson)
 * [Conway's Law](http://www.melconway.com/Home/Conways_Law.html)
+
 
 ## Programming
 

@@ -136,7 +136,7 @@ User LED 0 is connected on pin H5, and expects CMOS 3.3V voltages.  Etc.
 
 The `targets/` directory contains descriptions of the SoC used on the target boards,
 pulling in submodules which implement individual bits of hardware.  A lot of stuff is
-under the 'CAS' ("Control and Status") module.
+under the 'CAS' ("Control and Status", or sometimes "Configuration and Status") module.
 
 The `gateware/` directory contains implementations for the hardware. For example, 
 `gateware/cas.py` includes code to enumerate all the LEDs defined in the `platforms/*.py` file,
@@ -145,7 +145,8 @@ and turn them into constructs which can be compiled into the FPGA.
 I'm still finding my way around this code ...
 
 When you `make gateware`, it is compiled into a binary description of the configuration of the
-gates on the FPGA, sometimes known as a "bitstream". 
+gates on the FPGA, sometimes known as a "bitstream".  This is a very slow step because the
+compilation process involves finding a XXX
 
 ## CSR
 

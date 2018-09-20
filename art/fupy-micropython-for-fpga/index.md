@@ -1,5 +1,5 @@
 ---
-date: '2018-09-01'
+date: '2018-09-20'
 layout: draft
 tags:
     - micropython
@@ -33,17 +33,14 @@ It builds on four other projects:
   for FPGA-based systems.
  
 I don't know a lot about FPGAs, but I was fortunate enough to have Tim and Ewen introduce me
-to FuPy at [PyConAU 2018](../pycon-2018-sydney/).
-Ewen has documented the process of
-[building FuPy for Mimas V2 and Artix A7 FPGAs](https://ewen.mcneill.gen.nz/blog/entry/2018-01-17-fupy-fpga-micropython-on-mimas-v2-and-arty-a7/) and there's a
-[HowTo FuPy Arty A7](https://github.com/timvideos/litex-buildenv/wiki/HowTo-FuPy-Arty-A7) doc on the litex-buildenv Wiki,
-so this post starts up where those ones leaves off: we have a build toolchain, and an 
-[Arty A7](https://store.digilentinc.com/arty-a7-artix-7-fpga-development-board-for-makers-and-hobbyists/)
-board flashed with FuPy MicroPython, so let's go from there.
+to FuPy at [PyConAU 2018](../pycon-2018-sydney/) and pick up an
+[Digilent Arty A7](https://store.digilentinc.com/arty-a7-artix-7-fpga-development-board-for-makers-and-hobbyists/)
+board, so let's go from there:
 
 # Building
 
-Summary of steps from Ewen's instructions for Artix 7:
+Summary of steps from [Ewen's instructions for Artix 7](https://ewen.mcneill.gen.nz/blog/entry/2018-01-17-fupy-fpga-micropython-on-mimas-v2-and-arty-a7/) and the
+[HowTo FuPy Arty A7](https://github.com/timvideos/litex-buildenv/wiki/HowTo-FuPy-Arty-A7) doc on the litex-buildenv Wiki:
 
 * Install Xilinx toolchain to /opt/Xilinx.
   * see [Ewen's instructions to get Xilinx ISE WebPack](https://ewen.mcneill.gen.nz/blog/entry/2017-03-06-numato-mimas-v2-from-linux/)
@@ -96,6 +93,12 @@ from which we can flash an LED:
 ```
 
 Okay, so that's not the most exciting thing in the world, but its something!
+
+## UPDATE:
+
+Litex-buildenv is now [working on the](https://github.com/timvideos/litex-buildenv/pull/55)
+[TinyFPGA BX](https://tinyfpga.com/) which is a much smaller and cheaper board than the Arty.
+So hopefully FuPy isn't too far away!
 
 # Files & Repositories
 

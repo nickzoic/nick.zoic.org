@@ -34,9 +34,15 @@ That doesn't seem much like a function but you can still treat it like one, for 
 void add_two_numbers(int a, int b, int *c) {
     *c = a + b;
 }
+
+void main() {
+    int sum;
+    add_two_numbers(2, 3, &sum);
+    printf("%d", sum);
+}
 ```
 
-... we're abusing the C calling convention a little to return the value in the memory
+... we're abusing the C calling convention a little to return the sum in the memory
 pointed to by `c`.  This trick is commonly used in C to return multiple values or provide
 and exception-like behaviour.
 
@@ -62,6 +68,7 @@ then schedule that method to be run and notify us when the result is ready.  Thi
 a very common way of doing things in Javascript, where for example you can perform an
 asynchronous web request like so:
 
+```javascript
     function get_example() {
         var xhr = new XMLHttpRequest();
         xhr.onload = function () {
@@ -70,6 +77,7 @@ asynchronous web request like so:
         xhr.open("GET", "http://example.com/");
         xhr.send();
     }
+```
 
 Calling `xhr.open()` doesn't give up control for long: that method almost immediately
 returns, and then our `get_example()` function finishes and returns too.
@@ -79,18 +87,44 @@ it is put in our `xhr` object, and the anonymous function we supplied as
 `xhr.onload` gets called to return control to us so we can do something,
 in this case write some stuff to the console.
 
+Some javascript frameworks really embrace the callback-heavy nature of this kind of
+code by taking multiple callbacks, one for success and one for failure, etc.
+
 #### Callback Hell
 
 This way of programming is often derided as [Callback Hell](http://callbackhell.com/)
 because each action leads to a callback which leads to another action which leads to a callback,
 and so on, but by taking care we can avoid making our code too confusing.  If we wanted
 `get_example` to do something *after* it got the example, we'd need to pass it a callback
-to call once it was done.  And so on.
+to call once it was done:
+
+```javascript
+    function get_example(callback) {
+        var xhr = new XMLHttpRequest();
+        xhr.onload = function () {
+            callback(xhr.responseText);
+        }
+        xhr.open("GET", "http://example.com/");
+        xhr.send();
+    }
+```
 
 A lot of this can be avoided by doing some simple metaprogramming, for example it is easy
 to write a function which runs a list of other functions in series or parallel, and always
 use it instead of a map or a loop.  But this comes at a performance penalty, and there's 
 a cognitive penalty in converting between the approaches.
+
+```javascript
+    function run_in_parallel(tasks, callback) {
+        var counter = tasks.length;
+        for (var i in tasks) {
+            tasks[i](function() {
+                counter--;
+                if (!counter) callback();
+            }
+        }
+    }
+```
 
 #### Promises
 
@@ -118,6 +152,8 @@ my anonymous function is getting called when it is ready.
 ### Parallel Programming
 
 * probably should mention CSP / Actors in here at some point
+    * [Communicating Sequential Processes](https://en.wikipedia.org/wiki/Communicating_sequential_processes)
+    * [Actor Model](https://en.wikipedia.org/wiki/Actor_model)
 * async vs sync loops - hassle of converting between them
 * distinction between callbacks and messages?
 

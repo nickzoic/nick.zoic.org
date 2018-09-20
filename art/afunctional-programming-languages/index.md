@@ -11,18 +11,34 @@ title: Afunctional Programming Languages
 
 ## What?
 
-Many, many years ago, maybe around 2000, I was waffling on about something or another
-about Functional Programming to someone and forgot the word for, uh, the other thing.
-Disfunctional Programming?  Unfunctional?  Afunctional?  Oh, yeah, Imperative.  That's it.
-Now, where was I?
+Many, many years ago, probably around 2000 while I was teaching Perl,
+I was waffling on about something or another
+about Functional Programming and temporarily forgot the word for, uh, the other thing.
+*Not functional.  Disfunctional?  Unfunctional?  Afunctional?  Oh, yeah, Imperative.  That's it.
+Now, where was I?*
 
-Disfunctional Programming was a bit too easy to make jokes about, but for some reason
+Disfunctional Programming was a bit too easy to make Perl jokes about, but for some reason
 the word 'Afunctional' stuck in my head and I started wondering what it might possibly
-mean.  Obviously, there are languages with no or very primitive functions, like
+mean.  What would an *afunctional* language look like?
+
+Obviously, there are languages with no or very primitive functions, like
 assembly langauges with [JSR](https://en.wikipedia.org/wiki/Subroutine#Jump_to_subroutine)
-and BASIC's [GOSUB](https://en.wikipedia.org/wiki/GOSUB)
-but they're not particularly interesting: you can force a functional paradigm onto them 
+and BASIC's [GOSUB](https://en.wikipedia.org/wiki/GOSUB).
+They're not particularly interesting: you can force a functional paradigm onto them 
 with a calling convention.
+
+And in C there's the concept of a 'void function', a function which returns nothing.
+That doesn't seem much like a function but you can still treat it like one, for example:
+
+```c
+void add_two_numbers(int a, int b, int *c) {
+    *c = a + b;
+}
+```
+
+... we're abusing the C calling convention a little to return the value in the memory
+pointed to by `c`.  This trick is commonly used in C to return multiple values or provide
+and exception-like behaviour.
 
 ### Returning Control
 
@@ -33,8 +49,8 @@ is returned: control.  When we call a function, we give it control and we expect
 to get control back: we say "please work out the
 [43rd Fibonacci Number](/art/fibonacci-regex-perversity/) and get back to me".
 The function isn't just returning the answer to the caller, it is also waking the
-caller back up.  Even "void functions" which return no (useful) value are returning
-control.
+caller back up, resuming execution from where it left off.
+Even void functions, which return no (useful) value, are returning control.
 
 ### Asynchronicity
 

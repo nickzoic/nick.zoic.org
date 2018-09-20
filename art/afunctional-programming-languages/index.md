@@ -13,21 +13,16 @@ title: Afunctional Programming Languages
 
 Many, many years ago, probably around 2000 while I was teaching Perl,
 I was waffling on about something or another
-about Functional Programming and temporarily forgot the word for, uh, the other thing.
-*Not functional.  Disfunctional?  Unfunctional?  Afunctional?  Oh, yeah, Imperative.  That's it.
+about Functional Programming techniques and temporarily forgot the word for, uh, the other thing.
+
+*Not functional.  Disfunctional?  Unfunctional?  Afunctional?  Oh, yeah, *Imperative*.  That's it.
 Now, where was I?*
 
 Disfunctional Programming was a bit too easy to make Perl jokes about, but for some reason
-the word 'Afunctional' stuck in my head and I started wondering what it might possibly
-mean.  What would an *afunctional* language look like?
+the word 'Afunctional' stuck in my head.  I started wondering what it might possibly
+mean, and have been wondering ever since.  What would an *afunctional* language look like?
 
-Obviously, there are languages with no or very primitive functions, like
-assembly langauges with [JSR](https://en.wikipedia.org/wiki/Subroutine#Jump_to_subroutine)
-and BASIC's [GOSUB](https://en.wikipedia.org/wiki/GOSUB).
-They're not particularly interesting: you can force a functional paradigm onto them 
-with a calling convention.
-
-And in C there's the concept of a 'void function', a function which returns nothing.
+In C there's the concept of a 'void function', a function which returns nothing.
 That doesn't seem much like a function but you can still treat it like one, for example:
 
 ```c
@@ -44,11 +39,20 @@ void main() {
 
 ... we're abusing the C calling convention a little to return the sum in the memory
 pointed to by `c`.  This trick is commonly used in C to return multiple values or provide
-and exception-like behaviour.
+and exception-like behaviour.  But it's still, really, a function.
+
+There are languages with no or very primitive functions, like
+assembly langauges with [JSR](https://en.wikipedia.org/wiki/Subroutine#Jump_to_subroutine)
+and BASIC's [GOSUB](https://en.wikipedia.org/wiki/GOSUB).
+They're not particularly interesting: you can force a functional paradigm onto them 
+with a calling convention too.
+
 
 ### Returning Control
 
-So what is a "function" anyway?  The
+So what is a "function" anyway?
+
+The
 [mathematical definition](https://en.wikipedia.org/wiki/Function_(mathematics\))
 is about taking inputs and returning an output, but in programming something else
 is returned: control.  When we call a function, we give it control and we expect
@@ -88,7 +92,10 @@ it is put in our `xhr` object, and the anonymous function we supplied as
 in this case write some stuff to the console.
 
 Some javascript frameworks really embrace the callback-heavy nature of this kind of
-code by taking multiple callbacks, one for success and one for failure, etc.
+code by taking multiple callbacks, one for success and one for failure, etc, and those
+callbacks can themselves include (using
+[closures](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Closures)
+) more callbacks, etc, to compose functions into complex structures of callbacks.
 
 #### Callback Hell
 
@@ -116,12 +123,19 @@ a cognitive penalty in converting between the approaches.
 
 ```javascript
     function run_in_parallel(tasks, callback) {
+
+        // tasks is a list of functions to call in parallel,
+        //   each of which takes a callback parameter to call
+        //   when it is finished.
+        //
+        // callback is called once all tasks have finished.
+
         var counter = tasks.length;
         for (var i in tasks) {
             tasks[i](function() {
                 counter--;
                 if (!counter) callback();
-            }
+            });
         }
     }
 ```

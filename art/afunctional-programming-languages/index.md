@@ -147,6 +147,7 @@ There are alternatives such as
 [Python asyncio](https://docs.python.org/3/library/asyncio.html#module-asyncio) which 
 attempt to address the problem.  With promises, we can write the same code above as:
 
+```javascript
     function get_example() {
         new Promise(function(resolve, reject) {
             var xhr = new XMLHttpRequest();
@@ -157,19 +158,44 @@ attempt to address the problem.  With promises, we can write the same code above
             function(text) { console.log(text); }
         )
     }
+```
 
 The syntax scales somewhat better, but it is still doing the same thing as before:
 my anonymous function is getting called when it is ready.
 
+### Message Passing
+
+Lots of work has been done in this area, including the classic 
+[Communicating Sequential Processes](https://en.wikipedia.org/wiki/Communicating_sequential_processes)
+and the development of the [Actor Model](https://en.wikipedia.org/wiki/Actor_model)
+which led to languages such as [Erlang](https://www.erlang.org/).
+
+My interest here is "in the small", eg: how would you create a programming language 
+with *only* afunctional constructs.  The reason is simple: if you have a message-passing
+system where the individual actors are not themselves message-passing, then there's a 
+mismatch at that point, and you have to make architectural decisions about where to make
+that cutoff.  Code which was synchronous needs to be rethought when it is made asynchronous,
+and you can end up with slightly weird looking code like:
+
+```javascript
+    function get_with_cache(key, callback) {
+        if (is_in_cache(key)) {
+            var value = get_from_cache(key);
+            callback(value);
+        } else {
+            go_and_get(key, function (value) {
+                store_in_cache(key, value);
+                callback(value);
+            });
+        }
+    }
+```
+
+... where the callback is called synchronously for a cache hit and asynchronously
+for a cache miss.  This isn't really problematic, just syntactically awkward.
+
 # to be continued ...
 
-### Parallel Programming
-
-* probably should mention CSP / Actors in here at some point
-    * [Communicating Sequential Processes](https://en.wikipedia.org/wiki/Communicating_sequential_processes)
-    * [Actor Model](https://en.wikipedia.org/wiki/Actor_model)
-* async vs sync loops - hassle of converting between them
-* distinction between callbacks and messages?
 
 ## How?
 

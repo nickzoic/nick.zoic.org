@@ -44,9 +44,11 @@ Summary of steps from [Ewen's instructions for Artix 7](https://ewen.mcneill.gen
 [HowTo FuPy Arty A7](https://github.com/timvideos/litex-buildenv/wiki/HowTo-FuPy-Arty-A7) doc on the litex-buildenv Wiki:
 
 * [Download Xilinx Vivado HLx 2018.2 WebPACK Installer](https://www.xilinx.com/support/download.html)
-  and install to /opt/Xilinx
-  * Vivado is the tool you need to Artix 7.  WebPACK is the zero-cost version.  
-  * The 100MB download is just the installer, the whole bundle is 17GB.  *How is this even a thing?*
+  * Install to `/opt/Xilinx/`
+  * Vivado is the tool you need to program the Artix 7.
+  * WebPACK is the name for the zero-cost version.  
+  * The 100MB download is just the installer, the whole bundle is 17GB.
+  * I am greatly looking forward to using a platform with a compact, free toolchain.
 * set up environment (I use [direnv](https://direnv.net/)):
   * CPU=lm32
   * PLATFORM=arty
@@ -55,15 +57,15 @@ Summary of steps from [Ewen's instructions for Artix 7](https://ewen.mcneill.gen
 * git clone https://github.com/timvideos/litex-buildenv.git
 * cd litex-buildenv
 * scripts/download-env.sh
+  * This step downloads another couple of GB.
 * sudo scripts/download-env-root.sh
+  * This just installs the timvideos PPA and various packages
 * source scripts/enter-env.sh
 * make gateware
 * scripts/build-micropython.sh
 * make gateware-load
 * make firmware-load
 
-The Xilinx tools are about 17GB (!) and the `scripts/download-env.sh`
-step downloads another couple of GB.
 The `make gateware` step is pretty CPU intensive as it tries to work out how to 
 arrange all the stuff you asked for onto the FPGA efficiently.
 It's a good way to get the dust out of your laptop's CPU fan.

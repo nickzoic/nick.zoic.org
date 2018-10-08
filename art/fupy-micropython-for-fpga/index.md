@@ -43,8 +43,10 @@ board to play with, so let's go from there:
 Summary of steps from [Ewen's instructions for Artix 7](https://ewen.mcneill.gen.nz/blog/entry/2018-01-17-fupy-fpga-micropython-on-mimas-v2-and-arty-a7/) and the
 [HowTo FuPy Arty A7](https://github.com/timvideos/litex-buildenv/wiki/HowTo-FuPy-Arty-A7) doc on the litex-buildenv Wiki:
 
-* Install Xilinx toolchain to /opt/Xilinx.
-  * see [Ewen's instructions to get Xilinx ISE WebPack](https://ewen.mcneill.gen.nz/blog/entry/2017-03-06-numato-mimas-v2-from-linux/)
+* [Download Xilinx Vivado HLx 2018.2 WebPACK Installer](https://www.xilinx.com/support/download.html)
+  and install to /opt/Xilinx
+  * Vivado is the tool you need to Artix 7.  WebPACK is the zero-cost version.  
+  * The 100MB download is just the installer, the whole bundle is 17GB.  *How is this even a thing?*
 * set up environment (I use [direnv](https://direnv.net/)):
   * CPU=lm32
   * PLATFORM=arty
@@ -60,7 +62,7 @@ Summary of steps from [Ewen's instructions for Artix 7](https://ewen.mcneill.gen
 * make gateware-load
 * make firmware-load
 
-The Xilinx tools are about 16GB (!) and the `scripts/download-env.sh`
+The Xilinx tools are about 17GB (!) and the `scripts/download-env.sh`
 step downloads another couple of GB.
 The `make gateware` step is pretty CPU intensive as it tries to work out how to 
 arrange all the stuff you asked for onto the FPGA efficiently.

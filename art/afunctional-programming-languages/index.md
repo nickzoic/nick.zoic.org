@@ -1,6 +1,6 @@
 ---
 date: '2018-02-28'
-layout: draft
+layout: article
 slug: 'afunctional-programming-languages'
 summary: 'What if there were no functions?'
 tags:

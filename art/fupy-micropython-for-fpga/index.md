@@ -202,6 +202,16 @@ STATIC MP_DEFINE_CONST_FUN_OBJ_1(litex_led_on_obj, litex_led_on);
 ... and this gets exposed as the `LED.on()` method called in our REPL code above.
 
 
+# UPDATE 2018-11-13
+
+FuPy [now](https://twitter.com/cr1901/status/1043145532779253760) builds on the
+[TinyFPGA BX](https://tinyfpga.com/bx/guide.html) ... a much smaller and cheaper
+board with a (reverse-engineered) [Open Source FPGA toolchain](https://github.com/FPGAWARS/apio).
+See:
+
+* [TinyFPGA BX User Guide](https://tinyfpga.com/bx/guide.html)
+* [HowTo FuPy on Icebreaker and TinyFPGA BX](https://github.com/timvideos/litex-buildenv/wiki/HowTo-FuPy-on-Icebreaker-and-TinyFPGA-BX)
+
 # Further Work
 
 My first step is going to be to get the hang of how all this works by adding in
@@ -222,7 +232,3 @@ This would greatly decouple the gateware compilation process from the MicroPytho
 process.  Also, it should allow MicroPython to discover the hardware properties of 
 DeviceTree-compatible SPI devices through the use of 
 [Device Tree Overlays](https://www.kernel.org/doc/Documentation/devicetree/overlay-notes.txt)
-
-I'd also like to work with the [TinyFPGA BX](https://tinyfpga.com/bx/guide.html) which
-shows a lot of promise as a smaller, cheaper board with an open source toolchain available.
-[MicroPython is a work in progress!](https://twitter.com/cr1901/status/1043145532779253760)

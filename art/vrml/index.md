@@ -5,7 +5,6 @@ layout: article
 redirect_from: '/etc/vrml/'
 slug: vrml
 tags:
-  - vr
   - networks
   - languages
 title: 'VRML: Very Odd.'

@@ -1,0 +1,24 @@
+---
+layout: base
+---
+    <h1 class="page-title">All Tags ...</h1>
+    <div class="page">
+      {% assign sorted_pages = site.pages | sort:"title" %}
+      {% for page in sorted_pages %}
+          {% if page.layout == "tag" %}
+              <a href="{{ page.url }}"><h3>{{ page.title }}</h3></a>
+              {% content %}
+              <ul>
+                  {% for page in sorted_pages %}
+                      {% if p.layout == "article" %}
+                          {% for t in p.tags %}
+                              {% if t == page.tag %}
+                                  <li><a href="{{ p.url }}"><h3>{{ p.title }}</h3></a></li>
+                              {% endif %}
+		          {% endfor %}
+                      {% endif %}
+                  {% endfor %}
+              </ul>
+          {% endif %}
+      {% endfor %}
+    </div>

@@ -21,6 +21,7 @@ sitting on the shelf, but I never did get anything to actually work properly des
 hours of messing about and replacing parts.
 
 ![Unpacking the Printer](img/printer1.jpg)
+*Unpacking the Printer*
 
 So I bought this nifty little printer.  It is rather small, and has a quite limited
 print volume of 120 wide x 135 deep x 100 high.  But it worked straight out of the box
@@ -37,18 +38,22 @@ attached to a computer, or it can plug into your computer to print from host sof
 as well.
 
 ![Keyrings](img/keyrings1.jpg)
+*Keyrings / Bag tags for the kids at school*
 
 On the downside: it is fairly noisy, with both hot-end cooling fan and the processor 
 cooling fans making a racket.  Neither fan is under software control, so they keep
 running even when the printer isn't doing anything.  And there's no heated bed.
 
 The gluestick helps a lot with getting good adhesion to the magnetic bed liner.
-Unfortunately, it's rather a small gluestick and didn't last long.
+Unfortunately, it's rather a small no-brand gluestick and didn't last long.
 The replacements I've tried have not been anywhere near as effective, going gloopy
 rather than tacky and failing to stick down.  When that happens the model distorts 
 or even moves about, resulting in a terrible mess.
 
-![Terrible Mess](img/terrible1.jpg)
+![A Terrible Mess](img/terrible1.jpg)
+*A Terrible Mess*
+
+I'm hoping to find an effective one by trial and error!
 
 # Firmware
 
@@ -65,14 +70,29 @@ document this or anything.  If so, it might be possible to improve it.
 
 # Software
 
-I'm more impressed with Cura, which works great out of the box and comes with the 
-printer's profile built in.  I've been running it under [wine](https://www.winehq.org/)
-to avoid having to work out how to transfer the profile across to the Linux version.
-
 The design I've been doing in [OpenSCAD](https://www.openscad.org/) which is quite
 an interesting way to approach design.
 The OpenSCAD syntax drives me a bit nuts so I'm thinking of trying out 
-[PySCAD](https://pyscad.readthedocs.io/en/latest/) as well.
+[PySCAD](https://pyscad.readthedocs.io/en/latest/) as well.  It saves designs 
+in its native SCAD format but can export to STL and similar formats.
+
+For slicing, I've been impressed with Cura, which works great out of the box and comes with the 
+printer's profile built in.  I've been running it under [wine](https://www.winehq.org/)
+to avoid having to work out how to transfer the profile across to the Linux version.
+
+To actually send the files to the printer I've been using [Pronterface](https://www.pronterface.com/),
+which is pretty simple but works.  It lets you connect to printers and control each
+axis and extruder separately, which is handy for setting things up.  I'd also like to 
+have a better look at [Octoprint](https://octoprint.org/) because having some remote control
+over the printer behaviour would be rather nice.  I experimented with setting up a 
+webcam pointing at the printer and found it very useful to watch the progress of the
+print run and look out for failed prints.
+
+The workflow from OpenSCAD to Cura to Pronterface is a bit clunky.  Cura has a large number
+of settings which are specific to a printer (print volumes and head speeds, for example),
+and a whole bunch more which vary from project to project (infill styles, wall thicknesses, etc).
+For the latter, it is frustrating not to have these recorded in a file somewhere alongside the
+model itself.
 
 # Projects
 
@@ -87,5 +107,8 @@ The OpenSCAD syntax drives me a bit nuts so I'm thinking of trying out
 
 I've uploaded some works in progress to [github:nickzoic/models3d](https://github.com/nickzoic/models3d/)	
 
-![Color Changers](img/changers1.jpg)
+![Colour Changers](img/changers1.jpg)
+*Colour Changer mechanisms from Heart of Pluto*
+
 ![Rubbish](img/rubbish1.jpg)
+*... and a rubbish-bin full of PLA scraps*

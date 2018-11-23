@@ -13,7 +13,7 @@ layout: base
                       {% if page2.layout == "article" %}
                           {% for t in page2.tags %}
                               {% if t == page.tag %}
-                                  <li><a href="{{ page2.url }}"><h3>{{ page2.title }}</h3></a></li>
+                                  <li><a href="{{ page2.url }}">{{ page2.title }}</a></li>
                               {% endif %}
 		          {% endfor %}
                       {% endif %}

@@ -4,4 +4,4 @@ tag: python
 title: Python
 ---
 
-See also [MicroPython](../micropython/)
+See also [MicroPython](/tag/micropython/)

@@ -4,4 +4,4 @@ tag: micropython
 title: MicroPython
 ---
 
-See also [Python](../python/), [ESP8266](../esp8266/) and [ESP32](../esp32/)
+See also [Python](/tag/python/), [ESP8266](/tag/esp8266/) and [ESP32](/tag/esp32/)

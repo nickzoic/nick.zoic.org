@@ -28,6 +28,8 @@ filament, and a micro SD card with some
 pre-prepared models, so you really can level the bed and print a test or two without
 anything else, although I picked up a kilo of PLA filament while I was there.
 
+![Unpacking the Printer](printer1.jpg)
+
 The printer has a small controller built in, with a little backlit multi-line LCD and a 
 rotary dial to select stuff.  It can print directly from a microSD card without being
 attached to a computer, or it can plug into your computer to print from host software.
@@ -58,7 +60,6 @@ to avoid having to work out how to transfer the profile across to the Linux vers
 
 The design I've been doing in [OpenSCAD](https://www.openscad.org/) which is quite
 an interesting way to approach design.
-I've uploaded some works in progress to [github:nickzoic/models3d](https://github.com/nickzoic/models3d/)	
 The OpenSCAD syntax drives me a bit nuts so I'm thinking of trying out 
 [PySCAD](https://pyscad.readthedocs.io/en/latest/) as well.
 
@@ -69,3 +70,12 @@ The OpenSCAD syntax drives me a bit nuts so I'm thinking of trying out
   [Heart of Pluto](http://heartofpluto.co/) Colour Changer ... great to be able to
   help out with such a cool project
 * I'm hoping to design some bits for our [Water Rockets](/art/rocket-surgery-airborne-iot-telemetry-buzzconf/) 
+* I made some keyrings for kids at school ... especially good for the kids with
+  less common names! 
+* I've made a whole lot of rubbish :-)
+
+I've uploaded some works in progress to [github:nickzoic/models3d](https://github.com/nickzoic/models3d/)	
+
+![Color Changers](changers1.jpg)
+![Keyrings](keyrings1.jpg)
+![Rubbish](rubbish1.jpg)

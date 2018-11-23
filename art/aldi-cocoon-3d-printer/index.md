@@ -9,7 +9,7 @@ tags:
 
 # Hardware 
 
-I picked up a "[Cocoon Create Model Maker"(https://cocoonproducts.com.au/model-maker/)"
+I picked up a "[Cocoon Create Model Maker](https://cocoonproducts.com.au/model-maker/)"
 printer from Aldi the other day, on sale for $300.  It's a pretty direct copy of a 
 [Wanhao Duplicator i3 Mini](http://www.wanhao3dprinter.com/Unboxin/ShowArticle.asp?ArticleID=88)
 but with the advantage that you can drive up to the shops and grab one, and it is

@@ -10,6 +10,7 @@ tags:
     - microcontrollers
     - electronics
     - education
+    - 3dprint
 title: 'Ciril: Cubic Inch Robots in Labs'
 ---
 

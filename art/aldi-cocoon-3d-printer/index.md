@@ -62,4 +62,10 @@ I've uploaded some works in progress to [github:nickzoic/models3d](https://githu
 The OpenSCAD syntax drives me a bit nuts so I'm thinking of trying out 
 [PySCAD](https://pyscad.readthedocs.io/en/latest/) as well.
 
+# Projects
 
+* I've made a start on 3d models for [Ciril](/art/ciril-cubic-inch-robots-in-labs/)
+* I got to print a couple of parts for the latest
+  [Heart of Pluto](http://heartofpluto.co/) Colour Changer ... great to be able to
+  help out with such a cool project
+* I'm hoping to design some bits for our [Water Rockets](/art/rocket-surgery-airborne-iot-telemetry-buzzconf/) 

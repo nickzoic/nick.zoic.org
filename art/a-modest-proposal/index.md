@@ -18,10 +18,10 @@ layout: draft
 
 ![System 3 Punchcard](img/System_3_punch_card.jpg)
 *[source: Wikipedia](https://en.wikipedia.org/wiki/Punched_card#/media/File:System_3_punch_card.jpg)*
-*By Arnold Reinhold [GFDL](http://www.gnu.org/copyleft/fdl.html) or [CC-BY-SA-3.0](http://creativecommons.org/licenses/by-sa/3.0/), via Wikimedia Commons
+*By Arnold Reinhold [GFDL](http://www.gnu.org/copyleft/fdl.html) or [CC-BY-SA-3.0](http://creativecommons.org/licenses/by-sa/3.0/), via [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:System_3_punch_card.jpg)*
 
 ![Lochkarte](img/1024px-Lochkarte_1.jpg)
-*[source: Wikimedia Commons](https://en.wikipedia.org/wiki/Tabulating_machine#/media/File:Lochkarte_1.jpg)
+*[source: Wikimedia Commons](https://en.wikipedia.org/wiki/Tabulating_machine#/media/File:Lochkarte_1.jpg)*
 *[CC BY-SA 3.0](https://commons.wikimedia.org/w/index.php?curid=1006474)*
 
 ![IBM 402 Plugboard](img/IBM402plugboard.Shrigley.wireside.jpg)

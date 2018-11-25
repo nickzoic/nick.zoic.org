@@ -240,6 +240,14 @@ img + em {
   text-align: center;
 }
 
+img + em + em {
+  display: block;
+  padding-left: 10%;
+  padding-right: 10%;
+  text-align: center;
+  font-size: 0.5rem;
+}
+
 /* Tables */
 table {
   margin-bottom: 1rem;

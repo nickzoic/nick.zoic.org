@@ -44,16 +44,33 @@ On the downside: it is fairly noisy, with both hot-end cooling fan and the proce
 cooling fans making a racket.  Neither fan is under software control, so they keep
 running even when the printer isn't doing anything.  And there's no heated bed.
 
-The gluestick helps a lot with getting good adhesion to the magnetic bed liner.
+# Gluesticks
+
+The included gluestick helps a lot with getting good adhesion to the magnetic bed liner.
 Unfortunately, it's rather a small no-brand gluestick and didn't last long.
-The replacements I've tried have not been anywhere near as effective, going gloopy
-rather than tacky and failing to stick down.  When that happens the model distorts 
-or even moves about, resulting in a terrible mess.
+Without good adhesion, the model can warp, peel off
+or even move about, resulting in a terrible mess.
 
 ![A Terrible Mess](img/terrible1.jpg)
 *A Terrible Mess*
 
-I'm hoping to find an effective one by trial and error!
+I'm hoping to find an effective one by trial and error!  I bought several different ones
+to try:
+
+![Different Gluesticks](img/gluesticks.jpg)
+*Different Gluesticks*
+
+So far:
+
+* the very cheap Officeworks / Keji one hasn't worked well at all, it was quite hard
+  to get a consistent thin layer of glue and it goes gloopy instead of tacky.
+* the UHU one felt similar when applying, hard to get a consistent thin layer so I 
+  gave up on that one for now but will try some test prints later.
+* the StudyMate Blue Stick gave a nice consistent layer and printed a run of 
+  kids keyrings perfectly, where previous attempts with the Keji one had failed.
+  It did fairly well on a thicker 'bearing block' as well, although the last few
+  mm of the ends lifted a tiny bit.
+* The others still need testing.
 
 # Firmware
 
@@ -67,6 +84,10 @@ But it works well enough to be used, so I guess that's okay.
 I haven't tried upgrading the firmware yet, but it seems pretty likely it is based
 on the Open Source [Marlin](http://marlinfw.org/) software, not that the Cocoon manuals
 document this or anything.  If so, it might be possible to improve it.
+
+It is remarkable how well this firmware works though: millions of little operations in
+real time, with no visible errors.  I'd love to see a fully integrated solution though,
+with a web-controllable interface or similar.
 
 # Software
 
@@ -92,7 +113,8 @@ The workflow from OpenSCAD to Cura to Pronterface is a bit clunky.  Cura has a l
 of settings which are specific to a printer (print volumes and head speeds, for example),
 and a whole bunch more which vary from project to project (infill styles, wall thicknesses, etc).
 For the latter, it is frustrating not to have these recorded in a file somewhere alongside the
-model itself.
+model itself.  Ideally, something like a Makefile would bring these preferences all together
+along with the STL to generate appropriate GCODE.
 
 # Projects
 
@@ -105,7 +127,7 @@ model itself.
   less common names! 
 * I've made a whole lot of rubbish :-)
 
-I've uploaded some works in progress to [github:nickzoic/models3d](https://github.com/nickzoic/models3d/)	
+I've uploaded some works in progress to [github:nickzoic/models3d](https://github.com/nickzoic/models3d/) ... they're slowly evolving as I learn more about how to get things done in OpenSCAD.
 
 ![Colour Changers](img/changers1.jpg)
 *Colour Changer mechanisms from Heart of Pluto*

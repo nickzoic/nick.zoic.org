@@ -100,6 +100,13 @@ real time, with no visible errors.  I'd love to see a fully integrated solution 
 with an onboard processor and a web-controllable interface or similar.  It could even
 integrate the slicer, so that printer parameters could be taken into account automatically.
 
+UPDATE: I noticed that linux dmesg was reporting that the VFAT filesystem on the supplied
+microSD card was corrupt, so I reformatted it.  I'm now 75% of the way through an 8 hour 
+print run from the card with no crashes, so that might have been part of the problem.
+
+![Printing a flywheel](img/flywheel.jpg)
+*Printing a flywheel*
+
 # Software
 
 The design I've been doing in [OpenSCAD](https://www.openscad.org/) which is quite

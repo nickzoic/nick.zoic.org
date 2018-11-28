@@ -7,8 +7,6 @@ tags:
   - 3dprint
 ---
 
-# Hardware 
-
 I picked up a "[Cocoon Create Model Maker](https://cocoonproducts.com.au/model-maker/)"
 printer from Aldi the other day, on sale for $300.  It's a pretty direct copy of a 
 [Wanhao Duplicator i3 Mini](http://www.wanhao3dprinter.com/Unboxin/ShowArticle.asp?ArticleID=88)
@@ -18,7 +16,10 @@ covered by Aldi's excellent warrantee support.
 I've been meaning to have a go at
 3d printing for years now, and in fact there's an elderly and rather dodgy Prusa i3
 sitting on the shelf, but I never did get anything to actually work properly despite
-hours of messing about and replacing parts.
+hours of messing about and replacing parts.  I'll write more about that printer in 
+a separate article.
+
+# Hardware 
 
 ![Unpacking the Printer](img/printer1.jpg)
 *Unpacking the Printer*
@@ -30,6 +31,11 @@ is also a scraper, and a glue stick, and spare magnetic beds, and a few lengths 
 filament, and a micro SD card with some 
 pre-prepared models, so you really can level the bed and print a test or two without
 anything else, although I picked up a kilo of PLA filament while I was there.
+
+Literally the only other thing you might need is a pair of wire cutters / long nose
+pliers, to cut the cable tie off the packaged printer, and to trim the ends of PLA filaments,
+and to pull out the supporting scaffold which is needed to print overhangs.  Everything
+else is already in the box.
 
 The printer has a small controller built in, with a little backlit multi-line LCD and a 
 rotary dial to select stuff.  It can print directly from a microSD card without being
@@ -72,6 +78,10 @@ So far:
   mm of the ends lifted a tiny bit.
 * The others still need testing.
 
+(I'm not comparing these for their intended purpose, gluing paper!  Just for how they
+go at making the print bed tacky enough to prevent the edges of prints lifting as they
+set)
+
 # Firmware
 
 The main problem I've had though is the built-in driver software, which occasionally 
@@ -87,7 +97,15 @@ document this or anything.  If so, it might be possible to improve it.
 
 It is remarkable how well this firmware works though: millions of little operations in
 real time, with no visible errors.  I'd love to see a fully integrated solution though,
-with a web-controllable interface or similar.
+with an onboard processor and a web-controllable interface or similar.  It could even
+integrate the slicer, so that printer parameters could be taken into account automatically.
+
+UPDATE: I noticed that linux dmesg was reporting that the VFAT filesystem on the supplied
+microSD card was corrupt, so I reformatted it.  I'm now 75% of the way through an 8 hour 
+print run from the card with no crashes, so that might have been part of the problem.
+
+![Printing a flywheel](img/flywheel.jpg)
+*Printing a flywheel*
 
 # Software
 
@@ -108,6 +126,8 @@ have a better look at [Octoprint](https://octoprint.org/) because having some re
 over the printer behaviour would be rather nice.  I experimented with setting up a 
 webcam pointing at the printer and found it very useful to watch the progress of the
 print run and look out for failed prints.
+
+# Workflow 
 
 The workflow from OpenSCAD to Cura to Pronterface is a bit clunky.  Cura has a large number
 of settings which are specific to a printer (print volumes and head speeds, for example),
@@ -134,3 +154,14 @@ I've uploaded some works in progress to [github:nickzoic/models3d](https://githu
 
 ![Rubbish](img/rubbish1.jpg)
 *... and a rubbish-bin full of PLA scraps*
+
+# Upgrades
+
+Potential upgrades:
+
+* Sit the whole thing on a box with an RPi which can run Octoprint
+* A power relay to turn the printer off when it is done printing.
+* A silicone or thin-film PCB heated bed to reduce shrinking / curling
+* A printer enclosure to keep the warmth in and reduce drafts, and reduce noise.
+* Ventilation to reduce the smell of toasty PLA.
+

@@ -3,6 +3,9 @@ date: '2018-11-28'
 layout: article
 summary: 'My Python 3 conference T-shirt ...'
 title: 'Python 3: Confirmed'
+tags:
+    - python
+    - conference
 ---
 
 So a couple of people have asked about the T-shirt I'm wearing in 

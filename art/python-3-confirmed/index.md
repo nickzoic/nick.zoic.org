@@ -50,8 +50,8 @@ print a T-shirt at 150+ dpi.  It isn't aliased so you can bucket-fill
 it to whatever colours and fills you like.  The background is transparent
 to avoid weird looking edges.
 
-![Python 3 Confirmed](img/python3confirmed.png)
-*Python 3 Confirmed!*
+[![Python 3 Confirmed](img/python3confirmed.png)
+*Python 3 Confirmed!*](img/python3confirmed.png)
 
 Sorry, I don't have a vector version, although I'm thinking of 
 making one just so I can [3D print](/tag/3dprint/) it as well ...

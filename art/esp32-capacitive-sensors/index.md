@@ -338,4 +338,10 @@ to be an analog input.  Hacky but effective.
 
 ![Oscilloscope Traces of touch pad pin](img/SDS00010.PNG)
 
-The yellow trace is the pad voltage, the purple is an I/O pin I set up to show when the SAADC samples were taken.
+The yellow trace is the pad voltage, the purple is an I/O pin I set up to show when
+the SAADC samples were taken.  The capacitance of the 'scope leads effects the numbers
+a bit making it hard to detect touch while the leads are on, but this was a great way
+to work out what was going on inside the device.
+
+You may also notice that since the initial post I've gone and bought myself a DSO, a 
+[Siglent DS1102DL+](https://www.wavecom.com.au/product_view.php?id_product=1035).

@@ -322,3 +322,20 @@ Conclusions
 * You can get pretty good slider behaviour out of multiple contacts instead though.
 * Having a ground plane definitely helps with noise rejection.
 
+UPDATE 2018-12-11
+=================
+
+Now working on [touchio.TouchIn support for CircuitPython on NRF](https://github.com/adafruit/circuitpython/issues/1048)
+This is a little bit of single-sided PCB with a second piece glued on the back as a ground plane and two 1MΩ drain
+resistors from the pads to ground.  The pads are covered with pallet strapping tape as per above.
+
+![Adafruit Feather NRF with nRF52832 and touch pads on A0 / A1](img/touch-nrf.jpg)
+
+Reading touch events is a fair bit harder because there's no working free-running oscillator,
+so instead I'm having to measure the pad capacitance from the rate the pad charge decays through a 
+1MΩ resistor.  I'm doing this by switching the pin to be a digital out, setting it high, then changing it
+to be an analog input.  Hacky but effective.
+
+![Oscilloscope Traces of touch pad pin](img/SDS00010.PNG)
+
+The yellow trace is the pad voltage, the purple is an I/O pin I set up to show when the SAADC samples were taken.

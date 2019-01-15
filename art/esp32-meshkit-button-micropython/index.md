@@ -1,6 +1,6 @@
 ---
 date: '2019-01-15'
-layout: draft
+layout: article
 tags:
     - micropython
     - esp32
@@ -12,7 +12,6 @@ I replied to this tweet and Espressif sent me this nifty "ESP32 Meshkit Button"
 to play with with MicroPython, let's have a look ...
 
 [![Tweet from John Lee](img/tweet.jpg)](https://twitter.com/EspressifSystem/status/1069227084650704902)
-*Tweet from John Lee*
 
 ## Hardware
 
@@ -60,7 +59,7 @@ there.  There's also a tiny programming port.
 
 Here it is without the case.  This is a mini header, 2 x 3 pins at
 0.05" / 1.27mm pitch.  I can totally understand why manufacturers want to go to 
-a connector an eighth the volume of the common 0.1" header, and I'd love to see
+a connector an eighth the volume of the more common 0.1" headers, and I'd love to see
 a standardized header for serial programming ports.  But these connectors are pretty
 rare in hobbyist land still, so it'd be great to include one in the box for
 those of us living a long way from the markets of
@@ -103,7 +102,8 @@ More on this later ...
 
 ## MicroPython
 
-The next step is to load MicroPython onto the device in place of the shipped hardware.
+The next step is to load MicroPython onto the device in place of the shipped firmware, and 
+see what we can come up with.
 
 # TBC
 

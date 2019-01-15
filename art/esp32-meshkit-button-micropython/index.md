@@ -17,9 +17,7 @@ to play with with MicroPython, let's have a look ...
 ## Hardware
 
 ![Inside the ESP32 Meshkit Button](img/inside.jpg)
-![Back of the ESP32 Meshkit Button](img/back.jpg)
 *Inside the ESP32 MeshKit Button*
-*Back of the ESP32 Meshkit Button*
 
 The device consists of a little snap-together clamshell holding a C-shaped board with
 four mechanical buttons and four RGB LEDs. The big cutout in the center is to hold a 
@@ -51,14 +49,20 @@ port doesn't carry data though, just charge.  I have a couple of batteries aroun
 right size but without the right connector, so I'll just run it from external power for
 the moment.
 
+![Back of the ESP32 Meshkit Button](img/back.jpg)
+*Back of the ESP32 Meshkit Button*
+
+On the back is a pair of holes for a wall mount plate.  These don't really clip in, just sit
+there.  There's also a tiny programming port.
+
 ![Programming Port](img/port.jpg)
 *Programming Port*
 
-And finally, there's a programming port.  This is a mini header, 6 pins at
+Here it is without the case.  This is a mini header, 2 x 3 pins at
 0.05" / 1.27mm pitch.  I can totally understand why manufacturers want to go to 
 a connector an eighth the volume of the common 0.1" header, and I'd love to see
-a standardized header for serial programming ports.  These connectors are pretty
-rare in hobbyist land still ... it'd be great to include one in the box for
+a standardized header for serial programming ports.  But these connectors are pretty
+rare in hobbyist land still, so it'd be great to include one in the box for
 those of us living a long way from the markets of
 [Shenzhen](https://en.wikipedia.org/wiki/Shenzhen)
 
@@ -87,7 +91,7 @@ dragged down to 2.8V by the output side of the LDO.
 With this cable in place, and power applied through the built-in USB port, I can run
 `esptool`, which identifies the device as a ESP32D0WDQ5 (rev 1) with 4MB flash.
 I can also connect to the USB port at 115200 baud and see logging messages as the device
-initializes and as it logs button presses.
+initializes and as it logs button presses.  The auto-reset circuit even works!
 
 ## Software
 
@@ -101,5 +105,6 @@ More on this later ...
 
 The next step is to load MicroPython onto the device in place of the shipped hardware.
 
+# TBC
 
 

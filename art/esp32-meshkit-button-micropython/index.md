@@ -179,8 +179,15 @@ therefore the brightness is roughly linear with PWM duty cycle.
 The flipflop behaviour is a little more mysterious, perhaps because I've not
 got a battery hooked up yet.
 
-# TBC
+# TO BE CONTINUED
 
+Further work is needed!
+
+* Hook up a lithium battery
+* experiment with the wake-on-press and keep-awake behaviours.
+* try to understand that flip-flop on the red LED.
+* have a look at ESP-MESH bindings and how to get them into
+  MicroPython
 
 
 

@@ -103,6 +103,13 @@ Blanks mean "no connection".  It's a pity the power pin is to VDD_2V8 ... it's u
 to have the device powered for programming but the 3.3V out of the serial converter is
 dragged down to 2.8V by the output side of the LDO.
 
+(I'm thiking of adding a diode in there to drop the voltage so the device can be 
+powered from the programming cable, but in the meantime it is sufficient to connect
+power through the main charging port as well.)
+
+![Programming Cable](img/cable.jpg)
+*Programming Cable*
+
 With this cable in place, and power applied through the built-in USB port, I can run
 `esptool`, which identifies the device as a ESP32D0WDQ5 (rev 1) with 4MB flash.
 I can also connect to the USB port at 115200 baud and see logging messages as the device

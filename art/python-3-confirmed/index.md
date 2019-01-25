@@ -9,7 +9,8 @@ tags:
 ---
 
 So a couple of people have asked about the T-shirt I'm wearing in 
-[my MicroPython / ESP32 talk at PyConAU 2017](https://www.youtube.com/watch?v=6N1hNRDkm0o)
+my [MicroPython / ESP32 talk at PyConAU 2017](https://www.youtube.com/watch?v=6N1hNRDkm0o)
+and [LinuxConf 2018](/art/linuxconf-2018-sydney) talks.
 
 ![Me at PyConAU 2017](img/screenshot.jpg)
 *Me at PyConAU 2017*

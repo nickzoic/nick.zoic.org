@@ -29,12 +29,27 @@ There's lots more information about this device available on github:
 I'm quite surprised, disappointed even, that this device doesn't use 
 [the ESP32's excellent capacitive touch sensing](/art/esp32-capacitive-sensors/) 
 to detect touch through the plastic front panel. Instead, we've just got 
-plain tactile buttons on GPIOs 32 to 35 (Or maybe 32,34,35,39, if you believe the
-silk screen and the `button_driver.c` code ...)
+plain tactile buttons.
+
+![Tactile Buttons Circuit](img/buttons.png)
+*Tactile Buttons Circuit*
+
+(Note: the schematic shows `BUT4_A` connected to `GPIO33` but it is actually
+connected to `GPIO39` ... according to the silkscreen, the `button_driver.c` code
+and experiment ...)
+
+There's little symbols molded into the top, although they're quite hard to see:
+
+position | icon | GPIO
+--- | --- | ---
+top left | IEC power &#x23FD; | 39
+top right | light bulb on | 34
+bottom left | Sleep &#x23FE; | 32
+bottom right | light bulb off | 35
 
 There's some interesting circuitry around those buttons though: they're powered directly
 from `VBAT` and there's a little diode-OR circuit to power up the LDO if any of the buttons
-are pressed.  So if the CPU pulls PWR_ON low, and there's no VUSB, and there's no button pressed,
+are pressed.  So if the CPU pulls `PWR_ON` low, and there's no `VUSB`, and there's no button pressed,
 the LDO will turn off and the CPU too.  This has got to be the ultimate in power saving.
 
 ![Diode OR circuit](img/diode-or.png)
@@ -87,17 +102,17 @@ so I could use a serial converter I already had.  If you've been
 messing with microcontrollers for a while you'll probably have a million of these
 lying around.
 
-Prog. Port | ESP-01 Pin
---- | ---
-2V8 |
-GND | GND
-IO0 | GPIO0
-EN  | RST
-TXD | TX
-RXD | RX
-    | GPIO2
-    | CH_PD
-    | VCC
+Port | ESP-01 Pin | Diode?
+--- | --- | ---
+2V8 | | K
+GND | GND | 
+IO0 | GPIO0 |
+EN  | RST |
+TXD | TX | 
+RXD | RX |
+    | GPIO2 | 
+    | CH_PD |
+    | VCC | A
 
 Blanks mean "no connection".  It's a pity the power pin is to VDD_2V8 ... it's useful 
 to have the device powered for programming but the 3.3V out of the serial converter is
@@ -126,8 +141,48 @@ More on this later ...
 ## MicroPython
 
 The next step is to load MicroPython onto the device in place of the shipped firmware, and 
-see what we can come up with.
+see what we can come up with.  I just grabbed the latest master and build it and here's the
+familiar banner:
+
+```
+MicroPython v1.9.4-788-gf874e8184 on 2019-01-25; ESP32 module with ESP32
+Type "help()" for more information.
+>>>
+```
+
+The buttons on GPIOs 32, 34, 35 and 39 are quite easy to read:
+
+```
+>>> import machine
+>>> p = machine.Pin(32, machine.Pin.IN)
+>>> p.value()
+0
+>>> p.value()
+1
+```
+
+When it boots, the blue LED channel is slightly on, because GPIO14 is on.
+How about if we try out those voltage doublers?
+
+```
+>>> blue_pin = machine.Pin(14, machine.Pin.OUT)
+>>> blue_pwm = machine.PWM(blue_pin, freq=1000)
+>>> blue_pwm.duty(512) 
+```
+
+... as predicted, the blue LEDs are brighter with a 50% duty cycle than they 
+were when solidly 'on', ditto the green channel on GPIO26.
+
+The red channel is a bit different, as it has no voltage doubler circuit and
+therefore the brightness is roughly linear with PWM duty cycle.
+
+The flipflop behaviour is a little more mysterious, perhaps because I've not
+got a battery hooked up yet.
 
 # TBC
+
+
+
+
 
 

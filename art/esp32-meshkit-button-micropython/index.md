@@ -1,5 +1,5 @@
 ---
-date: '2019-01-15'
+date: '2019-01-25'
 layout: draft
 tags:
     - micropython
@@ -22,9 +22,9 @@ The device consists of a little snap-together clamshell holding a C-shaped board
 four mechanical buttons and four RGB LEDs. The big cutout in the center is to hold a 
 [200 mAh LiPo with JST-SHR-2P connector](img/battery.jpg).
 
-There's lots more information about this device available on github, including a 
-schematic:
-[ESP32 MeshKit Button on github](https://github.com/zhanzhaochen/ESP32-MeshKit-Button)
+There's lots more information about this device available on github:
+* [ESP32 MeshKit Button on github](https://github.com/zhanzhaochen/ESP32-MeshKit-Button)
+* [Schematic](https://github.com/zhanzhaochen/ESP32-MeshKit-Button/blob/master/docs/ESP32-MeshKit-Button_Schematic.pdf)
 
 I'm quite surprised, disappointed even, that this device doesn't use 
 [the ESP32's excellent capacitive touch sensing](/art/esp32-capacitive-sensors/) 
@@ -32,16 +32,29 @@ to detect touch through the plastic front panel. Instead, we've just got
 plain tactile buttons on GPIOs 32 to 35 (Or maybe 32,34,35,39, if you believe the
 silk screen and the `button_driver.c` code ...)
 
-Also, the RGB LEDs aren't individually addressable, which seems like a shame.
+There's some interesting circuitry around those buttons though: they're powered directly
+from `VBAT` and there's a little diode-OR circuit to power up the LDO if any of the buttons
+are pressed.  So if the CPU pulls PWR_ON low, and there's no VUSB, and there's no button pressed,
+the LDO will turn off and the CPU too.  This has got to be the ultimate in power saving.
+
+![Diode OR circuit](img/diode-or.png)
+*Diode OR circuit*
+ 
 There is some interesting
 "[Dickson charge pump](https://en.wikipedia.org/wiki/Voltage_multiplier#Dickson_charge_pump)"
 circuitry in there to drive the G and B channels at a higher voltage than would otherwise
 be available.  Perhaps they'll be brighter at 50% PWM than at 100%!
 
+![Charge Pumps](img/charge-pumps.png)
+*Charge Pumps*
+
 The R channel doesn't get a voltage doubler, but then again red LEDs typically have a smaller
 voltage drop so it doesn't need it.  And there's a
 [set/reset flip-flop](https://en.wikipedia.org/wiki/Flip-flop_(electronics)#Simple_set-reset_latches)
-arrangement on the red channel, presumably so it can be locked on while the CPU is asleep.
+arrangement on the red channel, presumably so it can be locked on while the CPU is unpowered.
+
+![Flip-flop circuit](img/flipflop.png)
+*Flip-flop circuit*
 
 There's a charging circuit to charge the little LiPo from a USB port.  The USB
 port doesn't carry data though, just charge.  I have a couple of batteries around the
@@ -64,6 +77,9 @@ a standardized header for serial programming ports.  But these connectors are pr
 rare in hobbyist land still, so it'd be great to include one in the box for
 those of us living a long way from the markets of
 [Shenzhen](https://en.wikipedia.org/wiki/Shenzhen)
+
+![Programming Port Header](img/header.png)
+*Programming Port Header*
 
 I ended up mutilating a 10P x 1.27mm cable for now, and connecting the other end
 to an 8P 0.1" male header like an [ESP-01](https://en.wikipedia.org/wiki/ESP8266#Pinout_of_ESP-01)

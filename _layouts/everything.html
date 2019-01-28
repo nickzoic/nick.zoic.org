@@ -7,7 +7,7 @@ layout: base
       {% assign prev_year = 0 %}
       {% for page in sorted_pages %}
         {% if page.layout == "article" %}
-          {% assign currrentyear = page.date | date: "%Y" %}
+          {% assign this_year = page.date | date: "%Y" %}
           {% if this_year != prev_year %}
             <h2>{{ this_year }}</h2>
             {% assign prev_year = this_year %}

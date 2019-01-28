@@ -3,7 +3,17 @@ layout: base
 ---
     <h1 class="page-title">Everything ...</h1>
     <div class="page">
-      {% assign sorted_pages = site.pages | sort:"title" %}
-      {% for page in sorted_pages %}{% if page.layout == "article" %}<a href="{{ page.url }}"><h3>{{ page.title }}</h3></a>{% if page.summary %}<p>{{ page.summary }}</p>{% endif %}{% endif %}{% endfor %}
-      </ul>
+      {% assign sorted_pages = site.pages | sort:"date" | reverse %}
+      {% assign prev_year = 0 %}
+      {% for page in sorted_pages %}
+        {% if page.layout == "article" %}
+          {% assign currrentyear = page.date | date: "%Y" %}
+          {% if this_year != prev_year %}
+            <h2>{{ this_year }}</h2>
+            {% assign prev_year = this_year %}
+          {% endif %}
+          <a href="{{ page.url }}"><h3>{{ page.title }}</h3></a>
+          {% if page.summary %}<p>{{ page.summary }}</p>{% endif %}
+        {% endif %}
+      {% endfor %}
     </div>

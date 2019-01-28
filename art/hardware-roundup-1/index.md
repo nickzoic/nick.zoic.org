@@ -4,6 +4,8 @@ layout: article
 tags:
     - micropython
     - esp32
+    - esp8266
+    - iot
 title: Hardware Roundup
 summary: Some hardware on my workbench ...
 ---
@@ -24,9 +26,13 @@ for this board at the moment.
 ![Air602 dev board and module](img/air602.jpg)
 *Air602 dev board and module*
 
-Could this be the successor to the [ESP8266](/tag/esp8266/) ... it's even smaller and 
-looks quite capable!  There's an [Air602 SDK compatible with GCC](https://yoursunny.com/t/2018/Air602-blink/)
-Could be quite handy as a "wifi coprocessor" at the very least.
+Could the [Air602](https://www.seeedstudio.com/Air602-WiFi-Module-p-3139.html) be the successor to the [ESP8266](/tag/esp8266/)?
+
+It's even smaller and looks quite capable, with a Cortex M3 at 80MHz and 288kB RAM!
+The SoC is a [W600](http://www.winnermicro.com/en/html/1/156/158/497.html).
+There's an [Air602 SDK compatible with GCC](https://yoursunny.com/t/2018/Air602-blink/)
+Could be quite handy as a "wifi coprocessor" at the very least ... no MicroPython
+yet but it's not impossible!
 
 ![ESP32 with Lorawan](img/lorawan.jpg)
 *ESP32 with Lorawan*

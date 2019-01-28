@@ -13,15 +13,19 @@ summary: Some hardware on my workbench ...
 In addition to [the Espressif meshkit button](/art/esp32-meshkit-button-micropython)
 I have some other cool hardware on the workbench at the moment ...
 
-![Adafruit Metro M4 Express and Feather NRF52840 Express](img/adafruit.jpg)
-*Adafruit Metro M4 Express and Feather NRF52840 Express*
+## Metro M4 Express & Feather nRF52840
+
+![Adafruit Metro M4 Express and Feather nRF52840 Express](img/adafruit.jpg)
+*Adafruit Metro M4 Express and Feather nRF52840 Express*
 
 The [Metro M4 Express](https://www.adafruit.com/product/3382)
 is a nice development board with an Arduino-compatible footprint but a lot faster CPU.  
 
-The [Feather NRF52840 Express](https://www.adafruit.com/product/4062) is a nifty little unit with a NRF42840 on board with good
+The [Feather nRF52840 Express](https://www.adafruit.com/product/4062) is a nifty little unit with a nRF42840 on board with good
 Bluetooth support. I'm working on [touchio support](https://github.com/adafruit/circuitpython/issues/1048)
 for this board at the moment.
+
+## Air602
 
 ![Air602 dev board and module](img/air602.jpg)
 *Air602 dev board and module*
@@ -34,6 +38,8 @@ There's an [Air602 SDK compatible with GCC](https://yoursunny.com/t/2018/Air602-
 Could be quite handy as a "wifi coprocessor" at the very least ... no MicroPython
 yet but it's not impossible!
 
+## ESP32 + LoraWAN
+
 ![ESP32 with Lorawan](img/lorawan.jpg)
 *ESP32 with Lorawan*
 
@@ -44,13 +50,17 @@ which I bought from [Ebay](https://www.ebay.com.au/sch/i.html?_nkw=esp32+sx1276)
 Quite a few people have put work into [MicroPython drivers for SX1276](https://www.google.com/search?client=ubuntu&channel=fs&q=micropython+sx1276)
 and I hope to get this into mainstream MicroPython at some point ...
 
-![Sipeed Maix](img/sipeed-maix.jpg)
-*Sipeed Maix*
+## Sipeed MAIX
+
+![Sipeed MAIX](img/sipeed-maix.jpg)
+*Sipeed MAIX*
 
 An cheap and interesting [RISC-V](https://riscv.org/) with addition "neural network coprocessor".
 
 * [Sipeed MAIX github repo](https://github.com/sipeed/MaixPy)
 * [Sipeed MAIX at Indiegogo](https://www.indiegogo.com/projects/sipeed-maix-the-world-first-risc-v-64-ai-module#/)
+
+## Sonoff Basic & S20
 
 ![Sonoff Basic](img/sonoff-basic.jpg)
 *Sonoff Basic*
@@ -62,12 +72,16 @@ These are neat little mains-powered switches which embed an [ESP8266](/tag/esp82
 a great choice if you're considering switching mains from a hobbyist project and
 [don't want to get locked into someone else's IoT solution](/art/the-internet-of-not-shit-things/).
 
+## TinyFPGA BX
+
 ![TinyFPGA BX](img/tinyfpga-bx.jpg)
 *TinyFPGA BX*
 
 Suitable for running [FuPy](https://nick.zoic.org/art/fupy-micropython-for-fpga/), I've soldered 
 headers all over this one, and now I need to get back to it and try to actually make some progress
 on understanding FPGAs!
+
+## Espruino Pico
 
 ![Espruino Pico](img/espruino-pico.jpg)
 *Espruino Pico*
@@ -76,4 +90,5 @@ Just to prove that MicroPython isn't the *only* high level language I'm interest
 microcontrollers ... the [Espruino Pico](http://www.espruino.com/Pico) embeds Javascript instead,
 on an ARM Cortex M4.  There's a lot of things I really like about Javascript's event-driven 
 model for microcontroller programming so I reckon this is worth a look.
+
 

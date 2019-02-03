@@ -30,13 +30,20 @@ for this board at the moment.
 ![Air602 dev board and module](img/air602.jpg)
 *Air602 dev board and module*
 
-Could the [Air602](https://www.seeedstudio.com/Air602-WiFi-Module-p-3139.html) be the successor to the [ESP8266](/tag/esp8266/)?
+Could the [Air602](https://www.seeedstudio.com/Air602-WiFi-Module-p-3139.html) be the successor to the [ESP8266](/tag/esp8266/)?  It's even smaller and looks quite capable, packaging a 
+[W600](http://www.winnermicro.com/en/html/1/156/158/497.html) SoC plus some support
+circuitry on a neat little castellated 12-pin module.
 
-It's even smaller and looks quite capable, with a Cortex M3 at 80MHz and 288kB RAM!
-The SoC is a [W600](http://www.winnermicro.com/en/html/1/156/158/497.html).
+The "dev board" is just the Air602 module plus a USB serial converter, voltage
+regulator, reset button and PCB antenna.  Yes, yet another microcontroller whose interface
+to the world is a serial port!
+
+The Air602 could be quite handy as a "wifi coprocessor" at the very least ... no MicroPython
+yet but it's not impossible!  With a Cortex M3 at 80MHz and 288kB RAM it's in the same
+ballpark as the '66.
+
 There's an [Air602 SDK compatible with GCC](https://yoursunny.com/t/2018/Air602-blink/)
-Could be quite handy as a "wifi coprocessor" at the very least ... no MicroPython
-yet but it's not impossible!
+and a [Air602 Forum at Seeed](https://forum.seeedstudio.com/viewforum.php?f=106&sid=1152bf0b77e4b5248367936ebb01c1ba) ... the real challenge is going to be finding documentation.
 
 ## ESP32 + LoraWAN
 
@@ -59,6 +66,14 @@ An cheap and interesting [RISC-V](https://riscv.org/) with addition "neural netw
 
 * [Sipeed MAIX github repo](https://github.com/sipeed/MaixPy)
 * [Sipeed MAIX at Indiegogo](https://www.indiegogo.com/projects/sipeed-maix-the-world-first-risc-v-64-ai-module#/)
+
+![Sipeed MAIX Display](img/sipeed-maix-display.jpg)
+*Sipeed MAIX Display*
+
+The [Sipeed MAIX MicroPython Fork (MaixPy)](https://github.com/sipeed/MaixPy) came preloaded on
+the device, and you can connect to it with the usual 115200/N/8/1 serial port settings.
+I got as far as taking a photo with the supplied camera and displaying it on the supplied
+screen.  Pretty cool!
 
 ## Sonoff Basic & S20
 

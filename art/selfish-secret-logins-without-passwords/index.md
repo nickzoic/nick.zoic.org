@@ -5,13 +5,13 @@ layout: article
 redirect_from: '/etc/selfish-secret-logins-without-passwords/'
 slug: 'selfish-secret-logins-without-passwords'
 title: 'The Selfish Secret: Logins Without Passwords'
+summary: |
+    Perhaps instead of looking at cookies as a proxy for passwords, we
+    should be looking at passwords as a transport mechanism for secrets!
+    The desired result is to share a secret key between the server and one
+    or more browsers, and the password is merely a mechanism to prove the
+    browser worthy of the secret ...
 ---
-
-> Perhaps instead of looking at cookies as a proxy for passwords, we
-> should be looking at passwords as a transport mechanism for secrets!
-> The desired result is to share a secret key between the server and one
-> or more browsers, and the password is merely a mechanism to prove the
-> browser worthy of the secret ...
 
 ## 1. The Selfish Secret
 

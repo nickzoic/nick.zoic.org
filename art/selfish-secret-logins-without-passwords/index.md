@@ -5,6 +5,10 @@ layout: article
 redirect_from: '/etc/selfish-secret-logins-without-passwords/'
 slug: 'selfish-secret-logins-without-passwords'
 title: 'The Selfish Secret: Logins Without Passwords'
+tags:
+    - crypto
+    - backend
+    - www
 summary: |
     Perhaps instead of looking at cookies as a proxy for passwords, we
     should be looking at passwords as a transport mechanism for secrets!

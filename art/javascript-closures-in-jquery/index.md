@@ -9,6 +9,11 @@ tags:
     - javascript
     - functional-programming
 title: Using Closures in Javascript
+summary: |
+    I've written a bunch of HTML5 / javascript stuff in recent years which
+    uses closures as a way of never actually having to traverse the DOM. It
+    is easy, fast, works well within the Chrome debugger and reduces your
+    reliance on jQuery (etc).
 ---
 
 [Robin Ward](http://eviltrout.com/)'s recent blog post on [Why Discourse

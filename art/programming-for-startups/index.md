@@ -5,11 +5,14 @@ layout: article
 redirect_from: '/etc/programming-for-startups/'
 slug: 'programming-for-startups'
 title: Programming for Startups
+tags:
+    - architecture
+summary: |
+    I presented a session on 'Programming for non-Programmers' talk at
+    General Assembly Founder's Bootcamp ... here's some notes which I
+    jotted down afterwards ...
 ---
 
-> I presented a session on 'Programming for non-Programmers' talk at
-> General Assembly Founder's Bootcamp ... here's some notes which I
-> jotted down afterwards ...
 
 [I](https://generalassemb.ly/instructors/nick-moore/2879) presented a
 talk on "Programming for non-Programmers" as part of [General

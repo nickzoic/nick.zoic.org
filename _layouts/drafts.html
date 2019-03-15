@@ -2,6 +2,9 @@
 layout: base
 ---
     <div class="page">
+
+      {{ content }}
+
       {% assign sorted_pages = site.pages | sort:"title" %}
       {% for page in sorted_pages %}
         {% if page.layout == "draft" %}

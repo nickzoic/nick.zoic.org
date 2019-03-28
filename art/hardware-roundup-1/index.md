@@ -6,6 +6,7 @@ tags:
     - esp32
     - esp8266
     - iot
+    - fpga
 title: Hardware Roundup
 summary: Some hardware on my workbench ...
 ---

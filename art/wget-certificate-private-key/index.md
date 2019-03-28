@@ -9,7 +9,8 @@ tags:
     - crypto
     - ssl
 title: 'wget –certificate=$X –private-key=$X'
----
+summary: "wget 1.10.2 can fail to use an SSL client certificate unless ..."
+    
 
 wget 1.10.2 seems to silently fail to use an SSL client certificate
 unless you specify both –certificate and –private-key:

@@ -23,10 +23,13 @@ and similar programs which try to send high-speed binary data over the UART.
 
 After ages trying to work out what was going on, I found this article on
 Ask Ubuntu: [udev rules seem ignored; can not prevent modem manager from grabbing device](https://askubuntu.com/questions/399263/udev-rules-seem-ignored-can-not-prevent-modem-manager-from-grabbing-device)
+and also this [irregular flash error](https://discourse.tinyfpga.com/t/solved-irregular-flash-error/964) thread
 and everything became horribly clear.  The udev rules mechanism you're used to using to prevent
 this happening no longer works.
 
-Assuming you don't actually have any modems the easiest thing is just to tell ModemManager to leave `/dev/ttyACM*` alone:
+If you just try to remove ModemManager it may stop your 4G modem etc working as well.
+Assuming you don't actually have any UART based modems the easiest thing is just to tell
+ModemManager to leave `/dev/ttyACM*` alone:
 
 * Edit `/lib/systemd/system/ModemManager.service` and add to the `[Service]` section:
 ```

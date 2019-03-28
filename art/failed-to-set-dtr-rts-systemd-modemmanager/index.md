@@ -8,6 +8,7 @@ summary: |
 tags:
     - microcontrollers
     - linux
+    - fpga
 title: 'SystemD ModemManager: failed to set dtr/rts'
 ---
 

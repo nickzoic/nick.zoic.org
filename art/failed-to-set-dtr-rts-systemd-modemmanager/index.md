@@ -3,10 +3,11 @@ category: etc
 date: '2019-03-28'
 layout: article
 summary: |
-    Having trouble with /dev/ttyACM devices?  Think you've disabled
+    Having trouble with /dev/ttyACM* devices?  Think you've disabled
     SystemD ModemManager?  Think again ...
 tags:
     - microcontrollers
+    - linux
 title: 'SystemD ModemManager: failed to set dtr/rts'
 ---
 

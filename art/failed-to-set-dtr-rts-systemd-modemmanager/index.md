@@ -31,24 +31,19 @@ If you just try to remove ModemManager it may stop your 4G modem etc working as 
 Assuming you don't actually have any UART based modems the easiest thing is just to tell
 ModemManager to leave `/dev/ttyACM*` alone:
 
-* Edit `/lib/systemd/system/ModemManager.service` and add to the `[Service]` section:
-```
-Environment="MM_FILTER_RULE_TTY_ACM_INTERFACE=0"
-```
-
-Otherwise you can add specific udev rules for this device and then remind systemd ModemManager to actually respect those rules:
-
-* Create `/etc/udev/rules.d/99-tinyfpga.rules` and add rule 
+* Create `/etc/udev/rules.d/99-ttyacm.rules` with the content:
 
 ```
-ATTR{idProduct}=="6130", ATTR{idVendor}=="1d50", ENV{ID_MM_DEVICE_IGNORE}="1", MODE="666"
+KERNEL=="ttyACM[0-9]*",ENV{ID_MM_DEVICE_IGNORE}="1"
 ```
 
-* sudo udevadm control --reload
+* Reload udevd rules with `sudo udevadm control --reload`
+
 * Edit `/lib/systemd/system/ModemManager.service` and change `ExecStart=/usr/sbin/ModemManager --filter-policy=strict` to `ExecStart=/usr/sbin/ModemManager --filter-policy=default`
 
 This policy tells ModemManager to actually respect the `ID_MM_DEVICE_IGNORE` flag.
-Frustratingly, the default policy is not "default" but "strict".
+Frustratingly, the default policy is not "default" but "strict", which ignores the flag
+telling it to ignore the device.
 
 Either way, reload the ModemManager configuration:
 
@@ -58,3 +53,15 @@ sudo systemctl restart ModemManager
 ```
 
 ... and you should be working again!
+
+
+## previously
+
+Previously this article suggested edting `/lib/systemd/system/ModemManager.service`
+and adding to the `[Service]` section:
+
+```
+Environment="MM_FILTER_RULE_TTY_ACM_INTERFACE=0"
+```
+
+But for some reason ModemManager was still starting on my laptop, so I think the other technique is better.

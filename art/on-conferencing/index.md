@@ -72,3 +72,8 @@ to not know everything, or to understand everything the first time.
 So yes: I go to a lot of these things! It's a big investment of time
 (especially if you're talking), but it is also a great opportunity to
 talk, listen, and grow as a professional.
+
+See also:
+
+* [List of my presentations with slides](/talk/)
+* [Other articles about conferences](/tag/conference/)

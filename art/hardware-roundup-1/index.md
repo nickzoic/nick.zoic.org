@@ -97,6 +97,8 @@ Suitable for running [FuPy](https://nick.zoic.org/art/fupy-micropython-for-fpga/
 headers all over this one, and now I need to get back to it and try to actually make some progress
 on understanding FPGAs!
 
+UPDATE: I'm [playing with FPGAs again ...](https://github.com/nickzoic/migen-gigatron/)
+
 ## Espruino Pico
 
 ![Espruino Pico](img/espruino-pico.jpg)

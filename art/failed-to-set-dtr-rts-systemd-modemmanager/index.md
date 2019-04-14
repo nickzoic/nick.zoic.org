@@ -12,7 +12,7 @@ tags:
 title: 'SystemD ModemManager: failed to set dtr/rts'
 ---
 
-If you're working with embedded devices which present themselves as UARTS, you've
+If you're working with embedded devices which present themselves as UARTs, you've
 probably already noticed an annoying thing called ModemManager which tries to 
 talk to anything called `/dev/ttyACM*`.  This can cause 'device in use' errors when
 you first configure the device, or mysterious hangs while using the device.
@@ -20,6 +20,9 @@ you first configure the device, or mysterious hangs while using the device.
 This is particularly a problem with [esptool](https://github.com/espressif/esptool) 
 and [tinyprog](https://github.com/tinyfpga/TinyFPGA-Bootloader/tree/master/programmer)
 and similar programs which try to send high-speed binary data over the UART.
+
+It used to be you could prevent this using a udev rule, but for some reason this wasn't
+working.
 
 After ages trying to work out what was going on, I found this article on
 Ask Ubuntu: [udev rules seem ignored; can not prevent modem manager from grabbing device](https://askubuntu.com/questions/399263/udev-rules-seem-ignored-can-not-prevent-modem-manager-from-grabbing-device)

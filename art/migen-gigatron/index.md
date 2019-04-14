@@ -1,10 +1,10 @@
-
 ---
 category: etc
 date: '2019-04-14'
 layout: article
 tags:
   - fpga
+  - python
 summary: |
     An attempt to implement the Gigatron TTL Microcomputer
     on an FPGA, in Migen.

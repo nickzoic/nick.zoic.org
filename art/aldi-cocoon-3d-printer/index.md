@@ -104,6 +104,8 @@ UPDATE: I noticed that linux dmesg was reporting that the VFAT filesystem on the
 microSD card was corrupt, so I reformatted it.  I'm now 75% of the way through an 8 hour 
 print run from the card with no crashes, so that might have been part of the problem.
 
+UPDATE 2: Having reformatted the card, no more crashing problems even on very long jobs.
+
 ![Printing a flywheel](img/flywheel.jpg)
 *Printing a flywheel*
 

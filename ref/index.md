@@ -24,20 +24,18 @@ with an easy to write URL ...
 
 * [The Mother of All Demos](http://www.dougengelbart.org/firsts/dougs-1968-demo.html) ([wikipedia](https://en.wikipedia.org/wiki/The_Mother_of_All_Demos)) (Douglas Engelbart)
 * [Computer Lib / Dream Machines](https://kupdf.net/download/ted-nelson-computer-lib-dream-machines_59bc49cd08bbc59209686eb8_pdf) (Ted Nelson)
-* [Project Xanadu](https://en.wikipedia.org/wiki/Project_Xanadu) (Ted Nelson)
+* [Project Xanadu](https://en.wikipedia.org/wiki/Project_Xanadu) (Ted Nelson) / [Xanada System Proposal](https://sentido-labs.com/en/library/201904240732/Xanadu%20Hypertext%20Documents.html)
 * [Conway's Law](http://www.melconway.com/Home/Conways_Law.html)
-
 
 ## Programming
 
 * [Software development at 1 Hz](https://hackernoon.com/software-development-at-1-hz-5530bb58fc0e)
 * [Design Patterns in Python](http://norvig.com/design-patterns/)
-
+* [-2000 LoC](http://www.folklore.org/StoryView.py?project=Macintosh&story=Negative_2000_Lines_Of_Code.txt)
 
 ## Fiction
 
 * [Maneki Neko](http://www.lightspeedmagazine.com/fiction/maneki-neko/) (Bruce Sterling)
-
 
 ## Rats and Zombie Ants
 

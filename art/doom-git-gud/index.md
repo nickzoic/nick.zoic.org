@@ -4,6 +4,7 @@ layout: article
 tags:
   - c
   - games
+  - silly
 summary: |
     Never send a human to do a machine's job
 title: DOOM Git Gud

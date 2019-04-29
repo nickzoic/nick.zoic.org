@@ -6,6 +6,8 @@ redirect_from: '/etc/omnicode/'
 slug: omnicode
 summary: 'Unicode? Too simple! Try Omnicode!'
 title: 'OMNICODE!'
+tags:
+    - silly
 ---
 
 <style>div.giant { font-size: 150pt; text-align: center }</style>

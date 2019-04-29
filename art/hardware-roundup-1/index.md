@@ -7,6 +7,7 @@ tags:
     - esp8266
     - iot
     - fpga
+    - electronics
 title: Hardware Roundup
 summary: Some hardware on my workbench ...
 ---

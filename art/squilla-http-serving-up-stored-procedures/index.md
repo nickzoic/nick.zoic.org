@@ -11,7 +11,7 @@ tags:
     - sql
     - django
     - backend
-    - speculation
+    - silly
     - postgres
 title: 'Squilla: Serving up Stored Procedures'
 ---

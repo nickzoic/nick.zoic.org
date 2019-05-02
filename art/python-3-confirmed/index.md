@@ -6,6 +6,7 @@ title: 'Python 3: Confirmed'
 tags:
     - python
     - conference
+    - silly
 ---
 
 So a couple of people have asked about the T-shirt I'm wearing in 

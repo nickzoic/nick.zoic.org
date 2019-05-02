@@ -4,6 +4,7 @@ layout: article
 tags:
     - micropython
     - c
+    - fpga
 title: 'FuPy: MicroPython for FPGAs'
 summary: "FuPy is a port of MicroPython which runs inside an FPGA.  I take a look at it and try to get my head around how to program for it ..."
 ---

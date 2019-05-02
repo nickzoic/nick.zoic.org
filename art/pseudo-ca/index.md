@@ -9,11 +9,11 @@ tags:
     - crypto
     - ssl
 title: 'Make your own Client-side Certificates with a Pseudo CA'
+summary: |
+    I've used this authentication method on a couple of different client
+    projects so far, so I thought it might be useful to write up a quick
+    explanation of how it works.
 ---
-
-I've used this authentication method on a couple of different client
-projects so far, so I thought it might be useful to write up a quick
-explanation of how it works.
 
 Client-side Certificates
 ========================

@@ -7,6 +7,7 @@ tags:
   - languages
   - www
   - python
+  - speculation
 ---
 
 I'm interested in the idea of [Programming beyond Text Files](/art/programming-beyond-text-files/) and

@@ -1,0 +1,15 @@
+---
+layout: base
+---
+    <div class="page">
+
+      {{ content }}
+
+      {% assign sorted_pages = site.pages | sort:"title" %}
+      {% for page in sorted_pages %}
+        {% if page.layout == "draft" %}
+          <a href="{{ page.url }}"><h3>{{ page.title }}</h3></a>
+          {% if page.summary %}<p>{{ page.summary }}</p>{% endif %}
+        {% endif %}
+      {% endfor %}
+    </div>

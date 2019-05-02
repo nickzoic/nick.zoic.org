@@ -5,13 +5,15 @@ layout: article
 redirect_from: '/etc/youve-got-no-mail/'
 slug: 'youve-got-no-mail'
 title: 'You''ve got NO MAIL'
+tags:
+    - speculation
+summary: |
+    From the "Ideas I'm Never Going To Implement Myself" bucket:
+    
+    NoMail is an email service which doesn't store anything. Anything at
+    all. Email received by NoMail is ephemeral and exists only in your
+    client.
 ---
-
-> From the "Ideas I'm Never Going To Implement Myself" bucket:
->
-> NoMail is an email service which doesn't store anything. Anything at
-> all. Email received by NoMail is ephemeral and exists only in your
-> client.
 
 If you'd told me a year ago that email was dead, I wouldn't have
 believed you. This year, I just might believe it. My mailbox is

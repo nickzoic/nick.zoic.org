@@ -5,17 +5,23 @@ permalink: /404.html
 ---
 
 <div class="page">
-	<h1 class="page-title">404 File Not Found</h1>
+  <h1 class="page-title">404 File Not Found</h1>
   <p class="lead">Whatever you were looking for isn't here!</p>
-  <a id="link"></a>
+
+  <ul>
+    <li><a href="/everything/">All articles</a></li>
+    <li>
+      Search nick.zoic.org for <a id="link"></a>
+      (using <a href="https://duckduckgo.com/">DuckDuckGo</a>)
+    </li>
+  </ul>
 
   <script type="text/javascript">
        var search = window.location.pathname.replace('/art/','').replace('/\.html$', '').replace(/[^\w]+/g, ' ').replace(/^ /,'').replace(/ $/,'');
-       var search_uri = "http://google.com/search?q=" + encodeURIComponent("site:nick.zoic.org " + search);
+       var search_uri = "https://duckduckgo.com/?q=" + encodeURIComponent("site:nick.zoic.org " + search);
        var link = document.getElementById("link");
        link.href = search_uri;
-       link.innerText = 'Search nick.zoic.org for "' + search + '"';
+       link.innerText = '"' + search + '"';
   </script>
-
 
 </div>

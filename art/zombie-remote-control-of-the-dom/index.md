@@ -10,6 +10,7 @@ tags:
     - www
     - html5
     - python
+    - speculation
 ---
 
 ## Frontend and Backend

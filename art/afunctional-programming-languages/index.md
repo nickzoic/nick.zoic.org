@@ -6,6 +6,7 @@ summary: 'What if there were no functions?'
 tags:
   - languages
   - functional-programming
+  - speculation
 title: Afunctional Programming Languages
 ---
 

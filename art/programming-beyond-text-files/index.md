@@ -7,6 +7,7 @@ summary: 'Are programs really text files?'
 tags:
   - languages
   - python
+  - speculation
 title: Programming Beyond Text Files
 ---
 

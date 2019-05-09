@@ -8,6 +8,7 @@ tags:
     - html5
     - javascript
     - functional-programming
+    - speculation
 title: '"use pure"; in Javascript'
 summary: 'a modest proposal for better javascript: like "use strict" but purer.'
 ---

@@ -6,12 +6,18 @@ redirect_from: '/etc/omnicode/'
 slug: omnicode
 summary: 'Unicode? Too simple! Try Omnicode!'
 title: 'OMNICODE!'
+tags:
+    - silly
 ---
+
+<style>div.giant { font-size: 150pt; text-align: center }</style>
 
 *Presented as a lightning talk at PyConAU 2017: [Omnicode!](/talk/pycon2017/omnicode/)*
 
 Unicode
 =======
+
+<div class="giant">a</div>
 
 Unicode is pretty cool. All languages in the world, and [a few
 others](https://en.wikipedia.org/wiki/Tengwar#Unicode), all in one place
@@ -29,16 +35,20 @@ Characters](https://en.wikipedia.org/wiki/Combining_character) and
 [normalization](http://unicode.org/faq/normalization.html#7) ... it's
 not as simple as it appears.
 
+<div class="giant">�</div>
+
 And there's [something like 100,000 unicode
 codepoints.](https://en.wikipedia.org/wiki/Unicode#Versions). You
 probably have several nice fonts available covering ASCII. Most of those
-probably cover [Latin-1i](https://en.wikipedia.org/wiki/ISO/IEC_8859-1).
+probably cover [Latin-1](https://en.wikipedia.org/wiki/ISO/IEC_8859-1).
 Most of those don't cover much else. Including, for example, [Turkish
 dotless i](https://en.wikipedia.org/wiki/Dotted_and_dotless_I). If
 you've typeset a nice looking paragraph which just happens to have one
-of those in it, it's going to st ı ck out like a sore thumb.
+of those in it, it's going to stıck out like a sore thumb.
 
-(I'm haven't mentioned Emoji, and I'm not going to again 💩.)
+(I'm haven't mentioned Emoji, and I'm not going to again.)
+
+![Hairy Heart](img/hairy-heart.png)
 
 OMNICODE! {#omnicode-1}
 =========
@@ -51,16 +61,23 @@ information required to render it. There's no need for a big standard
 mapping of code points to glyphs: if you want a new glyph, just make it
 up.
 
+<div class="giant">j</div>
+
 Each Omnicode glyph consists of a series of strokes. For example, an
 English 'j' would be represented by a straight line, a curved line and a
 dot. These wouldn't be stored as bitmaps, but rather as points
-constructing splines in a very simple encoding scheme. A typical ASCII
+constructing splines in a very simple encoding scheme.
+
+<div class="giant">纖</div>
+
+A typical ASCII
 letter might need a dozen or so bytes to encode, while more intricate
 characters such as '纖' require a finer grid and more strokes and will
 end up with a much longer encoding. But then again they encode more
 information too. A standard translation table from ASCII (and swathes of
 Unicode) to Omnicode makes it possible to translate documents between
 the two.
+
 
 Compressing Omnicode
 --------------------
@@ -85,6 +102,8 @@ Omnicode Fonts
 Omnicode standard characters are childish and blocky, because they seek
 to express the minimal representation of what a letter *is*. To make
 them look nice, we need fonts.
+
+![Letter a](img/letter-a.png)
 
 Old 'bitmap' fonts were translation tables from code points to grids of
 pixels. Newer font standards such as True Type and Open Type are instead
@@ -113,7 +132,9 @@ using a pipeline of transformations means the font can work well even on
 unknown characters, so that letters from all languages can be presented,
 even if they're made up by the author.
 
-Surely this isn't serious ಠ \_ ಠ
-================================
+Surely this isn't serious ...
+=============================
 
-I wasn't when I started, ǝ ɹ n s o s ʇ o u ɯ , I ʍ o u ʇ n q
+![Look of Disapproval](img/lod.png)
+
+I wasn't when I started, ǝɹns os ʇou ɯ,I ʍou ʇnq

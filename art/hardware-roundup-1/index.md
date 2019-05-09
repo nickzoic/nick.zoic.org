@@ -7,6 +7,7 @@ tags:
     - esp8266
     - iot
     - fpga
+    - electronics
 title: Hardware Roundup
 summary: Some hardware on my workbench ...
 ---
@@ -43,13 +44,18 @@ The Air602 could be quite handy as a "wifi coprocessor" at the very least ... no
 yet but it's not impossible!  With a Cortex M3 at 80MHz and 288kB RAM it's in the same
 ballpark as the '66.
 
-There's an [Air602 SDK compatible with GCC](https://yoursunny.com/t/2018/Air602-blink/)
+It's even smaller and looks quite capable, with a Cortex M3 at 80MHz and 288kB RAM!
+The SoC is a [W600](http://www.winnermicro.com/en/html/1/156/158/497.html).
+There's an [Air602 SDK compatible with GCC](https://yoursunny.com/t/2018/Air602-blink/),
 and a [Air602 Forum at Seeed](https://forum.seeedstudio.com/viewforum.php?f=106&sid=1152bf0b77e4b5248367936ebb01c1ba) ... the real challenge is going to be finding documentation.
+This could be quite handy as a "wifi coprocessor" at the very least, adding WiFi onto
+a CPU which doesn't have it built in.
+There's no MicroPython yet but the CPU is comparable to the ESP8266 so it's not impossible!
 
 ## ESP32 + LoraWAN
 
-![ESP32 with Lorawan](img/lorawan.jpg)
-*ESP32 with Lorawan*
+![ESP32 with LoRaWAN](img/lorawan.jpg)
+*ESP32 with LoRaWAN*
 
 This is a neat little board integrating an [ESP32](/tag/esp32/) and a
 [SX1276 LoRa transceiver](https://www.semtech.com/products/wireless-rf/lora-transceivers/sx1276) 
@@ -67,6 +73,20 @@ An cheap and interesting [RISC-V](https://riscv.org/) with addition "neural netw
 
 * [Sipeed MAIX github repo](https://github.com/sipeed/MaixPy)
 * [Sipeed MAIX at Indiegogo](https://www.indiegogo.com/projects/sipeed-maix-the-world-first-risc-v-64-ai-module#/)
+* [Sipeed MaixPy port of MicroPython](https://github.com/sipeed/MaixPy)
+
+The device came with a tiny display and camera (not pictured here) and despite being a
+very low powered device is apparently capable of face detection using the coprocessor.
+
+So far all I've done is plugged it in and discovered it's already loaded with MicroPython:
+
+```
+MicroPython df9db45d2-dirty on 2018-11-10; Sipeed_M1 with kendryte-k210
+Type "help()" for more information.
+>>>
+```
+
+... and the camera and LCD work!  More about this later, in a separate article.
 
 ![Sipeed MAIX Display](img/sipeed-maix-display.jpg)
 *Sipeed MAIX Display*

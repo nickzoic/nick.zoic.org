@@ -104,6 +104,8 @@ UPDATE: I noticed that linux dmesg was reporting that the VFAT filesystem on the
 microSD card was corrupt, so I reformatted it.  I'm now 75% of the way through an 8 hour 
 print run from the card with no crashes, so that might have been part of the problem.
 
+UPDATE 2: Having reformatted the card, no more crashing problems even on very long jobs.
+
 ![Printing a flywheel](img/flywheel.jpg)
 *Printing a flywheel*
 
@@ -116,7 +118,7 @@ The OpenSCAD syntax drives me a bit nuts so I'm thinking of trying out
 in its native SCAD format but can export to STL and similar formats.
 
 For slicing, I've been impressed with Cura, which works great out of the box and comes with the 
-printer's profile built in.  I've been running it under [wine](https://www.winehq.org/)
+printer's profile built in.  I've been running it under [Wine](https://www.winehq.org/)
 to avoid having to work out how to transfer the profile across to the Linux version.
 
 To actually send the files to the printer I've been using [Pronterface](https://www.pronterface.com/),
@@ -165,3 +167,15 @@ Potential upgrades:
 * A printer enclosure to keep the warmth in and reduce drafts, and reduce noise.
 * Ventilation to reduce the smell of toasty PLA.
 
+# UPDATE 2019-05-02
+
+* I had a small problem with the temperature of the hotend: the screw which attached
+  the temperature sensor had come loose and the temperature sensor was no longer well
+  attached to the hot end.  This meant that temperature regulation was misbehaving
+  and the hotend overheating.  Easily fixed by removing the finger
+  guard and tightening the screw.
+
+* I had been running the supplied Cura under [Wine](https://www.winehq.org/) but now I'm using
+  the Linux version 3.3.1 by copying the printer files across to `~/.config/cura/3.3/`.
+
+* Cura version 4.0.0 is out now too, so I'll give that a go!

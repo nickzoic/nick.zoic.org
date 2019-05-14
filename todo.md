@@ -5,5 +5,5 @@
 * Ultima IV
 * VOISC
 * Smartest Bear Problem
-* Hypersphere Thing
 * A Modest Proposal
+* Ur

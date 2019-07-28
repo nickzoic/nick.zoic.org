@@ -162,3 +162,9 @@ bit clearer, here's a graphical representation of the ROM, with green pixels rep
 
 I'm thinking some kind of lookup table could pack these pages a bit more tightly in
 the internal RAM, thus scavenging back some storage to fit in the actual RAM.
+
+One interesting thing to note from the memory map is that most of the code, including a
+menus and a video driver fonts and a 16-bit virtual CPU, fit into the first 25 rows
+(3.2 kWord) and then the two pictures (parrot and jupiter) take up 120 rows (16 kWord) each.
+
+

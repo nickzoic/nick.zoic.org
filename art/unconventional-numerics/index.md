@@ -5,6 +5,7 @@ tags:
     - backend
     - languages
     - speculation
+    - maths
 title: 'Unconventional Numerics'
 summary: "It's not just floats and ints, you know ..."
 ---

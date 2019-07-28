@@ -3,13 +3,14 @@ date: '2019-05-14'
 layout: draft
 tags:
     - speculation
+    - maths
 title: 'Hyper-Normal'
 summary: "Why is it that every case is an exception to a rule?"
 ---
 
 ## Of Lines, Squares, Cubes and Hypercubes
 
-Imagine sampling a single variable, it doesn't really matter what we're measuring.
+Sample a single variable, it doesn't really matter what we're measuring.
 
 For the sake of the example, let's assume it has a
 [normal distribution](https://en.wikipedia.org/wiki/Normal_distribution).
@@ -27,8 +28,8 @@ boundaries.  Or to put it another way, 8.80% of points are outliers in at least
 one dimension.
 
 With three variables, you can think of the points as a cloud in three dimensions.
-It's getting harder to draw, but the 'normal' region is a cube around the origin,
-4 units on a side.  Most points are within the cube but some are outside.
+It's getting harder to draw, but the 'normal' region is now a cube,
+with most points within the cube but some outside.
 In each dimension, 95.5% of points lie within the walls of the cube.
 So the probability of a point lying inside the cube in all three dimensions is
 `95.5% * 95.5% * 95.5% = 87.1%`.  About 12.9% of points are outliers, points which
@@ -41,7 +42,7 @@ An N-dimensional cube has `95.5% ^ N` of points within it so it's easy to calcul
 the number of points within and without the cube:
 
 dimensions|normies|outliers
----|----|----
+:---:|:----:|:----:
   1|95.5|4.5
   2|91.2|8.8
   3|87.1|12.9
@@ -69,7 +70,7 @@ Let's assume there's a hundred or so dimensions which we can measure.
 What are the odds that *you* are an outlier in at least one of those?
 
 dimensions|normies|outliers
----|----|----
+:---:|:----:|:----:
  10|63.1|36.9
  20|39.8|60.2
  30|25.1|74.9

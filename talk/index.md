@@ -26,7 +26,7 @@ title: "Talks: Nick Moore"
   * [Talking to Leviathan: SAP and Open Source](osdc2015/leviathan.html)
 * [PyConAU 2016](pycon2016/)
   * [ESP8266 and MicroPython](pycon2016/esp8266-and-micropython/)
-  * [The Internet of (Not Shit) Things](pycon2016/internet-of-not-shit-thing/)
+  * [The Internet of (Not Shit) Things](pycon2016/internet-of-not-shit-things/)
   * [Flobot: A Visual Dataflow Language for Educational Robots](pycon2016/flobot-visual-programming/)
 * [PyConAU 2017](pycon2017/)
   * [Micropython on ESP32](pycon2017/micropython-esp32/)

@@ -91,7 +91,8 @@ One of the arguments against doing this is that we have so many good tools for d
 with plain text files, but I think we
 could make even smarter tools with a better underlying data structure.  The Lisp
 world uses [homoiconicity](https://en.wikipedia.org/wiki/Homoiconicity) to its 
-advantage: treating programs as data and data as programs is easy when your language is
+advantage: treating programs as data and data as programs is easy when your programs
+are just data structures.
 
 Perhaps this is taking it all a little too far, but I love the idea of the whole 
 filesystem being replaced by an append-only tree of nodes, treated homogeneously all the way

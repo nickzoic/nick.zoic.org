@@ -103,3 +103,5 @@ like `find` and `grep` and `diff3`, but think of what we'd gain ...
 ### UPDATE (again)
 
 Another interesting reference: the [New York Times' Oak Editor](https://open.nytimes.com/building-a-text-editor-for-a-digital-first-newsroom-f1cb8367fc21) which is kind of similar.
+
+And another visual language: [Prograph](https://medium.com/@noelrap/prograph-c3caa90b89e8)

@@ -179,3 +179,28 @@ Potential upgrades:
   the Linux version 3.3.1 by copying the printer files across to `~/.config/cura/3.3/`.
 
 * Cura version 4.0.0 is out now too, so I'll give that a go!
+
+# UPDATE 2019-09-18
+
+* Cura version 4.2.1 is out and works great as an AppImage for Linux.
+
+* The bearing in the fan underneath the main board is failing and needs replacement one
+  of these days, which will required some annoying disassembly.
+
+* The blue glue stick is still going strong and tacks the prints down to the magnetic
+  bed so well that the bed itself peels off: to avoid this either don't print too close
+  to the `x=0,y=0` corner or I sometimes pop a little clip on that corner to give the 
+  magnetic bed some extra grip.
+
+  ![Lifting corner](img/lifting1.jpg)
+
+* I've managed to gum the print head up a couple of times now and had to remove & disassemble
+  it to get rid of bits of broken PLA.  It seems like it's a good idea to remove the filament
+  once you finish printing.
+
+* One idea which has worked well is to add 0.5mm holes through the piece, which is too small
+  to print properly as a hole but causes the slicer to build a little tube around it.  This
+  can be used to stiffen or reinforce designs which are otherwise sparsely infilled.
+
+* I really *really* wish that there was some way to save the slicer settings into the STL
+  file, because it gets very confusing working out how I tweaked the settings for various parts.

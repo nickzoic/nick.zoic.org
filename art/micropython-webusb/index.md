@@ -355,6 +355,8 @@ app to do the same kind of thing, either serving up a websocket or embedding a w
 Thanks to Adafruit for
 [sending some traffic my way](https://www.adafruitdaily.com/2018/02/16/micropython-with-webusb/)
 ... yeah, I don't ever look at analytics so it took me several months to notice.
+There's a [CircuitPython WebUSB](https://github.com/adafruit/circuitpython/issues/605) issue 
+open too ...
 
 Checkout the [NumWorks calculator](http://numworks.com/)'s WebUSB interface as part of 
 [#deskofladyada](https://www.youtube.com/watch?v=1e7SrAMvnHE?t=265) although that's 

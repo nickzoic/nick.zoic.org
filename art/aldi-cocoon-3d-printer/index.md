@@ -204,3 +204,8 @@ Potential upgrades:
 
 * I really *really* wish that there was some way to save the slicer settings into the STL
   file, because it gets very confusing working out how I tweaked the settings for various parts.
+
+# UPDATE 2019-10-11
+
+Some of my stuff is [now on Thingiverse](https://www.thingiverse.com/nickzoic/designs)
+and there's [lots more on Github](https://github.com/nickzoic/models3d/).

@@ -2,7 +2,6 @@
 date: '2018-02-09'
 layout: article
 slug: 'programming-beyond-text-files'
-redirect_from: '/art/syntax-tree-editors/'
 summary: 'Are programs really text files?'
 tags:
   - languages
@@ -32,9 +31,6 @@ Even [punctuation](https://en.wikipedia.org/wiki/Digraphs_and_trigraphs#C) and
 [whitespace](https://www.python.org/dev/peps/pep-0008/)
 turn out to be fraught, and endless arguments ensue.
 
-UPDATE:
-* [Interesting article about the origin of punch card sizes](http://exple.tive.org/blarg/2019/10/23/80x25/)
-
 <img src="img/margaret-hamilton-800px.jpg" class="narrow" alt="Margaret Hamilton"/>
 *[Margaret Hamilton](https://en.wikipedia.org/wiki/Margaret_Hamilton_(scientist\))
 pictured next to printouts of the Apollo mission software.
@@ -42,6 +38,10 @@ pictured next to printouts of the Apollo mission software.
 
 Back when monitors were small and computer time was expensive, we used to print out listings
 so we could take our programs away to think about.  When did you last print out a program?
+
+### UPDATE
+
+* [Interesting article about the origin of punch card sizes](http://exple.tive.org/blarg/2019/10/23/80x25/)
 
 ## Programming beyond Text
 
@@ -103,7 +103,7 @@ from the root of the filesystem to the individual atom of a parsed program.  We'
 [lose a lot of our old friends](/art/a-canticle-for-diff3/)
 like `find` and `grep` and `diff3`, but think of what we'd gain ...
 
-### UPDATE (again)
+### UPDATE
 
 Another interesting reference: the [New York Times' Oak Editor](https://open.nytimes.com/building-a-text-editor-for-a-digital-first-newsroom-f1cb8367fc21) which is kind of similar.
 

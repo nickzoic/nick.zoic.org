@@ -32,6 +32,9 @@ Even [punctuation](https://en.wikipedia.org/wiki/Digraphs_and_trigraphs#C) and
 [whitespace](https://www.python.org/dev/peps/pep-0008/)
 turn out to be fraught, and endless arguments ensue.
 
+UPDATE:
+* [Interesting article about the origin of punch card sizes](http://exple.tive.org/blarg/2019/10/23/80x25/)
+
 <img src="img/margaret-hamilton-800px.jpg" class="narrow" alt="Margaret Hamilton"/>
 *[Margaret Hamilton](https://en.wikipedia.org/wiki/Margaret_Hamilton_(scientist\))
 pictured next to printouts of the Apollo mission software.

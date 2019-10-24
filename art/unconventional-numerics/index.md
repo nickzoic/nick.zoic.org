@@ -64,4 +64,33 @@ Then we just need a function which can turn the recorded number back into an app
 Probabilities
 =============
 
+Probabilities have an interesting property: they are bounded in the range `[0,1]`.
+There's a limited number of operations which it is sensible to do on probabilities, 
+and those all maintain this boundry.  For example, you can find the inverse of a 
+property by subtracting it from 1 
+```
+P(not A) = 1 - P(A)
+```
+
+Or you can find the intersection of two probabilities by multiplying them:
+```
+P(A & B) = P(A) * P(B)
+```
+
+If you want to logically 'OR' two probabilities, you can't just add them up, 
+as this might lead to a number > 1.  Instead, you invert, multiple and invert them:
+```
+P(A | B) = 1 - ( (1-P(A)) * (1-P(B)))
+```
+
+If you go around storing probabilities in floats, you've got two problems:
+
+1. You're wasting the sign and exponent bits, which are almost always '0'.
+2. Floating point numbers behave differently near `0` and near `1`.
+3. Combining probabilities always comes down to floating point multiplication.
+
+You could simply store probabilities as a fixed-point number, so that each
+value is in a set range.
+
+
 

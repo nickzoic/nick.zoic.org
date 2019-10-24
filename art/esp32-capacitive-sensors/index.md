@@ -2,7 +2,6 @@
 category: etc
 date: '2017-02-14'
 layout: article
-redirect_from: '/etc/esp32-capacitive-sensors/'
 slug: 'esp32-capacitive-sensors'
 tags:
     - micropython
@@ -345,3 +344,13 @@ to work out what was going on inside the device.
 
 You may also notice that since the initial post I've gone and bought myself a DSO, a 
 [Siglent DS1102DL+](https://www.wavecom.com.au/product_view.php?id_product=1035).
+
+UPDATE 2019-10-24
+=================
+
+I keep meaning to 
+You might also enjoy this excellent [Touch Sensor Application Note](https://github.com/espressif/esp-iot-solution/blob/master/documents/touch_pad_solution/touch_sensor_design_en.md)
+
+I'd really like to experiment further with a 2D touch pad which would let you interpolate a 
+2D position from 4 channels ... might be time to work out how that
+[PCB mill](https://hackaday.com/2018/01/04/guide-why-etch-when-you-can-mill/) works!

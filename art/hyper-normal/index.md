@@ -1,6 +1,6 @@
 ---
 date: '2019-05-14'
-layout: draft
+layout: article
 tags:
     - speculation
     - maths

@@ -1,6 +1,6 @@
 ---
 date: '2019-10-24'
-layout: draft
+layout: article
 tags:
 title: 'Occasional Update'
 summary: "Where am I? What have I been up to? Is this thing even working?"
@@ -17,16 +17,17 @@ and taking the whole world with it.
 Maybe it's just been a chance to catch up with myself and think about
 what I want to be doing.
 
-Some good things have come out of it: my fitness has improved a lot as
-I'm cycling a lot more, and I've started to learn ukulele, which I show
-no real talent for but I'm enjoying a lot.  It's fun to be a beginner!
+Some good things have come out of it: I've been able to spend more time
+with the kids, my fitness has improved a lot as
+I'm cycling a lot more, and I've started to learn ukulele.  Which I show
+no real talent for but I'm enjoying a lot -- it's fun to be a beginner!
 
 I've also been unearthing some stuff from 10 years ago, particularly the
 work I was doing on [Virtual Localization](/art/virtual-localization/).
 When I walked away from that work it seemed like I'd left my run too late,
 but apparently not.  Also there's a bunch of work I did on "Mixed-mode" 
-simulation (embedding Linux containers into network simulators) and on
-geo-addressing which disappeared off into departmental tech reports and
+simulation (embedding Linux containers into event-driven network simulations)
+and on geo-addressing which disappeared off into departmental tech reports and
 never saw the light of day again.
 
 There's some weird auto-archaeology going on here.  Lots of the stuff

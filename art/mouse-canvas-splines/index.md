@@ -18,6 +18,10 @@ title: 'Mouse Events, Canvas and Splines in Javascript / HTML5'
     and on the iPad. I haven't tried them on IE or [older
     stuff](http://caniuse.com/#search=canvas).
 
+-   Update: [numericjs.com](https://web.archive.org/web/20180915211422/http://www.numericjs.com/)
+    doesn't seem to exist any more in 2019 but there's still a 
+    [numeric js github repo](https://github.com/sloisel/numeric/)
+
 Of Mice And Canvases
 ====================
 

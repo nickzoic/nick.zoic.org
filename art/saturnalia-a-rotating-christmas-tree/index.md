@@ -17,20 +17,26 @@ waiting for December to come around.
 
 ## Rotating Table
 
+A couple of years ago I built a rotating table for the tree to sit on, out of a 
+cheap lazy susan bearing and a couple of big circles of MDF.
+This makes it really easy to wrap tinsel around the tree, and the decorate it
+evenly all over, but one side always ends up getting left against the wall, which 
+made me think: what if the tree could very slowly rotate on its own?
+
 ## Motor Drives
 
 ![turntable.jpg](img/turntable.jpg)
 ![big-gear.jpg](img/big-gear.jpg)
 
 First, I printed off a 117 tooth gear for the base.  It's cut into 9 pieces of 13 teeth
-each, and fits exactly around the 305mm outer diameter of the bearing.
+each, and fits exactly around the 305mm outer diameter of the lazy susan bearing.
 
 ![printing-big-gear.jpg](img/printing-big-gear.jpg)
 
 I wanted to have the motor components all accessible from on top of the base so the
 big gear is actually attached to the stationary base and the motor is attached to
 the rotating platform.
-The motor mounts through a 51mm hole in the platform, which allows the smaller gear to 
+The motor mounts through a 51mm round hole in the platform, which allows the smaller gear to 
 be on an eccentric so it can be moved in and out a little to adjust the gear clearance.
 
 ![motor-mount-small.jpg](img/motor-mount-small.jpg)
@@ -39,8 +45,8 @@ First I tried a NEMA-23 stepper I happened to have in the junkbox, directly driv
 tooth pinion.  This worked okay and had plenty of power, but the aim was to turn the tree
 quite slowly and at low speeds it wasn't terribly effective.
 
-I also tried out a small 28BYJ-48 stepper, which has a 1:64ish ratio gearbox built in,
-and while it did an okay job at very low speeds, it had barely enough torque to do the
+I also tried out a small 28BYJ-48 stepper, which has a 1:64ish ratio gearbox built in.
+While it did an okay job at very low speeds, it had barely enough torque to do the
 job.
 
 So with yet more OpenSCAD work I ended up with the following:
@@ -94,14 +100,19 @@ The tree lights also have to be powered the same way, and so a 5V/3A buck
 converter module is used to supply power to a couple of strings of WS2811 based
 LEDs.  These are controlled from the same processor as the stepper driver.
  
-![lights-1.jpg](img/lights-1.jpg)
 ![lights-2.jpg](img/lights-2.jpg)
 
 ## Software
 
-[Code in MicroPython](https://github.com/nickzoic/saturnalia/) runs on an
-[ESP32](/tags/esp32/) to control both stepper and lights.
+[Code in MicroPython/ESP32](https://github.com/nickzoic/saturnalia/) controls
+both stepper and lights.
 
 A simple web server using [PyCoSe](https://github/nickzoic/pycose/) lets 
 the tree be remote controlled from devices on our home WiFi.
 
+## Acknowledgements
+
+Thanks to my family for inspiring and putting up with this strange project and
+the terrible state of the loungeroom while I was assembling it ...
+
+![messy loungeroom](img/messy.jpg)

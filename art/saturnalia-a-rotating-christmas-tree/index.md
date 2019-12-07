@@ -19,27 +19,27 @@ waiting for December to come around.
 
 ## Motor Drives
 
-![turntable.jpg](turntable.jpg)
-![bearings.jpg](bearings.jpg)
-![big-gear.jpg](big-gear.jpg)
-![messy.jpg](messy.jpg)
-![motor-mount-small.jpg](motor-mount-small.jpg)
-![printing-big-gear.jpg](printing-big-gear.jpg)
-![printing-small-gears.jpg](printing-small-gears.jpg)
-![gearbox-1.jpg](gearbox-1.jpg)
-![gearbox-2.jpg](gearbox-2.jpg)
+![turntable.jpg](img/turntable.jpg)
+![bearings.jpg](img/bearings.jpg)
+![big-gear.jpg](img/big-gear.jpg)
+![messy.jpg](img/messy.jpg)
+![motor-mount-small.jpg](img/motor-mount-small.jpg)
+![printing-big-gear.jpg](img/printing-big-gear.jpg)
+![printing-small-gears.jpg](img/printing-small-gears.jpg)
+![gearbox-1.jpg](img/gearbox-1.jpg)
+![gearbox-2.jpg](img/gearbox-2.jpg)
 
 [3D Models on GitHub](https://github.com/nickzoic/models3d/)
 
 ## Slip Ring
 
-![phono-slip-ring-1.jpg](phono-slip-ring-1.jpg)
-![phono-slip-ring-2.jpg](phono-slip-ring-2.jpg)
+![phono-slip-ring-1.jpg](img/phono-slip-ring-1.jpg)
+![phono-slip-ring-2.jpg](img/phono-slip-ring-2.jpg)
 
 ## Lights
 
-![lights-1.jpg](lights-1.jpg)
-![lights-2.jpg](lights-2.jpg)
+![lights-1.jpg](img/lights-1.jpg)
+![lights-2.jpg](img/lights-2.jpg)
 
 ## Software
 

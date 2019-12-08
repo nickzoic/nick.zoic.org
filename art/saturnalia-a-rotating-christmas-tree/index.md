@@ -20,11 +20,12 @@ waiting for December to come around so it can loom over our living room.
 
 A couple of years ago I built a rotating table for the tree to sit on, out of a 
 cheap lazy susan bearing and a couple of big circles of MDF.
-This makes it really easy to wrap tinsel around the tree, and the decorate it
+This makes it really easy to wrap tinsel around the tree, and to decorate it
 evenly all over, but one side always ends up getting left against the wall.
+
 Which made me think: what if the tree could very slowly rotate on its own?
 
-Like most involved ideas, it sat and fermented for a while until this year,
+Like most silly ideas, it sat and fermented for a while until this year,
 finally, I had a chance to put it into action.  Late last year I bought a
 [cheap 3D printer](/art/aldi-cocoon-3d-printer/) and I have a bunch of 
 random motors and [microcontrollers](/tag/microcontroller/) laying around so
@@ -55,8 +56,11 @@ and number of teeth.
 *Big Gear Segments*
 
 After some fiddling around with the design, I ended up with a tooth diameter of 335.5mm 
-and since the gear is way bigger than the 120 x 135mm printable area of my printer,
-I picked 9 segments of 13 teeth each for a total of 117 teeth.
+and since the required gear is way bigger than the 120 x 135mm printable area of my printer,
+I picked 9 segments of 13 teeth each for a total of 117 teeth.  I printed these 3 at 
+a time, and after a couple of bad prints due to broken and jammed filaments I finally
+had my full big gear.  There's a real thrill to lining up printed parts and discovering
+that they fit perfectly!
 
 ![Printing big gear](img/printing-big-gear.jpg)
 *Printing big gear*
@@ -67,14 +71,17 @@ three screws holding each segment in place.
 ![Big gear on base](img/big-gear.jpg)
 *Big gear on base*
 
-*pictured: two screws per segment and yet another trip to the hardware store pending*
+*pictured: two screws per segment*
+
+*not pictured: yet another trip to the hardware store*
 
 I wanted to have the motor components all accessible from on top of the base in case I need
 to fix anything.
 So the big gear is actually attached to the stationary base and the motor is attached to
 the rotating platform.
-The motor mounts through a 51mm round hole in the platform, which allows the smaller gear to 
-be on an eccentric so it can be moved in and out a little to adjust the gear clearance.
+The motor mounts through a 51mm round hole in the platform, cut with a hole saw, which allows
+the smaller gear to be on an eccentric so it can be moved in and out a little to adjust the
+gear clearance.
 
 ![Eccentric mount for 28BYJ-48 motor](img/motor-mount-small.jpg)
 *Eccentric mount for 28BYJ-48 motor*
@@ -101,6 +108,17 @@ the 117 tooth gear on the base.
 So overall there's about a 93:1 drive ratio between the stepper and the 
 platform.
 
+The output shaft assembles using a square end and a square socket in the primary output gear.
+By making the square end's diagonal just a smidge smaller than the bearing ID it can be assembled 
+through the bearings. and the shaft then retains the bearings in their seats.
+
+The primary input gear is currently just press fitted onto the stepper motor shaft and retained with
+a little superglue, but i may need to come up with somethng better if it comes loose again --
+perhaps a metal collar and grub screw or a keyway ground into the stepper shaft.
+
+The whole thing is sized to use every last mm of the printable area of my printer.
+The teeth are a slightly smaller pitch than the secondary gears, but still pretty chunky.
+
 ![Printing small gears](img/printing-small-gears.jpg)
 *Printing small gears*
 
@@ -117,7 +135,8 @@ shaft, so overall that's about 18624½ steps per revolution of the platform.
 
 The gears need a housing to support them, and that's 3D printed as well.
 The lower part contains the eccentric and the seats for a couple of cheap
-6901Z ball bearings.
+6901Z ball bearings.  These are a nice size to use because they are quite 
+compact but the 12mm ID is big enough for a 3D printed driveshaft.
 
 ![6901Z bearings](img/bearings.jpg)
 *6901Z bearings*
@@ -128,6 +147,12 @@ A couple of wood screws hole the whole thing down the the platform.
 ![Gearbox with cover & motor mount](img/gearbox-2.jpg)
 *Gearbox with cover & motor mount*
 
+The secondary pinion is very close to the stationary base, which it is moving
+relative to, so I've added a socket for a 8mm ball bearing in the end of the 
+pinion.  This prevents the teeth of the pinion from touching the base and 
+allows the pinion to glide smoothly over the base surface.  The ball is pressed
+into place in a vice and then loosely retained by the socket.
+
 The [3D Models are on GitHub](https://github.com/nickzoic/models3d/tree/master/saturnalia)
 although there's still some work to be done.
 (Since printing it, I've made the lid a little heavier and added some mounting 
@@ -137,6 +162,7 @@ ears just to keep the cover from buzzing)
 
 The motor and controller need power to run, and getting power to a continuously
 rotating platform isn't easy.
+
 There's a device called a
 "[slip ring](https://en.wikipedia.org/wiki/Slip_ring)"
 which allows this to happen using sliding
@@ -146,16 +172,19 @@ connector would do in a pinch.
 
 The most suitable connector in the junkbox was a 6.35mm / 1/4" phono connector,
 as used in guitar leads and similar audio applications.
-This isn't rated to any particular current
-but the contacts are pretty well formed for this sort of thing.
+This isn't rated to any particular voltage or current
+but they're very cheap and the contacts are pretty well formed for this sort of thing.
 
 ![Phono plug slip ring socket](img/phono-slip-ring-1.jpg)
-![Phono socket and plug](img/phono-slip-ring-2.jpg)
-*Phono plug slip ring*
+*Phono plug slip ring: socket*
 
-Power is supplied from an old laptop charger at 15V, goes to a phono socket 
-mounted on the stationary base which sticks up through the rotating platform,
-and a right-angle phono plug transmits power to the L293D motor driver module.
+![Phono socket and plug](img/phono-slip-ring-2.jpg)
+*Phono plug slip ring: plug*
+
+Power is supplied from an old laptop charger at 15V, through the slip ring and
+then power goes to the L293D based motor driver and to a couple of 5V/3A buck
+converters.  Running the slip ring at a higher voltage lets us run it at a lower
+current, hopefully reducing losses and increasing its life.
 
 ## Lights
 
@@ -168,17 +197,37 @@ using the
 ![WS2811 lights](img/lights-2.jpg)
 *WS2811 lights*
 
+The lights themselves are just bought from Ebay and so far I'm very happy with
+them.  Each light has its own tiny PCB and controller.  The strings can be connected
+together but the wiring is far too flimsy to run more than one string at high
+brightness ... later LEDs turn yellowish as the blue LED runs out of voltage to
+function.
+
 ## Software
 
-This is still very much a work in progress.
+This is still very much a work in progress, or to put it another way, it's 
+rather janky.
 
 [Code in MicroPython/ESP32](https://github.com/nickzoic/saturnalia/) controls
 both stepper and lights.
 
 A simple web server using [PyCoSe](https://github/nickzoic/pycose/) lets 
 the tree be remote controlled from devices on our home WiFi.
-Yeah, it's a bit experimental at this point and I'm mostly using it to eat my 
-own dog food.
+Yeah, PyCoSe is a bit experimental at this point and I'm mostly using it for
+this project to eat my own dog food.
+
+## Further Work
+
+The software needs a lot of work.  I think I might have just dislocated a pinion.
+And the lights and baubles are not yet hanging (some of the lights are still in the
+mail) and the videos are yet to be shot.  Also I want to add in some more explanatory
+text about how the motors and gears work.
+
+If I was starting the design process over again I'd consider using a 
+[Cycloidal Drive](https://en.wikipedia.org/wiki/Cycloidal_drive) instead.
+
+If you're interested in following along, [follow me on Twitter](https://twitter.com/nickzoic/)
+and I'll post updates and videos and so on there.
 
 ## Acknowledgements
 
@@ -187,5 +236,5 @@ the terrible state of the loungeroom while I was assembling it ...
 
 ![messy loungeroom](img/messy.jpg)
 
-Merry Christmas to all of you out there in Internetland
-and all the best eishes for 2020 `:-)`
+Merry Christmas (etc) to all of you out there in Internetland
+and all the best wishes for 2020 `:-)`

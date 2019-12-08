@@ -43,6 +43,7 @@ The bearing has a nicely formed metal edge at 305mm OD, so it seemed natural
 to use that as a guide and build the gear around it.
 
 ![The turntable platform](img/turntable.jpg)
+*The turntable platform*
 
 I quite like working in [OpenSCAD](https://openscad.org/) so I grabbed the excellent
 [openscad gears library](https://github.com/chrisspen/gears) and experimented a bit
@@ -51,17 +52,22 @@ appropriate [gear modulus](https://en.wikipedia.org/wiki/Gear#Standard_pitches_a
 and number of teeth.
 
 ![Big Gear Segments](img/big-gear.png)
+*Big Gear Segments*
 
 After some fiddling around with the design, I ended up with a tooth diameter of 335.5mm 
 and since the gear is way bigger than the 120 x 135mm printable area of my printer,
 I picked 9 segments of 13 teeth each for a total of 117 teeth.
 
 ![Printing big gear](img/printing-big-gear.jpg)
+*Printing big gear*
 
 It fits exactly around the 305mm outer diameter of the lazy susan bearing, with 
 three screws holding each segment in place.
 
 ![Big gear on base](img/big-gear.jpg)
+*Big gear on base*
+
+*pictured: two screws per segment and yet another trip to the hardware store pending*
 
 I wanted to have the motor components all accessible from on top of the base in case I need
 to fix anything.
@@ -71,6 +77,7 @@ The motor mounts through a 51mm round hole in the platform, which allows the sma
 be on an eccentric so it can be moved in and out a little to adjust the gear clearance.
 
 ![Eccentric mount for 28BYJ-48 motor](img/motor-mount-small.jpg)
+*Eccentric mount for 28BYJ-48 motor*
 
 First I tried a [NEMA-23 stepper](http://www.piclist.com/techref/io/stepper/nemasizes.htm)
 I happened to have in the junkbox, directly driving a 7 
@@ -85,6 +92,7 @@ fine for a more modest tree though.
 So with yet more OpenSCAD work I ended up with the following:
 
 ![Gear Train](img/big-motor-3.png)
+*Gear Train*
 
 The NEMA-23 motor turns a 7 tooth pinion ('A'), which engages with a large 39 tooth gear 
 ('B') on the output shaft.
@@ -94,6 +102,7 @@ So overall there's about a 93:1 drive ratio between the stepper and the
 platform.
 
 ![Printing small gears](img/printing-small-gears.jpg)
+*Printing small gears*
 
 The output shaft is supported by a couple of cheap 6901Z ball bearings and has
 another 7 tooth pinion ('C') on the lower end, which drives the 117 tooth gear on the base.
@@ -101,18 +110,23 @@ The stepper is a 1.8⁰ per step or 200 steps per revolution of its output
 shaft, so overall that's about 18624½ steps per revolution of the platform.
 
 ![Geartrain in base](img/big-motor-3-2.png)
+*Geartrain in base*
+
 ![Base mounted on platform](img/gearbox-1.jpg)
+*Base mounted on platform*
 
 The gears need a housing to support them, and that's 3D printed as well.
 The lower part contains the eccentric and the seats for a couple of cheap
 6901Z ball bearings.
 
 ![6901Z bearings](img/bearings.jpg)
+*6901Z bearings*
 
 The upper part contains the motor mount for the NEMA-23 motor.
 A couple of wood screws hole the whole thing down the the platform.
 
 ![Gearbox with cover & motor mount](img/gearbox-2.jpg)
+*Gearbox with cover & motor mount*
 
 The [3D Models are on GitHub](https://github.com/nickzoic/models3d/tree/master/saturnalia)
 although there's still some work to be done.
@@ -137,6 +151,7 @@ but the contacts are pretty well formed for this sort of thing.
 
 ![Phono plug slip ring socket](img/phono-slip-ring-1.jpg)
 ![Phono socket and plug](img/phono-slip-ring-2.jpg)
+*Phono plug slip ring*
 
 Power is supplied from an old laptop charger at 15V, goes to a phono socket 
 mounted on the stationary base which sticks up through the rotating platform,
@@ -151,6 +166,7 @@ using the
 [MicroPython NeoPixel library](http://docs.micropython.org/en/latest/esp32/quickref.html#neopixel-driver).
  
 ![WS2811 lights](img/lights-2.jpg)
+*WS2811 lights*
 
 ## Software
 

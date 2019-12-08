@@ -8,6 +8,7 @@ tags:
   - 3dprint
   - micropython
 title: 'Saturnalia: A rotating Christmas tree'
+summary: "Apparently I have a little too much time on my hands and maybe a little too much enthusiasm for the holiday season"
 ---
 
 So we have an enormous, fake Christmas tree.  An
@@ -169,3 +170,6 @@ Thanks to my family for inspiring and putting up with this strange project and
 the terrible state of the loungeroom while I was assembling it ...
 
 ![messy loungeroom](img/messy.jpg)
+
+Merry Christmas to all of you out there in Internetland
+and all the best eishes for 2020 `:-)`

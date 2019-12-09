@@ -127,16 +127,6 @@ another 7 tooth pinion ('C') on the lower end, which drives the 117 tooth gear o
 The stepper is a 1.8⁰ per step or 200 steps per revolution of its output
 shaft, so overall that's about 18624½ steps per revolution of the platform.
 
-Interestingly, just as I was finishing this article there was a subtle "pop" and the tree ground to a halt.
-On inspection, the output shaft had snapped right where the gear meets the shaft:
-
-![Snapped Output Shaft](img/snapped.jpg)
-*Snapped Output Shaft*
-
-This looks like it was due to poor selection of infill: the thick walls and open grid infill which
-worked fine for the primary output gear wasn't suitable for the much smaller parts.
-So I'm reprinting that with a much denser gyroid infill.
- 
 ![Geartrain in base](img/big-motor-3-2.png)
 *Geartrain in base*
 
@@ -168,6 +158,21 @@ although there's still some work to be done.
 (Since printing it, I've made the lid a little heavier and added some mounting 
 ears just to keep the cover from buzzing)
 
+Interestingly, just as I was finishing this article there was a subtle "pop" and the tree ground to a halt.
+On inspection, the output shaft had snapped right where the gear meets the shaft:
+
+![Snapped Output Shaft](img/snapped.jpg)
+*Snapped Output Shaft*
+
+This looks like it was due to poor selection of infill: the thick walls and open grid infill which
+worked fine for the primary output gear wasn't suitable for the much smaller parts.
+So I'm reprinting that with a much denser gyroid infill.
+
+You might also notice I've started printing version numbers on everything.  This makes it a 
+lot easier to keep track of which print is which.  Currently the tree has a v5 base, a v6
+cover and I'm now printing a v7 driveshaft.  Not much has changed, but its good to keep
+track of it.
+ 
 ## Slip Ring
 
 The motor and controller need power to run, and getting power to a continuously

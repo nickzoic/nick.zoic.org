@@ -127,6 +127,16 @@ another 7 tooth pinion ('C') on the lower end, which drives the 117 tooth gear o
 The stepper is a 1.8⁰ per step or 200 steps per revolution of its output
 shaft, so overall that's about 18624½ steps per revolution of the platform.
 
+Interestingly, just as I was finishing this article there was a subtle "pop" and the tree ground to a halt.
+On inspection, the output shaft had snapped right where the gear meets the shaft:
+
+![Snapped Output Shaft](img/snapped.jpg)
+*Snapped Output Shaft*
+
+This looks like it was due to poor selection of infill: the thick walls and open grid infill which
+worked fine for the primary output gear wasn't suitable for the much smaller parts.
+So I'm reprinting that with a much denser gyroid infill.
+ 
 ![Geartrain in base](img/big-motor-3-2.png)
 *Geartrain in base*
 
@@ -202,6 +212,9 @@ them.  Each light has its own tiny PCB and controller.  The strings can be conne
 together but the wiring is far too flimsy to run more than one string at high
 brightness ... later LEDs turn yellowish as the blue LED runs out of voltage to
 function.
+
+![Prototype Wiring](img/prototype.jpg)
+*Prototype Wiring*
 
 ## Software
 

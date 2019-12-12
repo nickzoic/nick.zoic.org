@@ -279,7 +279,9 @@ to a public MQTT server then anyone in the world can spy on your Christmas tree
 and even seize control of it by sending their own messages.
 
 But it's pretty amazing how much neater and cleaner the code is, and how easy it
-was to set up.
+was to set up.  There's no need to worry about DHCP addresses or anything like that,
+the tree just configures itself and listens.
+This ties into my [L2IoT protocol](/art/l2iot-iot-without-ip/) concept as well.
 
 ## Plotting 3D position
 

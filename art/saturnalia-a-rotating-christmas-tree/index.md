@@ -265,6 +265,35 @@ can still be turned by hand when the motor is off.
 If you're interested in following along, [follow me on Twitter](https://twitter.com/nickzoic/)
 and I'll post updates and videos and so on there.
 
+## MQTT
+
+I mention just above that having two real-time functions plus the web server 
+all competing for CPU time wasn't working real well, and I was considering adding
+an extra secondary CPU ... well, instead, I added a whole 'nother ESP32 and
+switched to using MQTT instead of HTTP.
+
+How this works is that the two controllers each listen to their own MQTT topic,
+and wait for a relevant message to set either the speed or the light mode.
+Obviously this is pretty wasteful and flagrantly insecure and if you're connecting
+to a public MQTT server then anyone in the world can spy on your Christmas tree
+and even seize control of it by sending their own messages.
+
+But it's pretty amazing how much neater and cleaner the code is, and how easy it
+was to set up.
+
+## Plotting 3D position
+
+![Plotting the positions of lights on a tree](img/lmcunderwood-tree.png)
+*Plotting the positions of lights on a tree*
+
+[This tweet by Lorraine Underwood](https://twitter.com/LMcUnderwood/status/1203644133828640768)
+discusses determining the location of the lights on a tree in 3D space.  I'd been
+thinking along similar lines, using the rotator naturally, and now I've got my full
+complement of lights on board and an ESP32-CAM board working it should be a fun project.
+The aim then will be to synchronize the lights and motor movement, so that for example
+the lights could be set to a vertical striped pattern which stands still even as the 
+tree rotates 'under' it.
+
 ## Acknowledgements
 
 Thanks to my family for inspiring and putting up with this strange project and

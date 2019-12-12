@@ -204,19 +204,24 @@ current, hopefully reducing losses and increasing its life.
 ## Lights
 
 The tree lights also have to be powered the same way, and so a 5V/3A buck 
-converter module is used to supply power to a couple of strings of WS2811 based
-LEDs.  These are controlled from the same processor as the stepper driver
+converter module is used to supply power to a chain of 
+300
+[WS2811](https://www.adafruit.com/product/1378)-driven LED lights.
+These are individually controllable from the same processor as the stepper driver
 using the
 [MicroPython NeoPixel library](http://docs.micropython.org/en/latest/esp32/quickref.html#neopixel-driver).
  
 ![WS2811 lights](img/lights-2.jpg)
 *WS2811 lights*
 
-The lights themselves are just bought from Ebay and so far I'm very happy with
+The [LED lights I bought on Ebay](https://www.ebay.com.au/itm/2X-50-X-12mm-LED-Module-RGB-WS2811-Digital-Pixel-Addressable-led-Strip-wate-H4Y3/283615712023)
+and so far I'm very happy with
 them.  Each light has its own tiny PCB and controller.  The strings can be connected
 together but the wiring is far too flimsy to run more than one string at high
 brightness ... later LEDs turn yellowish as the blue LED runs out of voltage to
-function.
+function.  But if you're only driving a few LEDs at a time, or driving them at low 
+power, the whole chain works nicely.  There's also spare wires at the start of each 
+chain to attach extra power connections to boost the voltage in the chain.
 
 ![Prototype Wiring](img/prototype.jpg)
 *Prototype Wiring*
@@ -241,8 +246,21 @@ And the lights and baubles are not yet hanging (some of the lights are still in 
 mail) and the videos are yet to be shot.  Also I want to add in some more explanatory
 text about how the motors and gears work.
 
-If I was starting the design process over again I'd consider using a 
+The biggest problem I've got is that both the lights and the motor need
+real-time control, and the time taken to update the lights is greater than the
+interval needed between microsteps of the motor.  So either I have to have 
+the motor running less smoothly, or break the lights into smaller chains.
+
+The ESP32 is a dual core CPU so in theory one core could handle each task but there's
+also the WiFi to compete with: in practice I might end up using a secondary CPU
+for motor control, or maybe just a whole 'nother ESP32.
+
+I'm pretty happy with how the gearbox is working now, but the gear ratio
+could be bigger and
+if I was starting the design process over again I'd consider using a 
 [Cycloidal Drive](https://en.wikipedia.org/wiki/Cycloidal_drive) instead.
+It'd also be nice to have some kind of clutch mechanism so that the tree
+can still be turned by hand when the motor is off.
 
 If you're interested in following along, [follow me on Twitter](https://twitter.com/nickzoic/)
 and I'll post updates and videos and so on there.

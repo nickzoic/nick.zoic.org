@@ -262,6 +262,12 @@ if I was starting the design process over again I'd consider using a
 It'd also be nice to have some kind of clutch mechanism so that the tree
 can still be turned by hand when the motor is off.
 
+The tree is a lot heavier now all the lights and decorations are on board, and
+thus has a much higher moment of inertia ... I've added some code to gently
+accelerate and decelerate the tree to reduce load on the geartrain, but it's 
+interesting to see how much movement there is in the decorations as the tree
+wobbles very slightly in its orbit.
+
 If you're interested in following along, [follow me on Twitter](https://twitter.com/nickzoic/)
 and I'll post updates and videos and so on there.
 
@@ -282,6 +288,11 @@ But it's pretty amazing how much neater and cleaner the code is, and how easy it
 was to set up.  There's no need to worry about DHCP addresses or anything like that,
 the tree just configures itself and listens.
 This ties into my [L2IoT protocol](/art/l2iot-iot-without-ip/) concept as well.
+
+(Update: after a certain amount of messing about it turns out that you need to
+provide a keepalive ping every 30 seconds or so to stop the server vagueing out on
+you.  It seems odd that the library doesn't do this for you, but thankfully it's 
+easy to set up a timer for this purpose)
 
 ## Plotting 3D position
 

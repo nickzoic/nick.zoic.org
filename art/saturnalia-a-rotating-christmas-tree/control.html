@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <title>Mosquitto Websockets</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/paho-mqtt/1.0.1/mqttws31.js" type="text/javascript"></script>
+    <script type="text/javascript">
+(function () {
+    var mqtt;
+    var reconnectTimeout = 2000;
+    function MQTTconnect() {
+	if (typeof path == "undefined") {
+		path = '/mqtt';
+	}
+	mqtt = new Paho.MQTT.Client(
+			'mqtt.eclipse.org',
+			443,
+			'/mqtt',
+			'saturnalia-control.zoic.org'
+	);
+        var options = {
+            timeout: 3,
+            useSSL: true,
+            cleanSession: true,
+            onSuccess: onConnect,
+	    onFailure: function (message) {
+		alert(message.errorMessage);
+  	    }
+        };
+        mqtt.onConnectionLost = onConnectionLost;
+        //mqtt.onMessageArrived = onMessageArrived;
+        mqtt.connect(options);
+    }
+    function onConnect() {
+	motor.onchange = sendMotorMessage;
+	lights.onchange = sendLightsMessage;
+    }
+    function onConnectionLost(response) {
+        setTimeout(MQTTconnect, reconnectTimeout);
+    };
+    function sendMotorMessage(_) {
+	mqtt.send('org/zoic/saturnalia/motor', motor.value);
+    };
+    function sendLightsMessage(_) {
+	mqtt.send('org/zoic/saturnalia/lights', lights.value); 
+	  };
+    window.onload = function() {
+        MQTTconnect();
+    };
+})();
+    </script>
+  </head>
+  <body>
+    <h1>Saturnalia</h1>
+    <div>
+	    Motor: <select id="motor">
+		    <option value="-50">-50</option>
+		    <option value="-40">-40</option>
+		    <option value="-30">-30</option>
+		    <option value="-20">-20</option>
+		    <option value="-10">-10</option>
+		    <option value="0">0</option>
+		    <option value="10">10</option>
+		    <option value="20">20</option>
+		    <option value="30">30</option>
+		    <option value="40">40</option>
+		    <option value="50">50</option>
+		</select>
+		<br/>
+		Lights:
+		<select id="lights">
+			<option value="0">0</option>
+			<option value="1">1</option>
+			<option value="2">2</option>
+			<option value="3">3</option>
+		</select>
+    </div>
+  </body>
+</html>

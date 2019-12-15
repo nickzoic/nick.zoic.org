@@ -294,6 +294,13 @@ provide a keepalive ping every 30 seconds or so to stop the server vagueing out 
 you.  It seems odd that the library doesn't do this for you, but thankfully it's 
 easy to set up a timer for this purpose)
 
+## More work
+
+Depsite using microstepping, the motor is noticeably "ticky" as it jumps from
+phase to phase.  The motor control loop takes about 3.5ms to run, so it's not
+that.  I think I just need to fiddle the parameters a little to get a smoother
+action.
+
 ## Plotting 3D position
 
 ![Plotting the positions of lights on a tree](img/lmcunderwood-tree.png)
@@ -316,3 +323,11 @@ the terrible state of the loungeroom while I was assembling it ...
 
 Merry Christmas (etc) to all of you out there in Internetland
 and all the best wishes for 2020 `:-)`
+
+## VIDEO
+
+Everyone's been asking for it, so here it is:
+
+[Time-lapse video](https://www.youtube.com/watch?v=RFfNYPqqQh0)
+
+<iframe width="1280" height="748" src="https://www.youtube.com/embed/RFfNYPqqQh0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>

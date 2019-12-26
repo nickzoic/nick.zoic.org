@@ -330,7 +330,7 @@ Everyone's been asking for it, so here it is:
 
 [Time-lapse video](https://www.youtube.com/watch?v=RFfNYPqqQh0)
 
-<div style="position: relative; width: 100%; height: 0; padding-bottom: 51%"><iframe width="90%" src="https://www.youtube.com/embed/RFfNYPqqQh0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" style="position: absolute; width: 100%; height: 100%; left: 0; top: 0" allowfullscreen></iframe></div>
+<div style="position: relative; width: 100%; height: 0; padding-bottom: 100%"><iframe src="https://www.youtube.com/embed/RFfNYPqqQh0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" style="position: absolute; width: 100%; height: 100%; left: 0; top: 0" allowfullscreen></iframe></div>
 
 (I just assumed that YouTube would handle vertical videos more elegantly by now, but 
 apparently not.)

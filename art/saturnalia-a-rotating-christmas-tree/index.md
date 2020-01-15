@@ -339,3 +339,51 @@ apparently not.)
 
 The gearbox survived through Christmas!  I'll pull it apart when the tree comes down and
 have a look at the wear on the teeth and the phono plug slip ring.
+
+## FINAL UPDATE: JANUARY 2020
+
+After a few days' runtime, wear on the gears is negligible, even on the smallest pinion on
+the motor shaft which turns 93 times as often as the tree itself.
+Surprisingly, the phono plug slip ring is showing no signs of wear
+either, although I can't see the internal socket contacts so they may have suffered.
+The re-printed output shaft was much stronger, and didn't break again despite the tree getting
+stalled a few times by coffee tables, dogs and other obstacles.
+
+My favourite way to run the tree was at very low speed, so that the movement was barely 
+perceptible. The leaves vibrate slightly as if it a breeze, and if you stare at it long
+enough, the tree seems to stay still and the rest of the room seems to move slightly.
+
+Everyone else found this horrible and disturbing and preferred the tree to whisk merrily
+around.  This was a bit beyond the capacity of the existing motor so I suspect for next year
+we'll have an improved motor drive capable of handling 1 RPM or so, possibly using a 
+toothed belt drive to minimize vibration.  Probably a proper slip ring too and the lazy
+susan bearings might not be the best choice.
+
+The old-school L298 motor driver I used wasn't a great choice, running way too hot due to
+the voltage drop across the bipolar transistors.  It also has quite limiting PWM capabilities
+due to slow switching (~1 µs).  I'll switch to MOSFET based drivers if I'm using a stepper
+again.
+
+I also need to run more power wiring for the LEDS.  The chains plug togther, but voltage
+loss over more than one chain is way too high, leading to color shifting and very limited
+brightness overall.  Attaching a separate pair of power wires at each end of each chain would
+help this a lot.
+
+The neopixel timing was also annoyingly glitchy due to timing issues.
+New work on the [RMT peripheral in Micropython/ESP32](https://github.com/micropython/micropython/pull/5184) has made it possible to control neopixels without glitches. 
+Alternatively, a little [picopixel driver board](https://github.com/usedbytes/neopixel_i2c) could 
+be used to take the load off the main CPU.
+
+I'd also consider setting up a separate small MCU just to handle the stepper
+timing: dealing with that in multi-threaded code is a bummer.  This would make a really
+nice stand-alone board anyway: a little board with a ATTiny or similar and a couple of
+MOSFET drivers, communicating to the host CPU on I2C much like the PicoPixel does.
+
+Or maybe this is a good case for having a ESP32 + [FPGA](/tag/fpga/) board?
+
+Last but definitely not least, in my haste to get this project ready in time for Christmas
+Eve I ended up falling back on [all the IoT antipatterns I like to complain about](/art/the-internet-of-not-shit-things/) ... the tree just listened to unencrypted messages on a public Mosquitto
+server and I even published the details in my github repo.  I never noticed anyone fooling
+with it, but it's still not a very clever way to go.
+
+But anyway: Happy New Year, and may 2020 be a happy and creative one for all of us.

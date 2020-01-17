@@ -1,4 +1,9 @@
-﻿# RÉSUMÉ: Nicholas Moore
+﻿---
+layout: article
+title: Résumé
+---
+
+# RÉSUMÉ: Nicholas Moore
 January 2020
 
 *[Download in PDF format](./resume-nick-moore-2020-1.pdf)*

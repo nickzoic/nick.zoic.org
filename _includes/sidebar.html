@@ -11,6 +11,11 @@
     <nav class="sidebar-nav">
       <a class="sidebar-nav-item{% if page.url == '/nick-moore/' %} active{% endif %}" href="/nick-moore/">Nick Moore</a>
 
+      <p><em>
+        Finding this stuff interesting and/or useful? Why not
+        <a href="https://github.com/sponsors/nickzoic">Sponsor me through GitHub!</a>
+      </em></p>
+
       <h2>Recently:</h2>
       {% assign pages_list = site.pages | sort:"date" | reverse %}
       {% for node in pages_list limit:10 %}
@@ -33,7 +38,9 @@
       {% endfor %}
     </nav>
 
+    <nav class="sidebar-copy">
     <p class="sidebar-copy">All content Copyright © 2011-2019 Nick Moore unless otherwise noted</p>
+    </nav>
 
   </div>
 </div>

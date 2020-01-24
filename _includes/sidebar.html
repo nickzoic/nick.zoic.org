@@ -9,12 +9,16 @@
     </div>
 
     <nav class="sidebar-nav">
-      <a class="sidebar-nav-item{% if page.url == '/nick-moore/' %} active{% endif %}" href="/nick-moore/">Nick Moore</a>
+      <p>
+	About me:
+	<a class="sidebar-nav-item{% if page.url == '/nick-moore/' %} active{% endif %}" href="/nick-moore/">Nick Moore</a>
+      </p>
 
-      <p><em>
-        Finding this stuff interesting and/or useful? Why not
-        <a href="https://github.com/sponsors/nickzoic">Sponsor me through GitHub!</a>
-      </em></p>
+      <p>
+        Finding this stuff interesting and/or useful?<br/>
+        Why not
+	<a href="https://github.com/sponsors/nickzoic">Sponsor me via GitHub!</a>
+      </p>
 
       <h2>Recently:</h2>
       {% assign pages_list = site.pages | sort:"date" | reverse %}

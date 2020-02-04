@@ -374,6 +374,9 @@ New work on the [RMT peripheral in Micropython/ESP32](https://github.com/micropy
 Alternatively, a little [picopixel driver board](https://github.com/usedbytes/neopixel_i2c) could 
 be used to take the load off the main CPU.
 
+UPDATE: [esp32.RMT](https://docs.micropython.org/en/latest/library/esp32.html#rmt) is now available,
+and there's a [neopixel driver for esp32.RMT](https://github.com/nevercast/micropython-helpers/blob/develop/pixels.py) thanks to Josh.  So next year should be much less glitchy!
+
 I'd also consider setting up a separate small MCU just to handle the stepper
 timing: dealing with that in multi-threaded code is a bummer.  This would make a really
 nice stand-alone board anyway: a little board with a ATTiny or similar and a couple of

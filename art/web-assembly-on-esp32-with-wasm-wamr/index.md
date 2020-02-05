@@ -48,7 +48,7 @@ went along ...
 As always, I spent a maddening amount of time running in circles before finding 
 something which worked well enough:  well, it compiles and I can always clean it up later.
 
-One very good hint I got along the way (thanks Seon)(https://unexpectedmaker.com/)
+One very good hint I got along the way (thanks [Jimmo](https://github.com/jimmo/))
 is to quarantine CMake off into its own `build` directory by doing something like
 
 ```
@@ -60,6 +60,7 @@ make
 
 which made a huge difference as now I could repeatably blow away the builds and start
 over when CMake got confused.  It's a little thing, but it makes a big difference.
+(Also thanks [Seon](https://unexpectedmaker.com/) for sending a MicroPython-with-CMake example)
 
 ## Building a platform
 
@@ -115,3 +116,7 @@ own code and pass it to WAMR for execution.
 This article is a work in progress, and now you're up to where I'm up to!
 
 Check back later, or [follow me on twitter](https://twitter.com/nickzoic/) for updates.
+
+## UPDATES
+
+* Fixed up attributions for the `cmake ..` hint 

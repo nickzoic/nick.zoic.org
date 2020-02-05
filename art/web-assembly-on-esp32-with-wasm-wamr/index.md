@@ -117,6 +117,13 @@ This article is a work in progress, and now you're up to where I'm up to!
 
 Check back later, or [follow me on twitter](https://twitter.com/nickzoic/) for updates.
 
+There's also an open [XTensa / FreeRTOS support](https://github.com/bytecodealliance/wasm-micro-runtime/issues/134) issue on WAMR.
+
+See also work done in [Wasm3](https://github.com/wasm3/wasm3) to support ESP32,
+for example [this repo](https://github.com/vshymanskyy/Wasm3_RGB_Lamp)
+and [this tweet](https://twitter.com/alvaroviebrantz/status/1221618910803513344)
+
 ## UPDATES
 
 * Fixed up attributions for the `cmake ..` hint 
+* Added some refs to other projects

@@ -102,13 +102,13 @@ Webassembly can be generated in a few different ways:
 
 * [Compiling Rust to WebAssembly](https://developer.mozilla.org/en-US/docs/WebAssembly/Rust_to_wasm)
 * [Compiling C to WebAssembly without Emscripten](https://dassur.ma/things/c-to-webassembly/)
+* [WASI SDK](https://github.com/CraneStation/wasi-sdk)
 
 ... and [very many others](https://github.com/appcypher/awesome-wasm-langs)
 
 For the moment all I want to do is produce something *slightly* nicer than Hello World ...
-that's right, I want to blink an LED!
-
-
+that's right, I want to blink an LED!  So the next step is to work out how to compile my
+own code and pass it to WAMR for execution.
 
 # WORK IN PROGRESS
 

@@ -31,13 +31,18 @@ There's some advice in the documentation on
 which proved quite useful ... the first step was to get this building with CMake and 
 printing "Hello, World!", from the `product-mini/platforms.esp-idf/` directory.
 
+I wasted a lot of time starting from the 'normal' esp-idf CMake file, which wasn't the
+right choice at all for this kind of project.
+Thanks [Seon](https://unexpectedmaker.com/) for sending a MicroPython-with-CMake example
+and Gus for helping get unstuck.
+
 This also involved updating to a newer `xtensa-esp32-elf-gcc`, via the weird
 installer script.  If you don't want to run the install script, you can work out the
 [xtensa esp32 toolchain URLs here](https://github.com/espressif/esp-idf/blob/master/tools/tools.json)
 [Version 8.2.0](https://dl.espressif.com/dl/xtensa-esp32s2-elf-gcc8_2_0-esp-2019r2-linux-amd64.tar.gz)
 worked for me.
 
-## Mashing in WAMR
+## Mashing up WAMR
 
 WAMR is also build with CMake, which means to build the two together you have to
 [mash up](http://www.djbc.net/index.html#)
@@ -60,7 +65,6 @@ make
 
 which made a huge difference as now I could repeatably blow away the builds and start
 over when CMake got confused.  It's a little thing, but it makes a big difference.
-(Also thanks [Seon](https://unexpectedmaker.com/) for sending a MicroPython-with-CMake example)
 
 ## Building a platform
 
@@ -110,6 +114,47 @@ Webassembly can be generated in a few different ways:
 For the moment all I want to do is produce something *slightly* nicer than Hello World ...
 that's right, I want to blink an LED!  So the next step is to work out how to compile my
 own code and pass it to WAMR for execution.
+
+This is where WASM gets a little ... confusing.
+It's surprisingly low-level, with things like `__stack_pointer` exposed.
+But the code in `product_mini/app_samples/hello_world/build.sh` turned
+out to be revealing, and what eventually worked for me was:
+
+```
+clang-8 --target=wasm32 -O3 -z stack-size=4096 -Wl,--initial-memory=65536 --sysroot=../../../../wamr-sdk/app/libc-builtin-sysroot -Wl,--allow-undefined -Wl,--export=main, -Wl,--no-threads,--strip-all,--no-entry -nostdlib -o test.wasm test.c
+xxd -i test.wasm > test.h
+```
+
+`xxd` is a very useful file transforming utility, which in this case is used to spit out a header-file formatted version of the wasm bytecode.
+
+`clang` I just installed from the ubuntu package, but I found that
+the `wasm2wat` utility was too out of date so I installed that from
+source.
+
+There's a couple of open problems at this point:
+
+* `printf("string!")` works fine, but `printf("hello %d", n)`
+  crashes the port.
+  The same WASM works okay in the linux port, so I'm not sure why.
+* The port crashes & restarts when `main` returns.
+
+
+## JIT and LLVM
+
+Much of the point of this little effort was to get JIT working,
+and it turns out that that might be harder than I thought.
+The JIT code uses LLVM, and mainline LLVM doesn't yet support
+Xtensa.
+There's a [LLVM for Xtensa](https://github.com/espressif/llvm-project)
+under development so I'm building that, which on my laptop is
+*not* a fast process.
+To actually run this code it's got to target Xtensa but also the
+libraries themselves have to be compiled for Xtensa.
+
+```
+cmake -DLLVM_EXPERIMENTAL_TARGETS_TO_BUILD="Xtensa" -DLLVM_TARGET_ARCH="Xtensa" -DLLVM_BUILD_LLVM_DYLIB="ON" ~/Work/llvm-project-xtensa/llvm/
+```
+
 
 # WORK IN PROGRESS
 

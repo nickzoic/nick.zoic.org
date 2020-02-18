@@ -139,22 +139,26 @@ There's a couple of open problems at this point:
 * The port crashes & restarts when `main` returns.
 
 
-## JIT and LLVM
+## JIT and AOT with LLVM
 
 Much of the point of this little effort was to get JIT working,
 and it turns out that that might be harder than I thought.
-The JIT code uses LLVM, and mainline LLVM doesn't yet support
-Xtensa.
+The JIT code uses LLVM, and mainline LLVM doesn't yet support Xtensa.
 There's a [LLVM for Xtensa](https://github.com/espressif/llvm-project)
 under development so I'm building that, which on my laptop is
 *not* a fast process.
+
 To actually run this code it's got to target Xtensa but also the
 libraries themselves have to be compiled for Xtensa.
+Something like this might work:
 
 ```
 cmake -DLLVM_EXPERIMENTAL_TARGETS_TO_BUILD="Xtensa" -DLLVM_TARGET_ARCH="Xtensa" -DLLVM_BUILD_LLVM_DYLIB="ON" ~/Work/llvm-project-xtensa/llvm/
 ```
 
+After a bit more research and advice, it looks like the JIT option won't really 
+be practical as it'll have to build a lot of LLVM in to the runtime ... and LLVM
+is not small.  However AoT is still on the agenda!
 
 # WORK IN PROGRESS
 

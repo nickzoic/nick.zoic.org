@@ -85,6 +85,9 @@ to a transition to
 [Nsight Visual Studio Edition](https://developer.nvidia.com/nsight-visual-studio-edition)
 but I'm not clear on this yet.
 
+You can also [develop remotely](https://devblogs.nvidia.com/cuda-jetson-nvidia-nsight-eclipse-edition/)
+but I'm not sure what that's all about.
+
 ## Not A Big Fan
 
 When I ordered the Nano, I figured I could fit some other kind of fan to the top if needed:
@@ -109,6 +112,15 @@ SD card and start over. Note to self: Don't do that again.
 
 I did however do the usual `apt update && apt dist-upgrade && apt autoremove` ... which works fine.
 
+## Networking
+
+OpenSSH is already set up, so once you've got the initial user and network setup done
+it's pretty easy to use the device headless.
+
+I'm using it as a display as well, with
+[x2x](https://www.linuxjournal.com/content/share-keyboardmouse-between-multiple-computers-x2x)
+running to share the keyboard, mouse and clipboard between them over ssh.
+
 # My First CUDA
 
 I started off with [this CUDA Tutorial](https://cuda-tutorial.readthedocs.io/en/latest/) 
@@ -116,6 +128,4 @@ which gives a pretty easy entry into how CUDA programming works.
 
 I then had a look at [Conway's Game of Life on GPU using CUDA](http://www.marekfiser.com/Projects/Conways-Game-of-Life-on-GPU-using-CUDA)
 which is a great introduction to thinking in CUDA.
-
-
 

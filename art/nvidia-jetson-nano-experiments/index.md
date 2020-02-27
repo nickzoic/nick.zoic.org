@@ -121,6 +121,10 @@ I'm using it as a display as well, with
 [x2x](https://www.linuxjournal.com/content/share-keyboardmouse-between-multiple-computers-x2x)
 running to share the keyboard, mouse and clipboard between them over ssh.
 
+It's plugged into gigabit ethernet but I'm planning on
+[adding a M.2 E WiFi card](https://www.jetsonhacks.com/2019/04/08/jetson-nano-intel-wifi-and-bluetooth/)
+in the near future. 
+
 # My First CUDA
 
 I started off with [this CUDA Tutorial](https://cuda-tutorial.readthedocs.io/en/latest/) 

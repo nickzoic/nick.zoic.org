@@ -98,6 +98,19 @@ However it turns out that while the dev kit has a 4 pin fan header (yay!) it's o
 
 So short of making up a little boost converter board or something, the choice of fans is
 very limited.  For now I've ordered a tiny 5V 4-pin fan from Ebay.
+If it's too noisy I'll look into making an adaptor for a 12V 4-pin CPU fan ...
+
+## Update: Desktop Sled
+
+I tried 3D printing a little case for the board, but the cases I found were all pretty fussy with
+little holes all over and didn't print well for me.  So I ended up designing a little 'sled' just to
+keep the board off the desk and make sure it didn't short out on a paperclip or something tragic like
+that. 
+
+* [Jetson Nano Devkit Sled](https://github.com/nickzoic/models3d/blob/master/parts/jetson-nano.scad)
+
+At some point, once the little fan arrives, I'll try and turn this into a little two-part
+pocket case with air ducting.
 
 ## Don't Upgrade (too far)!
 
@@ -124,6 +137,7 @@ running to share the keyboard, mouse and clipboard between them over ssh.
 It's plugged into gigabit ethernet but I'm planning on
 [adding a M.2 E WiFi card](https://www.jetsonhacks.com/2019/04/08/jetson-nano-intel-wifi-and-bluetooth/)
 in the near future. 
+
 
 # My First CUDA
 

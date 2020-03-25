@@ -75,6 +75,10 @@ it [won't work with the normal DisplayPort to HDMI converter cables](https://dev
 Apparently [it will with some 'active' adaptors though](https://devtalk.nvidia.com/default/topic/1049356/jetson-nano/dual-simultaneous-monitors/2)
 so I'll try to get hold of one of those.
 
+*UPDATE: The one I bought was described as an "active converter" but doesn't work.
+I suspect, short of buying a converter about the same price as the Nano board itself, 
+it can't be made to work. Never mind.*
+
 The distro doesn't seem to
 include the "Nsight Eclipse Edition" any more ... there's a `/usr/local/cuda/bin/nvcc`
 but no `nsight` on this disk, and
@@ -138,6 +142,7 @@ It's plugged into gigabit ethernet but I'm planning on
 [adding a M.2 E WiFi card](https://www.jetsonhacks.com/2019/04/08/jetson-nano-intel-wifi-and-bluetooth/)
 in the near future. 
 
+*UPDATE: It works fine with a very cheap USB WiFi adaptor, so I'll probably just stick with that.*
 
 # My First CUDA
 

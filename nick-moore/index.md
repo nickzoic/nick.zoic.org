@@ -27,7 +27,8 @@ I'm also very interested in [Mesh Networking](https://mesh.zoic.org/),
 especially in [education](/tag/education).
 
 I live in the suburbs of Melbourne, Australia with my wife, two
-daughters, an antisocial cat and a very enthusiastic dog. Also some fish and 
+daughters, a very enthusiastic dog and a very curious cat.
+Also some fish and 
 [Spiny Leaf Insects](https://australianmuseum.net.au/care-of-stick-insects).
 
 Contact

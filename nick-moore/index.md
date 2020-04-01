@@ -34,7 +34,7 @@ Contact
 -------
 
 -   Email: <nick@zoic.org>
--   Phone: (+61) 409 656 267 or (+61) 3 9024 3987
+-   Phone: (+61) 409 656 267
 -   Post: PO Box 247, Watsonia VIC 3087, AUSTRALIA
 
 Other Sites

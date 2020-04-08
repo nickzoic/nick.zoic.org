@@ -39,6 +39,10 @@ these effete modern techniques?  Hmmm ...
 [RISC](https://en.wikipedia.org/wiki/Reduced_instruction_set_computer)
 [Pentium Pro](https://en.wikipedia.org/wiki/Pentium_Pro#Summary)
 
+### Multi-CPU machines
+
+[160 ARMs](https://www.servethehome.com/ampere-altra-80-arm-cores-for-cloud/)
+
 ## MicroPython Virtual Machine
 
 I've been [doing a bit with MicroPython](/tag/micropython/) lately, and one of the
@@ -48,7 +52,7 @@ rest of the universe, you're left with a tiny
 
 At it's core lies an enormous switch/case which looks something like:
 
-```
+```C
 dispatch_loop:
     switch (*ip++) {
         case MP_BC_LOAD_CONST_FALSE:
@@ -64,6 +68,7 @@ dispatch_loop:
 
 ## VLIW and OISC and ...
 
+[MISC](https://en.wikipedia.org/wiki/Minimal_instruction_set_computer)
 [VLIW](https://en.wikipedia.org/wiki/Very_long_instruction_word)
 [OISC](https://en.wikipedia.org/wiki/Single_instruction_computer)
 

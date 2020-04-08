@@ -107,10 +107,21 @@ it is.
 
 ![Jetson Nano with fan](img/jetson-nano-with-fan.jpg)
 
-* [Article on the Jetson Nano Thermal Performance](https://www.phoronix.com/scan.php?page=article&item=jetson-nano-cooling)
+Based on this [article on the Jetson Nano Thermal Performance](https://www.phoronix.com/scan.php?page=article&item=jetson-nano-cooling)
+what I really want to do is to load the CPU/GPU up with a difficult task and then
+measure the equilibrium temperature at various fan RPMs.  So far I'm having trouble finding
+something which is enough of a load, the closest I've got is `glmark2` which can be run
+continuously with:
 
-Some performance figures with the tiny fan mounted on the heatsink:
+```
+glmark2 --fullscreen --run-forever
+```
 
+... but even with no fan these are barely enough to get the processor to 53⁰C so
+I need to find a 'heavier' benchmark.
+
+Some performance figures with the tiny fan mounted on the heatsink
+(sorry, I don't have a dB meter):
 
 | PWM | RPM | noise |
 | --- | --- | --- |
@@ -126,8 +137,7 @@ Some performance figures with the tiny fan mounted on the heatsink:
 | 200 | 6950 | ... taking off |
 | 255 | 8800 | self-destruct imminent! |
 
-
-## Update: Desktop Sled
+### Update: Desktop Sled
 
 I tried 3D printing a little case for the board, but the cases I found were all pretty fussy with
 little holes all over and didn't print well for me.  So I ended up designing a little 'sled' just to
@@ -136,8 +146,9 @@ that.
 
 * [Jetson Nano Devkit Sled](https://github.com/nickzoic/models3d/blob/master/parts/jetson-nano.scad)
 
-At some point, once the little fan arrives, I'll try and turn this into a little two-part
-pocket case with air ducting.
+The aim here is to characterize the heatsink as designed, I'd like to make a little printed
+plastic case for the board with a side-mounted fan, possibly with some kind of shroud to
+direct air through the heatsink.
 
 ## Don't Upgrade (too far)!
 

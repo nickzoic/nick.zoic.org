@@ -101,8 +101,31 @@ However it turns out that while the dev kit has a 4 pin fan header (yay!) it's o
 5V, not 12V as per every other fan header.
 
 So short of making up a little boost converter board or something, the choice of fans is
-very limited.  For now I've ordered a tiny 5V 4-pin fan from Ebay.
-If it's too noisy I'll look into making an adaptor for a 12V 4-pin CPU fan ...
+very limited.  For now I've ordered a tiny 
+[5V 4-pin fan from Ebay](https://www.ebay.com.au/itm/4PIN-Dedicated-Cooling-Fan-For-Jetson-Nano-Developer-Kit-5V-PWM-Adjustment/133128349987) which seems to work quite well considering how tiny
+it is.
+
+![Jetson Nano with fan](img/jetson-nano-with-fan.jpg)
+
+* [Article on the Jetson Nano Thermal Performance](https://www.phoronix.com/scan.php?page=article&item=jetson-nano-cooling)
+
+Some performance figures with the tiny fan mounted on the heatsink:
+
+
+| PWM | RPM | noise |
+| --- | --- | --- |
+| 0 | 0 | none |
+| 20 | 0 | none |
+| 32 | 700 | inaudible |
+| 64 | 1000 | barely audible |
+| 72 | 2300 | barely audible |
+| 80 | 2630 | whisper quiet |
+| 90 | 3000 | only a tiny bit louder |
+| 118 | 4000 | low-key annoying |
+| 160 | 5600 | tiny RC helicopter |
+| 200 | 6950 | ... taking off |
+| 255 | 8800 | self-destruct imminent! |
+
 
 ## Update: Desktop Sled
 

@@ -1,6 +1,6 @@
 ---
 date: '2020-05-15'
-layout: draft
+layout: article
 tags:
     - crypto
     - python
@@ -102,7 +102,9 @@ Is there any project so small it doesn't get a Github repo?  Not this one.
 
 It might become a PyPI module and/or an NPM module at some point too.
 
-## The word-list generation script
+## Files
+
+### The word-list generation script
 
 ```python3
 from soundex import Soundex
@@ -129,7 +131,7 @@ for word_set in sound_words.values():
         print(list(word_set)[0])
 ```
 
-## The word list itself
+### The word list itself
 
 ```
 aged     acorn    acre     acts     afar     affix    agent    agile   
@@ -198,7 +200,9 @@ woven    wrist    xerox    yummy    yard     year     yeast    yelp
 yield    yodel    yoga     zebra    zero     zesty    zippy    zone   
 ```
 
-## An encoding script
+### An encoding script
+
+Takes a binary file on stdin and spits out words, 8 to a line.
 
 ```python3
 with open("word_list.txt","r") as fh:

@@ -78,12 +78,11 @@ The mechanism is simple:
     secret as a persistent cookie.
 5.  They can connect up more machines / browsers by opening the email
     link with those browsers instead.
-6.  To connect devices without email access, the secret can be [entered
-    by hand](http://en.wikipedia.org/wiki/Type-in_program), or
+6.  To connect devices without email access, the secret can be
+    [entered by hand](http://en.wikipedia.org/wiki/Type-in_program), or
     transferred by [QR code](http://en.wikipedia.org/wiki/QR_code).
-7.  To protect against losing access to the email account, the email can
-    be [printed and stored
-    securely](https://www.schneier.com/blog/archives/2005/06/write_down_your.html)
+7.  To protect against losing access to the email account, the email can be
+    [printed and stored securely](https://www.schneier.com/blog/archives/2005/06/write_down_your.html)
     and the secret can thus be retrieved and used to change the email
     address used.
 
@@ -100,8 +99,8 @@ typically used.
 But there's a problem. Cookies are not really treated as sensitive
 information by most browsers, they're just thrown into a file in your
 home directory, and even if you have set a Master password, they aren't
-encrypted. So unless you're using an operating system which [encrypts
-your files by default](https://help.ubuntu.com/community/EncryptedHome)
+encrypted. So unless you're using an operating system which
+[encrypts your files by default](https://help.ubuntu.com/community/EncryptedHome)
 they may be quite easy to steal.
 
 It would be awfully nice if the browsers would start taking cookie
@@ -119,3 +118,9 @@ security application but I thought a nice demo.
 I invited a bunch of friends to try it out for our annual "Christmas in
 July" party, and it worked pretty well, but interestingly only one
 person *noticed* that there was no way to set a password!
+
+## 5. UPDATE 2020
+
+I notice that several big websites, including Microsoft's [live.com](https://live.com/),
+are now doing exactly this: when you go to log in they just send you a seven 
+digit "single use code" you can use to connect.  Cool, eh!

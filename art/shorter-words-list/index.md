@@ -33,7 +33,7 @@ The [EFF](https://eff.org/) have published some
 which I think are an improvement.
 They're meant for use with 6-sided dice, to generate a secure passphrase.
 
-The "long word list" has 7776 = 6<super>5</super> words of between 3 and 9 characters
+The "long word list" has 7776 = 6<sup>5</sup> words of between 3 and 9 characters
 with lots of consideration into removing homophones and profanity: check our their article.
 They're still 7 characters long on average, and some of them are pretty hard to spell
 (`affidavit`, `chihuahua`, `esophagus`).
@@ -41,14 +41,14 @@ There's also quite a lot of pairs of very similar words: `blaspheme`/`blasphemy`
 `boogeyman`/`boogieman` for example.
 If I have to spell it out over the phone, it's no longer helping.
 
-The "short word list" of 1296 = 6<super>4</super> words is much closer to what I'm
+The "short word list" of 1296 = 6<sup>4</sup> words is much closer to what I'm
 looking for, with lengths between 3 and 5 characters, 4.54 on average.
 That's fewer bits per word, but slightly more bits per character typed
 (2.28, over 1.85)
 
-There's still some tricky words and some pairs I'm not happy about and 6<super>4</super>
+There's still some tricky words and some pairs I'm not happy about and 6<sup>4</sup>
 is not a terribly convenient number for binary computers, so I thought about going
-through by hand and trimming the list down to 1024 = 2<super>10</super> words, but 
+through by hand and trimming the list down to 1024 = 2<sup>10</sup> words, but 
 being a Python hacker I figured there had to be an easier way.
 
 ## Soundex

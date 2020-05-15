@@ -236,4 +236,80 @@ Overall I'm pretty happy with the list: the only words which I've noticed
 so far which seem out of place are the company names `ebay` and `xerox`,
 the very similar pair `quill` and `quilt`, and the variably-spelled `mold`.
 
+It'd be nice to use shorter words over longer words as well.
 Perhaps some minor tweaks are in order.
+
+Also I just noticed that the list isn't in alphabetical order, which is not
+really a big deal but seems kinda nasty.
+
+Proposed improved word list:
+
+```
+acorn    acre     acts     afar     affix    aged     agent    agile   
+aging    agony    aide     aids     aim      alarm    alike    alive   
+aloe     aloft    alone    amend    ample    amuse    angel    anger   
+apple    april    apron    area     argue    armed    armor    army    
+arson    art      atlas    atom     avert    avoid    axis     bacon   
+baker    balmy    barn     basil    baton    bats     blank    blast   
+blend    blimp    blob     blog     blurt    boil     bok      bolt    
+bony     bribe    bring    broad    broil    broke    bud      bunch   
+bunt     bust     calm     canal    candy    card     case     cedar   
+chump    civic    civil    clamp    clasp    class    clay     clear   
+cleft    clerk    cling    clip     cold     come     comic    cork    
+cost     cover    craft    cramp    crank    crisp    crop     crown   
+crust    cub      cupid    cure     curl     cut      cycle    dab     
+dad      dart     deal     debt     debug    decaf    decal    decor   
+dent     dig      dimly    ditch    doing    donor    down     drab    
+drank    dress    drift    drill    drum     dry      dust     early   
+earth    east     eaten    ebony    echo     edge     eel      elder   
+elf      elk      elm      elude    elves    email    emit     empty   
+emu      enter    envoy    equal    erase    error    erupt    evade   
+even     evict    evil     evoke    fable    fact     fall     fang    
+femur    fend     fetal    fetch    fever    fifth    film     final   
+fit      five     flag     fled     fling    flint    flip     flirt   
+flyer    foam     fox      frail    fray     fresh    from     front   
+frost    fruit    gap      gas      gem      genre    gift     given   
+giver    glad     glass    goal     golf     gong     grab     grant   
+grasp    grass    green    grew     grid     grill    gut      habit   
+halt     harm     hasty    hatch    haven    hazel    help     herbs   
+hers     hub      hug      hull     human    hump     hung     hunt    
+hurry    hurt     hut      ice      icing    icon     igloo    image   
+ion      iron     item     ivory    ivy      jam      jet      job     
+jog      jolt     judge    july     jump     junky    jury     keep    
+keg      kept     kilt     king     kite     knee     knelt    koala   
+ladle    lake     land     last     latch    left     legal    lens    
+level    lid      lilac    lily     limb     line     lip      liver   
+lunar    lure     lurk     maker    mango    manor    map      march   
+mardi    marry    match    mold     mom      most     motor    mount   
+mud      mug      mulch    mule     mumbo    mural    nag      nail    
+name     nap      near     nerd     net      next     ninth    oak     
+oat      ocean    oil      old      olive    omen     only     open    
+opera    opt      ounce    outer    oval     pagan    palm     pants   
+paper    park     party    patch    pep      perm     pest     petal   
+petri    plank    plant    plot     plus     pod      poem     poker   
+polar    pond     prank    print    prism    proof    props    pry     
+pug      pull     pulp     punk     pupil    quake    query    quill
+quit     rabid    radar    raft     ramp     rank     rant     recap   
+relax    reply    rerun    rigor    ritzy    river    robin    rope    
+rug      ruin     rule     rust     rut      salt     same     scale   
+scan     scold    score    scorn    scrap    sect     self     send    
+set      seven    share    shirt    shrug    silk     silo     sip     
+siren    skip     skirt    sky      slam     slang    slept    slurp   
+small    smirk    smog     snap     snare    snarl    snort    speak   
+spent    spill    sport    spot     spur     stamp    stand    stark   
+start    stem     sting    stir     stole    stop     storm    suds    
+surf     swirl    tag      tall     talon    tamer    tank     taper   
+taps     tart     taste    theft    thumb    tidal    tidy     tiger   
+tilt     tint     tiny     train    trap     trek     trend    trial   
+trunk    try      tulip    tutor    uncle    uncut    unify    union   
+unit     upon     upper    urban    used     user     utter    value   
+vapor    vegan    venue    vest     vice     viral    virus    visor   
+vocal    void     volt     voter    wad      wafer    wager    wagon   
+walk     wasp     watch    water    widen    wife     wilt     wind    
+wing     wiry     wok      wolf     womb     wool     word     work    
+woven    wrist    xerox    yam      yard     year     yeast    yelp    
+yield    yodel    yoga     zebra    zero     zesty    zippy    zone
+```
+
+... this fixes those problems, and has a slightly shorter average length
+of 4.4 characters per word, too.

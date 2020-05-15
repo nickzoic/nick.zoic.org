@@ -216,3 +216,24 @@ while True:
     ww = [ words[c+n%2*256] for n, c in enumerate(s) ]
     print(" ".join(ww))
 ```
+
+### Demo
+
+Let's make some passphrases:
+
+```
+$ dd if=/dev/urandom bs=8 count=5 status=none | python encode.py 
+ivory stage erase radar ebay wind kept spent
+enter yeast email video aging yoga deaf talon
+going mouth cedar storm jury oak from raft
+found pants hasty query grid oval cycle opera
+knelt wind early ramp argue widen bacon rigor
+```
+
+## Further Work
+
+Overall I'm pretty happy with the list: the only words which I've noticed
+so far which seem out of place are the company names `ebay` and `xerox`,
+the very similar pair `quill` and `quilt`, and the variably-spelled `mold`.
+
+Perhaps some minor tweaks are in order.

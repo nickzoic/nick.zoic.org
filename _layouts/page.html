@@ -1,0 +1,13 @@
+---
+layout: base
+---
+<div class="page">
+  {% if page.title %}
+    <h1 class="page-title">{{ page.title }}</h1>
+  {% endif %}
+  {% if page.summary %}
+    <div style="clear: both; text-align: center"><em>{{ page.summary }}</em></div>
+    <hr/>
+  {% endif %}
+  {{ content }}
+</div>

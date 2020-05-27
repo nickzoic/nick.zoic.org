@@ -312,4 +312,11 @@ yield    yodel    yoga     zebra    zero     zesty    zippy    zone
 ```
 
 ... this fixes those problems, and has a slightly shorter average length
-of 4.4 characters per word, too.
+of 4.4 characters per word, too, for 2.04 bits per character.
+
+## Further Thoughts
+
+* Instead of splitting alphabetically, could we make a list of 256 5 letter words
+  and 256 4 letter words so they'd print neatly in columns?  This list has 267
+  five letter words, so we're not far off.
+

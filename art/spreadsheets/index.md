@@ -151,21 +151,44 @@ We've thought about what makes conversion hard, so let's add some information to
 
 In the example, B1 is a column label, B3:B5 are the elements of labelled column,
 B8:B11 is a sequence of labels and B13 is a row label.
-So what useful thing can we say about Column B?  Not much.
+So what useful thing can we say about Column B as a whole?  Not much.
 
 ![Table 1](img/example1.png)
+
 ![Table 2](img/example2.png)
+
 ![Table 3](img/example3.png)
+
+There's now three separate tables, each of which has a title, column and/or row 
+labels and a clear separation of purpose.
 
 ### 2. Labels on Everything
 
+When developing software, labels make programs readable to humans.
+Column and row labels allow us to write much more natural formulae, for example
+
+`Profit.Total = SUM(Profit by Quarter.Profit)`
+
+... is a lot more readable than our earlier `C13 = SUM(C8:C11)`.
+
+Both rows and columns can have labels, and a cell can be addressed in either 
+direction.  For example, the cell `Numbers.Center.Middle` is the same cell as
+`Numbers.Middle.Center`.
+In this way, tables can be "flipped" diagonally with no effect on the rest of
+the spreadsheet!
 
 ### 3. Types Whereever Possible
 
+Labels are separate from the row or column they're labelling.  As well as a label,
+each row/column can be given a type ... integer, float, all the usuals.
+A cell's type is limited by both its row and its column.   
+
 ### 4. Explicit is better than Implicit
 
+[PEP20](https://www.python.org/dev/peps/pep-0020/)
+
 It happens that the cell C13 is a *formula*, taking the value `SUM(C8:C11)`.
-Theres's no particular visual indication of this however.
+Theres's no particular visual indication of this however. 
 
 
 

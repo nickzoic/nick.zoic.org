@@ -1,5 +1,5 @@
 ---
-date: '2019-10-17'
+date: '2020-06-01'
 layout: draft
 tags:
   - speculation
@@ -28,7 +28,7 @@ more useful business work has been done in Excel and its imitators than in all o
 languages combined.
 
 It's hard to deny the convenience of using a spreadsheet to manipulate tabular data, as
-opposed to editin whatever kind of markup.  Standard unix tools like
+opposed to editing whatever kind of markup.  Standard unix tools like
 [sort](http://www.man7.org/linux/man-pages/man1/sort.1.html) and 
 [awk](https://en.wikipedia.org/wiki/AWK) are powerful but
 [not easy for beginners](https://likegeeks.com/awk-command/) especially those 
@@ -56,26 +56,116 @@ Some issues:
   and with data.  
 * Dealing with large amounts (>1Mrows) of data in spreadsheets can be rather slow.
 
-## Some ideas
+### Naming Things
 
 Back in about 2010 or so I got interested in methods for extracting formulae and data from
 spreadsheets into regular code.  A spreadsheet would get imported and each cell treated as
 a simple assignment statement like `a10 = a7 + b9;` and the resulting mess could be sorted
 into an appropriate order and then executed quickly.
+
 There's a lot of business logic wrapped up in spreadsheets no-one fully understands
 any more, and this would be a first step towards converting that into readable logic.
-
 However, the process of extracting the patterns from thousands of formulae scattered
 among cells is pretty fraught, and there's no way[1] to differentiate or give names to
 variables, constants and labels,so the resulting code is no less of a mess than the original
 spreadsheet, really.
 Here we are again, [Naming Things](https://martinfowler.com/bliki/TwoHardThings.html).
 
+One possibility is, we could simply dump the collection of formulae out in the form
+of a more convential programming language, and then compile and run it.
+Just about any language would work as the target:
+
+```C
+double a10 = 1.01;
+double a11 = 1.02;
+double b10 = 12;
+double b11 = 12;
+double c10 = pow(a10, b10);
+double c11 = pow(a11, 11);
+double c12 = c11 - c10;
+```
+
+Obviously there's a lot of repetition, but once the 'transpile' step is done, conventional
+refactoring tools can be used to give constants and variables more sensible names.
+It's still horribly ugly of course, but at least it is a start, and there's even a change
+someone might notice the typo in the formulae above:
+
+```C
+double interest_rate_1 = 1.01;
+double interest_rate_2 = 1.02;
+double months_per_year = 12;
+double compound_rate_1 = pow(interest_rate_1, months_per_year);
+double compound_rate_2 = pow(interest_rate_2, months_per_year);
+double profit = compound_rate_2 - compound_rate_1;
+```
+
+... and at least it'll run quick!
+
 [1] (There's actually some facilities for naming things built in to Excel, but because
 they're pretty well hidden they're not used a lot.)
 
+### Array-like Nature
+
+However, this code transformation ignores the fundamentally tabular nature of spreadsheets.
+A single sheet might have many tables within it, and they're not usually formally declared,
+but they still exist.
+The problem is, the information within the file is generally too patchy to somehow
+magically extract types and form classes etc.
+You could use some heuristic or another, like the
+[Decompilers](https://en.wikipedia.org/wiki/Decompiler)
+of old[2] but fixing up the wrong guesses is always going to be a bear.
+Header rows aren't always marked, columns aren't always consistent, formulae may be 
+different or missing in places.
+
+However, an interactive analysis tool could help with this, allowing an iterative
+process to conversion.
+It's not going to be trivial: I have fond memories of playing with the
+[Sourcer](https://corexor.wordpress.com/2015/12/09/sourcer-and-windows-source/) 
+disassembler back in the early days of PC viruses, and it was an *adventure*.
+
+### An Example
+
+A typical spreadsheet is one "workbook" split into multiple "worksheets", and each "worksheet"
+may contain multiple tabular regions with different types of data in them.
+
+![An example](img/example.png)
+
+The example above contains three separate regions for example:
+
+* A three by three table of digits with row labels and column headers (A1:D5)
+* A one by four table with row labels only (B8:C11)
+* A single cell with a label (B13:C13)
+
+Each of these have vagaries of formatting and type. 
 
 
+## Starting from Somewhere Better
+
+There's an old joke about "sure you can walk there, but I wouldn't start from here".
+
+Perhaps it'd make more sense to think about this as "how would you make a new spreadsheet"
+rather than "how would you convert an existing spreadsheet".
+We've thought about what makes conversion hard, so let's add some information to make it easy.
+
+### 1. Multiple Tables
+
+In the example, B1 is a column label, B3:B5 are the elements of labelled column,
+B8:B11 is a sequence of labels and B13 is a row label.
+So what useful thing can we say about Column B?  Not much.
+
+![Table 1](img/example1.png)
+![Table 2](img/example2.png)
+![Table 3](img/example3.png)
+
+### 2. Labels on Everything
+
+
+### 3. Types Whereever Possible
+
+### 4. Explicit is better than Implicit
+
+It happens that the cell C13 is a *formula*, taking the value `SUM(C8:C11)`.
+Theres's no particular visual indication of this however.
 
 
 

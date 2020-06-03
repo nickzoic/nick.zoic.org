@@ -153,11 +153,15 @@ In the example, `B1` is a column label, `B3:B5` are the elements of labelled col
 `B8:B11` is a sequence of labels and `B13` is a row label.
 So what useful thing can we say about Column B as a whole?  Not much.
 
-<p>![Table 1](img/example1.png)</p>
+![Table 1](img/example1.png)
 
-<p>![Table 2](img/example2.png)</p>
+<br/>
 
-<p>![Table 3](img/example3.png)</p>
+![Table 2](img/example2.png)
+
+<br/>
+
+![Table 3](img/example3.png)
 
 There's now three separate tables, each of which has a title, column and/or row 
 labels and a clear separation of purpose.

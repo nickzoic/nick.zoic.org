@@ -1,6 +1,6 @@
 ---
 date: '2020-06-03'
-layout: draft
+layout: article
 tags:
   - speculation
   - languages
@@ -238,6 +238,6 @@ We've considered the strengths and weaknesses of conventional spreadsheets and
 proposed some interesting principles for designing something better.
 
 It sounds a bit radical, but sometimes, it really is time to 
-[reinvent the wheel](https://en.wikipedia.org/wiki/John_Boyd_Dunlop#Pneumatic_tyres)
+[reinvent the wheel](https://en.wikipedia.org/wiki/John_Boyd_Dunlop#Pneumatic_tyres)!
 
 

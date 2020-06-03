@@ -1,5 +1,5 @@
 ---
-date: '2020-06-01'
+date: '2020-06-03'
 layout: draft
 tags:
   - speculation
@@ -132,9 +132,9 @@ may contain multiple tabular regions with different types of data in them.
 
 The example above contains three separate regions for example:
 
-* A three by three table of digits with row labels and column headers (A1:D5)
-* A one by four table with row labels only (B8:C11)
-* A single cell with a label (B13:C13)
+* A three by three table of digits with row labels and column headers (`A1:D5`)
+* A one by four table with row labels only (`B8:C11`)
+* A single cell with a label (`B13:C13`)
 
 Each of these have vagaries of formatting and type. 
 
@@ -149,50 +149,91 @@ We've thought about what makes conversion hard, so let's add some information to
 
 ### 1. Multiple Tables
 
-In the example, B1 is a column label, B3:B5 are the elements of labelled column,
-B8:B11 is a sequence of labels and B13 is a row label.
+In the example, `B1` is a column label, `B3:B5` are the elements of labelled column,
+`B8:B11` is a sequence of labels and `B13` is a row label.
 So what useful thing can we say about Column B as a whole?  Not much.
 
-![Table 1](img/example1.png)
+<p>![Table 1](img/example1.png)</p>
 
-![Table 2](img/example2.png)
+<p>![Table 2](img/example2.png)</p>
 
-![Table 3](img/example3.png)
+<p>![Table 3](img/example3.png)</p>
 
 There's now three separate tables, each of which has a title, column and/or row 
 labels and a clear separation of purpose.
 
+Because tables are separate, each can have a different 'source', whether that be 
+a database, local file storage or a 'temporary' table held only in RAM.
+
 ### 2. Labels on Everything
 
 When developing software, labels make programs readable to humans.
-Column and row labels allow us to write much more natural formulae, for example
+Table, column and row labels allow us to write much more natural formulae.
+An individual cell or a group of cells can be referred to by label, so
+we can write:
 
 `Profit.Total = SUM(Profit by Quarter.Profit)`
 
-... is a lot more readable than our earlier `C13 = SUM(C8:C11)`.
+... which is a lot more readable than our earlier `C13 = SUM(C8:C11)`.
 
-Both rows and columns can have labels, and a cell can be addressed in either 
-direction.  For example, the cell `Numbers.Center.Middle` is the same cell as
-`Numbers.Middle.Center`.
-In this way, tables can be "flipped" diagonally with no effect on the rest of
-the spreadsheet!
+A whole row or column can be addressed, or a cell can be addressed by specifying
+row and column in either order. For example, the cell `Numbers.Center.Middle`
+is the same cell as `Numbers.Middle.Center`.
+
+In this way, tables can be extended, re-ordered or even "flipped" diagonally with
+no effect on the rest of the spreadsheet!
+
+### 3. Visual Indication
+
+In the original example, there's no consistent indication of what is a heading or a 
+string or a number.
+It happens that the cell `C13` is a *formula*, taking it's value from `SUM(C8:C11)`.
+Theres's no particular visual indication of this either.
+
+Table headings, row/column headings and formulae should all be visually distinct,
+to avoid confusion.
+The flow of data between tables should be also presented clearly.
+
+The visual layout of the spreadsheet would also then become detatched from the logical
+layout of the spreadsheet, so that a user with different requirements
+(eg: mobile devices, bigger fonts, clearer colours)
+could display the spreadsheet differently without the issues that this causes in Excel.
 
 ### 3. Types Whereever Possible
 
 Labels are separate from the row or column they're labelling.  As well as a label,
 each row/column can be given a type ... integer, float, all the usuals.
-A cell's type is limited by both its row and its column.   
+A cell's type is limited by both its row and its column.
+It'd probably also be appropriate to do some
+[Type Inference](https://en.wikipedia.org/wiki/Type_inference).
+
+It might also be useful to use row/column predicates to limit the valid 
+values of cells, bringing in a bit of
+[Design by Contract](https://en.wikipedia.org/wiki/Design_by_contract) as well.
 
 ### 4. Explicit is better than Implicit
 
-[PEP20](https://www.python.org/dev/peps/pep-0020/)
+(Borrowed from [PEP20](https://www.python.org/dev/peps/pep-0020/))
 
-It happens that the cell C13 is a *formula*, taking the value `SUM(C8:C11)`.
-Theres's no particular visual indication of this however. 
+In a traditional spreadsheet, it's possible to select an arbitrary range of cells
+and apply a formula to that.
+It's pretty easy to get that range wrong and add new rows outside the range.
+Instead of allowing a formula to target a subset of rows accidentally, this would
+have to be made explicit, so you could still write a formula like
 
+`SUM(Country.GDP IF Country.Name != 'Australia' ELSE 0)`
 
+... if that is, for some weird reason, what you actually meant.
+It's still possible to write a misleading spreadsheet, of course, but it
+makes it a lot harder to do [subtly, sneakily](http://www.underhanded-c.org/)
+or by accident.
 
+## Further Work
 
+We've considered the strengths and weaknesses of conventional spreadsheets and 
+proposed some interesting principles for designing something better.
 
+It sounds a bit radical, but sometimes, it really is time to 
+[reinvent the wheel](https://en.wikipedia.org/wiki/John_Boyd_Dunlop#Pneumatic_tyres)
 
 

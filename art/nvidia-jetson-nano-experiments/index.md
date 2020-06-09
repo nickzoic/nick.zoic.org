@@ -4,7 +4,9 @@ layout: article
 tags:
   - systems
   - linux
+  - c
 title: 'Experimenting with an Nvidia Jetson Nano'
+summary: a very neat little ARM / GPU single board computer which works with Linux and CUDA.
 ---
 
 I grabbed an [Nvidia Jetson Nano Dev Kit](https://developer.nvidia.com/embedded/learn/get-started-jetson-nano-devkit) board from

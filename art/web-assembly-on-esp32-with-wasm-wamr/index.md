@@ -5,6 +5,7 @@ tags:
   - esp32
   - www
 title: 'Web Assembly (WASM) on ESP32 with WAMR'
+summary: porting WAMR to run WebAssembly on an $5 ESP32 CPU
 ---
 
 I happened to notice the recent release of 

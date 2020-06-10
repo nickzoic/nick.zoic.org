@@ -233,6 +233,14 @@ It's still possible to write a misleading spreadsheet, of course, but it
 makes it a lot harder to do [subtly, sneakily](http://www.underhanded-c.org/)
 or by accident.
 
+### 5. Graphical / Textual duality
+
+Much like [Flobot](/art/flobot-graphical-dataflow-language-for-robots/), every
+graphical program in this system would be "dual" with a text representation.
+This would mean that programs could be compared and maintained using
+[familiar source control systems](/art/a-canticle-for-diff3/).
+
+
 ## Further Work
 
 We've considered the strengths and weaknesses of conventional spreadsheets and 

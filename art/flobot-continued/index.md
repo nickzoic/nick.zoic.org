@@ -13,6 +13,7 @@ tags:
     - microcontrollers
     - electronics
     - education
+    - languages
 title: 'Flobot: The Journey Continues'
 ---
 

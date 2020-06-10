@@ -249,4 +249,28 @@ proposed some interesting principles for designing something better.
 It sounds a bit radical, but sometimes, it really is time to 
 [reinvent the wheel](https://en.wikipedia.org/wiki/John_Boyd_Dunlop#Pneumatic_tyres)!
 
+## UPDATE
 
+[I posted this on twitter](https://twitter.com/nickzoic/status/1270518501174726657)
+and got some good feedback already.
+
+* I haven't really talked about it so far because
+  I've been thinking mostly about the programming experience but a "table" in this sense
+  absolutely could be a view into an external database or into an API, and a "table" could 
+  also be exposed to the world as an microservices-like API.
+
+* If rows and columns are notationally equivalent, how do I express that some are 
+  orthoganal to others?  Can this generalize to more dimensions?
+
+* It's easy enough to write "this cell is the total of those cells", but there's a
+  notational issue around how to express "the cells in table X are the totals of
+  each of the columns of table Y".
+
+* I desparately need a name for a "row or column".  Vector, in math terms, would be a 
+  `Nx1` or `1xM` matrix, so would be a good name for mathematicians, but I'm not sure
+  it gives the right idea for anyone else.
+
+* [graphical programming is programming](/art/programming-beyond-text-files/)
+
+* If anyone does know a product and/or service which covers these bases already, let
+  me know!

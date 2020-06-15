@@ -52,3 +52,5 @@ tag](http://scanlime.org/2008/09/using-an-avr-as-an-rfid-tag/) and thus
 [customize the RFID
 protocol](http://www.nycresistor.com/2012/12/27/rfid-multipass/) so this
 should actually be practical.
+
+*RELATED: [Credit Gateway Policies](../credit-gateway-policy/)*

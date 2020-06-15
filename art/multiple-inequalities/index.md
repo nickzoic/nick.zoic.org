@@ -4,6 +4,7 @@ layout: article
 tags:
     - python
 title: Multiple Inequalities in Google AppEngine
+summary: I was really excited by AppEngine as the start of the Serverless Revolution.  It didn't last.
 ---
 
 So I’m playing around with Google AppEngine (still!) trying to put

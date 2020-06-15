@@ -103,3 +103,5 @@ UPDATE 2016-02-05
 We had a (brief) BoF about this at LCA 2016 and a few people will
 hopefully be collaborating on
 [saferpayments.slack.com](https://saferpayments.slack.com/).
+
+*RELATED: [Universal Authenticators](../universal-authenticator/)*

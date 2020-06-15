@@ -4,6 +4,7 @@ layout: article
 tags:
   - updates
 title: 'First Post !!!1!'
+summary: Steve Yegge said I should start a blog, so I did.  There is a picture of a cat.
 ---
 
 So, yeah, I now have a blog, because
@@ -12,6 +13,3 @@ He may not, I admit, have been thinking of me personally when he wrote that.
 
 ![Wally](img/wally.jpg)
 *To prove him wrong, here is a picture of my cat*
-
-Well, [that stuffed that then!](http://steve-yegge.blogspot.com/2009/05/programmers-view-of-universe-part-3.html)!
-

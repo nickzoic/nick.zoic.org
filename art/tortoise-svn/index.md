@@ -5,6 +5,7 @@ tags:
     - windows
     - ssh
 title: 'Quick guide to setting up TortoiseCVS / TortoiseSVN'
+summary: probably out of date now, but these are really handy and I think TortoiseGit works pretty much the same way.
 ---
 
 [TortoiseCVS](http://www.tortoisecvs.org/) and

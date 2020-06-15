@@ -1,8 +1,7 @@
 ---
 category: etc
-date: '2011-04-28'
+date: '2010-08-10'
 layout: article
-redirect_from: '/etc/first-class-classes-in-csharp/'
 slug: 'first-class-classes-in-csharp'
 tags:
     - c

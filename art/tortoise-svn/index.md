@@ -1,9 +1,6 @@
 ---
-category: etc
-date: '2012-08-22'
+date: '2009-06-23'
 layout: article
-redirect_from: '/etc/tortoise-svn/'
-slug: 'tortoise-svn'
 tags:
     - windows
     - ssh

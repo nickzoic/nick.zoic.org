@@ -1,8 +1,7 @@
 ---
 category: etc
-date: '2011-04-28'
+date: '2010-07-31'
 layout: article
-redirect_from: '/etc/hyperterminal-eats-ascii-lf-0x0a/'
 slug: 'hyperterminal-eats-ascii-lf-0x0a'
 tags:
     - windows

@@ -1,16 +1,13 @@
 ---
-category: Systems
-date: '2011-04-28'
+date: '2009-07-23'
 layout: article
-redirect_from: '/Systems/wget-certificate-private-key/'
-slug: 'wget-certificate-private-key'
 tags:
     - systems
     - crypto
     - ssl
 title: 'wget –certificate=$X –private-key=$X'
 summary: "wget 1.10.2 can fail to use an SSL client certificate unless ..."
-    
+---    
 
 wget 1.10.2 seems to silently fail to use an SSL client certificate
 unless you specify both –certificate and –private-key:

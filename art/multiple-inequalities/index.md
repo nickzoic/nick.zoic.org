@@ -1,9 +1,6 @@
 ---
-category: Python
-date: '2012-02-20'
+date: '2009-08-11'
 layout: article
-redirect_from: '/Python/multiple-inequalities/'
-slug: 'multiple-inequalities'
 tags:
     - python
 title: Multiple Inequalities in Google AppEngine

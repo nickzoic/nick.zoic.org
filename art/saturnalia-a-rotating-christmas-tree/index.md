@@ -231,10 +231,10 @@ chain to attach extra power connections to boost the voltage in the chain.
 This is still very much a work in progress, or to put it another way, it's 
 rather janky.
 
-[Code in MicroPython/ESP32](https://github.com/nickzoic/saturnalia/) controls
+[Code in MicroPython/ESP32](https://github.com/nickzoic/saturnalia) controls
 both stepper and lights.
 
-A simple web server using [PyCoSe](https://github/nickzoic/pycose/) lets 
+A simple web server using [PyCoSe](https://github.com/nickzoic/pycose) lets 
 the tree be remote controlled from devices on our home WiFi.
 Yeah, PyCoSe is a bit experimental at this point and I'm mostly using it for
 this project to eat my own dog food.

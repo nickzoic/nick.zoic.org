@@ -11,9 +11,8 @@ Ever since I started working on Internet Stuff, I've been wrestling with
 crazy Template Languages. This article is an attempt to compare some of
 the more common template languages out there.
 
-I've consolidated this from a series of blog articles I wrote back in
-2009. As a result, some of it may be a little disjointed and/or
-outdated.
+*I've consolidated this from a series of blog articles I wrote back in 2009.
+As a result, some of it may be a little disjointed and/or outdated.*
 
 Template Languages
 ==================
@@ -22,7 +21,7 @@ Like most of its ilk, TT2 doesn’t want to interpret its template
 language from within the already interpreted Perl … that’d be silly.
 Instead, it compiles the template code to Perl, and loads that. Which
 sounds like a great way to do it. So why, in my little benchmark test
-(see below), is it &gt;20x slower than doing a whole bunch of prints?
+(see below), is it > 20x slower than doing a whole bunch of prints?
 Preliminary benchmark results:
 
 The Benchmark
@@ -34,28 +33,27 @@ primitive test, but I wanted something which would be very quick to code
 up. I don't count the time it takes to compile the templates, since the
 compiled templates are generally cached anyway
 
-[The benchmark source code is available
-here](templates_fugit.tgz)
+[The benchmark source code is available here](templates_fugit.tgz)
 
 The Results
 ===========
 
 As measured on my machine, with all the usual caveats:
 
-  Language   Method / Library         Elapsed
-  ---------- ------------------------ ---------
-  C          printf                   0.450
-  Perl       print                    0.829
-  Python     print                    1.567
-  Perl       Text::Template::Simple   1.678
-  Python     Mako                     1.820
-  Python     Jinja                    10.775
-  Perl       Template Toolkit 2       25.079
-  Perl       HTML::Template           40.510
-  Python     django                   46.758
-  Python     SimpleTAL                64.546
-  Python     genshi                   88.289
-  Perl       Petal                    91.444
+Language | Method / Library | Elapsed
+--- | --- | --- 
+C        | printf                 | 0.450
+Perl     | print                  | 0.829
+Python   | print                  | 1.567
+Perl     | Text::Template::Simple | 1.678
+Python   | Mako                   | 1.820
+Python   | Jinja                  | 10.775
+Perl     | Template Toolkit 2     | 25.079
+Perl     | HTML::Template         | 40.510
+Python   | django                 | 46.758
+Python   | SimpleTAL              | 64.546
+Python   | genshi                 | 88.289
+Perl     | Petal                  | 91.444
 
 The C/printf version is “cheating”, it doesn’t read from a data
 structure and is just an attempt to see how long it takes to do the
@@ -63,7 +61,7 @@ actual I/O. These results don’t match up with the previous ones because
 they’re on a different machine, and are to /dev/null to eliminate any
 I/O restrictions as a factor. The setup is otherwise the same as for the
 previous articles. 91ms might not seem like much, but it all adds up and
-this is for a \_very\_ simple benchmark.
+this is for a *very* simple benchmark.
 
 ‘Petal’ was the real shock … I was expecting that its very abstract
 nature would make it relatively easy to optimize the output, but instead

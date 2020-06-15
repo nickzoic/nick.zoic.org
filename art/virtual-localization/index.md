@@ -27,8 +27,8 @@ There’s been lots of work along these lines over the years, almost all
 of which attempts to map out the network by using triangulation of the
 distances between nodes. Mostly, people attempt to measure distance by
 looking at the signal attenuation: theoretically, radio signals
-attenuation as
-<img src="https://render.githubusercontent.com/render/math?math=1/{r^2}">.
+attenuate as `1/r`<sup>`2`</sup>.
+
 However, in practice there are all sorts of
 measurement errors introduced by reflection and absorbtion by your
 surroundings, including buildings, furniture, people, etc, and so

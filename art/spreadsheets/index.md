@@ -204,7 +204,7 @@ layout of the spreadsheet, so that a user with different requirements
 (eg: mobile devices, bigger fonts, clearer colours)
 could display the spreadsheet differently without the issues that this causes in Excel.
 
-### 3. Types Whereever Possible
+### 4. Types Whereever Possible
 
 Labels are separate from the row or column they're labelling.  As well as a label,
 each row/column can be given a type ... integer, float, all the usuals.
@@ -216,7 +216,7 @@ It might also be useful to use row/column predicates to limit the valid
 values of cells, bringing in a bit of
 [Design by Contract](https://en.wikipedia.org/wiki/Design_by_contract) as well.
 
-### 4. Explicit is better than Implicit
+### 5. Explicit is better than Implicit
 
 (Borrowed from [PEP20](https://www.python.org/dev/peps/pep-0020/))
 
@@ -233,7 +233,7 @@ It's still possible to write a misleading spreadsheet, of course, but it
 makes it a lot harder to do [subtly, sneakily](http://www.underhanded-c.org/)
 or by accident.
 
-### 5. Graphical / Textual duality
+### 6. Graphical / Textual duality
 
 Much like [Flobot](/art/flobot-graphical-dataflow-language-for-robots/), every
 graphical program in this system would be "dual" with a text representation.

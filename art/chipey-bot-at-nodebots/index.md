@@ -1,6 +1,6 @@
 ---
 date: '2020-07-03'
-layout: draft
+layout: article
 title: 'Chipey-bot at Nodebots 2017'
 tags:
     - robots
@@ -22,7 +22,7 @@ The nodebots robots are built from simple, cheap components and
 being build out of cable ties, hot glue, tape and corflute they're very
 accessible to kids.
 
-Charlotte (12 at the time) and I attended and I brought with me a whole bunch
+Charlotte (12 at the time) and I attended in 2017 and I brought with me a whole bunch
 of extra parts, of course.
 Since there was a whole bunch of [ESP32](/tag/esp32/)s in the junkbox
 already, we decided to depart a little from the program and build something

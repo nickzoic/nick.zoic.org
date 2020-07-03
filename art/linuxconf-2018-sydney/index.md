@@ -39,3 +39,4 @@ a voltage booster for the motors, and this design evolved into
 [LoliBot](https://github.com/CCHS-Melbourne/LoliBot) after a whole
 bunch of hard work from other people.
 
+UPDATE: [more on Chipey-bot](/art/chipey-bot-at-nodebots/)

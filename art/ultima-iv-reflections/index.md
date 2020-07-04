@@ -74,6 +74,12 @@ Additionally, I was never the most *patient* or *methodical* of kids,
 and so spending hours jotting down clues and beating up on skeletons and orcs
 to build up enough funds for a decent sword was maaaaybe pushing it a little.
 
+(If you actually want to try playing, the easiest way is to download the
+free PC/Mac version of 
+[Ultima IV from GOG.com](https://www.gog.com/game/ultima_4).
+You don't need to change disks all the time, the graphics are better and
+some gameplay bugs are fixed.)
+
 # Disks
 
 The disks aren't included in the apple emulator above, but you can download
@@ -117,20 +123,95 @@ Nearby are many interesting values ... you start off the game with 300 health, 3
 and 200 gold and right there in the file are the bytes `25 21 18 00` which look oddly
 familiar ...
 
-![zstats](img/zstats1.png)
+![zstats0](img/zstats0.png)
 
 # Ethical Doubts
 
 Let's try setting them to something more fun, like `99 98 97 96` ...
 
-![zstats2](img/zstats2.png)
+![zstats1](img/zstats1.png)
 
 OK, now we're in business.  With a bit more messing around and comparing
-save games we find that the changes are all in track 14 ...
+save games we find that there's quite a lot of things we can change in 
+track 14 ...
 
 Offset | Values | Purpose
 --- | --- | ---
-14020 | 00 00 01 86 | 186 moves!
+11416 | C7 | 'G' for good, or D0 'P' for poisoned
+14417 | 25 | STR 25
+14418 | 21 | DEX 21
+14419 | 18 | INT 18
+1441C | 03 00 | HP 0300
+
+There's more disk locations listed at the end of this article, but that's a 
+good start.
+
+![zstats2](img/zstats2.png)
+
+Anyway, you get the idea.  The game moves along a lot quicker once you've got
+9, 99 or 9999 of everything, even if the display is sometimes a little glitchy.
+
+Interestingly, these values are mostly stored in
+[Binary Coded Decimal (BCD)](https://en.wikipedia.org/wiki/Binary-coded_decimal)
+which stores each digit 0-9 into a hex nibble.
+The 6502 processor supports BCD calculations through a 
+["Decimal Mode"](http://www.6502.org/tutorials/decimal_mode.html)
+which makes it easy to calculate addition and subtraction of BCD numbers.
+
+The "save" area is almost certainly just a write of the memory space used for
+keeping track of the status during the game.
+
+# Adventure ho!
+
+I'm not sure if we ever did work out how to change our position and thus teleport
+around the map, but once you have STR 99 / DEX 99 / HP 9999 and can unpoison yourself
+at will it's pretty easy to get around Britannia sweeping up monsters.
+
+But there was still the matter of the map. We'd got hold of the Sextant by this point, 
+which would give you a latitude & longitude in the format A'B" C'D" where each letter 
+was between A and P.  That's a pretty thinly disguised pair of bytes, so we were pretty
+confident that the world was
+
+* 256 x 256 tiles
+* [toroidal](https://en.wikipedia.org/wiki/Wraparound_(video_games\))
+
+But how was it stored?
+The hint came in the form of a rectangle of very weird ocean.  When we sailed around the 
+*back* of the world, to coordinates A'A" A'A", in the middle of the deepest ocean was a
+rectangle of ... random stuff.
+
+![stuff](img/stuff.png) 
+
+It didn't take too long to work out that was pretty much a 16x16 block, and that while
+the sea was sea, the monsters weren't real monsters ... just tiles. 
+Indeed, as it turns out the map is stored in 16x16 regions, on the 16 sectors of
+the first 16 tracks of the disk.
+The weird stuff in the ocean was a DOS 3.3 boot sector which had been accidentally
+written to the disk.
+
+![sector map](img/sector-map.png)
+
+After a while you realize that you can pretty much see the map right there in the sector
+editor.
+
+# Cartography
+
+
+
+# World map
+
+
+[![Britannia](img/world-thumb.jpg)](img/world.png)
+
+
+# More Save Details
+
+Offset | Values | Purpose
+--- | --- | ---
+14004 | 23 | Longitude (hex)
+14005 | DE | Latitude (hex)
+... | ... | ...
+14020 | 00 00 01 86 | Move counter
 ... | ... | ...
 14304 | 50 55 65 60 50 50 55 50 | Virtues? 3rd one probably Valor?
 14314 | 02 99 | Food 299
@@ -157,11 +238,3 @@ Offset | Values | Purpose
 14423 | 02 | Armour (Leather)
 14424 | C9 CF CC CF 00 | "IOLO"
 ... | ... | ...
-
-Anyway, you get the idea.  The game moves along a lot quicker once you've got
-9, 99 or 9999 of everything, even if the display is sometimes a little glitchy.
-
-# Adventure ho!
-
-Not long after 
-[![Britannia](img/world-thumb.jpg)](img/world.png)

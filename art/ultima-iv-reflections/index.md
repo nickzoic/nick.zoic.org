@@ -1,8 +1,9 @@
 ---
-date: '2018-05-18'
-layout: draft
+date: '2020-07-04'
+layout: article
 tags:
     - games
+    - apple
 title: 'Ultima IV: Reflections'
 summary: "Probably what got me into computers ..."
 ---
@@ -118,18 +119,22 @@ character codes in caps but offset by hex 80 and terminated by 00,
 so NICK would be stored as `CE C9 C3 CB 00`.
 
 ![sector editor](img/sector-editor.png)
+*Copy II Plus Sector Editor*
 
-Nearby are many interesting values ... you start off the game with 300 health, 300 food
-and 200 gold and right there in the file are the bytes `25 21 18 00` which look oddly
-familiar ...
+Nearby are many interesting values ... you start off the game with 300/300 HP and there's
+bytes `03 00 03 00` just near your name, and the bytes `25 21 18 00` look oddly
+familiar too ...
 
 ![zstats0](img/zstats0.png)
+*player stats*
 
 # Ethical Doubts
 
-Let's try setting them to something more fun, like `99 98 97 96` ...
+Let's try setting them to something more fun, like `99 98 97 96`, and then
+restarting the game ...
 
 ![zstats1](img/zstats1.png)
+*modified player stats*
 
 OK, now we're in business.  With a bit more messing around and comparing
 save games we find that there's quite a lot of things we can change in 
@@ -143,10 +148,8 @@ Offset | Values | Purpose
 14419 | 18 | INT 18
 1441C | 03 00 | HP 0300
 
-There's more disk locations listed at the end of this article, but that's a 
-good start.
-
 ![zstats2](img/zstats2.png)
+*more modified player stats*
 
 Anyway, you get the idea.  The game moves along a lot quicker once you've got
 9, 99 or 9999 of everything, even if the display is sometimes a little glitchy.
@@ -160,51 +163,12 @@ which makes it easy to calculate addition and subtraction of BCD numbers.
 
 The "save" area is almost certainly just a write of the memory space used for
 keeping track of the status during the game.
+Writing weird values here and there certainly can make a mess of the game state,
+but it's pretty easy to keep backups of the Britannia disk.
 
-# Adventure ho!
+## More Save Details
 
-I'm not sure if we ever did work out how to change our position and thus teleport
-around the map, but once you have STR 99 / DEX 99 / HP 9999 and can unpoison yourself
-at will it's pretty easy to get around Britannia sweeping up monsters.
-
-But there was still the matter of the map. We'd got hold of the Sextant by this point, 
-which would give you a latitude & longitude in the format A'B" C'D" where each letter 
-was between A and P.  That's a pretty thinly disguised pair of bytes, so we were pretty
-confident that the world was
-
-* 256 x 256 tiles
-* [toroidal](https://en.wikipedia.org/wiki/Wraparound_(video_games\))
-
-But how was it stored?
-The hint came in the form of a rectangle of very weird ocean.  When we sailed around the 
-*back* of the world, to coordinates A'A" A'A", in the middle of the deepest ocean was a
-rectangle of ... random stuff.
-
-![stuff](img/stuff.png) 
-
-It didn't take too long to work out that was pretty much a 16x16 block, and that while
-the sea was sea, the monsters weren't real monsters ... just tiles. 
-Indeed, as it turns out the map is stored in 16x16 regions, on the 16 sectors of
-the first 16 tracks of the disk.
-The weird stuff in the ocean was a DOS 3.3 boot sector which had been accidentally
-written to the disk.
-
-![sector map](img/sector-map.png)
-
-After a while you realize that you can pretty much see the map right there in the sector
-editor.
-
-# Cartography
-
-
-
-# World map
-
-
-[![Britannia](img/world-thumb.jpg)](img/world.png)
-
-
-# More Save Details
+Just for fun I worked out a few more disk locations:
 
 Offset | Values | Purpose
 --- | --- | ---
@@ -220,8 +184,8 @@ Offset | Values | Purpose
 ... | ... | ...
 1433C | 00 03 04 00 00 00 00 00 | Reagents
 ... | ... | ...
-14400 | 00 EC | 
-14402 | 00 02 | 
+14400 | 00 EC | ?
+14402 | 00 02 | ?
 11404 | CE C9 C3 CB 00 |  "NICK"
 11414 | 5C | Male?
 11415 | 02 | Fighter?
@@ -230,7 +194,7 @@ Offset | Values | Purpose
 14418 | 21 | DEX 21
 14419 | 18 | INT 18
 1441A | 00 | MP 0
-1441B | 20 | ? Level
+1441B | 20 | Level?
 1441C | 03 00 | HP 0300
 1441E | 03 00 | HM 0300
 14420 | 02 05 | EX 0205
@@ -238,3 +202,91 @@ Offset | Values | Purpose
 14423 | 02 | Armour (Leather)
 14424 | C9 CF CC CF 00 | "IOLO"
 ... | ... | ...
+
+Names & stats for each of the other party characters follow.
+By carefully experiment, you could work out what each byte means and 
+how to set all party characteristics, and also the position of
+ships, the balloon, etc.
+
+# Adventure ho!
+
+I'm not sure if we ever did work out how to change our position and thus teleport
+around the map, but once you have STR 99 / DEX 99 / HP 9999 and plenty of 
+reagents to unpoison yourself at will it's pretty easy to get around Britannia
+sweeping up monsters.
+
+But there was still the matter of the map. We'd got hold of the Sextant by this point, 
+which would give you a latitude & longitude in the format A'B" C'D" where each letter 
+was between A and P.  That's a pretty thinly disguised pair of bytes, so we were pretty
+confident that the world was
+
+* 256 x 256 tiles
+* [toroidal](https://en.wikipedia.org/wiki/Wraparound_(video_games\))
+
+But how was it stored?
+The hint came in the form of a rectangle of very weird ocean.  When we sailed around the 
+*back* of the world, to coordinates A'A" A'A", in the middle of the deepest ocean was a
+rectangle of ... random stuff.
+
+![stuff](img/stuff.png) 
+*random stuff in the map*
+
+It didn't take too long to work out that was pretty much a 16x16 block, and that while
+the sea was sea, the monsters weren't real monsters ... just tiles. 
+Indeed, as it turns out the map is stored in 16x16 regions, on the 16 sectors of
+the first 16 tracks of the disk.
+The weird stuff in the ocean was a DOS 3.3 boot sector which had been accidentally
+written to the disk.
+
+![sector map](img/sector-map.png)
+*sector editor showing map-like sector*
+
+After a while you realize that you can pretty much see the map right there in the sector
+editor.
+
+# Cartography
+
+Our next step was printing a map from this data.
+I can't remember exactly how we did this now, but I do remember designing
+8x8 1-bit icons for each of the more common map cells (deep ocean was completely
+blank) and writing a program to load two sectors at a time and turn each pair
+into a dot-matrix printable image about 10cm x 5cm.
+128 of these small rectangles of printer paper were then cut out and glued 
+together to form a giant, if rather scruffy, map.
+
+Sadly, the physical map and the programs used to produce it are long gone.
+
+Years later, I used some resources found online to prduce the following 
+4096x4096 pixel map.
+Each map tile uses the actual 16x16 tile from the game, so the map is 
+256 x 16 = 4096 pixels in each direction.
+
+[![Britannia](img/world-thumb.jpg)](img/world.png)
+
+The towns are stored in a similar manner on the "towns" disk, with each of the 
+17 town maps having a 32x32 map.  There's 17 because there's an upstairs and a downstairs
+of Castle Britannia!
+That disk also contains all the conversations you can have with townsfolk.
+
+There's more of that sort of thing on [this old Ultima IV page](https://code.zoic.org/ultima/)
+of mine.
+
+# Nostalgia ain't what it used to be
+
+Anyway, the point of this article isn't really Ultima IV.
+I don't think we ever even finished the game, in any real sense.
+(I suspect the only game I've ever really "finished", in the "without cheating"
+sense, is Portal.)
+
+The point is that through this process I learned too see software as observable,
+mutable, fallible.
+Looking at how the software behaved led to a theory of how it might be changed,
+and those changes altered the game. But if you altered it too far, unexpected 
+things could occur, things which the game designer never considered.
+
+And that put me on the road I'm on today ...
+
+# Further Reading
+
+If you enjoyed this and you'd like to try a similar adventure for yourself,
+check out the [Synacor Challenge](https://challenge.synacor.com/)

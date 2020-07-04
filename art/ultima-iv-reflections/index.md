@@ -67,6 +67,9 @@ Of course, being a pirate copy, it had none of the above and it wasn't
 like we could just
 [look it up online](https://ultima.fandom.com/wiki/Ultima_IV_Locations_Map).
 
+![Book of History](img/book-of-history.png)
+*(No, really!  Read the Book of History!)*
+
 Additionally, I was never the most *patient* or *methodical* of kids,
 and so spending hours jotting down clues and beating up on skeletons and orcs
 to build up enough funds for a decent sword was maaaaybe pushing it a little.
@@ -108,13 +111,13 @@ If you're looking in a disk image file, that's offset hex 14404 (but note that t
 character codes in caps but offset by hex 80 and terminated by 00,
 so NICK would be stored as `CE C9 C3 CB 00`.
 
-![sector editor](img/sector.png)
+![sector editor](img/sector-editor.png)
 
 Nearby are many interesting values ... you start off the game with 300 health, 300 food
 and 200 gold and right there in the file are the bytes `25 21 18 00` which look oddly
 familiar ...
 
-![zstats](img/zstats.png)
+![zstats](img/zstats1.png)
 
 # Ethical Doubts
 
@@ -126,7 +129,7 @@ OK, now we're in business.  With a bit more messing around and comparing
 save games we find that the changes are all in track 14 ...
 
 Offset | Values | Purpose
---- + --- + ---
+--- | --- | ---
 14020 | 00 00 01 86 | 186 moves!
 ... | ... | ...
 14304 | 50 55 65 60 50 50 55 50 | Virtues? 3rd one probably Valor?
@@ -160,4 +163,5 @@ Anyway, you get the idea.  The game moves along a lot quicker once you've got
 
 # Adventure ho!
 
-[![Britannia](img/thumb.jpg)](img/world.png)
+Not long after 
+[![Britannia](img/world-thumb.jpg)](img/world.png)

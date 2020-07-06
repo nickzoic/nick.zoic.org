@@ -261,7 +261,7 @@ Years later, I used some resources found online to prduce the following
 Each map tile uses the actual 16x16 tile from the game, so the map is 
 256 x 16 = 4096 pixels in each direction.
 
-[![Britannia](img/world-thumb.jpg)](img/world.png)
+[![Britannia](img/world-thumb.jpg)](./world.html)
 
 The towns are stored in a similar manner on the "towns" disk, with each of the 
 17 town maps having a 32x32 map.  There's 17 because there's an upstairs and a downstairs

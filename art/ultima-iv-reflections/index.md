@@ -5,7 +5,7 @@ tags:
     - games
     - apple
 title: 'Ultima IV: Reflections'
-summary: "Probably what got me into computers ..."
+summary: "Playing Ultima IV on the Apple \]\[ was probably what got me into computers ... well, maybe not so much playing as where it led ..."
 ---
 
 # GALAGA
@@ -58,7 +58,8 @@ build up your resources to take on more fearsome enemies.
 The game was so large it used *four* floppy sides, and much swapping of 
 disks was required, with the game halting whenever you entered or left a 
 town or dungeon to demand a swap of disks.
-When you quit the game, your progress was saved to the "britannia" disk.
+When you quit the game, your progress was saved to the "Britannia" disk.
+Of course, if things were going badly you could just choose not to save.
 
 The game was supposed to come with various materials and an
 ingenious piece of copy protection: an instruction book and a cloth map.
@@ -99,8 +100,16 @@ Disks don't have to have a "file system" on them, instead the computer
 just [loads the "boot" sector and jumps to it](https://en.wikipedia.org/wiki/Apple_DOS#Boot_loader)
 and that tiny program is expected to do the rest of the work.
 Data disks don't have to have any structure at all.
-A small set of assembly subroutines known as RWTS ("Read/Write/Track/Sector") take care of 
-sector access.
+
+A small set of assembly subroutines, build into the system ROM, take care of sector
+access.
+These are known as RWTS ("Read/Write Track Sector") and form the interface between 
+software and hardware.
+
+There's lots of details of these things out there: in those primitive times we were
+forced to fend for ourselves with only a couple of
+[Beagle Bros](http://beagle.applearchives.com/)
+publications and a mysterious glue-bound book entitled "HARDWARD MANUAL" for advice.
 
 # Sector Editor
 
@@ -172,34 +181,34 @@ Just for fun I worked out a few more disk locations:
 
 Offset | Values | Purpose
 --- | --- | ---
-14004 | 23 | Longitude (hex)
-14005 | DE | Latitude (hex)
+14004 | 23 | Current Longitude (hex)
+14005 | DE | Current Latitude (hex)
 ... | ... | ...
-14020 | 00 00 01 86 | Move counter
+14020 | 00 00 01 86 | Number of moves made in game
 ... | ... | ...
 14304 | 50 55 65 60 50 50 55 50 | Virtues? 3rd one probably Valor?
-14314 | 02 99 | Food 299
+14314 | 02 99 | Party Food 299
 14316 | ? | ?
-14317 | 02 00 | Gold 200
+14317 | 02 00 | Party Gold 200
 ... | ... | ...
-1433C | 00 03 04 00 00 00 00 00 | Reagents
+1433C | 00 03 04 00 00 00 00 00 | Reagents on hand
 ... | ... | ...
 14400 | 00 EC | ?
 14402 | 00 02 | ?
 11404 | CE C9 C3 CB 00 |  "NICK"
-11414 | 5C | Male?
-11415 | 02 | Fighter?
-11416 | C7 | 'G' for good, or D0 'P' for poisoned
-14417 | 25 | STR 25
-14418 | 21 | DEX 21
-14419 | 18 | INT 18
-1441A | 00 | MP 0
+11414 | 5C | 5C for Male?
+11415 | 02 | Class 2: Fighter?
+11416 | C7 | C7 'G' for good, or D0 'P' for poisoned
+14417 | 25 | STRength 25
+14418 | 21 | DEXterity 21
+14419 | 18 | INTelligence 18
+1441A | 00 | MP 0 (Magic Points, I think)
 1441B | 20 | Level?
-1441C | 03 00 | HP 0300
-1441E | 03 00 | HM 0300
-14420 | 02 05 | EX 0205
-14422 | 05 | Ready (Axe)
-14423 | 02 | Armour (Leather)
+1441C | 03 00 | HP 0300 Hit Points
+1441E | 03 00 | HM 0300 Maximum Hit Points
+14420 | 02 05 | EX 0205 Experience
+14422 | 05 | Current Weapon (Axe)
+14423 | 02 | Current Armour (Leather)
 14424 | C9 CF CC CF 00 | "IOLO"
 ... | ... | ...
 
@@ -210,7 +219,7 @@ ships, the balloon, etc.
 
 # Adventure ho!
 
-I'm not sure if we ever did work out how to change our position and thus teleport
+I'm not sure if we ever did work out, back then, how to change the stored position and thus teleport
 around the map, but once you have STR 99 / DEX 99 / HP 9999 and plenty of 
 reagents to unpoison yourself at will it's pretty easy to get around Britannia
 sweeping up monsters.
@@ -222,6 +231,7 @@ confident that the world was
 
 * 256 x 256 tiles
 * [toroidal](https://en.wikipedia.org/wiki/Wraparound_(video_games\))
+* A bit obsessed with the number 16.
 
 But how was it stored?
 The hint came in the form of a rectangle of very weird ocean.  When we sailed around the 
@@ -231,18 +241,24 @@ rectangle of ... random stuff.
 ![stuff](img/stuff.png) 
 *random stuff in the map*
 
-It didn't take too long to work out that was pretty much a 16x16 block, and that while
-the sea was sea, the monsters weren't real monsters ... just tiles. 
-Indeed, as it turns out the map is stored in 16x16 regions, on the 16 sectors of
-the first 16 tracks of the disk.
-The weird stuff in the ocean was a DOS 3.3 boot sector which had been accidentally
-written to the disk.
+It didn't take too long to work out that was pretty much a 16x16 block,
+taking up locations A'A" A'A" through A'P" A'P".
+While the sea was sea, the monsters weren't real monsters ... just tiles. 
+Indeed, as it turns out the map is stored in 16x16 regions, each taking up
+one 256 byte disk sector, on the 16 sectors of the first 16 tracks of the disk.
+
+The weird stuff in the ocean?
+That was a DOS 3.3 boot sector which had been accidentally written to the disk
+at some time during its pirate misadventures.
 
 ![sector map](img/sector-map.png)
 *sector editor showing map-like sector*
 
 After a while you realize that you can pretty much see the map right there in the sector
 editor.
+
+It's interesting to note that there's plenty of spare room on this disk: the map only uses 
+up 16 tracks out of 35, and the last few tracks are entirely blank.
 
 # Cartography
 

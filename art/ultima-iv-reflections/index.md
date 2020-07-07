@@ -309,4 +309,6 @@ Lots more Ultima IV tech stuff at [Ultima Codex](https://ultimacodex.com/)
 If you enjoyed this and you'd like to try a similar adventure for yourself,
 check out the [Synacor Challenge](https://challenge.synacor.com/)
 
+Or check out [PICO-8](https://www.hanselman.com/blog/ThePICO8VirtualFantasyConsoleIsAnIdealizedConstrainedModernDayGameMaker.aspx)
+for a fun, extremely resource constrained "fantasy console".
 

@@ -367,7 +367,11 @@ I've also got some hardware on the way to program the SAMD21 processor on the
 so rather than starting from scratch I might have a go at adding WebUSB to 
 the existing USB stack.
 
+# UPDATE 2020
 
+Also check out [PICO-8](https://github.com/pico-8/awesome-PICO-8), especially the way it flips
+between CLI and file editor seamlessly.
+That'd be a killer app for MicroPython.
 
 
 

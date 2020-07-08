@@ -5,12 +5,12 @@ tags:
     - games
     - apple
 title: 'Ultima IV: Reflections'
-summary: "Playing Ultima IV on the Apple \]\[ was probably what got me into computers ... well, maybe not so much playing as where it led ..."
+summary: |
+    Playing Ultima IV on the Apple 2 was probably what got me into computers ...
+    well, maybe not so much playing as where it led ...
 ---
 
-# Ultima IV: Reflections
-
-## GALAGA
+# GALAGA
 
 Some time in the early '80s, Dad brought home an Apple 2
 [clone](https://en.wikipedia.org/wiki/Apple_II_series#Clones),
@@ -39,7 +39,7 @@ and [The Bilestoad](https://en.wikipedia.org/wiki/The_Bilestoad).
 [Rocky's Boots](https://en.wikipedia.org/wiki/Rocky%27s_Boots) went on to 
 inspire [Flobot](/art/flobot-graphical-dataflow-language-for-robots/).
 
-## Emulation
+# Emulation
 
 You can try Apple 2 software out in your browser using the excellent
 [apple2js](https://github.com/whscullin/apple2js)
@@ -49,7 +49,7 @@ emulator of the Apple, running in plain old Javascript.
 Incredible.
 I've used it for screenshots in this article.
 
-## Quest of the Avatar
+# Quest of the Avatar
 
 But the undisputed champion of games was
 [Ultima IV](https://en.wikipedia.org/wiki/Ultima_IV:_Quest_of_the_Avatar),
@@ -84,7 +84,7 @@ free PC/Mac version of
 You don't need to change disks all the time, the graphics are better and
 some gameplay bugs are fixed.)
 
-## Disks
+# Disks
 
 The disks aren't included in the apple emulator above, but you can download
 them [at wowroms](https://wowroms.com/en/roms/apple-ii/download-ultima-iv-quest-of-the-avatar/1466.html)
@@ -113,7 +113,7 @@ forced to fend for ourselves with only a couple of
 [Beagle Bros](http://beagle.applearchives.com/)
 publications and a mysterious glue-bound book entitled "HARDWARD MANUAL" for advice.
 
-## Sector Editor
+# Sector Editor
 
 As it turns out, there were some more disks in the dusty shoebox, including a *sector editor*
 
@@ -139,7 +139,7 @@ familiar too ...
 ![zstats0](img/zstats0.png)
 *player stats*
 
-## Ethical Doubts
+# Ethical Doubts
 
 Let's try setting them to something more fun, like `99 98 97 96`, and then
 restarting the game ...
@@ -177,7 +177,7 @@ keeping track of the status during the game.
 Writing weird values here and there certainly can make a mess of the game state,
 but it's pretty easy to keep backups of the Britannia disk.
 
-## More Save Details
+# More Save Details
 
 Just for fun I worked out a few more disk locations:
 
@@ -219,7 +219,7 @@ By carefully experiment, you could work out what each byte means and
 how to set all party characteristics, and also the position of
 ships, the balloon, etc.
 
-## Journey Onward!
+# Journey Onward!
 
 I'm not sure if we ever did work out, back then, how to change the stored position and thus teleport
 around the map, but once you have STR 99 / DEX 99 / HP 9999 and plenty of 
@@ -262,7 +262,7 @@ editor.
 It's interesting to note that there's plenty of spare room on this disk: the map only uses 
 up 16 tracks out of 35, and the last few tracks are entirely blank.
 
-## Cartomancy
+# Cartomancy
 
 Our next step was printing a map from this data.
 I can't remember exactly how we did this now, but I do remember designing
@@ -289,7 +289,7 @@ That disk also contains all the conversations you can have with townsfolk.
 There's more of that sort of thing on [this old Ultima IV page](https://code.zoic.org/ultima/)
 of mine.
 
-## Nostalgia ain't what it used to be
+# Nostalgia ain't what it used to be
 
 Anyway, the point of this article isn't really Ultima IV.
 I don't think we ever even finished the game, in any real sense.
@@ -304,7 +304,7 @@ things could occur, things which the game designer never considered.
 
 And that put me on the road I'm on today ...
 
-## Further Reading
+# Further Reading
 
 * Lots more Ultima IV tech stuff at [Ultima Codex](https://ultimacodex.com/)
 

@@ -37,16 +37,23 @@ less used to command line programming.
 
 ## Issues
 
-However, the standard spreadsheet has some pretty severe problems.
-From [botched economic analysis](https://theconversation.com/the-reinhart-rogoff-error-or-how-not-to-excel-at-economics-13646)
-to [scrambled genes](https://genomebiology.biomedcentral.com/articles/10.1186/s13059-016-1044-7).
-
-Some issues:
+However, the standard spreadsheet has some pretty severe problems:
 
 * Types are per *cell*, not per *row* or *column*.  A column could have a whole jumble
   of different typed cells in it.
 * Aggregate functions like `SUM()` can easily be incorrectly set up to address a subset of
   rows in a table area, losing important data.
+
+  See this [botched economic analysis](https://theconversation.com/the-reinhart-rogoff-error-or-how-not-to-excel-at-economics-13646)
+
+  > [The authors] had not selected the entire row when averaging growth figures: they omitted data from Australia,
+  > Austria, Belgium, Canada and Denmark [...] When that error was corrected, the “0.1% decline” data became a 2.2%
+  > average increase in economic growth. 
+
+* Anything that looks like a number, and anything that looks like a date, gets autoconverted.
+
+  See this paper on [scrambled gene names](https://genomebiology.biomedcentral.com/articles/10.1186/s13059-016-1044-7)
+  
 * It's not clear, at first glance, if a cell is a static value or gets its value from a 
   formula.
 * Formulae are cut-and-pasted between cells, and its easy to get this wrong.  The

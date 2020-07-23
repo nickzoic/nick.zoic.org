@@ -24,9 +24,7 @@
       {% assign pages_list = site.pages | where:"layout","article" | sort:"date" | reverse %}
       {% for node in pages_list limit:10 %}
         {% if node.title != null %}
-          {% if node.layout == "article" %}
-            <a class="sidebar-nav-item{% if page.url == node.url %} active{% endif %}" href="{{ node.url }}">{{ node.title }}</a>
-          {% endif %}
+          <a class="sidebar-nav-item{% if page.url == node.url %} active{% endif %}" href="{{ node.url }}">{{ node.title }}</a>
         {% endif %}
       {% endfor %}
       <p><a href="/everything/">More ...</a></p>
@@ -36,9 +34,7 @@
       <h2>Tags:</h2>
       {% assign sorted_pages = site.pages | where:"layout","tag" | sort:"tag" %}
       {% for node in sorted_pages %}
-        {% if node.layout == "tag" %}
 	<a class="sidebar-nav-item{% if page.url == node.url %} active{% endif %}" style="display: inline-block" href="{{ node.url }}">{{ node.title }}</a>
-	{% endif %}
       {% endfor %}
     </nav>
 

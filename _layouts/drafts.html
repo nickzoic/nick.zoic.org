@@ -5,11 +5,9 @@ layout: base
 
       {{ content }}
 
-      {% assign sorted_pages = site.pages | sort:"title" %}
+      {% assign sorted_pages = site.pages | where:"layout","draft" | sort:"title" %}
       {% for page in sorted_pages %}
-        {% if page.layout == "draft" %}
-          <a href="{{ page.url }}"><h3>{{ page.title }}</h3></a>
-          {% if page.summary %}<p>{{ page.summary }}</p>{% endif %}
-        {% endif %}
+        <a href="{{ page.url }}"><h3>{{ page.title }}</h3></a>
+        {% if page.summary %}<p>{{ page.summary }}</p>{% endif %}
       {% endfor %}
     </div>

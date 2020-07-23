@@ -2,10 +2,9 @@
 layout: base
 ---
     <div class="page">
-      {% assign sorted_pages = site.pages | sort:"date" | reverse %}
+      {% assign sorted_pages = site.pages | where:"layout","article" | sort:"date" | reverse %}
       {% assign prev_year = 0 %}
       {% for page in sorted_pages %}
-        {% if page.layout == "article" %}
           {% assign this_year = page.date | date: "%Y" %}
           {% if this_year != prev_year %}
             <h1 class="page-title">{{ this_year }}</h1>
@@ -13,6 +12,5 @@ layout: base
           {% endif %}
           <a href="{{ page.url }}"><h3>{{ page.title }}</h3></a>
           {% if page.summary %}<p>{{ page.summary }}</p>{% endif %}
-        {% endif %}
       {% endfor %}
     </div>

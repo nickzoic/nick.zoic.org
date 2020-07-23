@@ -121,7 +121,7 @@ The problem is, the information within the file is generally too patchy to someh
 magically extract types and form classes etc.
 You could use some heuristic or another, like the
 [Decompilers](https://en.wikipedia.org/wiki/Decompiler)
-of old[2] but fixing up the wrong guesses is always going to be a bear.
+of old but fixing up the wrong guesses is always going to be a bear.
 Header rows aren't always marked, columns aren't always consistent, formulae may be 
 different or missing in places.
 
@@ -281,3 +281,8 @@ and got some good feedback already.
 
 * If anyone does know a product and/or service which covers these bases already, let
   me know!
+
+## FURTHER READING
+
+* [SIEUFERD](http://people.csail.mit.edu/ebakke/sieuferd/) "a general-purpose user interface
+  for relational databases"

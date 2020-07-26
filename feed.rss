@@ -11,7 +11,7 @@ layout: null
   <language>en-au</language>
   <copyright>Copyright (c) 2011-2020 Nick Moore</copyright>
   {% assign recent_pages = site.pages | where:"layout","article" | sort:"date" | reverse %}
-  {% for page in recent_pages limit:10 %}
+  {% for page in recent_pages %}
   <item>
     <title>{{ page.title }}</title>
     <link>{{ site.url }}{{ page.url }}</link>

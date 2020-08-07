@@ -286,3 +286,5 @@ and got some good feedback already.
 
 * [SIEUFERD](http://people.csail.mit.edu/ebakke/sieuferd/) "a general-purpose user interface
   for relational databases"
+
+* [Scientists rename human genes to stop Microsoft Excel from misreading them as dates](https://www.theverge.com/2020/8/6/21355674/human-genes-rename-microsoft-excel-misreading-dates) (at The Verge)

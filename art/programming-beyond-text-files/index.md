@@ -42,7 +42,7 @@ so we could take our programs away to think about.  When did you last print out 
 ### UPDATE
 
 * [Interesting article about the origin of punch card sizes](http://exple.tive.org/blarg/2019/10/23/80x25/)
-
+* [Ken Shirriff on the history of the 80x24 display](http://www.righto.com/2019/11/ibm-sonic-delay-lines-and-history-of.html)
 ## Programming beyond Text
 
 But that's not the only way to program:

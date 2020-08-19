@@ -13,7 +13,7 @@ title: Programming Beyond Text Files
 ## Programs as Text Files
 
 We're used to thinking of programs as text files: the first step on the road
-to being a [Real Programmer](http://web.mit.edu/humor/Computers/real.programmers)
+to being a [Real Programmer](https://www.ee.ryerson.ca/~elf/hack/realmen.html)
 is pick a text editor "that reflects [your] personal style".  In old-school Unix 
 that's probably `vi` or `emacs`, but even modern IDEs are really a tangle of
 enhancements wrapped around a text editor.
@@ -112,3 +112,7 @@ And another visual language: [Prograph](https://medium.com/@noelrap/prograph-c3c
 [Luna](https://www.luna-lang.org/) is a visual dataflow pure-functional language with lots of 
 bells and whistles
 
+### UPDATE 2020
+
+I'll be presenting a talk related to this at [pyconline AU 2020](https://2020.pycon.org.au/)
+see [Decoding: Programming beyond text files](https://2020.pycon.org.au/program/lyrjgy/)

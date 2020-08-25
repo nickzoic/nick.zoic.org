@@ -2,6 +2,7 @@
 date: '2020-08-23'
 layout: draft
 summary: '"Decoding: Programming beyond text files" at PyCOnline AU 2020'
+redirect_from: /decoding
 tags:
   - languages
   - python

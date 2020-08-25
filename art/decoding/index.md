@@ -16,4 +16,4 @@ at [PyCOnline AU 2020](https://2020.pycon.org.au/)
 
 The talk is based on the article
 [Programming Beyond Text Files](/art/programming-beyond-text-files)
-so for now maybe go read that `:-)`
+so for now maybe go read that `:-)` ...

@@ -139,6 +139,10 @@ Some performance figures with the tiny fan mounted on the heatsink
 | 200 | 6950 | ... taking off |
 | 255 | 8800 | self-destruct imminent! |
 
+The aim here is to characterize the heatsink as designed, I'd like to make a little printed
+plastic case for the board with a side-mounted fan, possibly with some kind of shroud to
+direct air through the heatsink.
+
 ### Update: Desktop Sled
 
 I tried 3D printing a little case for the board, but the cases I found were all pretty fussy with
@@ -147,10 +151,6 @@ keep the board off the desk and make sure it didn't short out on a paperclip or 
 that. 
 
 * [Jetson Nano Devkit Sled](https://github.com/nickzoic/models3d/blob/master/parts/jetson-nano.scad)
-
-The aim here is to characterize the heatsink as designed, I'd like to make a little printed
-plastic case for the board with a side-mounted fan, possibly with some kind of shroud to
-direct air through the heatsink.
 
 ## Don't Upgrade (too far)!
 

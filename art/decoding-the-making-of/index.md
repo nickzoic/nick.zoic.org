@@ -1,6 +1,6 @@
 ---
 date: '2020-08-27'
-layout: draft
+layout: article
 summary: 'Behind the scenes of my PyConline AU 2020 presentation'
 tags:
   - conference
@@ -38,20 +38,44 @@ There's a couple of moments where you can see my shoulder through the image.
 
 Microphone setup was an Olympus lapel mic on a long cable, plugged into the camera,
 but because I kept getting caught up in the cable I ended up dangling it from the 
-ceiling just out of shot.  This kind of worked but it's a bit "phasey" ... this
-room is very reflective.
+ceiling just out of shot.
 
 ![Terrible microphone setup](img/microphone.jpg)
 
+This kind of worked but it's a bit "phasey" ... this
+room is very reflective.  I taped some foam to the ceiling to try and reduce the 
+phaseyness but it didn't help much.  I didn't have a proper adaptor for the mic either so
+it's using a cute cassette tape shaped headphone splitter.
+
 ## Files
+
+In total I recorded:
 
 * 70 MOV files
 * 17.6 GB
 * 1h24m53s total
 
-# Slides
+Quite a few bits had several takes where I flubbed one bit or another,
+plus every video has a few seconds of lead-in and lead-out, so there
+ends up being a lot left on the cutting room floor!
 
+## Slides
+
+These were made with my usual `flip.js` script and HTML,
+on the offchance that I want to present this at a real live conference
+some day I figured I might as well have a real live slide deck.
+Then I just took PNG screenshots of each slide.
+
+I should really get a better way of doing this together,
+markdown at the least since writing HTML by hand is terrible.
+
+* 1 HTML file, screenshotted into ...
 * 67 .PNG files for slides
+
+The stylesheet is meant to look a bit like an old `APPLE ][` era 
+computer, with an Apple font, inverse characters, green phosphor
+colour and a bit of a phosphor glow.  It's not very authentic but
+I kinda like it.
 
 # Editing
 
@@ -67,13 +91,23 @@ worked okay. The most complicated Fusion code involved:
 * Ultrakey to delete remaining background
 * another mask to stop UltraKey deleting bits of my face
 
+You can copy Fusion compositions from one clip to another by going into the 
+Fusion mode, click 'Clips' up the top to show a list of all your clips, then
+select one or more clips to copy *TO* (with left click, like normal) and
+then middle-click on a clip to copy the Fusion composition *FROM*.
+Then you can tweak the exact alignment of stuff in each clip.
+
+There was a lot of white noise on the recording too, so I reduced that
+in Fairlight.
+ 
 ## Mysterious Rendering Error
 
 I had a nasty moment towards the very end when with less than 24 hours to go to 
 submit the video, on the final render I got this error:
 
 ![davinci resolve error message](img/error-message.png)
-*Render job 11 failed as the current clip could not be processed. The Fusion composition on the current frame or clip could not be processed successfully*
+
+`Render job 11 failed as the current clip could not be processed. The Fusion composition on the current frame or clip could not be processed successfully`
 
 Which isn't particularly helpful.  I still don't know what it was complaining about.
 I eventually found an online tip which said you could make Resolve slightly less fussy
@@ -83,6 +117,7 @@ about frame errors by going to:
 
 Which may have left a single glitchy frame behind but so be it.  The original message
 was utterly useless so I have no idea what I could do to fix it.
+Deleting fusion compositions where the error occurred didn't help.
 
 <blockquote class="twitter-tweet"><p lang="en" dir="ltr">Dear <a href="https://twitter.com/Blackmagic_News?ref_src=twsrc%5Etfw">@Blackmagic_News</a> please hire me so I can find out who wrote this error message and snub them at parties.</p>&mdash; nick moore (@nickzoic) <a href="https://twitter.com/nickzoic/status/1298450533691191296?ref_src=twsrc%5Etfw">August 26, 2020</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script> 
 
@@ -109,6 +144,9 @@ I ended up having to delete a whole bunch of steam games to make enough room!
 
 * Buy a decent microphone up front and do a lot more test recording and review.
   Probably a ceiling boundary mic would work in this little reverby office.
+
+* The camera also has a lot of high white noise which might be reduced with a 
+  better mic with its own power.
 
 * It's pretty noisy here so most takes were done quite late at night, most of the ones
   done during daylight were unusable so I should have just not bothered.
@@ -163,3 +201,6 @@ I ended up having to delete a whole bunch of steam games to make enough room!
   to be sure you've backed it up against accidentally deleting the wrong bit of a timeline.
 
 * Really, what I want is a GUI for writing `ffmpeg` filters.
+
+* If I'd have a heap more time I'd have bribed a teenager into doing line drawings of 
+  the photos and converted them to green glowing lines.

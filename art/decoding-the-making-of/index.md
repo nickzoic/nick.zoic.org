@@ -3,10 +3,8 @@ date: '2020-08-27'
 layout: draft
 summary: 'Behind the scenes of my PyConline AU 2020 presentation'
 tags:
-  - languages
-  - python
-  - speculation
-title: Decoding: The making of
+  - conference
+title: 'Decoding: The making of'
 ---
 
 ![Decoding: Programming Beyond Text Files](img/title-x.png)

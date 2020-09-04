@@ -259,7 +259,7 @@ We really don't want to screw this one up.
 I'm going to take a wild guess that this chip is what is attached to that 
 power button, too, since it has a `PWRON` input.  A long press shuts the
 whole watch down, but it might be that this device can pass a short press
-through to the CPU using its interrupt pin, which is hooked up to GPIO39
+through to the CPU using its interrupt pin, which is hooked up to GPIO35
 
 It also contains an accurate ADC for estimating remaining battery.
 

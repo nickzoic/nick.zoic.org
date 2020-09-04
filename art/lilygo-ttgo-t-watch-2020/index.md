@@ -4,7 +4,7 @@ layout: article
 tags:
   - micropython
 title: 'Lilygo TTgo T-Watch 2020'
-summary: Lilygo were kind enough to send me some samples of their new watches: well, wrist-mounted computers, really. Here's a look at the TTgo T-Watch 2020.
+summary: 'Lilygo were kind enough to send me some samples of their new watches: well, wrist-mounted computers, really. Here's a look at the TTgo T-Watch 2020.'
 ---
 
 [Lilygo, aka Shenzhen Xin Yuan Electronic Technology Co., Ltd](http://lilygo.cn)

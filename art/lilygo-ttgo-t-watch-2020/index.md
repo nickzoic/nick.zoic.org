@@ -4,13 +4,14 @@ layout: article
 tags:
   - micropython
 title: 'Lilygo TTgo T-Watch 2020'
+summary: Lilygo were kind enough to send me some samples of their new watches: well, wrist-mounted computers, really. Here's a look at the TTgo T-Watch 2020.
 ---
 
 [Lilygo, aka Shenzhen Xin Yuan Electronic Technology Co., Ltd](http://lilygo.cn)
 were kind enough to send me some samples of their new watches: well,
 wrist-mounted computers, really.
 
-![Samples](img/samples.jpg)]
+![Samples](img/samples.jpg)
 
 # Lilygo TTgo T-Watch 2020
 
@@ -18,6 +19,7 @@ The first one I'm going to look at is the T-Watch 2020, the latest of their
 wristwatch devices.  It's a bit chonky, the body is 49mm x 40mm by 12.7mm thick, 
 but the edges are round and comfortable and the black plastic back makes it
 seem a little less over the top.
+
 Even though I don't generally wear a wristwatch, it's not so big as to feel
 like you've strapped a computer to your arm and light enough to not feel weird.
 
@@ -42,12 +44,14 @@ you set scan WiFi and so on but I didn't really look much more at it,
 because that's not what we're here to talk about: what's fun about this device 
 is that it can run [MicroPython](/tag/micropython/).
 
-(This trail has been broken by [y0no](https://y0no.fr/posts/micropython-ttgo-twatch2020/)
+## Trail Breakers
+
+This trail has been broken by [y0no](https://y0no.fr/posts/micropython-ttgo-twatch2020/)
 [(en translation)](https://translate.google.com/translate?hl=&sl=auto&tl=en&u=https%3A%2F%2Fy0no.fr%2Fposts%2Fmicropython-ttgo-twatch2020%2F) and
 [mooond](https://gitlab.com/mooond/t-watch2020-esp32-with-micropython/-/wikis/home)
-but I thought I'd give it a go too)
+but I thought I'd give it a go too.
 
-# MicroPython
+# MicroPython 1.13
 
 First things first: I build the newly released MicroPython 1.13 for ESP32,
 plugged in the watch and flashed it the usual way.
@@ -58,10 +62,12 @@ Python prompt, but that's not very useful.
 ## Proof of Life
 
 First things first: is this device really working?
+
 There's a [technical document for T-Watch 2020](https://t-watch-document-en.readthedocs.io/en/latest/introduction/product/2020.html)
 which includes lots of great information, including 
 peripherals and pinouts.
-Starting with the most basic "proof of life", GPIO4 is attached to the
+
+Starting with the most basic "proof of life", we can see GPIO4 is attached to the
 vibration motor, so we can pulse that GPIO and see what happens
 
 ```
@@ -86,6 +92,8 @@ The GPIO signal doesn't seem to drive the motor directly, but by using a really 
 duty cycle and varying the PWM frequency between 5 and 30 Hz you can make a variety
 of different vibrations at least ... potentially handy.
 
+## Another GPIO ...
+
 Likewise, GPIO12 is the display backlight: you can PWM it at 100Hz and set the
 background brightness with the duty cycle.
 
@@ -98,6 +106,8 @@ pp = machine.PWM(machine.Pin(12), freq=1000, duty=512)
 be, depending on if you've pulled the batteries since you first booted the device
 on it's built-in firmware, or something.  Anyway, it worked for me at first but then
 stopped working until I got down to the AXP202 bit below*
+
+## GPIO mappings
 
 It's a bit confusing to try to work out which pin is which internally, as 
 some of the docs are mixed up between the older, expandable watch and this 
@@ -295,6 +305,7 @@ the watch doesn't *have* a reset pin for the 7789, but the driver insists on hav
 one.
 
 So I made [a fork which doesn't insist on a reset pin](https://github.com/nickzoic/st7789_mpy/tree/optional_reset_pin) 
+and now the following code works:
 
 ```
 import machine

@@ -115,6 +115,10 @@ current model.
 [This pin map on github](https://github.com/Xinyuan-LilyGO/TTGO_TWatch_Library/blob/master/docs/pinmap.md) is possibly the best guide.
 It doesn't list GPIO 12 though, which I've confirmed is a backlight pin.
 
+This image from the website fills in some more details:
+
+![T-Watch 2020 pins](img/twatch-ad.jpg)
+
 The button on the side, which looks like a little crownwheel but isn't,
 is attached to Pin 36 on older watches but doesn't seem to be attached to
 anything on this model, which is a bit annoying.  If you hold it down for 

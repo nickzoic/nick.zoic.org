@@ -620,3 +620,16 @@ resources seamlessly, connecting and correcting as you go.
 All spread across the several million pixels in front of you.
 
 It sounds like science fiction.  What are we waiting for?
+
+# IMAGE CREDITS
+
+<li>Printing Telegraph: By Ambanmba (talk) - Own work, Public Domain, https://commons.wikimedia.org/w/index.php?curid=7904405</li>
+<li>Teleprinter: By Jamie - Flickr: Telex machine TTY, CC BY 2.0, https://commons.wikimedia.org/w/index.php?curid=19282428</li>
+<li>System 3 Punchcard: By ArnoldReinhold - http://en.wikipedia.org/wiki/File:System_3_punch_card.jpg, CC BY-SA 3.0, https://commons.wikimedia.org/w/index.php?curid=5970365</li>
+<li>Fortran Punched Card: By Arnold Reinhold CC BY-SA 2.5, https://commons.wikimedia.org/w/index.php?curid=775153</li>
+<li>IBM Video Terminal: By David L. Mills, PhD - http://www.eecis.udel.edu/~mills/gallery/gallery8.html, Public Domain, https://commons.wikimedia.org/w/index.php?curid=32890452</li>
+<li>Punched Card Deck: By ArnoldReinhold - Own work, CC BY-SA 3.0, https://commons.wikimedia.org/w/index.php?curid=16041053</li>
+<li>McBee Card Deck: Whole Earth Catalog https://nevalalee.wordpress.com/tag/the-whole-earth-catalog/</li>
+<li>Lochkarte Computer: By Stahlkocher - Own work, CC BY-SA 3.0, https://commons.wikimedia.org/w/index.php?curid=1006474</li>
+<li>Margaret Hamilton: By Draper Laboratory; restored by Adam Cuerden. Public Domain, https://commons.wikimedia.org/w/index.php?curid=59655977</li>
+

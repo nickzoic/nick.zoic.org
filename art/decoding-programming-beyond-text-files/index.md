@@ -633,3 +633,8 @@ It sounds like science fiction.  What are we waiting for?
 <li>Lochkarte Computer: By Stahlkocher - Own work, CC BY-SA 3.0, https://commons.wikimedia.org/w/index.php?curid=1006474</li>
 <li>Margaret Hamilton: By Draper Laboratory; restored by Adam Cuerden. Public Domain, https://commons.wikimedia.org/w/index.php?curid=59655977</li>
 
+## FONT
+
+Based on "Print Char 21" by Rebecca Bettencourt / Kreative
+... based on the font of the `APPLE ][`
+

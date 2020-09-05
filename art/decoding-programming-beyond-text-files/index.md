@@ -1,5 +1,5 @@
 ---
-date: '2020-08-23'
+date: '2020-09-05'
 layout: article
 summary: '"Decoding: Programming beyond text files" at PyCOnline AU 2020'
 tags:

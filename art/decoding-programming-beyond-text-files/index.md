@@ -25,6 +25,10 @@ it's the first time I've tried recording a talk and I learned a lot
 
 *Also see [Katie Bell's "Text files full of punctuation? There must be a better way to code."](https://2020.pycon.org.au/program/hhpfhw/)*
 
+*Also also I should credit [Lilly Ryan's "Don't Look Back in Anger: Wildman 
+Whitehouse and the Great Failure of 1858"](https://www.youtube.com/watch?v=GuNoaAFnTPg)
+for inspiration to look into the history of some of this stuff*
+
 # DECODING: Programming Beyond Text Files
 
         Most systems supply several text editors

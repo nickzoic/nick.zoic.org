@@ -9,21 +9,21 @@ tags:
 title: 'DECODING: Programming Beyond Text Files'
 ---
 
-This is an approximate transcription for my talk
+*This is an approximate transcription for my talk
 [Decoding: Programming beyond text files](https://2020.pycon.org.au/program/lyrjgy/)
 at [PyCOnline AU 2020](https://2020.pycon.org.au/).
 I'll fix the transcription up and add some slides in
-once I can bear to hear myself speak ever again.
+once I can bear to hear myself speak ever again.*
 
-The talk is based on the article
-[Programming Beyond Text Files](/art/programming-beyond-text-files/).
+*The talk is based on the article
+[Programming Beyond Text Files](/art/programming-beyond-text-files/).*
 
-I've also written a bit about the experience of 
+*I've also written a bit about the experience of 
 [making the video](/art/decoding-the-making-of/) ...
 it's the first time I've tried recording a talk and I learned a lot
-(starting from almost complete ignorance)
+(starting from almost complete ignorance)*
 
-Also see [Katie Bell's "Text files full of punctuation? There must be a better way to code."](https://2020.pycon.org.au/program/hhpfhw/)
+*Also see [Katie Bell's "Text files full of punctuation? There must be a better way to code."](https://2020.pycon.org.au/program/hhpfhw/)*
 
 # DECODING: Programming Beyond Text Files
 

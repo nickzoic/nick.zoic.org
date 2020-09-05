@@ -12,6 +12,8 @@ title: 'DECODING: Programming Beyond Text Files'
 This is an approximate transcription for my talk
 [Decoding: Programming beyond text files](https://2020.pycon.org.au/program/lyrjgy/)
 at [PyCOnline AU 2020](https://2020.pycon.org.au/).
+I'll fix the transcription up and add some slides in
+once I can bear to hear myself speak ever again.
 
 The talk is based on the article
 [Programming Beyond Text Files](/art/programming-beyond-text-files/).

@@ -11,7 +11,7 @@ title: 'Decoding: The making of'
 
 So [PyCOnline AU 2020](https://2020.pycon.org.au/) is all online this year 
 and I decided to prerecord my presentation of
-[Decoding: Programming beyond text files](https://2020.pycon.org.au/program/lyrjgy/)
+[Decoding: Programming beyond text files](/art/decoding-programming-beyond-text-files/)
 so as not to have to worry about Internet on the day.
 
 This page is some "behind the scenes" info on how I did it and what I'd do differently

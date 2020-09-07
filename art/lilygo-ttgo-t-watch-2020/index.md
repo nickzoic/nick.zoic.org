@@ -342,7 +342,6 @@ Unexplored hardware:
 
 * I2S Speaker
 * IR transmitter
-* Ambient light sensor?
 
 ## FURTHER WORK
 

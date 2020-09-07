@@ -44,10 +44,10 @@ you set scan WiFi and so on but I didn't really look much more at it,
 because that's not what we're here to talk about: what's fun about this device 
 is that it can run [MicroPython](/tag/micropython/).
 
-## Trail Breakers
+## Trail Blazers
 
-This trail has been broken by [y0no](https://y0no.fr/posts/micropython-ttgo-twatch2020/)
-[(en translation)](https://translate.google.com/translate?hl=&sl=auto&tl=en&u=https%3A%2F%2Fy0no.fr%2Fposts%2Fmicropython-ttgo-twatch2020%2F) and
+This trail has been blazed by [y0no](https://y0no.fr/posts/micropython-ttgo-twatch2020/)
+([en translation](https://translate.google.com/translate?hl=&sl=auto&tl=en&u=https%3A%2F%2Fy0no.fr%2Fposts%2Fmicropython-ttgo-twatch2020%2F)) and
 [mooond](https://gitlab.com/mooond/t-watch2020-esp32-with-micropython/-/wikis/home)
 but I thought I'd give it a go too.
 
@@ -68,7 +68,7 @@ which includes lots of great information, including
 peripherals and pinouts.
 
 Starting with the most basic "proof of life", we can see GPIO4 is attached to the
-vibration motor, so we can pulse that GPIO and see what happens
+vibration motor, so we can pulse that GPIO and see what happens:
 
 ```
 import machine
@@ -326,6 +326,7 @@ disp.fill_rect(42,42,156,156,st7789.RED)
 
 # Status
 
+Well, I've made a start.
 It's not much, but it's working!  So far we've got very basic access to:
 
 * Vibration motor
@@ -343,8 +344,62 @@ Unexplored hardware:
 * I2S Speaker
 * IR transmitter
 
-## FURTHER WORK
+# FURTHER WORK
 
 * Work out best available modules to support hardware properly
 * Knock this into a simple firmware download to make it easy to install
 
+## Thinking about Apps
+
+This is a pretty limited device.
+I mean, that's hardly surprising, it fits on your wrist, but there's no point beating around the bush.
+There's no mic or camera, there's no keyboard input, the touchscreen is quite small compared to my big sausage fingers.
+I'm not sure how much run time we'll get out of it in MicroPython either ... I have to work out a way to measure this.
+
+So to make it useful we have to think in a limited way:
+
+* I've got no real interest in live notifications from email / social media, which seems to be what most people want smart watches for.
+* 240x240 is really too small to be a web browser.
+* There's heaps of things you could do with a helpful smartphone app to pass navigation data through, or with the watch really just being
+  a remote display for the app, but that can wait too.
+* Anything which doesn't involve a whole lot of sleeping is going to run the battery down.
+
+So what's left?:
+
+* Telling the time (with multiple timezones etc)
+* Alarms, stopwatches, process timer, etc.
+* Showing lists of things (messages, upcoming appointments, to-do lists)
+* Weather updates (hey, we're in Melbourne, there's a lot of weather)
+* Remote control of stuff
+
+Some other weirder things just because there's hardware:
+
+* 2D Bubble level
+* IR remote control
+* WiFi scanner
+
+## Initial plan
+
+* The watch can get woken up by
+  * pressing the side button
+  * tapping (or maybe gesturing) the screen
+  * turning the face "up".
+
+* When it gets woken up, it is always at the "home" screen which is a watch.
+
+* From there you can gesture up/down within current app (eg: timezones, scrolling lists) 
+  or left/right to change apps between clock / timer / messages / etc
+
+* Periodically, the watch connects to WiFi and downloads a chunk of data from a
+  known address which includes configuration settings and messages etc.
+
+## Crazier plan
+
+* Include a 'browser' which speaks an extremely simplified web-like protocol.  This would
+  support text, embedded images and buttons, arranged as slices in a long "tape" 240px wide.
+
+* To support unicode despite this device being tiny, text might even be pre-rendered and sent
+  as compressed images.
+
+* A gateway application running in the cloud somewhere would then access third party services and 
+  translate them to this weird little format.

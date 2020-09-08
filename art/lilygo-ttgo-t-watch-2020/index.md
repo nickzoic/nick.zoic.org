@@ -270,9 +270,16 @@ else alone:
 import machine
 i0 = machine.I2C(sda=machine.Pin(21),scl=machine.Pin(22))
 
-power_output_control = io.readfrom_mem(53, 0x12, 1)[0]
+power_output_control = i0.readfrom_mem(53, 0x12, 1)[0]
 power_output_control |= 4 # LDO2 enable
-io.writeto_mem(53, 0x12, bytes([power_output_control])
+i0.writeto_mem(53, 0x12, bytes([power_output_control]))
+```
+
+To turn on the backlight you also have to turn on GPIO12, as above:
+
+```
+backlight = machine.Pin(12, machine.Pin.OUT)
+backlight(1)
 ```
 
 ### FT6236 Touch Screen
@@ -323,6 +330,54 @@ disp.fill_rect(42,42,156,156,st7789.RED)
 ```
 
 ![T-Watch 2020 - Display](img/twatch4.jpg)
+
+## Loading an image
+
+I wanted to load an image to show off the colourful display.
+Rather than decoding the image on the device, I figured I'd just
+convert the image to raw, "565" format as expected by the display
+and then copy it onto the watch.
+
+565 mode packs R G and B channels into five, six and five bits respectively
+of a 16 bit value, written in big-endian order.  I used this quickie code
+to do image conversion:
+
+```
+#!/usr/bin/env python3 
+
+from PIL import Image
+import sys
+
+im = Image.open(sys.argv[1]).convert('RGB')
+
+for y in range(0, im.height):
+    for x in range(0, im.width):
+        r, g, b = im.getpixel((x, y))
+        v = ((r >> 3) << 11) + ((g >> 2) << 5) + (b >> 3)
+        sys.stdout.buffer.write(bytes([v>>8, v&255]))
+```
+
+Output is 240 * 240 * 2 = 115200 bytes long, which I then copied onto the
+watch using [mpy-utils](https://github.com/nickzoic/mpy-utils).
+
+The display library includes code to "Blit" (copy) pixels from a buffer.
+The only problem is, the available RAM in MicroPython is smaller than the 
+display!  So we have to blit it in several parts.
+This code grabs blocks of 20 rows at a time and blits them onto the screen:
+
+```
+BLOCK = 20
+f = open("/micropython-logo-240.rgb", "rb")
+for y in range(0,240,BLOCK):
+    b = f.read(240*BLOCK*2)
+    disp.blit_buffer(b, 0, y, 240, BLOCK)
+f.close()
+```
+
+![Micropython on T-Watch](img/micropython.jpg)
+
+Shortly after taking this photo I noticed something interesting ... the 
+screen is upside-down!  Well, compared to the other photos, anyway.
 
 # Status
 

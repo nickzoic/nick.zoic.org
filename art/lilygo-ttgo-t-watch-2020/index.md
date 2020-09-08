@@ -344,10 +344,17 @@ Unexplored hardware:
 * I2S Speaker
 * IR transmitter
 
+I think the stuff above shows off one of my favourite things about MicroPython: having a REPL gives you license to just
+muck around with things like I2C peripherals until you get them working. It's a much more fun way of developing than 
+having a big design up front and a slow compile-flash-reboot cycle just to see if anything is working.
+
 # FURTHER WORK
 
-* Work out best available modules to support hardware properly
-* Knock this into a simple firmware download to make it easy to install
+Immediate tasks:
+
+* Work out best available modules to support hardware properly.
+* Knock this into a simple firmware download to make it easy to install.
+* Learn more about BLE: it is quite new in MicroPython and I know little about it at this point.
 
 ## Thinking about Apps
 

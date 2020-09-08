@@ -275,11 +275,12 @@ power_output_control |= 4 # LDO2 enable
 i0.writeto_mem(53, 0x12, bytes([power_output_control]))
 ```
 
-To turn on the backlight you also have to turn on GPIO12, as above:
+Don't forget, to actually turn the backlight on you also have to turn on GPIO12,
+as mentioned above.  Even quite a low PWM setting is sufficient, depending on
+ambient light:
 
 ```
-backlight = machine.Pin(12, machine.Pin.OUT)
-backlight(1)
+backlight = machine.PWM(machine.Pin(12), freq=100, duty=200)
 ```
 
 ### FT6236 Touch Screen

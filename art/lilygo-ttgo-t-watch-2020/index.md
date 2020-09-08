@@ -254,11 +254,13 @@ regulator and also used to switch other parts of the circuit on and off.
 
 It's programmable, which means we could, in theory, crank the CPU or
 battery up to too high a voltage and damage something.
+More to the point, if we turn the regulator which powers the ESP32 core
+off, there's possibly no way to turn it back on!
 We really don't want to screw this one up.
 
-I'm going to take a wild guess that this chip is what is attached to that 
-power button, too, since it has a `PWRON` input.  A long press shuts the
-whole watch down, but it might be that this device can pass a short press
+The power button on the side of the watch is attached to this chip too,
+that's the "PEK" or Power Enable Key.
+A really long press shuts the whole watch down, shorter presses can send interrupts
 through to the CPU using its interrupt pin, which is hooked up to GPIO35
 
 It also contains an accurate ADC for estimating remaining battery.
@@ -282,6 +284,13 @@ ambient light:
 ```
 backlight = machine.PWM(machine.Pin(12), freq=100, duty=200)
 ```
+
+Getting interrupts to work is a bit of a bear: first you have to clear all 
+interrupts, which should make GPIO35 go high.
+Then enable the interrupt on the falling edge of GPIO35.
+When you get an interrupt, you handle it and then have to clear the
+interrupt status bytes to `00` by *setting them to `FF`*.  
+I'll add some example code for this later.
 
 ### FT6236 Touch Screen
 
@@ -447,6 +456,9 @@ Some other weirder things just because there's hardware:
   * pressing the side button
   * tapping (or maybe gesturing) the screen
   * turning the face "up".
+  * the RTC alarm goes off.
+  All these things can, I think, be done by having the 'peripherals'
+  detect the event and signal the sleeping CPU on one GPIO or another.
 
 * When it gets woken up, it is always at the "home" screen which is a watch.
 

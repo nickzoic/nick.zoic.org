@@ -1,6 +1,6 @@
 ---
-date: '2020-10-24'
-layout: draft
+date: '2020-10-25'
+layout: article
 title: 'Autonomic Layouts'
 tags:
     - speculation
@@ -32,21 +32,57 @@ are disallowed and so there's a clear hierarchy.
 
 ## Automatic Node Placement
 
+Perhaps it'd be a good idea to take the job of placing nodes away from 
+the user?  Much like tiling window managers, which place windows as 
+neatly as possible without user intervention.
+
 One possibility would be to use
 [Force Directed Placement](https://en.wikipedia.org/wiki/Force-directed_graph_drawing) 
 or Energy Minimization or similar to place nodes in "the right place".
-
 (I'm a bit obsessed with these kids of algorithms, ever since playing with
 [Xspringies](https://web.archive.org/web/20130330210456/http://www.cs.rutgers.edu/~decarlo/software.html) and [Graphviz](https://graphviz.org/) as an undergrad: see also [Virtual Localization](https://nick.zoic.org/art/virtual-localization/))
 
-Nodes would then automatically locate themselves between their related nodes by attraction,
+Nodes would then automatically locate themselves between their
+related nodes by attraction,
 avoiding overlapping with other nodes by repulsion.
-Clever algorithms can avoid local minima and end up with a "nice" layout every time.
+Clever algorithms can avoid local minima and end up with a "nice"
+layout every time, with minimal edge crossings and no occlusions.
+Some kind of 'hinting' may be required to keep the layout
+stable.
 
-With any non-trivial layout there are many equivalent 'solutions', 
+## Blasphemous Geometries
 
+But this assumes we're trying to lay out our visual program in
+a static, flat page, which we have a little window into.
 
+This sort of thing works okay for text files, which are long and
+skinny so you can scroll your view through them in one dimension.
+Scrolling through things is a lot harder in two dimensions,
+requiring more of a zoom out and zoom in approach, and in more
+dimensions or non-Euclidean spaces it's intractable.
 
+I favour an approach of having a "focus" node around which other
+nodes are arranged according to their relationships to the focus.
+Direction on the screen can indicate the nature of the relationship,
+with parent/child, next/previous, cause/effect, contains/contained
+etc mapping onto the screen direction.
+
+As mentioned in [Decoding](/art/decoding-programming-beyond-text-files/)
+This mapping between graph and presentation could even be dynamic:
+choose a different mapping depending on the work at hand.
+
+Navigation is then done by shifting focus between nodes.  Move from caller
+to callee and back, zoom in and out based on encapsulation.
+Rather than nodes existing in a static 2D presentational space, they exist in a
+much larger, higher dimensional mental space.
+
+## Autonomy
+
+I've coined the term "autonomic layouts" for this idea,
+drawing a comparison with the
+[Autonomic Nervous System](https://en.wikipedia.org/wiki/Autonomic_nervous_system)
+which operates mostly autonomously but to further the 
+aims of the [Somatic Nervous System](https://en.wikipedia.org/wiki/Somatic_nervous_system) which carries our voluntary actions.
 
 
 

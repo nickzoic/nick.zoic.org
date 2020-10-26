@@ -1,6 +1,6 @@
 ---
-date: '2020-10-17'
-layout: article
+date: '2020-11-06'
+layout: draft
 summary: '"Journey Onward: the Apple \]\[ and me" at EveryWorld 2020'
 tags:
   - apple

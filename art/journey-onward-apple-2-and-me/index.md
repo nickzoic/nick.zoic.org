@@ -1,30 +1,30 @@
 ---
 date: '2020-11-06'
 layout: draft
-summary: '"Journey Onward: the Apple \]\[ and me" at EveryWorld 2020'
+summary: '"Journey Onward: the Apple 2 and me" at EveryWorld 2020'
 tags:
   - apple
   - games
   - conference
-title: 'Journey Onward: the Apple \]\[ and me'
+title: 'Journey Onward: the Apple 2 and me'
 ---
 
 *This is an approximate script for my talk
-[Journey Onward: The Apple \]\[ and me"](https://auc.edu.au/everyworld/about/)
 at [EveryWorld 2020](https://auc.edu.au/everyworld/about/)*
 
 # Journey Onward
-## the Apple \]\[ and me
+### the Apple 2 and me
 
-### First Computers
+## First Computers
 
-Some time in the early '80s, Dad brought home an Apple \]\[.
+Some time in the early '80s, Dad brought home an Apple 2.
 
 ![Dream 6800](img/Dream_PCB_Maggi.jpg)
+*Image: [mjbauer.biz](http://www.mjbauer.biz/DREAM6800.htm)*
 
 It wasn't our household's first computer: that honour went to the 
 "Dream 6800", a single-board computer based around the 6800
-microprocessor, sporting an 18 key hexadecimal keyboard and a
+microprocessor, sporting 2K of RAM, an 18 key hexadecimal keyboard and a
 stunning 64x32 monochrome pixel composite video output.
 
 Programs were published as long listings of hex digits which you
@@ -33,30 +33,45 @@ these games generally took longer to type in than to play, and
 while they could be saved to audio cassette, restoring them was
 always hit and miss.
 
-![System 80 model 3](img/hardware_s80-blue-label-front-800.jpg)
-*https://www.classic-computers.org.nz/system-80/hardware_s80.htm*
+![Dream 6800 listing](img/dream6800_listing.png)
+![Dream 6800 invaders](img/dream6800_invaders.png)
+![Dream 6800 bricks](img/dream6800_bricks.png)
+*Images: [Electronics Australia, July 1979 via mjbauer.biz](http://www.mjbauer.biz/DREAM6800.htm)*
 
-It wasn't even our first computer with a keyboard: that was the 
+## System 80
+
+![System 80 model 3](img/hardware_s80-blue-label-front-800.jpg)
+*Image: [classic-computers.org.nz/system-80](https://www.classic-computers.org.nz/system-80/hardware_s80.htm)*
+
+The Apple 2 wasn't even our first computer with a keyboard: that was the 
 "System 80", a Dick Smith clone of the RadioShack TRS-80 Model 1.
 In addition to having an actual keyboard, it featured a built in
 cassette player to load and save programs.
 
 I remember spending hours colouring in graph paper to design a game
-for its unusual 128x48 graphics display mode.  Never completed and sadly
+for its unusual 6 pixels per character, 128x48 graphics display mode.
+Never completed and sadly
 lost to time now, all I can remember is it was a combination of
 the only two arcade games I was really familiar with, Breakout
 and Space Invaders, and it had something to do with bees.
+
 The games are somewhat relevant to this story, the bees less so.
 
-### Apple \]\[
+### Apple 2
 
-And then the Apple \]\[ arrived.
+![Apple 2 Logo](img/AppleIILogo.jpg)
 
-It was a cast-off, a cheap clone[^1], the last remaining stock
+And then the Apple 2 arrived.
+
+It was a cast-off, a cheap Apple 2 plus clone[^1], the last remaining stock
 left over when a friend of Dad's decided to wind up his import
-business.  The case was built to the same design as a real Apple \]\[
-but the plastic was mottled and swirled and slightly yellowish,
-and missing the beautiful rainbow Apple logo nameplate.
+business.  The case was built to the same design as a real Apple 2 plus
+but the plastic was mottled and swirly and slightly yellowish,
+and missing the beautiful rainbow Apple logo nameplate which would
+otherwise have covered the ugly injection marks on the lid molding.
+
+![Apple 2 Nameplate](img/Apple-II-nameplate-Howie-Shen.jpg)
+*Image: [apple2history.org](https://apple2history.org/history/ah04/)*
 
 The intellectual property laws around clones were somewhat vague at
 the time, as I understand it: the circuits and physical design weren't
@@ -64,8 +79,6 @@ protected but trademarks were. The only obvious indicator that this
 was a dastardly clone was that the cheery but trademark-protected
 `APPLE ][` boot message was replaced with the slightly confusing
 name ` GALAGA `.
-
-I think it may have been a Sekon: the lower/uppercase switch sounds familiar.
 
 Interestingly, some software[^2] would actually check that these
 bytes read `APPLE ][` ... this is similar to the "DSMOS" protection
@@ -76,13 +89,21 @@ when we obtained another clone, this time an ` ORANGE `.
 
 [^2]: [including ProDOS](https://en.wikipedia.org/wiki/Apple_ProDOS#Unlicensed_Apple_II_clones)
 
-The Apple \]\[ was similarly specced to the System 80: a few KB of RAM,
-a BASIC interpreter, output to composite video.  The Apple \]\[ graphics
+The Apple 2 was similarly specced to the System 80: a few KB of RAM,
+a BASIC interpreter, output to composite video.  The Apple 2 graphics
 were somewhat better, with 280x192 "high res" graphics and colour of sorts
 (although ours was always plugged into a monochrome green phosphor monitor,
 so that detail escaped me for many years).
 
 * 2m30s
+
+Ah, [Applesoft BASIC](https://en.wikipedia.org/wiki/Applesoft_BASIC) and the
+first thrill of [programming](https://www.calormen.com/jsbasic/)
+
+        10 PRINT "POOP"
+        20 GOTO 10
+
+## Apple 2 Community
 
 But the Apple came with something else which the previous machines
 had not: an active community. There was no Internet on which to
@@ -94,7 +115,13 @@ These included the surreal ramblings of the Beagle Brothers,
 which were kind of the Principia Discordia of the Apple ecosystem,
 full of dense, obscure examples and strange marginalia.
 
+A lot of this stuff is now available thanks to the
+[Apple II Documentation Project](https://mirrors.apple2.org.za/Apple%20II%20Documentation%20Project/)
+
 (something about expansion slots)
+
+![Joystick](img/applelogic-joystick.jpg)
+*Image: [applelogic.org](http://www.applelogic.org/files/MIDASONIChires.JPG)*
 
 ## Games
 
@@ -103,39 +130,24 @@ full of dense, obscure examples and strange marginalia.
 And disks we had.  Also in the box were a pile of 5.25" floppies, 
 mostly single sided but with an extra notch cut into the side with
 scissors. Thanks to the unusual "soft sector" design of the Apple
-drives these "flippy" disks worked most of the time.
+drives these
+"[flippy disks](https://en.wikipedia.org/wiki/Disk_II#Disk_II)"
+worked most of the time.
 
 In the box were DOS 3.1 master disks, some utilities and lots and
 lots of games. 
 
-Apple Cider Spider, Loderunner, The Bilestoad, Conan the Barbarian.
-
-Rocky's Boots
-
-### Ultima IV
-
-Ah, [Applesoft BASIC](https://en.wikipedia.org/wiki/Applesoft_BASIC) and the
-first thrill of [programming](https://www.calormen.com/jsbasic/)
-
-        10 PRINT "POOP"
-        20 GOTO 10
-
-With it came a dusty shoebox full of pirate floppy disks,
-hand labelled and mostly turned into
-[flippy disks](https://en.wikipedia.org/wiki/Disk_II#Disk_II)
-by cutting a second write-protect hole in them so the backs
-could be used for more software: double the capacity!
-
-I have fond memories of [Lode Runner](https://en.wikipedia.org/wiki/Lode_Runner), 
+I have fond memories of very simple games like
 [Apple Cider Spider](htps://en.wikipedia.org/wiki/Apple_Cider_Spider),
 [Choplifter](https://en.wikipedia.org/wiki/Choplifter),
-[Conan](https://en.wikipedia.org/wiki/Conan:_Hall_of_Volta)
-and [The Bilestoad](https://en.wikipedia.org/wiki/The_Bilestoad).
+and [Conan: Hall of Volta](https://en.wikipedia.org/wiki/Conan:_Hall_of_Volta).
+
+[The Bilestoad](https://en.wikipedia.org/wiki/The_Bilestoad)
+
+[Lode Runner](https://en.wikipedia.org/wiki/Lode_Runner)
 
 [Rocky's Boots](https://en.wikipedia.org/wiki/Rocky%27s_Boots) went on to 
 inspire [Flobot](/art/flobot-graphical-dataflow-language-for-robots/).
-
-# Emulation
 
 You can try Apple 2 software out in your browser using the excellent
 [apple2js](https://github.com/whscullin/apple2js)
@@ -145,7 +157,7 @@ emulator of the Apple, running in plain old Javascript.
 Incredible.
 I've used it for screenshots in this article.
 
-# Quest of the Avatar
+# Ultima IV: Quest of the Avatar
 
 But the undisputed champion of games was
 [Ultima IV](https://en.wikipedia.org/wiki/Ultima_IV:_Quest_of_the_Avatar),

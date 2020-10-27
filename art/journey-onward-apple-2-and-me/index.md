@@ -34,6 +34,9 @@ while they could be saved to audio cassette, restoring them was
 always hit and miss.
 
 ![Dream 6800 listing](img/dream6800_listing.png)
+*Image: [Electronics Australia, July 1979 via mjbauer.biz](http://www.mjbauer.biz/DREAM6800.htm)*
+
+The only game 
 ![Dream 6800 invaders](img/dream6800_invaders.png)
 ![Dream 6800 bricks](img/dream6800_bricks.png)
 *Images: [Electronics Australia, July 1979 via mjbauer.biz](http://www.mjbauer.biz/DREAM6800.htm)*
@@ -43,10 +46,10 @@ always hit and miss.
 ![System 80 model 3](img/hardware_s80-blue-label-front-800.jpg)
 *Image: [classic-computers.org.nz/system-80](https://www.classic-computers.org.nz/system-80/hardware_s80.htm)*
 
-The Apple 2 wasn't even our first computer with a keyboard: that was the 
-"System 80", a Dick Smith clone of the RadioShack TRS-80 Model 1.
+The Apple 2 wasn't even our first computer with a proper keyboard:
+that was the "System 80", a Dick Smith clone of the RadioShack TRS-80 Model 1.
 In addition to having an actual keyboard, it featured a built in
-cassette player to load and save programs.
+cassette player to load and save programs from audio cassettes.
 
 I remember spending hours colouring in graph paper to design a game
 for its unusual 6 pixels per character, 128x48 graphics display mode.
@@ -61,7 +64,9 @@ The games are somewhat relevant to this story, the bees less so.
 
 ![Apple 2 Logo](img/AppleIILogo.jpg)
 
-And then the Apple 2 arrived.
+And then the Apple 2 arrived, and the System 80 was forgotten.
+
+![Distracted System 80](img/distracted-system80-apple.jpg)
 
 It was a cast-off, a cheap Apple 2 plus clone[^1], the last remaining stock
 left over when a friend of Dad's decided to wind up his import

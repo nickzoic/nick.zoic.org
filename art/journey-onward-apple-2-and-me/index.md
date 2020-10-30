@@ -26,6 +26,9 @@ It wasn't our household's first computer: that honour went to the
 "Dream 6800", a single-board computer based around the 6800
 microprocessor, sporting 2K of RAM, an 18 key hexadecimal keyboard and a
 stunning 64x32 monochrome pixel composite video output.
+Dad built it into an old Samsonite briefcase using a keyboard
+made of scavenged microswitches, with enough room
+left over inside for a chunky cassette recorder.
 
 Programs were published as long listings of hex digits which you
 could type in and run. The extrememly limited resources meant that
@@ -36,10 +39,18 @@ always hit and miss.
 ![Dream 6800 listing](img/dream6800_listing.png)
 *Image: [Electronics Australia, July 1979 via mjbauer.biz](http://www.mjbauer.biz/DREAM6800.htm)*
 
-The only game 
+The only game I remember getting working was this
+"UFO intercept" game, which was kind of like space invaders
+if there were not very many invaders and they never actually
+got around to invading.
+
 ![Dream 6800 invaders](img/dream6800_invaders.png)
+
 ![Dream 6800 bricks](img/dream6800_bricks.png)
+
 *Images: [Electronics Australia, July 1979 via mjbauer.biz](http://www.mjbauer.biz/DREAM6800.htm)*
+
+**1m0s**
 
 ## System 80
 
@@ -52,13 +63,16 @@ In addition to having an actual keyboard, it featured a built in
 cassette player to load and save programs from audio cassettes.
 
 I remember spending hours colouring in graph paper to design a game
-for its unusual 6 pixels per character, 128x48 graphics display mode.
+for its unusual 6 pixels per character, mixed text and 128x48
+graphics display.
 Never completed and sadly
 lost to time now, all I can remember is it was a combination of
 the only two arcade games I was really familiar with, Breakout
 and Space Invaders, and it had something to do with bees.
 
 The games are somewhat relevant to this story, the bees less so.
+
+**1m45s**
 
 ### Apple 2
 
@@ -69,11 +83,11 @@ And then the Apple 2 arrived, and the System 80 was forgotten.
 ![Distracted System 80](img/distracted-system80-apple.jpg)
 
 It was a cast-off, a cheap Apple 2 plus clone[^1], the last remaining stock
-left over when a friend of Dad's decided to wind up his import
-business.  The case was built to the same design as a real Apple 2 plus
-but the plastic was mottled and swirly and slightly yellowish,
+left over when a friend of Dad's decided to wind up his small import
+business.  The case was built to the same moulded design as a real Apple 2 plus
+but the plastic was a little mottled and swirly and slightly yellowish,
 and missing the beautiful rainbow Apple logo nameplate which would
-otherwise have covered the ugly injection marks on the lid molding.
+otherwise have covered the ugly injection marks on the lid moulding.
 
 ![Apple 2 Nameplate](img/Apple-II-nameplate-Howie-Shen.jpg)
 *Image: [apple2history.org](https://apple2history.org/history/ah04/)*
@@ -85,6 +99,8 @@ was a dastardly clone was that the cheery but trademark-protected
 `APPLE ][` boot message was replaced with the slightly confusing
 name ` GALAGA `.
 
+**2m30s**
+
 Interestingly, some software[^2] would actually check that these
 bytes read `APPLE ][` ... this is similar to the "DSMOS" protection
 used in OS X to this day ... but we wouldn't find this out until later
@@ -94,19 +110,21 @@ when we obtained another clone, this time an ` ORANGE `.
 
 [^2]: [including ProDOS](https://en.wikipedia.org/wiki/Apple_ProDOS#Unlicensed_Apple_II_clones)
 
+**not sure if I'm keeping this bit**
+
 The Apple 2 was similarly specced to the System 80: a few KB of RAM,
 a BASIC interpreter, output to composite video.  The Apple 2 graphics
 were somewhat better, with 280x192 "high res" graphics and colour of sorts
 (although ours was always plugged into a monochrome green phosphor monitor,
 so that detail escaped me for many years).
 
-* 2m30s
-
 Ah, [Applesoft BASIC](https://en.wikipedia.org/wiki/Applesoft_BASIC) and the
 first thrill of [programming](https://www.calormen.com/jsbasic/)
 
         10 PRINT "POOP"
         20 GOTO 10
+
+**3m0s**
 
 ## Apple 2 Community
 
@@ -121,60 +139,98 @@ which were kind of the Principia Discordia of the Apple ecosystem,
 full of dense, obscure examples and strange marginalia.
 
 A lot of this stuff is now available thanks to the
-[Apple II Documentation Project](https://mirrors.apple2.org.za/Apple%20II%20Documentation%20Project/)
+[Apple II Documentation Project](https://mirrors.apple2.org.za/Apple%20II%20Documentation%20Project/), including the 
 
 (something about expansion slots)
 
 ![Joystick](img/applelogic-joystick.jpg)
 *Image: [applelogic.org](http://www.applelogic.org/files/MIDASONIChires.JPG)*
 
+**3m30s**
+
 ## Games
 
-(something about disk drives)
+Finally we were free of cassette tapes: this machine had a
+Disk II controller and two 5.25" floppy drives.  Unlike 
+cassettes, floppy disks could reliably store 140kB of data ...
+they could even access multiple files without rewinding!
+Disks opened up a whole new world of actually being able to
+save stuff.
 
-And disks we had.  Also in the box were a pile of 5.25" floppies, 
+And disks we had.
+In a dusty shoebox were a pile of 5.25" floppies, 
 mostly single sided but with an extra notch cut into the side with
 scissors. Thanks to the unusual "soft sector" design of the Apple
 drives these
 "[flippy disks](https://en.wikipedia.org/wiki/Disk_II#Disk_II)"
-worked most of the time.
+worked pretty well, most of the time.
 
-In the box were DOS 3.1 master disks, some utilities and lots and
+In the box were DOS 3.1 and 3.3 master disks, some utilities and lots and
 lots of games. 
 
 I have fond memories of very simple games like
-[Apple Cider Spider](htps://en.wikipedia.org/wiki/Apple_Cider_Spider),
-[Choplifter](https://en.wikipedia.org/wiki/Choplifter),
-and [Conan: Hall of Volta](https://en.wikipedia.org/wiki/Conan:_Hall_of_Volta).
+[Apple Cider Spider](htps://en.wikipedia.org/wiki/Apple_Cider_Spider) and
+[Conan: Hall of Volta](https://en.wikipedia.org/wiki/Conan:_Hall_of_Volta),
+[Choplifter](https://en.wikipedia.org/wiki/Choplifter)
+and [Moon Patrol](https://en.wikipedia.org/wiki/Moon_Patrol),
+all pretty simple by modern standards.
 
-[The Bilestoad](https://en.wikipedia.org/wiki/The_Bilestoad)
+Also very confusing memories of the oddly named [The Bilestoad](https://en.wikipedia.org/wiki/The_Bilestoad)
+by the even more oddly named Mangrove Earthshoe.  Two axe-wielding warriors,
+or possibly crustacea, or maybe pastries, battle it out to the tune of
+*Für Elise*, kind of.
 
-[Lode Runner](https://en.wikipedia.org/wiki/Lode_Runner)
+**4m30s**
 
-[Rocky's Boots](https://en.wikipedia.org/wiki/Rocky%27s_Boots) went on to 
-inspire [Flobot](/art/flobot-graphical-dataflow-language-for-robots/).
+Another favourite was [Lode Runner](https://en.wikipedia.org/wiki/Lode_Runner),
+a really simple platformer which showed how a simple mechanic could be used
+to build a fantastically complicated game.  All you can do is run, climb, dig
+and fall.  Collect all the gold and an exit ladder appears.  Don't get caught
+and don't get stuck.  Out of these simple parts, hundreds of official levels
+were created.
 
-You can try Apple 2 software out in your browser using the excellent
-[apple2js](https://github.com/whscullin/apple2js)
-[Apple 2 emulator](https://www.scullinsteel.com/apple2/).  
-This is a [CPU level](https://github.com/whscullin/apple2js/blob/master/js/cpu6502.js)
-emulator of the Apple, running in plain old Javascript.
-Incredible.
-I've used it for screenshots in this article.
+Plus the game included a level editor! As you learn the tricks
+and techniques you could try out your own ideas as well, and save them to disk.
+
+**5m0s**
+
+> XXX [Rocky's Boots](https://en.wikipedia.org/wiki/Rocky%27s_Boots) went on to 
+> inspire [Flobot](/art/flobot-graphical-dataflow-language-for-robots/).
+
+
+> You can try Apple 2 software out in your browser using the excellent
+> [apple2js](https://github.com/whscullin/apple2js)
+> [Apple 2 emulator](https://www.scullinsteel.com/apple2/).  
+> This is a [CPU level](https://github.com/whscullin/apple2js/blob/master/js/cpu6502.js)
+> emulator of the Apple, running in plain old Javascript.
+> Incredible.
+>
+> XXX Another way is using MAME.
 
 # Ultima IV: Quest of the Avatar
 
-But the undisputed champion of games was
-[Ultima IV](https://en.wikipedia.org/wiki/Ultima_IV:_Quest_of_the_Avatar),
+But the undisputed champion of our Apple 2 games was
+[Ultima IV: Quest of the Avatar](https://en.wikipedia.org/wiki/Ultima_IV:_Quest_of_the_Avatar),
 which was not merely an ephemeral *game*, something you played for a few
-minutes, but an *adventure* in which you had to explore, learn and 
-build up your resources to take on more fearsome enemies.
+minutes, before bedtime, but an *adventure*.  To conquer the game, you had to explore,
+fight, and build up your resources to take on more fearsome enemies.
+
+You also had to collect clues by talking to non-player characters in each
+of the 16 castles, towns and villages scattered across the land.  Often a clue
+would just be a hint as to who to ask for further information, or perhaps
+the ingredients for a spell. Some of these characters would be willing to 
+join you in your quest, building up a small party of adventurers, very 
+handy in battle.  
 
 The game was so large it used *four* floppy sides, and much swapping of 
-disks was required, with the game halting whenever you entered or left a 
-town or dungeon to demand a swap of disks.
-When you quit the game, your progress was saved to the "Britannia" disk.
-Of course, if things were going badly you could just choose not to save.
+disks was required, with the game halting to demand a swap of disks whenever
+your character entered a town, or left a town, or entered a dungeon,
+or died in a dungeon.
+Of course, if things were going that badly you could just choose not to save,
+and reset the whole machine instead.
+
+But if things were going okay, you could *save your progress* onto the
+"Britannia" disk, and continue your quest once you'd finished your homework.
 
 The game was supposed to come with various materials and an
 ingenious piece of copy protection: an instruction book and a cloth map.
@@ -182,7 +238,7 @@ These were difficult to photocopy with the technology of the day,
 and necessary to answer questions at a few key points in the game.
 Of course, being a pirate copy, it had none of the above and it wasn't
 like we could just
-[look it up online](https://ultima.fandom.com/wiki/Ultima_IV_Locations_Map).
+[look it up on the Internet](https://ultima.fandom.com/wiki/Ultima_IV_Locations_Map).
 
 ![Book of History](img/book-of-history.png)
 *(No, really!  Read the Book of History!)*
@@ -191,31 +247,42 @@ Additionally, I was never the most *patient* or *methodical* of kids,
 and so spending hours jotting down clues and beating up on skeletons and orcs
 to build up enough funds for a decent sword was maaaaybe pushing it a little.
 
-(If you actually want to try playing, the easiest way is to download the
-free PC/Mac version of 
-[Ultima IV from GOG.com](https://www.gog.com/game/ultima_4).
-You don't need to change disks all the time, the graphics are better and
-some gameplay bugs are fixed.)
+> The disks aren't included in the apple emulator above, but you can download
+> them [at wowroms](https://wowroms.com/en/roms/apple-ii/download-ultima-iv-quest-of-the-avatar/1466.html)
+> and point the emulator at them.  There's also a version
+> [at virtualapple.org](http://www.virtualapple.org/ultimaivdisk.html)
+> featuring this excellent "crack screen":
+> 
+> ![cracked ultima iv screenshot](img/cracked.png)
+> *The Digital Gang Presents: ULTIMA IV THE LAST CRACK BY: HOT ROD OF BLACK BAG SPECIAL THANX: SHERLOCK APPLE THANX The Dragon Lord DISTRIBUTED BY D.I.S.C*
+>
+> (If you actually want to try playing Ultima IV though, the easiest way is to download the
+> free PC/Mac version of 
+> [Ultima IV from GOG.com](https://www.gog.com/game/ultima_4).
+> You don't need to change disks all the time, the graphics are better and
+> some gameplay bugs are fixed.)
 
-# Disks
+**Ultima bit 1m30s**
 
-The disks aren't included in the apple emulator above, but you can download
-them [at wowroms](https://wowroms.com/en/roms/apple-ii/download-ultima-iv-quest-of-the-avatar/1466.html)
-and point the emulator at them.  There's also a version
-[at virtualapple.org](http://www.virtualapple.org/ultimaivdisk.html)
-featuring this excellent "crack screen":
+# Sector Editor
 
-![cracked ultima iv screenshot](img/cracked.png)
-*The Digital Gang Presents: ULTIMA IV THE LAST CRACK BY: HOT ROD OF BLACK BAG SPECIAL THANX: SHERLOCK APPLE THANX The Dragon Lord DISTRIBUTED BY D.I.S.C*
+As it turns out, there were some more disks in the dusty shoebox,
+including a *sector editor*
 
-Apple 2 disks generally have 16 sectors x 35 tracks. Each sector is 256 bytes, so the total
-floppy size is 143360 bytes (140KB).
+![sector editor](img/sector-editor.png)
+*Copy II Plus Sector Editor*
+
+> (Probably [Copy II Plus 5](https://apple2online.com/web_documents/copy_ii_plus_5.0_-_manual.pdf),
+> which includes a sector editor among other things. You can find it at
+> [apple2online.com](https://apple2online.com/index.php?p=1_24))
+
+A sector editor lets you investigate and change the contents of floppy disks. 
+Apple 2 disks generally have 16 sectors x 35 tracks.
+Each sector is 256 bytes, so the total floppy size is 143360 bytes (140KB).
 
 Disks don't have to have a "file system" on them, instead the computer
-just [loads the "boot" sector and jumps to it](https://en.wikipedia.org/wiki/Apple_DOS#Boot_loader)
-and that tiny program is expected to do the rest of the work.
-Data disks don't have to have any structure at all.
-
+just [loads the "boot" sector into memory and jumps to it](https://en.wikipedia.org/wiki/Apple_DOS#Boot_loader)
+and that tiny, 256-byte program is expected to do the rest of the work.
 A small set of assembly subroutines, build into the system ROM, take care of sector
 access.
 These are known as RWTS ("Read/Write Track Sector") and form the interface between 
@@ -226,24 +293,18 @@ forced to fend for ourselves with only a couple of
 [Beagle Bros](http://beagle.applearchives.com/)
 publications and a mysterious glue-bound book entitled "HARDWARD MANUAL" for advice.
 
-# Sector Editor
+The Britannia disk isn't bootable, so it doesn't have to have any particular
+structure, not even a boot sector.  But we knew from all that disk swapping
+that that's where your progress was saved to.
 
-As it turns out, there were some more disks in the dusty shoebox, including a *sector editor*
-
-(Probably [Copy II Plus 5](https://apple2online.com/web_documents/copy_ii_plus_5.0_-_manual.pdf),
-which includes a sector editor among other things. You can find it at
-[apple2online.com](https://apple2online.com/index.php?p=1_24))
-
-A sector editor lets you investigate and change the contents of floppy disks. 
-Apple 2 disks are not large or sophisticated, and indeed if you create a new character,
-and save the game, you can use your sector editor to check out the map disk
+And indeed if you create a new character,
+and save the game, you can use your sector editor to check out the Britannia disk
 and find your new character's name stored neatly at Track $14, Sector $4, Offset $04
-If you're looking in a disk image file, that's offset hex 14404 (but note that the
-character codes in caps but offset by hex 80 and terminated by 00,
-so NICK would be stored as `CE C9 C3 CB 00`.
+If you're looking in a disk image file, that's offset hex 14404.
 
-![sector editor](img/sector-editor.png)
-*Copy II Plus Sector Editor*
+> (but note that the
+> character codes in caps but offset by hex 80 and terminated by 00,
+> so NICK would be stored as `CE C9 C3 CB 00`.)
 
 Nearby are many interesting values ... you start off the game with 300/300 HP and there's
 bytes `03 00 03 00` just near your name, and the bytes `25 21 18 00` look oddly
@@ -276,19 +337,22 @@ Offset | Values | Purpose
 *more modified player stats*
 
 Anyway, you get the idea.  The game moves along a lot quicker once you've got
-9, 99 or 9999 of everything, even if the display is sometimes a little glitchy.
+99, 999 or 9999 of everything, even if the display is sometimes a little glitchy.
 
-Interestingly, these values are mostly stored in
-[Binary Coded Decimal (BCD)](https://en.wikipedia.org/wiki/Binary-coded_decimal)
-which stores each digit 0-9 into a hex nibble.
-The 6502 processor supports BCD calculations through a 
-["Decimal Mode"](http://www.6502.org/tutorials/decimal_mode.html)
-which makes it easy to calculate addition and subtraction of BCD numbers.
+**2m**
+
+> Interestingly, these values are mostly stored in
+> [Binary Coded Decimal (BCD)](https://en.wikipedia.org/wiki/Binary-coded_decimal)
+> which stores each digit 0-9 into a hex nibble.
+> The 6502 processor supports BCD calculations through a 
+> ["Decimal Mode"](http://www.6502.org/tutorials/decimal_mode.html)
+> which makes it easy to calculate addition and subtraction of BCD numbers.
 
 The "save" area is almost certainly just a write of the memory space used for
 keeping track of the status during the game.
 Writing weird values here and there certainly can make a mess of the game state,
-but it's pretty easy to keep backups of the Britannia disk.
+but it's pretty easy to keep backups of the Britannia disk using the sector
+editor so we got stuck in.
 
 # More Save Details
 
@@ -334,7 +398,8 @@ ships, the balloon, etc.
 
 # Journey Onward!
 
-I'm not sure if we ever did work out, back then, how to change the stored position and thus teleport
+I'm not sure if we ever did work out, back then, how to change the stored
+position and thus teleport
 around the map, but once you have STR 99 / DEX 99 / HP 9999 and plenty of 
 reagents to unpoison yourself at will it's pretty easy to get around Britannia
 sweeping up monsters.
@@ -363,25 +428,27 @@ Indeed, as it turns out the map is stored in 16x16 regions, each taking up
 one 256 byte disk sector, on the 16 sectors of the first 16 tracks of the disk.
 
 The weird stuff in the ocean?
-That was a DOS 3.3 boot sector which had been accidentally written to the disk
-at some time during its pirate misadventures.
+That was a DOS 3.3 boot sector which had been accidentally written to the
+unbootable Britannia disk at some time during its pirate misadventures.
 
 ![sector map](img/sector-map.png)
 *sector editor showing map-like sector*
 
 After a while you realize that you can pretty much see the map right there in the sector
-editor.
+editor, with each character corresponding to a kind of tile.
 
 It's interesting to note that there's plenty of spare room on this disk: the map only uses 
-up 16 tracks out of 35, and the last few tracks are entirely blank.
+up 16 tracks out of 35, and the last few tracks are entirely blank.a
 
 # Cartomancy
 
 Our next step was printing a map from this data.
+
 I can't remember exactly how we did this now, but I do remember designing
 8x8 1-bit icons for each of the more common map cells (deep ocean was completely
-blank) and writing a program to load two sectors at a time and turn each pair
-into a dot-matrix printable image about 10cm x 5cm.
+blank) and writing a program in 6502 machine language to load two sectors
+at a time and turn each pair into a dot-matrix printable image about 10cm x 5cm.
+
 128 of these small rectangles of printer paper were then cut out and glued 
 together to form a giant, if rather scruffy, map.
 
@@ -404,10 +471,10 @@ of mine.
 
 # Nostalgia ain't what it used to be
 
-Anyway, the point of this article isn't really Ultima IV.
+Anyway, the point of this story isn't really Ultima IV.
 I don't think we ever even finished the game, in any real sense.
-(I suspect the only game I've ever really "finished", in the "without cheating"
-sense, is Portal.)
+(I suspect the only games I've ever really "finished", in the "without cheating"
+sense, are Portal and the easiest difficulty of Half Life 2.)
 
 The point is that through this process I learned too see software as observable,
 mutable, fallible.

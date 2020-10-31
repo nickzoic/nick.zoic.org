@@ -486,6 +486,8 @@ And that put me on the road I'm on today ...
 
 # Further Reading
 
+![QR Code](img/journey-qr.png)
+
 * Lots more Ultima IV tech stuff at [Ultima Codex](https://ultimacodex.com/)
 
 * If you enjoyed this and you'd like to try a similar adventure for yourself,

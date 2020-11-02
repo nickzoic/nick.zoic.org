@@ -212,31 +212,33 @@ and techniques you could try out your own ideas as well, and save them to disk.
 But the undisputed champion of our Apple 2 games was
 [Ultima IV: Quest of the Avatar](https://en.wikipedia.org/wiki/Ultima_IV:_Quest_of_the_Avatar),
 which was not merely an ephemeral *game*, something you played for a few
-minutes, before bedtime, but an *adventure*.  To conquer the game, you had to explore,
-fight, and build up your resources to take on more fearsome enemies.
-
-You also had to collect clues by talking to non-player characters in each
-of the 16 castles, towns and villages scattered across the land.  Often a clue
-would just be a hint as to who to ask for further information, or perhaps
-the ingredients for a spell. Some of these characters would be willing to 
-join you in your quest, building up a small party of adventurers, very 
-handy in battle.  
+minutes, before bedtime, but an *adventure*.  To conquer the game,
+you had to explore, fight, and build up your resources.
+You could even *save your progress* which wrote the state of the game
+back to a floppy disk, so once you'd done your homework and fed
+the dog you could select "Journey Onward" to continue your epic quest.
 
 The game was so large it used *four* floppy sides, and much swapping of 
 disks was required, with the game halting to demand a swap of disks whenever
 your character entered a town, or left a town, or entered a dungeon,
 or died in a dungeon.
-Of course, if things were going that badly you could just choose not to save,
-and reset the whole machine instead.
 
-But if things were going okay, you could *save your progress* onto the
-"Britannia" disk, and continue your quest once you'd finished your homework.
+You had to collect clues by talking to non-player characters in each
+of the 16 castles, towns and villages scattered across the land.  Often a clue
+would just be a hint about where to find some item, or who to ask for further
+information, or perhaps the ingredients for a spell.
+Some of these characters would be willing to join you in your quest, if
+you'd acted virtuously enough, so you could build up a small party of adventurers,
+very handy in battle.  
+
+Of course, if things were going badly you could just choose not to save,
+and reset the whole machine instead.  Software was simpler back then.
 
 The game was supposed to come with various materials and an
 ingenious piece of copy protection: an instruction book and a cloth map.
 These were difficult to photocopy with the technology of the day,
 and necessary to answer questions at a few key points in the game.
-Of course, being a pirate copy, it had none of the above and it wasn't
+Ours, of course, being a pirate copy, had none of the above and it wasn't
 like we could just
 [look it up on the Internet](https://ultima.fandom.com/wiki/Ultima_IV_Locations_Map).
 
@@ -266,7 +268,7 @@ to build up enough funds for a decent sword was maaaaybe pushing it a little.
 
 # Sector Editor
 
-As it turns out, there were some more disks in the dusty shoebox,
+But, as it turns out, there were some more disks in the dusty shoebox,
 including a *sector editor*
 
 ![sector editor](img/sector-editor.png)
@@ -277,21 +279,22 @@ including a *sector editor*
 > [apple2online.com](https://apple2online.com/index.php?p=1_24))
 
 A sector editor lets you investigate and change the contents of floppy disks. 
-Apple 2 disks generally have 16 sectors x 35 tracks.
+Apple 2 disks are pretty simple.  They generally have 16 sectors x 35 tracks.
 Each sector is 256 bytes, so the total floppy size is 143360 bytes (140KB).
 
-Disks don't have to have a "file system" on them, instead the computer
-just [loads the "boot" sector into memory and jumps to it](https://en.wikipedia.org/wiki/Apple_DOS#Boot_loader)
-and that tiny, 256-byte program is expected to do the rest of the work.
-A small set of assembly subroutines, build into the system ROM, take care of sector
-access.
-These are known as RWTS ("Read/Write Track Sector") and form the interface between 
-software and hardware.
+Disks don't have to have a "file system" on them. Instead the computer
+jumps to the PROM on the Disk II controller which in turn
+[loads the 0th sector of the disk into memory and jumps to it](https://en.wikipedia.org/wiki/Apple_DOS#Boot_loader)
+and that tiny, 256-byte program is expected to do the rest of the work
+of loading DOS.
 
-There's lots of details of these things out there: in those primitive times we were
-forced to fend for ourselves with only a couple of
-[Beagle Bros](http://beagle.applearchives.com/)
-publications and a mysterious glue-bound book entitled "HARDWARD MANUAL" for advice.
+There's lots of [details](https://apple2.org.za/gswv/a2zine/GS.WorldView/Resources/DOS.3.3.ANATOMY/BOOT.PROCESS.txt)
+of these things out there: in those primitive times we were
+forced to fend for ourselves with only
+[Beneath Apple DOS](http://asciiexpress.net/files/docs/Beneath%20Apple%20DOS.pdf)
+and a couple of
+[Beagle Bros](http://beagle.applearchives.com/) tip sheets
+and a mysterious glue-bound book entitled "HARDWARD MANUAL" for advice.
 
 The Britannia disk isn't bootable, so it doesn't have to have any particular
 structure, not even a boot sector.  But we knew from all that disk swapping
@@ -341,6 +344,9 @@ Anyway, you get the idea.  The game moves along a lot quicker once you've got
 
 **2m**
 
+> "Hang on, what?", you might be thinking, "The 6502 is a little-endian
+> CPU which thinks in binary.  300 should be stored as `2C 01`.
+>
 > Interestingly, these values are mostly stored in
 > [Binary Coded Decimal (BCD)](https://en.wikipedia.org/wiki/Binary-coded_decimal)
 > which stores each digit 0-9 into a hex nibble.
@@ -348,8 +354,8 @@ Anyway, you get the idea.  The game moves along a lot quicker once you've got
 > ["Decimal Mode"](http://www.6502.org/tutorials/decimal_mode.html)
 > which makes it easy to calculate addition and subtraction of BCD numbers.
 
-The "save" area is almost certainly just a write of the memory space used for
-keeping track of the status during the game.
+The "save" area isn't clearly structured and is almost certainly just a write
+of the memory space used for keeping track of the status during the game.
 Writing weird values here and there certainly can make a mess of the game state,
 but it's pretty easy to keep backups of the Britannia disk using the sector
 editor so we got stuck in.
@@ -398,16 +404,14 @@ ships, the balloon, etc.
 
 # Journey Onward!
 
-I'm not sure if we ever did work out, back then, how to change the stored
-position and thus teleport
-around the map, but once you have STR 99 / DEX 99 / HP 9999 and plenty of 
+Once you have STR 99 / DEX 99 / HP 9999 and plenty of 
 reagents to unpoison yourself at will it's pretty easy to get around Britannia
 sweeping up monsters.
 
 But there was still the matter of the map. We'd got hold of the Sextant by this point, 
-which would give you a latitude & longitude in the format A'B" C'D" where each letter 
+which would give you a latitude & longitude in the format `A'B" C'D"` where each letter 
 was between A and P.  That's a pretty thinly disguised pair of bytes, so we were pretty
-confident that the world was
+confident that the world was:
 
 * 256 x 256 tiles
 * [toroidal](https://en.wikipedia.org/wiki/Wraparound_(video_games\))
@@ -437,8 +441,8 @@ unbootable Britannia disk at some time during its pirate misadventures.
 After a while you realize that you can pretty much see the map right there in the sector
 editor, with each character corresponding to a kind of tile.
 
-It's interesting to note that there's plenty of spare room on this disk: the map only uses 
-up 16 tracks out of 35, and the last few tracks are entirely blank.a
+> It's interesting to note that there's plenty of spare room on this disk: the map only uses 
+> up 16 tracks out of 35, and the last few tracks are entirely blank.
 
 # Cartomancy
 

@@ -95,7 +95,7 @@ otherwise have covered the ugly injection marks on the lid moulding.
 The intellectual property laws around clones were somewhat vague at
 the time, as I understand it: the circuits and physical design weren't
 protected but trademarks were. The only obvious indicator that this 
-was a dastardly clone was that the cheery but trademark-protected
+was a dastardly clone was therefore that the cheery but trademark-protected
 `APPLE ][` boot message was replaced with the slightly confusing
 name ` GALAGA `.
 
@@ -104,13 +104,12 @@ name ` GALAGA `.
 Interestingly, some software[^2] would actually check that these
 bytes read `APPLE ][` ... this is similar to the "DSMOS" protection
 used in OS X to this day ... but we wouldn't find this out until later
-when we obtained another clone, this time an ` ORANGE `.
+when we obtained another clone, this time an ` ORANGE `, and had to
+work out how to re-flash the EPROM chips which held the boot firmware.
 
 [^1]: [Apple II clones](https://en.wikipedia.org/wiki/Apple_II_series#Clones)
 
 [^2]: [including ProDOS](https://en.wikipedia.org/wiki/Apple_ProDOS#Unlicensed_Apple_II_clones)
-
-**not sure if I'm keeping this bit**
 
 The Apple 2 was similarly specced to the System 80: a few KB of RAM,
 a BASIC interpreter, output to composite video.  The Apple 2 graphics
@@ -124,7 +123,7 @@ first thrill of [programming](https://www.calormen.com/jsbasic/)
         10 PRINT "POOP"
         20 GOTO 10
 
-**3m0s**
+**3m30s**
 
 ## Apple 2 Community
 
@@ -146,7 +145,7 @@ A lot of this stuff is now available thanks to the
 ![Joystick](img/applelogic-joystick.jpg)
 *Image: [applelogic.org](http://www.applelogic.org/files/MIDASONIChires.JPG)*
 
-**3m30s**
+**4m0s**
 
 ## Games
 
@@ -168,6 +167,10 @@ worked pretty well, most of the time.
 In the box were DOS 3.1 and 3.3 master disks, some utilities and lots and
 lots of games. 
 
+You can try Apple 2 software out in your browser using the excellent
+[apple2js](https://github.com/whscullin/apple2js), or by loading up 
+the Apple 2 ROMs into [MAME](https://mamedev.org/).
+
 I have fond memories of very simple games like
 [Apple Cider Spider](htps://en.wikipedia.org/wiki/Apple_Cider_Spider) and
 [Conan: Hall of Volta](https://en.wikipedia.org/wiki/Conan:_Hall_of_Volta),
@@ -180,7 +183,7 @@ by the even more oddly named Mangrove Earthshoe.  Two axe-wielding warriors,
 or possibly crustacea, or maybe pastries, battle it out to the tune of
 *Für Elise*, kind of.
 
-**4m30s**
+**5m0s**
 
 Another favourite was [Lode Runner](https://en.wikipedia.org/wiki/Lode_Runner),
 a really simple platformer which showed how a simple mechanic could be used
@@ -192,10 +195,14 @@ were created.
 Plus the game included a level editor! As you learn the tricks
 and techniques you could try out your own ideas as well, and save them to disk.
 
-**5m0s**
+**5m30s**
 
-> XXX [Rocky's Boots](https://en.wikipedia.org/wiki/Rocky%27s_Boots) went on to 
-> inspire [Flobot](/art/flobot-graphical-dataflow-language-for-robots/).
+There was also [Rocky's Boots](https://en.wikipedia.org/wiki/Rocky%27s_Boots),
+a strange game which taught boolean logic through a simulated robot
+which looked like a floating circuit diagram.
+It taught me a lot o
+[Flobot](/art/flobot-graphical-dataflow-language-for-robots/) 
+project.
 
 
 > You can try Apple 2 software out in your browser using the excellent
@@ -228,10 +235,10 @@ of the 16 castles, towns and villages scattered across the land.  Often a clue
 would just be a hint about where to find some item, or who to ask for further
 information, or perhaps the ingredients for a spell.
 Some of these characters would be willing to join you in your quest, if
-you'd acted virtuously enough, so you could build up a small party of adventurers,
+you've acted virtuously enough, so you could build up a small party of adventurers,
 very handy in battle.  
 
-Of course, if things were going badly you could just choose not to save,
+Of course, if things are going badly you can just choose not to save,
 and reset the whole machine instead.  Software was simpler back then.
 
 The game was supposed to come with various materials and an
@@ -264,7 +271,7 @@ to build up enough funds for a decent sword was maaaaybe pushing it a little.
 > You don't need to change disks all the time, the graphics are better and
 > some gameplay bugs are fixed.)
 
-**Ultima bit 1m30s**
+**6m30s**
 
 # Sector Editor
 
@@ -296,6 +303,8 @@ and a couple of
 [Beagle Bros](http://beagle.applearchives.com/) tip sheets
 and a mysterious glue-bound book entitled "HARDWARD MANUAL" for advice.
 
+# Journey Onwards
+
 The Britannia disk isn't bootable, so it doesn't have to have any particular
 structure, not even a boot sector.  But we knew from all that disk swapping
 that that's where your progress was saved to.
@@ -316,7 +325,9 @@ familiar too ...
 ![zstats0](img/zstats0.png)
 *player stats*
 
-# Ethical Doubts
+**8m0s**
+
+## Ethical Doubts
 
 Let's try setting them to something more fun, like `99 98 97 96`, and then
 restarting the game ...
@@ -338,11 +349,6 @@ Offset | Values | Purpose
 
 ![zstats2](img/zstats2.png)
 *more modified player stats*
-
-Anyway, you get the idea.  The game moves along a lot quicker once you've got
-99, 999 or 9999 of everything, even if the display is sometimes a little glitchy.
-
-**2m**
 
 > "Hang on, what?", you might be thinking, "The 6502 is a little-endian
 > CPU which thinks in binary.  300 should be stored as `2C 01`.
@@ -402,11 +408,11 @@ By carefully experiment, you could work out what each byte means and
 how to set all party characteristics, and also the position of
 ships, the balloon, etc.
 
-# Journey Onward!
-
 Once you have STR 99 / DEX 99 / HP 9999 and plenty of 
 reagents to unpoison yourself at will it's pretty easy to get around Britannia
 sweeping up monsters.
+
+**9m30s**
 
 But there was still the matter of the map. We'd got hold of the Sextant by this point, 
 which would give you a latitude & longitude in the format `A'B" C'D"` where each letter 
@@ -449,23 +455,27 @@ editor, with each character corresponding to a kind of tile.
 Our next step was printing a map from this data.
 
 I can't remember exactly how we did this now, but I do remember designing
-7x7 1-bit icons for each of the more common map cells and writing a program
-to load two sectors at a time and turn each pair into a 224 x 112 pixel image.
+7x8 1-bit icons for each of the more common map cells and writing a program
+to load two sectors at a time and turn each pair into a 224 x 112 pixel image drawn in the 280x192 "High Resolution Graphics" mode, HGR.
 
-Hang on, why 7x7?  Well, each row of the HGR screen is 40 bytes, with
-seven pixels per byte adding up to 280 pixels per row.  The eighth bit shifts
-between the primary and secondary pallets, a mechanism which was
-irrelevant to our dot matrix printer and utterly mysterious to us as
-monochrome monitor users.  
+Hang on, why 7x8?  Well, each row of the HGR screen is 40 bytes, with
+seven pixels per byte adding up to 280 pixels per row.
+The eighth bit shifts between the primary and secondary pallets,
+a mechanism which was irrelevant to our dot matrix printer and
+utterly mysterious to us as monochrome monitor users.  
 
-I don't quite recall how, but somehow we then printed screenshots of these
+Additionally, the HGR memory layout was ... a litte eccentric.
+24 groups of 8 rows were interleaved, so the maths works out a lot
+easier if you just stick to the same dimensions as the native Apple II
+font.
+
+We then printed screenshots of these
 images onto hundreds of slips of thermal printer paper, each about 10cm x 5cm.
 128 of these small rectangles were then cut out and glued 
 together to form a giant, if rather scruffy, map.
 
-Sadly, the physical map and the programs used to produce it are long gone.
-
-Years later, I used some resources found online to prduce the following 
+Sadly, the physical map and the programs used to produce it are long gone, but
+years later, I used some resources found online to prduce the following 
 4096x4096 pixel map.
 Each map tile uses the actual 16x16 tile from the game, so the map is 
 256 x 16 = 4096 pixels in each direction.
@@ -473,27 +483,53 @@ Each map tile uses the actual 16x16 tile from the game, so the map is
 [![Britannia](img/world-thumb.jpg)](./world.html)
 
 The towns are stored in a similar manner on the "towns" disk, with each of the 
-17 town maps having a 32x32 map.  There's 17 because there's an upstairs and a downstairs
-of Castle Britannia!
-That disk also contains all the conversations you can have with townsfolk.
+town maps having a 32x32 map.
+That disk also contains all the conversations you can have
+with townsfolk, so you can learn a lot from it!
 
-There's more of that sort of thing on [this old Ultima IV page](https://code.zoic.org/ultima/)
-of mine.
+> There's more of that sort of thing on
+> [this old Ultima IV page](https://code.zoic.org/ultima/) of mine.
+
+**12m30s**
 
 # Nostalgia ain't what it used to be
 
-Anyway, the point of this story isn't really Ultima IV.
-I don't think we ever even finished the game, in any real sense.
-(I suspect the only games I've ever really "finished", in the "without cheating"
-sense, are Portal and the easiest difficulty of Half Life 2.)
+So, to recap: Ultima IV requires you to spend hundreds of hours grinding 
+through enemies, jotting down clues and hints from strange characters,
+hand-drawing maps of towns and dungeons and exploring a limited world,
+which turns out to contain a lot more detail than you'd expected.
 
-The point is that through this process I learned too see software as observable,
+But you can avoid all that by spending hundreds of hours learning the 6502
+instruction set, writing down clues and hints from obscure books,
+hand-drawing maps of disks and memory and exploring a limited world which
+turns out to contain a lot more detail than you'd expected.
+
+Brittania was created and ruled over by the kindly but distant 
+Lord British, just as the Apple 2 was created and ruled over by
+Steve Wozniak.  The eccentricities and lost evil artefacts: were
+these truly malicious, or the side-effects of weighty decisions
+beyond my youthful understanding?
+
+The point of this story isn't really Ultima IV.
+I don't think we ever even finished the game, in any real sense.
+Maybe we equipped all the right things and sailed to the abyss just to
+see what would happen, but does that even count?
+
+Through this process I learned too see software as observable,
 mutable, fallible.
 Looking at how the software behaved led to a theory of how it might be changed,
-and those changes altered the game. But if you altered it too far, unexpected 
+and how those changes might alter the game. But if you altered it too far, unexpected 
 things could occur, things which the game designer never considered.
 
+Decisions had been made, and in places the bones of those decisions 
+showed through the flesh.
+
 And that put me on the road I'm on today ...
+
+**14m**
+
+> (I suspect the only games I've ever really "finished", in the "without cheating"
+> sense, are Portal and the easiest difficulty of Half Life 2.)
 
 # Further Reading
 

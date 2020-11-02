@@ -445,11 +445,18 @@ up 16 tracks out of 35, and the last few tracks are entirely blank.a
 Our next step was printing a map from this data.
 
 I can't remember exactly how we did this now, but I do remember designing
-8x8 1-bit icons for each of the more common map cells (deep ocean was completely
-blank) and writing a program in 6502 machine language to load two sectors
-at a time and turn each pair into a dot-matrix printable image about 10cm x 5cm.
+7x7 1-bit icons for each of the more common map cells and writing a program
+to load two sectors at a time and turn each pair into a 224 x 112 pixel image.
 
-128 of these small rectangles of printer paper were then cut out and glued 
+Hang on, why 7x7?  Well, each row of the HGR screen is 40 bytes, with
+seven pixels per byte adding up to 280 pixels per row.  The eighth bit shifts
+between the primary and secondary pallets, a mechanism which was
+irrelevant to our dot matrix printer and utterly mysterious to us as
+monochrome monitor users.  
+
+I don't quite recall how, but somehow we then printed screenshots of these
+images onto hundreds of slips of thermal printer paper, each about 10cm x 5cm.
+128 of these small rectangles were then cut out and glued 
 together to form a giant, if rather scruffy, map.
 
 Sadly, the physical map and the programs used to produce it are long gone.

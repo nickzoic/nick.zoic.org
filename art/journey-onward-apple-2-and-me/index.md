@@ -10,9 +10,23 @@ title: 'Journey Onward: the Apple 2 and me'
 ---
 
 *This is an approximate script for my talk
-at [EveryWorld 2020](https://auc.edu.au/everyworld/about/)*
+at [EveryWorld 2020](https://auc.edu.au/everyworld/about/),
+with some notes and references and credits as well.*
 
-XXX title slide
+**0m**
+
+# Journey Onward
+## The Apple \]\[ and me
+
+G'day everyone at EveryWorld and welcome to "Journey Onward: 
+the Apple 2 and me".
+
+My name is Nick Moore, I'm a freelance software consultant from Melbourne.
+I work mostly in Open Source Software.
+This is the story of how I got interested in computers in the first place
+
+[nick.zoic.org/journey](https://nick.zoic.org/journey/)
+
 ![Apple 2 Logo](img/AppleIILogo.jpg)
 
 # Journey Onward
@@ -20,44 +34,46 @@ XXX title slide
 
 ## First Computers
 
-XXX apple 2 reset
+**16s**
 
-Some time in the early '80s, Dad brought home an Apple 2.
+Some time in the mid 1980s, when I was just starting high school,
+Dad brought home an Apple 2.
 
 ![Dream 6800](img/Dream_PCB_Maggi.jpg)
 *Image: [mjbauer.biz](http://www.mjbauer.biz/DREAM6800.htm)*
 
 It wasn't our household's first computer: that honour went to the 
 "Dream 6800", a single-board computer based around the 6800
-microprocessor, sporting 2K of RAM, an 18 key hexadecimal keyboard and a
+microprocessor, sporting 2K of RAM, an 18 key hexadecimal keypad and a
 stunning 64x32 monochrome composite video output.
 
-XXX pic from EA
+# XXX EA article
 
-The plans were published in Electronics Australia magazine, along
+The plans were published in Electronics Australia, along
 with instructions for assembling and programming the computer.
 Dad built it into an old Samsonite briefcase using a keyboard
 made of scavenged microswitches, with enough room
-left over inside for a chunky cassette recorder.
+left over inside for a chunky cassette recorder used to save and
+load files.
 
 ![Dream 6800 listing](img/dream6800_listing.png)
 *Image: [Electronics Australia, July 1979 via mjbauer.biz](http://www.mjbauer.biz/DREAM6800.htm)*
 
 Programs were published as long listings of hex digits which you
 could type in and run. The extrememly limited resources meant that
-these games generally took longer to type in than to play, and
+these games generally took longer to type in than the did to play, and
 while they could be saved to audio cassette, restoring them was
-always hit and miss.
+always a bit hit and miss.
 
 ![Dream 6800 invaders](img/dream6800_invaders.png)
 *Image: [Electronics Australia, July 1979 via mjbauer.biz](http://www.mjbauer.biz/DREAM6800.htm)*
 
 The only game I remember getting working was this
 "UFO intercept" game, which was kind of like space invaders
-if there were only two invaders and they never actually
+if there were only two invaders and they never really
 got around to invading.
 
-**1m0s**
+**1m23s**
 
 ## System 80
 
@@ -77,15 +93,14 @@ and the first thrill of [programming](https://www.calormen.com/jsbasic/)
 
 I remember spending hours colouring in graph paper to design a game
 for its unusual 6 pixels per character, mixed text and 128x48
-graphics display.
-Never completed and sadly
-lost to time now, all I can remember is it was a combination of
+graphics display.  Never completed and sadly
+lost to time now, all I can really remember is it was a combination of
 the only two arcade games I was really familiar with, Breakout
 and Space Invaders, and it had something to do with bees.
 
 The games are somewhat relevant to this story, the bees less so.
 
-**2m**
+**2m13s**
 
 ### Apple 2
 
@@ -95,7 +110,7 @@ And then the Apple 2 arrived, and the System 80 was forgotten.
 
 It was a cast-off, a cheap Apple 2 plus clone[^1], the last remaining stock
 left over when a friend of Dad's decided to wind up his small import
-business.  The case was built to the same moulded design as a real Apple 2 plus
+business.  The case was built to the same moulded design as a real Apple 2 Plus
 but the plastic was a little mottled and swirly and slightly yellowish,
 and missing the beautiful rainbow Apple logo nameplate which would
 otherwise have covered the ugly injection marks on the lid moulding.
@@ -116,11 +131,11 @@ Interestingly, some software[^2] would actually check that these
 bytes read `APPLE ][` ... this is similar to the "DSMOS" protection
 used in OS X to this day ... but we wouldn't find this out until later
 when we obtained another clone, this time an ` ORANGE `, and had to
-work out how to re-flash the EPROM chips which held the boot firmware.
+work out how to re-flash the EPROM chips which held the boot firmware
+so we could run ProDOS on it.
 
-[^1]: [Apple II clones](https://en.wikipedia.org/wiki/Apple_II_series#Clones)
-
-[^2]: [including ProDOS](https://en.wikipedia.org/wiki/Apple_ProDOS#Unlicensed_Apple_II_clones)
+> * More on [Apple 2 Clones](https://en.wikipedia.org/wiki/Apple_II_series#Clones)
+> * [ProDOS](https://en.wikipedia.org/wiki/Apple_ProDOS#Unlicensed_Apple_II_clones)
 
 The Apple 2 was similarly specced to the System 80: a few KB of RAM,
 a BASIC interpreter, output to composite video.  The Apple 2 graphics
@@ -128,7 +143,7 @@ were somewhat better, with 280x192 "high res" graphics and colour of sorts
 (although ours was always plugged into a monochrome green phosphor monitor,
 so that detail escaped me for many years).
 
-**3m15s**
+**3m50s**
 
 ## Apple 2 Community
 
@@ -138,31 +153,25 @@ find technical information, in those days, but in addition to
 the official Apple publications
 there were third party books and magazine articles.
 
-XXX beagle brothers image
-
 These included the surreal ramblings of the Beagle Brothers,
 which were kind of the Principia Discordia of the Apple ecosystem,
 full of dense, obscure examples and strange marginalia.
 
-![A select group indeed](img/select-group.png)
-*Image: Beneath Apple DOS, by Don Worth and Pieter Lechner*
+XXX pic of book
+
+**4m20s**
 
 A lot of this stuff is now available thanks to the
 [Apple II Documentation Project](https://mirrors.apple2.org.za/Apple%20II%20Documentation%20Project/),
 including the excellent *Beneath Apple DOS* which contains a huge
 amount of information on how the hardware and software worked.
 
-XXX Microsoft CP/M card.
-
 The Apple 2 was also *expandable*, with a huge number of Apple and 
 third-party addons available to interface the machine to peripherals,
-upgrade the monitor output to 80 columns or even provide a whole extra CPU.
-
-XXX Sam
+upgrade the monitor output to 80 columns or even provide a whole extra CPU
+so it could run CP/M.
 
 There was even a speech synthesizer card: SAM, the Software Automatic Mouth.
-
-> XXX find a link to that reimplementation of SAM.
 
 ![Joystick](img/applelogic-joystick.jpg)
 *Image: [applelogic.org](http://www.applelogic.org/files/MIDASONIChires.JPG)*
@@ -170,7 +179,10 @@ There was even a speech synthesizer card: SAM, the Software Automatic Mouth.
 Simple accessories like joysticks were also available, and a whole ecosystem
 sprang up around the Apple.
 
-**4m20s**
+**5m04s**
+
+![A select group indeed](img/select-group.png)
+*Image: Beneath Apple DOS, by Don Worth and Pieter Lechner*
 
 ## Games
 
@@ -192,7 +204,7 @@ worked pretty well, most of the time.
 
 **5m**
 
-In the box were DOS 3.1 and 3.3 master disks, some utilities and lots and
+In the box were DOS master disks, some utilities and lots and
 lots of games. 
 
 > You can try Apple 2 software out in your browser using the excellent
@@ -200,19 +212,17 @@ lots of games.
 > the Apple 2 ROMs into [MAME](https://mamedev.org/).
 
 I have fond memories of very simple games like
-[Apple Cider Spider](htps://en.wikipedia.org/wiki/Apple_Cider_Spider) and
-[Conan: Hall of Volta](https://en.wikipedia.org/wiki/Conan:_Hall_of_Volta),
-[Choplifter](https://en.wikipedia.org/wiki/Choplifter)
-and [Moon Patrol](https://en.wikipedia.org/wiki/Moon_Patrol),
-all pretty simple by modern standards.
+[Moon Patrol](https://en.wikipedia.org/wiki/Moon_Patrol)
+and Hard Hat Mac; also the infuriating text adventures like 
+Hitch-hikers Guide to the Galaxy.
 
-Also very confusing memories of the oddly named
+I also have very confusing memories of the oddly named
 [The Bilestoad](https://en.wikipedia.org/wiki/The_Bilestoad)
 by the even more oddly named Mangrove Earthshoe.  Two axe-wielding warriors,
 or possibly crustacea, or maybe pastries, battle it out to the tune of
 *Für Elise*, kind of.
 
-**5m45s**
+**6m25s**
 
 Another favourite was [Lode Runner](https://en.wikipedia.org/wiki/Lode_Runner),
 a really simple platformer which showed how a simple mechanic could be used
@@ -246,18 +256,18 @@ the dog you could select "Journey Onward" to continue your epic quest.
 The game was so large it used *four* floppy sides, and much swapping of 
 disks was required, with the game halting to demand a swap of disks whenever
 your character entered a town, or left a town, or entered a dungeon,
-or died in a dungeon.
+or inevitably died in a dungeon.
 
 You had to collect clues by talking to non-player characters in each
 of the 16 castles, towns and villages scattered across the land.  Often a clue
 would just be a hint about where to find some item, or who to ask for further
-information, or perhaps the ingredients for a spell.
+information, or perhaps the ingredients for a useful spell.
 Some of these characters would be willing to join you in your quest, if
-you've acted virtuously enough, so you could build up a small party of adventurers,
-very handy in battle.  
+you've acted virtuously enough and build up enough experience, so you
+could build up a small party of adventurers, very handy in battle.  
 
 Of course, if things are going badly you can just choose not to save,
-and reset the whole machine instead.  Software was simpler back then.
+and reset the whole machine.  Software was a lot simpler back then.
 
 The game was supposed to come with various materials and an
 ingenious piece of copy protection: an instruction book and a cloth map.
@@ -312,8 +322,6 @@ jumps to the PROM on the Disk II controller which in turn
 [loads track 0 sector 0 into memory and jumps to it](https://en.wikipedia.org/wiki/Apple_DOS#Boot_loader)
 and those two tiny, 256-byte programs do the rest of the work
 of loading DOS or some other application.
-
-XXX cracked by 
 
 Much like Lode Runner, with its level editor, encouraged you to think 
 as both player and designer, protagonist and antagonist, the very openness
@@ -446,7 +454,7 @@ By carefully experiment, you could work out what each byte means and
 how to set all party characteristics, and also the position of
 ships, the balloon, etc.
 
-Once you have STR 99 / DEX 99 / HP 9999 and plenty of 
+Once you have STR 99 / DEX 99 / HP 999 and plenty of 
 reagents to unpoison yourself at will it's pretty easy to get around Britannia
 sweeping up monsters.
 
@@ -578,7 +586,7 @@ sailed to the abyss just to see what would happen, but does that even count?
 > (I suspect the only games I've ever really "finished", in the "without cheating"
 > sense, are Portal and the easiest difficulty of Half Life 2.)
 
-But through this process I learned too see software as observable,
+But through this process I learned to see software as observable,
 mutable, fallible.
 Looking at how the software behaved led to a theory of how it might be changed,
 and how those changes might alter the game. But if you altered it too far, unexpected 
@@ -588,8 +596,8 @@ And that put me on the road I'm on today ... just as the Apple 2 eclipsed
 the System 80, it was eventually dethroned by a PC/AT, and then a '286,
 and a series of PCs, Macbooks, Thinkpads and iPads.
 
-The machine I'm writing
-this on has a processor thousands of times as fast as a 6502 and about one
+The machine I'm producing this video on
+on has a processor thousands of times as fast as a 6502 and about one
 million times as much free RAM as that Apple had. The MAME emulator I used to 
 capture the video used in this presentation doesn't just run the game, it
 emulates the CPU, and the disk drives, and even the physical limitations of
@@ -605,9 +613,21 @@ box of pirate floppies.  He brought home a whole world.  My kids are about
 the same age now as I was then, and I wonder: what am I bringing home to 
 them, what quest will they embark upon?
 
-Journey Onward! and good luck ...
+Journey Onward! and all the best of luck ...
 
 **17m**
+
+# Acknowledgements
+
+Thanks to my family, then and now, for encouraging and joining me in
+this journey.
+
+Also thanks to Steve Wozniak, Richard Garriot,
+the Beagle Brothers and Mangrove Earthshoe, and of course many others,
+for that early inspiration, and to the creators of MAME and the Apple
+Documentation project for keeping the world of the Apple 2 alive.
+
+And thanks to you for listening!
 
 # Further Reading
 

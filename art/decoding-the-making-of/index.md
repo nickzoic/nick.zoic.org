@@ -217,3 +217,36 @@ going to submit this somewhere else I'd reshoot it with the following changes:
 
 * Thanks to Ryan at [Next Day Video](https://nextdayvideo.com/) for checking over the
   video and help understanding what encoding to use.
+
+# UPDATE 2020-11-09
+
+I've just finished putting together the video for
+[Journey Onward](/journey/)
+and it went a bit better than last time.
+
+1. I shot the whole thing in five segments which worked okay.
+   Autofocusing and auto light adjustment is still a bear, often wasting the 
+   first 20 seconds of each shot, but having fewer shots helped.
+
+2. I wanted to do a more 'natural' job of it but I'm not much of an actor so you
+   can tell I'm reading it a lot of the time from the scripts pinned either side
+   of the camera.  I'd like to do a better job of this but it takes such an
+   enormous amount of time.
+
+3. It's shot with an Olympus 45mm prime at f/2.0 and +1.3 exposure compensation,
+   against a bright white background which effectively blanks out.  The last time
+   I was using a manual lens at 28mm but I ended up digitally zooming in a bit.
+
+4. I bought an Audio Technica AT9946 stereo shotgun mic, I'm reducing it to mono, 
+   even then my office isn't very quiet so you can hear traffic, flying foxes, etc.
+   I can't really record during the day either the lorikeets make a lot of noise
+   too!  Unfortunately my voice is just like that.
+
+5. Resolve worked pretty well this time, although I kept stuffing up the talking
+   track while I worked on the slides and stuff.  Tip: lock one track while you
+   work on the other, and if you lock the video lock the audio too.
+
+6. I didn't leave enough space for the games to have sound on, so you miss out.
+
+There's a few things I'm not totally happy with and if I had more time I'd got
+back and edit, but it'll do for now.

@@ -61,6 +61,8 @@ Scrolling through things is a lot harder in two dimensions,
 requiring more of a zoom out and zoom in approach, and in more
 dimensions or non-Euclidean spaces it's intractable.
 
+![diagram1](img/diagram1.jpg)
+
 I favour an approach of having a "focus" node around which other
 nodes are arranged according to their relationships to the focus.
 Direction on the screen can indicate the nature of the relationship,
@@ -75,6 +77,8 @@ Navigation is then done by shifting focus between nodes.  Move from caller
 to callee and back, zoom in and out based on encapsulation.
 Rather than nodes existing in a static 2D presentational space, they exist in a
 much larger, higher dimensional mental space.
+
+![diagram2](img/diagram2.jpg)
 
 ## Autonomy
 

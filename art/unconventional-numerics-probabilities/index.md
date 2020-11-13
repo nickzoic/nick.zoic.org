@@ -14,8 +14,8 @@ summary: "How to deal with probabilities"
 
 Probabilities have an interesting property: they are bounded in the range `[0,1]`.
 There's a limited number of operations which it is sensible to do on probabilities, 
-and those all maintain this boundry.  For example, you can find the inverse of a 
-property by subtracting it from 1 
+and those all maintain this boundary.  For example, you can find the inverse of a 
+property by subtracting it from 1:  
 
 ```
 P(not A) = 1 - P(A)
@@ -48,12 +48,14 @@ If you go around storing probabilities in floats, you've got some issues:
 You could simply store probabilities as a fixed-point number, so that each
 value is in a set range.  For example, in a 16 bit float:
 
-Hex Value | Probability
---- + ---
-0000 | 0
-7FFF | 0.49999237048905165
-8000 | 0.50000762951094830
-FFFF | 1
+----- + ---
+Value | Probability
+----- + ---
+ 0000 | 0
+ 7FFF | 0.49999237048905165
+ 8000 | 0.50000762951094830
+ FFFF | 1
+----- + ---
 
 Inverting a probability is easy: subtract it from 0xFFFF.
 

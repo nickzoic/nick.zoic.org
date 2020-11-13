@@ -228,8 +228,7 @@ and it went a bit better than last time.
    Autofocusing and auto light adjustment is still a bear, often wasting the 
    first 20 seconds of each shot, but having fewer shots helped.
 
-2. I wanted to do a more 'natural' job of it but I'm not much of an actor so you
-   can tell I'm reading it a lot of the time from the scripts pinned either side
+2. I'm reading the script a lot of the time from the scripts pinned either side
    of the camera.  I'd like to do a better job of this but it takes such an
    enormous amount of time.
 
@@ -246,7 +245,24 @@ and it went a bit better than last time.
    track while I worked on the slides and stuff.  Tip: lock one track while you
    work on the other, and if you lock the video lock the audio too.
 
-6. I didn't leave enough space for the games to have sound on, so you miss out.
+6. Lots of video game footage captured with `mame -aviwrite` and then converted
+   using `ffmpeg -vf "scale=1120:768" -r 30` to scale the frames up and reduce
+   the frame rate to suit the target video.
 
 There's a few things I'm not totally happy with and if I had more time I'd got
 back and edit, but it'll do for now.
+
+1. I wanted to do a more 'natural' job of it but I'm not much of an actor so you
+   can tell I'm reading it.  Maybe a half-mirror 'teleprompter' would help, but
+   probably not.
+
+2. I didn't leave enough space for the all the games to have sound on, so you miss
+   out on lots of bleeps and bloops.
+
+3. I needed to record way more game footage but `mame -aviwrite` uses up a ludicrous
+   amount of space, not a lot of compression going on there.  Running it through ffmpeg
+   makes it a lot more manageable, perhaps I could do something clever with sockets.
+
+4. I ran out of time for adding the inverse font and cool phosphor glow to the
+   text slides.  I just hammered them out in GIMP text tool whereas last time
+   I used HTML and CSS.

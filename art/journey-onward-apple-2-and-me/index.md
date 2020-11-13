@@ -228,7 +228,9 @@ Another favourite was [Lode Runner](https://en.wikipedia.org/wiki/Lode_Runner),
 a really simple platformer which showed how a simple mechanic could be used
 to build a fantastically complicated game.  All you can do is run, climb, dig
 and fall.  Collect all the gold and an exit ladder appears.  Don't get caught
-and don't get stuck.  Out of these simple parts, hundreds of official levels
+and don't get stuck.
+
+Out of these simple parts, hundreds of official levels
 were created.  Plus the game included a level editor!
 
 As you learned the tricks and techniques of the official levels,
@@ -317,13 +319,13 @@ A sector editor lets you investigate and change the contents of floppy disks.
 Apple 2 disks are pretty simple.  They generally have 16 sectors x 35 tracks.
 Each sector is 256 bytes, so the total floppy size is about 140K.
 
-Disks don't have to have a "file system" on them. Instead the computer
+Disks don't have to have a "file system" on them as such. Instead the computer
 jumps to the PROM on the Disk II controller which in turn
 [loads track 0 sector 0 into memory and jumps to it](https://en.wikipedia.org/wiki/Apple_DOS#Boot_loader)
 and those two tiny, 256-byte programs do the rest of the work
-of loading DOS or some other application.
+of loading DOS or whatever other application.
 
-Much like Lode Runner, with its level editor, encouraged you to think 
+Much like Lode Runner, with its level editor, which encouraged you to think 
 as both player and designer, protagonist and antagonist, the very openness
 of this machine encouraged you to get in there and experiment.
 
@@ -335,7 +337,7 @@ particular ways, to prevent programs from simply copying disks.  This in
 turn led to the invention of specialized copying software which could defeat
 these schemes, and this arms race continues to this day.
 
-**9m30s**
+**10m30s**
 
 > There's lots of [details](https://apple2.org.za/gswv/a2zine/GS.WorldView/Resources/DOS.3.3.ANATOMY/BOOT.PROCESS.txt)
 > of these things out there: in those primitive times we were

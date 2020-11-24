@@ -38,6 +38,17 @@ Actually writing software from inside the emulator would get old quick: the keyb
 mapping is weird and the 40 column screen is small.  So I want to get my tools on the
 outside and just boot a disk image.
 
+## Notation & Encodings
+
+A quick note re: notation, the Apple 2 era tended to write numbers as 
+hexadecimal, starting with `$` eg: `$A9`.  Most numbers are single bytes,
+but addresses are 16 bits, written like `$3FFF`.  The 6502 is little endian,
+so this would be stored in memory as `$FF $3F`.
+
+Also note that the Apple 2 is described as supporting ASCII, but earlier
+Apples had no lower case characters and stored normal letters with the high
+bit set, so for example `HELLO` is stored as `$C8 $C5 $CC $CC $CF`.
+
 ## Files under DOS
 
 [a2tools](https://github.com/catseye/a2tools) does a good job of manipulating 
@@ -64,9 +75,8 @@ HELLO program which is automatically run when the disk boots:
 ```
 ![Self Portrait Apple 2 Style](img/nickmoo_hgr.png)
 
-`HELLO` could also be a binary and it would be loaded at the appropriate address
-and then run.  So with a bit of help from a `Makefile` it'd be easy to make a
-floppy on the fly.
+`HELLO` could also load and run a binary, so with a bit of help from a `Makefile`
+it'd be easy enough to make a floppy to run a game on the fly.
 
 ## Disk Images
 

@@ -64,6 +64,12 @@ However, the standard spreadsheet has some pretty severe problems:
   and with data.  
 * Dealing with large amounts (>1Mrows) of data in spreadsheets can be rather slow.
 
+> UPDATE: I already had a few examples of terrible spreadsheet accidents but this
+> one is pretty shocking even to me:
+> 
+> ![Spreadsheets & Contact Tracing](img/spreadcovid.png)
+> *[via @fetzert on twitter](https://twitter.com/fetzert/status/1331139902965227520?s=20)*
+
 ### Naming Things
 
 Back in about 2010 or so I got interested in methods for extracting formulae and data from

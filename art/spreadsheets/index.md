@@ -65,10 +65,10 @@ However, the standard spreadsheet has some pretty severe problems:
 * Dealing with large amounts (>1Mrows) of data in spreadsheets can be rather slow.
 
 *UPDATE: I already had a few examples of terrible spreadsheet accidents but this
-one is pretty shocking even to me:
+one is pretty shocking even to me:*
 
 ![Spreadsheets & Contact Tracing](img/spreadcovid.png)
-[via @fetzert on twitter](https://twitter.com/fetzert/status/1331139902965227520?s=20)*
+*[via @fetzert on twitter](https://twitter.com/fetzert/status/1331139902965227520?s=20)*
 
 ### Naming Things
 

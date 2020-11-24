@@ -1,6 +1,6 @@
 ---
-date: '2020-11-06'
-layout: draft
+date: '2020-11-24'
+layout: article
 summary: '"Journey Onward: the Apple 2 and me" at EveryWorld 2020'
 tags:
   - apple
@@ -13,7 +13,7 @@ title: 'Journey Onward: the Apple 2 and me'
 at [EveryWorld 2020](https://auc.edu.au/everyworld/about/),
 with some notes and references and credits as well.*
 
-**0m**
+*The timings are a bit wrong, sorry.*
 
 # Journey Onward
 ## The Apple \]\[ and me
@@ -34,8 +34,6 @@ This is the story of how I got interested in computers in the first place
 
 ## First Computers
 
-**16s**
-
 Some time in the mid 1980s, when I was just starting high school,
 Dad brought home an Apple 2.
 
@@ -46,8 +44,6 @@ It wasn't our household's first computer: that honour went to the
 "Dream 6800", a single-board computer based around the 6800
 microprocessor, sporting 2K of RAM, an 18 key hexadecimal keypad and a
 stunning 64x32 monochrome composite video output.
-
-# XXX EA article
 
 The plans were published in Electronics Australia, along
 with instructions for assembling and programming the computer.
@@ -72,8 +68,6 @@ The only game I remember getting working was this
 "UFO intercept" game, which was kind of like space invaders
 if there were only two invaders and they never really
 got around to invading.
-
-**1m23s**
 
 ## System 80
 
@@ -100,8 +94,6 @@ and Space Invaders, and it had something to do with bees.
 
 The games are somewhat relevant to this story, the bees less so.
 
-**2m13s**
-
 ### Apple 2
 
 ![Distracted System 80](img/distracted-system80-apple.jpg)
@@ -123,14 +115,12 @@ the time, as I understand it: the circuits and physical design weren't
 well protected but trademarks were. The only obvious indicator that this 
 was a dastardly clone was that the cheery but trademark-protected
 `APPLE ][` boot message was replaced with the slightly confusing
-name ` GALAGA `.
+name `GALAGA`.
 
-**2m30s**
-
-Interestingly, some software[^2] would actually check that these
+Interestingly, some software would actually check that these
 bytes read `APPLE ][` ... this is similar to the "DSMOS" protection
 used in OS X to this day ... but we wouldn't find this out until later
-when we obtained another clone, this time an ` ORANGE `, and had to
+when we obtained another clone, this time an `ORANGE`, and had to
 work out how to re-flash the EPROM chips which held the boot firmware
 so we could run ProDOS on it.
 
@@ -143,8 +133,6 @@ were somewhat better, with 280x192 "high res" graphics and colour of sorts
 (although ours was always plugged into a monochrome green phosphor monitor,
 so that detail escaped me for many years).
 
-**3m50s**
-
 ## Apple 2 Community
 
 But the Apple came with something else which the previous machines
@@ -156,10 +144,6 @@ there were third party books and magazine articles.
 These included the surreal ramblings of the Beagle Brothers,
 which were kind of the Principia Discordia of the Apple ecosystem,
 full of dense, obscure examples and strange marginalia.
-
-XXX pic of book
-
-**4m20s**
 
 A lot of this stuff is now available thanks to the
 [Apple II Documentation Project](https://mirrors.apple2.org.za/Apple%20II%20Documentation%20Project/),
@@ -178,8 +162,6 @@ There was even a speech synthesizer card: SAM, the Software Automatic Mouth.
 
 Simple accessories like joysticks were also available, and a whole ecosystem
 sprang up around the Apple.
-
-**5m04s**
 
 ![A select group indeed](img/select-group.png)
 *Image: Beneath Apple DOS, by Don Worth and Pieter Lechner*
@@ -202,8 +184,6 @@ drives these
 "[flippy disks](https://en.wikipedia.org/wiki/Disk_II#Disk_II)"
 worked pretty well, most of the time.
 
-**5m**
-
 In the box were DOS master disks, some utilities and lots and
 lots of games. 
 
@@ -222,8 +202,6 @@ by the even more oddly named Mangrove Earthshoe.  Two axe-wielding warriors,
 or possibly crustacea, or maybe pastries, battle it out to the tune of
 *Für Elise*, kind of.
 
-**6m25s**
-
 Another favourite was [Lode Runner](https://en.wikipedia.org/wiki/Lode_Runner),
 a really simple platformer which showed how a simple mechanic could be used
 to build a fantastically complicated game.  All you can do is run, climb, dig
@@ -237,8 +215,6 @@ As you learned the tricks and techniques of the official levels,
 you could try out your own ideas as well, and save them to disk.
 You were no longer just *playing* the game, you were *changing* it,
 challenging your understanding as a player and a designer simultaneously.
-
-**6m30s**
 
 > There was also [Rocky's Boots](https://en.wikipedia.org/wiki/Rocky%27s_Boots),
 > a strange game which taught boolean logic:
@@ -301,8 +277,6 @@ to build up enough funds for a decent sword was maaaaybe pushing it a little.
 > You don't need to change disks all the time, the graphics are better and
 > some gameplay bugs are fixed.)
 
-**8m15s**
-
 # Sector Editor
 
 But, as luck would have it, there were some more disks in the dusty shoebox,
@@ -337,8 +311,6 @@ particular ways, to prevent programs from simply copying disks.  This in
 turn led to the invention of specialized copying software which could defeat
 these schemes, and this arms race continues to this day.
 
-**10m30s**
-
 > There's lots of [details](https://apple2.org.za/gswv/a2zine/GS.WorldView/Resources/DOS.3.3.ANATOMY/BOOT.PROCESS.txt)
 > of these things out there: in those primitive times we were
 > forced to fend for ourselves with only
@@ -367,8 +339,6 @@ familiar too ...
 
 ![zstats0](img/zstats0.png)
 *player stats*
-
-**10m15s**
 
 ## Ethical Doubts
 
@@ -408,8 +378,6 @@ of the memory space used for keeping track of the status during the game.
 Writing weird values here and there certainly can make a mess of the game state,
 but it's pretty easy to keep backups of the Britannia disk using the sector
 editor so we got stuck in.
-
-**11m**
 
 # More Save Details
 
@@ -460,8 +428,6 @@ Once you have STR 99 / DEX 99 / HP 999 and plenty of
 reagents to unpoison yourself at will it's pretty easy to get around Britannia
 sweeping up monsters.
 
-**11m30s**
-
 But there was still the matter of the map. We'd got hold of the Sextant by this point, 
 which would give you a latitude & longitude in the format `A'B" C'D"` where each letter 
 was between A and P.  That's a pretty thinly disguised pair of bytes, so we were pretty
@@ -485,8 +451,6 @@ While the sea was sea, the monsters weren't real monsters ... just tiles.
 Indeed, as it turns out the map is stored in 16x16 regions, each taking up
 one 256 byte disk sector, on the 16 sectors of the first 16 tracks of the disk.
 
-**12m30s**
-
 The weird stuff in the ocean?
 That was a DOS 3.3 boot sector which had been accidentally written to
 track 0 sector 0 of the unbootable Britannia disk at some time during
@@ -500,8 +464,6 @@ editor, with each character corresponding to a kind of tile.
 
 > It's interesting to note that there's plenty of spare room on this disk: the map only uses 
 > up 16 tracks out of 35, and the last few tracks are entirely blank.
-
-**12m50s**
 
 # Cartomancy
 
@@ -526,8 +488,6 @@ easier if you just stick to the same dimensions as the native Apple II
 font.  Most of the map is composed of just a dozen or so tiles, so 
 we just ignored any other types of tiles.
 
-**13m45s**
-
 We then printed screenshots of these
 images onto hundreds of slips of thermal printer paper, each about 10cm x 5cm.
 128 of these small rectangles were then cut out and glued 
@@ -544,8 +504,6 @@ town maps having a 32x32 map.
 That disk also contains all the conversations you can have
 with townsfolk, so you can learn a lot from it!
 
-**14m30s**
-
 > There's more of that sort of thing on
 > [this old Ultima IV page](https://code.zoic.org/ultima/) of mine.
 
@@ -561,9 +519,7 @@ instruction set, writing down clues and hints from strange characters in books,
 hand-drawing maps of disks and memory and exploring a limited world which
 turns out to contain a lot more detail than you'd expected.
 
-**15m**
-
-Brittania was created and ruled over by the kindly but distant 
+Britannia was created and ruled over by the kindly but distant 
 Lord British, just as the Apple 2 was created and ruled over by
 the legendary Woz.  All those eccentricities and lost evil artefacts: were
 these truly malicious, or the side-effects of weighty decisions 
@@ -582,8 +538,6 @@ The point of this story isn't really Ultima IV.
 I don't think we ever even finished the game, in any real sense.
 Maybe we jumped in our sector editor, equipped all the right things and
 sailed to the abyss just to see what would happen, but does that even count?
-
-**15m45s**
 
 > (I suspect the only games I've ever really "finished", in the "without cheating"
 > sense, are Portal and the easiest difficulty of Half Life 2.)
@@ -617,8 +571,6 @@ them, what quest will they embark upon?
 
 Journey Onward! and all the best of luck ...
 
-**17m**
-
 # Acknowledgements
 
 Thanks to my family, then and now, for encouraging and joining me in
@@ -642,8 +594,6 @@ And thanks to you for listening!
 
 * Or check out [PICO-8](https://www.hanselman.com/blog/ThePICO8VirtualFantasyConsoleIsAnIdealizedConstrainedModernDayGameMaker.aspx)
   for a fun, extremely resource constrained "fantasy console".
-
-
 
 
 

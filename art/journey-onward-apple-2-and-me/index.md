@@ -13,7 +13,8 @@ title: 'Journey Onward: the Apple 2 and me'
 at [EveryWorld 2020](https://auc.edu.au/everyworld/about/),
 with some notes and references and credits as well.*
 
-*The timings are a bit wrong, sorry.*
+*There's also some comments on the video production process
+[at the end of "Decoding: the Making Of"](/art/decoding-the-making-of/#update-2020-11-09)*
 
 # Journey Onward
 ## The Apple \]\[ and me

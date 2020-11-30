@@ -118,13 +118,13 @@ was a dastardly clone was that the cheery but trademark-protected
 `APPLE ][` boot message was replaced with the slightly confusing
 name `GALAGA`.
 
-Interestingly, some software would actually check that these
-bytes read `APPLE ][` ... this is similar to the "DSMOS" protection
-used in OS X to this day ... but we wouldn't find this out until later
-when we obtained another clone, this time an `ORANGE`, and had to
-work out how to re-flash the EPROM chips which held the boot firmware
-so we could run ProDOS on it.
-
+> Interestingly, some software would actually check that these
+> bytes read `APPLE ][` ... this is similar to the "DSMOS" protection
+> used in OS X to this day ... but we wouldn't find this out until later
+> when we obtained another clone, this time an `ORANGE`, and had to
+> work out how to re-flash the EPROM chips which held the boot firmware
+> so we could run ProDOS on it.
+> 
 > * More on [Apple 2 Clones](https://en.wikipedia.org/wiki/Apple_II_series#Clones)
 > * [ProDOS](https://en.wikipedia.org/wiki/Apple_ProDOS#Unlicensed_Apple_II_clones)
 

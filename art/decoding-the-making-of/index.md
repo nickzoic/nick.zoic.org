@@ -232,20 +232,25 @@ and it went a bit better than last time.
    of the camera.  I'd like to do a better job of this but it takes such an
    enormous amount of time.
 
-3. It's shot with an Olympus 45mm prime at f/2.0 and +1.3 exposure compensation,
-   against a bright white background which effectively blanks out.  The last time
-   I was using a manual lens at 28mm but I ended up digitally zooming in a bit.
+3. It's shot with an Olympus 45mm prime which is sharp as anything.  The last time
+   I was using a manual lens at 28mm but getting the focus right was much harder 
+   than I expected and I ended up digitally zooming in a bit.
 
-4. I bought an Audio Technica AT9946 stereo shotgun mic, I'm reducing it to mono, 
+4. I shot at f/2.0 with +1.3 exposure compensation, which would have been 
+   impractical with manual focus but the autofocus worked great.  The exposure
+   compensation washes out the background completely, I didn't even have to 
+   lux key it.
+
+5. I bought an Audio Technica AT9946 stereo shotgun mic, I'm reducing it to mono, 
    even then my office isn't very quiet so you can hear traffic, flying foxes, etc.
    I can't really record during the day either the lorikeets make a lot of noise
-   too!  Unfortunately my voice is just like that.
+   too!  Really need double glazing on this office.
 
-5. Resolve worked pretty well this time, although I kept stuffing up the talking
+6. Resolve worked pretty well this time, although I kept stuffing up the talking
    track while I worked on the slides and stuff.  Tip: lock one track while you
    work on the other, and if you lock the video lock the audio too.
 
-6. Lots of video game footage captured with `mame -aviwrite` and then converted
+7. Lots of video game footage captured with `mame -aviwrite` and then converted
    using `ffmpeg -vf "scale=1120:768" -r 30` to scale the frames up and reduce
    the frame rate to suit the target video.
 
@@ -256,13 +261,26 @@ back and edit, but it'll do for now.
    can tell I'm reading it.  Maybe a half-mirror 'teleprompter' would help, but
    probably not.
 
-2. I didn't leave enough space for the all the games to have sound on, so you miss
-   out on lots of bleeps and bloops.
+2. The room doesn't help, but unfortunately my voice is just like that.
 
-3. I needed to record way more game footage but `mame -aviwrite` uses up a ludicrous
+3. I didn't leave enough space for the all the games to have sound on, so you miss
+   out on lots of bleeps and bloops.  I was thinking of time stretching some of my 
+   pauses but decided that was too much effort.
+
+4. I needed to record way more game footage but `mame -aviwrite` uses up a ludicrous
    amount of space, not a lot of compression going on there.  Running it through ffmpeg
    makes it a lot more manageable, perhaps I could do something clever with sockets.
 
-4. I ran out of time for adding the inverse font and cool phosphor glow to the
+5. I ran out of time for adding the inverse font and cool phosphor glow to the
    text slides.  I just hammered them out in GIMP text tool whereas last time
    I used HTML and CSS.
+
+6. There's some bits of script which just 'went missing' between the second and 
+   final edits: I screwed up the timeline and had to put it back together and some
+   stuff got lost.
+
+7. Earlier I said "Really, what I want is a GUI for writing `ffmpeg` filters."
+   and that's never been truer.
+
+Anyway, not sure if this video will be published publically, if not I'll make
+a "director's cut" and chuck that out there ...

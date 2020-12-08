@@ -32,6 +32,7 @@ with an easy to write URL ...
 * [Software development at 1 Hz](https://hackernoon.com/software-development-at-1-hz-5530bb58fc0e)
 * [Design Patterns in Python](http://norvig.com/design-patterns/)
 * [-2000 LoC](http://www.folklore.org/StoryView.py?project=Macintosh&story=Negative_2000_Lines_Of_Code.txt)
+* [Why do cars have brakes?](http://jonjagger.blogspot.com.au/2011/07/why-do-cars-have-brakes.html) although I normally rejig the conclusion into "cars have brakes so you can go fast without getting hurt".
 
 ## Fiction
 

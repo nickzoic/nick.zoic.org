@@ -23,7 +23,9 @@ the [radiation warning](http://www.mub.eps.manchester.ac.uk/nuclearhitchhiker/?p
 and [biohazard](https://en.wikipedia.org/wiki/Biological_hazard) signs.  It also takes
 inspiration from the gears/cogs/sprockets represented in machinery hazard signs.
 
-![Radiation Hazard](img/radioactive.png) ![Biological Hazard](img/biohazard.png) ![Crush/Pinch Hazard](img/gears.png)
+|---|---|---|
+| ![Radiation Hazard](img/radioactive.png) | ![Biological Hazard](img/biohazard.png) | ![Crush/Pinch Hazard](img/gears.png) |
+|---|---|---|
 
 It is symbolically a five spoked wheel or cog to represent machinery,
 and also a anthropomorphic robot in a

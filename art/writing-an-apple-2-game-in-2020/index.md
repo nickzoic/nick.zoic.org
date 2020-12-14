@@ -167,3 +167,44 @@ Run it in MAME and it looks like this:
 
 ![HELLO, WORLD!](img/0006.png)
 
+## So, what to write?
+
+My first thought was to avoid this question, probably indefinitely, by writing
+an interpreted VM to run over the top of the 6502 and provide a sane number of 
+registers and addressing modes comprehensible to humans and stuff like that.
+But it turns out [Woz already did, with SWEET 16](https://en.wikipedia.org/wiki/SWEET16)
+which takes a lot of the fun out of it.
+
+### The impractical dream
+
+My next idea was to do something utterly impossible: Minecraft for Apple 2.
+Ultima IV fit a lot of 2D world onto a disc, how much could we manage in three
+dimensions?  Assuming a minecraft-like, uncompressed map fitting onto one floppy,
+we'd have 35 tracks x 16 sectors x 256 bytes to play with.  Restricting ourselves
+to 16 block types, we could construct a 4 x 4 x 32 chunk in each sector, giving
+us room for a 92 x 92 x 32 world map on a disk.
+
+We'd load and save sectors on demand as we moved through the map, and mobs etc
+would be stored on the remaining 31 sectors of the disk.
+Hmmm, restrictive but possible.
+The original pocket edition was about 256 x 256 x 64 and had relativly few block types.
+
+3D rendering?  Well, not *impossible*.  Sure there's no floating point math, actually
+there's no division or multiplication either, but if we restrict our perspectives to
+always horizontal and only 8 (or so) different directions, we can exploit the symmetries
+of the grid and just use lookup tables for everything.
+
+Each block type could just have a set colour, I'm not going for much here, but even
+then we hit a final hurdle trying to display multiple colours: the dreaded palette
+select bit per seven pixels.  As illustrated [here](https://en.wikipedia.org/wiki/Apple_II_graphics#High-Resolution_%28Hi-Res%29_graphics) trying to combine colours can lead to
+a mess.
+
+Maybe this would be worth revisiting for the substantially less limited
+[Apple IIc](https://en.wikipedia.org/wiki/Apple_IIc#Improving_the_IIe)
+[Double HiRes](http://www.battlestations.zone/2017/04/apple-ii-double-hi-res-from-ground-up.html)
+or even the [Apple IIGS](https://en.wikipedia.org/wiki/Apple_IIGS#Graphics_modes)
+which as a bonus has much larger 800kB floppies.
+ 
+### Slightly Less Impossible
+
+[Isometric](https://en.wikipedia.org/wiki/Isometric_video_game_graphics) projection

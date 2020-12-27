@@ -167,13 +167,55 @@ Run it in MAME and it looks like this:
 
 ![HELLO, WORLD!](img/0006.png)
 
+## Graphics
+
+The [Apple 2 has two graphics modes](https://en.wikipedia.org/wiki/Apple_II_graphics):
+Low-res or "GR" graphics which has 40x48 rectangular
+pixels in 16 colours, packed two pixels per byte,
+and Hi-res or "HGR" graphics which has 280x192 pixels and six
+colours but some bizarre limitations.
+
+There's a lot of quite strange messing about between the pixel clock and the NTSC 
+chroma burst which is typically documented as if it is a precise science whereas 
+really it's a big ball of hair. 
+[Apple II Circuit Description](https://mirrors.apple2.org.za/Apple%20II%20Documentation%20Project/Books/W.%20Gayler%20-%20The%20Apple%20II%20Circuit%20Description.pdf)
+chapter 8 gives you some idea of the horrors within.
+
+Emulators attempt to approximate this but without the levels of analogue depravity
+present in the original, with all sorts of weird effects and colour fringing.
+Sadly I don't have an actual physical Apple 2 on hand
+so I can't back this up with 'scope traces and photos of glowing phosphors.
+
+### Lo-Res
+
+40 x 48 pixels in 16 colours.  Each byte of video memory holds two coloured pixels.
+I'll come back to this.
+
+### Hi-Res
+
+Each scan line is 40 bytes, each of which displays seven pixels for a horizontal
+resolution of 280 pixels.  The eighth bit of each byte alters the colour phase of 
+that group of bits, shifting between colour palettes.  It's really a bit more 
+complicated than it seems.  The order of scan lines is all jumbled up in memory too.
+
+Additionally, the 280 x 192 pixels aren't quite square on a 4:3 CRT. The exact
+proportions depend on a bunch of analogue stuff but I think on a typical CRT a 
+pixel would end up being about 10% narrower than it was tall.  
+
 ## So, what to write?
+
+### What not to write.
 
 My first thought was to avoid this question, probably indefinitely, by writing
 an interpreted VM to run over the top of the 6502 and provide a sane number of 
 registers and addressing modes comprehensible to humans and stuff like that.
-But it turns out [Woz already did, with SWEET 16](https://en.wikipedia.org/wiki/SWEET16)
+But it turns out
+[Woz already did this 40 years ago, with SWEET 16](https://en.wikipedia.org/wiki/SWEET16)
 which takes a lot of the fun out of it.
+
+Any kind of networking is out, really: Apple IIs had serial ports but very few
+people would have had access to any kind of dial-up network so I think I should 
+restrict myself to one-player games, or two-player-one-computer games at the most.
 
 ### The impractical dream
 
@@ -208,3 +250,41 @@ which as a bonus has much larger 800kB floppies.
 ### Slightly Less Impossible
 
 [Isometric](https://en.wikipedia.org/wiki/Isometric_video_game_graphics) projection
+might be possible, with a lookup table.  Each 'face' could be represented the same
+way every time, and by choosing our face dimensions carefully and adding a black or
+white border we could avoid colour palette collisions.  
+
+Typically a 2:1 pixel ratio is used for isometric drawings on computer, so we could
+align the tile boundaries with the word boundaries in Hi-Res mode use 7:3, 7:4 or
+14:7 ratio depending on what looked best. Anything which needed partial occlusion
+would be stuck being black-and-white to prevent colour fringing.
+
+It'd be possible to put together a neat
+[Syndicate](https://en.wikipedia.org/wiki/Syndicate_%281993_video_game%29)-like
+game this way.
+
+### Tile-based RPGs.
+
+Tile-based RPGs are an obvious option.  6502workshop have just released
+[Nox Archaist](https://www.6502workshop.com/p/nox-archaist.html) 
+which looks like a cool Ultima-style RPG world.
+(There's also a list of [Tile-based RPGs for Apple 2](https://www.6502workshop.com/p/tile-based-apple-ii-rpgs.html))
+
+By making each tile a multiple of 14 pixels across, the tiles can be stored as 
+simple bitmaps and colour fringing isn't a (big) problem.
+With some careful bit-juggling maybe even a multiple of 7 pixels.
+While clip-clopping a whole tile at a time is traditional,
+it'd be nice to have half- or quarter- tile movement.
+
+Tile-based games can also be sort of side-on isometric like
+[Stardew Valley](https://stardewvalleywiki.com/Stardew_Valley_Wiki)
+
+### Side-scrollers
+
+Side-on 2D perspectives are mostly associated with platformers but 
+[Below the Root](https://en.wikipedia.org/wiki/Below_the_Root_%28video_gamecl%29) 
+and the (much more recent)
+[Night in the Woods](https://en.wikipedia.org/wiki/Night_in_the_Woods)
+shows how this format can be used for a narrative-driven adventure game.
+
+also [Conan: Hall of Volta](https://en.wikipedia.org/wiki/Conan:_Hall_of_Volta)

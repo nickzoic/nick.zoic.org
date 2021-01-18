@@ -99,14 +99,17 @@ not for any particularly good reason other than there's a
 This is pretty much the minimal `HELLO, WORLD!` program in a sector:
 
 ```
-; this code will be loaded at $0800 by BOOT0 which then jumps to $0801.
+; this code will be loaded at $0800 by BOOT0
 
 * = $0800
 
-; this byte is supposed to be "number of sectors to load" but by the
-; time it reads this is has already loaded the first one, so zero works
-; too
+; this byte is supposed to be "number of sectors to load"
+; but by the time it reads this is has already loaded the
+; first sector, so zero works too
+
 !byte 0
+
+; BOOT0 then jumps to $0801, so this is our entry point
 
 print
     ldx 0
@@ -118,10 +121,11 @@ print_loop
     bne print_loop
 
 exit
-    brk
+    brk               ; drop into monitor
 
 message
-    !convtab "apple2.convtab" ; convert to Apple's weird ASCII.
+    ; convert to Apple's weird ASCII
+    !convtab "apple2.convtab"
     !text "HELLO, WORLD!", 0
 
 ```

@@ -87,11 +87,56 @@ which resides on the Disk II controller.  This is responsible for loading
 track 0 sector 0 of the floppy, known as BOOT1, into memory at location
 `$0800` and then jumping to location `$0801`.
 
-Actually, it'll do more than that.  If you set the very first byte of that very
-first sector to a larger value it'll load several sectors, up to `$10` to load
-the whole first track into memory from `$0800` to `$17FF`.
+### Loading One Sector
+
+So, let's write our own loader.
+
+There are a [lot of 6502 tools](http://6502.org/tools/asm/) out there.
+For my first foray I'm using [ACME](https://github.com/meonwax/acme)
+not for any particularly good reason other than there's a 
+[Ubuntu package](https://launchpad.net/ubuntu/focal/+package/acme) 
+
+This is pretty much the minimal `HELLO, WORLD!` program in a sector:
+
+```
+; this code will be loaded at $0800 by BOOT0 which then jumps to $0801.
+
+* = $0800
+
+; this byte is supposed to be "number of sectors to load" but by the
+; time it reads this is has already loaded the first one, so zero works
+; too
+!byte 0
+
+print
+    ldx 0
+print_loop
+    lda message,X     ; start of message buffer
+    beq exit          ; stop if we got a zero
+    sta $0400,X       ; start of text screen
+    inx
+    bne print_loop
+
+exit
+    brk
+
+message
+    !convtab "apple2.convtab" ; convert to Apple's weird ASCII.
+    !text "HELLO, WORLD!", 0
+
+```
+(you can grab this code [here](files/hello.zip))
+
+Run it in MAME and it looks like this:
+
+![HELLO, WORLD!](img/0006.png)
 
 ### Sector Interleaving
+
+Actually, BOOT0 will do more than load one sector.
+If you set the very first byte of that very
+first sector to a larger value it'll load several sectors, up to `$10` to load
+the whole first track into memory from `$0800` to `$17FF`.
 
 But there's a trick to it.  DOS 3.3 doesn't use this facility, only loading up 
 a single sector for BOOT1 which takes over from there.  And DOS 3.3 chose to
@@ -126,46 +171,68 @@ out in the right place:
 
 See also: [Beneath Apple DOS]() page 3-22..23
 
-## ACME Assembler
+Once we've reshuffled the sectors this way, we can load an entire track in
+to memory from $0800 - $17FF just by setting that first byte to $10.  That's
+16 sectors, or 4K, which is quite a lot of 6502 code, certainly enough to 
+make a good start!
 
-There are a [lot of 6502 tools](http://6502.org/tools/asm/) out there.
-For my first foray I'm using [ACME](https://github.com/meonwax/acme)
-not for any particularly good reason other than there's a 
-[Ubuntu package](https://launchpad.net/ubuntu/focal/+package/acme) 
+### Loading Another Track
 
-This is pretty much the minimal `HELLO, WORLD!` program in a sector:
+But let's say we want more ... how can we load multiple tracks without DOS?
+It turns out we can alter a few things and jump back into the BOOT0 code to
+load more data.
 
-```
-; this code will be loaded at $0800 by BOOT0 which then jumps to $0801.
+* Advance the stepper motor two phases
+* Increment the 'track' zero page variable
+* Set X register to the slot number * 16
+* jump to $C05C + slot number * 256
 
-* = $0800
+Once the track is loaded, our loader code at $801 is called again.
+We can just check if all our data is loaded (there's a pointer of where 
+the loader is up to stored at $26/$27) and if not we go around again 
+until all our memory is loaded.
+The same sector-reshuffling as above applies.
 
-; this byte is supposed to be "number of sectors to load" but by the
-; time it reads this is has already loaded.
-!byte 0
+Disk access is pretty slow, so it'd be
+nice to show some kind of loading message once the first track has arrived.
 
-print
-    ldx 0
-print_loop
-    lda message,X     ; start of message buffer
-    beq exit          ; stop if we got a zero
-    sta $0400,X       ; start of text screen
-    inx
-    bne print_loop
+### Memory Map
 
-exit
-    brk
+My aim here is to write an absolutely minimal program, so it's worth considering
+what memory we've got available with no DOS or anything loaded:
 
-message
-    !convtab "apple2.convtab" ; convert to Apple's weird ASCII.
-    !text "HELLO, WORLD!", 0
+| From  | To    | Purpose |
+|-------|-------|---------|
+| $0000 | $00FF | "Page Zero" variables |
+| $0100 | $01FF | 6502 stack, grows downwards |
+| $0200 | $02FF | Available space |
+| $0300 | $03d5 | BOOT0 sector read buffer & translate tables |
+| $03D6 | $03FF | Available space |
+| $0400 | $07FF | Text / LORES Page 1 |
+| $0800 | $0BFF | Text / LORES Page 2, also BOOT1 or available space |
+| $0C00 | $1FFF | Available Space |
+| $2000 | $3FFF | HIRES Page 1 |
+| $4000 | $5FFF | HIRES Page 2 |
+| $6000 | $BFFF | Available Space |
+| $C000 | $CFFF | I/O, Peripheral mapped memory |
+| $D000 | $FFFF | ROM |
 
-```
-(you can grab this code [here](files/hello.zip))
+If we don't want to use Text / LORES Page 2 we can just load our entire program
+in in chunks all the way from $0800 to $CFFF.  Once we've finished loading,
+the space from $0300 - $03FF used by the BOOT0 loader is available too.
 
-Run it in MAME and it looks like this:
+If we *do* want to use Page 2, 
+we can write a loader in the space $800-$09FF which once it has finished loading
+copies $0A00 - $0BFF over $0200-$03FF then jumps elsewhere before clearing
+$0800 - $0BFF for use as Page 2.
 
-![HELLO, WORLD!](img/0006.png)
+That's the nice thing about these simple systems: once you've finished with a 
+stage, you can just throw it away.
+
+If we're not using AppleSoft BASIC or DOS, we can use pretty much any part 
+of memory except for what's needed by the
+[Monitor](https://www.callapple.org/Books2/Monitor_Peeled.pdf) ... it's nice
+to still have that available!
 
 ## Graphics
 

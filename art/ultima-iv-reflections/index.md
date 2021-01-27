@@ -10,6 +10,10 @@ summary: |
     well, maybe not so much playing as where it led ...
 ---
 
+*UPDATE: I've written a whole bunch more about this sort of stuff at 
+[Journey Onward: the Apple 2 and me](/art/journey-onward-apple-2-and-me/)
+and [Writing an Apple 2 game in 2021](/art/writing-an-apple-2-game-in-2021/)*
+
 # GALAGA
 
 Some time in the early '80s, Dad brought home an Apple 2

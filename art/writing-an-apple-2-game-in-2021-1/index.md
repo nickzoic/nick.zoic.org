@@ -1,10 +1,10 @@
 ---
-date: '2020-11-24'
-layout: draft
+date: '2021-01-28'
+layout: article
 tags:
   - apple
   - games
-title: 'Writing an Apple 2 game in 2020'
+title: 'Writing an Apple 2 game in 2021 (Part 1)'
 summary: 'As I set out to recapture my childhood dreams ...'
 ---
 
@@ -13,7 +13,7 @@ and the Apple 2 in [Ultima IV: Reflections](/art/ultima-iv-reflections/)
 and [Journey Onward: The Apple 2 and me](/art/journey-onward-apple-2-and-me/),
 but I kind of regret letting go of the Apple so quickly when PCs came along.
 
-So I thought, here in the cold light of 2020, I should write a new piece
+So I thought, here in the cold light of 2021, I should write a new piece
 of software for the 40 year old Apple II.
 
 # Emulation
@@ -86,6 +86,9 @@ When booting, the Apple first passes control to a piece of code known as `BOOT0`
 which resides on the Disk II controller.  This is responsible for loading 
 track 0 sector 0 of the floppy, known as BOOT1, into memory at location
 `$0800` and then jumping to location `$0801`.
+
+This also avoids the whole question of whether distributing Apple DOS is
+allowed or not.
 
 ### Loading One Sector
 
@@ -200,7 +203,7 @@ The same sector-reshuffling as above applies.
 Disk access is pretty slow, so it'd be
 nice to show some kind of loading message once the first track has arrived.
 
-### Memory Map
+## Memory Map
 
 My aim here is to write an absolutely minimal program, so it's worth considering
 what memory we've got available with no DOS or anything loaded:
@@ -225,7 +228,7 @@ If we don't want to use Text / LORES Page 2 we can just load our entire program
 in in chunks all the way from $0800 to $CFFF.  Once we've finished loading,
 the space from $0300 - $03FF used by the BOOT0 loader is available too.
 
-If we *do* want to use Page 2, 
+If we *do* want to use LORES Page 2, 
 we can write a loader in the space $800-$09FF which once it has finished loading
 copies $0A00 - $0BFF over $0200-$03FF then jumps elsewhere before clearing
 $0800 - $0BFF for use as Page 2.
@@ -259,8 +262,15 @@ so I can't back this up with 'scope traces and photos of glowing phosphors.
 
 ### Lo-Res
 
-40 x 48 pixels in 16 colours.  Each byte of video memory holds two coloured pixels.
-I'll come back to this.
+40 x 48 pixels in 15 colours (16, but there's two identical shades of grey).
+Each byte of video memory holds two coloured pixels.  The pixels are rectangular,
+about 3:2, which is odd. 
+
+* [LoRes](https://en.wikipedia.org/wiki/Apple_II_graphics#Low-Resolution_%28Lo-Res%29_graphics)
+
+The colours, as seen in MAME anyway, are actually quite fetching.
+The only game I can remember being written in LoRes is the original
+Little Brick Out by Woz so there's a certain additional cachet there.
 
 ### Hi-Res
 
@@ -273,9 +283,9 @@ Additionally, the 280 x 192 pixels aren't quite square on a 4:3 CRT. The exact
 proportions depend on a bunch of analogue stuff but I think on a typical CRT a 
 pixel would end up being about 10% narrower than it was tall.  
 
-## So, what to write?
+# So, what to write?
 
-### What not to write.
+## What not to write.
 
 My first thought was to avoid this question, probably indefinitely, by writing
 an interpreted VM to run over the top of the 6502 and provide a sane number of 
@@ -287,52 +297,6 @@ which takes a lot of the fun out of it.
 Any kind of networking is out, really: Apple IIs had serial ports but very few
 people would have had access to any kind of dial-up network so I think I should 
 restrict myself to one-player games, or two-player-one-computer games at the most.
-
-### The impractical dream
-
-My next idea was to do something utterly impossible: Minecraft for Apple 2.
-Ultima IV fit a lot of 2D world onto a disc, how much could we manage in three
-dimensions?  Assuming a minecraft-like, uncompressed map fitting onto one floppy,
-we'd have 35 tracks x 16 sectors x 256 bytes to play with.  Restricting ourselves
-to 16 block types, we could construct a 4 x 4 x 32 chunk in each sector, giving
-us room for a 92 x 92 x 32 world map on a disk.
-
-We'd load and save sectors on demand as we moved through the map, and mobs etc
-would be stored on the remaining 31 sectors of the disk.
-Hmmm, restrictive but possible.
-The original pocket edition was about 256 x 256 x 64 and had relativly few block types.
-
-3D rendering?  Well, not *impossible*.  Sure there's no floating point math, actually
-there's no division or multiplication either, but if we restrict our perspectives to
-always horizontal and only 8 (or so) different directions, we can exploit the symmetries
-of the grid and just use lookup tables for everything.
-
-Each block type could just have a set colour, I'm not going for much here, but even
-then we hit a final hurdle trying to display multiple colours: the dreaded palette
-select bit per seven pixels.  As illustrated [here](https://en.wikipedia.org/wiki/Apple_II_graphics#High-Resolution_%28Hi-Res%29_graphics) trying to combine colours can lead to
-a mess.
-
-Maybe this would be worth revisiting for the substantially less limited
-[Apple IIc](https://en.wikipedia.org/wiki/Apple_IIc#Improving_the_IIe)
-[Double HiRes](http://www.battlestations.zone/2017/04/apple-ii-double-hi-res-from-ground-up.html)
-or even the [Apple IIGS](https://en.wikipedia.org/wiki/Apple_IIGS#Graphics_modes)
-which as a bonus has much larger 800kB floppies.
- 
-### Slightly Less Impossible
-
-[Isometric](https://en.wikipedia.org/wiki/Isometric_video_game_graphics) projection
-might be possible, with a lookup table.  Each 'face' could be represented the same
-way every time, and by choosing our face dimensions carefully and adding a black or
-white border we could avoid colour palette collisions.  
-
-Typically a 2:1 pixel ratio is used for isometric drawings on computer, so we could
-align the tile boundaries with the word boundaries in Hi-Res mode use 7:3, 7:4 or
-14:7 ratio depending on what looked best. Anything which needed partial occlusion
-would be stuck being black-and-white to prevent colour fringing.
-
-It'd be possible to put together a neat
-[Syndicate](https://en.wikipedia.org/wiki/Syndicate_%281993_video_game%29)-like
-game this way.
 
 ### Tile-based RPGs.
 
@@ -349,13 +313,91 @@ it'd be nice to have half- or quarter- tile movement.
 
 Tile-based games can also be sort of side-on isometric like
 [Stardew Valley](https://stardewvalleywiki.com/Stardew_Valley_Wiki)
+A weird top-down pseudo-perspective like Zelda would also be possible.
+
+I started thinking about a kind of graphical
+[roguelike](https://en.wikipedia.org/wiki/Roguelike) with 14x16 tiles
+but I never really got into Rogue to be honest and also as soon as you
+try to draw a little sword wielding dude in a tile you end up looking
+an awful lot like Ultima but without the plot.
+
+### The impractical dream
+
+My next idea was to do something utterly impossible: Minecraft for Apple 2.
+
+Ultima IV fit a lot of 2D world onto a disc, how much could we manage in three
+dimensions?  Assuming a minecraft-like, uncompressed map fitting onto one floppy,
+we'd have 35 tracks x 16 sectors x 256 bytes to play with.  Restricting ourselves
+to 16 block types, we could construct a 4 x 4 x 32 chunk in each sector, giving
+us room for a 92 x 92 x 32 world map on a disk.
+
+We'd load and save sectors on demand as we moved through the map, and mobs etc
+would be stored on the remaining sectors of the disk.
+Hmmm, restrictive but possible.
+The original pocket edition was about 256 x 256 x 64 and had relativly few block types.
+
+3D rendering?  Well, not *impossible*.  Sure there's no floating point math, actually
+there's no division or multiplication either, but if we restrict our perspectives to
+always horizontal and only 8 (or so) different directions, we can exploit the symmetries
+of the grid and just use lookup tables for everything.
+
+Each block type could just have a set colour, I'm not going for much here, but even
+then we hit a final hurdle: trying to display multiple colours.
+Specifically, the dreaded palette select bit per seven pixels.
+As illustrated [here](https://en.wikipedia.org/wiki/Apple_II_graphics#High-Resolution_%28Hi-Res%29_graphics) trying to combine colours can lead to
+a mess.
+
+Maybe this would be worth revisiting for the substantially less limited
+[Apple IIc](https://en.wikipedia.org/wiki/Apple_IIc#Improving_the_IIe)
+[Double HiRes](http://www.battlestations.zone/2017/04/apple-ii-double-hi-res-from-ground-up.html)
+or even the [Apple IIGS](https://en.wikipedia.org/wiki/Apple_IIGS#Graphics_modes)
+which as a bonus has much larger 800kB floppies.
+
+To be interesting, the game would also have to write back sectors to the disk,
+which adds a level of complexity I'm not sure I want to deal with right now!
+ 
+### Slightly Less Impossible
+
+[Isometric](https://en.wikipedia.org/wiki/Isometric_video_game_graphics) projection
+might be possible, with a lookup table.  Each 'face' could be represented the same
+way every time, and by choosing our face dimensions carefully and adding a black or
+white border we could avoid colour palette collisions.  
+
+Typically a 2:1 pixel ratio is used for isometric drawings on computer, so we could
+align the tile boundaries with the word boundaries in Hi-Res mode use 7:3, 7:4 or
+14:7 ratio depending on what looked best. Anything which needed partial occlusion
+like sprites or particle effects 
+would be stuck being black-and-white to prevent colour fringing.
+
+It'd be possible to put together a neat
+[Syndicate](https://en.wikipedia.org/wiki/Syndicate_%281993_video_game%29)-like
+game this way.
 
 ### Side-scrollers
 
-Side-on 2D perspectives are mostly associated with platformers but 
+Side-on 2D perspectives are mostly associated with platformers like
+[Conan: Hall of Volta](https://en.wikipedia.org/wiki/Conan:_Hall_of_Volta)
+but 
 [Below the Root](https://en.wikipedia.org/wiki/Below_the_Root_%28video_gamecl%29) 
 and the (much more recent)
 [Night in the Woods](https://en.wikipedia.org/wiki/Night_in_the_Woods)
 shows how this format can be used for a narrative-driven adventure game.
 
-also [Conan: Hall of Volta](https://en.wikipedia.org/wiki/Conan:_Hall_of_Volta)
+### HONK
+
+During the Recent Unpleasantness I spent a bit of time playing 
+[Untitled Goose Game](https://goose.game/) with my daughter, and 
+it is an absolute hoot, especially the two-player version and I
+absolutely recommend it.
+
+And there's something about it's muted palette which reminds me
+of the LORES palette.  Okay, so how about a low res goose?
+The first step was to see what a goose made of big fat lores pixels
+would look like, so I fired up a trusty spreadsheet and drew this:
+
+![a pixelly goose](img/goose.png)
+
+Hmmm, maybe!
+
+# TO BE CONTINUED IN PART 2.
+

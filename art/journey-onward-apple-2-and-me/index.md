@@ -9,6 +9,10 @@ tags:
 title: 'Journey Onward: the Apple 2 and me'
 ---
 
+UPDATE:
+[Journey Onward: The Apple \]\[ and me](https://www.youtube.com/watch?v=7v3JRbwTkiE)
+is viewable on Youtube!
+
 *This is an approximate script for my talk
 at [EveryWorld 2020](https://auc.edu.au/everyworld/about/),
 with some notes and references and credits as well.*

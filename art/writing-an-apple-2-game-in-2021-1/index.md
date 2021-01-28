@@ -138,6 +138,12 @@ Run it in MAME and it looks like this:
 
 ![HELLO, WORLD!](img/0006.png)
 
+The `APPLE ][` banner is still there, but we've written the text
+`HELLO, WORLD!` at the top left corner of the screen, and then
+that last `BRK` instruction jumps to the monitor, which prints
+the current values of registers and drops to a CLI to allow you
+to inspect, manipulate and execute memory.
+
 ### Sector Interleaving
 
 Actually, BOOT0 will do more than load one sector.
@@ -225,13 +231,14 @@ what memory we've got available with no DOS or anything loaded:
 | $D000 | $FFFF | ROM |
 
 If we don't want to use Text / LORES Page 2 we can just load our entire program
-in in chunks all the way from $0800 to $CFFF.  Once we've finished loading,
-the space from $0300 - $03FF used by the BOOT0 loader is available too.
+in in chunks all the way from $0800 to $BFFF.  Once we've finished loading,
+the space from $0300 - $03FF which was used by the BOOT0 loader is available too.
 
 If we *do* want to use LORES Page 2, 
 we can write a loader in the space $800-$09FF which once it has finished loading
-copies $0A00 - $0BFF over $0200-$03FF then jumps elsewhere before clearing
-$0800 - $0BFF for use as Page 2.
+jumps to $0C00 before clearing $0800 - $0BFF for use as Page 2.
+If you don't want to waste space and you're finished with disk reads, the loader could
+copy $0A00 - $0BFF over $0200-$03FF.
 
 That's the nice thing about these simple systems: once you've finished with a 
 stage, you can just throw it away.
@@ -266,9 +273,8 @@ so I can't back this up with 'scope traces and photos of glowing phosphors.
 Each byte of video memory holds two coloured pixels.  The pixels are rectangular,
 about 3:2, which is odd. 
 
-* [LoRes](https://en.wikipedia.org/wiki/Apple_II_graphics#Low-Resolution_%28Lo-Res%29_graphics)
-
-The colours, as seen in MAME anyway, are actually quite fetching.
+[LoRes](https://en.wikipedia.org/wiki/Apple_II_graphics#Low-Resolution_%28Lo-Res%29_graphics)
+colours, as seen in MAME anyway, are actually quite fetching.
 The only game I can remember being written in LoRes is the original
 Little Brick Out by Woz so there's a certain additional cachet there.
 
@@ -297,6 +303,10 @@ which takes a lot of the fun out of it.
 Any kind of networking is out, really: Apple IIs had serial ports but very few
 people would have had access to any kind of dial-up network so I think I should 
 restrict myself to one-player games, or two-player-one-computer games at the most.
+
+Writing a small FORTH or Lisp machine is tempting, but there were already quite
+a lot of these too, and the risk would be that I'd spend all my time on the language
+and never get around to writing the game.
 
 ### Tile-based RPGs.
 

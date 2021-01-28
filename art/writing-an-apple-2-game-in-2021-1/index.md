@@ -42,8 +42,8 @@ outside and just boot a disk image.
 
 A quick note re: notation, the Apple 2 era tended to write numbers as 
 hexadecimal, starting with `$` eg: `$A9`.  Most numbers are single bytes,
-but addresses are 16 bits, written like `$3FFF`.  The 6502 is little endian,
-so this would be stored in memory as `$FF $3F`.
+but addresses are 16 bits, written like `$ABCD`.  The 6502 is little endian,
+so this would be stored in memory as `$CD $AB`.
 
 Also note that the Apple 2 is described as supporting ASCII, but earlier
 Apples had no lower case characters and stored normal letters with the high
@@ -84,10 +84,10 @@ An alternative is to make a raw disk image.
 
 When booting, the Apple first passes control to a piece of code known as `BOOT0` 
 which resides on the Disk II controller.  This is responsible for loading 
-track 0 sector 0 of the floppy, known as BOOT1, into memory at location
-`$0800` and then jumping to location `$0801`.
+track 0 sector 0 of the floppy, known as BOOT1, into memory at locations
+`$0800`-`$08FF` and then jumping to location `$0801`.
 
-This also avoids the whole question of whether distributing Apple DOS is
+Using a raw disk image also avoids the whole question of whether distributing Apple DOS is
 allowed or not.
 
 ### Loading One Sector
@@ -140,7 +140,7 @@ Run it in MAME and it looks like this:
 
 The `APPLE ][` banner is still there, but we've written the text
 `HELLO, WORLD!` at the top left corner of the screen, and then
-that last `BRK` instruction jumps to the monitor, which prints
+that last `brk` instruction jumps to the monitor, which prints
 the current values of registers and drops to a CLI to allow you
 to inspect, manipulate and execute memory.
 
@@ -182,7 +182,7 @@ out in the right place:
 | $0200 - $02FF | $0E00 - $0EFF | $0200 - $02FF |
 | ... etc ...   | ... etc ...   | ... etc ...   |
 
-See also: [Beneath Apple DOS]() page 3-22..23
+See also: [Beneath Apple DOS](https://mirrors.apple2.org.za/Apple%20II%20Documentation%20Project/Books/Beneath%20Apple%20DOS.pdf) page 3-22..23
 
 Once we've reshuffled the sectors this way, we can load an entire track in
 to memory from $0800 - $17FF just by setting that first byte to $10.  That's
@@ -205,9 +205,12 @@ We can just check if all our data is loaded (there's a pointer of where
 the loader is up to stored at $26/$27) and if not we go around again 
 until all our memory is loaded.
 The same sector-reshuffling as above applies.
+We could load 184 sectors / 11½ tracks this way, being careful not to
+overshoot into $C000 I/O peripheral space.
 
-Disk access is pretty slow, so it'd be
-nice to show some kind of loading message once the first track has arrived.
+Disk access is pretty slow, so it'd be nice to show some kind of splash
+screen once the first track has arrived and some kind of loading message
+as the others roll in.
 
 ## Memory Map
 
@@ -221,21 +224,22 @@ what memory we've got available with no DOS or anything loaded:
 | $0200 | $02FF | Available space |
 | $0300 | $03d5 | BOOT0 sector read buffer & translate tables |
 | $03D6 | $03FF | Available space |
-| $0400 | $07FF | Text / LORES Page 1 |
-| $0800 | $0BFF | Text / LORES Page 2, also BOOT1 or available space |
+| $0400 | $07FF | Text / LORES Screen 1 |
+| $0800 | $0BFF | Text / LORES Screen 2, also BOOT1 or available space |
 | $0C00 | $1FFF | Available Space |
-| $2000 | $3FFF | HIRES Page 1 |
-| $4000 | $5FFF | HIRES Page 2 |
+| $2000 | $3FFF | HIRES Screen 1 |
+| $4000 | $5FFF | HIRES Screen 2 |
 | $6000 | $BFFF | Available Space |
 | $C000 | $CFFF | I/O, Peripheral mapped memory |
 | $D000 | $FFFF | ROM |
 
-If we don't want to use Text / LORES Page 2 we can just load our entire program
+If we don't want to use Text / LORES Screen 2 we can just load our entire program
 in in chunks all the way from $0800 to $BFFF.  Once we've finished loading,
-the space from $0300 - $03FF which was used by the BOOT0 loader is available too.
+the space from $0200 - $03FF, part of which was used by the BOOT0 loader,
+is available too.
 
-If we *do* want to use LORES Page 2, 
-we can write a loader in the space $800-$09FF which once it has finished loading
+If we *do* want to use LORES Screen 2, 
+we can write a loader in the space $0800-$0BFF which once it has finished loading
 jumps to $0C00 before clearing $0800 - $0BFF for use as Page 2.
 If you don't want to waste space and you're finished with disk reads, the loader could
 copy $0A00 - $0BFF over $0200-$03FF.
@@ -270,8 +274,8 @@ so I can't back this up with 'scope traces and photos of glowing phosphors.
 ### Lo-Res
 
 40 x 48 pixels in 15 colours (16, but there's two identical shades of grey).
-Each byte of video memory holds two coloured pixels.  The pixels are rectangular,
-about 3:2, which is odd. 
+Each byte of video memory holds two coloured pixels.  The pixels are distinctly
+rectangular, about 3:2, which is odd. 
 
 [LoRes](https://en.wikipedia.org/wiki/Apple_II_graphics#Low-Resolution_%28Lo-Res%29_graphics)
 colours, as seen in MAME anyway, are actually quite fetching.
@@ -406,6 +410,7 @@ The first step was to see what a goose made of big fat lores pixels
 would look like, so I fired up a trusty spreadsheet and drew this:
 
 ![a pixelly goose](img/goose.png)
+*a pixelly goose*
 
 Hmmm, maybe!
 

@@ -9,11 +9,14 @@ tags:
 title: 'DECODING: Programming Beyond Text Files'
 ---
 
-*This is an approximate transcription for my talk
+This is an approximate transcription for my talk
 [Decoding: Programming beyond text files](https://2020.pycon.org.au/program/lyrjgy/)
 at [PyCOnline AU 2020](https://2020.pycon.org.au/).
 I'll fix the transcription up and add some slides in
-once I can bear to hear myself speak ever again.*
+once I can bear to hear myself speak ever again.
+
+The video is up on youtube: [Decoding: Programming Beyond Text Files (PyConAU 2020)](https://youtu.be/Ay6iM_I9694)
+
 
 *The talk is based on the article
 [Programming Beyond Text Files](/art/programming-beyond-text-files/).*

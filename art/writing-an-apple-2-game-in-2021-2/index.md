@@ -1,5 +1,5 @@
 ---
-date: '2021-02-05'
+date: '2021-02-06'
 layout: article
 tags:
   - apple
@@ -18,7 +18,10 @@ the software.
 # The Mighty 6502
 
 The [6502](https://en.wikipedia.org/wiki/MOS_Technology_6502)
-was first launched in 1975: 
+was first launched in 1975, and hit the market at just the right time
+for the personal computer revolution: in fact, its extremely 
+competitive pricing threw fuel on the fire.
+
 *Here's a [6502 Instruction Set](https://www.masswerk.at/6502/6502_instruction_set.html)
 page*
 

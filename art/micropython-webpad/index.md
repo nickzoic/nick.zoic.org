@@ -20,7 +20,7 @@ but getting a workflow going between editing files and using the REPL is
 tricky.
 
 Once you've managed to get [a serial console](http://mpy-tut.zoic.org/tut/installing.html)
-you're stuck juggling between [file uploads](https://github.com/nickzoic/mpy-utils) and
+you're stuck juggling between [file uploads](https://github.com/nickzoic/mpy-utils/) and
 the REPL which gets pretty annoying.
 
 WebPad is a project to provide a unified, web-based development environment for
@@ -39,8 +39,12 @@ current version uses the socket exposed by [WebREPL](https://micropython.org/web
 which will use [MicroPython / WebUSB](/art/micropython-webusb/)
 to talk directly to the device over a USB cable.
 
+There's some [WebREPL and WebPad setup instructions here](http://mpy-tut.zoic.org/tut/webrepl-and-webpad.html).
+
+
 ![webpad screenshot](img/webpad-screenshot.png)
 *webpad from 2017 talking to MicroPython from 2021*
+
 
 WebPad keeps its code in a number of blocks, each of which has a separate little
 edit window on the page.

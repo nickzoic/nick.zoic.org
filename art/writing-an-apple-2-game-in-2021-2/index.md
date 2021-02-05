@@ -224,6 +224,8 @@ Okay, so putting our sprite drawing routine together:
 
 ![Goose Movie](img/goose2.gif)
 
+![Goose Movie.mov](img/goose2.mov)
+
 ### Drawing Sprites
 
 Using [GIMP with non-square pixels](http://jubatian.com/articles/using-non-square-pixel-aspect-ratios-in-gimp/)

@@ -1,11 +1,11 @@
 ---
-date: '2021-01-28'
-layout: draft
+date: '2021-02-05'
+layout: article
 tags:
   - apple
   - games
 title: 'Writing an Apple 2 game in 2021 Part 2'
-summary: 'Part 2, where I actually do some stuff'
+summary: 'Part 2, with 6502s and Sprites'
 ---
 
 PREVIOUSLY: In [Writing an Apple 2 game in 2021 Part 1](/art/writing-an-apple-2-game-in-2021-1)
@@ -220,16 +220,28 @@ Sprites get drawn on top of a background, which is really just an enormous sprit
 The main difference is that the background is much wider than the screen and doesn't
 need to support transparency.
 
-Okay, so putting our sprite drawing routine together:
+Okay, so putting our sprite drawing routine together we can draw a background and 
+overlay a sprite on top of it, and by moving the two around and changing the sprite
+details we can create a little animation:
 
 ![Goose Movie](img/goose2.gif)
+*Moving Goose!*
 
-![Goose Movie.mov](img/goose2.mov)
+(That's running in MAME, captured and converted to a GIF using `ffmpeg`.)
 
 ### Drawing Sprites
 
-Using [GIMP with non-square pixels](http://jubatian.com/articles/using-non-square-pixel-aspect-ratios-in-gimp/)
+We're going to need a lot more sprites and LibreOffice, while it's 
+a pretty reasonable spreadsheet, isn't a great graphics editor.
 
+Helpfully, we can set up
+[GIMP with non-square pixels](http://jubatian.com/articles/using-non-square-pixel-aspect-ratios-in-gimp/)
+which means we should be able to draw a bunch of sprites in a long skinny image.
 
+There's a bunch of open questions here: how big can a sprite be?  How many of 
+them will we need?  How will we clip them to the screen?  How will we decide what
+order to draw them in?  
 
+But those will have to wait until ...
 
+# COMING SOON: PART 3 

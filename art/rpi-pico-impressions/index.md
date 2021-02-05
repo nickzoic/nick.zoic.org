@@ -6,14 +6,17 @@ tags:
   - microcontrollers
   - electronics
 title: 'RPi Pico: First impressions'
+summary: 'My first impressions of the new Raspberry Pi Pico / RP2040, with MicroPython'
 ---
+
+# First Impressions
 
 I received a couple of
 [Raspberry Pi Pico](https://www.raspberrypi.org/documentation/pico/getting-started/)s
 this morning from [Little Bird Electronics](https://www.littlebird.com.au/)
 and this is a quick write up of the out-of-box experience.
 
-# Booting and Flashing
+## Booting and Flashing
 
 As expected from RPi, the web documentation is fantastic.  Right there on the site
 from day one is a
@@ -56,7 +59,7 @@ while True:
     time.sleep(1)
 ```
 
-# Pinouts
+## Pinouts
 
 ![RPi Pico Pinout](img/Pico-R3-Pinout.svg)
 *From [raspberrypi.org](https://www.raspberrypi.org/documentation/pico/getting-started/)*
@@ -77,7 +80,7 @@ The Pico is surface mountable to your own boards too, or there's a various small
 boards available 
 and a [Feather compatible board is on the way](https://www.adafruit.com/feather2040).
 
-# Where does this sit in the market?
+## Where does this sit in the market?
 
 With 2 x 144 MHz ARM cores and 264 KB of SRAM, it's a lot more powerful than 
 an AVR based Arduino, and the boards are really quite cheap.

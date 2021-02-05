@@ -414,5 +414,7 @@ would look like, so I fired up a trusty spreadsheet and drew this:
 
 Hmmm, maybe!
 
-# TO BE CONTINUED IN PART 2.
+# CONTINUED
+
+... continued in [Writing an Apple 2 game in 2021: Part 2](/art/writing-an-apple-2-game-in-2021-2/) ...
 

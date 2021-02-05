@@ -31,6 +31,8 @@ You can do a similar thing with
 [Jupyter's MicroPython Kernel](https://pypi.org/project/jupyter-micropython-upydevice/)
 but WebPad doesn't require any local software installation.
 
+## Installing 
+
 [WebPad](https://github.com/nickzoic/mpy-webpad)
 is a very small piece of code, really just an HTML5 page, which 
 connects to the device and sends commands to the REPL.  The 
@@ -41,6 +43,7 @@ to talk directly to the device over a USB cable.
 
 There's some [WebREPL and WebPad setup instructions here](http://mpy-tut.zoic.org/tut/webrepl-and-webpad.html).
 
+## Example
 
 ![webpad screenshot](img/webpad-screenshot.png)
 *webpad from 2017 talking to MicroPython from 2021*
@@ -66,5 +69,13 @@ There needs to be a few things added:
 * the ability to save and load programs to the device's flash
 * support for [MicroPython / WebUSB](/art/micropython-webusb/)
 * earlier blocks shouldn't get re-evaluated when later blocks change.
-* exceptions could be displayed more nicely.
+
+And further into the future:
+
+* support for editing multiple files on the flash filesystem.
+* exceptions / stack traces could be displayed more nicely, with links to the
+  place the error occurred.
 * support for passing structured data out rather than just `print()`ing stuff.
+
+This whole thing is really just a first step for my experiments with
+[Visual Programming](/art/programming-beyond-text-files/)

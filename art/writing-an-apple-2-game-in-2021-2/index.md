@@ -4,7 +4,7 @@ layout: article
 tags:
   - apple
   - games
-title: 'Writing an Apple 2 game in 2021 Part 2'
+title: 'Writing an Apple 2 game in 2021 (Part 2)'
 summary: 'Part 2, with 6502s and Sprites'
 ---
 

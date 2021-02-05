@@ -373,16 +373,10 @@ Also check out [PICO-8](https://github.com/pico-8/awesome-PICO-8), especially th
 between CLI and file editor seamlessly.
 That'd be a killer app for MicroPython.
 
+## UPDATE 2021
 
-
-
-
-
-
-
-  
-
-
-
-
+There are now quite a few chipsets around which support native USB with TinyUSB,
+including the new [RPi Pico / RP2040](/art/rpi-pico-impressions/) and the
+ESP32-S2 so these seem like obvious targets for a WebUSB enhancement and quite
+they'd be great platforms for [WebPad](/art/micropython-webpad/).
 

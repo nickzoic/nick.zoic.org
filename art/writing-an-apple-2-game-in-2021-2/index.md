@@ -22,9 +22,6 @@ was first launched in 1975, and hit the market at just the right time
 for the personal computer revolution: in fact, its extremely 
 competitive pricing threw fuel on the fire.
 
-*Here's a [6502 Instruction Set](https://www.masswerk.at/6502/6502_instruction_set.html)
-page*
-
 ## Zero Page
 
 I know I've criticized the 6502 before as being a CPU with "approximately 1 register",
@@ -39,6 +36,10 @@ For example, when splitting a byte into nybbles it seems sensible to stash the v
 in X.  But, assuming the value is stored in a zero page address, it's actually faster
 to reload in from the zero page (3 cycles) than to TAX then TXA (2 cycles each).
 
+There's a lot of other "performance assumptions" which don't hold ... there's no cache
+and no pipeline, and therefore no branch prediction or speculative execution.
+There's no memory management either: instructions can write over code, or jump into data.
+
 ## Registers
 
 In addition to the 256 zero-page locations there's three main registers of 8 bits each:
@@ -51,8 +52,15 @@ it's pretty minimal!
 
 There's also an 8 bit stack pointer, 7 bits of processor flags and a 16-bit program
 counter.
+The stack just starts somewhere in the range $0100 .. $01FF and grows down
+until it wraps around.  That's enough room for 128 return addresses so maybe don't get too
+far into the recursion.
+Stack access isn't particularly fast ... about the same speed as zero page access.
 
 ## Addressing Modes
+
+*Here's a [6502 Instruction Set](https://www.masswerk.at/6502/6502_instruction_set.html)
+page*
 
 Accumulator-centric instructions like `ADC` (add with carry), `CMP` (compare),
 `EOR` (exclusive or), `LDA` (load), `ORA` (or), `SBC` (subtract with borrow)
@@ -73,10 +81,10 @@ immediate | `n` | 2
 zeropage | `Z[n]` | 3
 zeropage,X | `Z[n+X]` | 4
 absolute | `M[nn]` | 4
-absolute,X | `M[nn+X]` | 4\*
-absolute,Y | `M[nn+Y]` | 4\*
+absolute,X | `M[nn+X]` | 4-5
+absolute,Y | `M[nn+Y]` | 4-5
 (indirect,X) | `M[ZZ[n+X]]` | 6
-(indirect),Y | `M[ZZ[n]+Y]` | 5\*
+(indirect),Y | `M[ZZ[n]+Y]` | 5-6
 
 Note the asymmetry of those last two modes.  The first uses `n+X` to choose a zero page
 location, then goes and gets the memory pointed to by the 16-bit value at that location.
@@ -117,18 +125,60 @@ STA foo+1  ; store the high byte
 
 This was ... [surprising to me](https://en.wikipedia.org/wiki/Carry_flag#Vs._borrow_flag).
 
-# Graphics
+# A Lo-Res Game
 
 So, I think I've decided to make a Lo-Res game.
 
 The Lo-Res screen is, as mentioned last time, 40x48 squishy rectangular pixels,
 in 16 colours, two of which are identical (grey and gray?)
 
+To save confusion, what I'm calling a "row" from here on in is 40 contiguous
+bytes in memory.  That displays as 2 sets of 40 pixels each, with each byte 
+encoding 2 pixels on top of each other.
+
+The memory is oddly laid out, to pack three 40-byte rows into each 128 byte piece
+of memory, with only 8 bytes wasted.  Graphics memory is further interleaved as a 
+way of letting the video generation process also refresh the dynamic RAM.
+
+row | address (screen 1) | address (screen 2)
+--- | --- | ---
+0 | $0400 | $0800
+1 | $0480 | $0880
+2 | $0500 | $0900
+3 | $0580 | $0980
+4 | $0600 | $0A00
+5 | $0680 | $0A80
+6 | $0700 | $0B00
+7 | $0780 | $0B80
+8 | $0428 | $0828
+9 | $04A8 | $08A8
+10 | $0528 | $0928
+11 | $05A8 | $09A8
+12 | $0628 | $0A28
+13 | $06A8 | $0AA8
+14 | $0728 | $0B28
+15 | $07A8 | $0BA8
+16 | $0450 | $0850
+17 | $04D0 | $08D0
+18 | $0550 | $0950
+19 | $05D0 | $09D0
+20 | $0650 | $0A50
+21 | $06D0 | $0AD0
+22 | $0750 | $0B50
+23 | $07D0 | $0BD0
+
+To calculate the start address of a given row, take the screen base address ($0400 or $0800),
+add $0080 for each row, and then if the result is past the end of the screen ($07FF or $0BFF)
+then subtract $03D8 to get the the next interleaved group of rows.
+
 ## Main Loop
 
-There's two screens: one at $0400 and one at $0800 and we can flip between them
-so that our updates don't make a flickery mess.  So our general game loop looks 
-like 
+There's two screens: one at $0400 and one at $0800 and we can
+[flip between them](https://en.wikipedia.org/wiki/Multiple_buffering#Page_flipping)
+so that our updates don't make a flickery mess (unfortunately there's no way to detect
+vertical blanking, so it'll still be a bit of a mess).
+
+So our general game loop looks like:
 
 ```
 forever:
@@ -176,7 +226,7 @@ main_loop
     jmp main_loop         ; go around again
 ```
 
-Okay! So now *all* we have to do is implement `draw_everything`.
+So now *all* we have to do is implement `draw_everything`.
 
 ![Draw the rest of the damn owl](img/damn_owl.png)
 
@@ -191,7 +241,19 @@ Pretty clearly we need some way of drawing sprites.
 Some computers of this era had sprite coprocessors to help out with this
 but the Apple 2 didn't, so we're on our own.
 
-Each sprite will be an array of pixel values, and we unless all our sprites are to be
+Each sprite will be an array of pixel values and we can use the `(indirect),Y` 
+addressing mode to copy them efficiently:
+
+```
+  LDY #7                  ; count down from 7
+.loop
+  LDA (zp_sprite_src),Y
+  STA (zp_sprite_dst),Y
+  DEY
+  BPL .loop               ; loop if Y >= 0
+```
+
+Unless all our sprites are to be
 monotonously rectangular, we'll need some way to handle transparency. Conveniently,
 when we converting [Apple's colour palette to RGB](https://mrob.com/pub/xapple2/colors.html)
 we can see that two colours, $5 and $A, render identically as a boring mid-grey.
@@ -222,6 +284,36 @@ each nybble and only write one half, otherwise write the whole thing.
 Sprites get drawn on top of a background, which is really just an enormous sprite too.
 The main difference is that the background is much wider than the screen and doesn't
 need to support transparency.
+At this point, my assumption is that the background will have 256 bytes per row and
+take up as much memory as we have left.
+Since the assumptions are different, we'll implement `draw_screen` as a separate 
+routine.
+
+## Reading the Keyboard
+
+Reading the keyboard is pretty easy too: there's two I/O locations, one of which
+reads a key code, and the other of which clears a flip-flop to indicate you're 
+waiting for a new key code.  The top bit of the
+keycode is set from this flipflop, so if it isn't set
+this isn't a new key.
+
+```
+io_keydata = $C000
+io_keyclr = $C010
+
+   ldx io_keydata       ; read a key code
+   lda io_keyclr        ; clear the key flag
+   cpx #$C1             ; 'A', with top bit set
+   beq we_got_an_A
+   cpx #$C4             ; 'D', ditto
+   beq we_got_a_D
+```
+
+For now, I've just stuck the goose sprite in the
+middle and I move the background when you press a 
+movement key.
+
+## Putting it together
 
 Okay, so putting our sprite drawing routine together we can draw a background and 
 overlay a sprite on top of it, and by moving the two around and changing the sprite
@@ -232,7 +324,7 @@ details we can create a little animation:
 
 (That's running in MAME, captured and converted to a GIF using `ffmpeg`.)
 
-### Drawing Sprites
+### Designing Sprites
 
 We're going to need a lot more sprites and LibreOffice, while it's 
 a pretty reasonable spreadsheet, isn't a great graphics editor.
@@ -245,6 +337,10 @@ There's a bunch of open questions here: how big can a sprite be?  How many of
 them will we need?  How will we clip them to the screen?  How will we decide what
 order to draw them in?  
 
-But those will have to wait until ...
+I'd really like to have the sprites saved in a 
+[diffable](/art/a-canticle-for-diff3/) text format 
+too.
+
+But those things will have to wait until ...
 
 # COMING SOON: PART 3 

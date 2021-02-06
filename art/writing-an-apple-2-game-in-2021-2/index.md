@@ -344,3 +344,5 @@ too.
 But those things will have to wait until ...
 
 # COMING SOON: PART 3 
+
+For updates either [follow the RSS](https://nick.zoic.org/feed.rss) or [follow me on Twitter](https://twitter.com/nickzoic/)

@@ -91,4 +91,68 @@ It's a pretty direct competitor to the
 Will it be able to gain the kind of critical mass which has built up around those
 platforms?  Only time will tell.
 
+# Building MicroPython
+
+## Download and Build
+
+The RPi Pico port isn't merged into the main MicroPython repository yet, 
+instead you can find it [here](https://github.com/raspberrypi/micropython/)
+in the 'pico' branch.
+
+There's instructions for building it [here](https://datasheets.raspberrypi.org/pico/raspberry-pi-pico-python-sdk.pdf), but to summarize:
+
+```
+sudo apt install cmake gcc-arm-none-eabi libnewlib-arm-none-eabi build-essential
+git clone https://github.com/raspberrypi/micropython/
+cd micropython
+git checkout pico
+git submodule update --init -- lib/pico-sdk
+cd lib/pico-sdk
+git submodule update --init
+cd ../..
+make -C mpy-cross
+cd ports/rp2
+make
+```
+
+You should now have a `build/firmware.uf2` file ready to copy onto your device.
+
+## Having another look at WebUSB
+
+One thing which sets these modules apart from the ESP32 etc is the onboard
+USB.  I've [written a lot about this](/art/micropython-webusb/) in the past,
+the use of serial ports is a serious limitation and a disadvantage to beginners.
+A technology like WebUSB could be a great help.
+
+The RP2040 includes a USB PHY, or "Physical Layer", but that's really just
+some slightly different IO drivers on two pins, `DP` and `DM`.  There's also
+some integrated support for low level USB operations
+(see [the RP2040 datasheet](https://datasheets.raspberrypi.org/rp2040/rp2040-datasheet.pdf)
+section 4.1)
+which should help out with performance compared to using
+[V-USB](https://www.obdev.at/products/vusb/index.html) or
+[LUFA](http://www.fourwalledcubicle.com/LUFA.php) over GPIO pins.
+
+Instead both the MicroPython and CircuitPython ports use
+[TinyUSB](https://github.com/hathach/tinyusb/).
+This is great because there's even
+[already an example](https://github.com/hathach/tinyusb/tree/master/examples/device/webusb_serial/src/)
+in the TinyUSB repository.
+
+Note that the code used in the RP2 build is the version under 
+`/lib/pico-sdk/lib/tinyusb/`, which is a fork supporting RP2,
+not the general version under `/lib/tinyusb/`.  This will probably
+get merged back eventually.
+
+It isn't working perfectly yet (see [this issue](https://github.com/raspberrypi/pico-examples/issues/42)) but here's a sneak preview of connecting to the REPL 
+from WebUSB:
+
+![MicroPython WebUSB demo](img/mpy-webusb-demo.gif)
+
+* connect to RPi Pico board
+* run help()
+* paste some text from the clipboard
+* ... it shifts to paste mode and back automatically
+* upload a 'main.py' file
+* ... it reboots itself and main.py runs
 

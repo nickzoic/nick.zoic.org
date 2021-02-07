@@ -24,7 +24,8 @@ Like the Feather boards, there's a LiPo controller build in, but on this board t
 [a bunch of sensors](https://github.com/QuickLogic-Corp/quick-feather-dev-board#key-features)
 (accelerometer, pressure sensor, MEMS mic).
 
-The board is a bit longer, with another 16 pin I/O connector on the end.
+The board is a bit longer than a regular feather,
+with another 16 pin I/O connector on the end.
 It's advertised as "compatible with 0.1" breadboards" but with those extra
 pins populated it will no longer fit in a normal breadboard unless you hang
 those off the end of the board.

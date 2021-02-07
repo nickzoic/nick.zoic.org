@@ -19,7 +19,8 @@ But what are they, how do they work and how can you use them effectively?
 
 ## Kept in the Dark and Fed Bullshit
 
-Several years ago I worked on a project for a large agricultural client, a 
+Several years ago I worked on a
+[project for a large agricultural client](https://nick.zoic.org/art/osdc-2015-hobart/), a 
 producer of mushrooms.  Mushrooms are fascinating things in their own right
 but this project was all about the logistics of mushroom delivery: how to get
 the right palette of mushrooms to the right place at the right time.

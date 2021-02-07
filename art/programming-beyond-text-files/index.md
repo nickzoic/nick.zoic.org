@@ -114,6 +114,5 @@ bells and whistles
 
 ### UPDATE 2020
 
-I'll be presenting a talk related to this at [pyconline AU 2020](https://2020.pycon.org.au/)
+I presented a talk related to this at [pyconline AU 2020](https://2020.pycon.org.au/)
 see [Decoding: Programming beyond text files](/art/decoding-programming-beyond-text-files/)
-

@@ -1,6 +1,6 @@
 ---
 date: '2021-02-04'
-layout: draft
+layout: article
 tags:
   - fpga
   - microcontrollers
@@ -121,5 +121,5 @@ I didn't achieve much on my stated aims but I did work out a much (subjectively)
 nicer way to build stuff, without conda or apio or litex-buildenv, so I might have to
 work that out again.
 
-
+# TO BE CONTINUED
 

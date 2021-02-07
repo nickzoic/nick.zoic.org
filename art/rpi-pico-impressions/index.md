@@ -87,11 +87,34 @@ an AVR based Arduino, and the boards are really quite cheap.
 
 It's a pretty direct competitor to the
 [ESP32](/tag/esp32/) and similar chips, but without the WiFi interface.
-
 Will it be able to gain the kind of critical mass which has built up around those
 platforms?  Only time will tell.
 
+The big drawcard is the
+[Programmable I/O](https://www.cnx-software.com/2021/01/27/a-closer-look-at-raspberry-pi-rp2040-programmable-ios-pio/)
+which is a programmable, state-machine driven I/O peripheral.
+It's really four tiny demi-CPUs which can handle simple I/O tasks,
+and potentially offers a way to offload timing-critical activities
+like driving NeoPixels.
+
+This idea of having a tiny coprocessor to handle I/O is interesting,
+there's a similar thing going on with the
+[ESP32 ULP](https://docs.espressif.com/projects/esp-idf/en/latest/esp32/api-guides/ulp.html)
+and it kind of makes sense.
+
+Another option is something like the 
+[QuickLogic QORC](/art/quicklogic-qorc-quickfeather-devkit/)
+chip which integrates an Cortex M4 and an FPGA, letting you move I/O 
+wrangling off the CPU and onto gateware.
+
+Only time will tell if these peripherals prove useful enough to win a place
+in the hearts and minds of embedded programmers!
+
 # Building MicroPython
+
+MicroPython is right there on the RPi Pico page as a development platform,
+and it's likely that a lot of new RPi Pico users will find it a great
+starting point for getting to know the platform.
 
 ## Download and Build
 
@@ -144,15 +167,5 @@ Note that the code used in the RP2 build is the version under
 not the general version under `/lib/tinyusb/`.  This will probably
 get merged back eventually.
 
-It isn't working perfectly yet (see [this issue](https://github.com/raspberrypi/pico-examples/issues/42)) but here's a sneak preview of connecting to the REPL 
-from WebUSB:
-
-![MicroPython WebUSB demo](img/mpy-webusb-demo.gif)
-
-* connect to RPi Pico board
-* run help()
-* paste some text from the clipboard
-* ... it shifts to paste mode and back automatically
-* upload a 'main.py' file
-* ... it reboots itself and main.py runs
-
+It isn't working perfectly yet but there's a demo of connecting to 
+RPi Pico MicroPython via WebUSB [here](/art/micropython-webusb/).

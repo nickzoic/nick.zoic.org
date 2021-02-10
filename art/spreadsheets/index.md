@@ -294,3 +294,14 @@ and got some good feedback already.
   for relational databases"
 
 * [Scientists rename human genes to stop Microsoft Excel from misreading them as dates](https://www.theverge.com/2020/8/6/21355674/human-genes-rename-microsoft-excel-misreading-dates) (at The Verge)
+
+# UPDATE
+
+![Satya Nadella Tweet: Excel formulas, the world’s most popular programming language, is now Turing-complete. Go check it out!](img/satya-nadella.png)
+*Excel grows Lambda functions, is now Turing-complete ([link](https://twitter.com/satyanadella/status/1359289655565291520))
+
+Mind you, I'm somewhat convinced that
+[Turing Completeness](/art/fibonacci-regex-perversity/)
+isn't necessarily a good goal for programming languages and that
+[Total (Provably Terminating)](https://en.wikipedia.org/wiki/Total_functional_programming)
+languages are a sensible restriction.

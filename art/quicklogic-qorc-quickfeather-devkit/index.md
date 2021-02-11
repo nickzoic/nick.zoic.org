@@ -16,6 +16,8 @@ SoC, and how they came to develop an open source toolchain.
 I got in touch with them to request some sample hardware, and a couple of weeks
 later, here it is!
 
+# QuickFeather Dev Kit
+
 The [QuickFeather](https://www.quicklogic.com/products/eos-s3/quickfeather-development-kit/)
 devkit is quite interesting: the footprint is mostly compatible with the 
 [Adafruit Feather](https://www.adafruit.com/feather) series of devices, but double-sided 
@@ -45,13 +47,38 @@ For better Feather compatibility, I'd suggest using stackable headers in the
 those but leave them unpopulated. Possibly even add some little holes to make
 it easy to snap the extra bit off for 100% feather compatibility, a bit like the 
 [ESPea32](https://blog.aprbrother.com/product/espea32).
-	
-Plugging in In
-==============
+
+The chip runs at 3.3V (or at least, that's the supply voltage on this board,
+it'll run down to 1.8V).
+You can see from the
+[schematic](https://github.com/QuickLogic-Corp/quick-feather-dev-board/blob/master/doc/quickfeather-board.pdf)
+that all the dev kit I/O pins have 22 ohm series resistors on them, which is nice to
+limit the chaos if you accidentally connect 5V logic to any of these pins.
+
+## IO, GPIO, FBIO
+
+It's kind of confusing just how many kinds of I/O there are. The
+[QuickLogic EOS S3 datasheet](https://www.quicklogic.com/wp-content/uploads/2020/12/QL-EOS-S3-Ultra-Low-Power-multicore-MCU-Datasheet-2020.pdf)
+includes a table (Table 31, Page 98) of how the pins are related.
+
+* IO_*N* : One of the 46 physical pins (or pad) on the chip.   
+* GPIO(*N*) : One of the 8 logical I/O addresses on the ARM core
+* FBIO_*N* : An interface to the FPGA.
+
+The I/O Multiplexor (see the
+QuickLogic EOS S3 Multiplexor User Guide](https://www.quicklogic.com/wp-content/uploads/2020/06/QL-EOS-S3-Sensor-Processing-Platform-IOMUX-User-Guide.pdf)
+) switches each IO Pin between GPIO, FBIO and various special purpose
+peripherals.
+
+There's a lot I haven't worked out yet.
+
+# Plugging in In
 
 (See also [QuickFeather Development Kit User Guide](https://github.com/QuickLogic-Corp/quick-feather-dev-board/blob/master/doc/QuickFeather_UserGuide.pdf))
 
-On plugging it in to a Linux machine and resetting the board with the "reset" button,
+## USB
+
+On plugging it in with USB to a Linux machine and resetting the board with the "reset" button,
 the LED flashes blue and then it appears as `1d50:6140 OpenMoko, Inc.`.
 It's a standard `cdc_acm` device so it appears in Linux as `/dev/ttyACM0`.
 It doesn't stick around for long though, after
@@ -62,10 +89,14 @@ on and off, but to actually do much with this board you need a SWD programmer su
 as a [Segger J-link](https://www.segger.com/products/debug-probes/j-link/) with a 
 teeny 0.05" pitch connector.  Something like [this](https://www.adafruit.com/product/3571).
 
+## SWD / J-Link
+
+There's a 0.05" SWD header on the top, so we might as well try that out too.
+
 Two shorting headers need to be installed (`J1` and `J7`), the SWD cable attached
 to `J6` and power provided by battery or USB.
 
-The drivers for the J-link device are available in the Ubunty `jlink` package.
+The drivers for the J-link device are available in the Ubuntu `jlink` package.
 Try to remember they have weird capitalized names like `JLinkExe`.
 
 At this point we can have a little conversation:
@@ -120,7 +151,7 @@ J-Link>qc
 This interface can be used to load software onto both the Cortex M4
 CPU and the FPGA.
 
-## Symbiflow
+# Symbiflow
 
 [Symbiflow](https://symbiflow.github.io/) is an Open Source FPGA toolchain
 which supports many FPGA families including the QuickLogic EOS used by this board.

@@ -24,16 +24,28 @@ Like the Feather boards, there's a LiPo controller build in, but on this board t
 [a bunch of sensors](https://github.com/QuickLogic-Corp/quick-feather-dev-board#key-features)
 (accelerometer, pressure sensor, MEMS mic).
 
+[![20210211_125904](img/20210211_125904-thumb.jpg)](img/20210211_125904.jpg)
+*QuickLogic QuickFeather next to an Adafruit Feather nRF52832*
+
 The board is a bit longer than a regular feather,
 with another 16 pin I/O connector on the end.
 It's advertised as "compatible with 0.1" breadboards" but with those extra
 pins populated it will no longer fit in a normal breadboard unless you hang
 those off the end of the board.
 
+[![20210211_125839](img/20210211_125839-thumb.jpg)](img/20210211_125839.jpg)
+*QuickLogic QuickFeather in a breadboard*
+
 Without stacking headers you can't put [FeatherWings](https://www.adafruit.com/category/814)
 on top of it but it'd potentially work well on top or with
 [FeatherWing Doubler](https://www.adafruit.com/product/2890).
 
+For better Feather compatibility, I'd suggest using stackable headers in the
+'standard' feather pins positions, and moving the extra 16 pins to be in line with
+those but leave them unpopulated. Possibly even add some little holes to make
+it easy to snap the extra bit off for 100% feather compatibility, a bit like the 
+[ESPea32](https://blog.aprbrother.com/product/espea32).
+	
 Plugging in In
 ==============
 

@@ -253,6 +253,18 @@ addressing mode to copy them efficiently:
   BPL .loop               ; loop if Y >= 0
 ```
 
+Each 'row' is two pixels high, with each byte representing a pair of pixels
+on top of each other.  For now I'm not worrying about writing 
+the background or sprites with a odd number of pixels offset: that'd involve
+splitting each byte into two nybbles and writing them separately.
+It's not that hard, but it might not be necessary anyway:
+given each pixel is about 3:2 on the screen, each pair of pixels is about 3:4
+which is closer to square anyway!
+
+If vertical movement seems too jumpy I can always revisit this later.
+
+### Transparency
+
 Unless all our sprites are to be
 monotonously rectangular, we'll need some way to handle transparency. Conveniently,
 when we converting [Apple's colour palette to RGB](https://mrob.com/pub/xapple2/colors.html)
@@ -280,6 +292,8 @@ BEQ only_draw_top ; only draw the top bits
 ... except that BIT, weirdly and rather annoyingly, has no immediate address mode.
 But that's the general idea.  If the byte is $AA skip both halves, otherwise check
 each nybble and only write one half, otherwise write the whole thing.
+
+### The background
 
 Sprites get drawn on top of a background, which is really just an enormous sprite too.
 The main difference is that the background is much wider than the screen and doesn't
@@ -312,6 +326,19 @@ io_keyclr = $C010
 For now, I've just stuck the goose sprite in the
 middle and I move the background when you press a 
 movement key.
+
+There's no keyboard repeat, at least not without pressing the "RPT" key, 
+and no way to detect if a key is held down.  So we'll have to design our
+keyboard control scheme around those limitations.
+
+### Joystick / Paddles
+
+Reading a joystick / paddles is really interesting too: there's a couple
+of timers you can set and then measure how long they take to reset, which
+depends on the resistance value from the analog joystick.
+From memory calibration is an adventure.
+
+Joystick support would be nice but I'll worry about this later too.
 
 ## Putting it together
 

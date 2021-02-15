@@ -48,6 +48,8 @@ those but leave them unpopulated. Possibly even add some little holes to make
 it easy to snap the extra bit off for 100% feather compatibility, a bit like the 
 [ESPea32](https://blog.aprbrother.com/product/espea32).
 
+(or like the [QOMU](https://www.electronics-lab.com/quicklogic-launches-qomu-an-open-source-soc-dev-kit-that-fits-in-your-usb-port/) for that matter)
+
 The chip runs at 3.3V (or at least, that's the supply voltage on this board,
 it'll run down to 1.8V).
 You can see from the

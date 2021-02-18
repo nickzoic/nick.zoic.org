@@ -55,6 +55,9 @@ Each block is evaluated separately using `exec()`.
 If it prints anything that's shown in
 green and if it throws an exception that's shown in red.
 
+You can go back and edit each block and it and all subsequent blocks will
+get re-evaluated. 
+ 
 Local context is passed between evaluations, so you can define functions in one
 block and use them in another.
 
@@ -72,6 +75,7 @@ There needs to be a few things added:
 
 And further into the future:
 
+* support for pure text blocks (`"""` documents, basically) in markdown.
 * support for editing multiple files on the flash filesystem.
 * exceptions / stack traces could be displayed more nicely, with links to the
   place the error occurred.

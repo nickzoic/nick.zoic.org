@@ -110,6 +110,9 @@ wrangling off the CPU and onto gateware.
 Only time will tell if these peripherals prove useful enough to win a place
 in the hearts and minds of embedded programmers!
 
+UPDATE: If encoding [two streams of DVI](https://github.com/Wren6991/PicoDVI)
+isn't enough to endear this chip to you, nothing will.
+
 # Building MicroPython
 
 MicroPython is right there on the RPi Pico page as a development platform,

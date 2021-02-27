@@ -3,6 +3,8 @@ layout: page
 title: Nick Moore
 ---
 
+![Nick Moore](img/nick-moore.jpg)
+
 I’m a [freelance](https://en.wikipedia.org/wiki/Freelancer#Etymology)
 Software Consultant, generally working through my company 
 [Mnemote Pty Ltd](https://mnemote.com/).

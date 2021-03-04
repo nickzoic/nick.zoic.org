@@ -17,6 +17,30 @@ In this article, I'm going to get multiple sprites working and introduce the
 [open source project](https://github.com/nickzoic/lores-goose-game) and explain
 how to run the software.
 
+# Keyboard Controls & Movement
+
+[Previously](/art/writing-an-apple-2-game-in-2021-2/#reading-the-keyboard) I
+mentioned that there's no way to detect a key being held down, and there's no 
+key autorepeat.  So we'll have to remember which way the goose is going, and
+keep going until it hits something or the user presses a stop key.
+
+On top of that, there's just no way to draw the goose heading straight up the 
+screen. Not in these few pixels anyway. Left and up a bit, right and up a bit, no
+problem, but not straight up.
+
+So I'm going to abandon the traditional WASD keyboard layout for WEASDZX layout.
+
+![WEASDZX Layout](img/weasdzx.jpg) 
+
+`S` in the center is for stop.
+
+Normally a diagonal move is a tricky 1.4 times as long as a orthogonal one, but
+in this case our chonky 3:2 pixels and our two pixel high rows combine to give us a 
+diagonal move 5/6ths as long as horizontal one. Close enough.
+
+There have to be a couple of other keys on the right as well, for grabbing and
+carrying things. probably `L` and `P`.
+
 # Multiple Sprites
 
 # COMING SOON: PART 4 

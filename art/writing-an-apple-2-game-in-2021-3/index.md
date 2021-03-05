@@ -36,7 +36,7 @@ So I'm going to abandon the traditional WASD keyboard layout for WEASDZX layout.
 
 Normally a diagonal move is a tricky 1.4 times as long as a orthogonal one, but
 in this case our chonky 3:2 pixels and our two pixel high rows combine to give us a 
-diagonal move 5/6ths as long as horizontal one. Close enough.
+diagonal move 5/6ths as long as a double horizontal one. Close enough.
 
 There have to be a couple of other keys on the right as well, for grabbing and
 carrying things. probably `L` and `P`.

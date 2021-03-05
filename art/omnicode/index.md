@@ -138,3 +138,16 @@ Surely this isn't serious ...
 ![Look of Disapproval](img/lod.png)
 
 I wasn't when I started, ǝɹns os ʇou ɯ,I ʍou ʇnq
+
+UPDATE
+======
+
+Stumbled upon some prior art, sort of:
+I already knew about [Chinese Typewriters](https://en.wikipedia.org/wiki/Chinese_typewriter)
+and keyboards which combine strokes to make characters but here's
+[Livermore’s Permutation Typograph](https://www.langustefonts.com/history/livermore.html)
+which does the same thing for western languages.
+
+([also](https://oztypewriter.blogspot.com/2011/08/on-this-day-in-typewriter-history-cii.html))
+
+

@@ -135,10 +135,15 @@ in 16 colours, two of which are identical (grey and gray?)
 To save confusion, what I'm calling a "row" from here on in is 40 contiguous
 bytes in memory.  That displays as 2 sets of 40 pixels each, with each byte 
 encoding 2 pixels on top of each other.
+There's 24 of these rows, for 48 vertical pixels all up.
+This makes sense if you consider the 40 x 24 text screen:
+the memory layout is the same, but each byte is decoded into one character
+instead of two pixels.
 
 The memory is oddly laid out, to pack three 40-byte rows into each 128 byte piece
-of memory, with only 8 bytes wasted.  Graphics memory is further interleaved as a 
-way of letting the video generation process also refresh the dynamic RAM.
+of memory, with only 8 bytes wasted per three rows.
+Graphics memory is further interleaved as a way of letting the video generation
+process also refresh the dynamic RAM.
 
 row | address (screen 1) | address (screen 2)
 --- | --- | ---
@@ -170,6 +175,9 @@ row | address (screen 1) | address (screen 2)
 To calculate the start address of a given row, take the screen base address ($0400 or $0800),
 add $0080 for each row, and then if the result is past the end of the screen ($07FF or $0BFF)
 then subtract $03D8 to get the the next interleaved group of rows.
+
+Even though there's no multiplication instruction on the 6502, multiplying by 128 is easy
+using a shift.
 
 ## Main Loop
 

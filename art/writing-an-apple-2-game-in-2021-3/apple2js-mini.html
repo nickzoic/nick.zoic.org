@@ -49,6 +49,13 @@ div.footer p { text-align: center; }
         <canvas id="screen" width="592" height="416"></canvas>
       </div>
     </div>
+    <div class="footer">
+      <p><em>Emulated by <a href="https://www.scullinsteel.com/apple2/">Apple2js</a></em></p>
+    </div>
+
+    <!-- just hide all this stuff with a stylesheet, yeah, I know,
+	    not cool but I'm here to write 6502 assembly not typescript! -->
+
     <div class="inset">
       <div class="disk"
            ondragover="Apple2.handleDragOver(1, event)"
@@ -397,8 +404,5 @@ div.footer p { text-align: center; }
   </svg>
 
   <script src="js/main2.js"></script>
-  <div class="footer">
-    <p><em>Emulated by <a href="https://www.scullinsteel.com/apple2/">Apple2js</a></em></p>
-  </div>
 </body>
 </html>

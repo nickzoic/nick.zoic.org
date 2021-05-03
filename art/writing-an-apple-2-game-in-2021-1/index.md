@@ -32,6 +32,11 @@ ROM Images. With the right [zip file](files/apple2p.zip) in the right place, run
 There's also a great javascript simulator [Apple2js](https://www.scullinsteel.com/apple2/)
 which already has a bunch of disks available, if installing MAME isn't your idea of fun.
 
+## Typical File Locations
+
+* For Linux: `$HOME/mame/roms/apple2p.zip`
+* For Windows: `C:\mame\roms\apple2p.zip`
+
 # Writing Software
 
 Actually writing software from inside the emulator would get old quick: the keyboard

@@ -242,8 +242,8 @@ So now *all* we have to do is implement `draw_everything`.
 
 The basic building block of this kind of graphics is the
 [Sprite](https://en.wikipedia.org/wiki/Sprite_%28computer_graphics%29),
-a kind of moveable template for drawing pixels.
-Each of the moveable parts of our graphics will be its own sprite.
+a kind of movable template for drawing pixels.
+Each of the movable parts of our graphics will be its own sprite.
 
 Pretty clearly we need some way of drawing sprites.
 Some computers of this era had sprite coprocessors to help out with this

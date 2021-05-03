@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <!--
  Copyright 2010-2019 Will Scullin <scullin@scullinsteel.com>
+
  Modified only a tiny bit by Nick Moore <nick@zoic.org> to make it embed into
  a web page!
 
@@ -31,9 +32,8 @@
 <style type="text/css">
 html, body { overflow: hidden; }
 div.inset, div.modal { display: none; }
+div.footer p { text-align: center; } 
 </style>
-
-<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.2/css/all.css" />
 
 <!-- Disk Index -->
 <script type="text/javascript" src="json/disks/index.js"></script>
@@ -396,8 +396,9 @@ div.inset, div.modal { display: none; }
       </filter>
   </svg>
 
-  <script src="https://www.scullinsteel.com/apple2/dist/main2.js"></script>
-  <br/>
-  <em>Emulated by <a href="https://www.scullinsteel.com/apple2/">Apple2js</a></em>
+  <script src="js/main2.js"></script>
+  <div class="footer">
+    <p><em>Emulated by <a href="https://www.scullinsteel.com/apple2/">Apple2js</a></em></p>
+  </div>
 </body>
 </html>

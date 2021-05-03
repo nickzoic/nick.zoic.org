@@ -44,8 +44,7 @@ diagonal move 5/6ths as long as a double horizontal one. Close enough.
 There have to be a couple of other keys on the right as well, for grabbing and
 carrying things. probably `L` and `P`.
 
-<iframe src="apple2js-mini.html#audit" width="100%" height="420px" frameborder="0"></iframe>
-<a href="demo-mouse-canvas-splines.html">source</a>
+<iframe src="apple2js-mini.html#audit" width="600px" height="450px" frameborder="0"></iframe>
 
 # Multiple Sprites
 

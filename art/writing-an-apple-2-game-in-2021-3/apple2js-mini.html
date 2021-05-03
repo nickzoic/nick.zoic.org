@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <!--
  Copyright 2010-2019 Will Scullin <scullin@scullinsteel.com>
+ Modified only a tiny bit by Nick Moore <nick@zoic.org> to make it embed into
+ a web page!
 
  Permission to use, copy, modify, distribute, and sell this software and its
  documentation for any purpose is hereby granted without fee, provided that
@@ -26,7 +28,10 @@
 <link rel="apple-touch-icon" href="img/webapp-iphone.png" />
 <link rel="apple-touch-icon" size="72x72" href="img/webapp-ipad.png" />
 <link rel="shortcut icon" href="img/logoicon.png" />
-<link rel="stylesheet" type="text/css" href="css/apple2.css" />
+<style type="text/css">
+div.inset { display: none; }
+</style>
+
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.2/css/all.css" />
 
 <!-- Disk Index -->
@@ -38,12 +43,6 @@
       ondrop="Apple2.handleDrop(0, event)"
       ondragend="Apple2.handleDragEnd(0, event)">
   <div class="outer">
-    <div id="header">
-      <a href="https://github.com/whscullin/apple2js#readme" target="_blank">
-        <img src="img/badge.png" id="badge" />
-      </a>
-      <div id="subtitle">An Apple ][ Emulator in JavaScript</div>
-    </div>
     <div id="display">
       <div class="overscan">
         <canvas id="screen" width="592" height="416"></canvas>
@@ -397,5 +396,7 @@
   </svg>
 
   <script src="https://www.scullinsteel.com/apple2/dist/main2.js"></script>
+  <br/>
+  <em>Emulated by <a href="https://www.scullinsteel.com/apple2/">Apple2js</a></em>
 </body>
 </html>

@@ -44,11 +44,8 @@ diagonal move 5/6ths as long as a double horizontal one. Close enough.
 There have to be a couple of other keys on the right as well, for grabbing and
 carrying things. probably `L` and `P`.
 
-<iframe src="apple2js-mini.html#audit" width="612px" height="460px" frameborder="0" onmouseover="this.focus()" onmouseout="this.blur()"></iframe>
-
-<iframe src="apple2js-mini.html#hello" width="612px" height="460px" frameborder="0" onmouseover="this.focus()" onmouseout="this.blur()"></iframe>
-
 <iframe src="apple2js-mini.html#goose1" width="612px" height="460px" frameborder="0" onmouseover="this.focus()" onmouseout="this.blur()"></iframe>
+
 # Multiple Sprites
 
 # COMING SOON: PART 4 

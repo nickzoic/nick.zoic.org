@@ -39,6 +39,7 @@ one of those newfangled tablet things.
 
 <iframe src="demo-mouse-canvas.html" width="100%" height="420px" frameborder="0"></iframe>
 <a href="demo-mouse-canvas.html">source</a>
+
 But at the end of the day scribbling all over a canvas isn't all that
 useful. You could save it as a bitmap using
 `BSAVE HELLO WORLD,$A2000,$L2000` ... no wait, that was the Apple \]\[
@@ -73,7 +74,7 @@ We construct these lists by appending to them as the user moves the
 mouse, and then 'normalizing' `ts` to the range *\[0,1\]* once the user
 has stopped drawing.
 
-And we can interate along the spline and plot a line using Canvas, like
+And we can iterate along the spline and plot a line using Canvas, like
 so:
 
     var xys = spline.at(numeric.linspace(0,1,100));
@@ -90,6 +91,7 @@ at any point.
 
 <iframe src="demo-mouse-canvas-splines.html" width="100%" height="420px" frameborder="0"></iframe>
 <a href="demo-mouse-canvas-splines.html">source</a>
+
 Because we're interpolating, we can reduce the number of points we're
 keeping track of and our result will still follow the user's movements
 closely. In the above example, we only record a point when the pointer
@@ -111,6 +113,7 @@ approximation.
 
 <iframe src="demo-mouse-canvas-splines-simplify.html" width="100%" height="420px" frameborder="0"></iframe>
 <a href="demo-mouse-canvas-splines-simplify.html">source</a>
+
 The above example has several flaws, but does fairly well on hand-drawn
 shapes of modest complexity. The original stroke is shown in green, then
 the initial spline in red and the simplified spline in blue. Blue dots

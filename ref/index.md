@@ -19,7 +19,6 @@ with an easy to write URL ...
 * [Differences from CPython](https://docs.micropython.org/en/latest/pyboard/genrst/index.html)
 * [FuPy](https://fupy.github.io/) (MicroPython for FPGAs)
 
-
 ## Computing History
 
 * [The Mother of All Demos](http://www.dougengelbart.org/firsts/dougs-1968-demo.html) ([wikipedia](https://en.wikipedia.org/wiki/The_Mother_of_All_Demos)) (Douglas Engelbart)
@@ -33,6 +32,7 @@ with an easy to write URL ...
 * [Design Patterns in Python](http://norvig.com/design-patterns/)
 * [-2000 LoC](http://www.folklore.org/StoryView.py?project=Macintosh&story=Negative_2000_Lines_Of_Code.txt)
 * [Why do cars have brakes?](http://jonjagger.blogspot.com.au/2011/07/why-do-cars-have-brakes.html) although I normally rejig the conclusion into "cars have brakes so you can go fast without getting hurt".
+* [Contempt Culture](https://blog.aurynn.com/2015/12/16-contempt-culture/) ([PDF](https://zenodo.org/record/4722148))
 
 ## Fiction
 

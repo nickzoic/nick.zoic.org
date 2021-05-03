@@ -31,7 +31,7 @@
 <link rel="shortcut icon" href="img/logoicon.png" />
 <style type="text/css">
 html, body { overflow: hidden; }
-div.inset, div.modal { display: none; }
+div.header, div.inset, div.modal { display: none; }
 div.footer p { text-align: center; } 
 </style>
 
@@ -44,6 +44,12 @@ div.footer p { text-align: center; }
       ondrop="Apple2.handleDrop(0, event)"
       ondragend="Apple2.handleDragEnd(0, event)">
   <div class="outer">
+    <div id="header">
+      <a href="https://github.com/whscullin/apple2js#readme" target="_blank">
+        <img src="img/badge.png" id="badge" />
+      </a>
+      <div id="subtitle">An Apple ][ Emulator in JavaScript</div>
+    </div>
     <div id="display">
       <div class="overscan">
         <canvas id="screen" width="592" height="416"></canvas>

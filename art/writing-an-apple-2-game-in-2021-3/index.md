@@ -8,6 +8,9 @@ title: 'Writing an Apple 2 game in 2021 (Part 3)'
 summary: 'Part 3 -- now with multiple sprites'
 ---
 
+*Progress has been very slow as I've picked up a new contract
+which does tend to cut into my 6502 assembly writing time.*
+
 PREVIOUSLY: In [Writing an Apple 2 game in 2021 Part 1](/art/writing-an-apple-2-game-in-2021-1/)
 I give a bit of an introduction to the Apple 2 platform and discuss how I'm hoping
 to proceed and what I'm trying to write.  In [Writing an Apple 2 game in 2021 Part 2](/art/writing-an-apple-2-game-in-2021-2/) I talk a bit about the 6502 and how to draw stuff
@@ -40,6 +43,9 @@ diagonal move 5/6ths as long as a double horizontal one. Close enough.
 
 There have to be a couple of other keys on the right as well, for grabbing and
 carrying things. probably `L` and `P`.
+
+<iframe src="apple2js-mini.html#fnord" width="100%" height="420px" frameborder="0"></iframe>
+<a href="demo-mouse-canvas-splines.html">source</a>
 
 # Multiple Sprites
 

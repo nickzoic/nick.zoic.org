@@ -236,7 +236,7 @@ main_loop
 
 So now *all* we have to do is implement `draw_everything`.
 
-![Draw the rest of the damn owl](img/damn_owl.png)
+![Draw the rest of the damn owl](img/damn_owl.jpg)
 
 ## Sprites
 
@@ -356,6 +356,8 @@ details we can create a little animation:
 
 ![Goose Movie](img/goose2.gif)
 *Moving Goose!*
+
+[Goose Movie (MOV)](img/goose2.mov)
 
 (That's running in MAME, captured and converted to a GIF using `ffmpeg`.)
 

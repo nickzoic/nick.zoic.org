@@ -33,10 +33,9 @@ problem, but not straight up.
 
 So I'm going to abandon the traditional WASD keyboard layout for WEASDZX layout.
 
-![WEASDZX Layout](img/weasdzx2.jpg) 
-![WEASDZX Layout](img/weasdzx3.jpg) 
+![WEASDZX Layout](img/weasdzx2.jpg) ![WEASDZX Layout](img/weasdzx3.jpg) 
 
-`S` in the center is for stop.
+`S` in the center is for stop, since we can't detect key releases.
 
 Normally a diagonal move is a tricky 1.4 times as long as a orthogonal one, but
 in this case our chonky 3:2 pixels and our two pixel high rows combine to give us a 
@@ -46,6 +45,12 @@ diagonal move 5/6ths as long as a double horizontal one. Close enough.
 
 There have to be a couple of other keys on the right as well, for grabbing and
 carrying things. probably `L` and `P`.
+
+# Demonstration
+
+The main thing I actually achieved in this cycle was to work out how to embed
+the game into a web page so you, dear reader, can play with it.  That's going to 
+make it a lot easier to discuss and demonstrate ideas in the future.
 
 <iframe src="apple2js-mini.html#goose1" width="612px" height="460px" frameborder="0" onmouseover="this.focus()" onmouseout="this.blur()"></iframe>
 

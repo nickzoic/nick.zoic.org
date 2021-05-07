@@ -1,11 +1,11 @@
 ---
-date: '2021-02-06'
-layout: draft
+date: '2021-05-07'
+layout: article
 tags:
   - apple
   - games
 title: 'Writing an Apple 2 game in 2021 (Part 3)'
-summary: 'Part 3 -- now with multiple sprites'
+summary: 'Part 3 -- Keyboard Controls, and Running in the Browser'
 ---
 
 Progress has been very slow as I've picked up a new contract

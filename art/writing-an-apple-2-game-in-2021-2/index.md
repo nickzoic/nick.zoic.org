@@ -380,6 +380,8 @@ too.
 
 But those things will have to wait until ...
 
-# COMING SOON: PART 3 
+# CONTINUED
+
+... continued in [Writing an Apple 2 game in 2021: Part 3](/art/writing-an-apple-2-game-in-2021-3/) ...
 
 For updates either [follow the RSS](https://nick.zoic.org/feed.rss) or [follow me on Twitter](https://twitter.com/nickzoic/)

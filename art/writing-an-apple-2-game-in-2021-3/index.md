@@ -64,6 +64,9 @@ In the previous article I included a small .gif movie of the goose animation whi
 clocks in at about 1MB.  Incredibly, the entire Apple 2 emulator plus the disk image
 for the lores goose game comes out smaller than this!
 
+There have to be a couple of other keys on the right as well, for grabbing and
+carrying things. probably `L` and `P`.
+
 # Multiple Sprites
 
 # COMING SOON: PART 4 

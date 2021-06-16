@@ -4,14 +4,14 @@ layout: article
 tags:
   - architecture
   - www
-title: 'QR Codes, How to use'
+title: 'QR Codes and the Great Unpleasantness'
 summary: 'QR Codes are suddenly everywhere ... what are they, how do they work and how can you use them effectively?'
 ---
 
 # The Great Unpleasantness
 
 All of a sudden, QR codes are everywhere.
-Due to the current Great Unpleasantness, we're being asked to check in to venues to
+Due to the current viral pandemic, we're being asked to check in to venues to
 make contact tracing easier, and after the
 [utter failure of Bluetooth-based automatic tracing](https://github.com/vteague/contactTracing/blob/master/blog/2020-07-07IssueSummary.md) 
 the common mechanism seems to be QR codes.
@@ -80,6 +80,13 @@ as a whole can still be correctly read.
 Errors which can't be corrected can still often be detected, which is why 
 sometimes you think you've scanned the code and it just ... doesn't.
 
+## QR code size
+
+The number of dots in a QR code varies depending on the amount of information
+it has to encode. A larger encoding, more error correction or a longer message
+will all need more dots  which means either the barcode gets bigger or the 
+dots get smaller.
+
 ## URLs
 
 Not all QR codes are URLs, but it's a pretty common application.
@@ -134,6 +141,11 @@ QR code standards call for a white border around the code, three times the width
 of a single QR code pixel.  I know your graphic design people won't like it, but 
 do it anyway, or at the very least keep any interference in this area to the palest
 of colours.
+
+## Error correction
+
+Error correction is built into all QR codes, but for a relatively small increase in
+barcode size you can increase error correction to "High".
 
 ## No funny business
 

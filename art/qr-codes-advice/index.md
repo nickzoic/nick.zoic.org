@@ -206,8 +206,7 @@ what scenario are we protecting against here?
 
 
 As an example, the following QR code encodes `HTTPS://EXAMPLE.COM/QR/ABCDEF`
-and would be much easier to print and scan that the behemoth Service Victoria
-QR codes:
+at the highest error correction level, and would be much easier to print and
+scan than the behemoth Service Victoria QR codes:
 
 ![example qr code](img/example.png)
-

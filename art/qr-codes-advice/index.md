@@ -1,8 +1,9 @@
 ---
-date: '2021-01-21'
-layout: draft
+date: '2021-06-16'
+layout: article
 tags:
   - architecture
+  - www
 title: 'QR Codes, How to use'
 summary: 'QR Codes are suddenly everywhere ... what are they, how do they work and how can you use them effectively?'
 ---
@@ -34,10 +35,13 @@ the production system wasn't always correct.
 
 We worked around this with QR Codes.  Every palette produced got a sticker 
 containing human readable information about that palette, and a QR code 
-encoding the same information.  Each sticker had a unique serial number,
-so that palettes could be tracked from place to place.  When a new palette
-was scanned, the QR code contained enough information to create it in the 
-ERP system.  So in effect, we were doing EDI but over barcodes rather than wires.
+encoding the same information.  That information included a serial number to
+track the individual palette, but also lots of information about the product
+containe by the palette: what it was, how much there was, date and time of
+production, etc.  The system for producing stock was separate from the ERP
+system, but when a new palette was scanned, the QR code contained
+enough information to import it into the ERP system.
+So in effect, we were doing EDI but over barcodes rather than wires.
 
 This project took about 2 years to roll out around Australia and I learned
 rather a lot about using barcodes in the field, so this article attempts to
@@ -50,10 +54,40 @@ which encodes a string of characters in a way which is easy to scan automaticall
 There's built in error checking and correction, and scanning software is able
 to correct for rotation (scanning it upside down) and skew (scanning from an angle).
 
+I'm not going to go into symbols, modules, etc here: there's plenty on that
+Wikipedia page, but the most important things to consider are:
+
 ## Encodings
+
+Like with a lot of barcodes, there are various encodings available:
+
+* purely numeric (0-9)
+* alphanumeric (0-9, A-Z, some punctuation)
+* binary
+* kanji/kana
+
+Larger encodings need more bits per symbol, so a QR code which sticks to 
+alphanumeric encoding only needs 68% of the dots of one which encodes the
+same length of message using a binary encoding for example.
 
 ## Error Correction
 
+Additionally, QR codes can be printed with varying levels of error correction.
+Error correction means that if a few of the little black-or-white squares are
+misread (perhaps because of some dirt, or a reflection, or whatever) the symbol
+as a whole can still be correctly read.
+
+Errors which can't be corrected can still often be detected, which is why 
+sometimes you think you've scanned the code and it just ... doesn't.
+
+## URLs
+
+Not all QR codes are URLs, but it's a pretty common application.
+
+If you encode something which looks like a URL, most phones will scan
+it and jump to that website.  Conveniently, the first bits of URLs
+are not case sensitive so you can often use Alphanumeric encoding
+if you plan your URLs right.
 
 # Guidelines
 
@@ -64,7 +98,10 @@ you stick to optimal scanning to better the result you're going to get.
 ## Make it bright
 
 The higher contrast the better.  QR codes are best printing in black and white,
-although they scan okay so long as there's a large amount of contrast.
+although they scan okay so long as there's a large amount of contrast: you can
+get away with a dark blue foreground or a beige background for example.
+You can't invert the colours though.
+
 When placing codes, consider lighting too: you want them to be well lit, but
 to make sure the user's camera doesn't cast a shadow on the code which may 
 confuse scanning.
@@ -103,4 +140,74 @@ of colours.
 And don't even think about printing a logo in the middle or something.
 Sure, people do it, but you're relying on the error correction to fix it and
 that's inherently degrading the quality of your error correction.
+
+# Contact Tracing in Victoria
+
+I've been meaning to write this up for about a year now, and every time I 
+go to do so I think the whole thing is just about over, but it isn't, and
+we're going to have to think about contact tracing for some time yet.
+
+Here in Victoria, the typical contact tracing QR code is used with the
+[Service Victoria phone application](https://service.vic.gov.au/check-in).
+The code itself is quite huge, but there's a six digit code under the QR code
+which gives you a pretty good idea of how few symbols would actually be needed.
+
+For example, here's a Service Vic QR code I found on the web:
+
+![pretty huge QR code](img/ivanhoe.png) 
+
+It's pretty huge, and as a result not that easy to scan.  The code itself encodes the 
+string:
+
+```
+https://service.vic.gov.au/check-in/start?metadata=eyJhbGciOiJFUzUxMiIsInR5cCI6IkpXVCJ9.eyJsb2NhdGlvbklkIjoiYTc3N2I3YjItZjkwZi00OWI5LWJiZmItYjZjZTVhMTkxNTVhIiwibG9jYXRpb25OYW1lIjoiSXZhbmhvZSBQdWJsaWMgR29sZiBDb3Vyc2UiLCJqdGkiOiI5MzJmZjA5Ny1mNDc3LTQ0YmYtYTAxZi1kOGYzMWQ2MjJjNjUiLCJleHAiOjMxODYzNjQ2NzQsImlhdCI6MTYwODUyNzg3NCwiaXNzIjoiaHR0cHM6Ly9kdnJzLnNlcnZpY2UudmljLmdvdi5hdSJ9.AIVsqC8c286fuMvW3HezimSyWcJmwv1bwxl-Bo_Z7i83_zlWCZ_xkwlzUqpsqXFgWR3VLbkZXPfOzQED72W41TOVAaCdJR9Jx38gxccfLYq8Izq4U_AL28_nYsFOgX3PMIqpqrFSAG5U8FTlGDiuGkt4pfsmArsAP2f6MzncE0hZO-AV`
+```
+
+That "metadata" nonsense is actually another encoding:
+a thing called a JWT or "JSON Web Token", which is a way
+of wrapping up a payload and securely signing it.
+
+The "payload" of the JWT is in turn a JSON document:
+
+```
+{
+    "locationId":"a777b7b2-f90f-49b9-bbfb-b6ce5a19155a",
+    "locationName":"Ivanhoe Public Golf Course",
+    "jti":"932ff097-f477-44bf-a01f-d8f31d622c65",
+    "exp":3186364674,
+    "iat":1608527874,
+    "iss":"https://dvrs.service.vic.gov.au"
+}
+```
+
+This is some vast overkill.  We know that locations have
+six alphanumeric digit codes you can enter in by hand if the barcode
+doesn't scan, so there's no need to 128-bit binary identifiers, names,
+another URL.
+
+We don't need a secure HMAC signature or an expiry timestamp either:
+what scenario are we protecting against here?
+
+## What would I do differently?
+
+* For a start, it shouldn't need to be an app.  A URL to a public
+  website would suffice.  That greatly reduces the requirements on phones.
+* To avoid you having to re-enter name and phone every time, a cookie
+  could be stored on your device. No need for a login or whatever.
+* The identifier in the QR code can be a lot shorter: the same as the
+  six digit identifier you type in!  Fewer symbols = smaller, easier to
+  scan QR code.
+* The checkin could also be available as a plain old webpage where you enter
+  the code, in case you just can't scan it but you're happy to type a URL / 
+  load a bookmark / yell "hey google find victorian covid checkin" or whatever
+  it is floats your boat.
+* These things combined would result in a simpler, easier to scan code
+  with much fewer possibilities for things to go wrong!
+
+
+As an example, the following QR code encodes `HTTPS://EXAMPLE.COM/QR/ABCDEF`
+and would be much easier to print and scan that the behemoth Service Victoria
+QR codes:
+
+![example qr code](img/example.png)
 

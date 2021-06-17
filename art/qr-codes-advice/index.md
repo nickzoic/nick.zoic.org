@@ -176,10 +176,10 @@ https://service.vic.gov.au/check-in/start?metadata=eyJhbGciOiJFUzUxMiIsInR5cCI6I
 ```
 
 That "metadata" nonsense is actually another encoding:
-a thing called a JWT or "JSON Web Token", which is a way
+a thing called a [JWT](https://en.wikipedia.org/wiki/JSON_Web_Token) or "JSON Web Token", which is a way
 of wrapping up a payload and securely signing it.
 
-The "payload" of the JWT is in turn a JSON document:
+The "payload" of the JWT is in turn a [JSON](https://en.wikipedia.org/wiki/JSON) document:
 
 ```
 {
@@ -194,18 +194,20 @@ The "payload" of the JWT is in turn a JSON document:
 
 This is some vast overkill.  We know that locations have
 six alphanumeric digit codes you can enter in by hand if the barcode
-doesn't scan, so there's no need to 128-bit binary identifiers, names,
+doesn't scan, so there's no need to 128-bit [UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier)s, names,
 another URL.
 
-We don't need a secure HMAC signature or an expiry timestamp either:
+We don't need a secure HMAC signature, the exact second the barcode
+was created or a 50 year expiry timestamp either:
 what scenario are we protecting against here?
 
-## What would I do differently?
+## Okay, so what would I do differently?
 
-* For a start, it shouldn't need to be an app.  A URL to a public
-  website would suffice.  That greatly reduces the requirements on phones.
+* For a start, check-in shouldn't need to be an app.  A URL to a public
+  website would suffice.  That greatly reduces the technical requirements on phones
+  and the requirement for the government to release and maintain an app.
 * To avoid you having to re-enter name and phone every time, a cookie
-  could be stored on your device. No need for a login or whatever.
+  could be stored on your device in the usual way. No need for a login or whatever.
 * The identifier in the QR code can be a lot shorter: the same as the
   six digit identifier you type in!  Fewer symbols = smaller, easier to
   scan QR code.
@@ -216,9 +218,9 @@ what scenario are we protecting against here?
 * These things combined would result in a simpler, easier to scan code
   with much fewer possibilities for things to go wrong!
 
-
 As an example, the following QR code encodes `HTTPS://EXAMPLE.COM/QR/ABCDEF`
-at the highest error correction level, and would be much easier to print and
+at the highest error correction level.  That's all that is actually needed to
+provide a registration service, and would be much easier to print and
 scan than the behemoth Service Victoria QR codes:
 
 ![example qr code](img/example.png)

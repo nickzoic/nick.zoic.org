@@ -24,7 +24,7 @@ Several years ago I worked on a
 [project for a large agricultural client](https://nick.zoic.org/art/osdc-2015-hobart/), a 
 producer of mushrooms.  Mushrooms are fascinating things in their own right
 but this project was all about the logistics of mushroom delivery: how to get
-the right palette of mushrooms to the right place at the right time.
+the right pallet of mushrooms to the right place at the right time.
 
 In this particular project, there was a divide between production facilities and
 a separate, SAP ERP system.  Palettes were produced in one system but warehousing
@@ -33,13 +33,13 @@ EDI process between the systems, but initial investigations showed that this was
 error prone due to manual interventions in the process: the data coming out of 
 the production system wasn't always correct.
 
-We worked around this with QR Codes.  Every palette produced got a sticker 
-containing human readable information about that palette, and a QR code 
+We worked around this with QR Codes.  Every pallet produced got a sticker 
+containing human readable information about that pallet, and a QR code 
 encoding the same information.  That information included a serial number to
-track the individual palette, but also lots of information about the product
-containe by the palette: what it was, how much there was, date and time of
+track the individual pallet, but also lots of information about the product
+on the pallet: what it was, how much there was, date and time of
 production, etc.  The system for producing stock was separate from the ERP
-system, but when a new palette was scanned, the QR code contained
+system, but when a new pallet was scanned, the QR code contained
 enough information to import it into the ERP system.
 So in effect, we were doing EDI but over barcodes rather than wires.
 

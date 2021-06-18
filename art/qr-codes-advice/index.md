@@ -194,10 +194,11 @@ The "payload" of the JWT is in turn a [JSON](https://en.wikipedia.org/wiki/JSON)
 
 This is some vast overkill.  We know that locations have
 six alphanumeric digit codes you can enter in by hand if the barcode
-doesn't scan, so there's no need to 128-bit [UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier)s, names,
-another URL.
+doesn't scan, so there's no need to include 128-bit
+[UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier)s,
+location names, another URL.
 
-We don't need a secure HMAC signature, the exact second the barcode
+We don't need a secure HMAC signature or the exact second the barcode
 was created or a 50 year expiry timestamp either:
 what scenario are we protecting against here?
 
@@ -224,3 +225,26 @@ provide a registration service, and would be much easier to print and
 scan than the behemoth Service Victoria QR codes:
 
 ![example qr code](img/example.png)
+
+## UPDATES 2020-06-18
+
+So apparently this
+[got famous](https://www.theage.com.au/national/victoria/victoria-s-qr-codes-badly-made-developers-say-20210617-p581r6.html)
+largely because I had a better pull-quote and used the word "behemoth".  
+
+To quickly address some immediate feedback:
+
+* Yes, it's better than nothing, and it works pretty well, and
+  it got released in time to be useful, which is amazing frankly.
+* Yes, I'm technically nitpicking, that's what I do for a living.
+* Yes, I scan those barcodes when I go anywhere, because they're
+  a useful thing which helps make everyone a smidge safer and maybe
+  gets us back towards having little things like live music and
+  traveling, which I miss.
+* Yes, I have privacy and security concerns but those are outside
+  the scope of this article: there are people much better qualified
+  in those fields.
+* Yes, there are many much bigger problems in the world.
+
+*I'll respond to the question about security / fraud soon but I 
+have to have a bit of a think about it.*

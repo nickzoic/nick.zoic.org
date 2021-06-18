@@ -226,7 +226,7 @@ scan than the behemoth Service Victoria QR codes:
 
 ![example qr code](img/example.png)
 
-## UPDATES 2020-06-18
+## UPDATES 2021-06-18
 
 So apparently this
 [got famous](https://www.theage.com.au/national/victoria/victoria-s-qr-codes-badly-made-developers-say-20210617-p581r6.html)

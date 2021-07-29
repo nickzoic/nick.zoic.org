@@ -53,10 +53,16 @@ very little wear.
 Here it is as a 2280 x 1730 PNG bitmap, which is plenty big enough to
 print a T-shirt at 150+ dpi.  It isn't aliased so you can bucket-fill
 it to whatever colours and fills you like.  The background is transparent
-to avoid weird looking edges.
+to avoid weird looking edges. If you're editing it, don't save it as a JPG
+or it'll go all janky around the edges.
 
 [![Python 3 Confirmed](img/python3confirmed.png)
 *Python 3 Confirmed!*](img/python3confirmed.png)
 
-Sorry, I don't have a vector version, although I'm thinking of 
-making one just so I can [3D print](/tag/3dprint/) it as well ...
+[Download 75KB PNG file](img/python3confirmed.png)
+
+There's now a [vector version](img/python3confirmed.svg)
+vector version as well, although it's just converted from the PNG
+using inkscape so it's not perfect.  But it's handy because
+you can import it into [openscad](https://openscad.org) or 
+similar for [3D printing](/tag/3dprint)

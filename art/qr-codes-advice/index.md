@@ -248,3 +248,10 @@ To quickly address some immediate feedback:
 
 *I'll respond to the question about security / fraud soon but I 
 have to have a bit of a think about it.*
+
+## UPDATES 2021-08-10
+
+I can't believe this code scans, but it does ...
+
+![the worst QR code I've ever seen](img/a_mano_omg.jpeg)
+*The worst QR code I've ever seen [omg](https://twitter.com/palvaro/status/1424808969449598976)*

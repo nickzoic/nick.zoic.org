@@ -207,6 +207,9 @@ what scenario are we protecting against here?
 * For a start, check-in shouldn't need to be an app.  A URL to a public
   website would suffice.  That greatly reduces the technical requirements on phones
   and the requirement for the government to release and maintain an app.
+
+  Note: I've added some more comments about this at the end of the article.
+
 * To avoid you having to re-enter name and phone every time, a cookie
   could be stored on your device in the usual way. No need for a login or whatever.
 * The identifier in the QR code can be a lot shorter: the same as the
@@ -225,6 +228,7 @@ provide a registration service, and would be much easier to print and
 scan than the behemoth Service Victoria QR codes:
 
 ![example qr code](img/example.png)
+*example QR code*
 
 ## UPDATES 2021-06-18
 
@@ -243,11 +247,84 @@ To quickly address some immediate feedback:
   traveling, which I miss.
 * Yes, I have privacy and security concerns but those are outside
   the scope of this article: there are people much better qualified
-  in those fields.
+  in those fields (I would suggest starting with
+  [Vanessa Teague](https://github.com/AusOpenTech/AusAutomatedDiaryQR) )
 * Yes, there are many much bigger problems in the world.
 
-*I'll respond to the question about security / fraud soon but I 
-have to have a bit of a think about it.*
+## UPDATES 2021-06-30
+
+### Phishing and Fraudulent Checkins
+
+From the [article](https://www.theage.com.au/national/victoria/victoria-s-qr-codes-badly-made-developers-say-20210617-p581r6.html):
+>
+> A government spokeswoman said the government used the same QR system as NSW.
+> “Our QR code system uses complex codes to provide high-level security and prevent fraud, with users directed to an app rather than a simple website, allowing fake QR codes to be identified before users are taken to other sites,” she said.
+>
+> She pointed to the arrest of a man in South Australia for allegedly placing fake QR codes in businesses.
+
+This is a really interesting one.  If you printed up a fake QR code going
+to a fake registration website, you could collect some personal information
+under false pretences.  Probably not a lot, but it's not a good look.
+
+On my phone anyway, scanning a code with the "Internet" application just jumps you to the
+service vic website which tells you to open the service vic app instead.  Other people have
+indicated that scanning the code with their camera app opens it in the service vic app?
+By forcing people to open the service vic app instead, this risk is somewhat
+reduced.  Even if you stick this QR code over a poster, the service vic app will
+refuse to do anything with it:
+
+![rickroll qr](img/rr.png)
+*a fake QR code*
+
+It's still possible that people could be fooled by a QR code which redirects to a website with
+offensive content, or which looks enough like the service vic app that people don't notice, but
+this probably isn't a problem you can fix: the problem is with the trusting nature of phone
+QR scanners which jump straight to whereever they're pointed.
+
+This is a problem whether the code is very short or very long, you can always just pad the code
+with garbage if you want to make it look like a real one to the human eye.
+
+### Signatures and Identifiers
+
+So the other thing which has been discussed is whether the signature built into the JWT is
+doing anything useful.  Normally, a JWT is something you issue to one client at a time, so a
+signature shows that this is a "real" JWT.  But in this case we're broadcasting the JWT
+on a poster.  A copy of the JWT is no more or less "real" than the original.
+
+### Guessing Codes
+
+Six characters at 5 bits per character
+(0-9 plus capitals minus 0, 1, O and I, probably)
+is thirty bits: about a billion combinations.  There's a few million companies 
+registered in Australia, so if you're just guessing codes it's going to take you
+hundreds of tries to be 50% likely to hit a valid code.
+
+Adding an extra digit or two would make this even less likely and make an 
+HMAC unnecessary.
+ 
+### But couldn't people just copy down the code and use it somewhere else?
+
+They can still copy the QR code too, HMAC and all.
+I'll hazard a guess that more people have a camera phone in their pocket than a pen.
+
+### Other concerns
+
+Victor R forwarded me this blog post about
+[checkin issues](https://eduvik.blogspot.com/2021/06/how-service-victoria-qr-code-check-in.html) 
+which I haven't replicated but would be worth investigating further.
+
+### Final Notes
+
+Yes, I printed a QR code for my own home office on the tiny chance
+that another human enters it.
+
+The Service Vic process for printing the QR codes works well and takes
+less time than reading the legislation closely enough to work out
+whether it's required or not, so go ahead and do it.
+Have a good think about how you display the code though, especially around
+lighting, positioning and glossy lamination.
+
+Best of luck and let's just hope this schemozzle is over soon.
 
 ## UPDATES 2021-08-10
 

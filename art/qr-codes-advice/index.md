@@ -325,3 +325,10 @@ Have a good think about how you display the code though, especially around
 lighting, positioning and glossy lamination.
 
 Best of luck and let's just hope this schemozzle is over soon.
+
+## UPDATES 2021-08-10
+
+I can't believe this code scans, but it does ...
+
+![the worst QR code I've ever seen](img/a_mano_omg.jpeg)
+*The worst QR code I've ever seen [omg](https://twitter.com/palvaro/status/1424808969449598976)*

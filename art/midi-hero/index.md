@@ -90,6 +90,8 @@ left over.  Maybe throw in some sevenths.
 The frets would be used to select which chord to play, but the strum sensor would
 be responsible for actually triggering it.
 
+![strum strum strum](img/strum-strum-strum.jpg)
+
 The strum mechanism is really just a little cam which operates two switches
 which look suspiciously like [ALPS](https://deskthority.net/wiki/Alps_SKCL/SKCM_series)
 clone keyboard switches.  These are mounted on the back of the main board,

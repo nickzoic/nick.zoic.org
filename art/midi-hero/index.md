@@ -68,22 +68,28 @@ but let's not get ahead of ourselves here `:-)`.
 positions on a real guitar neck.
 But there's a lot of songs which have a small number of chords,
 thankfully.
-About 3/4 of my ukulele songbook would get covered by:
+About 7/8 of my ukulele songbook would get covered by:
 
 | Gn | Rd | Yy | Bu | Or | Chord | In C  |
 |----|----|----|----|----|-------|-------|
 | X  |    |    |    |    |   I   |   C   |
 | X  | X  |    |    |    |   ii  |   Dm  |  
 |    | X  |    |    |    |   II  |   D   |
+| X  | X  | X  |    |    |   II7 |   D7  |
+| X  |    | X  |    |    |   iii |   Em  |
 |    | X  | X  |    |    |   IV  |   F   |
 |    |    | X  |    |    |   V   |   G   |
+|    | X  |    | X  |    |   v   |   Gm  |
+|    | X  | X  | X  |    |   V7  |   G7  |
 |    |    | X  | X  |    |   vi  |   Am  |
 |    |    |    | X  |    |   VI  |   A   |
 |    |    |    | X  | X  |  ♭VII |   B♭  |
 |    |    |    |    | X  |   VII |   B   |
+|    |    | X  |    | X  |   vii |   Bm  |
+|    |    | X  | X  | X  |  VII7 |   B7  |
 
-Or something like that, anyway.  There's still plenty of playable combinations
-left over.  Maybe throw in some sevenths.
+Or something like that, anyway.  There's still a few playable combinations
+left over.
 
 ## Strums
 
@@ -114,7 +120,7 @@ which operates a standard metric
 It only rotates one way (down), but it should be able to 
 feed a MIDI pitch wheel input.
 
-Unfortunately the mechanism is pretty badly worn so I might have to do some fixing up.
+Unfortunately the mechanism is pretty badly worn from heavy use so I might have to do some fixing up.
 
 ![No whammies!](img/no-whammies.jpg)
 

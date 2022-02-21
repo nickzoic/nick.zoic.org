@@ -14,7 +14,7 @@ I picked up a [Guitar Hero](https://en.wikipedia.org/wiki/Guitar_Hero)
 type controller from the thrift store on impulse (it was $7).
 It turns out to be a well-worn
 [Playstation 2](https://en.wikipedia.org/wiki/PlayStation_2) controller,
-but since I don't have a PS2 well ... it's going to become something else.
+but since I don't have a PS2, well ... it's going to become something else.
 
 ![Weird Little Unit](img/weird-little-unit.jpg)
 
@@ -79,7 +79,7 @@ About 3/4 of my ukulele songbook would get covered by:
 |    |    | X  |    |    |   V   |   G   |
 |    |    | X  | X  |    |   vi  |   Am  |
 |    |    |    | X  |    |   VI  |   A   |
-|    |    |    | X  | X  |       |   Bb  |
+|    |    |    | X  | X  |  ♭VII |   B♭  |
 |    |    |    |    | X  |   VII |   B   |
 
 Or something like that, anyway.  There's still plenty of playable combinations
@@ -131,7 +131,7 @@ There's a board with a couple of tilt sensors already, but an
 [accelerometer](../rocket-surgery-airborne-iot-telemetry-buzzconf/)
 would be a more modern alternative and could feed into a control channel as well.
 
-Plus, of course, I should make some room for neopixels.
+Plus, of course, I should make some room for [neopixels](../saturnalia-a-rotating-christmas-tree/)!
 
 # Microcontroller
 

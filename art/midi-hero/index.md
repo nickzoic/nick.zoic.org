@@ -71,23 +71,23 @@ But there's a lot of songs which have a small number of chords,
 thankfully.
 99% of my ukulele songbook would get covered by:
 
-| Gn | Rd | Yy | Bu | Or | Chord | In C  |
-|----|----|----|----|----|-------|-------|
-| X  |    |    |    |    |   I   |   C   |
-| X  | X  |    |    |    |   ii  |   Dm  |  
-|    | X  |    |    |    |   II  |   D   |
-| X  | X  | X  |    |    |   II7 |   D7  |
-| X  |    | X  |    |    |   iii |   Em  |
-|    | X  | X  |    |    |   IV  |   F   |
-|    |    | X  |    |    |   V   |   G   |
-|    | X  |    | X  |    |   v   |   Gm  |
-|    | X  | X  | X  |    |   V7  |   G7  |
-|    |    | X  | X  |    |   vi  |   Am  |
-|    |    |    | X  |    |   VI  |   A   |
-|    |    |    | X  | X  |  ♭VII |   B♭  |
-|    |    |    |    | X  |   VII |   B   |
-|    |    | X  |    | X  |   vii |   Bm  |
-|    |    | X  | X  | X  |  VII7 |   B7  |
+| Gn | Rd | Yy | Bu | Or | Chord | In C  | Value | Notes     |
+|----|----|----|----|----|-------|-------|-------|-----------|
+| X  |    |    |    |    |   I   |   C   | 1     | C E G     |
+| X  | X  |    |    |    |   ii  |   Dm  | 3     | D F A     |
+|    | X  |    |    |    |   II  |   D   | 2     | D F♯ A    |
+| X  | X  | X  |    |    |   II7 |   D7  | 7     | D F♯ A C♯ |
+| X  |    | X  |    |    |   iii |   Em  | 5     | E G B     |
+|    | X  | X  |    |    |   IV  |   F   | 6     | F A C     |
+|    |    | X  |    |    |   V   |   G   | 4     | G B D     |
+|    | X  |    | X  |    |   v   |   Gm  | 10    | G B♭ D    |
+|    | X  | X  | X  |    |   V7  |   G7  | 14    | G B D F   |
+|    |    | X  | X  |    |   vi  |   Am  | 12    | A C E     |
+|    |    |    | X  |    |   VI  |   A   | 8     | A C♯ E    |
+|    |    |    | X  | X  |  ♭VII |   B♭  | 24    | B♭ D F    |
+|    |    |    |    | X  |   VII |   B   | 16    | B D♯ F♯   |
+|    |    | X  |    | X  |   vii |   Bm  | 20    | B D F♯    |
+|    |    | X  | X  | X  |  VII7 |   B7  | 28    | B D♯ F♯ A |
 
 Or something like that, anyway.  There's still a few playable combinations
 left over.
@@ -288,4 +288,7 @@ for a first go around.
 
 ![New Strum Buttons](img/new-strum-buttons.jpg)
 
-
+So I've done a very rough job of soldering the five fret buttons and two 
+strum buttons to I/O pins 6 through 12, and well, it kinda sorta works.
+Latency seems quite bad but it's hard to say if this is in the switches,
+the CircuitPython code or the synth server code.

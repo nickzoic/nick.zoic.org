@@ -281,4 +281,11 @@ It's time for the innards of the guitar to come out.  The original boards can go
 in the junkbox, perhaps they'll be handy to make a MIDI *input* for PS2
 so you can play Guitar Hero on a keytar `:-)`
 
+Once all the extraneous parts are out, in goes a new board for the strum buttons.
+The dimensions are actually pretty tight, so I desoldered the old switches.
+The little protoboards i had are juuuuuust too short for this job but this is okay
+for a first go around.
+
+![New Strum Buttons](img/new-strum-buttons.jpg)
+
 

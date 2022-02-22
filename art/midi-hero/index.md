@@ -69,7 +69,7 @@ but let's not get ahead of ourselves here `:-)`.*
 positions on a real guitar neck.
 But there's a lot of songs which have a small number of chords,
 thankfully.
-About 7/8 of my ukulele songbook would get covered by:
+99% of my ukulele songbook would get covered by:
 
 | Gn | Rd | Yy | Bu | Or | Chord | In C  |
 |----|----|----|----|----|-------|-------|
@@ -121,7 +121,8 @@ which operates a standard metric
 It only rotates one way (down), but it should be able to 
 feed a MIDI pitch wheel input.
 
-Unfortunately the mechanism is pretty badly worn from heavy use so I might have to do some fixing up.
+Unfortunately the whammy mechanism is pretty badly worn from heavy
+use so I might have to do some fixing up.
 
 ![No whammies!](img/no-whammies.jpg)
 
@@ -131,8 +132,9 @@ There's also the START and SELECT buttons which could send other MIDI
 messages to change channels or instruments or whatever.
 
 There's plenty of empty real estate on the guitar, so adding in some other
-inputs should be possible.  Perhaps for example a capacitive slider strip on fretboard
-for "fretless" operation, or various knobs to send
+inputs should be possible.  Perhaps for example a
+[capacitive slider strip](../esp32-capacitive-sensors/) on the unused
+part of the neck for "fretless" operation, or various knobs to send
 [MIDI CC](https://www.noterepeat.com/articles/how-to/213-midi-basics-common-terms-explained#G)
 messages.
 
@@ -159,9 +161,17 @@ I have a 'beta' [adafruit Metro M4 Express](https://circuitpython.org/board/metr
 I've upgraded that to CircuitPython 7.1.1.
 
 *There's also [I2S](https://en.wikipedia.org/wiki/I%C2%B2S) support
-so it's possible I could implement a [Karplus-Strong](http://amid.fish/javascript-karplus-strong) synth right
+so it's possible I could implement a
+[Karplus-Strong](http://amid.fish/javascript-karplus-strong) synth right
 on the instrument with output to a standard guitar jack, but I'll worry about that later.*
 
+It seems odd at first, but USB devices can present as many kinds of thing
+at once, using "endpoints".  So the single USB port on the board can
+simultaneously present as a mass storage device (for program code) and as a 
+serial terminal device (for the interactive console) and as a MIDI device
+for sending music to the computer!
+
+## Making Sounds
 
 Linux audio support continues to be a
 [nightmare](http://www.tedfelix.com/linux/linux-midi.html)
@@ -175,6 +185,11 @@ Dir Device    Name
 IO  hw:3,0,0  Metro M4 Express MIDI 1
 IO  hw:4,0,0  MPK mini play MIDI 1
 ```
+
+*Update: I've finally worked out that [lmms](https://lmms.en.softonic.com/)
+actually does work if you go into the overall settings and set MIDI interface
+to "ALSA Raw-MIDI" using the device names above *and* you go into the
+instrument settings and tell it to use MIDI input. Duh.*
 
 Using `amidi`, I dumped some raw MIDI messages out of a little AKAI
 MIDI keyboard, and then turned them into this work of musical genius:
@@ -218,14 +233,14 @@ It works!
 So, all our code will have to do is listen for buttons and send similar messages.
 Almost too easy! 
 
-## I can hear music ...
+## Jammin' ...
 
 Also in the junkbox: a
 [Freetronics ThinkerShield](https://www.freetronics.com.au/products/thinker-shield) 
 There's not a lot on this board, although it's kind of handy if you like
 alligator clips, but there is a pot and a pushbutton.  Which is enough to
 implement our first interactive MIDI instrument, which sounds like a 
-glitchy theremin through autotune:
+glitchy theremin played through autotune:
 
 ```
 import usb_midi
@@ -265,7 +280,5 @@ I can already see that CircuitPython's [lack of interrupt driven I/O](https://le
 It's time for the innards of the guitar to come out.  The original boards can go
 in the junkbox, perhaps they'll be handy to make a MIDI *input* for PS2
 so you can play Guitar Hero on a keytar `:-)`
-
-
 
 

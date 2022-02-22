@@ -27,14 +27,15 @@ purposes, since it makes it much easier to butcher.
 In its current form it has:
 
 * 5 "fret" buttons (resistive rubber contacts I think)
-* A tiny power switch and red LED on their own board
-* A separate board for start and select buttons
+* A tiny power switch and red LED on their own tiny board
+* A separate board for the start and select buttons
 * Some kind of multi-axis tilt sensor I think
-* The "whammy" mechanism, which turns a metric pot ... this is pretty badly worn.
+* The "whammy" mechanism, which turns a metric potentiometer
 * The main CPU board, with:
   * An anonymous ASIC 
   * The two "strum" buttons
   * A little bluetooth (?) daughterboard
+* A battery holder for 4 x AA batteries.
 
 # ... Let There Be Rock
 
@@ -57,8 +58,8 @@ Since I don't have one of the former handy right now I'll concentrate on
 the latter for the moment.
 As a bonus, USB can provide power to the instrument.
 
-5-pin MIDI or synthesized audio might also be useful for live performance,
-but let's not get ahead of ourselves here `:-)`.
+*5-pin MIDI or synthesized audio might also be useful for live performance,
+but let's not get ahead of ourselves here `:-)`.*
 
 # Inputs
 
@@ -148,5 +149,81 @@ Handily there's a [CircuitPython](https://circuitpython.org)
 I'm a big fan of [not writing C if I don't have to](../linuxconf-2017-hobart/)
 and this library supports a lot of [junkbox boards](/tag/microcontrollers/) I already have, so that
 seems like an obvious choice.  I just have to find one with enough I/O pins.
+
+Just to begin with I need 5 digital I/O pins for the fret buttons and
+2 for the strum buttons.  It'd be nice to have a couple of analogue inputs for
+knobs, too.
+
+I have a 'beta' [adafruit Metro M4 Express](https://circuitpython.org/board/metro_m4_express/) lying around from
+[some work I did a long time ago](https://github.com/adafruit/circuitpython/issues/703) and it comes with USB-MIDI already on board so it seems like a good choice.  
+I've upgraded that to CircuitPython 7.1.1.
+
+*There's also [I2S](https://en.wikipedia.org/wiki/I%C2%B2S) support
+so it's possible I could implement a [Karplus-Strong](http://amid.fish/javascript-karplus-strong) synth right
+on the instrument with output to a standard guitar jack, but I'll worry about that later.*
+
+
+Linux audio support continues to be a
+[nightmare](http://www.tedfelix.com/linux/linux-midi.html)
+but I eventually worked out that the devices were visible from ALSA
+and got [fluidsynth](https://www.fluidsynth.org/) working via its GUI "qsynth".
+I'm really hoping there's a friendlier way to do this in the future!
+
+```
+$ amidi --list-devices
+Dir Device    Name
+IO  hw:3,0,0  Metro M4 Express MIDI 1
+IO  hw:4,0,0  MPK mini play MIDI 1
+```
+
+Using `amidi`, I dumped some raw MIDI messages out of a little AKAI
+MIDI keyboard, and then turned them into this work of musical genius:
+
+```
+import usb_midi
+import time
+
+op = usb_midi.ports[1]
+
+messages = [
+    b'\x90\x3C\x39',  # key down, middle C
+    b'\x80\x3C\x00',  # key up
+    b'\x90\x40\x48',
+    b'\x80\x40\x00',
+    b'\x90\x43\x49',
+    b'\x80\x43\x00',
+    b'\x90\x43\x49\x90\x40\x4C\x90\x3C\x4D',
+    b'\x80\x43\x00\x80\x40\x00\x80\x3C\x00',
+]
+
+while True:
+    for msg in messages:
+        op.write(msg)
+        time.sleep(0.5)
+```
+
+This is just sending a sequence of raw MIDI events over the USB port, and yes!
+It works!
+
+* `\x90` is a key down message, and `\x80` is a key up message.
+
+* `\x3c` (60) is Middle C, and `\x40` (64) and `\x43` (67) are the E and G above that.
+
+* The third number in each message is a "velocity", how hard the key was hit, more
+  or less.  That varies a little for key down, and is zero for the key up messages.
+
+* The last two lines combine the up and down messages for three notes C, E and G
+  to play a C Major chord.
+
+So, all our code will have to do is listen for buttons and send similar messages.
+Almost too easy! 
+
+# No Guts, No Glory
+
+It's time for the innards of the guitar to come out.  The original boards can go
+in the junkbox, perhaps they'll be handy to make a MIDI *input* for PS2
+so you can play Guitar Hero on a keytar `:-)`
+
+
 
 

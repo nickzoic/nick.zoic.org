@@ -58,24 +58,17 @@ def get_notes():
 
 midi_out = usb_midi.ports[1]
 
-old_notes = set()
 while True:
 
-    while s_up.value and s_dn.value:
-        new_notes = get_notes()
-        for note in old_notes - new_notes:
-            midi_out.write(bytes((0x80, note, 0)))
-            old_notes.remove(note)
+    while s_up.value and s_dn.value: pass
 
-    for note in old_notes - new_notes:
+    notes = get_notes()
+
+    for note in notes:
+        midi_out.write(bytes((0x90, note, 0x5f)))
+
+    while not s_up.value or not s_dn.value: pass
+
+    for note in notes:
         midi_out.write(bytes((0x80, note, 0)))
-    old_notes = set()
-
-    while not s_up.value or not s_dn.value:
-        new_notes = get_notes()
-        for note in old_notes - new_notes:
-            midi_out.write(bytes((0x80, note, 0)))
-        for note in new_notes - old_notes:
-            midi_out.write(bytes((0x90, note, 0x3f)))
-        old_notes = new_notes
 

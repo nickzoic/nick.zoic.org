@@ -1,11 +1,12 @@
 ---
 date: '2022-02-22'
-layout: draft
+layout: article
 tags:
   - electronics
   - music
   - microcontrollers
 title: 'MIDI Hero'
+summary: 'Turning a thrift store Guitar Hero controller into a MIDI controller'
 ---
 
 # In The Beginning ...
@@ -289,6 +290,88 @@ for a first go around.
 ![New Strum Buttons](img/new-strum-buttons.jpg)
 
 So I've done a very rough job of soldering the five fret buttons and two 
-strum buttons to I/O pins 6 through 12, and well, it kinda sorta works.
-Latency seems quite bad but it's hard to say if this is in the switches,
-the CircuitPython code or the synth server code.
+strum buttons to I/O pins 6 through 12, and wedged the board into a corner
+of the case ... and well, it kinda sorta works:
+
+```
+import usb_midi
+import digitalio
+import board
+
+def make_button(pin):
+    btn = digitalio.DigitalInOut(pin)
+    btn.direction = digitalio.Direction.INPUT
+    btn.pull = digitalio.Pull.UP
+    return btn
+
+# Note: buttons are all pulled *low* by being pressed
+# TODO fix this just to make code more readable
+
+s_up = make_button(board.D6)
+s_dn = make_button(board.D7)
+
+f_gn = make_button(board.D8)
+f_rd = make_button(board.D9)
+f_yy = make_button(board.D10)
+f_bu = make_button(board.D11)
+f_or = make_button(board.D12)
+
+chords = {
+        1: [ 60, 64, 67 ],      # C
+        2: [ 62, 66, 69 ],      # D
+        3: [ 62, 65, 69 ],      # Dm
+        4: [ 67, 71, 74 ],      # G
+        5: [ 64, 67, 71 ],      # Em
+        6: [ 65, 69, 72 ],      # F
+        7: [ 62, 66, 69, 73 ],  # D7
+        8: [ 69, 73, 76 ],      # A
+        10: [ 67, 70, 74 ],     # Gm
+        12: [ 69, 72, 64 ],     # Am
+        14: [ 67, 71, 74, 77 ], # G7
+        16: [ 71, 75, 78 ],     # B
+        20: [ 71, 74, 78 ],     # Bm
+        24: [ 70, 74, 77 ],     # B♭
+        28: [ 71, 75, 78, 81 ], # B7
+    }
+
+def get_notes():
+    val = ( (1 if not f_gn.value else 0) +
+            (2 if not f_rd.value else 0) + 
+            (4 if not f_yy.value else 0) +
+            (8 if not f_bu.value else 0) +
+            (16 if not f_or.value else 0) )
+    return set(chords.get(val, []))
+
+midi_out = usb_midi.ports[1]
+
+while True:
+
+    while s_up.value and s_dn.value: pass
+
+    notes = get_notes()
+
+    for note in notes:
+        midi_out.write(bytes((0x90, note, 0x5f)))
+
+    while not s_up.value or not s_dn.value: pass
+
+    for note in notes:
+        midi_out.write(bytes((0x80, note, 0)))
+```
+
+# TO BE CONTINUED
+
+So it's kinda sorta playable, but there's a lot of things still to do:
+
+* Wire up the whammy bar
+* Wire up the other buttons
+* Work out where latency is coming from
+* Find an instrument which sounds nice in LMMS
+* Record a video
+
+Further work:
+
+* Switch to a smaller, battery-powered CPU
+* Implement 5-pin MIDI and/or an onboard synthesizer.
+* Add some more controls etc.
+

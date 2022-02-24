@@ -18,12 +18,14 @@ It turns out to be a well-worn
 but since I don't have a PS2, well ... it's going to become something else.
 
 ![Weird Little Unit](img/weird-little-unit.jpg)
+*It's a weird little unit*
 
 Inside, it's very retro ... a total mess of little PCBs and flying wires instead of the
 more modern flexi-PCB kind of construction.  But that's good for my 
 purposes, since it makes it much easier to butcher.
 
 ![Big Mess of Wires](img/big-mess-of-wires.jpg)
+*A Big Mess of Wires*
 
 In its current form it has:
 
@@ -148,6 +150,7 @@ The frets would be used to select which chord to play, but the strum sensor woul
 be responsible for actually triggering it.
 
 ![strum strum strum](img/strum-strum-strum.jpg)
+*strum mechanism (the two buttons on the right*
 
 The strum mechanism is really just a little cam which operates two switches
 which look suspiciously like [ALPS](https://deskthority.net/wiki/Alps_SKCL/SKCM_series)
@@ -174,10 +177,12 @@ which operates a standard metric
 It only rotates one way (down), but it should be able to 
 feed a MIDI pitch wheel input.
 
-Unfortunately the whammy mechanism is pretty badly worn from heavy
-use so I might have to do some fixing up.
+This looked pretty dreadful when I first opened it up, but it's not as 
+bad as I thought: I'll just wire it across 3.3V and Ground and that
+should be enough to give me a good analog signal for the ADC.
 
 ![No whammies!](img/no-whammies.jpg)
+*whammy mechanism*
 
 ## Other
 
@@ -342,6 +347,7 @@ The little protoboards i had are juuuuuust too short for this job but this is ok
 for a first go around.
 
 ![New Strum Buttons](img/new-strum-buttons.jpg)
+*New Strum Buttons board*
 
 So I've done a very rough job of soldering the five fret buttons and two 
 strum buttons to I/O pins 6 through 12, and wedged the board into a corner
@@ -443,6 +449,7 @@ When I get around
 to it I'll add a pair of pots for setting control channel info.
 
 ![all rewired up](img/all-rewired-up.jpg)
+*All rewired up*
 
 The soldering is terrible, but the code is very slowly improving:
 

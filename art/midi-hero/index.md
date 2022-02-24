@@ -72,26 +72,73 @@ But there's a lot of songs which have a small number of chords,
 thankfully.
 99% of my ukulele songbook would get covered by:
 
-| Gn | Rd | Yy | Bu | Or | Chord | In C  | Value | Notes     |
-|----|----|----|----|----|-------|-------|-------|-----------|
-| X  |    |    |    |    |   I   |   C   | 1     | C E G     |
-| X  | X  |    |    |    |   ii  |   Dm  | 3     | D F A     |
-|    | X  |    |    |    |   II  |   D   | 2     | D F♯ A    |
-| X  | X  | X  |    |    |   II7 |   D7  | 7     | D F♯ A C♯ |
-| X  |    | X  |    |    |   iii |   Em  | 5     | E G B     |
-|    | X  | X  |    |    |   IV  |   F   | 6     | F A C     |
-|    |    | X  |    |    |   V   |   G   | 4     | G B D     |
-|    | X  |    | X  |    |   v   |   Gm  | 10    | G B♭ D    |
-|    | X  | X  | X  |    |   V7  |   G7  | 14    | G B D F   |
-|    |    | X  | X  |    |   vi  |   Am  | 12    | A C E     |
-|    |    |    | X  |    |   VI  |   A   | 8     | A C♯ E    |
-|    |    |    | X  | X  |  ♭VII |   B♭  | 24    | B♭ D F    |
-|    |    |    |    | X  |   VII |   B   | 16    | B D♯ F♯   |
-|    |    | X  |    | X  |   vii |   Bm  | 20    | B D F♯    |
-|    |    | X  | X  | X  |  VII7 |   B7  | 28    | B D♯ F♯ A |
+| Gn | Rd | Yy | Bu | Or | Chord | In C  | Notes     |
+|----|----|----|----|----|-------|-------|-----------|
+| X  |    |    |    |    |   I   |   C   | C E G     |
+| X  | X  |    |    |    |   ii  |   Dm  | D F A     |
+|    | X  |    |    |    |   II  |   D   | D F♯ A    |
+| X  | X  | X  |    |    |   II7 |   D7  | D F♯ A C♯ |
+| X  |    | X  |    |    |   iii |   Em  | E G B     |
+|    | X  | X  |    |    |   IV  |   F   | F A C     |
+|    |    | X  |    |    |   V   |   G   | G B D     |
+|    | X  |    | X  |    |   v   |   Gm  | G B♭ D    |
+|    | X  | X  | X  |    |   V7  |   G7  | G B D F   |
+|    |    | X  | X  |    |   vi  |   Am  | A C E     |
+|    |    |    | X  |    |   VI  |   A   | A C♯ E    |
+|    |    |    | X  | X  |  ♭VII |   B♭  | B♭ D F    |
+|    |    |    |    | X  |   VII |   B   | B D♯ F♯   |
+|    |    | X  |    | X  |   vii |   Bm  | B D F♯    |
+|    |    | X  | X  | X  |  VII7 |   B7  | B D♯ F♯ A |
 
 Or something like that, anyway.  There's still a few playable combinations
 left over.
+
+*ALTERNATIVE* chords actually sound pretty bad with a lot of the synth tools
+I've been messing with.  They add plenty of weird crap to make up for the
+"thinness" of a single note, so maybe we need a chromatic solo mode, maybe
+something like:
+
+| Gn | Rd | Yy | Bu | Or | Note |
+|----|----|----|----|----|------|
+| X  |    |    |    |    | C    |
+| X  | X  |    |    |    | D    |
+| X  |    | X  |    |    | C♯   |
+| X  | X  | X  |    |    | D♯   |
+|    | X  |    |    |    | E    |
+|    | X  | X  |    |    | F    |
+|    | X  |    | X  |    | F♯   |
+|    | X  | X  | X  |    | --   |
+|    |    | X  |    |    | G    |
+|    |    | X  | X  |    | A    |
+|    |    | X  |    | X  | G♯   |
+|    |    | X  | X  | X  | --   |
+|    |    |    | X  |    | B    |
+|    |    |    | X  | X  | B♭   |
+|    |    |    |    | X  | C    |
+
+or alternatively it might be easier to have one button, probably
+the middle button for ergonomics, be a dedicated "sharpener" button:
+
+| Gn | Rd | Yy | Bu | Or | Note   |
+|----|----|----|----|----|--------|
+| X  |    |    |    |    | C      |
+| X  |    | X  |    |    | C♯     |
+| X  | X  |    |    |    | D      |
+| X  | X  | X  |    |    | D♯     |
+|    | X  |    |    |    | E      |
+|    | X  | X  |    |    | E♯ = F |
+|    | X  |    | X  |    | F      |
+|    | X  | X  | X  |    | F♯     |
+|    |    |    | X  |    | G      |
+|    |    | X  | X  |    | G♯     |
+|    |    |    | X  | X  | A      |
+|    |    | X  | X  | X  | A♯     |
+|    |    |    |    | X  | B      |
+|    |    | X  |    | X  | B♯ = C |
+
+Anyway, the point is, it's an arbitrary mapping between button
+combinations and note combinations, and those extra "select" buttons
+could switch between mappings.
 
 ## Strums
 
@@ -113,6 +160,9 @@ I'm not sure about.  Should an upward strum be different from a downward strum?
 Is a down-down-down-down strum different to a down-up-down-up strum?
 Does holding the 'flipper' down do anything different?
 This will take a bit of experimentation too see what "feels" right I guess.
+
+*Up and Down strums could even feed different instrument numbers, or different
+modes (eg: chord vs: solo) or voices or octaves or different velocities, or all sorts of things*
 
 ## Whammy Bar
 
@@ -274,6 +324,8 @@ while True:
     midi_out.write(bytes((0x80, note, 0x00)))
 ```
 
+[source](src/shield1/main.py)
+
 I can already see that CircuitPython's [lack of interrupt driven I/O](https://learn.adafruit.com/cooperative-multitasking-in-circuitpython-with-asyncio/handling-interrupts) is going to drive me bananas, but let's stick with it for now.
 
 # No Guts, No Glory
@@ -359,6 +411,8 @@ while True:
         midi_out.write(bytes((0x80, note, 0)))
 ```
 
+[source](src/chords1/main.py)
+
 # TO BE CONTINUED
 
 So it's kinda sorta playable, but there's a lot of things still to do:
@@ -375,3 +429,4 @@ Further work:
 * Implement 5-pin MIDI and/or an onboard synthesizer.
 * Add some more controls etc.
 
+[source](src/solo1/main.py)

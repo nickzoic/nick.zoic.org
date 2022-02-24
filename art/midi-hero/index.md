@@ -435,11 +435,17 @@ proto board as it turns out, it's hard up against the case, so this will
 also give me a place to wire in an accelerometer as well.
 
 All the pin assignments have changed, but there's now a whammy bar 
-and the select and start buttons are wired in.  When I get around
+and the select and start buttons are wired in.  The input pins are 
+all set to pull down and the buttons pull them up, which makes the 
+code more readable!  
+
+When I get around
 to it I'll add a pair of pots for setting control channel info.
 
 ![all rewired up](img/all-rewired-up.jpg)
 
+
+The code is very slowly improving:
 
 ```
 import usb_midi
@@ -497,8 +503,6 @@ while True:
     
     if note is not None:
         if strum_up.value: note = note + 12
-        print(note)
-
         midi_out.write(bytes((0x90, note, 0x3f)))
 
         while strum_up.value or strum_down.value:
@@ -507,7 +511,6 @@ while True:
             if pitch_down < 0: pitch_down = 0
             
             pitch_down = 0x2000 - pitch_down
-            print(pitch_down)
             pitch_l = pitch_down & 0x7F
             pitch_h = pitch_down >> 7
             midi_out.write(bytes((0xE0, pitch_l, pitch_h)))
@@ -520,7 +523,8 @@ while True:
 I've also been playing with LMMS, and have worked out that by assigning
 a channel ID to each instrument, I can make it specific to that MIDI 
 channel.  The MIDI channel could be set by the strum direction or by the
-"Select" button, either way.
+"Select" button, either way.  It's quite nice to be able to switch 
+instrument chains at the touch of a button.
 
 # TO BE CONTINUED
 

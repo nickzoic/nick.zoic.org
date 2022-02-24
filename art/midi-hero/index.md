@@ -444,8 +444,8 @@ to it I'll add a pair of pots for setting control channel info.
 
 ![all rewired up](img/all-rewired-up.jpg)
 
+The soldering is terrible, but the code is very slowly improving:
 
-The code is very slowly improving:
 
 ```
 import usb_midi

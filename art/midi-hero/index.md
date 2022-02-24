@@ -93,7 +93,9 @@ thankfully.
 Or something like that, anyway.  There's still a few playable combinations
 left over.
 
-*ALTERNATIVE* chords actually sound pretty bad with a lot of the synth tools
+## Alternative Frets
+
+Chords actually sound pretty bad with a lot of the synth tools
 I've been messing with.  They add plenty of weird crap to make up for the
 "thinness" of a single note, so maybe we need a chromatic solo mode, maybe
 something like:
@@ -413,20 +415,123 @@ while True:
 
 [source](src/chords1/main.py)
 
+
+# UPDATE 24th February 2022
+
+I implemented the "Alternative Frets" tuning as above, which 
+sounds a lot better through the synth program than feeding
+it chords. I also made an "up strum" shift the note played 
+up an octave, so now the instrument has 2 octaves range,
+from C4 to C6.
+
+I also hot-glued the CPU board into place, added strain relief to the
+USB cable and rewired the thing completely.  Originally I'd just soldered
+onto a bunch of 0.1" strip headers and plugged those into the 
+Metro board, but that was pretty dodgy.  This time I used a 
+little "prototype shield" board I bought off Ebay ages ago.
+This makes it a lot easier to solder and much less prone to falling
+to pieces in your hands.  There's no room on the top side of the other
+proto board as it turns out, it's hard up against the case, so this will
+also give me a place to wire in an accelerometer as well.
+
+All the pin assignments have changed, but there's now a whammy bar 
+and the select and start buttons are wired in.  When I get around
+to it I'll add a pair of pots for setting control channel info.
+
+![all rewired up](img/all-rewired-up.jpg)
+
+
+```
+import usb_midi
+import digitalio
+import analogio
+import board
+
+def make_button(pin):
+    btn = digitalio.DigitalInOut(pin)
+    btn.direction = digitalio.Direction.INPUT
+    btn.pull = digitalio.Pull.DOWN
+    return btn
+
+fret_green = make_button(board.D2)
+fret_red = make_button(board.D3)
+fret_yellow = make_button(board.D4)
+fret_blue = make_button(board.D5)
+fret_orange = make_button(board.D6)
+
+button_select = make_button(board.D8)
+button_start = make_button(board.D9)
+
+strum_down = make_button(board.D10)
+strum_up = make_button(board.D11)
+
+pitch_wheel = analogio.AnalogIn(board.A0)
+
+notes = {
+        (True, False, False, False, False): 60,    # C
+        (True, False, True, False, False):  61,    # C♯
+        (True, True, False, False, False):  62,    # D
+        (True, True, True, False, False):   63,    # D♯
+        (False, True, False, False, False): 64,    # E
+        (False, True, True, False, False):  65,    # F
+        (False, True, False, True, False):  66,    # F♯
+        (False, False, True, False, False): 67,    # G
+        (False, False, True, False, True):  68,    # A♯
+        (False, False, True, True, False):  69,    # A
+        (False, False, False, True, True):  70,    # B♭
+        (False, False, False, True, False): 71,    # B
+        (False, False, False, False, True): 72,    # C
+    }
+
+midi_out = usb_midi.ports[1]
+
+# All notes off
+midi_out.write(bytes((0xb0, 123, 0)))
+
+while True:
+
+    while not strum_up.value and not strum_down.value: pass
+
+    frets = (fret_green.value, fret_red.value, fret_yellow.value, fret_blue.value, fret_orange.value)
+    note = notes.get(frets, None)
+    
+    if note is not None:
+        if strum_up.value: note = note + 12
+        print(note)
+
+        midi_out.write(bytes((0x90, note, 0x3f)))
+
+        while strum_up.value or strum_down.value:
+            
+            pitch_down = (65000 - pitch_wheel.value) >> 3
+            if pitch_down < 0: pitch_down = 0
+            
+            pitch_down = 0x2000 - pitch_down
+            print(pitch_down)
+            pitch_l = pitch_down & 0x7F
+            pitch_h = pitch_down >> 7
+            midi_out.write(bytes((0xE0, pitch_l, pitch_h)))
+            
+        midi_out.write(bytes((0x80, note, 0)))
+```
+
+[source](src/solo1/main.py)
+
+I've also been playing with LMMS, and have worked out that by assigning
+a channel ID to each instrument, I can make it specific to that MIDI 
+channel.  The MIDI channel could be set by the strum direction or by the
+"Select" button, either way.
+
 # TO BE CONTINUED
 
 So it's kinda sorta playable, but there's a lot of things still to do:
 
-* Wire up the whammy bar
-* Wire up the other buttons
-* Work out where latency is coming from
-* Find an instrument which sounds nice in LMMS
-* Record a video
+* Work out where latency is coming from (it's not as bad as it was)
+* Find an instrument which sounds nice in LMMS (uh, maybe)
+* Record a video (with kickass sound!)
 
-Further work:
+Further work (maybe):
 
 * Switch to a smaller, battery-powered CPU
 * Implement 5-pin MIDI and/or an onboard synthesizer.
 * Add some more controls etc.
-
-[source](src/solo1/main.py)

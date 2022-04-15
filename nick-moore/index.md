@@ -30,8 +30,7 @@ especially in [education](/tag/education).
 
 I live in the suburbs of Melbourne, Australia with my wife, two
 daughters, a very enthusiastic dog and a very vocal cat.
-Also some
-[Spiny Leaf Insects](https://australianmuseum.net.au/care-of-stick-insects).
+Also a [Spiny Leaf Insect](https://australianmuseum.net.au/care-of-stick-insects).
 
 Contact
 -------
@@ -43,8 +42,7 @@ Contact
 Other Sites
 -----------
 
--   [Twitter](https://twitter.com/nickzoic/)
--   [LinkedIn](http://www.linkedin.com/in/nickzoic)
--   [Stack Overflow](http://stackoverflow.com/users/90927/nickzoic)
 -   [GitHub](http://github.com/nickzoic)
--   [Hacker News](http://news.ycombinator.com/threads?id=nickzoic)
+-   [Twitter](https://twitter.com/nickzoic/)
+-   <a rel="me" href="https://aus.social/@nickzoic">Mastodon</a>
+-   [LinkedIn](http://www.linkedin.com/in/nickzoic)

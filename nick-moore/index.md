@@ -44,5 +44,9 @@ Other Sites
 
 -   [GitHub](http://github.com/nickzoic)
 -   [Twitter](https://twitter.com/nickzoic/)
--   <a rel="me" href="https://aus.social/@nickzoic">Mastodon</a>
 -   [LinkedIn](http://www.linkedin.com/in/nickzoic)
+
+Experimental at the moment:
+
+-   <a rel="me" href="https://aus.social/@nickzoic">Mastodon</a>
+-   <a rel="me" href="https://counter.social/@nickzoic">CounterSocial</a>

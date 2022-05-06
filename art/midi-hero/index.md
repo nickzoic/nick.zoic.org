@@ -546,3 +546,42 @@ Further work (maybe):
 * Switch to a smaller, battery-powered CPU
 * Implement 5-pin MIDI and/or an onboard synthesizer.
 * Add some more controls etc.
+
+# UPDATE: IS THIS A GOOD IDEA
+
+No.
+
+MIDI instruments are cool.
+If you want to make an actual MIDI musical instrument,
+don't try to turn a $7 toy into one, start from a blank
+canvas.
+These fret buttons are super nasty rubber things
+and there aren't really enough of them.
+This strum mechanism is crappy and plastic.
+Maybe a brand-name controller would be less crappy.
+
+It was kind of fun though and it looks pretty funny.
+
+You could easily make something nicer using good quality
+keyboard switches for the frets and
+[velocity-sensitive piezo pads](https://beammyselfintothefuture.wordpress.com/2015/01/28/sensing-hit-velocity-and-quick-subsequent-hits-of-a-piezo-with-an-arduino-teensy/) 
+for the "strum" mechanism.
+
+My "vision" for it would have a grid of keys for the fretboard, perhaps
+arranged like a tiny piano or perhaps more like the buttons on a
+[Button Accordion](https://en.wikipedia.org/wiki/Chromatic_button_accordion).
+For strumming, there would be one or more velocity sensitive pads which could be
+tapped with the right hand, with different pads corresponding to different MIDI
+channels, and some knobs for setting parameters.
+
+An alternative would be to avoid MIDI altogether, and instead have the fret
+buttons activate a series of simple electronic
+[electrical resonators](https://en.wikipedia.org/wiki/Electrical_resonance)
+set up to very slightly decay, and the piezo strum sensor to inject an
+electrical 'kick' into these active circuits to cause them to ring.
+It might be fun to prototype something like this anyway.
+
+
+# MORE STUFF
+
+* This [review of the ROR MIDI PRO 2 Guitar](https://www.youtube.com/watch?v=4-BR1qBFcNQ) which is an actual guitar with lots of MIDI controls, pads and so on.

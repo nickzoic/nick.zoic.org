@@ -132,6 +132,12 @@ So, I think I've decided to make a Lo-Res game.
 The Lo-Res screen is, as mentioned last time, 40x48 squishy rectangular pixels,
 in 16 colours, two of which are identical (grey and gray?)
 
+**UPDATE: I don't recall any actual use for Lo-Res back in the day, other than
+Little Brick Out, but a comment on 
+[Hacker News](https://news.ycombinator.com/item?id=31410617) 
+alerted me to these [Apple II Demakes](http://www.deater.net/weave/vmwprod/demakes/)
+some of which use Lo-Res.**
+
 To save confusion, what I'm calling a "row" from here on in is 40 contiguous
 bytes in memory.  That displays as 2 sets of 40 pixels each, with each byte 
 encoding 2 pixels on top of each other.
@@ -185,6 +191,12 @@ There's two screens: one at $0400 and one at $0800 and we can
 [flip between them](https://en.wikipedia.org/wiki/Multiple_buffering#Page_flipping)
 so that our updates don't make a flickery mess (unfortunately there's no way to detect
 vertical blanking, so it'll still be a bit of a mess).
+
+**UPDATE: A comment on [hacker news](https://news.ycombinator.com/item?id=31410617)
+pointed out [Vapor Lock](http://www.deater.net/weave/vmwprod/megademo/vapor_lock.html)
+which kind of sort of lets you detect vertical blanking, and then with careful 
+cycle counting stay in sync with vertial blanking, but I doubt it'll work correctly
+in emulation and cycle counting just isn't going to happen in this project, sorry!**
 
 So our general game loop looks like:
 

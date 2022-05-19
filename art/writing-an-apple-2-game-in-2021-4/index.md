@@ -5,7 +5,7 @@ tags:
   - apple
   - games
 title: 'Writing an Apple 2 game in 2021 (Part 4)'
-summary: 'Part 4 -- Oh no, it's 2022'
+summary: 'Part 4 -- Oh no, it\'s 2022'
 ---
 
 It's 2022, just over a year since the last update of this series,

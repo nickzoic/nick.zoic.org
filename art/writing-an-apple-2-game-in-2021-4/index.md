@@ -5,11 +5,13 @@ tags:
   - apple
   - games
 title: 'Writing an Apple 2 game in 2021 (Part 4)'
-summary: 'Part 4 -- Oh no, it\'s 2022'
+summary: "Part 4 -- Oh no, it's 2022"
 ---
 
 It's 2022, just over a year since the last update of this series,
 and, well, life has continued to get in the way of my plans `:-)`
+
+*If you're reading this because you guessed the URL, hurrah!  Clever you!  It isn't done yet!  Come back later!*
 
 # Goose Containment
 
@@ -38,8 +40,8 @@ sufficient to enforce these barriers.  Grey parts which are *not* impassible, li
 paths, could just use the identical "Grey #1", encoded as `$5`.
 
 Alternatively, we could encode barriers as a separate bitmask, or as simple exclusion rules stored
-alongside the map, for example keep a list of (x1,x2,y1,y2) regions which are forbidden. We can 
-make the map just slightly narrower to give us space for this stuff.
+alongside the map, for example for each row keep a list of columns which are forbidden. We can 
+make the map just slightly narrower to give us space for this stuff at the end of every row.
 
 ## Sprite Collisions
 
@@ -54,13 +56,25 @@ We'll leave that to next time.
 
 Our goose, and various other sprites, are also rendered differently when in the water … the 
 lower couple of rows go missing.  This could be done by map pixel color keying on two blue
-pixels, encoded as `$66`, or by encoding wet areas similar to the exclusion rules mentioned above.
+pixels, encoded as `$66`, or by encoding wet areas similar to the exclusion rules mentioned above:
+for each row, a range of pixels can be declared "under water" and this is then easy to check against.
 
-# Making the project available
+# Behaviours
+
+The stuff about sprites brings up an interesting point: while there's a bunch of 'vegetables' in the game,
+objects which don't really do anything but you can carry them around, there's also a bunch of objects which
+have actions. Gates open and close, humans give chase, sprinklers, umm, sprinkle, that kind of thing.
+
+I think the way I want to do this is to have the "action" in the loop just update the status of the object.
+Then the code in the "logic" part of the program can detect the actions from the states and update their state,
+sprite and position accordingly.
+
+
+# Making the code public
 
 An article on [hacker news](https://news.ycombinator.com/item?id=31410617)
 brought a bit of attention & a request to release the source so, sure, okay
-I guess.
+I guess.  
 
 
 

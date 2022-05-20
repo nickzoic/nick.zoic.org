@@ -27,6 +27,18 @@ movement if it has reached the edge.  As a bonus, we could change the scroll beh
 as the goose reaches the 'edge of the world', it moves from the center of the screen.
 This would provide a very clear signal that there's no more map over there.
 
+Speaking of which: Levels.  So one of the really cool things about the original
+[Untitled Goose Game](https://goose.game/) is the way the map is continuous and 
+loops back around on itself, so that you can get to the very end of the game and 
+retrace your steps and carry items right back to the very start.
+
+*BUT* that's really not something I can be bothered dealing with here. 
+What the hell, Portal had levels. I can have levels.  For each level, it'll load
+only as much map as will fit into memory, and also the code which runs the items
+on that map. When the goose gets to the exit of the map, we go back to the loader,
+which grabs the next few tracks. You can't carry items between levels, you can't
+retrace your steps, whatever, deal with it ya goose.
+
 ## Internal Walls
 
 The goose game maps also have lots of barriers in the scenery —
@@ -69,12 +81,59 @@ I think the way I want to do this is to have the "action" in the loop just updat
 Then the code in the "logic" part of the program can detect the actions from the states and update their state,
 sprite and position accordingly.
 
-
 # Making the code public
 
 An article on [hacker news](https://news.ycombinator.com/item?id=31410617)
 brought a bit of attention & a request to release the source so, sure, okay
-I guess.  
+I guess I'll get around to it.
+
+# Let There Be Sprite
+
+Okay, so the above noodling is fine but I can't really _write_ anything until I've
+got some sprites to display.  We have our goose, but that took a lot of manual
+messing around and a lot of manual fixing. It seems like it might be a better idea
+to edit graphics ... in a graphics editor!
+
+[mtpaint](http://mtpaint.sourceforge.net/) seems like a good tool for the job, so 
+I've set it up with an apple2 palette file and then export as PNG, using index 10
+as transparency.
+
+![pumpkin](img/pumpkin.png)
+*okay so I'm no artist, which may prove to be a problem as this project continues ...*
+
+A utility `img2acme.py` uses Python Image Library to load up the image file
+and palettize it, and reshuffle the pixels into the order our sprite drawing 
+routine expects.  We then export those bytes as some acme assembly code:
+
+```
+pumpkin_width = 12
+pumpkin_height = 10
+pumpkin_data
+    !h aaaaaaaaaca4ccaaaaaaaaaa
+    !h aa9ad9d999999c99d9d99aaa
+    !h 999d99dd99dd99dd99dddd99
+    !h a999dd9d99dd99ddd9999da9
+    !h aaaaa9999d9d999d9da9aaaa
+```
+
+# On Background
+
+The scenery can work similarly: make a big image in the editor, save it to
+an assembly file. We've got up to about 32KB of memory to play with here, 
+so each level map could be as big as 256x256 (remember, each byte encodes 2 pixels)
+
+## RLE
+
+The background scenery is likely to be quite repetitive,
+so I'd like to use
+[run length encoding](https://en.wikipedia.org/wiki/Run-length_encoding)
+to encode each level's map on disk.  Uncompressed, the 32KB level maps would
+take 8 of the 35 tracks each.  
+
+
+
+
+
 
 
 

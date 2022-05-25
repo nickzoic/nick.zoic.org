@@ -1,7 +1,7 @@
 disk_index = [
   {
     "filename": "json/disks/goose1.json",
-    "name": "Lo-Res Goose Game 1"
+    "name": "Lo-Res Goose Game 1",
     "category": "unknown"
   },
   { 

@@ -130,6 +130,9 @@ so I'd like to use
 to encode each level's map on disk.  Uncompressed, the 32KB level maps would
 take 8 of the 35 tracks each.  
 
+# DEMO
+
+<iframe src="/apple2js-mini#goose2" width="612px" height="460px" frameborder="0" onmouseover="this.focus()" onmouseout="this.blur()"></iframe>
 
 
 

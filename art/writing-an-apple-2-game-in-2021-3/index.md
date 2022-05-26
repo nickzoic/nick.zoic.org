@@ -61,7 +61,7 @@ I can embed code demos right here in the blog!  This might not work perfectly
 in all browsers, but try mousing over the window and pressing `A`, `S` and `D` to
 move the goose ...
 
-<iframe src="apple2js-mini.html#goose1" width="612px" height="460px" frameborder="0" onmouseover="this.focus()" onmouseout="this.blur()"></iframe>
+<iframe src="/apple2js-mini#goose1" width="612px" height="460px" frameborder="0" onmouseover="this.focus()" onmouseout="this.blur()"></iframe>
 
 In the previous article I included a small .gif movie of the goose animation which
 clocks in at about 1MB.  Incredibly, the entire Apple 2 emulator plus the disk image

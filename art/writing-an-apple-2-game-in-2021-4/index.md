@@ -13,35 +13,123 @@ and, well, life has continued to get in the way of my plans `:-)`
 
 *If you're reading this because you guessed the URL, hurrah!  Clever you!  It isn't done yet!  Come back later!*
 
-# Goose Containment
+# On Background
+
+Currently the background is also just a bunch of random dots.  Let's fire up 
+[mtpaint](http://mtpaint.sourceforge.net/), give it an Apple2 palette file
+and draw something terrible.
+
+![something terrible](img/map1-terrible.png)
+
+Okay so I'm no artist, which may prove to be a problem as this project continues, but 
+at least this gives me some idea of what it's like for our goose to navigate through
+a map.
+
+I wrote a little utility `img2acme.py` which loads the image using Python Image Library,
+shuffles bytes into the order expected by my code and writes it out in 'acme' format
+for inclusion into the project's source code.
+
+The acme code includes the binary pixel data, but also symbols for the width and height of the image.
+
+This particular map is 256 × 256 pixels, which encodes into an array of 128 rows of
+256 bytes (each byte is a stacked pair of pixels, remember?).  That's 32kB, a pretty big
+map for a machine with a total of 48kB of RAM!
 
 One thing which is really obvious from the [part 3](/art/writing-an-apple-2-game-in-2021-3/)
 simulation is that there's no boundary to the screen.  Our goose wanders where it will, with
-no respect for memory layout.
-
-## Perimeter
-
-So we need to add some kind of barrier, at least around the edge of the map.
-This can be done easily enough by just checking the goose's position on the map and stopping
+no respect for memory layout.  It makes sense to add in some code which checks if the goose
+is at the edge of the map, and if so cancel its
 movement if it has reached the edge.  As a bonus, we could change the scroll behaviour so that
 as the goose reaches the 'edge of the world', it moves from the center of the screen.
 This would provide a very clear signal that there's no more map over there.
 
-Speaking of which: Levels.  So one of the really cool things about the original
-[Untitled Goose Game](https://goose.game/) is the way the map is continuous and 
+<iframe src="/apple2js-mini#goose2" width="612px" height="460px" frameborder="0" onmouseover="this.focus()" onmouseout="this.blur()"></iframe>
+
+## Let There Be Sprite
+
+We can use the same tools to create sprites.  We'll need a bunch of them.
+Some of them will be static (vegetables) some of them will need multiple 
+frames (people).  As discussed previously, we can use color index 10 as 
+a transparent pixel, to export the sprites from `mtpaint` this way we just
+tell it to use index 10 as transparency when exporting.
+
+Example sprite converted to `acme` format:
+
+![pumpkin](img/pumpkin.png)
+
+```
+pumpkin_width = 12
+pumpkin_height = 10
+pumpkin_data
+    !h aaaaaaaaaca4ccaaaaaaaaaa
+    !h aa9ad9d999999c99d9d99aaa
+    !h 999d99dd99dd99dd99dddd99
+    !h a999dd9d99dd99ddd9999da9
+    !h aaaaa9999d9d999d9da9aaaa
+```
+
+# On Background
+# Levels
+
+One of the really cool things about the original
+[Untitled Goose Game](https://goose.game/) is the way the map is contiguous and 
 loops back around on itself, so that you can get to the very end of the game and 
 retrace your steps and carry items right back to the very start.
 
 *BUT* that's really not something I can be bothered dealing with here. 
+The Apple2 is very limited and the disk is very slow and the whole CPU has to wait
+for it ... there's no way to load more map in while the disk is reading.
+
 What the hell, Portal had levels. I can have levels.  For each level, it'll load
 only as much map as will fit into memory, and also the code which runs the items
 on that map. When the goose gets to the exit of the map, we go back to the loader,
 which grabs the next few tracks. You can't carry items between levels, you can't
 retrace your steps, whatever, deal with it ya goose.
 
+The goose is shared between levels, but I think it's likely that the specific sprites
+and behaviour code used for each level will be stored along with that level's map.
+
+## Disk Layout
+
+A disk has 35 tracks, each of 16 sectors × 256 bytes so 4kB each.
+Our 32kB maps therefore take 8 tracks each, and so we could have 3 "shared" tracks
+plus 4 levels with 8 tracks each on a floppy.  In memory that would look like:
+
+| From  | To    | Purpose | Origin |
+|-------|-------|---------|--------|
+| $0400 | $0BFF | LORES Screens | |
+| $0800 | $37FF | Shared Code / Sprites | Tracks 0, 1, 2 |
+| $4000 | $BFFF | Level 1 Map / Code / Sprites | Tracks 3 - 10 |
+| $4000 | $BFFF | Level 2 Map / Code / Sprites | Tracks 11 - 18 |
+| $4000 | $BFFF | Level 3 Map / Code / Sprites | Tracks 19 - 26 |
+| $4000 | $BFFF | Level 4 Map / Code / Sprites | Tracks 27 - 34 |
+
+Note that the initial track load starts from $0800 which overlaps with 
+LORES 2.  We need to loader to load later levels, but the overwritten part
+could just be the splash screen and/or we could copy that content out to
+otherwise unused parts of memory ($0200 - $02FF, $3800 - $3FFF)
+
+8 tracks per level is only enough space for a 256 × 256 map and not the 
+associated sprites & logic.  So I think each map will probably be something
+like 200 x 200 pixels, leaving ~25kB for that stuff.
+
+Alternatively, the background scenery is likely to be quite repetitive,
+so I could use
+[run length encoding](https://en.wikipedia.org/wiki/Run-length_encoding)
+to encode each level's map on disk, reducing the space it takes up and 
+speeding up loading considerably.  Maps will still be uncompressed in memory
+though: the problem is, where do we load them to while they are being
+decompressed?  
+
+# Gameplay
+
+What we've got so far is just a single sprite and a background.
+That's not much of a game.  We need to support multiple sprites, more natural
+movement and much much more ...
+
 ## Internal Walls
 
-The goose game maps also have lots of barriers in the scenery —
+The goose game maps have lots of barriers in the scenery —
 fences, walls, shrubs — and finding your way through these is an important part of the game.
 The movement routines need to be told about these somehow.  One possibility here is to encode
 the "impassibilty" of a part of the map into the pixel values of the map. A byte value of 
@@ -57,7 +145,7 @@ make the map just slightly narrower to give us space for this stuff at the end o
 
 ## Sprite Collisions
 
-And lastly, there's *moving barriers*, gates and the like.  We have to handle sprite collisions
+There's also *moving barriers*, gates and the like.  We have to handle sprite collisions
 for things like people too, because they block and/or shoo the goose, so we can probably just treat
 [inanimate objects like NPCs](https://www.ign.com/articles/2015/07/22/fallout-3-broken-steel-train-is-actually-just-a-giant-npc-hat)
 who happen to have very boring behaviours.
@@ -71,7 +159,7 @@ lower couple of rows go missing.  This could be done by map pixel color keying o
 pixels, encoded as `$66`, or by encoding wet areas similar to the exclusion rules mentioned above:
 for each row, a range of pixels can be declared "under water" and this is then easy to check against.
 
-# Behaviours
+## Behaviours
 
 The stuff about sprites brings up an interesting point: while there's a bunch of 'vegetables' in the game,
 objects which don't really do anything but you can carry them around, there's also a bunch of objects which
@@ -85,58 +173,9 @@ sprite and position accordingly.
 
 An article on [hacker news](https://news.ycombinator.com/item?id=31410617)
 brought a bit of attention & a request to release the source so, sure, okay
-I guess I'll get around to it.
+I guess I'll get around to it eventually.
 
-# Let There Be Sprite
+# UPDATES COMING SOON(ER THAN THE LAST UPDATE, MAYBE)
 
-Okay, so the above noodling is fine but I can't really _write_ anything until I've
-got some sprites to display.  We have our goose, but that took a lot of manual
-messing around and a lot of manual fixing. It seems like it might be a better idea
-to edit graphics ... in a graphics editor!
-
-[mtpaint](http://mtpaint.sourceforge.net/) seems like a good tool for the job, so 
-I've set it up with an apple2 palette file and then export as PNG, using index 10
-as transparency.
-
-![pumpkin](img/pumpkin.png)
-*okay so I'm no artist, which may prove to be a problem as this project continues ...*
-
-A utility `img2acme.py` uses Python Image Library to load up the image file
-and palettize it, and reshuffle the pixels into the order our sprite drawing 
-routine expects.  We then export those bytes as some acme assembly code:
-
-```
-pumpkin_width = 12
-pumpkin_height = 10
-pumpkin_data
-    !h aaaaaaaaaca4ccaaaaaaaaaa
-    !h aa9ad9d999999c99d9d99aaa
-    !h 999d99dd99dd99dd99dddd99
-    !h a999dd9d99dd99ddd9999da9
-    !h aaaaa9999d9d999d9da9aaaa
-```
-
-# On Background
-
-The scenery can work similarly: make a big image in the editor, save it to
-an assembly file. We've got up to about 32KB of memory to play with here, 
-so each level map could be as big as 256x256 (remember, each byte encodes 2 pixels)
-
-## RLE
-
-The background scenery is likely to be quite repetitive,
-so I'd like to use
-[run length encoding](https://en.wikipedia.org/wiki/Run-length_encoding)
-to encode each level's map on disk.  Uncompressed, the 32KB level maps would
-take 8 of the 35 tracks each.  
-
-# DEMO
-
-<iframe src="/apple2js-mini#goose2" width="612px" height="460px" frameborder="0" onmouseover="this.focus()" onmouseout="this.blur()"></iframe>
-
-
-
-
-
-
+For updates either [follow the RSS](https://nick.zoic.org/feed.rss) or [follow me on Twitter](https://twitter.com/nickzoic/)
 

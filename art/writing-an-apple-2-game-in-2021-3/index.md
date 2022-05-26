@@ -73,6 +73,8 @@ There's no way to actually measure time or wait for a frame, so the animation
 is kind of frantic. But at a very minimal level, there's keys being read and 
 graphics being written so it's kind of on its way.
  
-# COMING SOON: PART 4 and Multiple Sprites.
+# CONTINUED
+
+[Part 4: Oh no, it's 2022](/art/writing-an-apple-2-game-in-2021-4/)
 
 For updates either [follow the RSS](https://nick.zoic.org/feed.rss) or [follow me on Twitter](https://twitter.com/nickzoic/)

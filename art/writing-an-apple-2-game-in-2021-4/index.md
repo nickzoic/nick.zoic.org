@@ -1,6 +1,6 @@
 ---
-date: '2022-05-19'
-layout: draft
+date: '2022-05-26'
+layout: article
 tags:
   - apple
   - games
@@ -11,7 +11,13 @@ summary: "Part 4 -- Oh no, it's 2022"
 It's 2022, just over a year since the last update of this series,
 and, well, life has continued to get in the way of my plans `:-)`
 
-*If you're reading this because you guessed the URL, hurrah!  Clever you!  It isn't done yet!  Come back later!*
+Previously:
+* [Part 1](/art/writing-an-apple-2-game-in-2021-1/): About the Apple2 and what to write?
+* [Part 2](/art/writing-an-apple-2-game-in-2021-1/): More about 6502 and LoRes.
+* [Part 3](/art/writing-an-apple-2-game-in-2021-1/): Controls & Movement
+
+This article is just a random grab-bag of progress I've made and thoughts I've
+had about where to go next.
 
 # On Background
 
@@ -124,8 +130,8 @@ otherwise unused parts of memory ($0200 - $02FF, $3800 - $3FFF)
 associated sprites & logic.  So I think each map will probably be something
 like 200 x 200 pixels, leaving ~25kB for that stuff.
 
-Alternatively, the background scenery is likely to be quite repetitive,
-so I could use
+Or we could have fewer, larger maps with more tracks each, or use 
+something like
 [run length encoding](https://en.wikipedia.org/wiki/Run-length_encoding)
 to encode each level's map on disk, reducing the space it takes up and 
 speeding up loading considerably.  Maps will still be uncompressed in memory

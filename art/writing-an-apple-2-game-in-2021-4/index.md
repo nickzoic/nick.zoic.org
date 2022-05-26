@@ -43,13 +43,25 @@ movement if it has reached the edge.  As a bonus, we could change the scroll beh
 as the goose reaches the 'edge of the world', it moves from the center of the screen.
 This would provide a very clear signal that there's no more map over there.
 
+## Make A Splash
+
+The old loading screen just looked sort of sad too, so I used the same technique to make a splash
+screen
+
+![terrible splash screen](img/splash-terrible.png)
+
+This gives the computer something to display while the code is loading.  It's a bit of a
+waste of space, but once we're ready to play the memory this screen takes up can just get thrown away ...
+
+## DEMO
+
 <iframe src="/apple2js-mini#goose2" width="612px" height="460px" frameborder="0" onmouseover="this.focus()" onmouseout="this.blur()"></iframe>
 
-## Let There Be Sprite
+# Let There Be Sprite
 
 We can use the same tools to create sprites.  We'll need a bunch of them.
-Some of them will be static (vegetables) some of them will need multiple 
-frames (people).  As discussed previously, we can use color index 10 as 
+Some of them will be static (eg: vegetables) some of them will need multiple 
+frames (eg: people).  As discussed previously, we can use color index 10 as 
 a transparent pixel, to export the sprites from `mtpaint` this way we just
 tell it to use index 10 as transparency when exporting.
 
@@ -68,7 +80,6 @@ pumpkin_data
     !h aaaaa9999d9d999d9da9aaaa
 ```
 
-# On Background
 # Levels
 
 One of the really cool things about the original
@@ -169,13 +180,7 @@ I think the way I want to do this is to have the "action" in the loop just updat
 Then the code in the "logic" part of the program can detect the actions from the states and update their state,
 sprite and position accordingly.
 
-# Making the code public
-
-An article on [hacker news](https://news.ycombinator.com/item?id=31410617)
-brought a bit of attention & a request to release the source so, sure, okay
-I guess I'll get around to it eventually.
-
-# UPDATES COMING SOON(ER THAN THE LAST UPDATE, MAYBE)
+# UPDATES COMING SOON(ER THAN THE LAST UPDATE, HOPEFULLY)
 
 For updates either [follow the RSS](https://nick.zoic.org/feed.rss) or [follow me on Twitter](https://twitter.com/nickzoic/)
 

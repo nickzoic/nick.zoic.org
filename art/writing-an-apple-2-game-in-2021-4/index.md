@@ -59,6 +59,22 @@ screen
 This gives the computer something to display while the code is loading.  It's a bit of a
 waste of space, but once we're ready to play the memory this screen takes up can just get thrown away ...
 
+I display this screen in "mixed" mode where there's 20 rows of pixels and straight
+after including the image I include 4 rows of text:
+
+```
+!source "splash.acme"
+!convtab "apple2.convtab"
+!text "LO-RES GOOSE GAME  -  AN APPLE ][ DEMAKE"
+!text "OF 'UNTITLED GOOSE GAME'  BY HOUSE HOUSE"
+!text "SUCH A GOOD GAME GO AND BUY IT SERIOUSLY"
+!text "HTTPS://NICK.ZOIC.ORG/HONK/     1-------"
+
+```
+
+As map tracks get read in it adds more digits in the bottom right as a kind of
+progress indicator.
+
 ## DEMO
 
 <iframe src="/apple2js-mini#goose2" width="612px" height="460px" frameborder="0" onmouseover="this.focus()" onmouseout="this.blur()"></iframe>
@@ -122,13 +138,13 @@ plus 4 levels with 8 tracks each on a floppy.  In memory that would look like:
 | $4000 | $BFFF | Level 4 Map / Code / Sprites | Tracks 27 - 34 |
 
 Note that the initial track load starts from $0800 which overlaps with 
-LORES 2.  We need to loader to load later levels, but the overwritten part
+LORES 2.  We need the loader to load later levels, but the overwritten part
 could just be the splash screen and/or we could copy that content out to
 otherwise unused parts of memory ($0200 - $02FF, $3800 - $3FFF)
 
 8 tracks per level is only enough space for a 256 × 256 map and not the 
 associated sprites & logic.  So I think each map will probably be something
-like 200 x 200 pixels, leaving ~25kB for that stuff.
+like 200 x 200 pixels (40kB), leaving ~24kB for that stuff.
 
 Or we could have fewer, larger maps with more tracks each, or use 
 something like
@@ -159,6 +175,13 @@ paths, could just use the identical "Grey #1", encoded as `$5`.
 Alternatively, we could encode barriers as a separate bitmask, or as simple exclusion rules stored
 alongside the map, for example for each row keep a list of columns which are forbidden. We can 
 make the map just slightly narrower to give us space for this stuff at the end of every row.
+
+## Sprite Rendering
+
+Sprites need to be rendered from back to front so that they occlude each other correctly.
+The easiest way is probably to render them in ascending order of bottom row.  Some of them
+move around though: this could either be done by maintaining a sorted list of sprites, or
+by scanning through the list of sprites 24 times.
 
 ## Sprite Collisions
 

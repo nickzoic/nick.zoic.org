@@ -13,8 +13,8 @@ and, well, life has continued to get in the way of my plans `:-)`
 
 Previously:
 * [Part 1](/art/writing-an-apple-2-game-in-2021-1/): About the Apple2 and what to write?
-* [Part 2](/art/writing-an-apple-2-game-in-2021-1/): More about 6502 and LoRes.
-* [Part 3](/art/writing-an-apple-2-game-in-2021-1/): Controls & Movement
+* [Part 2](/art/writing-an-apple-2-game-in-2021-2/): More about 6502 and LoRes.
+* [Part 3](/art/writing-an-apple-2-game-in-2021-3/): Controls & Movement
 
 This article is just a random grab-bag of progress I've made and thoughts I've
 had about where to go next.

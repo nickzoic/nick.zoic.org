@@ -60,55 +60,11 @@ STA ($78,X) ; A -> M[ MM[$78+X] ]
 STA ($9A),Y ; A -> M[ MM[$9A] + Y ] 
 ```
 
-It's a maddeningly weird choice.  Because registers are only eight bit, if you
+Because registers are only eight bit, if you
 want to operate anywhere in memory you have to use a zero page pair as a pointer
 to the start and then Y as an offset within that.
-
-```
-memcpy
-!zone {
-  LDY zp_length         ; 0 is 256 ...
-.memcpy.loop
-  DEY
-  LDA (zp_src_addr), Y
-  STA (zp_dst_addr), Y
-  CPY #00               ; DEY sets the zero flag, but LDA does too.
-  BNE .memcpy.loop
-  RTS
-}
-```
-
-```
-memcpy16
-!zone {
-  LDX zp_length+1
-  BEQ memcpy8
-  LDY #$00
-.loop.x
-.loop.y
-  LDA (zp_src_addr), Y
-  STA (zp_dst_addr), Y
-  INY
-  BNE .loop.y
-  INC zp_src_addr+1
-  INC zp_dst_addr+1
-  DEX
-  BNE .loop.x
-}
-memcpy8
-!zone {
-  LDY zp_length
-  BEQ .done
-.loop
-  DEY
-  LDA (zp_src_addr), Y
-  STA (zp_dst_addr), Y
-  CPY #00               ; DEY sets the zero flag, but LDA does too.
-  BNE .memcpy.loop
-.done
-  RTS
-}
-```
+Y is only 8 bits though, so you also need to change the high byte of the pointer,
+something like:
 
 ```
 memcpy16
@@ -137,19 +93,18 @@ memcpy16
 }
 ```
 
-But what good is the `(indirect,X)` mode?  
+But what good is the very weird `(indirect,X)` mode?  
 [Assembly Cookbook for the Apple II/IIe](https://mirrors.apple2.org.za/ftp.apple.asimov.net/documentation/programming/6502assembly/Assembly_Cookbook_for_the_Apple_II_IIe.pdf)
 (p79) describes it as "an oddball" and not much use other than with X = 0,
 and a quick look at the
 [Apple II DOS Source Code](https://computerhistory.org/blog/apple-ii-dos-source-code/)
-suggests the same.
+suggests the same ... it is used, but only with X = 0.
 
 # MULTIPLE SPRITES
 
 Okay, time to actually make some progress on this game.
-At the moment, there's exactly one sprite.  Let's have a list of sprites instead.
-We want to write these from back to front so they occlude in the correct way.
-We could do this by keeping the sprite list ordered, but for now let's just run through it once per row.
+At the moment, there's exactly one sprite, the goose.
+Let's have a list of sprites instead.
 
 * Number of Sprites
 * For each Sprite
@@ -164,6 +119,10 @@ approach instead. The sprite sheet is always a fixed width, so starting from an 
 always add a constant to get to the next row.  This potentially wastes a bit of space but makes the
 maths easier (and sprite drawing is very much an inner loop, so the faster we make it the better)
 
+## Occlusion
+
+We want to write these from back to front so they occlude in the correct way.
+We could do this by keeping the sprite list ordered, but for now let's just run through it once per row.
 
 # OH COME ON NOW LET'S BE SERIOUS
 

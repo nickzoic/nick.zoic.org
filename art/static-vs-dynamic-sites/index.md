@@ -104,3 +104,10 @@ and [Cross-Origin Request
 Sharing](http://en.wikipedia.org/wiki/Cross-origin_resource_sharing) but
 it has the potential to radically decrease the amount of infrastructure
 you have to deal with to handle page views.
+
+SEE ALSO
+========
+
+* [Static Sites using jQuery to appear Dynamic](/art/static-jquery-dynamic) 
+  (it's not actually jQuery specific, that was just what people used for
+  this kind of thing in 2014.)

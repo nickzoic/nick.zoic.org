@@ -61,6 +61,11 @@ From [My history with Forth & stack machines](https://yosefk.com/blog/my-history
 Simplicity begets simplicity, if you let it.
 What complexity are you introducing just to support other complexity?
 
+More references:
+
+* [Things That Turbo Pascal is Smaller Than](https://prog21.dadgum.com/116.html)
+* [Static vs. Dynamic Sites](/art/static-vs-dynamic-sites/)
+
 ## Fiction
 
 * [Maneki Neko](http://www.lightspeedmagazine.com/fiction/maneki-neko/) (Bruce Sterling)

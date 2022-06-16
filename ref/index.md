@@ -35,6 +35,37 @@ with an easy to write URL ...
 * [Why do cars have brakes?](http://jonjagger.blogspot.com.au/2011/07/why-do-cars-have-brakes.html) although I normally rejig the conclusion into "cars have brakes so you can go fast without getting hurt".
 * [Contempt Culture](https://blog.aurynn.com/2015/12/16-contempt-culture/) ([PDF](https://zenodo.org/record/4722148))
 
+### Simplicity in Programming
+
+Some time around the dawn of computing, [Chuck Moore](https://en.wikipedia.org/wiki/Charles_H._Moore)
+developed the [Forth](https://en.wikipedia.org/wiki/Forth), a language so radically
+simple it's hard to be sure it's even real.  He used Forth to develop some
+[VLSI](https://en.wikipedia.org/wiki/Very_Large_Scale_Integration) design tools 
+for creating microprocessors.  Normal VLSI tools are incredibly complicated and
+expensive, and can be used to design sophisticted CPUs like the Intel and ARM 
+devices we're used to.
+
+Chuck's Forth VLSI tools are too limited to be used to design a sophisticated CPU,
+but Forth doesn't want or need those features anyway.  If a CPU is capable of
+running the design tools which designed it, isn't that enough?
+
+From [My history with Forth & stack machines](https://yosefk.com/blog/my-history-with-forth-stack-machines.html):
+>
+> To me, VLSI tools in 500 lines [of Forth] qualify as a superpower [...]
+> I showed Chuck Moore's description of [his VLSI tools] to an ASIC hacker.
+> He said it was very simplistic – no way you could do with that what people
+> are doing with standard tools.
+>
+> But Chuck Moore isn't doing that, under the assumption that you need not to.
+
+Simplicity begets simplicity, if you let it.
+What complexity are you introducing just to support other complexity?
+
+More references:
+
+* [Things That Turbo Pascal is Smaller Than](https://prog21.dadgum.com/116.html)
+* [Static vs. Dynamic Sites](/art/static-vs-dynamic-sites/)
+
 ## Fiction
 
 * [Maneki Neko](http://www.lightspeedmagazine.com/fiction/maneki-neko/) (Bruce Sterling)

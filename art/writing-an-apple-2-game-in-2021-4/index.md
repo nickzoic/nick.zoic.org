@@ -63,6 +63,9 @@ waste of space, but once we're ready to play the memory this screen takes up can
 
 <iframe src="/apple2js-mini#goose2" width="612px" height="460px" frameborder="0" onmouseover="this.focus()" onmouseout="this.blur()"></iframe>
 
+Note that the JS simulator speeds floppy access up about tenfold compared to the MAME emulator 
+which has a more realistic speed.  So our splash screen doesn't get as much time as it should.
+
 # Let There Be Sprite
 
 We can use the same tools to create sprites.  We'll need a bunch of them.

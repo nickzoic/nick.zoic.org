@@ -585,3 +585,5 @@ It might be fun to prototype something like this anyway.
 # MORE STUFF
 
 * This [review of the ROR MIDI PRO 2 Guitar](https://www.youtube.com/watch?v=4-BR1qBFcNQ) which is an actual guitar with lots of MIDI controls, pads and so on.
+* The [Suzuki Q-chord](http://www.suzukimusic.co.uk/qchord/) is a similar idea 
+  to the "vision" thing above, although I don't know how the "strum plate" works.

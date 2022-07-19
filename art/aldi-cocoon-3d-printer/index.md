@@ -209,3 +209,18 @@ Potential upgrades:
 
 Some of my stuff is [now on Thingiverse](https://www.thingiverse.com/nickzoic/designs)
 and there's [lots more on Github](https://github.com/nickzoic/models3d/).
+
+# UPDATE 2022-07-19
+
+Yeah, the printer is still going, I still mostly use OpenSCAD and Cura.
+
+If you do have to pull the print head apart for some reason, note that the nozzle screws up 
+flush to the heater block and the heat sink doesn't ... there's supposed to be a few mm
+gap there.
+If you assemble it in the wrong order, the heat sink can end up touching the heater block
+and too much heat will end up being conducted into the
+heatsink instead of the nozzle.
+The print head will heat up very slowly or not at all, and weirdly this caused the firmware
+to crash after a few minutes which made it appear to be a software error: it wasn't.
+
+![Nozzle](img/nozzle.jpg)

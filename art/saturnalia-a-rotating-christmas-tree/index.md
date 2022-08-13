@@ -73,7 +73,8 @@ three screws holding each segment in place.
 
 *pictured: two screws per segment*
 
-*not pictured: yet another trip to the hardware store. It now has three screws per segment, which helps prevent the segments from warping away from the base.*
+*not pictured: yet another trip to the hardware store to buy more screws.
+It now has three screws per segment, which helps prevent the segments from warping away from the base.*
 
 I wanted to have the motor components all accessible from on top of the base in case I need
 to fix anything.

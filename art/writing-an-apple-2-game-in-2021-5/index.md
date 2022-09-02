@@ -10,6 +10,13 @@ summary: "Part 5 -- Coming Soon"
 
 # More thinking about 6502
 
+Getting to grips with the 6502 CPU is hard, because it's so alien to a modern programmer.
+There's just so little there.  All sorts of trade-offs you'd normally make about branch 
+prediction and cache coherency simply don't matter because there isn't any branch prediction
+and there isn't any cache.
+
+There also isn't any multiplication or division, which makes all kinds of things tricky.
+
 See also this [really good guide to the 6502 instruction set](https://www.masswerk.at/6502/6502_instruction_set.html)
 
 ## Instructions which can mutate memory

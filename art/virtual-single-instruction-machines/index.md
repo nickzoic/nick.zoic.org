@@ -169,9 +169,37 @@ might be assembled by cpython to a series of bytecodes like:
              10 BINARY_ADD          
              11 STORE_FAST               1 (d)
 
-where a single "virtual single instruction" might look like:
+This would mean several passes around the big process-an-opcode loop, one per instruction.
+How about if we instead had a single opcode which did several things, for example we could
+have a `LOAD_MULTIPLY_ADD_STORE` instruction which would do everything in that bit of code
+in one go, with no branches. It seems like a contrived example, but a lot of numeric code
+is very repetitive in this way.
 
-    a, 107, 42, d
+If you don't need to multiply?  Multiply by one.  If you don't need to add?  Add zero.
+If you don't need to load a value, load 0 from a constant location
+(like [MIPS R0](https://en.wikipedia.org/wiki/MIPS_architecture#Registers))
+
+Maybe we can take this a bit further, like OISC, and have a single execution block which
+does *everything all at once*, with no pipeline-stalling branches. This seems ridiculous,
+but if you consider [MicroPython ByteCode](https://github.com/micropython/micropython/blob/master/py/bc0.h)
+there's really not that many kinds of bytecode ops:
+
+* Constant Loads
+* Heap Loads
+* Unary / Binary Operators
+* External Calls
+* Heap Stores
+* Stack Manipulation
+* Structure Manipulation
+* Branches.
+
+Operators are already just C function calls (eg: something like `top = mp_binary_op(op, lhs, rhs)` so that's easy.
+
+So, our "single instruction" turns out something like `load-operate-store-pushpop-branch`.  It's fewer instructions,
+and even though those instructions are longer, that's less laps around the VM loop.  If we pick our operations
+carefully, it's possibly more efficient!
+
+
 
 
 

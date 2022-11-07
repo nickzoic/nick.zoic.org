@@ -348,7 +348,6 @@ You may also notice that since the initial post I've gone and bought myself a DS
 UPDATE 2019-10-24
 =================
 
-I keep meaning to 
 You might also enjoy this excellent [Touch Sensor Application Note](https://github.com/espressif/esp-iot-solution/blob/master/documents/touch_pad_solution/touch_sensor_design_en.md)
 
 I'd really like to experiment further with a 2D touch pad which would let you interpolate a 

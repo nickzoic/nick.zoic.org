@@ -12,24 +12,30 @@ summary: |
 # Background: Saddles, Intonation, Compensation
 
 The [saddle](https://www.soundpure.com/a/expert-advice/guitars/parts-of-an-acoustic-guitar/)
-is the small bar which the strings run over down at the body of a guitar, ukulele or similar
-fretted stringed instrument. It transmits the vibrations of the strings to the body of the instrument.
+is the small bar which the strings run over down on the body of a guitar,
+ukulele or similar fretted stringed instrument.
+It transmits the vibrations of the strings to the body of the instrument.
 The saddle is generally made of plastic, bone or very hard wood.
 
 When you push a string against a [fret](https://en.wikipedia.org/wiki/Fret),
-the distance between the fret and the saddle changes the note, but it's not perfectly
-linear and also you're increasing the tension slightly, which changes the note slightly.
+the distance between the fret and the saddle determines the note.
+Making the string half as long should double the frequency which means a note
+one octave higher, but it's not a perfectly linear relationship because of
+string diameter, density and tension.
 The amount by which its off is known as the instrument's
 [intonation](https://en.wikipedia.org/wiki/Intonation_%28music%29)
+and it's never quite perfect on all frets of all strings all the time.
 
 Thankfully, most people are only sensitive to pitch errors above about
 [6 cents](https://en.wikipedia.org/wiki/Cent_%28music%29#Human_perception)
 (6% of a semitone, basically) so we don't have to get it utterly precise to sound good.
 
-To a first approximation, for a typical acoustic guitar, you can compensate by moving
-the saddle back a millimeter
-or so from where you might expect, and angling it slightly to make the bass
-strings a smidge longer again to give them slightly more compensation.
+To a first approximation, for a typical acoustic guitar, you can improve the 
+intonation by moving the saddle back a millimeter
+or so from where you might expect from the scale length,
+and angling it slightly to make the bass
+strings a smidge longer again.  
+This process is called Compensation.
 
 For more precision, you need a
 [Compensation Calculator](https://www.liutaiomottola.com/formulae/compensation.htm)
@@ -37,26 +43,29 @@ For more precision, you need a
 [careful experimentation](https://www.youtube.com/watch?v=ko3byzyGzWk&t=1235s).
 
 Then you carve the saddle in such a way that the point the string touches it moves back or 
-forward a little from the center, to correct the intonation.
-If you need more wriggle room you might have to 
+forward a little from the center, to compensate for the intonation of each individual string.
+
+(If you need more wriggle room you might have to 
 [recut the saddle slot](https://www.youtube.com/watch?v=WMjR9YLTuHY)
-but that's a bit out of my depth, frankly.
+but that's a bit out of my depth, frankly.)
 
 # Ukuleles
 
 My little [Maton Tenor Ukulele](https://maton.com.au/product/tenor-ukulele) is a lovely 
 instrument but it has a straight saddle and the intonation was a bit all over the place.
 
-Note that ukuleles are tricky because the strings aren't (generally) in order: the typical
+Note that ukuleles are tricky because the strings aren't in order: the typical
 tuning, top to bottom, is G4 C4 E4 A4, where the G4 is between E4 and A4, so an angled
-straight saddle isn't going to be good anyway. At least the notes are very close together, 
-so compensation distances also don't vary much.
+straight saddle isn't going to be good anyway.
 
 ![Ukulele Reentrant Tuning](img/uke_tuning.svg)
 *Ukulele Reentrant Tuning*
 
+At least the notes are very close together, 
+so compensation distances vary much less than, for example, a guitar.
+
 You can see the general shape on this closeup of my
-[Enya Tenor](https://www.enya-music.com/collections/enya-tenor-ukuleles)
+[Enya Tenor Ukulele](https://www.enya-music.com/collections/enya-tenor-ukuleles)
 (aka the Plastic Beach Ukulele).
 The compensated saddle means the C and E strings are just a smidge longer
 than the G and A strings, improving the intonation.
@@ -83,11 +92,11 @@ to fit the saddle slot and a raised cylinder to form the rounded saddle for the 
 ```
     $fn=50;
 
-    sl = 60;  // saddle slot length
+    sl = 60;    // saddle slot length
     st = 2.9;   // saddle slot thick
-    ss = 4;   // saddle slot depth
-    sh = 1;   // saddle height above slot
-    sr = 1;  // saddle radius
+    ss = 4;     // saddle slot depth
+    sh = 1;     // saddle height above slot
+    sr = 1;     // saddle radius
 
     hull() {
         translate([0,0,ss/2]) cube([sl,st,ss], center=true);
@@ -170,11 +179,11 @@ good setting.
 ```
 $fn=50;
 
-sl = 60;  // saddle slot length
+sl = 60;    // saddle slot length
 st = 2.8;   // saddle slot thick
-ss = 4;   // saddle slot depth
-sh = 1;   // saddle height above slot
-sr = 0.4;  // saddle radius
+ss = 4;     // saddle slot depth
+sh = 1;     // saddle height above slot
+sr = 0.4;   // saddle radius
 
 xos = [ 0.5, 1, 0.75, 0.5 ];  // string offsets
 

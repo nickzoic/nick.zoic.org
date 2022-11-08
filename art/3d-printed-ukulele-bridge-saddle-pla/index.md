@@ -42,6 +42,9 @@ For more precision, you need a [Compensation Calculator](https://www.liutaiomott
 
 Then you carve the saddle in such a way that the point the string touches it moves back or 
 forward a little from the center.
+If you need more wriggle room you might have to 
+[recut the saddle slot](https://www.youtube.com/watch?v=WMjR9YLTuHY)
+but that's a bit out of my depth, frankly.
 
 # Printing
 
@@ -50,32 +53,40 @@ instrument but it has a straight saddle and the intonation was a bit all over th
 
 Note that most ukuleles are tricky because the strings aren't in order: the typical
 tuning, top to bottom, is G4 C4 E4 A4, where the G4 is between E4 and A4, so a straight saddle
-isn't going to be good anyway.
+isn't going to be good anyway.  
 
 ![Ukulele Reentrant Tuning](img/uke_tuning.svg)
 *Ukulele Reentrant Tuning*
 
-It uses a typical 3mm thick saddle, so there's ±1.25mm or so
-to play with (the point where the string touches can't be a sharp corner, it has to be rounded
-or the string will wear quickly).  Good quality 3mm bone blanks only cost $5 or so, but I didn't
-want to ruin a whole bunch of them while wildly guessing at the shape I was after.  So I figured
-I'd print one.
+You can see the general shape on this closeup of my
+[Enya Tenor](https://www.enya-music.com/collections/enya-tenor-ukuleles)
+(aka the Beach Ukulele)
+
+![Enya Tenor Ukulele Saddle](img/enya-saddle.jpg)
+
+The compensated saddle means the C and E strings are just a smidge longer than the G and A strings.
+
+Anyway, back to the Maton.
+It uses a typical 3mm thick saddle, so there's ±1.25mm or so to play with.
+Good quality 3mm bone blanks only cost $5 or so, but I didn't
+want to ruin a whole bunch of blanks while wildly guessing at the shape I was after.
+So I figured I'd print one as an experiment.
 
 I used [OpenSCAD](https://openscad.org/) to design a part with a rectangular base
-to fit the saddle slot and a raised cylinder to form the saddle for the strings:
+to fit the saddle slot and a raised cylinder to form the rounded saddle for the strings:
 
 ```
     $fn=50;
 
     sl = 60;  // saddle slot length
-    st = 2.8;   // saddle slot thick
+    st = 2.9;   // saddle slot thick
     ss = 4;   // saddle slot depth
     sh = 1;   // saddle height above slot
-    sr = 0.25;  // saddle radius
+    sr = 1;  // saddle radius
 
     hull() {
         translate([0,0,ss/2]) cube([sl,st,ss], center=true);
-        translate([0,0,ss+sh-sr]) rotate([0,90,0]) cylinder(h=sl, r=sr, center=true);
+        #translate([0,0,ss+sh-sr]) rotate([0,90,0]) cylinder(h=sl, r=sr, center=true);
     }
 ```
 
@@ -89,8 +100,9 @@ My [cheapo printer](/art/aldi-cocoon-3d-printer/) only does
 [PLA](https://www.3dnatives.com/en/pla-3d-printing-guide-190820194/)
 so PLA is what it was going to be.  I used
 [Cura](https://ultimaker.com/software/ultimaker-cura) to slice the model
-at maximum resolution (0.06mm layers) and full infill and then sent it
-off to the printer via [OctoPrint](https://octoprint.org) and in only a 
+at maximum resolution (0.06mm layers), a raft to avoid curling on the bottom layer,
+and full infill.
+Then sent it off to the printer via [OctoPrint](https://octoprint.org) and in only a 
 few minutes the saddle was ready.
 
 # Tuning Up
@@ -107,31 +119,47 @@ to my (not especially magical) ears it sounded fine.
 
 This saddle is just perfectly straight and centered, like the stock one, so
 we haven't really achieved anything yet.
+
 Now we know the technique is usable, let's estimate the compensation and 
 print a new one.
 
-# Compensation
+# First try at Compensation
 
 I'm not a particularly sophisticated player and mostly play open chords anyway,
 so rather than setting up compensation on the 12th fret, I used the 5th fret 
 for measurements.
 
-I used a stroboscopic tuner app on my phone to measure intonation and
-take a first guess at compensation values. The results worked out something like
-(from memory):
+I used a 
+[harmonic tuner app on my phone](https://blog.grainapps.com/category/harmonic-tuner)
+to measure intonation and take a first guess at compensation values.
+The results worked out something like (from memory):
 
 string | cents sharp @ 5th | compensation
 -------|-------------------|-------------
 G      | 5-10              | 0.5
-C      | 15-20             | 1.25
-E      | 10-15             | 1
+C      | 15-20             | 1.0
+E      | 10-15             | 0.75
 A      | 5-10              | 0.5
 
 Note that the intonation depends partly on things like how hard you fret the string,
 and the fine tuning of the note actually varies a little as it rings, and
-also the strings had just been disturbed when I replaced the saddle.
+also the strings had just been disturbed when I replaced the saddle so they weren't
+quite stable yet.  But it's a start.
 
-But that's okay, because we're going to print a few of these and home in on a 
+I could just offset the saddle by, say, 1mm and that'd be an improvement.
+But 3D printing really makes it easy to go all in on this kind of thing, so why
+not make each string's saddle have its own offset?  
+
+To do this I added an array of offsets, and changed the model to split the saddle into
+the right number of pieces and offset them each individually.
+Since they're right next to each other they all print as one, but we can set the
+compensation individually.
+Having the little angled pieces not line up with each other looked kind of janky, so 
+I reduced the length of the saddle cylinders to make them each their own individual 
+mountain.
+
+Our offsets are a bit of a stab in the dark, 
+but that's okay, because we're going to print a few of these and home in on a 
 good setting.
 
 ```
@@ -140,10 +168,10 @@ $fn=50;
 sl = 60;  // saddle slot length
 st = 2.8;   // saddle slot thick
 ss = 4;   // saddle slot depth
-sh = 0.75;   // saddle height above slot
-sr = 0.15;  // saddle radius
+sh = 1;   // saddle height above slot
+sr = 0.4;  // saddle radius
 
-xos = [ 0.5, 1.25, 1, 0.5 ];  // string offsets
+xos = [ 0.5, 1, 0.75, 0.5 ];  // string offsets
 
 xn = len(xos);
 xl = sl / xn;
@@ -152,12 +180,26 @@ for (n = [0:xn-1]) {
     translate([-xl*n,0,0]) {
         hull() {
             translate([0,0,ss/2]) cube([xl,st,ss], center=true);
-            #translate([0,xos[n],ss+sh-sr]) rotate([0,90,0]) cylinder(h=xl, r=sr, center=true);
+            #translate([0,xos[n],ss+sh-sr]) rotate([0,90,0]) cylinder(h=xl/3, r=sr, center=true);
         }
     }
 }
 ```
 
-![x](img/saddle-one.png)
+![Second iteration of the saddle](img/saddle-one.png)
 
+# Next Iteration
 
+This version sounds distinctly better than the stock one.
+The PLA doesn't sound significantly different: maybe I need to record some 
+"before" and "after" samples to see if I can tell, but it's subtler than I expected.
+
+Moving the C string back 1mm isn't quite far enough though, I think it 
+will need more like 1.5mm compensation.  Which is problematic, because the slot
+is only 2.8mm wide.  I really don't want to have to recut the saddle slot, so I'm
+considering whether the saddle can get away with a little "flying buttress" or whether it would
+be better to have it bear on the bridge in front of and behind the slot instead of at
+the bottom of the slot: it's not how it is designed, but would it work?
+
+I also have a [banjolele](https://en.wikipedia.org/wiki/Banjo_ukulele),
+I'm considering whether it might be possible to print a whole new bridge for that!

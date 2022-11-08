@@ -1,6 +1,6 @@
 ---
-date: '2022-10-30'
-layout: draft
+date: '2022-11-08'
+layout: article
 title: '3D Printing a Ukulele Saddle in PLA'
 tags:
     - 3dprint

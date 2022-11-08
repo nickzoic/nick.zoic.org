@@ -4,6 +4,7 @@ layout: draft
 title: '3D Printing a Ukulele Saddle in PLA'
 tags:
     - 3dprint
+    - music
 summary: |
     I 3D printed a new saddle for my ukulele out of PLA. 
 ---
@@ -15,59 +16,63 @@ is the small bar which the strings run over down at the body of a guitar, ukulel
 fretted stringed instrument. It transmits the vibrations of the strings to the body of the instrument.
 The saddle is generally made of plastic, bone or very hard wood.
 
-To make strings play different notes, you push them down against a [fret](https://en.wikipedia.org/wiki/Fret),
-and it's the distance
-between the fret and the saddle (as well as the tension and density of the string) which determines
-the frequency of the note.  A string which is half as long vibrates at twice the frequency, 
-which is conveniently the same as one octave (12 semitones) higher.
-Therefore the twelth fret is half way along the string, and the other frets correspond to 
-other [musical intervals](https://en.wikipedia.org/wiki/Interval_%28music%29) in the
-[scale](https://en.wikipedia.org/wiki/Equal_temperament)
+When you push a string against a [fret](https://en.wikipedia.org/wiki/Fret),
+the distance between the fret and the saddle changes the note, but it's not perfectly
+linear and also you're increasing the tension slightly, which changes the note slightly.
+The amount by which its off is known as the instrument's
+[intonation](https://en.wikipedia.org/wiki/Intonation_%28music%29)
 
-Frets are ([generally](https://www.sweetwater.com/insync/the-multi-scale-mystery-unraveled/)) placed at the same
-distance for all strings despite differences in string density and tension, and there's some non-linearity in that,
-plus when you push a string down onto the
-fret you're increasing its tension slightly, so the maths doesn't work out perfectly.
-The amount by which its off is known as the instrument's [intonation](https://en.wikipedia.org/wiki/Intonation_%28music%29)
-
-Thankfully, most people are only sensitive to pitch errors above about [6 cents](https://en.wikipedia.org/wiki/Cent_%28music%29#Human_perception)
+Thankfully, most people are only sensitive to pitch errors above about
+[6 cents](https://en.wikipedia.org/wiki/Cent_%28music%29#Human_perception)
 (6% of a semitone, basically) so we don't have to get it utterly precise to sound good.
 
-To a first approximation, for a typical acoustic guitar, you can compensate by moving the saddle back a millimeter
-or so (making the strings slightly longer) and angling it slightly to make the bass strings a smidge longer again
-to give them slightly more compensation.
+To a first approximation, for a typical acoustic guitar, you can compensate by moving
+the saddle back a millimeter
+or so from where you might expect, and angling it slightly to make the bass
+strings a smidge longer again to give them slightly more compensation.
 
-For more precision, you need a [Compensation Calculator](https://www.liutaiomottola.com/formulae/compensation.htm)
-(the units are all in inches, sorry) and/or [careful experimentation](https://www.youtube.com/watch?v=ko3byzyGzWk&t=1235s).
+For more precision, you need a
+[Compensation Calculator](https://www.liutaiomottola.com/formulae/compensation.htm)
+(the units are all in inches, sorry) and/or
+[careful experimentation](https://www.youtube.com/watch?v=ko3byzyGzWk&t=1235s).
 
 Then you carve the saddle in such a way that the point the string touches it moves back or 
-forward a little from the center.
+forward a little from the center, to correct the intonation.
 If you need more wriggle room you might have to 
 [recut the saddle slot](https://www.youtube.com/watch?v=WMjR9YLTuHY)
 but that's a bit out of my depth, frankly.
 
-# Printing
+# Ukuleles
 
 My little [Maton Tenor Ukulele](https://maton.com.au/product/tenor-ukulele) is a lovely 
 instrument but it has a straight saddle and the intonation was a bit all over the place.
 
-Note that most ukuleles are tricky because the strings aren't in order: the typical
-tuning, top to bottom, is G4 C4 E4 A4, where the G4 is between E4 and A4, so a straight saddle
-isn't going to be good anyway.  
+Note that ukuleles are tricky because the strings aren't (generally) in order: the typical
+tuning, top to bottom, is G4 C4 E4 A4, where the G4 is between E4 and A4, so an angled
+straight saddle isn't going to be good anyway. At least the notes are very close together, 
+so compensation distances also don't vary much.
 
 ![Ukulele Reentrant Tuning](img/uke_tuning.svg)
 *Ukulele Reentrant Tuning*
 
 You can see the general shape on this closeup of my
 [Enya Tenor](https://www.enya-music.com/collections/enya-tenor-ukuleles)
-(aka the Beach Ukulele)
+(aka the Plastic Beach Ukulele).
+The compensated saddle means the C and E strings are just a smidge longer
+than the G and A strings, improving the intonation.
 
 ![Enya Tenor Ukulele Saddle](img/enya-saddle.jpg)
+*Enya Tenor Ukulele Saddle*
 
-The compensated saddle means the C and E strings are just a smidge longer than the G and A strings.
+# Printing Saddles
 
 Anyway, back to the Maton.
+Mostly it sounds great, but a couple of chords, especially `Em`,
+are impossible to tune to sound perfect, which I think is due to the intonation.
+
 It uses a typical 3mm thick saddle, so there's ±1.25mm or so to play with.
+The stock saddle is cut straight and centered, which is what I'm calling `0`.
+
 Good quality 3mm bone blanks only cost $5 or so, but I didn't
 want to ruin a whole bunch of blanks while wildly guessing at the shape I was after.
 So I figured I'd print one as an experiment.
@@ -187,19 +192,25 @@ for (n = [0:xn-1]) {
 ```
 
 ![Second iteration of the saddle](img/saddle-one.png)
+*Second iteration of the saddle*
 
 # Next Iteration
 
-This version sounds distinctly better than the stock one.
+This version sounds distinctly better intonated than the stock one.
+
 The PLA doesn't sound significantly different: maybe I need to record some 
 "before" and "after" samples to see if I can tell, but it's subtler than I expected.
 
 Moving the C string back 1mm isn't quite far enough though, I think it 
 will need more like 1.5mm compensation.  Which is problematic, because the slot
 is only 2.8mm wide.  I really don't want to have to recut the saddle slot, so I'm
-considering whether the saddle can get away with a little "flying buttress" or whether it would
+considering whether the saddle can get away with a tighter curve,
+or a little "flying buttress", or whether it would
 be better to have it bear on the bridge in front of and behind the slot instead of at
 the bottom of the slot: it's not how it is designed, but would it work?
+
+![It looks ridiculous, but would it work?](img/saddle-two.png)
+*It looks ridiculous, but would it work?*
 
 I also have a [banjolele](https://en.wikipedia.org/wiki/Banjo_ukulele),
 I'm considering whether it might be possible to print a whole new bridge for that!

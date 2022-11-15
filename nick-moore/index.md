@@ -38,10 +38,14 @@ Contact
 -   Phone: (+61) 409 656 267
 -   Post: PO Box 247, Watsonia VIC 3087, AUSTRALIA
 
+The best way to contact me directly is email.
+
 Other Sites
 -----------
 
 -   <a rel="me" href="https://aus.social/@nickzoic">Mastodon: @nickzoic@aus.social</a>
 -   [GitHub: nickzoic](http://github.com/nickzoic)
 -   [Twitter: @nickzoic](https://twitter.com/nickzoic/)
+-   [ORCID: 0000-0001-7511-0990](https://orcid.org/0000-0001-7511-0990)
 -   [LinkedIn: nickzoic](http://www.linkedin.com/in/nickzoic)
+

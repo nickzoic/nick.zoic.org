@@ -223,3 +223,20 @@ the bottom of the slot: it's not how it is designed, but would it work?
 
 I also have a [banjolele](https://en.wikipedia.org/wiki/Banjo_ukulele),
 I'm considering whether it might be possible to print a whole new bridge for that!
+
+## UPDATE 2022-11-17
+
+I've ended up making a blank which extended over the back which kind of worked
+but also might be a bit too soft to hold its shape like that for too long.
+
+The strings might be pushing into the PLA a bit too much, the tone is starting to 
+sound a little weak too.
+
+On the other hand, I stumped up for the paid version of 
+[Intonation Expert](https://play.google.com/store/apps/details?id=de.grainapps.harmonictuner.intonation)
+which is very cool and seems to think I overshot slightly and can bring the
+compensation back in a little so perhaps it is okay.
+
+I'm going to order some bone blanks and see what I can do about carving them to 
+the right shape & compare.
+

@@ -105,7 +105,7 @@ The games are somewhat relevant to this story, the bees less so.
 
 And then the Apple 2 arrived, and the System 80 was forgotten.
 
-It was a cast-off, a cheap Apple 2 plus clone[^1], the last remaining stock
+It was a cast-off, a cheap Apple 2 plus clone, the last remaining stock
 left over when a friend of Dad's decided to wind up his small import
 business.  The case was built to the same moulded design as a real Apple 2 Plus
 but the plastic was a little mottled and swirly and slightly yellowish,
@@ -290,9 +290,8 @@ including a *sector editor*
 ![sector editor](img/sector-editor.png)
 *Copy II Plus Sector Editor*
 
-> (Probably [Copy II Plus 5](https://apple2online.com/web_documents/copy_ii_plus_5.0_-_manual.pdf),
-> which includes a sector editor among other things. You can find it at
-> [apple2online.com](https://apple2online.com/index.php?p=1_24))
+> (Probably Copy II Plus 5,)
+> which includes a sector editor among other things.
 
 A sector editor lets you investigate and change the contents of floppy disks. 
 Apple 2 disks are pretty simple.  They generally have 16 sectors x 35 tracks.
@@ -344,6 +343,10 @@ familiar too ...
 
 ![zstats0](img/zstats0.png)
 *player stats*
+
+> There's actually a DOS filesystem on this disk, which would have made the process
+> considerably easier if we'd noticed, but if all you have is a sector editor every
+> problem looks like a block of 256 hexadecimal numbers.
 
 ## Ethical Doubts
 
@@ -434,7 +437,7 @@ reagents to unpoison yourself at will it's pretty easy to get around Britannia
 sweeping up monsters.
 
 But there was still the matter of the map. We'd got hold of the Sextant by this point, 
-which would give you a latitude & longitude in the format `A'B" C'D"` where each letter 
+which would give you a latitude & longitude in the format `W'X" Y'Z"` where each letter 
 was between A and P.  That's a pretty thinly disguised pair of bytes, so we were pretty
 confident that the world was:
 
@@ -600,6 +603,8 @@ And thanks to you for listening!
 * Or check out [PICO-8](https://www.hanselman.com/blog/ThePICO8VirtualFantasyConsoleIsAnIdealizedConstrainedModernDayGameMaker.aspx)
   for a fun, extremely resource constrained "fantasy console".
 
+* I started [writing an Apple \]\[ game in 2021](/art/writing-an-apple-2-game-in-2021-1/),
+  you can read about my incredibly slow progress here.
 
 
 

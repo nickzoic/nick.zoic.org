@@ -1,11 +1,11 @@
 ---
-date: '2022-06-01'
-layout: draft
+date: '2022-11-28'
+layout: article
 tags:
   - apple
   - games
 title: 'Writing an Apple 2 game in 2021 (Part 5)'
-summary: "Part 5 -- Coming Soon"
+summary: "Part 5 -- Getting Sidetracked, Of Course"
 ---
 
 # More thinking about 6502
@@ -133,5 +133,80 @@ We could do this by keeping the sprite list ordered, but for now let's just run 
 
 # OH COME ON NOW LET'S BE SERIOUS
 
-For updates either [follow the RSS](https://nick.zoic.org/feed.rss) or [follow me on Twitter](https://twitter.com/nickzoic/)
+OK so I've gotten very bogged down at this point with too much other work and too much other stuff going on,
+but I'll just mention a couple of little side-tracks before I hit publish and come back to it later
 
+## cc65
+
+[cc65](https://cc65.github.io/) is a freeware C compiler for the 6502.
+With a little bit of messing around (by default it tries to build a different kind of 
+binary) it can be used to build
+[C](https://www.ioccc.org/) code for our game.
+
+[Makefile](files/Makefile):
+```
+MAKEFLAGS += r
+TARGET = apple2
+TARGET_LIB = ${TARGET}.lib
+START_ADDR = 2000  # hex
+LIBRARIES = library.o
+
+%.s: %.c
+        cc65 -Oi -o $@ -t ${TARGET} $<
+
+%.o: %.s
+        ca65 -o $@ $<
+
+%.bin: %.o ${LIBRARIES}
+        ld65 -o $@ -t ${TARGET} -D __EXEHDR__=0 -S 0x${START_ADDR} $^ ${TARGET_LIB}
+
+%.dsk: %.bin
+        cp dos33_loader.dsk $@
+        a2in B.${START_ADDR} $@ PROGRAM $<
+
+run_%: %.dsk
+        mame apple2p -volume -24 -uimodekey DEL -flop1 $<
+```
+
+The [dos33\_loader.dsk](files/dos33_loader.zip) is a bootable DOS 3.3 disk which automatically runs 
+a a tiny Applesoft program called `HELLO` which loads a binary file called PROGRAM:
+
+```
+10 PRINT CHR$(13) CHR$(4) "BRUN PROGRAM"
+```
+
+The compiled code isn't spectacularly efficient, because it does stuff like:
+
+```
+        lda     _io_gr_graphics+1
+        sta     ptr1+1
+        lda     _io_gr_graphics
+        sta     ptr1
+        lda     #$00
+        tay
+        sta     (ptr1),y
+```
+
+... rather than the somewhat simpler `sta io_gr_graphics` but it's pretty easy to reverse engineer the calling
+convention and write a `library.h` and `library.s` with the weirder and more performance-critical parts in assembly.
+
+I'd rather dispense with DOS and use our tiny loader from before, with a boot sector loader to display
+the splash screen immediately and then load the compiled C code at `$0C00`, etc, but this is a good start.
+
+## Higher Level Languages
+
+Of course, shifting to C is somewhat of a pyrrhic victory, so the temptation is still there to try to compile a
+[minimal Forth](https://gist.github.com/lbruder/10007431) or
+[minimal LISP](https://carld.github.io/2017/06/20/lisp-in-less-than-200-lines-of-c.html) or similar.
+
+I also have a bit of an [ongoing obsession](https://github.com/nickzoic/tropyc)
+with the concept of a self-hosting Python
+compiler which would use the built-in Python
+[disassembler](https://docs.python.org/3/library/dis.html)
+library to retrieve bytecodes for a 
+function and then compile those to target code.  Perhaps this could be used to compile a limited subset of 
+Python code to 6502, without the stress of having to write an actual parser or compiler.
+
+# THAT'S ALL FOR NOW
+
+For updates either [follow the RSS](https://nick.zoic.org/feed.rss) or [follow me on Twitter](https://twitter.com/nickzoic/)

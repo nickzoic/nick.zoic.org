@@ -227,4 +227,6 @@ Python code to 6502, without the stress of having to write an actual parser or c
 
 # THAT'S ALL FOR NOW
 
-For updates either [follow the RSS](https://nick.zoic.org/feed.rss) or [follow me on Twitter](https://twitter.com/nickzoic/)
+For updates either [follow the RSS](https://nick.zoic.org/feed.rss) or [follow me on Twitter](https://twitter.com/nickzoic/). 
+
+Why not [say hi on Mastodon?](https://aus.social/@nickzoic/109419208776734650)

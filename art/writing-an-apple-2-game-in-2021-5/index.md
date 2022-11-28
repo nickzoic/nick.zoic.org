@@ -141,10 +141,16 @@ but I'll just mention a couple of little side-tracks before I hit publish and co
 
 ## cc65
 
-[cc65](https://cc65.github.io/) is a freeware C compiler for the 6502.
-With a little bit of messing around (by default it tries to build a different kind of 
-binary) it can be used to build
-[C](https://www.ioccc.org/) code for our game.
+[cc65](https://cc65.github.io/) is a freeware
+[C](https://www.ioccc.org/) compiler for the 6502 and friends.
+
+By default it tries to build an
+[AppleSingle](https://en.wikipedia.org/wiki/AppleSingle_and_AppleDouble_formats)
+binary, but I don't have the right tools for that so we turn it off with `-D __EXEHDR__=0`
+
+I use [a2tools](https://github.com/catseye/a2tools) to write the compiled code
+to disk as a binary file called `PROGRAM` which loads at the correct address.
+
 
 [Makefile](files/Makefile):
 ```
@@ -172,7 +178,8 @@ run_%: %.dsk
 ```
 
 The [dos33\_loader.dsk](files/dos33_loader.zip) is a bootable DOS 3.3 disk which automatically runs 
-a a tiny Applesoft program called `HELLO` which loads a binary file called PROGRAM:
+a a tiny Applesoft program called `HELLO` which loads the binary file `PROGRAM`.
+Printing a `CHR$(4)` followed by a DOS command runs that command, I don't know why.
 
 ```
 10 PRINT CHR$(13) CHR$(4) "BRUN PROGRAM"

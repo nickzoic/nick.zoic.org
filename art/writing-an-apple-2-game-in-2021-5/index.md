@@ -46,6 +46,9 @@ So if you want to non-destructively check for an arbitary bit being set in the a
 just do `BIT #$40` ... instead you have to either store that $40 in a zero page 
 location or you could do `AND #$40` but restore A from somewhere.
 
+(This is fixed in the [65C02](http://www.6502.org/tutorials/65c02opcodes.html) as used in the [Enhanced Apple IIe](https://en.wikipedia.org/wiki/Apple_IIe#Enhanced_IIe) and [Apple IIc](https://en.wikipedia.org/wiki/Apple_IIc),
+by the way, along with a bunch more instructions and addressing modes)
+
 ## Indirect addressing
 
 ADC, AND, CMP, EOR, LDA, ORA, SBC and STA all support "zeropage,X" and "indirect"

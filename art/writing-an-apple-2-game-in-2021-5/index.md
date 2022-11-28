@@ -203,7 +203,9 @@ The compiled code isn't spectacularly efficient, because it does stuff like:
         sta     (ptr1),y
 ```
 
-... rather than the somewhat simpler `sta io_gr_graphics` but it's pretty easy to reverse engineer the calling
+... rather than the somewhat simpler `sta io_gr_graphics`
+(it hasn't noticed it is a `char * const`, so it could just use that address in "absolute" mode)
+but it's pretty easy to reverse engineer the calling
 convention and write a `library.h` and `library.s` with the weirder and more performance-critical parts in assembly.
 
 I'd rather dispense with DOS and use our tiny loader from before, with a boot sector loader to display
@@ -211,7 +213,7 @@ the splash screen immediately and then load the compiled C code at `$0C00`, etc,
 
 ## Higher Level Languages
 
-Of course, shifting to C is somewhat of a pyrrhic victory, so the temptation is still there to try to compile a
+Of course, shifting to C isn't necessarily going far enough, so the temptation is still there to try to compile a
 [minimal Forth](https://gist.github.com/lbruder/10007431) or
 [minimal LISP](https://carld.github.io/2017/06/20/lisp-in-less-than-200-lines-of-c.html) or similar.
 

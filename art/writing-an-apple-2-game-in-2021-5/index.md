@@ -8,6 +8,12 @@ title: 'Writing an Apple 2 game in 2021 (Part 5)'
 summary: "Part 5 -- Getting Sidetracked, Of Course"
 ---
 
+Previously:
+* [Part 1](/art/writing-an-apple-2-game-in-2021-1/): About the Apple2 and what to write?
+* [Part 2](/art/writing-an-apple-2-game-in-2021-2/): More about 6502 and LoRes.
+* [Part 3](/art/writing-an-apple-2-game-in-2021-3/): Controls & Movement
+* [Part 4](/art/writing-an-apple-2-game-in-2021-4/): Background, Splash Screen, One Sprite.
+
 # More thinking about 6502
 
 Getting to grips with the 6502 CPU is hard, because it's so alien to a modern programmer.

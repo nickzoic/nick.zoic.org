@@ -211,6 +211,56 @@ convention and write a `library.h` and `library.s` with the weirder and more per
 I'd rather dispense with DOS and use our tiny loader from before, with a boot sector loader to display
 the splash screen immediately and then load the compiled C code at `$0C00`, etc, but this is a good start.
 
+### UPDATE: cc65 in a Boot Track
+
+This turns out to be very easy.  Just create a tiny little `startup.s` file:
+
+```
+.setcpu "6502"
+
+.segment "STARTUP"
+
+_startup:
+    .byte $10
+```
+
+and then target the code at address `$0800` ... the startup segment comes first,
+so it'll put that `$10` byte at the start of the binary, causing BOOT0 to load
+16 sectors and jump to `$0801`, where the rest of the code is.
+
+(You still have to do the DOS 3.3 sector shuffle, and this only loads one track, but
+thankfully our little printf hello world program fits into 12 sectors)
+
+```
+MAKEFLAGS += r
+TARGET = apple2
+TARGET_LIB = ${TARGET}.lib
+
+.PHONY: run_%
+
+.PRECIOUS: %.dsk 
+
+%.s: %.c
+        cc65 -Oi -o $@ -t ${TARGET} $<
+
+%.o: %.s
+        ca65 -o $@ $<
+
+%.bin: startup.o %.o
+        ld65 -o $@ -t ${TARGET} -D __EXEHDR__=0 -S 0x0800 $^ ${TARGET_LIB}
+
+%.dsk: %.bin
+        ../bin2dsk.py $< $@
+
+run_%: %.dsk
+        mame apple2p -volume -24 -uimodekey DEL -flop1 $<
+```
+
+More practically, `startup.s` could provide a proper boot loader modelled on
+[BOOT1](https://6502disassembly.com/a2-rom/BOOT1.html) which would
+handle splash screens, multiple tracks, DOS sector shuffling, etc,
+and then the main C code could be targeted at `$0C00`.
+
 ## Higher Level Languages
 
 Of course, shifting to C isn't necessarily going far enough, so the temptation is still there to try to compile a

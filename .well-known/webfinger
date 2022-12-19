@@ -1,0 +1,24 @@
+{
+  "subject": "acct:nickzoic@aus.social",
+  "aliases": [
+    "https://aus.social/@nickzoic",
+    "https://aus.social/users/nickzoic"
+  ],
+  "links": [
+    {
+      "rel": "http://webfinger.net/rel/profile-page",
+      "type": "text/html",
+      "href": "https://aus.social/@nickzoic"
+    },
+    {
+      "rel": "self",
+      "type": "application/activity+json",
+      "href": "https://aus.social/users/nickzoic"
+    },
+    {
+      "rel": "http://ostatus.org/schema/1.0/subscribe",
+      "template": "https://aus.social/authorize_interaction?uri={uri}"
+    }
+  ]
+}
+    

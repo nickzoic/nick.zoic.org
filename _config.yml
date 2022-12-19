@@ -6,6 +6,3 @@ highlighter: rouge
 
 gems:
   - jekyll-redirect-from
-
-include: [".well-known/"]
-

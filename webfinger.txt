@@ -1,3 +1,7 @@
+---
+layout: none
+permalink: .well-known/webfinger
+---
 {
   "subject": "acct:nickzoic@aus.social",
   "aliases": [

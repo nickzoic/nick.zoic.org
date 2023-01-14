@@ -409,6 +409,7 @@ During the Recent Unpleasantness I spent a bit of time playing
 it is an absolute hoot, especially the two-player version and I
 absolutely recommend it.
 
+![untitled goose game screenshot](img/goose-screenshot.jpg)
 And there's something about it's muted palette which reminds me
 of the LORES palette.  Okay, so how about a low res goose?
 The first step was to see what a goose made of big fat lores pixels

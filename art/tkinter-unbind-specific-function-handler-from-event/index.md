@@ -1,11 +1,12 @@
 ---
 date: '2023-02-05'
 layout: article
-title: 'Trying to unbind a specific event handler function from an event in Python Tkinter
+title: 'Trying to unbind a specific event handler function from an event in Python Tkinter?'
 summary: |
-    Yeah, it's a bug.
+    Yeah, it unbinds everything, it's a bug.
 tags:
     - python
+    - tkinter
     - gui
 ---
 

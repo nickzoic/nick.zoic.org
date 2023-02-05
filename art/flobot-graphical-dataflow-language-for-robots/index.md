@@ -12,6 +12,7 @@ tags:
     - education
     - html5
     - languages
+    - gui
 title: 'FloBot: A Graphical Dataflow Language for Robots'
 ---
 

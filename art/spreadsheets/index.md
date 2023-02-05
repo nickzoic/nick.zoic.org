@@ -4,6 +4,7 @@ layout: article
 tags:
   - speculation
   - languages
+  - gui
 title: 'Much Ado about Spreadsheets'
 summary: Spreadsheets were arguably the first Killer App for personal computers, a tabular ledger but also a kind of visual dataflow language. However, the standard spreadsheet has some pretty severe problems... sometimes, it really is time to reinvent the wheel!
 ---

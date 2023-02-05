@@ -7,7 +7,7 @@
         <a class="sidebar-nav-item{% if page.url == '/ref/' %} active{% endif %}" href="/ref/">Interesting Links</a>
       </p>
 
-      <h2>Recently:</h2>
+      <h2><a href="/everything/">Recently:</a></h2>
 
       {% assign pages_list = site.pages | where:"layout","article" | sort:"date" | reverse %}
       {% for node in pages_list limit:10 %}
@@ -15,12 +15,10 @@
           <a class="sidebar-nav-item{% if page.url == node.url %} active{% endif %}" href="{{ node.url }}">{{ node.title }}</a>
         {% endif %}
       {% endfor %}
-
-      <p><a href="/everything/">More ...</a></p>
     </nav>
 
     <nav class="footer-tags">
-      <h2>Tags:</h2>
+	    <h2><a href="/all_tags/">Tags:</a></h2>
       {% assign sorted_pages = site.pages | where: "layout","tag" | sort:"tag" %}
       <p style="font-size: 0.8em">
       {% for node in sorted_pages %}
@@ -29,7 +27,7 @@
       </p>
     </nav>
 
-    <p class="footer-copy">All content Copyright © 2009-2021 Nick Moore unless otherwise noted</p>
+    <p class="footer-copy">All content Copyright © 2009-2023 Nick Moore unless otherwise noted</p>
 
   </div>
 </div>

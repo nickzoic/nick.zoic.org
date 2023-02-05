@@ -14,7 +14,7 @@
         <a class="sidebar-nav-item{% if page.url == '/ref/' %} active{% endif %}" href="/ref/">Interesting Links</a>
       </p>
 
-      <h2><a href="/everythig/">Recently</a>:</h2>
+      <h2><a href="/everything/">Recently</a>:</h2>
       {% assign pages_list = site.pages | where:"layout","article" | sort:"date" | reverse %}
       {% for node in pages_list limit:10 %}
         {% if node.title != null %}

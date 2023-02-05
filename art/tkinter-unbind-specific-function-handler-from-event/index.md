@@ -1,7 +1,7 @@
 ---
-date: '2023-02-05
+date: '2023-02-05'
 layout: article
-title: 'Unbind a specific event handler function from an event in Python Tkinter
+title: 'Trying to unbind a specific event handler function from an event in Python Tkinter
 summary: |
     Yeah, it's a bug.
 tags:

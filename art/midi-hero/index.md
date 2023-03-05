@@ -581,9 +581,23 @@ set up to very slightly decay, and the piezo strum sensor to inject an
 electrical 'kick' into these active circuits to cause them to ring.
 It might be fun to prototype something like this anyway.
 
-
 # MORE STUFF
 
 * This [review of the ROR MIDI PRO 2 Guitar](https://www.youtube.com/watch?v=4-BR1qBFcNQ) which is an actual guitar with lots of MIDI controls, pads and so on.
 * The [Suzuki Omnichord](http://www.suzukimusic.co.uk/omnichord-heaven/index.html) and [Suzuki Q-chord](http://www.suzukimusic.co.uk/qchord/) are a similar concept
   to the "vision" thing above, although I don't know how the "strum plate" works.
+* [Another one on the Q-chord and other electronic zitherish instruments](https://www.youtube.com/watch?v=pAIar0O-yvg)
+* [Q-Chord.net](https://web.archive.org/web/20120328025455/http://qchord.net/docs/qchord-manual.htm), sadly defunct but still with us thanks to archive.org
+* [The Magical Musical Thing](https://www.youtube.com/watch?v=jRKqVYAfbGw) 
+
+# UPDATE 2023
+
+Since back-of-an-envelope calculations lead me to conclude that an array of
+actual physical AF LC oscillators will be inconveniently huge, I'm wondering how it'd
+work to have an audio sensor, something like a piezo pickup attached to a 
+metal plate, feeding signal into a multi-'string' implementation of the
+[Karplus-Strong](http://amid.fish/javascript-karplus-strong) synthesis algorithm
+running on a microcontroller.  You could then tap, rap, slap, scrape or shout into 
+the pickup and that signal would be used as the input to the KS filter, to be
+tuned and decayed.
+

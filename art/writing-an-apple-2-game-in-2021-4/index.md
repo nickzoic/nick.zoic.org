@@ -214,5 +214,6 @@ sprite and position accordingly.
 
 # UPDATES COMING SOON(ER THAN THE LAST UPDATE, HOPEFULLY)
 
-For updates either [follow the RSS](https://nick.zoic.org/feed.rss) or [follow me on Twitter](https://twitter.com/nickzoic/)
+For updates either [follow the RSS](https://nick.zoic.org/feed.rss) or or [follow me on Mastodon](https://aus.social/@nickzoic/)
+
 

@@ -77,4 +77,5 @@ graphics being written so it's kind of on its way.
 
 [Part 4: Oh no, it's 2022](/art/writing-an-apple-2-game-in-2021-4/)
 
-For updates either [follow the RSS](https://nick.zoic.org/feed.rss) or [follow me on Twitter](https://twitter.com/nickzoic/)
+For updates either [follow the RSS](https://nick.zoic.org/feed.rss) or [follow me on Mastodon](https://aus.social/@nickzoic/)
+

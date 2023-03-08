@@ -396,4 +396,5 @@ But those things will have to wait until ...
 
 ... continued in [Writing an Apple 2 game in 2021: Part 3](/art/writing-an-apple-2-game-in-2021-3/) ...
 
-For updates either [follow the RSS](https://nick.zoic.org/feed.rss) or [follow me on Twitter](https://twitter.com/nickzoic/)
+For updates either [follow the RSS](https://nick.zoic.org/feed.rss) or [follow me on Mastodon](https://aus.social/@nickzoic/)
+

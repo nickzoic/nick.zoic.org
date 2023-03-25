@@ -20,7 +20,7 @@ It's actually already documented, on the
 and on the [Tkinter-Discuss Mailing List almost 10 years ago](https://mail.python.org/pipermail/tkinter-discuss/2012-May/003152.html) but it is still an issue in 
 Python 3.11 and it took me a while to find so I'm documenting it here using 
 the terms I first used to search for it.  Amusingly, posting about
-[bugs which took ages to find](https://nick.zoic.org/art/wget-certificate-private-key/) 
+[bugs which took ages to find](/art/wget-certificate-private-key/) 
 was one of the reasons I started this blog.
 
 # tkinter.Misc.unbind(self, sequence, funcid=None)

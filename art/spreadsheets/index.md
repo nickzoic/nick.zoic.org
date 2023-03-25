@@ -306,3 +306,8 @@ Mind you, I'm somewhat convinced that
 isn't necessarily a good goal for programming languages and that
 [Total (Provably Terminating)](https://en.wikipedia.org/wiki/Total_functional_programming)
 languages are a sensible restriction.
+
+# UPDATE 2023
+
+* [I Will Fucking Dropkick You If You Use That Spreadsheet](https://ludic.mataroa.blog/blog/i-will-fucking-dropkick-you-if-you-use-that-spreadsheet/)
+* [Attack and Dethrone Excel](/art/attack-and-dethrone-excel/)

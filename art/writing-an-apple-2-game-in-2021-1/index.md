@@ -428,4 +428,4 @@ Hmmm, maybe!
 
 ... continued in [Writing an Apple 2 game in 2021: Part 2](/art/writing-an-apple-2-game-in-2021-2/) ...
 
-For updates either [follow the RSS](https://nick.zoic.org/feed.rss) or [follow me on Twitter](https://twitter.com/nickzoic/)
+For updates [follow the RSS](https://nick.zoic.org/feed.rss) or [follow me on Mastodon](https://aus.social/@nickzoic/)

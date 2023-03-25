@@ -269,9 +269,6 @@ accelerate and decelerate the tree to reduce load on the geartrain, but it's
 interesting to see how much movement there is in the decorations as the tree
 wobbles very slightly in its orbit.
 
-If you're interested in following along, [follow me on Twitter](https://twitter.com/nickzoic/)
-and I'll post updates and videos and so on there.
-
 ## MQTT
 
 I mention just above that having two real-time functions plus the web server 

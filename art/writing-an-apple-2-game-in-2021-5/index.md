@@ -157,7 +157,6 @@ binary, but I don't have the right tools for that so we turn it off with `-D __E
 I use [a2tools](https://github.com/catseye/a2tools) to write the compiled code
 to disk as a binary file called `PROGRAM` which loads at the correct address.
 
-
 [Makefile](files/Makefile):
 ```
 MAKEFLAGS += r
@@ -183,13 +182,22 @@ run_%: %.dsk
         mame apple2p -volume -24 -uimodekey DEL -flop1 $<
 ```
 
-The [dos33\_loader.dsk](files/dos33_loader.zip) is a bootable DOS 3.3 disk which automatically runs 
-a a tiny Applesoft program called `HELLO` which loads the binary file `PROGRAM`.
-Printing a `CHR$(4)` followed by a DOS command runs that command, I don't know why.
+The [dos33\_loader.dsk](files/dos33_loader.zip) is a bootable DOS 3.3 disk which contains a 
+tiny Applesoft program called `HELLO`, which is automatically run at boot time:
 
 ```
 10 PRINT CHR$(13) CHR$(4) "BRUN PROGRAM"
 ```
+
+When this program runs, it loads `PROGRAM` into memory and runs it.
+Printing a `CHR$(4)` followed by a DOS command runs that command as if you'd
+typed it at the DOS prompt, I don't know why they chose to do it that way instead
+of `BRUN` being an Applesoft command, but whatever.
+
+The address to load `PROGRAM` at is stored on the disk when the file is created
+by the `a2in B.${START_ADDR}` command in the Makefile.
+
+### compiled code
 
 The compiled code isn't spectacularly efficient, because it does stuff like:
 
@@ -228,7 +236,8 @@ and then target the code at address `$0800` ... the startup segment comes first,
 so it'll put that `$10` byte at the start of the binary, causing BOOT0 to load
 16 sectors and jump to `$0801`, where the rest of the code is.
 
-(You still have to do the DOS 3.3 sector shuffle, and this only loads one track, but
+(You still have to do the [DOS 3.3 sector shuffle](../writing-an-apple-2-game-in-2021-1/#sector-interleaving),
+and this only loads one track, but
 thankfully our little printf hello world program fits into 12 sectors)
 
 ```

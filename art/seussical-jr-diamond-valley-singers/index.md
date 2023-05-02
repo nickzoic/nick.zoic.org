@@ -115,3 +115,6 @@ Then we roll it loosely back on itself so the furled part is retained in a wrap 
 and secure that beneath the beam with the cord loops.  This seems to work a lot
 better than either just furling (which falls quickly, but comes loose easily)
 or just rolling (which falls very slowly, and can get caught up itself as it drops).
+
+![me and the hat](img/hat2.jpg)
+*Me and the Hat*

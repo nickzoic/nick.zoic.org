@@ -589,6 +589,7 @@ It might be fun to prototype something like this anyway.
 * [Another one on the Q-chord and other electronic zitherish instruments](https://www.youtube.com/watch?v=pAIar0O-yvg)
 * [Q-Chord.net](https://web.archive.org/web/20120328025455/http://qchord.net/docs/qchord-manual.htm), sadly defunct but still with us thanks to archive.org
 * [The Magical Musical Thing](https://www.youtube.com/watch?v=jRKqVYAfbGw) 
+* [A more civilized MIDI Guitar Hero controller](https://learn.adafruit.com/guitar-hero-midi-controller/usb-midi-essentials)
 
 # UPDATE 2023
 

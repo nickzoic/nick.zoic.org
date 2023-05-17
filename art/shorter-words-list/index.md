@@ -320,8 +320,13 @@ of 4.4 characters per word, too, for 2.04 bits per character.
   and 256 4 letter words so they'd print neatly in columns?  This list has 267
   five letter words, so we're not far off.
 
-## UPDATE 2020-08-07
+## UPDATES
 
-This words list is now being used by the "tip" version of
-[Web Wormhole](https://tip.webwormhole.io/)!
-Okay so not exactly earth-shattering but given the year we're having ...
+* This words list is now being used by
+  [Web Wormhole](https://tip.webwormhole.io/)!
+  Okay so not exactly earth-shattering but given the year we're having ...
+
+* [Storybits](https://rya.nc/storybits.html) is another
+  interesting encoding scheme "designed to produce a mental
+  image".  Word order insensitive and can automatically 
+  correct typos.

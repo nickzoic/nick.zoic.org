@@ -168,3 +168,27 @@ Obviously, this approach could be made more sophisticated, with variable
 length prefixes and so on. But with this relatively simple approach
 we've already achieved an appearance of dynamic content with an entirely
 static backend.
+
+
+# UPDATE 2018ish.
+
+`jquery` is no longer hip with the cool kids, but other libraries can be used in
+much the same way.
+
+Several years ago, as a contractor, I put together the backend for a thing called
+"Telstra TV Plus" using this technique.  It parsed a whole bunch of 
+input files from Gracenote and others and churned out thousands of 
+tiny JSON files which the frontend could read to match a search term.  Then 
+another raft of tiny JSON files were used to retrieve details for individual
+movies, series, etc, all pre-parsed and ready for the frontend to display.
+
+It worked great and meant we could do quite nice search & display across many 
+streaming services without any infrastructure and therefore without any downtime!
+
+It was in production like this for a while,
+but sadly seems to have disappeared from human memory.
+
+# UPDATE 2023
+
+I noticed that [/art/i-for-one-welcome-our-robot-overlords](the Washington Post)
+uses something like this technique to support their interactive articles.

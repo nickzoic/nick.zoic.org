@@ -35,5 +35,6 @@ software to remind them who is who.
 
 # Abusive Behaviour & Transitive Wrongness
 
+https://www.techdirt.com/2022/11/02/hey-elon-let-me-help-you-speed-run-the-content-moderation-learning-curve/
 
 

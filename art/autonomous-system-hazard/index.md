@@ -33,7 +33,8 @@ and also a anthropomorphic robot in a
 pose to symbolize the autonomous nature of the device.
 
 The 5 spoked wheel is a nod to the [Discordians](https://en.wikipedia.org/wiki/Discordianism)
-and the 13 teeth on the wheel are just a nice bonus.  At the center is a 
+and the [13](https://en.wikipedia.org/wiki/Triskaidekaphobia)
+teeth on the wheel are just a nice bonus.  At the center is a 
 skull-like [keyed shaft](https://en.wikipedia.org/wiki/Key_%28engineering%29).
 
 ![Autonomous System Hazard](img/autonomous-system-hazard.svg)
@@ -42,3 +43,9 @@ skull-like [keyed shaft](https://en.wikipedia.org/wiki/Key_%28engineering%29).
 in an emergency a hand drawn, five spoked wheel in a hazard triangle should suffice.)
 
 OK, I guess I'd better go print it on a T-shirt :-)
+
+### UPDATE
+
+SVG with a nice transparent background mask:
+
+![Autonomous System Hazard](img/autonomous-system-transparent.svg)

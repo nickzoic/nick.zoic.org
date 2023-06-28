@@ -110,3 +110,6 @@ drawing a comparison with the
 which operates mostly autonomously but to further the 
 aims of the [Somatic Nervous System](https://en.wikipedia.org/wiki/Somatic_nervous_system) which carries our voluntary actions.
 
+## UPDATE
+
+I'm working with some of these ideas again in [CountESS](/art/attack-and-dethrone-excel/)

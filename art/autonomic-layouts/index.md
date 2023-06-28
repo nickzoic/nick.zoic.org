@@ -72,8 +72,8 @@ Direction on the screen can indicate the nature of the relationship,
 with parent/child, next/previous, cause/effect, contains/contained
 etc mapping onto the screen direction.
 
-As mentioned in [Decoding](/art/decoding-programming-beyond-text-files/)
-This mapping between graph and presentation could even be dynamic:
+As mentioned in [Decoding](/art/decoding-programming-beyond-text-files/),
+this mapping between graph and presentation could even be dynamic:
 choose a different mapping depending on the work at hand.
 
 Navigation is then done by shifting focus between nodes.  Move from caller
@@ -82,6 +82,9 @@ Rather than nodes existing in a static 2D presentational space, they exist in a
 much larger, higher dimensional mental space.
 
 ![diagram2](img/diagram2.jpg)
+
+Sometimes you might want to focus on two (or more) nodes and visualize the 
+relationships between them.
 
 ## Precedent
 

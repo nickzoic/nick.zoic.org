@@ -7,7 +7,7 @@ layout: base
       {% for page in sorted_pages %}
           {% if page.layout == "tag" %}
               <a href="{{ page.url }}"><h3>{{ page.title }}</h3></a>
-              {{ page.content }}
+              {{ page.content|markdownify }}
               <ul>
                   {% for page2 in sorted_pages %}
                       {% if page2.layout == "article" %}

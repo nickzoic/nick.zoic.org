@@ -9,13 +9,13 @@ title: 'MIDI Hero (2)'
 summary: 'Turning a thrift store Guitar Hero controller into a MIDI controller (continued)'
 ---
 
-# MIDI Hero (part 2)
-
 Well, it looks like [we're going to PyConAU](https://2023.pycon.org.au/program/8PDEHA/) and to celebrate
 the [MIDI Hero guitar](/art/midi-hero/) is going to get some sensor upgrades ...
 
+## Available I/O
+
 Sticking with the [Adafruit Metro M4 Express](https://circuitpython.org/board/metro_m4_express/) currently 
-in it, we've got quite a few pins to play with:
+in it, we've got [quite a few pins to play with](https://learn.adafruit.com/adafruit-metro-m4-express-featuring-atsamd51/pinouts):
 
 | Pin | Function |
 |-----|----------|
@@ -25,8 +25,8 @@ in it, we've got quite a few pins to play with:
 | A3  | Analog Input or Digital I/O |
 | A4  | Analog Input or Digital I/O |
 | A5  | Analog Input or Digital I/O |
-| SDA | SDA or Analog Input |
-| SCL | SCL or Analog Input |
+| SDA | SDA or Analog Input A6 |
+| SCL | SCL or Analog Input A7 |
 | D0  | Digital I/O or Serial1 RX |
 | D1  | Digital I/O or I2S SDI or Serial1 TX |
 | D2  | Digital I/O or I2S MC |
@@ -45,6 +45,8 @@ in it, we've got quite a few pins to play with:
 | MISO | Digital I/O or SPI MISO |
 | MOSI | Digital I/O or SPI MOSI |
 
+## New Controls
+
 There were three things I wanted to add to this project:
 
 * On-board Synthesis (Audio Out) 
@@ -62,6 +64,62 @@ There were three things I wanted to add to this project:
   The clicky strum thingy is quite annoying, I'm interested to see how a piezo or 
   force sensor would feel to play.
 
-So let's work out how those might work.
+So let's work out how those might work:
+
+### On-board Synthesis
+
+On-board synthesis with [Karplus-Strong](http://amid.fish/javascript-karplus-strong)
+shouldn't be too hard.
+
+While CircuitPython supports [I2S](https://en.wikipedia.org/wiki/I%C2%B2S)
+it'd probably be easier just to
+run audio straight out the A0/A1 analog outputs.  We're not exactly after high
+fidelity here and I2S needs several pins and a separate I2S DAC board.
+
+### More Frets!
+
+Some more fret buttons would be nice, and there's also a possibility for analog
+input from something like a
+[Soft Potentiometer](https://www.spectrasymbol.com/linear-position-sensors/soft-membrane-linear-pots-softpot)
+
+### Better Strums!
+
+The nice thing about the soft pot mentioned about is that it is thin and can just 
+get surface mounted to the controller.  This saves a lot of hassle removing
+internal structures which keep the controller rigid.
+
+A similar device called a [Force sensing resistor](https://en.wikipedia.org/wiki/Force-sensing_resistor)
+might be usable as a better strum sensor.
+Another possibility is to use a [piezo sensor](https://en.wikipedia.org/wiki/Piezoelectric_sensor)
+on the inside of the plastic case, or even just a tiny microphone to detect the sounds of fingers
+whacking on the plastic.
+
+Software would track the peak force/pressure/signal and use this to assign the "velocity" of the MIDI event.
+
+The existing strum control could either be left as is (two separate digital inputs) or wired into the
+analog strum circuit somehow.
+
+# Control Positions
 
 ![Endless Possibilities](img/endless-possibilities.jpg)
+*Endless Possibilities*
+
+There's many possibilities for adding extra controls.  For a start, there's a 
+large rectangular space on the faux fretboard, between the lowest 'fret button'
+and the strum sensor.  This is about 180mm long, and about 45mm at the wider
+end and 35mm at the narrower end.  The neck is also quite square, and so there's
+a strip along the bottom of the neck which is about 240x18mm which is quite easy
+to get fingers on.
+
+The MCU board takes up a lot of space in the top side of the lower bout, but
+there might be some room around the whammy bar for another control knob, or
+maybe the lower or upper horns could host some more controls.
+
+Finally, that weird blobby headstock could maybe fit something or another in it?
+I'd consider sawing it off but that would make the controller hard to 
+[hang](https://github.com/nickzoic/models3d/blob/master/music/u-hook-square.scad)
+
+I don't really want to keep pulling this thing apart, and I'd like to have
+some spare stuff built in to fiddle with at [PyConAU](https://2023.pycon.org.au/program/8PDEHA/)
+so I think I'll take the approach of using up as many I/O pins as possible ...
+

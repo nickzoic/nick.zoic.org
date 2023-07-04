@@ -81,6 +81,8 @@ fidelity here and I2S needs several pins and a separate I2S DAC board.
 Some more fret buttons would be nice, and there's also a possibility for analog
 input from something like a
 [Soft Potentiometer](https://www.spectrasymbol.com/linear-position-sensors/soft-membrane-linear-pots-softpot)
+which would allow for continuous movement much like a
+[Lap Steel Guitar](https://en.wikipedia.org/wiki/Lap_steel_guitar). 
 
 ### Better Strums!
 
@@ -99,7 +101,7 @@ Software would track the peak force/pressure/signal and use this to assign the "
 The existing strum control could either be left as is (two separate digital inputs) or wired into the
 analog strum circuit somehow.
 
-# Control Positions
+## Control Positions
 
 ![Endless Possibilities](img/endless-possibilities.jpg)
 *Endless Possibilities*
@@ -107,8 +109,11 @@ analog strum circuit somehow.
 There's many possibilities for adding extra controls.  For a start, there's a 
 large rectangular space on the faux fretboard, between the lowest 'fret button'
 and the strum sensor.  This is about 180mm long, and about 45mm at the wider
-end and 35mm at the narrower end.  The neck is also quite square, and so there's
-a strip along the bottom of the neck which is about 240x18mm which is quite easy
+end and 35mm at the narrower end.  There are little fret ridges but there can
+be sanded flat if necessary.
+
+The neck is also quite square, and so there's
+a flat strip along the bottom of the neck which is about 240x18mm which is quite easy
 to get fingers on.
 
 The MCU board takes up a lot of space in the top side of the lower bout, but
@@ -122,4 +127,6 @@ I'd consider sawing it off but that would make the controller hard to
 I don't really want to keep pulling this thing apart, and I'd like to have
 some spare stuff built in to fiddle with at [PyConAU](https://2023.pycon.org.au/program/8PDEHA/)
 so I think I'll take the approach of using up as many I/O pins as possible ...
+not everything is going to turn out to be useful, but it's a platform for experimentation so
+that's okay.
 

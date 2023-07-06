@@ -604,5 +604,6 @@ tuned and decayed.
 
 # UPDATE 2023-06-30
 
-Well, it looks like [we're going to PyConAU](https://2023.pycon.org.au/program/8PDEHA/) and to celebrate 
-the MIDI Hero guitar is going to get some sensor upgrades, or at least, I'll add a bunch of stuff and see how it works ...
+Well, it looks like [we're going to PyConAU](https://2023.pycon.org.au/program/8PDEHA/)
+and to celebrate the MIDI Hero guitar is going to get some sensor upgrades, or at least,
+I'll add a bunch of stuff and see how it works ...

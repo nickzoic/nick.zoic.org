@@ -12,38 +12,6 @@ summary: 'Turning a thrift store Guitar Hero controller into a MIDI controller (
 Well, it looks like [we're going to PyConAU](https://2023.pycon.org.au/program/8PDEHA/) and to celebrate
 the [MIDI Hero guitar](/art/midi-hero/) is going to get some sensor upgrades ...
 
-## Available I/O
-
-Sticking with the [Adafruit Metro M4 Express](https://circuitpython.org/board/metro_m4_express/) currently 
-in it, we've got [quite a few pins to play with](https://learn.adafruit.com/adafruit-metro-m4-express-featuring-atsamd51/pinouts):
-
-| Pin | Function |
-|-----|----------|
-| A0  | Analog Input or Output |
-| A1  | Analog Input or Output |
-| A2  | Analog Input or Digital I/O |
-| A3  | Analog Input or Digital I/O |
-| A4  | Analog Input or Digital I/O |
-| A5  | Analog Input or Digital I/O |
-| SDA | SDA or Analog Input A6 |
-| SCL | SCL or Analog Input A7 |
-| D0  | Digital I/O or Serial1 RX |
-| D1  | Digital I/O or I2S SDI or Serial1 TX |
-| D2  | Digital I/O or I2S MC |
-| D3  | Digital I/O or I2S BCK |
-| D4  | Digital I/O |
-| D5  | Digital I/O |
-| D6  | Digital I/O |
-| D7  | Digital I/O |
-| D8  | Digital I/O or I2S SDO |
-| D9  | Digital I/O or I2S WS |
-| D10 | Digital I/O |
-| D11 | Digital I/O |
-| D12 | Digital I/O |
-| D13 | Digital I/O (red LED) |
-| SCK | Digital I/O or SPI SCK |
-| MISO | Digital I/O or SPI MISO |
-| MOSI | Digital I/O or SPI MOSI |
 
 ## New Controls
 
@@ -130,3 +98,48 @@ so I think I'll take the approach of using up as many I/O pins as possible ...
 not everything is going to turn out to be useful, but it's a platform for experimentation so
 that's okay.
 
+## Available I/O
+
+Sticking with the [Adafruit Metro M4 Express](https://circuitpython.org/board/metro_m4_express/) currently 
+in it, we've got [quite a few pins to play with](https://learn.adafruit.com/adafruit-metro-m4-express-featuring-atsamd51/pinouts):
+
+| Pin | Function | Use |
+|-----|----------|-----|
+| A0  | Analog Input or Output | Stereo Jack (T) * |
+| A1  | Analog Input or Output | Stereo Jack (R) * |
+| A2  | Analog Input or Digital I/O | Whammy Bar |
+| A3  | Analog Input or Digital I/O | Fret Slide (soft potentiometer)|
+| A4  | Analog Input or Digital I/O | Strum Sensor (force dependent resistor) |
+| A5  | Analog Input or Digital I/O | Knob 1 |
+| SDA | SDA or Analog Input A6 | Knob 2 |
+| SCL | SCL or Analog Input A7 | Knob 3 |
+| D0  | Digital I/O or Serial1 RX | 5 pin MIDI * |
+| D1  | Digital I/O or I2S SDI or Serial1 TX | 5 pin MIDI * |
+| D2  | Digital I/O or I2S MC | Fret 1 |
+| D3  | Digital I/O or I2S BCK | Fret 2 |
+| D4  | Digital I/O | Fret 3 |
+| D5  | Digital I/O | Fret 4 |
+| D6  | Digital I/O | Fret 5 |
+| D7  | Digital I/O | Fret 6 (additional) |
+| D8  | Digital I/O or I2S SDO | Fret 7 (additional) |
+| D9  | Digital I/O or I2S WS | Fret 8 (additional) |
+| D10 | Digital I/O | Strum Down |
+| D11 | Digital I/O | Strum Up |
+| D12 | Digital I/O | Select Button |
+| D13 | Digital I/O (red LED) | Start Button |
+| SCK | Digital I/O or SPI SCK | ** |
+| MISO | Digital I/O or SPI MISO | ** | 
+| MOSI | Digital I/O or SPI MOSI | ** |
+
+\*: Eventually?  Leave them just in case.
+
+\*\*: These are on a different header so not as convenient.
+
+So that's an additional analog fret slider, a strum force sensor, three extra fret buttons
+and three multipurpose knobs to fit in.  Plus a handful of passive components.  And we have
+to work around the internal structures of the controller enough that it will stil
+screw back together nicely.
+
+Then the onboard software will map each of these things to
+[MIDI Messages](http://www.music.mcgill.ca/~ich/classes/mumt306/StandardMIDIfileformat.html#BMA1_1) 
+such as notes, velocities, pressures, pitch bends and control changes.

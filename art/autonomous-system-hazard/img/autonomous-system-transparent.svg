@@ -1,0 +1,58 @@
+<?xml version="1.0" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg viewBox="0,0,120,120" xmlns="http://www.w3.org/2000/svg" version="1.1">
+   <g transform="translate(60,60)">
+       <!-- outer rim -->
+       <!--rect x="-60" y="-60" width="120" height="120" style="fill:green"/-->
+       <circle r="50" style="fill: black" mask="url(#mask)"/>
+
+       <!-- arms -->
+       <polygon points="-2,12.5 -7,43.75 7,43.75 2,12.5" transform="rotate(110.8 0 0)" style="fill:black"/>
+       <polygon points="-2,12.5 -7,43.75 7,43.75 2,12.5" transform="rotate(249.2 0 0)" style="fill:black"/>
+
+       <!-- legs -->
+       <polygon points="-2,12.5 -7,43.75 7,43.75 2,12.5" transform="rotate(41.5 0 0)" style="fill:black"/>
+       <polygon points="-2,12.5 -7,43.75 7,43.75 2,12.5" transform="rotate(318.5 0 0)" style="fill:black"/>
+
+       <!-- head -->
+       <polygon points="-2,12.5 -7,43.75 7,43.75 2,12.5" transform="rotate(166.2 0 0)" style="fill:black"/>
+       <polygon points="-2,12.5 -7,43.75 7,43.75 2,12.5" transform="rotate(180.0 0 0)" style="fill:black"/>
+       <polygon points="-2,12.5 -7,43.75 7,43.75 2,12.5" transform="rotate(193.8 0 0)" style="fill:black"/>
+       <circle r="4" transform="translate(0 -29)" style="fill: red"/>
+      
+       <mask id="mask">
+
+           <circle r="50" style="fill: white"/>
+           <circle r="35" style="fill: black"/>
+           <!-- teeth -->
+           <circle r="6" transform="rotate(0 0 0) translate(0 50)" style="fill:black"/>
+           <circle r="6" transform="rotate(27.7 0 0) translate(0 50)" style="fill:black"/>
+           <circle r="6" transform="rotate(55.4 0 0) translate(0 50)" style="fill:black"/>
+           <circle r="6" transform="rotate(83.1 0 0) translate(0 50)" style="fill:black"/>
+           <circle r="6" transform="rotate(110.8 0 0) translate(0 50)" style="fill:black"/>
+           <circle r="6" transform="rotate(138.5 0 0) translate(0 50)" style="fill:black"/>
+           <circle r="6" transform="rotate(166.2 0 0) translate(0 50)" style="fill:black"/>
+           <circle r="6" transform="rotate(193.8 0 0) translate(0 50)" style="fill:black"/>
+           <circle r="6" transform="rotate(221.5 0 0) translate(0 50)" style="fill:black"/>
+           <circle r="6" transform="rotate(249.2 0 0) translate(0 50)" style="fill:black"/>
+           <circle r="6" transform="rotate(276.9 0 0) translate(0 50)" style="fill:black"/>
+           <circle r="6" transform="rotate(304.6 0 0) translate(0 50)" style="fill:black"/>
+           <circle r="6" transform="rotate(332.3 0 0) translate(0 50)" style="fill:black"/>
+
+           <!-- gaps -->
+           <polygon points="-2,25 -2,56.25 2,56.25 2,25" transform="rotate(0 0 0)" style="fill:black"/>
+           <polygon points="-2,25 -2,56.25 2,56.25 2,25" transform="rotate(83.1 0 0)" style="fill:black"/>
+           <polygon points="-2,25 -2,56.25 2,56.25 2,25" transform="rotate(138.5 0 0)" style="fill:black"/>
+           <polygon points="-2,25 -2,56.25 2,56.25 2,25" transform="rotate(221.5 0 0)" style="fill:black"/>
+           <polygon points="-2,25 -2,56.25 2,56.25 2,25" transform="rotate(276.9 0 0)" style="fill:black"/>
+       </mask>
+
+       <!-- inner hub -->
+       <circle r="23" style="fill: black"/>
+       <!--circle r="16" style="fill: grey"/>
+       <circle r="13" style="fill: black"/-->
+       <rect width="6" height="4" x="-3" y="4" style="fill:#FFF"/>
+       <circle r="6" style="fill: #FFF"/>
+
+   </g>
+</svg>

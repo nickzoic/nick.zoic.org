@@ -591,7 +591,7 @@ It might be fun to prototype something like this anyway.
 * [The Magical Musical Thing](https://www.youtube.com/watch?v=jRKqVYAfbGw) 
 * [A more civilized MIDI Guitar Hero controller](https://learn.adafruit.com/guitar-hero-midi-controller/usb-midi-essentials)
 
-# UPDATE 2023
+# UPDATE 2023-03-05
 
 Since back-of-an-envelope calculations lead me to conclude that an array of
 actual physical AF LC oscillators will be inconveniently huge, I'm wondering how it'd
@@ -602,3 +602,8 @@ running on a microcontroller.  You could then tap, rap, slap, scrape or shout in
 the pickup and that signal would be used as the input to the KS filter, to be
 tuned and decayed.
 
+# UPDATE 2023-06-30
+
+Well, it looks like [we're going to PyConAU](https://2023.pycon.org.au/program/8PDEHA/)
+and to celebrate the MIDI Hero guitar is going to get some sensor upgrades, or at least,
+I'll add a bunch of stuff and see how it works ...

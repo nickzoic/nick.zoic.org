@@ -239,7 +239,7 @@ mounts directly to the bracket but over a ~13 hour print the heater stayed stabl
 and the bracket never got even warm.
 
 ![New Hot End](img/new-hot-end.jpg)
-*New Hot End*
+*New Hot End: [photo: kissbuyonline store](https://www.ebay.com.au/str/kissbuyonline)*
 
 The changes are mostly reversible but those hot ends seem really common and are 
 inexpensive so I'm not too worried.

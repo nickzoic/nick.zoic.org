@@ -45,6 +45,7 @@ the Cat can appear ...
 
 It's on stage now, some
 [kind reviews](https://melbournetheatre.info/2023/03/25/review-seussical-jr/)
+("arguably one of the most beautiful set designs the company has ever presented")
 are coming in, everything seems to be running smoothly, our junior
 performers are doing a fantastic job
 and in another week it'll be a fading memory ...
@@ -118,3 +119,10 @@ or just rolling (which falls very slowly, and can get caught up itself as it dro
 
 ![me and the hat](img/hat2.jpg)
 *Me and the Hat*
+
+## UPDATE 2023
+
+This year it's going to be [Frozen Jr.](https://www.dvsingers.org/frozen)!
+
+I'm not doing set construction this time around, but will be helping out with props 
+and lighting.

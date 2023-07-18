@@ -42,7 +42,7 @@ with an easy to write URL ...
 ### Simplicity in Programming
 
 Some time around the dawn of computing, [Chuck Moore](https://en.wikipedia.org/wiki/Charles_H._Moore)
-developed the [Forth](https://en.wikipedia.org/wiki/Forth), a language so radically
+developed [Forth](https://en.wikipedia.org/wiki/Forth), a language so radically
 simple it's hard to be sure it's even real.  He used Forth to develop some
 [VLSI](https://en.wikipedia.org/wiki/Very_Large_Scale_Integration) design tools 
 for creating microprocessors.  Normal VLSI tools are incredibly complicated and
@@ -67,8 +67,11 @@ What complexity are you introducing just to support other complexity?
 
 More references:
 
+* [Forth: The programming language that writes itself](http://ratfactor.com/forth/the_programming_language_that_writes_itself.html)
 * [Things That Turbo Pascal is Smaller Than](https://prog21.dadgum.com/116.html)
 * [Static vs. Dynamic Sites](/art/static-vs-dynamic-sites/)
+
+Also check out the language "Joy", which is even weirder.
 
 ## Fiction
 

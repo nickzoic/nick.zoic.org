@@ -110,6 +110,7 @@ Beware, if you decide to ungroup the pieces they may become misaligned as Cura
 will "drop" each piece to touch the print bed.  To prevent this, first control-click
 each piece and make sure "Drop Down Model" is turned off on every piece.
 
+
 ## Geeetech A20T
 
 I've been considering the
@@ -138,7 +139,8 @@ commands.
 different brands of printer and different firmwares.  There's 
 multiple interpretations of even basic stuff like tool
 changes and lots of optional features which your printer
-may or may not support.**
+may or may not support.  If you're using something other than
+a Geeetech printer the required G-code may be subtly different.**
 
 For example these commands select a 50/30/20 mix of the three
 filaments in the real extruders 0, 1 and 2, and assign that
@@ -193,5 +195,37 @@ should let you assign a Z-gradient to a tool as well!
 ## Outstanding Issues
 
 * Doesn't understand when you don't care what colour the infill is.
+
+  For a lot of models you don't care
+  what colour the infill is and it can go ahead and purge the old colour
+  into the infill instead of a separate purge bucket.
+  You can [set infill per object](https://community.ultimaker.com/topic/35660-model-specific-settings-override-extruder-used/)
+  but it'll still want to purge between colours.
+
+  Perhaps a list of "infill extruder**s**" should be settable per tool.
+  Then, when changing from outline to infill, if a tool's outline extruder
+  is also one of its infill extruders, the colour change can happen just
+  inside the infill, and then back just before resuming the outline.
+  If the outline colour is the same as the first infill colour, no change 
+  is necessary.
+
+  For multi coloured prints there might be a bit of extra changing back and
+  forth between outline and infill required to make this happen
+  efficiently.
+
 * Builds internal walls between colours
 
+  If you define two intersecting solids, Cura still constructs solid
+  walls between them even though those walls are doubled up and also 
+  hidden from view.  This is probably what you want if, eg: printing
+  a PLA wheel with an integral TPU tyre, but not necessary if you're
+  just printing a multicoloured design where this internal structure
+  is just an artifact of the way you designed it.
+
+* Doesn't harness the full potential of colour mixing
+
+  Limiting the print to a set of fixed ratios in the form of virtual
+  tools simplifies the situation but also misses out on some of the 
+  capabilities of the printer to continuously adjust the mix as it
+  prints.  Use of colour gradients in some situations might actually
+  be quite pretty!

@@ -3,6 +3,7 @@ date: '2023-07-18'
 layout: article
 tags:
   - updates
+  - conference
 title: 'Occasional Update 2'
 summary: "A very strange year(s)"
 ---
@@ -15,9 +16,8 @@ date: '2020-06-30'
 layout: article
 tags:
   - updates
-  - conference
 title: 'Occasional Update 2'
-summary: "A very strange year(s)"
+summary: "A very strange year"
 ---
 ```
 

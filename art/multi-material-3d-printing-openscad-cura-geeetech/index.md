@@ -47,7 +47,9 @@ if (material == 1) {
 ```        
 
 ![intersection2](img/intersection2.png)
-*layers behave better when the volumes don't intersect*
+*layers behave better when the volumes don't intersect.*
+
+(note extraneous interior walls though, see [below](#a-terrible-workaround-for-interior-walls))
 
 ### Exporting as AMF
 
@@ -261,24 +263,24 @@ should let you assign a Z-gradient to a tool as well!
    you create them and then combining those interiors, but this probably works
    well enough:
 
-```
-module everything() {
-    red();
-    green();
-    blue();
-}
-
-module interior() {
-    intersection() {
-        translate([1,0,0]) everything();
-        translate([-1,0,0]) everything();
-        translate([0,1,0]) everything();
-        translate([0,-1,0]) everything();
-        translate([0,0,1]) everything();
-        translate([0,0,-1]) everything();
-    }
-}
-```
+   ```
+   module everything() {
+       red();
+       green();
+       blue();
+   }
+   
+   module interior() {
+       intersection() {
+           translate([1,0,0]) everything();
+           translate([-1,0,0]) everything();
+           translate([0,1,0]) everything();
+           translate([0,-1,0]) everything();
+           translate([0,0,1]) everything();
+           translate([0,0,-1]) everything();
+       }
+   }
+   ```
 
    It'd be nice to have a 3D equivalent of
    [offset](https://en.wikibooks.org/wiki/OpenSCAD_User_Manual/Transformations#offset),
@@ -288,24 +290,24 @@ module interior() {
 
 2. Subtract this interior volume from every part:
 
-```
-if (material == 1) {
-    difference() {
-        red();
-        green();
-        blue();
-        interior();
-    }
-}
-```
+   ```
+   if (material == 1) {
+       difference() {
+           red();
+           green();
+           blue();
+           interior();
+       }
+   }
+   ```
 
 3. Also render the interior volume as its own material:
 
-```
-if (material == 4) {
-    interior();
-}
-```
+   ```
+   if (material == 4) {
+       interior();
+   }
+   ```
 
 4. Combine AMFs and set the interior volume as your infill material,
    with only a single wall, top and bottom layer.  You can't select the 

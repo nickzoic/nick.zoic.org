@@ -27,6 +27,28 @@ but I wanted to get something working with
 without having to save a whole lot of separate 
 [STL](https://en.wikipedia.org/wiki/STL_%28file_format%29) files.
 
+Cura 5.4 doesn't handle *intersecting* volumes nicely at all, with weird alternating layers
+where the volumes intersect.
+
+![intersection1](img/intersection1.png)
+*layers behave weirdly when volumes intersect*
+
+So instead make sure you subtract layers from each other before
+emitting them.
+
+```
+if (material == 1) {
+    difference() {
+        red();
+        green();
+        blue();
+    }
+}
+```        
+
+![intersection2](img/intersection2.png)
+*layers behave better when the volumes don't intersect*
+
 ### Exporting as AMF
 
 So far, I've used [STL](https://en.wikipedia.org/wiki/STL_%28file_format%29)
@@ -222,6 +244,8 @@ should let you assign a Z-gradient to a tool as well!
   just printing a multicoloured design where this internal structure
   is just an artifact of the way you designed it.
 
+  I have a terrible work-around for this; see below
+
 * Doesn't harness the full potential of colour mixing
 
   Limiting the print to a set of fixed ratios in the form of virtual
@@ -229,3 +253,75 @@ should let you assign a Z-gradient to a tool as well!
   capabilities of the printer to continuously adjust the mix as it
   prints.  Use of colour gradients in some situations might actually
   be quite pretty!
+
+### A Terrible Workaround For Interior Walls
+
+1. Create a volume which is just a smidge smaller than the sum of your actual volume.
+   There are smarter ways, such as defining the interiors of each of your parts as
+   you create them and then combining those interiors, but this probably works
+   well enough:
+
+```
+module everything() {
+    red();
+    green();
+    blue();
+}
+
+module interior() {
+    intersection() {
+        translate([1,0,0]) everything();
+        translate([-1,0,0]) everything();
+        translate([0,1,0]) everything();
+        translate([0,-1,0]) everything();
+        translate([0,0,1]) everything();
+        translate([0,0,-1]) everything();
+    }
+}
+```
+
+   It'd be nice to have a 3D equivalent of
+   [offset](https://en.wikibooks.org/wiki/OpenSCAD_User_Manual/Transformations#offset),
+   or possibly a [minkowski difference](https://en.wikipedia.org/wiki/Minkowski_addition),
+   but this is an approximation.  If there's holes in the corners, add more 
+   translations like `translate([1,1,0]) everything();` but it gets very slow.
+
+2. Subtract this interior volume from every part:
+
+```
+if (material == 1) {
+    difference() {
+        red();
+        green();
+        blue();
+        interior();
+    }
+}
+```
+
+3. Also render the interior volume as its own material:
+
+```
+if (material == 4) {
+    interior();
+}
+```
+
+4. Combine AMFs and set the interior volume as your infill material,
+   with only a single wall, top and bottom layer.  You can't select the 
+   interior volume by clicking on it, but you can set the material for the
+   whole grouped component, and then change each of the visible components
+   individually.
+
+   The interior volume now takes up most of the space, with the other
+   materials just forming a thin shell of 2-3 layers surrounding
+   the outside.
+
+   ![intersection3](img/intersection3.png)
+   *layers with the internal volume removed*
+
+   or if your design works well this way, you could beef up the shell a little
+   and leave the core out, just letting Cura add support where necessary.
+
+This feature probably belongs in Cura, not OpenSCAD, but doing it this
+way is expedient.

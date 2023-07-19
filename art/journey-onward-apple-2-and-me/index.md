@@ -20,6 +20,8 @@ with some notes and references and credits as well.*
 *There's also some comments on the video production process
 [at the end of "Decoding: the Making Of"](/art/decoding-the-making-of/#update-2020-11-09)*
 
+**0m**
+
 # Journey Onward
 ## The Apple \]\[ and me
 
@@ -38,6 +40,8 @@ This is the story of how I got interested in computers in the first place
 ### the Apple 2 and me
 
 ## First Computers
+
+**16s**
 
 Some time in the mid 1980s, when I was just starting high school,
 Dad brought home an Apple 2.
@@ -74,6 +78,8 @@ The only game I remember getting working was this
 if there were only two invaders and they never really
 got around to invading.
 
+**1m23s**
+
 ## System 80
 
 ![System 80 model 3](img/hardware_s80-blue-label-front-800.jpg)
@@ -99,13 +105,15 @@ and Space Invaders, and it had something to do with bees.
 
 The games are somewhat relevant to this story, the bees less so.
 
+**2m13s**
+
 ### Apple 2
 
 ![Distracted System 80](img/distracted-system80-apple.jpg)
 
 And then the Apple 2 arrived, and the System 80 was forgotten.
 
-It was a cast-off, a cheap Apple 2 plus clone, the last remaining stock
+It was a cast-off, a cheap Apple 2 plus clone[^1], the last remaining stock
 left over when a friend of Dad's decided to wind up his small import
 business.  The case was built to the same moulded design as a real Apple 2 Plus
 but the plastic was a little mottled and swirly and slightly yellowish,
@@ -120,15 +128,17 @@ the time, as I understand it: the circuits and physical design weren't
 well protected but trademarks were. The only obvious indicator that this 
 was a dastardly clone was that the cheery but trademark-protected
 `APPLE ][` boot message was replaced with the slightly confusing
-name `GALAGA`.
+name ` GALAGA `.
 
-> Interestingly, some software would actually check that these
-> bytes read `APPLE ][` ... this is similar to the "DSMOS" protection
-> used in OS X to this day ... but we wouldn't find this out until later
-> when we obtained another clone, this time an `ORANGE`, and had to
-> work out how to re-flash the EPROM chips which held the boot firmware
-> so we could run ProDOS on it.
-> 
+**2m30s**
+
+Interestingly, some software[^2] would actually check that these
+bytes read `APPLE ][` ... this is similar to the "DSMOS" protection
+used in OS X to this day ... but we wouldn't find this out until later
+when we obtained another clone, this time an ` ORANGE `, and had to
+work out how to re-flash the EPROM chips which held the boot firmware
+so we could run ProDOS on it.
+
 > * More on [Apple 2 Clones](https://en.wikipedia.org/wiki/Apple_II_series#Clones)
 > * [ProDOS](https://en.wikipedia.org/wiki/Apple_ProDOS#Unlicensed_Apple_II_clones)
 
@@ -137,6 +147,8 @@ a BASIC interpreter, output to composite video.  The Apple 2 graphics
 were somewhat better, with 280x192 "high res" graphics and colour of sorts
 (although ours was always plugged into a monochrome green phosphor monitor,
 so that detail escaped me for many years).
+
+**3m50s**
 
 ## Apple 2 Community
 
@@ -149,6 +161,8 @@ there were third party books and magazine articles.
 These included the surreal ramblings of the Beagle Brothers,
 which were kind of the Principia Discordia of the Apple ecosystem,
 full of dense, obscure examples and strange marginalia.
+
+**4m20s**
 
 A lot of this stuff is now available thanks to the
 [Apple II Documentation Project](https://mirrors.apple2.org.za/Apple%20II%20Documentation%20Project/),
@@ -167,6 +181,8 @@ There was even a speech synthesizer card: SAM, the Software Automatic Mouth.
 
 Simple accessories like joysticks were also available, and a whole ecosystem
 sprang up around the Apple.
+
+**5m04s**
 
 ![A select group indeed](img/select-group.png)
 *Image: Beneath Apple DOS, by Don Worth and Pieter Lechner*
@@ -189,6 +205,8 @@ drives these
 "[flippy disks](https://en.wikipedia.org/wiki/Disk_II#Disk_II)"
 worked pretty well, most of the time.
 
+**5m**
+
 In the box were DOS master disks, some utilities and lots and
 lots of games. 
 
@@ -207,6 +225,8 @@ by the even more oddly named Mangrove Earthshoe.  Two axe-wielding warriors,
 or possibly crustacea, or maybe pastries, battle it out to the tune of
 *Für Elise*, kind of.
 
+**6m25s**
+
 Another favourite was [Lode Runner](https://en.wikipedia.org/wiki/Lode_Runner),
 a really simple platformer which showed how a simple mechanic could be used
 to build a fantastically complicated game.  All you can do is run, climb, dig
@@ -220,6 +240,8 @@ As you learned the tricks and techniques of the official levels,
 you could try out your own ideas as well, and save them to disk.
 You were no longer just *playing* the game, you were *changing* it,
 challenging your understanding as a player and a designer simultaneously.
+
+**6m30s**
 
 > There was also [Rocky's Boots](https://en.wikipedia.org/wiki/Rocky%27s_Boots),
 > a strange game which taught boolean logic:
@@ -282,6 +304,8 @@ to build up enough funds for a decent sword was maaaaybe pushing it a little.
 > You don't need to change disks all the time, the graphics are better and
 > some gameplay bugs are fixed.)
 
+**8m15s**
+
 # Sector Editor
 
 But, as luck would have it, there were some more disks in the dusty shoebox,
@@ -290,8 +314,9 @@ including a *sector editor*
 ![sector editor](img/sector-editor.png)
 *Copy II Plus Sector Editor*
 
-> (Probably Copy II Plus 5,)
-> which includes a sector editor among other things.
+> Probably [Copy II Plus 5](https://apple2online.com/web_documents/copy_ii_plus_5.0_-_manual.pdf),
+> which includes a sector editor among other things. You can find it at
+> [apple2online.com](https://apple2online.com/index.php?p=1_24) ...
 
 A sector editor lets you investigate and change the contents of floppy disks. 
 Apple 2 disks are pretty simple.  They generally have 16 sectors x 35 tracks.
@@ -315,6 +340,8 @@ particular ways, to prevent programs from simply copying disks.  This in
 turn led to the invention of specialized copying software which could defeat
 these schemes, and this arms race continues to this day.
 
+**10m30s**
+
 > There's lots of [details](https://apple2.org.za/gswv/a2zine/GS.WorldView/Resources/DOS.3.3.ANATOMY/BOOT.PROCESS.txt)
 > of these things out there: in those primitive times we were
 > forced to fend for ourselves with only
@@ -326,6 +353,8 @@ these schemes, and this arms race continues to this day.
 We knew from all that disk swapping that the world map, and the saved game state,
 was stored on the Britannia disk.  The Britannia disk isn't bootable,
 so it doesn't have to have any particular structure, not even a boot sector.
+But this particular disc did have some files on it which you could see from DOS.
+None of them were big enough to be the world map though.
 You can't look at the contents of this disk from DOS, but you can look at it 
 with a sector editor.
 
@@ -344,9 +373,7 @@ familiar too ...
 ![zstats0](img/zstats0.png)
 *player stats*
 
-> There's actually a DOS filesystem on this disk, which would have made the process
-> considerably easier if we'd noticed, but if all you have is a sector editor every
-> problem looks like a block of 256 hexadecimal numbers.
+**10m15s**
 
 ## Ethical Doubts
 
@@ -362,7 +389,7 @@ track 14 ...
 
 Offset | Values | Purpose
 --- | --- | ---
-11416 | C7 | 'G' for good, or D0 'P' for poisoned
+11416 | C7 | C7='G' for good, or D0='P' for poisoned
 14417 | 25 | STR 25
 14418 | 21 | DEX 21
 14419 | 18 | INT 18
@@ -372,7 +399,7 @@ Offset | Values | Purpose
 *more modified player stats*
 
 > "Hang on, what?", you might be thinking, "The 6502 is a little-endian
-> CPU which thinks in binary.  300 should be stored as `2C 01`.
+> CPU which thinks in binary.  300 should be stored as `2C 01` not `03 00`.
 >
 > Interestingly, these values are mostly stored in
 > [Binary Coded Decimal (BCD)](https://en.wikipedia.org/wiki/Binary-coded_decimal)
@@ -386,6 +413,8 @@ of the memory space used for keeping track of the status during the game.
 Writing weird values here and there certainly can make a mess of the game state,
 but it's pretty easy to keep backups of the Britannia disk using the sector
 editor so we got stuck in.
+
+**11m**
 
 # More Save Details
 
@@ -436,8 +465,10 @@ Once you have STR 99 / DEX 99 / HP 999 and plenty of
 reagents to unpoison yourself at will it's pretty easy to get around Britannia
 sweeping up monsters.
 
+**11m30s**
+
 But there was still the matter of the map. We'd got hold of the Sextant by this point, 
-which would give you a latitude & longitude in the format `W'X" Y'Z"` where each letter 
+which would give you a latitude & longitude in the format `A'B" C'D"` where each letter 
 was between A and P.  That's a pretty thinly disguised pair of bytes, so we were pretty
 confident that the world was:
 
@@ -459,6 +490,8 @@ While the sea was sea, the monsters weren't real monsters ... just tiles.
 Indeed, as it turns out the map is stored in 16x16 regions, each taking up
 one 256 byte disk sector, on the 16 sectors of the first 16 tracks of the disk.
 
+**12m30s**
+
 The weird stuff in the ocean?
 That was a DOS 3.3 boot sector which had been accidentally written to
 track 0 sector 0 of the unbootable Britannia disk at some time during
@@ -472,6 +505,8 @@ editor, with each character corresponding to a kind of tile.
 
 > It's interesting to note that there's plenty of spare room on this disk: the map only uses 
 > up 16 tracks out of 35, and the last few tracks are entirely blank.
+
+**12m50s**
 
 # Cartomancy
 
@@ -496,7 +531,9 @@ easier if you just stick to the same dimensions as the native Apple II
 font.  Most of the map is composed of just a dozen or so tiles, so 
 we just ignored any other types of tiles.
 
-We then printed screenshots of these
+**13m45s**
+
+We then printed screenshots of these two sector
 images onto hundreds of slips of thermal printer paper, each about 10cm x 5cm.
 128 of these small rectangles were then cut out and glued 
 together to form a giant, if rather scruffy, map.
@@ -511,6 +548,8 @@ The towns are stored in a similar manner on the "towns" disk, with each of the
 town maps having a 32x32 map.
 That disk also contains all the conversations you can have
 with townsfolk, so you can learn a lot from it!
+
+**14m30s**
 
 > There's more of that sort of thing on
 > [this old Ultima IV page](https://code.zoic.org/ultima/) of mine.
@@ -527,7 +566,9 @@ instruction set, writing down clues and hints from strange characters in books,
 hand-drawing maps of disks and memory and exploring a limited world which
 turns out to contain a lot more detail than you'd expected.
 
-Britannia was created and ruled over by the kindly but distant 
+**15m**
+
+Brittania was created and ruled over by the kindly but distant 
 Lord British, just as the Apple 2 was created and ruled over by
 the legendary Woz.  All those eccentricities and lost evil artefacts: were
 these truly malicious, or the side-effects of weighty decisions 
@@ -546,6 +587,8 @@ The point of this story isn't really Ultima IV.
 I don't think we ever even finished the game, in any real sense.
 Maybe we jumped in our sector editor, equipped all the right things and
 sailed to the abyss just to see what would happen, but does that even count?
+
+**15m45s**
 
 > (I suspect the only games I've ever really "finished", in the "without cheating"
 > sense, are Portal and the easiest difficulty of Half Life 2.)
@@ -579,6 +622,8 @@ them, what quest will they embark upon?
 
 Journey Onward! and all the best of luck ...
 
+**17m**
+
 # Acknowledgements
 
 Thanks to my family, then and now, for encouraging and joining me in
@@ -605,6 +650,3 @@ And thanks to you for listening!
 
 * I started [writing an Apple \]\[ game in 2021](/art/writing-an-apple-2-game-in-2021-1/),
   you can read about my incredibly slow progress here.
-
-
-

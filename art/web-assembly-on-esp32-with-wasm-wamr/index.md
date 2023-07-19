@@ -161,19 +161,20 @@ After a bit more research and advice, it looks like the JIT option won't really
 be practical as it'll have to build a lot of LLVM in to the runtime ... and LLVM
 is not small.  However AoT is still on the agenda!
 
-# WORK IN PROGRESS
+# WORK (NOT) IN PROGRESS
 
-This article is a work in progress, and now you're up to where I'm up to!
+~~This article is a work in progress, and now you're up to where I'm up to!~~
 
-Check back later, or [follow me on twitter](https://twitter.com/nickzoic/) for updates.
+I haven't come back to this in 3½ years so it's pretty unlikely I'm going to.
 
-There's also an open [XTensa / FreeRTOS support](https://github.com/bytecodealliance/wasm-micro-runtime/issues/134) issue on WAMR.
+In the meantime, [LLVM now supports Xtensa](https://github.com/llvm/llvm-project/tree/main/llvm/lib/Target/Xtensa)
+and the latest [ESP32 has gone RISC-V](https://www.espressif.com/en/products/socs/esp32-c3)
+which goes to show you nothing stands still in this industry :-)
 
-See also work done in [Wasm3](https://github.com/wasm3/wasm3) to support ESP32,
-for example [this repo](https://github.com/vshymanskyy/Wasm3_RGB_Lamp)
-and [this tweet](https://twitter.com/alvaroviebrantz/status/1221618910803513344)
+See also:
 
-## UPDATES
-
-* Fixed up attributions for the `cmake ..` hint 
-* Added some refs to other projects
+* [XTensa / FreeRTOS support](https://github.com/bytecodealliance/wasm-micro-runtime/issues/134) issue on WAMR.
+* work done in [Wasm3](https://github.com/wasm3/wasm3) to support ESP32,
+  for example [this repo](https://github.com/vshymanskyy/Wasm3_RGB_Lamp)
+  and [this tweet](https://twitter.com/alvaroviebrantz/status/1221618910803513344)
+* [Cranelift](https://cranelift.dev/) support for Xtensa would be nice!

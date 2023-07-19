@@ -30,7 +30,7 @@ without having to save a whole lot of separate
 Cura 5.4 doesn't handle *intersecting* volumes nicely at all, with weird alternating layers
 where the volumes intersect.
 
-![intersection1](img/intersection1.png)
+![intersection1](img/intersection1.jpg)
 *layers behave weirdly when volumes intersect*
 
 So instead make sure you subtract layers from each other before
@@ -46,7 +46,7 @@ if (material == 1) {
 }
 ```        
 
-![intersection2](img/intersection2.png)
+![intersection2](img/intersection2.jpg)
 *layers behave better when the volumes don't intersect.*
 
 (note extraneous interior walls though, see [below](#a-terrible-workaround-for-interior-walls))
@@ -319,7 +319,7 @@ should let you assign a Z-gradient to a tool as well!
    materials just forming a thin shell of 2-3 layers surrounding
    the outside.
 
-   ![intersection3](img/intersection3.png)
+   ![intersection3](img/intersection3.jpg)
    *layers with the internal volume removed*
 
    or if your design works well this way, you could beef up the shell a little

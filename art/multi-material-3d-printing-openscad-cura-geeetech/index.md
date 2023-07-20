@@ -282,8 +282,8 @@ should let you assign a Z-gradient to a tool as well!
    }
    ```
 
-   It'd be nice to have a 3D equivalent of
-   [offset](https://en.wikibooks.org/wiki/OpenSCAD_User_Manual/Transformations#offset),
+   It'd be nice to have 
+   [a 3D equivalent of offset](https://github.com/openscad/openscad/pull/4516)
    or possibly a [minkowski difference](https://en.wikipedia.org/wiki/Minkowski_addition),
    but this is an approximation.  If there's holes in the corners, add more 
    translations like `translate([1,1,0]) everything();` but it gets very slow.

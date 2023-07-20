@@ -122,6 +122,13 @@ for MATERIAL in 1 2 3 4 5 6 7 8; do
 combine_amf.py $TEMPDIR/temp*.amf > $TARGET
 ```
 
+### Some examples
+
+I've uploaded
+[some multi-material OpenSCAD examples](https://github.com/nickzoic/models3d/tree/master/multi) 
+which use these methods, although I'm still messing around trying to work out
+"the best way" ...
+
 ## Importing into Cura
 
 [Ultimaker Cura](https://ultimaker.com/software/ultimaker-cura/) can import AMF

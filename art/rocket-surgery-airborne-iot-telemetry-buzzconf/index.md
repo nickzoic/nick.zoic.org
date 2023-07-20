@@ -9,9 +9,6 @@ title: Rocket Surgery at Buzzconf 2017
 summary: A build log for the "Rocket Surgery" project at BuzzConf 2017
 ---
 
-This article will slowly evolve as I make more progress on this project!
-Follow [mnemote on Twitter](https://twitter.com/mnemote) for updates.
-
 # Background
 
 [Andrew Fisher](http://ajfisher.me/), [Andy Gelme](https://github.com/geekscape) and I are

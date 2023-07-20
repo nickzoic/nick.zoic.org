@@ -299,7 +299,7 @@ and got some good feedback already.
 # UPDATE
 
 ![Satya Nadella Tweet: Excel formulas, the world’s most popular programming language, is now Turing-complete. Go check it out!](img/satya-nadella.png)
-*Excel grows Lambda functions, is now Turing-complete ([link](https://twitter.com/satyanadella/status/1359289655565291520))
+*Excel grows Lambda functions, is now Turing-complete ([link](https://twitter.com/satyanadella/status/1359289655565291520))*
 
 Mind you, I'm somewhat convinced that
 [Turing Completeness](/art/fibonacci-regex-perversity/)
@@ -310,4 +310,4 @@ languages are a sensible restriction.
 # UPDATE 2023
 
 * [I Will Fucking Dropkick You If You Use That Spreadsheet](https://ludic.mataroa.blog/blog/i-will-fucking-dropkick-you-if-you-use-that-spreadsheet/)
-* [Attack and Dethrone Excel](/art/attack-and-dethrone-excel/)
+* I'll be talking about [Spreadsheet Related Stuff](/art/attack-and-dethrone-excel/) at [PyConAU 2023](https://2023.pycon.org.au/)

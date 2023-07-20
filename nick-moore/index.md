@@ -44,10 +44,17 @@ Other Sites
 -----------
 
 -   <a rel="me" href="https://aus.social/@nickzoic">Mastodon: @nickzoic@aus.social</a>
--   [GitHub: nickzoic](http://github.com/nickzoic)
+-   [GitHub: nickzoic](https://github.com/nickzoic)
 -   [ORCID: 0000-0001-7511-0990](https://orcid.org/0000-0001-7511-0990)
--   [LinkedIn: nickzoic](http://www.linkedin.com/in/nickzoic)
+-   [LinkedIn: nickzoic](https://www.linkedin.com/in/nickzoic)
+-   [Youtube: nickzoic](https://www.youtube.com/channel/UCRl22LCzA_8_vevzT9TJVeg)
 
 I've been very active on [Twitter: @nickzoic](https://twitter.com/nickzoic/)
+and [Twitter: @mnemote](https://twitter.com/mnemote/)
 over the years but given the state of the place at the moment I'm taking a step
 back from it.
+
+I'm not active on any of the other social media services at this time
+and haven't bothered to sign up to every one of them just to reserve my usual
+name, so if you see me there, it ain't me.  Feel free to drop me
+an email if you think someone is impersonating me on one of those.

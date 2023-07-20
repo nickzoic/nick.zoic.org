@@ -332,3 +332,9 @@ I can't believe this code scans, but it does ...
 
 ![the worst QR code I've ever seen](img/a_mano_omg.jpeg)
 *The worst QR code I've ever seen [omg](https://twitter.com/palvaro/status/1424808969449598976)*
+
+## UPDATE 2023
+
+It got worse:
+[Anime-style QR Codes with Stable Diffusion](https://arstechnica.com/information-technology/2023/06/redditor-creates-working-anime-qr-codes-using-stable-diffusion/).
+Look actually I secretly love this but FFS don't use it for anything sensible.

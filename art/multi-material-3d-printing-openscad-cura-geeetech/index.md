@@ -1,16 +1,24 @@
 ---
-title: Multi-Material 3D Printing With OpenSCAD, Cura and Geeetech
-date: '2023-07-17'
+title: Multi-Material 3D Printing With OpenSCAD, Cura and the Geeetech A20T
+date: '2023-07-20'
 layout: draft
-summary: "How to do multi material 3D printing with OpenSCAD and Cura and a Geeetech A20T"
+summary: "How to do multi material 3D printing with OpenSCAD and Cura and the Geeetech A20T"
 tags:
   - 3dprint
   - python
 ---
 
-I've been messing around with my [cheapo printer](/art/aldi-coccoon-3d-printer/)
-for a few years now and I'm considering upgrading to a new one, particularly to
-print with multiple filament colours.
+I've been [messing around with my cheap ALDI 3D printer](/art/aldi-coccoon-3d-printer/)
+for a few years now and it's time to upgrade!
+
+I've put an order in for a 
+[Geeetech A20T](https://www.geeetech.com/geeetech-a20t-triple-color-mixing-filament-detector-breakingresuming-250x250x250mm-p-1108.html)
+which has about 12× the build volume of the old printer,
+and has three filaments feeding into a single extuder, letting
+it print designs in multiple materials and/or colours.
+
+I'll do a separate article on
+[assembling and configuring the Geeetech A20T](/art/geeetech-a20t-assembly-and-configuration/).
 
 ## OpenSCAD
 
@@ -21,35 +29,84 @@ is not good ([#1041](https://github.com/openscad/openscad/issues/1041),
 [#1608](https://github.com/openscad/openscad/issues/1608).)
 
 It'd be great to fix that, but in the meantime I needed a quick solution.
+
 [Erik Nygren has made a good start](https://erik.nygren.org/2018-3dprint-multicolor-openscad.html)
-but I wanted to get something working with
+with a method for selecting one part at a time using a `multicolor()` module
+which checks a variable `current_color` for each part.
+
+I wanted to get something similar working with
 [Ultimaker Cura](https://ultimaker.com/software/ultimaker-cura/) and
-without having to save a whole lot of separate 
+to make it work without having to save a whole lot of separate 
 [STL](https://en.wikipedia.org/wiki/STL_%28file_format%29) files.
 
-Cura 5.4 doesn't handle *intersecting* volumes nicely at all, with weird alternating layers
-where the volumes intersect.
+What I ended up doing was just defining several parts called `red` and `blue` and `green`, 
+and at the bottom of the file include some code to select between them:
+
+```
+material = 0;
+if (material == 0) {
+   red();
+   green();
+   blue();
+} else if (material == 1) { 
+   red();
+} else if (material == 2) {
+   green();
+} else if (material == 3) {
+   blue();
+}
+```
+
+Then you can either alter the code to set `material` manually or call
+OpenSCAD with a parameter to generate a file directly:
+
+```
+opencad -D material=1 -o project.stl project.scad
+```
+
+(It might seem counterintuitive, but because of the way OpenSCAD programs
+declare variables, the `-D material=1` option can override the value set by
+the code `material = 0;`.
+*[O tempora, o mores!](https://en.wikipedia.org/wiki/O_tempora,_o_mores!)*)
+
+### Intersecting Volumes
+
+Cura 5.4 doesn't handle *intersecting* volumes nicely at all, exporting
+weird alternating layers where the volumes intersect.
 
 ![intersection1](img/intersection1.jpg)
 *layers behave weirdly when volumes intersect*
 
 So instead make sure you subtract layers from each other before
-emitting them.
+emitting them.  We alter our previous code like so:
 
 ```
-if (material == 1) {
+material = 0;
+if (material == 0) {
+    red();
+    green();
+    blue();
+} else if (material == 1) {
     difference() {
         red();
         green();
         blue();
     }
-}
+} else if (material == 2) {
+    difference() {
+        green();
+        blue();
+    }
+} else if (material == 3) {
+    blue();
+} 
 ```        
 
 ![intersection2](img/intersection2.jpg)
 *layers behave better when the volumes don't intersect.*
 
-(note extraneous interior walls though, see [below](#a-terrible-workaround-for-interior-walls))
+Note that there are still extraneous interior walls though, see
+[below](#a-terrible-workaround-for-interior-walls) for details.
 
 ### Exporting as AMF
 
@@ -69,13 +126,14 @@ Just looking at the AMF file, you can tell that it contains a pretty
 simple hierarchy of `<amf>` -> `<object>` -> `<mesh>` -> `<vertices>` and `<volume>`s
 so it's not hard to guess what everything does.
 
-OpenSCAD can only export a single material at a time, but we can automate that 
-from the command line using the `-D var=val` command line option.
+Then we can just iterate through the materials from the command line
+using the `-D var=val` command line option and get OpenSCAD to export
+each material to a different `.amf` file:
 
 ```
-openscad -D material=1 -o temp1.amf
-openscad -D material=2 -o temp2.amf
-openscad -D material=3 -o temp3.amf
+openscad -D material=1 -o temp1.amf project.scad
+openscad -D material=2 -o temp2.amf project.scad
+openscad -D material=3 -o temp3.amf project.scad
 ```
 
 Since we can manipulate AMF files pretty easily we can then combine those files
@@ -83,6 +141,7 @@ into one file which can be importing into Cura.
 
 `combine_amf.py`:
 ```
+#!/usr/bin/env python
 import sys
 import xml.etree.ElementTree as ET
 
@@ -113,13 +172,19 @@ Rather than doing these steps manually we can use a bash script:
 
 `mmexport.sh`:
 ```
+#!/bin/bash
 set -eu
 SOURCE=$1
 TARGET=${2:-${SOURCE%.*}.amf}
-TEMPDIR = `mktmp -d`
-for MATERIAL in 1 2 3 4 5 6 7 8; do
-    openscad -D material=$MATERIAL -o $TEMPDIR/temp$MATERIAL.amf $SOURCE
-combine_amf.py $TEMPDIR/temp*.amf > $TARGET
+TEMPDIR=`mktemp -d`
+for MATERIAL in 1 2 3 4 5 6 7 8 9; do
+    echo -e "---\nEXPORTING MATERIAL $MATERIAL"
+    openscad -D material=$MATERIAL -o $TEMPDIR/temp$MATERIAL.amf $SOURCE || echo "FAILED"
+done
+echo -e "---\nCOMBINING INTO $TARGET"
+./combine_amf.py $TEMPDIR/temp*.amf > $TARGET
+echo -e "---\nDONE\n"
+rm -r $TEMPDIR
 ```
 
 ## Importing into Cura
@@ -134,26 +199,25 @@ Beware, if you decide to ungroup the pieces they may become misaligned as Cura
 will "drop" each piece to touch the print bed.  To prevent this, first control-click
 each piece and make sure "Drop Down Model" is turned off on every piece.
 
+## Printing on the Geeetech A20T
 
-## Geeetech A20T
+### Setting up the printer
 
-I've been considering the
-[Geeetech A20T](https://www.geeetech.com/geeetech-a20t-triple-color-mixing-filament-detector-breakingresuming-250x250x250mm-p-1108.html).
-It has three extruders feeding into a single nozzle.
 On Youtube, there's a 
 [Geeetech A10M review at Teaching Tech](https://www.youtube.com/watch?v=AbZhNvMM4Os)
 and [six Geeetech A10M upgrades at Teaching Tech](https://www.youtube.com/watch?v=8o--HmfZ57I)
-which give you some idea of how these printers work.
-
-The printer has three physical extruders, and some built in
-firmware to do mixing and fading between the extruders, which
-we can control using custom G-code.
+which give you some idea of how these printers work and whether
+they'll be right for you.
 
 ### G-Code Mixing
 
-I think it can be set up in Cura to have up to
-[8 or maybe 16 virtual extruders](https://community.ultimaker.com/topic/41834-can-i-add-more-than-8-extruders-in-cura/)
-each of which is a different blend of the three actual extruders, 
+The A20T has three extruders feeding into a single nozzle.
+There's built in firmware to do mixing and fading between
+the extruders, which we can control using custom G-code.
+
+It can be set up in Cura to have up to eight
+([or maybe 16](https://community.ultimaker.com/topic/41834-can-i-add-more-than-8-extruders-in-cura/))
+virtual extruders each of which is a different blend of the three actual extruders, 
 set up in the printer settings G-code using the 
 [M163](https://marlinfw.org/docs/gcode/M163.html) and
 [M164](https://marlinfw.org/docs/gcode/M164.html)
@@ -216,7 +280,7 @@ M164 S7
 Using [M166](https://marlinfw.org/docs/gcode/M166.html)
 should let you assign a Z-gradient to a tool as well!
 
-## Outstanding Issues
+## Outstanding Issues with Multi-Material Printing in Cura
 
 * Doesn't understand when you don't care what colour the infill is.
 
@@ -258,10 +322,18 @@ should let you assign a Z-gradient to a tool as well!
 
 ### A Terrible Workaround For Interior Walls
 
+Cura can already print infill in a separate extruder
+but it doesn't know how to eliminate interior walls, which
+will be printed in the surface colour.
+
+So this is a workaround using OpenSCAD to separate the 
+hidden interior from the surface layers so they can be 
+specified separately:
+
 1. Create a volume which is just a smidge smaller than the sum of your actual volume.
-   There are smarter ways, such as defining the interiors of each of your parts as
-   you create them and then combining those interiors, but this probably works
-   well enough:
+   There are smarter ways, such as having a
+   [working 3D offset command](https://github.com/openscad/openscad/pull/4516),
+   but this probably works well enough:
 
    ```
    module everything() {
@@ -304,7 +376,7 @@ should let you assign a Z-gradient to a tool as well!
 3. Also render the interior volume as its own material:
 
    ```
-   if (material == 4) {
+   } else if (material == 4) {
        interior();
    }
    ```
@@ -325,5 +397,5 @@ should let you assign a Z-gradient to a tool as well!
    or if your design works well this way, you could beef up the shell a little
    and leave the core out, just letting Cura add support where necessary.
 
-This feature probably belongs in Cura, not OpenSCAD, but doing it this
+This feature really belongs in Cura, not OpenSCAD, but doing it this
 way is expedient.

@@ -5,10 +5,7 @@ layout: draft
 summary: "Assembly and configuration of the Geeetech A20T 3D printer"
 tags:
   - 3dprint
-  - python
 ---
-
-# Geeetech A20T: Assembly and Configuration
 
 I've been [messing around with my cheap ALDI 3D printer](/art/aldi-coccoon-3d-printer/)
 for almost five years now and it's time to upgrade!
@@ -25,4 +22,20 @@ I'm writing a separate article with all the technical details of
 which might be interesting if you're specifically into
 [OpenSCAD](https://openscad.org/) and
 [Cura](https://ultimaker.com/software/ultimaker-cura/)
+but otherwise not so much.
 
+## The Out-Of-Box Experience
+
+## First Boats!
+
+## Front Panel UI
+
+## Bonus Features
+
+### Automatic Bed Levelling
+
+### Filament Runout Detection
+
+## Modifications
+
+## Review

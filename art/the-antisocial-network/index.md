@@ -20,21 +20,23 @@ about.
 
 150 is a large number of people to interact with in real life, but it's quite a small number
 in Internet Social Networking terms.
-Especially younger people may be enthusiastic participants
+People, especially younger people, may be enthusiastic participants
 in several different social networks, and have different but overlapping social circles on
 different platforms.
 Sometimes, the same person will have different usernames and/or avatars
 on different platforms, adding to the confusion.
 
 It wouldn't be unusual for a person to have several hundred contacts in total,
-growing all the time and well and truly exceeding Dunbar's number.
+growing relentlessly and well and truly exceeding Dunbar's number.
 This suggests that it is impossible for mere humans to keep track of all these relationships
-mentally, and that either young people are going to have to start using
+mentally, and that before too long young people are going to have to start using
 [CRM](https://en.wikipedia.org/wiki/Customer_relationship_management)
 software to remind them who is who.
 
 # Abusive Behaviour & Transitive Wrongness
 
-https://www.techdirt.com/2022/11/02/hey-elon-let-me-help-you-speed-run-the-content-moderation-learning-curve/
+[Mike Masnick](https://mastodon.social/@mmasnick) writes in 
+"[Hey Elon: Let Me Help You Speed Run The Content Moderation Learning Curve](https://www.techdirt.com/2022/11/02/hey-elon-let-me-help-you-speed-run-the-content-moderation-learning-curve/)"
+that "every major social media platform ends up in this same place eventually"
 
 

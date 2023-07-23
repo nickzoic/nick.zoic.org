@@ -108,6 +108,10 @@ if (material == 0) {
 Note that there are still extraneous interior walls though, see
 [below](#a-terrible-workaround-for-interior-walls) for details.
 
+**UPDATE: Cura seems to be able to work this out for itself if 
+setting "Remove Mesh Intersection" is *not* set!  So perhaps
+this step is unneccesary.**
+
 ### Exporting as AMF
 
 So far, I've used [STL](https://en.wikipedia.org/wiki/STL_%28file_format%29)
@@ -208,19 +212,22 @@ each piece and make sure "Drop Down Model" is turned off on every piece.
 
 ## Printing on the Geeetech A20T
 
-### Setting up the printer
-
-On Youtube, there's a 
-[Geeetech A10M review at Teaching Tech](https://www.youtube.com/watch?v=AbZhNvMM4Os)
-and [six Geeetech A10M upgrades at Teaching Tech](https://www.youtube.com/watch?v=8o--HmfZ57I)
-which give you some idea of how these printers work and whether
-they'll be right for you.
-
-### G-Code Mixing
+I've written a separate article on 
+[assembling and configuring the Geeetech A20T](/art/geeetech-a20t-assembly-and-configuration/).
 
 The A20T has three extruders feeding into a single nozzle.
 There's built in firmware to do mixing and fading between
-the extruders, which we can control using custom G-code.
+the extruders, but we need to enable this.
+Cura 5.4 has a built-in printer definition for the A20T, but it only
+supports the three physical extruders and not the extra mixing
+virtual extruders we want to use.
+
+Unpacking these files into your resources directory (eg: `$HOME/.local/share/cura/5.4/`)
+should give you a new "A20Tx8" printer with eight extruders:
+
+[A20T with eight extruders (A20Tx8) printer definition](files/define_A20Tx8.zip)
+
+### G-Code Mixing
 
 It can be set up in Cura to have up to eight
 ([or maybe 16](https://community.ultimaker.com/topic/41834-can-i-add-more-than-8-extruders-in-cura/))
@@ -229,6 +236,8 @@ set up in the printer settings G-code using the
 [M163](https://marlinfw.org/docs/gcode/M163.html) and
 [M164](https://marlinfw.org/docs/gcode/M164.html)
 commands. 
+
+## Setting up Mixing (in G-Code)
 
 **Note that G-code standardization is quite broken across
 different brands of printer and different firmwares.  There's 

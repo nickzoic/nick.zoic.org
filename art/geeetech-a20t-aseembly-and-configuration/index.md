@@ -17,6 +17,12 @@ which has about 12× the build volume of the old printer,
 and has three filaments feeding into a single extuder, letting
 it print designs in multiple materials and/or colours.
 
+On Youtube, there's a
+[Geeetech A10M review at Teaching Tech](https://www.youtube.com/watch?v=AbZhNvMM4Os)
+and [six Geeetech A10M upgrades at Teaching Tech](https://www.youtube.com/watch?v=8o--HmfZ57I)
+which give you some idea of how these printers work and whether
+they'll be right for you.
+
 I'll do a separate article on
 **Multi-Material 3D Printing with OpenSCAD, Cura and the Geeetech A20T**
 very soon ...

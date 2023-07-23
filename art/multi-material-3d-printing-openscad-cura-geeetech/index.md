@@ -220,26 +220,30 @@ I've written a separate article on
 The A20T has three extruders feeding into a single nozzle.
 There's built in firmware to do mixing and fading between
 the extruders, but we need to enable this.
-Cura 5.4 has a built-in printer definition for the A20T, but it only
-supports the three physical extruders and not the extra mixing
-virtual extruders we want to use.
+Cura 5.4.0 has a built-in printer definition for the A20T
+which supports the three physical extruders.
+
+The A20T firmware can also do mixing and fading between the 
+physical extruders, by configuring "virtual extruders", each of which 
+can have its own mix of filaments.
+
+By default Cura 5.4.0 only supports the three physical extrudes,
+but an extra configuration file can be added to support up to eight
+([or maybe 16](https://community.ultimaker.com/topic/41834-can-i-add-more-than-8-extruders-in-cura/))
+extruders in total.
 
 Unpacking these files into your resources directory (eg: `$HOME/.local/share/cura/5.4/`)
 should give you a new "A20Tx8" printer with eight extruders:
 
 [A20T with eight extruders (A20Tx8) printer definition](files/define_A20Tx8.zip)
 
-### G-Code Mixing
+## Setting up Mixing (in G-Code)
 
-It can be set up in Cura to have up to eight
-([or maybe 16](https://community.ultimaker.com/topic/41834-can-i-add-more-than-8-extruders-in-cura/))
-virtual extruders each of which is a different blend of the three actual extruders, 
+Virtual extruders are
 set up in the printer settings G-code using the 
 [M163](https://marlinfw.org/docs/gcode/M163.html) and
 [M164](https://marlinfw.org/docs/gcode/M164.html)
 commands. 
-
-## Setting up Mixing (in G-Code)
 
 **Note that G-code standardization is quite broken across
 different brands of printer and different firmwares.  There's 

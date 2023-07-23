@@ -1,7 +1,7 @@
 ---
 title: Multi-Material 3D Printing With OpenSCAD, Cura and the Geeetech A20T
-date: '2023-07-20'
-layout: draft
+date: '2023-07-23'
+layout: article
 summary: "How to do multi material 3D printing with OpenSCAD and Cura and the Geeetech A20T"
 tags:
   - 3dprint
@@ -17,8 +17,9 @@ which has about 12× the build volume of the old printer,
 and has three filaments feeding into a single extuder, letting
 it print designs in multiple materials and/or colours.
 
-I've written a separate article on
-[assembling and configuring the Geeetech A20T](/art/geeetech-a20t-assembly-and-configuration/):
+I'm writing a separate article on
+**assembling and configuring the Geeetech A20T**
+<!-- [assembling and configuring the Geeetech A20T](/art/geeetech-a20t-assembly-and-configuration/)-->:
 this one is all about the technical details of getting a multi-material
 workflow set up with OpenSCAD and Cura.
 
@@ -221,8 +222,8 @@ will "drop" each piece to touch the print bed.  To prevent this, control-click
 each individual piece and make sure "Drop Down Model" is turned off on every
 one before ungrouping the pieces.
 
-It sure is tedious selecting each of those pieces.  It would be nice if there
-was a way to automate this. Maybe there is, in some other format like 3MF? 
+**It sure is tedious selecting each of those pieces.  It would be nice if there
+was a way to automate this. Maybe there is, in some other format like 3MF?**
 
 ## Printing on the Geeetech A20T
 
@@ -246,7 +247,9 @@ I'm not sure why this has to be so damn tricky or whether there's a better
 way to do all this, but I've been able to modify the existing definitions
 a bit to allow more extruders.
 
-Unpacking these files into your resources directory (eg: `$HOME/.local/share/cura/5.4/`)
+Unpacking these files into your resources directory
+(eg: `$HOME/.local/share/cura/5.4/` on Linux,
+something like `Program Files\Ultimaker Cura 5.4\resources\` on Windows I think)
 should give you a new "A20Tx8" printer with eight extruders:
 
 [A20T with eight extruders (A20Tx8) printer definition](files/define_A20Tx8.zip)
@@ -445,3 +448,7 @@ specified separately:
 
 This feature really belongs in Cura, not OpenSCAD, but doing it this
 way is expedient.
+
+**It's quite possible that this is already an option somewhere in Cura's
+extensive set of "Mesh Fixes", "Special Modes" or "Experimental" settings.
+If you find it, let me know!**

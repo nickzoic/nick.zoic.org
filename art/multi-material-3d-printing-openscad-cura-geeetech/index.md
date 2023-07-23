@@ -20,7 +20,7 @@ it print designs in multiple materials and/or colours.
 I'm writing a separate article on
 **assembling and configuring the Geeetech A20T**
 <!-- [assembling and configuring the Geeetech A20T](/art/geeetech-a20t-assembly-and-configuration/)-->:
-this one is all about the technical details of getting a multi-material
+this article is all about the technical details of getting a multi-material
 workflow set up with OpenSCAD and Cura.
 
 ## OpenSCAD
@@ -31,7 +31,8 @@ I mostly use [OpenSCAD](https://openscad.org/) to design
 is not good ([#1041](https://github.com/openscad/openscad/issues/1041),
 [#1608](https://github.com/openscad/openscad/issues/1608).)
 
-It'd be great to fix that, but in the meantime I needed a quick solution.
+It'd be great to fix that, but in the meantime I need a quick solution so I 
+can play with my new toy.
 
 [Erik Nygren has made a good start](https://erik.nygren.org/2018-3dprint-multicolor-openscad.html)
 with a method for selecting one part at a time using a `multicolor()` module
@@ -73,9 +74,9 @@ declare variables, the `-D material=1` option can override the value set by
 the code `material = 0;`.
 *[O tempora, o mores!](https://en.wikipedia.org/wiki/O_tempora,_o_mores!)*
 
-I'd like to come up with a nicer mechanism for doing this in OpenSCAD.
+**I'd like to come up with a nicer mechanism for doing this in OpenSCAD.
 Ideally there would be a mechanism to read out the names of the top level
-modules, and a mechanism to select one module to render.
+modules, and a mechanism to select one module to render.**
 
 ### Intersecting Volumes
 
@@ -189,7 +190,7 @@ set -eu
 SOURCE=$1
 TARGET=${2:-${SOURCE%.*}.amf}
 TEMPDIR=`mktemp -d`
-for MATERIAL in 1 2 3 4 5 6 7 8 9; do
+for MATERIAL in 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16; do
     echo -e "---\nEXPORTING MATERIAL $MATERIAL"
     openscad -D material=$MATERIAL -o $TEMPDIR/temp$MATERIAL.amf $SOURCE || echo "FAILED"
 done
@@ -247,10 +248,12 @@ I'm not sure why this has to be so damn tricky or whether there's a better
 way to do all this, but I've been able to modify the existing definitions
 a bit to allow more extruders.
 
-Unpacking these files into your resources directory
+You can unpack these files into your resources directory
 (eg: `$HOME/.local/share/cura/5.4/` on Linux,
-something like `Program Files\Ultimaker Cura 5.4\resources\` on Windows I think)
-should give you a new "A20Tx8" printer with eight extruders:
+something like `%APPDATA%\cura\5.4\` on Windows I think,
+which might be under `C:\Users\YOUR USERNAME\AppData\Roaming\`)
+
+This one should give you a new "A20Tx8" printer with eight extruders:
 
 [A20T with eight extruders (A20Tx8) printer definition](files/define_A20Tx8.zip)
 

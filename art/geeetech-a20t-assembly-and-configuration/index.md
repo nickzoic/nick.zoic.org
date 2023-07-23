@@ -17,7 +17,7 @@ and has one extruder with three filaments feeding into it, letting
 it print designs in multiple materials and/or colours.
 
 This article is about setting the printer up and getting it working.
-I'm writing a separate article with all the technical details of
+I've written a separate article with all the technical details of
 [Multi-Material 3D Printing with OpenSCAD, Cura and the Geeetech A20T](/art/multi-material-3d-printing-openscad-cura-geeetech/)
 which might be interesting if you're specifically into
 [OpenSCAD](https://openscad.org/) and

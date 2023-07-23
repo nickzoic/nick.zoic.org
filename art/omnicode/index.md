@@ -139,15 +139,26 @@ Surely this isn't serious ...
 
 I wasn't when I started, ǝɹns os ʇou ɯ,I ʍou ʇnq
 
-UPDATE
-======
+UPDATE 2021
+===========
 
 Stumbled upon some prior art, sort of:
 I already knew about [Chinese Typewriters](https://en.wikipedia.org/wiki/Chinese_typewriter)
 and keyboards which combine strokes to make characters but here's
 [Livermore’s Permutation Typograph](https://www.langustefonts.com/history/livermore.html)
 which does the same thing for western languages.
+(also [more on the Livermore Permutation Typograph](https://oztypewriter.blogspot.com/2011/08/on-this-day-in-typewriter-history-cii.html))
 
-([also](https://oztypewriter.blogspot.com/2011/08/on-this-day-in-typewriter-history-cii.html))
+UPDATE 2023
+===========
+Here's a neat paper on [Typesetting Rare Chinese Characters in LATEX](https://www.tug.org/TUGboat/tb24-3/wong.pdf)
+from EuroTEX 2003 which proposes a multi-level composition language "HanGlyph" which is very neat.
 
+![Excerpt from Wong et al., "Typesetting Rare Chinese Characters in LATEX"](img/wong-et-al.png)
 
+It'd be great to introduce the "components" idea into OmniCode, because
+if you have a font with an acceptable `a`, 
+and an acceptable `⁰` then getting an acceptable `å` or `ḁ` out of it
+might be just a matter of composing the two
+glyphs, with appropriate fallbacks to a "standard" component if a font
+specific one can't be found.

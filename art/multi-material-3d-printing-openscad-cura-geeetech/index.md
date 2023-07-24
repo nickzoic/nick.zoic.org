@@ -8,7 +8,7 @@ tags:
   - python
 ---
 
-I've been [messing around with my cheap ALDI 3D printer](/art/aldi-coccoon-3d-printer/)
+I've been [messing around with my cheap ALDI 3D printer](/art/aldi-cocoon-3d-printer/)
 for a few years now and it's time to upgrade!
 
 I've put an order in for a 

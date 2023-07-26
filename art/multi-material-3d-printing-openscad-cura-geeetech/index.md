@@ -263,6 +263,13 @@ This one should give you a new "A20Tx8" printer with eight extruders:
 
 The Cura interface becomes pretty cumbersome with this many extruders
 though.
+I tried setting up different filament colours as well ... so lots of 
+generic PLA filaments with different colours in their names and different
+colours in the preview ... but it didn't work all that well as you need
+to assign one filament definition per extruder and you need to make them
+different colours, and unless you've got some connection between the colour
+of the filament in Cura and the colour of the mixed filament on the
+actual printer it's just going to get confusing.
 
 ## Setting up Mixing (in G-Code)
 
@@ -330,7 +337,12 @@ Using [M166](https://marlinfw.org/docs/gcode/M166.html)
 should let you assign a Z-gradient to a tool as well!
 
 **It'd be nice to define a Cura plugin to make this a bit more
-accessible.  Maybe there already is one ...**
+accessible.  There's a
+[Colormix Plugin](https://github.com/Ultimaker/Cura/blob/main/plugins/PostProcessingPlugin/scripts/ColorMix.py)
+for two-into-one mixes, which might be a good start to work from.
+But the Cura post-processing plugin interface looks pretty seriously limiting.
+Oh, well, let's wait and see.**
+
 
 ## Outstanding Issues with Multi-Material Printing in Cura
 
@@ -436,8 +448,8 @@ specified separately:
 4. Combine AMFs and set the interior volume as your infill material,
    with only a single wall, top and bottom layer.  You can't select the 
    interior volume by clicking on it, but you can set the material for the
-   whole grouped component, and then change each of the visible components
-   individually.
+   whole grouped component to the infill material, and then change each
+   of the visible components individually to other materials.
 
    The interior volume now takes up most of the space, with the other
    materials just forming a thin shell of 2-3 layers surrounding

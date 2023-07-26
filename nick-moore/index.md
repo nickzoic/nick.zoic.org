@@ -4,6 +4,7 @@ title: Nick Moore
 ---
 
 ![Nick Moore](img/nick-moore.jpg)
+*Me!  photo: Charlotte Moore*
 
 I’m a [freelance](https://en.wikipedia.org/wiki/Freelancer#Etymology)
 Software Consultant, generally working through my company 
@@ -29,7 +30,9 @@ I'm also very interested in [Mesh Networking](https://mesh.zoic.org/),
 especially in [education](/tag/education).
 
 I live in the suburbs of Melbourne, Australia with my wife, two
-daughters, a very enthusiastic dog and a very vocal cat.
+daughters, a very enthusiastic [dog](img/dog.jpg) and a very vocal [cat](img/cat.jpg).
+
+I'm also into bicycles and [music](/tag/music/) and I'm learning a bit of ukulele.
 
 Contact
 -------
@@ -42,6 +45,8 @@ The best way to contact me directly is email.
 
 Other Sites
 -----------
+
+These are all, in some way or another, me:
 
 -   <a rel="me" href="https://aus.social/@nickzoic">Mastodon: @nickzoic@aus.social</a>
 -   [GitHub: nickzoic](https://github.com/nickzoic)
@@ -57,4 +62,4 @@ back from it.
 I'm not active on any of the other social media services at this time
 and haven't bothered to sign up to every one of them just to reserve my usual
 name, so if you see me there, it ain't me.  Feel free to drop me
-an email if you think someone is impersonating me on one of those.
+an email if you think someone is impersonating me on one of those sites.

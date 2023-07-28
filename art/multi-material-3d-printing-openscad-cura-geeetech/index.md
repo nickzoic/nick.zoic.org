@@ -47,7 +47,7 @@ What I ended up doing was just defining several parts arbitrarily
 called `red` and `blue` and `green`, 
 and at the bottom of the file include some code to select between them:
 
-```
+```OpenSCAD
 material = 0;
 if (material == 0) {
    red();
@@ -89,7 +89,7 @@ weird alternating layers where the volumes intersect.
 So instead make sure you subtract layers from each other before
 emitting them.  We alter our previous code like so:
 
-```
+```OpenSCAD
 material = 0;
 if (material == 0) {
     red();
@@ -143,7 +143,7 @@ Then we can just iterate through the materials from the command line
 using the `-D var=val` command line option and get OpenSCAD to export
 each material to a different `.amf` file:
 
-```
+```Shell
 openscad -D material=1 -o temp1.amf project.scad
 openscad -D material=2 -o temp2.amf project.scad
 openscad -D material=3 -o temp3.amf project.scad
@@ -153,7 +153,7 @@ Since we can manipulate AMF files pretty easily we can then combine those files
 into one file which can be importing into Cura.
 
 `combine_amf.py`:
-```
+```Python
 #!/usr/bin/env python
 import sys
 import xml.etree.ElementTree as ET
@@ -184,7 +184,7 @@ ET.ElementTree(xout).write(sys.stdout, encoding='unicode', xml_declaration=True)
 Rather than doing these steps manually we can use a bash script:
 
 `mmexport.sh`:
-```
+```Shell
 #!/bin/bash
 set -eu
 SOURCE=$1
@@ -290,7 +290,7 @@ For example these commands select a 50/30/20 mix of the three
 filaments in the real extruders 0, 1 and 2, and assign that
 mix to a "virtual tool" 3:
 
-```
+```G-code
 M163 S0 P0.5
 M163 S1 P0.3
 M163 S2 P0.2
@@ -306,7 +306,7 @@ tools 3 through 7 as mixes of tools 1 and 2 (the second
 and third filaments), so you could for example load white,
 red and blue and print in white and several shades of purple.
 
-```
+```G-code
 M163 S0 P0
 M163 S1 P0.84
 M163 S2 P0.16
@@ -399,7 +399,7 @@ specified separately:
    [working 3D offset command](https://github.com/openscad/openscad/pull/4516),
    but this probably works well enough:
 
-   ```
+   ```OpenSCAD
    module everything() {
        red();
        green();
@@ -426,7 +426,7 @@ specified separately:
 
 2. Subtract this interior volume from every part:
 
-   ```
+   ```OpenSCAD
    if (material == 1) {
        difference() {
            red();
@@ -439,7 +439,7 @@ specified separately:
 
 3. Also render the interior volume as its own material:
 
-   ```
+   ```OpenSCAD
    } else if (material == 4) {
        interior();
    }

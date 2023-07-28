@@ -248,3 +248,8 @@ travel out of the printer with a bit more fettling.
 
 ![New Hot End Bracket](img/new-hot-end-bracket.jpg) ![New Hot End Bracket](img/new-hot-end-bracket2.jpg)
 *New Hot End Bracket*
+
+I should probably print some kind of fan mount shroud / duct / etc but for the moment
+it's hanging in there with one screw and a cable tie.  The bracket is somewhat in the 
+way of the very top of the fan, but the heatsink is working well and the fan housing
+is a couple of mm clear of the print nozzle which actually gives pretty good print cooling.

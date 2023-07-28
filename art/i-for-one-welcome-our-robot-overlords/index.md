@@ -18,11 +18,14 @@ Pretty weird.  Now I've currently got CCBot disallowed in [robots.txt](/robots.t
 but this was relatively recent so I'm just assuming they scraped everything before
 that.
 
-UPDATE: Interestingly, if you look at the requests that the page is sending,
+# UPDATE
+
+Interestingly, if you look at the requests that the WaPo page is sending,
 it appears to use
 [a technique for making static content appear dynamic](/art/static-jquery-dynamic/) 
-which I discussed on here a few years back: for each three-letter prefix, 
-there's a static files like
+which I discussed on here a few years back.
+
+For each three-letter prefix, there's a static files like
 `/technology/interactive/2023/ai-chatbot-learning/lookup/$PREFIX.csv` 
 which gets loaded and parsed in Javascript, and then Javascipt does the
 rest of the filtering before presenting the data to the user.

@@ -24,13 +24,17 @@ which might be interesting if you're specifically into
 [Cura](https://ultimaker.com/software/ultimaker-cura/)
 but otherwise not so much.
 
-## Reviews
+## Reviews, etc
 
 On Youtube, there's a
 [Geeetech A10M review at Teaching Tech](https://www.youtube.com/watch?v=AbZhNvMM4Os)
 and [six Geeetech A10M upgrades at Teaching Tech](https://www.youtube.com/watch?v=8o--HmfZ57I)
 which give you some idea of how these printers work and whether
 they'll be right for you.
+
+The [A20T User Manual](https://www.geeetech.com/download.html?version_id=428)
+gives you a pretty good idea of what you're getting
+yourself into.
 
 ## The Out-Of-Box Experience
 
@@ -55,9 +59,10 @@ don't have one.
 
 **At the very end of the instruction book is a warning to
 check that the power supply is correctly set to 110V/240V.**
-
 This is pretty easy to miss even if you read all the 
 English instruction section before starting.
+It's a lot more obvious in the PDF manual than the 
+printed one which comes in the box.
 Putting the traditional warning sticker over the
 power inlet would be a nice touch.
 
@@ -72,7 +77,7 @@ A spare pair of hands might be nice.
 The tools in the box are mostly okay with the exception 
 of the 4mm Allen key which you need to attach the 
 gantry to the body.  It's too small to get a decent torque
-on the screws.  But like me you probably have a few 4mm
+on those screws.  But like me you probably have a few 4mm
 allen keys laying around. 
 
 I do wish they'd mentioned to attach the mylar bed before
@@ -81,7 +86,7 @@ made it easier to line up.  The mylar bed was well hidden
 in the packaging.
 
 Also, before cable-tieing the wiring loom into place its 
-a good idea to move the print head to its furthest
+a good idea to gently move the print head to its furthest
 position so you can judge where the cables will sit.
 
 ### Loading
@@ -99,37 +104,39 @@ There's a couple of "untidy" things about this printer,
 for example the front end of the Y axis belt is out
 in the open air and the Y axis end stop is exposed too.
 It's no big deal it just looks a little messy.
-I might print covers for them.
+I might print little covers for them.
 
 The wiring looms are well protected in sleeves but 
 they look quite messy too.
 
-### Dimensions
+### Printing Dimensions
 
 When homed, the X axis is at -10mm, and moves cleanly to
-+242mm before the print carriage fouls on the right hand
-gantry and the stepper cogs.  This is no big deal but
++242mm before one of the print carriage screws
+fouls on the right hand gantry and the stepper cogs.
+This is no big deal but
 will cause layer misalignment so the software really
-should know about this.  It'd be an easy design change
-to just remove a little bit of the gantry bracket.
+should know about this.  You can flip the screw around but
+then the print carriage cable bracket fouls on the gantry
+at +244mm.
 
-The Y axis is at -5mm and moves to 250mm before software
+The Y axis homes at -5mm and moves to +250mm before software
 stops it, so that's nice.
 
-The Z axis homes to 0 and moves to 249mm before the print
+The Z axis homes to 0 and moves to +249mm before the print
 head cable fouls on the gantry. This could probably be 
-adjusted out by pulling the Z stop
-and print bed down a tiny bit.
+adjusted out by pulling the Z stop microswitch
+and the print bed down a tiny bit.
 
-The specifications also list the dimensions of the
-printer:
-```
-Printer size: 442x447x480 mm
-```
-... which is a bit misleading as the print bed moves
-considerable beyond these dimensions.  You'll need to
-have a work top at least 500mm wide to allow the 
-print bed to go all the way back, and when fully forward
+### Machine Dimensions
+
+The specifications list the dimensions of the
+printer as
+`442x447x480 mm`
+which isn't quite correct. You'll need to
+have a work top at least 500mm deep to allow the 
+print bed to go all the way back with the front
+feet still on the table, and when fully forward
 the print bed will stick out a further ~75mm past
 that.
 
@@ -141,34 +148,61 @@ And the printer itself is about 520mm tall, but you'll
 need about 600mm to be able to load filament into the 
 feeders.
 
-This stuff is important to get correct if you're installing
-a shelf or cabinet for the printer.
+So overall, probably 600x600x600 mm would be an 
+appropriate amount of space to allow.
+This stuff is important to get correct if you're
+installing a shelf or cabinet for the printer.
 
 ### Firmware
 
 As packaged, the printer was loaded with Marlin 1.1.8
 (2017-12-25) and no support for the 3DTouch sensor.
 
-I grabbed the upgraded Marlin 2.3 firmware from
+I grabbed the upgraded firmware from
 [the geeetech site](https://www.geeetech.com/download.html?download_id=45) but really, it's prety annoying to ship a product
 with 5 year old firmware which the user then has to upgrade
 just to fully use your product!
 
+### Noise
+
+The print head cooling fan is really quite noisy.
+
+According to the 
+[Schematic](https://www.geeetech.com/download.html?version_id=457)
+there's PWM on multiple fans, but only the print cooling fan seems
+to respond to commands.
+
+[M112](https://marlinfw.org/docs/gcode/M112.html) shuts the printer
+firmware down but doesn't turn off the fans. Properly shutting the 
+machine down remotely will still require a mains relay I suppose.
+
+### Front Panel UI
+
+The display is big and bright and the click-and-turn input device is the
+same kind of thing the Aldi printer has, but without its annoying habit 
+of shifting just as you click.  You can't actually see the display when 
+the bed is fully forward though.  I don't expect to be using this much 
+as I mostly drive the printer through [Octoprint](https://octoprint.org/).
+
+### Automatic Bed Levelling
+
+Along with the printer I ordered a 
+[Geeetech 3D Touch v3.2 Auto Leveling Sensor](https://www.geeetech.com/geeetech-3d-touch-v32-auto-leveling-sensor-p-1010.html)
+
+This is pretty fiddly to install and not supported by the firmware out of the box
+so trying it out will have to wait until I've got the firmware installed.
+
+### Filament Runout Detection
+
+The printer came with three filament runout detection sensors.
+In videos I've watched these little switches have seemed like they're 
+pretty wobbly but on this printer they bolt securely into place and the
+wiring loom is already ready for them to plug in.  The firmware supports
+them out of the box too, although you have to go into a settings
+menu to enable them.
 
 ## First Boats!
 
 One of the first things I made on the Aldi printer was a bunch of keyrings / schoolbag tags for the 
 kids and their friends, which looked okay but how much cooler are they going to look in multiple
 colours?
-
-## Front Panel UI
-
-## Bonus Features
-
-### Automatic Bed Levelling
-
-### Filament Runout Detection
-
-## Modifications
-
-## Review

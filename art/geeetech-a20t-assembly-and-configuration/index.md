@@ -155,13 +155,29 @@ installing a shelf or cabinet for the printer.
 
 ### Firmware
 
-As packaged, the printer was loaded with Marlin 1.1.8
+As packaged, the printer was loaded with
+[Marlin](https://marlinfw.org/) 1.1.8
 (2017-12-25) and no support for the 3DTouch sensor.
 
 I grabbed the upgraded firmware from
 [the geeetech site](https://www.geeetech.com/download.html?download_id=45) but really, it's prety annoying to ship a product
 with 5 year old firmware which the user then has to upgrade
 just to fully use your product!
+
+There's various instructions I found online which use Arduino or 
+Visual Studio to upload the firmware, but you really only need
+to use `avrdude`:
+
+[avrdude option desciptions](https://www.nongnu.org/avrdude/user-manual/avrdude_3.html#Option-Descriptions)
+
+```
+avrdude -P /dev/ttyUSB0 -p m2560 -c wiring -D -U flash:w:GT2560_A20T_HW4.1B_FW2.3.2__20210330.hex:i
+```
+
+After this upgrade ... well, it's still Marlin 1.1.8 but at least its 
+a more recent build, and the 3DTouch menu is present now.
+
+At some point I might have to look into upgrading to a more recent Marlin 2.x.
 
 ### Noise
 
@@ -170,7 +186,7 @@ The print head cooling fan is really quite noisy.
 According to the 
 [Schematic](https://www.geeetech.com/download.html?version_id=457)
 there's PWM on multiple fans, but only the print cooling fan seems
-to respond to commands.
+to respond to commands.  Which is annoying.
 
 [M112](https://marlinfw.org/docs/gcode/M112.html) shuts the printer
 firmware down but doesn't turn off the fans. Properly shutting the 

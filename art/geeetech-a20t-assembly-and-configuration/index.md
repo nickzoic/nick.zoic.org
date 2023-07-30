@@ -1,6 +1,6 @@
 ---
 title: "Geeetech A20T: Assembly and Configuration"
-date: '2023-07-20'
+date: '2023-07-30'
 layout: draft
 summary: "Assembly and configuration of the Geeetech A20T 3D printer"
 tags:
@@ -66,7 +66,7 @@ printed one which comes in the box.
 Putting the traditional warning sticker over the
 power inlet would be a nice touch.
 
-### Assembly
+## Assembly
 
 The only tricky bit really is attaching the gantry to
 the body.  The easiest way seems to be to hang the body
@@ -83,13 +83,18 @@ allen keys laying around.
 I do wish they'd mentioned to attach the mylar bed before
 assembling the gantry to the printer body, that would have
 made it easier to line up.  The mylar bed was well hidden
-in the packaging.
+in the packaging.  I'd not realized this is just a fixed
+stick-on platform rather than a removable magnetic one.
+I might have to go back and buy the magnetic one now.
 
 Also, before cable-tieing the wiring loom into place its 
 a good idea to gently move the print head to its furthest
 position so you can judge where the cables will sit.
 
-### Loading
+All up it took about an hour from the courier arriving to 
+powering the printer up for the first time.
+
+## Loading
 
 Two of the three feeders are *really* hard to load 
 filament into.  Once you get the filament past the 
@@ -98,7 +103,7 @@ somewhere and get hung up on it.  The third one doesn't
 seem to do this so perhaps I should pull one apart
 and have a look at what's going on.
 
-### Appearance
+## Appearance
 
 There's a couple of "untidy" things about this printer,
 for example the front end of the Y axis belt is out
@@ -106,10 +111,10 @@ in the open air and the Y axis end stop is exposed too.
 It's no big deal it just looks a little messy.
 I might print little covers for them.
 
-The wiring looms are well protected in sleeves but 
+The wiring looms are well protected in woven sleeves but 
 they look quite messy too.
 
-### Printing Dimensions
+## Printing Dimensions
 
 When homed, the X axis is at -10mm, and moves cleanly to
 +242mm before one of the print carriage screws
@@ -120,6 +125,9 @@ should know about this.  You can flip the screw around but
 then the print carriage cable bracket fouls on the gantry
 at +244mm.
 
+![X-axis interference](img/x-axis.jpg)
+*X-axis interference*
+
 The Y axis homes at -5mm and moves to +250mm before software
 stops it, so that's nice.
 
@@ -128,7 +136,7 @@ head cable fouls on the gantry. This could probably be
 adjusted out by pulling the Z stop microswitch
 and the print bed down a tiny bit.
 
-### Machine Dimensions
+## Machine Dimensions
 
 The specifications list the dimensions of the
 printer as
@@ -153,11 +161,17 @@ appropriate amount of space to allow.
 This stuff is important to get correct if you're
 installing a shelf or cabinet for the printer.
 
-### Firmware
+## Firmware
+
+![Machine Version](img/fw3.jpg)
+*Hardware Info Screen*
 
 As packaged, the printer was loaded with
 [Marlin](https://marlinfw.org/) 1.1.8
 (2017-12-25) and no support for the 3DTouch sensor.
+
+![Firmware Version as supplied](img/fw1.jpg)
+*Firmware Version as supplied*
 
 I grabbed the upgraded firmware from
 [the geeetech site](https://www.geeetech.com/download.html?download_id=45) but really, it's prety annoying to ship a product
@@ -177,9 +191,12 @@ avrdude -P /dev/ttyUSB0 -p m2560 -c wiring -D -U flash:w:GT2560_A20T_HW4.1B_FW2.
 After this upgrade ... well, it's still Marlin 1.1.8 but at least its 
 a more recent build, and the 3DTouch menu is present now.
 
+![Upgraded Firmware Version](img/fw2.jpg)
+*Upgraded Firmware Version*
+
 At some point I might have to look into upgrading to a more recent Marlin 2.x.
 
-### Noise
+## Noise
 
 The print head cooling fan is really quite noisy.
 
@@ -192,7 +209,7 @@ to respond to commands.  Which is annoying.
 firmware down but doesn't turn off the fans. Properly shutting the 
 machine down remotely will still require a mains relay I suppose.
 
-### Front Panel UI
+## Front Panel UI
 
 The display is big and bright and the click-and-turn input device is the
 same kind of thing the Aldi printer has, but without its annoying habit 
@@ -200,7 +217,7 @@ of shifting just as you click.  You can't actually see the display when
 the bed is fully forward though.  I don't expect to be using this much 
 as I mostly drive the printer through [Octoprint](https://octoprint.org/).
 
-### Automatic Bed Levelling
+## Automatic Bed Levelling
 
 Along with the printer I ordered a 
 [Geeetech 3D Touch v3.2 Auto Leveling Sensor](https://www.geeetech.com/geeetech-3d-touch-v32-auto-leveling-sensor-p-1010.html)
@@ -221,26 +238,24 @@ so you can home the printer, lower Z to 0 and check the clearance,
 tweak the Z offset value and repeat until you get it spot on.
 
 1. Level the bed as well as possible using the supplied slip of paper and the bed
-thumbwheels, etc.
+   thumbwheels, etc.
 
 2. Adjust the 3D Touch sensor until it's 2-4mm off the build plate.
    About 3mm is ideal but don't sweat it.
 
 3. Unplug the Z-axis limit switch, plug in the 3D Touch sensor, activate 3D Touch in firmware.
 
-4. Home the printer and then 
+4. Home the printer, lower the Z axis and then adjust the 3D Touch offset to get the
+   offset correct.  Repeat until it's accurate.
 
-### Filament Runout Detection
+## Filament Runout Detection
 
 The printer came with three filament runout detection sensors.
 In videos I've watched these little switches have seemed like they're 
-pretty wobbly but on this printer they bolt securely into place and the
+[pretty wobbly](https://www.xiaomitoday.com/2018/10/11/geeetech-a20m-review/#Filament_runout_detector)
+but on this printer they bolt securely into place and the
 wiring loom is already ready for them to plug in.  The firmware supports
 them out of the box too, although you have to go into a settings
 menu to enable them.
 
-## First Boats!
-
-One of the first things I made on the Aldi printer was a bunch of keyrings / schoolbag tags for the 
-kids and their friends, which looked okay but how much cooler are they going to look in multiple
-colours?
+**TO BE CONTINUED: First Boats!**

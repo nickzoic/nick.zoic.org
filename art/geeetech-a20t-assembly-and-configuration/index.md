@@ -1,7 +1,7 @@
 ---
 title: "Geeetech A20T: Assembly and Configuration"
 date: '2023-07-30'
-layout: draft
+layout: article
 summary: "Assembly and configuration of the Geeetech A20T 3D printer"
 tags:
   - 3dprint
@@ -96,10 +96,13 @@ powering the printer up for the first time.
 
 ## Loading
 
-Two of the three feeders are *really* hard to load 
+Two of the three feeders on my printer are *really* hard to load 
 filament into.  Once you get the filament past the 
 roller, it seems to hit a little restriction in there
-somewhere and get hung up on it.  The third one doesn't
+somewhere and get hung up on it, requiringa lot of wiggling
+around to get the filament fully into the tube.
+
+The third one doesn't
 seem to do this so perhaps I should pull one apart
 and have a look at what's going on.
 
@@ -107,21 +110,22 @@ and have a look at what's going on.
 
 There's a couple of "untidy" things about this printer,
 for example the front end of the Y axis belt is out
-in the open air and the Y axis end stop is exposed too.
+in the open air and the Y axis end stop is exposed at the back.
 It's no big deal it just looks a little messy.
 I might print little covers for them.
 
 The wiring looms are well protected in woven sleeves but 
-they look quite messy too.
+they look quite messy too, some cable clips might be in order.
 
 ## Printing Dimensions
 
 When homed, the X axis is at -10mm, and moves cleanly to
 +242mm before one of the print carriage screws
 fouls on the right hand gantry and the stepper cogs.
-This is no big deal but
+This is no big deal but if you hit this point it
 will cause layer misalignment so the software really
-should know about this.  You can flip the screw around but
+should know about this.  You can flip the screw around to
+avoid it hitting the ganty, but
 then the print carriage cable bracket fouls on the gantry
 at +244mm.
 
@@ -131,17 +135,18 @@ at +244mm.
 The Y axis homes at -5mm and moves to +250mm before software
 stops it, so that's nice.
 
-The Z axis homes to 0 and moves to +249mm before the print
-head cable fouls on the gantry. This could probably be 
-adjusted out by pulling the Z stop microswitch
-and the print bed down a tiny bit.
+The Z axis homes to 0 and as supplied it moves to +249mm
+before the print head cable fouls on the gantry. This can be 
+fixed by pulling the Z stop microswitch down ~2mm
+and leveling the print bed again.
 
 ## Machine Dimensions
 
 The specifications list the dimensions of the
-printer as
-`442x447x480 mm`
-which isn't quite correct. You'll need to
+printer as `442x447x480 mm`
+which isn't quite correct either.
+
+You'll need to
 have a work top at least 500mm deep to allow the 
 print bed to go all the way back with the front
 feet still on the table, and when fully forward
@@ -150,16 +155,24 @@ that.
 
 You'll need at least 480mm width, and a bit more if you
 want to access the SD card slot on the right side, and
-there isn't much room for the USB cable either.
+there isn't much room for the USB and power cables either.
 
-And the printer itself is about 520mm tall, but you'll
-need about 600mm to be able to load filament into the 
+The printer itself is about 520mm tall, but you'll
+need at least 600mm to be able to load filament into the 
+feeders.  If you want to use this printer inside an
+enclosure you might want to consider relocating the 
 feeders.
 
 So overall, probably 600x600x600 mm would be an 
 appropriate amount of space to allow.
 This stuff is important to get correct if you're
 installing a shelf or cabinet for the printer.
+
+And that's not counting the three filament reels!
+The printer comes with three little desk-standing
+reel holders made of acrylic sheet which you can bolt together,
+but they're probably not that convenient if you're
+doing a lot of multi material printing.
 
 ## Firmware
 
@@ -185,10 +198,11 @@ to use `avrdude`:
 [avrdude option desciptions](https://www.nongnu.org/avrdude/user-manual/avrdude_3.html#Option-Descriptions)
 
 ```
-avrdude -P /dev/ttyUSB0 -p m2560 -c wiring -D -U flash:w:GT2560_A20T_HW4.1B_FW2.3.2__20210330.hex:i
+avrdude -P /dev/ttyUSB0 -p m2560 -c wiring -D \
+  -U flash:w:GT2560_A20T_HW4.1B_FW2.3.2__20210330.hex:i
 ```
 
-After this upgrade ... well, it's still Marlin 1.1.8 but at least its 
+After this upgrade ... well, it's still Marlin 1.1.8 but at least it's 
 a more recent build, and the 3DTouch menu is present now.
 
 ![Upgraded Firmware Version](img/fw1.jpg)
@@ -198,12 +212,14 @@ At some point I might have to look into upgrading to a more recent Marlin 2.x.
 
 ## Noise
 
-The print head cooling fan is really quite noisy.
+The head cooling fan is really quite noisy,  it seems to be 
+under quite a bit of load pushing air through the crowded print
+head so I doubt a baffle will help but perhaps a small duct might.
 
 According to the 
 [Schematic](https://www.geeetech.com/download.html?version_id=457)
 there's PWM on multiple fans, but only the print cooling fan seems
-to respond to commands.  Which is annoying.
+to respond to commands.
 
 [M112](https://marlinfw.org/docs/gcode/M112.html) shuts the printer
 firmware down but doesn't turn off the fans. Properly shutting the 
@@ -248,14 +264,33 @@ tweak the Z offset value and repeat until you get it spot on.
 4. Home the printer, lower the Z axis and then adjust the 3D Touch offset to get the
    offset correct.  Repeat until it's accurate.
 
+5. Run the bed level program.
+
+*I'm not entirely clear from the [schematic](https://www.geeetech.com/download.html?version_id=457)
+whether the Z-axis switch **has** to be unplugged
+on this particular printer: there's provision for a separate `Z0_MIN` and `Z1_MIN`, and I 
+think `Z0_MIN` is wired to `Z_MIN1` in the print head connector, but the actual switches
+aren't ever shown in the schematic. It would be nice to have an actual physical limit switch as
+a backup!*
+
 ## Filament Runout Detection
 
 The printer came with three filament runout detection sensors.
 In videos I've watched these little switches have seemed like they're 
 [pretty wobbly](https://www.xiaomitoday.com/2018/10/11/geeetech-a20m-review/#Filament_runout_detector)
-but on this printer they bolt securely into place and the
+but on this printer they bolt securely into place with two small screws and the
 wiring loom is already ready for them to plug in.  The firmware supports
 them out of the box too, although you have to go into a settings
-menu to enable them.
+menu to enable them.  As a few people have noted, if you've got the switches activated then
+they *all* have to have filament in them for the printer to work, so keep a couple of bits of 
+old filament around for any feeders which aren't in use.
 
-**TO BE CONTINUED: First Boats!**
+# TO BE CONTINUED: First Boats!
+
+Coming soon, first test prints and calibration.
+
+Don't forget to check out the
+[Multi Material Printing with Geeetech A20T](/art/multi-material-3d-printing-openscad-cura-geeetech/)
+article as well.
+
+

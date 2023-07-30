@@ -17,9 +17,8 @@ which has about 12× the build volume of the old printer,
 and has three filaments feeding into a single extuder, letting
 it print designs in multiple materials and/or colours.
 
-I'm writing a separate article on
-**assembling and configuring the Geeetech A20T**
-<!-- [assembling and configuring the Geeetech A20T](/art/geeetech-a20t-assembly-and-configuration/)-->:
+I've written a separate article on
+[assembling and configuring the Geeetech A20T](/art/geeetech-a20t-assembly-and-configuration/):
 this article is all about the technical details of getting a multi-material
 workflow set up with OpenSCAD and Cura.
 
@@ -467,3 +466,9 @@ way is expedient.
 **It's quite possible that this is already an option somewhere in Cura's
 extensive set of "Mesh Fixes", "Special Modes" or "Experimental" settings.
 If you find it, let me know!**
+
+# To Be Continued
+
+Now it's arrived I've written about
+[assembling and configuring the A20T](/art/geeetech-a20t-assembly-and-configuration/)
+and I'll keep working on the multi material stuff as I go.

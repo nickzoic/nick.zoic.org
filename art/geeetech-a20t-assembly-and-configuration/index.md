@@ -204,9 +204,31 @@ as I mostly drive the printer through [Octoprint](https://octoprint.org/).
 
 Along with the printer I ordered a 
 [Geeetech 3D Touch v3.2 Auto Leveling Sensor](https://www.geeetech.com/geeetech-3d-touch-v32-auto-leveling-sensor-p-1010.html)
-
 This is pretty fiddly to install and not supported by the firmware out of the box
-so trying it out will have to wait until I've got the firmware installed.
+so trying it out had to wait until I got the firmware installed (see above).
+
+It's a pretty simple device: there's a little linear servo which slides a pin
+in and out over a range of about 6mm.
+It sends back a signal to say if the tip is touching the build plate.
+Once it's installed and configured it replaces the functionality of the
+Z-axis end stop switch, which you can remove.
+
+So that lets it measure the build plate distance accurately.
+You then set it up so that the correct nozzle clearance (0.3mm or so) 
+is when the fully-retracted sensor is about half way (3mm or so).
+There's a parameter in the firmware which sets that exact value,
+so you can home the printer, lower Z to 0 and check the clearance,
+tweak the Z offset value and repeat until you get it spot on.
+
+1. Level the bed as well as possible using the supplied slip of paper and the bed
+thumbwheels, etc.
+
+2. Adjust the 3D Touch sensor until it's 2-4mm off the build plate.
+   About 3mm is ideal but don't sweat it.
+
+3. Unplug the Z-axis limit switch, plug in the 3D Touch sensor, activate 3D Touch in firmware.
+
+4. Home the printer and then 
 
 ### Filament Runout Detection
 

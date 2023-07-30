@@ -6,6 +6,7 @@ tags:
     - python
     - languages
     - gui
+    - bioinformatics
 summary: |
     My latest project — CountESS: a visual computing framework for bioinformatics.
 ---

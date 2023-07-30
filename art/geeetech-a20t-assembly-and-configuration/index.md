@@ -170,7 +170,7 @@ As packaged, the printer was loaded with
 [Marlin](https://marlinfw.org/) 1.1.8
 (2017-12-25) and no support for the 3DTouch sensor.
 
-![Firmware Version as supplied](img/fw1.jpg)
+![Firmware Version as supplied](img/fw2.jpg)
 *Firmware Version as supplied*
 
 I grabbed the upgraded firmware from
@@ -191,7 +191,7 @@ avrdude -P /dev/ttyUSB0 -p m2560 -c wiring -D -U flash:w:GT2560_A20T_HW4.1B_FW2.
 After this upgrade ... well, it's still Marlin 1.1.8 but at least its 
 a more recent build, and the 3DTouch menu is present now.
 
-![Upgraded Firmware Version](img/fw2.jpg)
+![Upgraded Firmware Version](img/fw1.jpg)
 *Upgraded Firmware Version*
 
 At some point I might have to look into upgrading to a more recent Marlin 2.x.

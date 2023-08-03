@@ -32,7 +32,8 @@ I think by that time I was very much burnt out from online communications.
 
 I started [writing a game (sort of)](/art/writing-an-apple-2-game-in-2021-1/) and I
 [made a MIDI guitar (sort of)](/art/midi-hero/) and I
-[upset a lot of people](/art/qr-codes-advice/) but otherwise, despite a massive amount
+[upset a lot of people](/art/qr-codes-advice/) and did a bit of 
+[3d printing](/tag/3dprint/) but otherwise, despite a massive amount
 of time on my hands, I didn't get a whole lot done.
 
 Offline, I did learn a bit of Ukulele, but part of the joy of that is that's it's an Entirely Offline Hobby,
@@ -49,4 +50,4 @@ building my fitness back up so hoping to do a lot of riding this summer.
 
 I'm now working on [CountESS](/art/attack-and-dethrone-excel) pretty much full time and 
 looking forward to talking about it (and the MIDI guitar) at my first in-person conference
-in several years, [PyConAU Adelaide](https://2023.pycon.org.au/).  Hope to see you there.
+in several years, [PyConAU Adelaide](/art/pycon-pyconau-2023-adelaide/).  Hope to see you there.

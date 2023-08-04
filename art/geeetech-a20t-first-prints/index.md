@@ -119,7 +119,10 @@ and is impossible to remove.
 Okay, so Benchy is maybe not a great place to start.  Lets do something
 a lot simpler: three circles, one per extruder.
 
-This *worked*, so that's something.
+![circles](img/circles.jpg)
+*Test print: three circles*
+
+This *worked*, so that's something.  There's a few issues:
 
 * Lousy adhesion: this might have been because I set the bed to cool down 
   after the first layer and it cooled down quite quickly.
@@ -128,9 +131,15 @@ This *worked*, so that's something.
   It can be avoided with a post-processing step or, as they note, it could be fixed
   in Marlin.
 * There's some mixing of colours around the edges, which are the first things to
-  print in each layer.
-* There's a bit of oozing before the print even starts.
-  
+  print in each layer.  Because they're generally the skin layers, this is particularly
+  bad, since they're the most visible.
+* There's a bit of oozing before the print even starts, you can see the remnants
+  in that little orange blob.
+
+Interestingly, the blue one (Extruder 2 == Tool 1) looks pretty good whereas the
+orange one has a lot of blue on the outside and the white one gets a fair bit of
+orange.  Could this be down to the individual filaments?
+
 ### Mixing
 
 I'm beginning to think I'd be better off with a

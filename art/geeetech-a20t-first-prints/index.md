@@ -165,14 +165,43 @@ Which makes sense: that's fewer tool changes and therefore
 less waste.  But it also makes the operations less consistent
 between alternating layers.  It should probably be a "Dual Extrusion" option in Cura.
 
+## Post Processing
+
+Cura includes a bunch of options for post-processing G-Code, but 
+the simplest one has to be the "Search and Replace" which literally
+just does a regex match and replace on your G-Code output.  To solve
+the problem of the heaters getting turned off early, you can set up:
+
+* Search: `M104 (T\d+) S0`
+* Replace: `; M104 \1 S0 removed in post-processing`
+* Use Regular Expressions: Yes
+
+The first line looks for `M104` followed by `T`-and-any-number-of-digits followed by `S0`.
+These are only issued in this particular situation. 
+Cura also issues a `M104 S0` (with no `T`) at the very end to turn all
+the heaters off.
+
+The second line replaces that with a comment, letting you know what was removed.
+The `\1` is substituted with the bit which matched `(T\d+)`.
+
+The third line lets the search and replace know you want to use those trickier
+options rather than just matching plain text.
+See also [Python re.sub](https://docs.python.org/3/library/re.html#re.sub)
+for more information.
+
+![pps-sar](img/pps-sar.png)
+*Screenshot of the Post-Processing Search-and-Replace Rule*
+
+The result: Cura's commands which normally turn the heaters off too early
+get replaced with harmless comments.
+
 ## More Circles
 
 Okay, so lets change some stuff:
 
 * Increase bed temperature & leave it at 60⁰C.
 * Add a 5mm brim to prevent lifting
-* Add a post-process search and replace step to remove the extraneous
-  `M104 Tn S0` commands
+* Add the post-process to remove `M104 Tn S0`.
 * Increase Prime Tower Size to 35mm and Prime Tower Minimum Volume
   from 6mm³ to 30mm³ (surely overkill, but ...)
 * Slow Nozzle Switch Retraction Speed to 10mm/s
@@ -186,7 +215,6 @@ reduce the prime tower volume and get a better idea of how much is required.
 
 The part was very well attached to the bed so after the print finished 
 I heated the bed up to 80⁰C and then let it cool to room temperature.
-
 
 ### Mixing
 

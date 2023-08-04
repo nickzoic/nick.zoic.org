@@ -15,7 +15,7 @@ and now it's time to actually print something!
 The SD card which came with the printer contains a couple of G-Code files
 which I assume are tuned up for the printer.
 
-**`A10TA20Tcube_colored.gco`**
+### `A10TA20Tcube_colored.gco`
 
 This is just a cube which is a solid color, a mix
 of all three extruders.  There's no metadata but
@@ -32,7 +32,7 @@ It's weird that this doesn't include any tool
 changes at all?  To demo printers which are all
 about filament changes? 
 
-**`A20T-cat.gco`**
+### `A20T-cat.gco`
 
 This is a cat with a color gradient.  Headers
 indicate that it was generated with Simplify3D
@@ -165,7 +165,7 @@ Which makes sense: that's fewer tool changes and therefore
 less waste.  But it also makes the operations less consistent
 between alternating layers.  It should probably be a "Dual Extrusion" option in Cura.
 
-## Post Processing
+### Post Processing
 
 Cura includes a bunch of options for post-processing G-Code, but 
 the simplest one has to be the "Search and Replace" which literally
@@ -195,7 +195,7 @@ for more information.
 The result: Cura's commands which normally turn the heaters off too early
 get replaced with harmless comments.
 
-## More Circles
+### More Circles
 
 Okay, so lets change some stuff:
 
@@ -205,16 +205,31 @@ Okay, so lets change some stuff:
 * Increase Prime Tower Size to 35mm and Prime Tower Minimum Volume
   from 6mm³ to 30mm³ (surely overkill, but ...)
 * Slow Nozzle Switch Retraction Speed to 10mm/s
+* Make the circles smaller (we don't need that much plastic to show
+  the bleed between colours)
 
 ![circles2](img/circles2.jpg)
 *Test print: three smaller circles*
 
 Okay, well, the overkill worked.  There's three little circles, with very
-little bleed between them.  A pretty wasteful process, but now we can 
+little bleed between them.  A pretty wasteful process, but now we
+know it works we can gradually
 reduce the prime tower volume and get a better idea of how much is required.
 
-The part was very well attached to the bed so after the print finished 
-I heated the bed up to 80⁰C and then let it cool to room temperature.
+The part was very well attached to the bed this time, so after the print
+finished I heated the bed up to 80⁰C and then let it cool to room temperature.
+That seems to help a bit.  I wonder if I could add an under-bed cooling
+fan to get it to cool down a bit quicker in the hopes of having parts just
+"pop off"?
+
+### Ooooooooze
+
+### Benchy Revisited
+
+
+## EXTRA STUFF
+
+Other stuff I'll come back to later:
 
 ### Mixing
 
@@ -231,14 +246,15 @@ having the three nozzles share a heater and thermostat.
 
 Of course, something in my tiny brain is telling me: if you can't decide
 between 3 individual nozzles and one three-way mixing nozzle, perhaps you
-need a two-way mixing nozzle plus another separate nozzle ...
-this way, clearly, lies madness.
+need a two-way mixing nozzle plus another separate nozzle ... or two 
+two-way mixing nozzles!  The possibilities are endless.
+This way, clearly, lies madness.
 
 
-## Another minor profile annoyance
+### Another minor profile annoyance
 
 Even before the individual printer start G-Code, Cura issues
-(comments mine):
+these commands (comments mine):
 
 ```
 M140 S60   ; set bed to 60, don't wait
@@ -258,5 +274,5 @@ M190 S60   ; wait for bed to reach 60
 M109 S190  ; wait for nozzle to reach 190
 ```
 
-Some of the other printers seem to get this correct?
-
+It's a minor annoyance, but some of the other printer definitions
+seem to get this correct?

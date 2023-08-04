@@ -144,6 +144,50 @@ Interestingly, the blue one (Extruder 2 == Tool 1) looks pretty good whereas the
 orange one has a lot of blue on the outside and the white one gets a fair bit of
 orange.  Could this be down to the individual filaments?
 
+Or is it the order in which the elements are printed?
+Looking at the G-Code, it doesn't print like:
+
+```
+Layer 0: Segment 1, Segment 2, Segment3
+Layer 1: Segment 1, Segment 2, Segment3
+Layer 2: Segment 1, Segment 2, Segment3
+```
+
+It does:
+
+```
+Layer 0: Segment 1, Segment 2, Segment3
+Layer 1: Segment 3, Segment 2, Segment1
+Layer 2: Segment 1, Segment 2, Segment3
+```
+
+Which makes sense: that's fewer tool changes and therefore
+less waste.  But it also makes the operations less consistent
+between alternating layers.  It should probably be a "Dual Extrusion" option in Cura.
+
+## More Circles
+
+Okay, so lets change some stuff:
+
+* Increase bed temperature & leave it at 60⁰C.
+* Add a 5mm brim to prevent lifting
+* Add a post-process search and replace step to remove the extraneous
+  `M104 Tn S0` commands
+* Increase Prime Tower Size to 35mm and Prime Tower Minimum Volume
+  from 6mm³ to 30mm³ (surely overkill, but ...)
+* Slow Nozzle Switch Retraction Speed to 10mm/s
+
+![circles2](img/circles2.jpg)
+*Test print: three smaller circles*
+
+Okay, well, the overkill worked.  There's three little circles, with very
+little bleed between them.  A pretty wasteful process, but now we can 
+reduce the prime tower volume and get a better idea of how much is required.
+
+The part was very well attached to the bed so after the print finished 
+I heated the bed up to 80⁰C and then let it cool to room temperature.
+
+
 ### Mixing
 
 I'm beginning to think I'd be better off with a
@@ -161,4 +205,30 @@ Of course, something in my tiny brain is telling me: if you can't decide
 between 3 individual nozzles and one three-way mixing nozzle, perhaps you
 need a two-way mixing nozzle plus another separate nozzle ...
 this way, clearly, lies madness.
+
+
+## Another minor profile annoyance
+
+Even before the individual printer start G-Code, Cura issues
+(comments mine):
+
+```
+M140 S60   ; set bed to 60, don't wait
+M190 S60   ; wait for bed to reach 60
+M104 S190  ; set nozzle to 190, don't wait
+M109 S190  ; wait for nozzle to reach 190
+```
+
+... which is *very almost* what it should be doing to
+heat everything up at once ... just swap the middle two
+lines ...
+
+```
+M140 S60   ; set bed to 60, don't wait
+M104 S190  ; set nozzle to 190, don't wait
+M190 S60   ; wait for bed to reach 60
+M109 S190  ; wait for nozzle to reach 190
+```
+
+Some of the other printers seem to get this correct?
 

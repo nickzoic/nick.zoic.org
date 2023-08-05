@@ -216,13 +216,31 @@ little bleed between them.  A pretty wasteful process, but now we
 know it works we can gradually
 reduce the prime tower volume and get a better idea of how much is required.
 
-The part was very well attached to the bed this time, so after the print
-finished I heated the bed up to 80⁰C and then let it cool to room temperature.
-That seems to help a bit.  I wonder if I could add an under-bed cooling
-fan to get it to cool down a bit quicker in the hopes of having parts just
-"pop off"?
+Trying again with smaller numbers revealed two things: firstly, 15mm³ per
+tool change is not enough to flush the nozzle and secondly a 20mm prime tower is not big
+enough to hold 45mm³ per layer, which should be kind of mathematically obvious
+but I didn't think of it.
+
+Cura doesn't notice this and just makes a little poop emoji of molten filament
+which screws the print head up.  This would be a good quick fix for Cura: just
+quickly check that:
+
+```
+π r² h > k v n
+
+r = prime tower size / 2
+h = layer height
+k = fudge factor, perhaps about 1.5
+v = prime tower minimum volume
+n = maximum number of tool changes in a layer
+```
+
+So I'm going back up to a 35mm tower and a 30mm³ dump, even though it looks
+ridiculous.
 
 ### Ooooooooze
+
+### Keyrings
 
 ### Benchy Revisited
 
@@ -230,6 +248,19 @@ fan to get it to cool down a bit quicker in the hopes of having parts just
 ## EXTRA STUFF
 
 Other stuff I'll come back to later:
+
+### Adhesion
+
+The parts generally are very well attached to the bed, so after the print
+finishes I've been heating the bed up to 80⁰C and then letting it cool
+to room temperature.  That seems to help to loosen the print a bit.
+I wonder if I could add an under-bed cooling
+fan to get it to cool down a bit quicker in the hopes of having parts just
+"pop off"?
+
+It's either that or buy a magnetic bed like my cheapy printer has, that 
+makes removal a lot easier plus you can use glue stick if you're having
+trouble getting stuff to stick.
 
 ### Mixing
 

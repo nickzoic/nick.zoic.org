@@ -195,6 +195,13 @@ for more information.
 The result: Cura's commands which normally turn the heaters off too early
 get replaced with harmless comments.
 
+UPDATE: The slicer issues a bunch of other 'standby temperature' commands
+which aren't helpful either.  I've changed my post processing to 
+
+* Search: `M104 (T\d+) (S\d+)`
+* Replace: `; M104 \1 \2 remove in post-processing`
+* Use Regular Expresions: Yes
+
 ### More Circles
 
 Okay, so lets change some stuff:
@@ -281,7 +288,6 @@ need a two-way mixing nozzle plus another separate nozzle ... or two
 two-way mixing nozzles!  The possibilities are endless.
 This way, clearly, lies madness.
 
-
 ### Another minor profile annoyance
 
 Even before the individual printer start G-Code, Cura issues
@@ -307,3 +313,23 @@ M109 S190  ; wait for nozzle to reach 190
 
 It's a minor annoyance, but some of the other printer definitions
 seem to get this correct?
+
+### Saving to SD Card
+
+It'd be nice to buffer the print from the PC to the printer, ideally
+without having to mess around with OctoPrint.
+
+the [M28 Start SD Write](https://marlinfw.org/docs/gcode/M028.html),
+[M29 Stop SD Write](https://marlinfw.org/docs/gcode/M029.html), 
+[M23 Select SD File](https://marlinfw.org/docs/gcode/M023.html) and
+[M24 Start or Resume SD print](https://marlinfw.org/docs/gcode/M024.html)
+commands should make this possible by wrapping the g-code in something
+like:
+
+```
+M28 buffer.gco
+; rest of the g-code goes here
+M29
+M23 buffer.gco
+M24
+```

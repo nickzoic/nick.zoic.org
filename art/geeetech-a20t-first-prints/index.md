@@ -312,7 +312,14 @@ M109 S190  ; wait for nozzle to reach 190
 ```
 
 It's a minor annoyance, but some of the other printer definitions
-seem to get this correct?
+seem to get this correct?  It turns out that Cura
+[looks for some magic in the startup G-code](https://github.com/Ultimaker/Cura/blob/0089b5e06cab4137a19943dc2f57197305f4e170/plugins/CuraEngineBackend/StartSliceJob.py#L473-L482),
+specifically interpolations of `{material_bed_temperature}` and
+`{material_print_temperature}`, and if they aren't present then it 
+adds some of its own before the machine start gcode.
+So if your startup code just uses a set value like `M109 S190` instead of 
+`M109 S{material_print_temperature}` it won't detect it, and Cura will prepend
+its own one.
 
 ### Saving to SD Card
 

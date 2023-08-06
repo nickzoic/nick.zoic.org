@@ -245,6 +245,7 @@ n = maximum number of tool changes in a layer
 So I'm going back up to a 35mm tower and a 30mm³ dump, even though it looks
 ridiculous.
 
+<<<<<<< HEAD
 ### Ooooooooze
 
 ### Keyrings
@@ -288,6 +289,8 @@ need a two-way mixing nozzle plus another separate nozzle ... or two
 two-way mixing nozzles!  The possibilities are endless.
 This way, clearly, lies madness.
 
+=======
+>>>>>>> b1de6272738b13d8bc0d9d37b00b142dabd8765b
 ### Another minor profile annoyance
 
 Even before the individual printer start G-Code, Cura issues
@@ -340,3 +343,55 @@ M29
 M23 buffer.gco
 M24
 ```
+
+### Ooooooooze
+
+I've had a lot of trouble with ooze on this printer but reducing the
+temperature and also getting rid of a lot of the preamble stuff seems to
+have helped.
+
+### Adhesion
+
+The parts generally are very well attached to the bed, so after the print
+finishes I've been heating the bed up to 100⁰C briefly and then letting
+it cool to room temperature.
+That seems to help to loosen the print a bit, so I've added it to the 
+printer profile's `machine_end_gcode` section:
+
+```
+M117 POST HEATING  ; message
+M107               ; turn off the print cooling fan
+M104 S0            ; turn off the hotend
+M140 S100          ; start heating the bed to 100⁰C
+G0 X125 Y125 Z250  ; lift the head up out of the way
+M190 S100          ; wait for bed to reach 100⁰C
+M190 R50           ; wait for bed to drop back to 50⁰C
+M140 S0            ; turn the bed heater off
+M117 FINISHED!     ; message
+M300 P500          ; beep!
+```
+
+## Keyrings
+
+One of the things the kids got a real kick out of a few years back were 
+the [keyrings / bag tags](https://github.com/nickzoic/models3d/blob/master/alpha/keyrings.scad)
+I printed off for them, especially the kids with less common names.
+
+Apparently that's still cool 4 years later so I made some multi-coloured
+ones ...
+
+![keyrings](img/keyrings.jpg)
+*Keyrings I printed for Amelia and Jorgie*
+
+... there's a small amount of very fine ooze but overall I'm pretty happy with 
+these.  Most of the stray stuff just brushed off.  
+
+I'll probably redo them with a slightly wider orange border as they look
+a little cramped, but otherwise I'm pretty happy with them.  I'll also 
+change the way the layers interleave to make the white letters "deeper",
+but it's okay for now.
+
+## Benchy Revisited
+
+![benchy2](img/benchy2.jpg)
+*Benchy, revisited*

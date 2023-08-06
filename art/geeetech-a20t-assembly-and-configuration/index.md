@@ -94,6 +94,11 @@ position so you can judge where the cables will sit.
 All up it took about an hour from the courier arriving to 
 powering the printer up for the first time.
 
+UPDATE: On my one, the two little screws which attach the
+Z axis nut to the gantry were very loose as shipped.
+Definitely check this and then run the Z axis 
+up and down to make sure it's moving smoothly.
+
 ## Loading
 
 Two of the three feeders on my printer are *really* hard to load 
@@ -137,7 +142,7 @@ stops it, so that's nice.
 
 The Z axis homes to 0 and as supplied it moves to +249mm
 before the print head cable fouls on the gantry. This can be 
-fixed by pulling the Z stop microswitch down ~2mm
+fixed by loosening the Z stop microswitch and moving it down ~2mm
 and leveling the print bed again.
 
 ## Machine Dimensions
@@ -222,7 +227,7 @@ there's PWM on multiple fans, but only the print cooling fan seems
 to respond to commands.
 
 [M112](https://marlinfw.org/docs/gcode/M112.html) shuts the printer
-firmware down but doesn't turn off the fans. Properly shutting the 
+firmware down but doesn't turn off the fans. Properly shutting the
 machine down remotely will still require a mains relay I suppose.
 
 ## Front Panel UI
@@ -273,6 +278,10 @@ think `Z0_MIN` is wired to `Z_MIN1` in the print head connector, but the actual 
 aren't ever shown in the schematic. It would be nice to have an actual physical limit switch as
 a backup!*
 
+UPDATE: After a lot of faffing about trying to get this working to my satisfaction,
+I've removed it from the printer and gone back to the good 'ol microswitch-and-paper
+method!  I'll revisit 3D Touch at a later date.
+
 ## Filament Runout Detection
 
 The printer came with three filament runout detection sensors.
@@ -284,6 +293,10 @@ them out of the box too, although you have to go into a settings
 menu to enable them.  As a few people have noted, if you've got the switches activated then
 they *all* have to have filament in them for the printer to work, so keep a couple of bits of 
 old filament around for any feeders which aren't in use.
+
+UPDATE: I've run or broken filaments a couple of times now, with Cura sending G-Code via USB,
+and what seems to happen is the heaters turn off but the print head keeps moving!  So maybe this
+feature isn't usable in this mode.  I'll have to investigate further.
 
 # TO BE CONTINUED: First Boats!
 

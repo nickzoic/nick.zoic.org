@@ -238,50 +238,6 @@ n = maximum number of tool changes in a layer
 So I'm going back up to a 35mm tower and a 30mm³ dump, even though it looks
 ridiculous.
 
-### Ooooooooze
-
-### Keyrings
-
-### Benchy Revisited
-
-
-## EXTRA STUFF
-
-Other stuff I'll come back to later:
-
-### Adhesion
-
-The parts generally are very well attached to the bed, so after the print
-finishes I've been heating the bed up to 80⁰C and then letting it cool
-to room temperature.  That seems to help to loosen the print a bit.
-I wonder if I could add an under-bed cooling
-fan to get it to cool down a bit quicker in the hopes of having parts just
-"pop off"?
-
-It's either that or buy a magnetic bed like my cheapy printer has, that 
-makes removal a lot easier plus you can use glue stick if you're having
-trouble getting stuff to stick.
-
-### Mixing
-
-I'm beginning to think I'd be better off with a
-[Reprap Diamond](https://reprap.org/wiki/Diamond_Hotend) style 
-printhead which looks like it has a much smaller internal "mixed" volume,
-or maybe just give up and go with 
-[three separate nozzles](https://www.aliexpress.com/item/32887495430.html)
-after all.
-
-Altering the printer so radically might sound a bit crazy but it'd
-actually be a fairly simple upgrade I think, so long as you don't mind
-having the three nozzles share a heater and thermostat.
-
-Of course, something in my tiny brain is telling me: if you can't decide
-between 3 individual nozzles and one three-way mixing nozzle, perhaps you
-need a two-way mixing nozzle plus another separate nozzle ... or two 
-two-way mixing nozzles!  The possibilities are endless.
-This way, clearly, lies madness.
-
-
 ### Another minor profile annoyance
 
 Even before the individual printer start G-Code, Cura issues
@@ -314,3 +270,54 @@ adds some of its own before the machine start gcode.
 So if your startup code just uses a set value like `M109 S190` instead of 
 `M109 S{material_print_temperature}` it won't detect it, and Cura will prepend
 its own one.
+
+### Ooooooooze
+
+I've had a lot of trouble with ooze on this printer but reducing the
+temperature and also getting rid of a lot of the preamble stuff seems to
+have helped.
+
+### Adhesion
+
+The parts generally are very well attached to the bed, so after the print
+finishes I've been heating the bed up to 100⁰C briefly and then letting
+it cool to room temperature.
+That seems to help to loosen the print a bit, so I've added it to the 
+printer profile's `machine_end_gcode` section:
+
+```
+M117 POST HEATING  ; message
+M107               ; turn off the print cooling fan
+M104 S0            ; turn off the hotend
+M140 S100          ; start heating the bed to 100⁰C
+G0 X125 Y125 Z250  ; lift the head up out of the way
+M190 S100          ; wait for bed to reach 100⁰C
+M190 R50           ; wait for bed to drop back to 50⁰C
+M140 S0            ; turn the bed heater off
+M117 FINISHED!     ; message
+M300 P500          ; beep!
+```
+
+## Keyrings
+
+One of the things the kids got a real kick out of a few years back were 
+the [keyrings / bag tags](https://github.com/nickzoic/models3d/blob/master/alpha/keyrings.scad)
+I printed off for them, especially the kids with less common names.
+
+Apparently that's still cool 4 years later so I made some multi-coloured
+ones ...
+
+![keyrings](img/keyrings.jpg)
+*Keyrings I printed for Amelia and Jorgie*
+
+... there's a small amount of very fine ooze but overall I'm pretty happy with 
+these.  Most of the stray stuff just brushed off.  
+
+I'll probably redo them with a slightly wider orange border as they look
+a little cramped, but otherwise I'm pretty happy with them.  I'll also 
+change the way the layers interleave to make the white letters "deeper",
+but it's okay for now.
+
+## Benchy Revisited
+
+![benchy2](img/benchy2.jpg)

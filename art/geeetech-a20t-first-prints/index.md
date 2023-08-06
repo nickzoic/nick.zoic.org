@@ -245,7 +245,6 @@ n = maximum number of tool changes in a layer
 So I'm going back up to a 35mm tower and a 30mm³ dump, even though it looks
 ridiculous.
 
-<<<<<<< HEAD
 ### Ooooooooze
 
 ### Keyrings
@@ -289,8 +288,6 @@ need a two-way mixing nozzle plus another separate nozzle ... or two
 two-way mixing nozzles!  The possibilities are endless.
 This way, clearly, lies madness.
 
-=======
->>>>>>> b1de6272738b13d8bc0d9d37b00b142dabd8765b
 ### Another minor profile annoyance
 
 Even before the individual printer start G-Code, Cura issues

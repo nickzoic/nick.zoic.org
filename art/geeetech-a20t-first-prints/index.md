@@ -347,6 +347,13 @@ I've had a lot of trouble with ooze on this printer but reducing the
 temperature and also getting rid of a lot of the preamble stuff seems to
 have helped.
 
+This test print shows one of the problems ... this is the underside of
+layer 0, and the black filament has oozed during warm-up and left some
+contamination on the print bed, which has ended up in the blue segment.
+
+![ooze](img/ooze.jpg)
+*Black filament ooze ruining the blue segment*
+
 ### Adhesion
 
 The parts generally are very well attached to the bed, so after the print

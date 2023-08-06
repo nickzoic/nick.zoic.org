@@ -285,6 +285,11 @@ changes and lots of optional features which your printer
 may or may not support.  If you're using something other than
 a Geeetech printer the required G-code may be subtly different.**
 
+Marlin supports up to 16 "virtual tools" by default
+(see `MIXING_VIRTUAL_TOOLS`), numbered from 0 .. 15.  
+Each of those has a mapping to a different mix of the 
+real tools, numbered (in my case) 0 through 2.
+
 For example these commands select a 50/30/20 mix of the three
 filaments in the real extruders 0, 1 and 2, and assign that
 mix to a "virtual tool" 3:
@@ -295,6 +300,8 @@ M163 S1 P0.3
 M163 S2 P0.2
 M164 S3
 ```
+
+You can reassign virtual tools 0, 1 and 2 as well!
 
 Once these virtual tools are set up, Cura will automatically
 use them for the different extruders using the tool change

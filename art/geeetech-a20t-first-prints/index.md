@@ -7,7 +7,10 @@ tags:
   - 3dprint
 ---
 
-I've written about [Assembly and configuration of the Geeetech A20T 3D printer](/art/geeetech-a20t-assembly-and-configuration/) and also [Multi-Material 3D Printing With OpenSCAD, Cura and the Geeetech A20T](/art/multi-material-3d-printing-openscad-cura-geeetech/) 
+I've written about
+[Assembly and configuration of the Geeetech A20T 3D printer](/art/geeetech-a20t-assembly-and-configuration/)
+and also
+[Multi-Material 3D Printing With OpenSCAD, Cura and the Geeetech A20T](/art/multi-material-3d-printing-openscad-cura-geeetech/) 
 and now it's time to actually print something!
 
 ## Straight out of the box
@@ -195,6 +198,7 @@ for more information.
 The result: Cura's commands which normally turn the heaters off too early
 get replaced with harmless comments.
 
+
 ### More Circles
 
 Okay, so lets change some stuff:
@@ -238,6 +242,49 @@ n = maximum number of tool changes in a layer
 So I'm going back up to a 35mm tower and a 30mm³ dump, even though it looks
 ridiculous.
 
+### Ooooooooze
+
+### Keyrings
+
+### Benchy Revisited
+
+
+## EXTRA STUFF
+
+Other stuff I'll come back to later:
+
+### Adhesion
+
+The parts generally are very well attached to the bed, so after the print
+finishes I've been heating the bed up to 80⁰C and then letting it cool
+to room temperature.  That seems to help to loosen the print a bit.
+I wonder if I could add an under-bed cooling
+fan to get it to cool down a bit quicker in the hopes of having parts just
+"pop off"?
+
+It's either that or buy a magnetic bed like my cheapy printer has, that 
+makes removal a lot easier plus you can use glue stick if you're having
+trouble getting stuff to stick.
+
+### Mixing
+
+I'm beginning to think I'd be better off with a
+[Reprap Diamond](https://reprap.org/wiki/Diamond_Hotend) style 
+printhead which looks like it has a much smaller internal "mixed" volume,
+or maybe just give up and go with 
+[three separate nozzles](https://www.aliexpress.com/item/32887495430.html)
+after all.
+
+Altering the printer so radically might sound a bit crazy but it'd
+actually be a fairly simple upgrade I think, so long as you don't mind
+having the three nozzles share a heater and thermostat.
+
+Of course, something in my tiny brain is telling me: if you can't decide
+between 3 individual nozzles and one three-way mixing nozzle, perhaps you
+need a two-way mixing nozzle plus another separate nozzle ... or two 
+two-way mixing nozzles!  The possibilities are endless.
+This way, clearly, lies madness.
+
 ### Another minor profile annoyance
 
 Even before the individual printer start G-Code, Cura issues
@@ -276,6 +323,22 @@ its own one.
 I've had a lot of trouble with ooze on this printer but reducing the
 temperature and also getting rid of a lot of the preamble stuff seems to
 have helped.
+
+Also getting rid of unnecessary temperature changes
+seems to have been a good thing.
+The slicer issues a bunch of other 'standby temperature' commands
+which aren't helpful either.  I've changed my post processing to 
+
+* Search: `M104 (T\d+) (S\d+)`
+* Replace: `; M104 \1 \2 remove in post-processing`
+* Use Regular Expresions: Yes
+
+This test print shows one of the problems ... this is the underside of
+layer 0, and the black filament has oozed during warm-up and left some
+contamination on the print bed, which has ended up in the blue segment.
+
+![ooze](img/ooze.jpg)
+*Black filament ooze ruining the blue segment*
 
 ### Adhesion
 
@@ -400,4 +463,3 @@ small parts is pretty wasteful.
 
 I'll keep working on tuning the printer settings and hopefully
 we'll get to the point of a competent Benchy soon!
-

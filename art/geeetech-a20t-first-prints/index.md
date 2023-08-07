@@ -1,8 +1,8 @@
 ---
 title: "Geeetech A20T: First Prints"
-date: '2023-08-02'
-layout: draft
-summary: "First prints on the Geeetech A20T"
+date: '2023-08-07'
+layout: article
+summary: "First prints on the Geeetech A20T ... now with Benchy"
 tags:
   - 3dprint
 ---
@@ -298,6 +298,17 @@ M117 FINISHED!     ; message
 M300 P500          ; beep!
 ```
 
+The `M140` before the `G0` means that the bed is already heating up while
+the head is being raised, and the `M190 R50` makes the printer wait until 
+the bed is cooled down before announcing it has finished.
+
+(you know what would be great for this?  A bed cooling fan underneath ...)
+
+Adhesion was an issue when I tried to print text right down to layer 0 
+as the little disconnected letter pieces didn't adhere well to the bed.
+This could probably be fixed by ensuring that the main, connected part
+of the layer was printed first and the letters were just filling in the gaps.
+
 ## Keyrings
 
 One of the things the kids got a real kick out of a few years back were 
@@ -320,4 +331,73 @@ but it's okay for now.
 
 ## Benchy Revisited
 
-![benchy2](img/benchy2.jpg)
+With a success under my belt (finally) I thought I'd give Benchy another
+go.  The first few layers didn't look so bad ...
+
+![benchy2.1](img/boat3.jpg)
+*Multicolour Benchy, the first few layers*
+
+... but when I came back it had developed into full blown Cthuluoid horror,
+thanks to insufficient retraction.  The filament change retraction seems
+pretty good but the travel retraction is way too small and spiderweb-like
+ooze is everywhere!
+
+![benchy2.2](img/boat4.jpg)
+*Spiderwebbed Benchy*
+
+In the end I was able to scrape a lot of the crap off but it's still a pretty
+sad print.  The orange filament feeder may have been slipping a little as well as
+the lower orange parts look okay but the upper ones look quite patchy.
+
+![benchy2.3](img/boat5.jpg)
+*Leviathan attacks!*
+
+The tree supports look cool but might not have been necessary at all either,
+most of them are for little details which would probably just hang there on 
+their own, and the roof is pretty small and has walls at either end so might
+have been okay too.
+
+![benchy2.4](img/boat6.jpg)
+*Rough but surviving Benchy*
+
+I'll try a monochrome Benchy and try to get the supports and retraction
+sorted out before diving back into multimaterial land again!
+
+### Temperature Changes
+
+Interestingly, even though I set all the temperatures to 190⁰C and
+also added a post-processing script to get rid of all the individual
+extruder temperature commands, the printer still pauses quite often
+to warm up.  I think this is just because `M109 S190` introduces a 
+pause even if the hotend is already right on 190, perhaps so it can
+take two measurements and make sure it isn't changing.
+
+### Yield
+
+By "yield", I mean what percentage of the input material 
+gets turned into useful output material.
+
+The cleaned up Benchy weighed in at 11 grams.
+The prime tower dwarfed it at 26 grams.
+Plus another gram or two in hair and supports.
+So about 28% yield.
+
+This seems pretty terrible, but bear in mind that
+if we printed 8 Benchys at once we'd still only
+need the one prime tower, so that'd be a 76% yield
+
+Or if we printed a huge, triple-sized Benchy it
+would weigh 27 times as much (297 grams) and the
+prime tower would only be tripled, for a 78% yield.
+
+Less priming material would have been wasted if I
+hadn't made the support tree out of a different material.
+
+But still, multi material printing for individual
+small parts is pretty wasteful.
+
+## TO BE CONTINUED
+
+I'll keep working on tuning the printer settings and hopefully
+we'll get to the point of a competent Benchy soon!
+

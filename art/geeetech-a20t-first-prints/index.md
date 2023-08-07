@@ -1,13 +1,16 @@
 ---
 title: "Geeetech A20T: First Prints"
-date: '2023-08-02'
+date: '2023-08-07'
 layout: draft
 summary: "First prints on the Geeetech A20T"
 tags:
   - 3dprint
 ---
 
-I've written about [Assembly and configuration of the Geeetech A20T 3D printer](/art/geeetech-a20t-assembly-and-configuration/) and also [Multi-Material 3D Printing With OpenSCAD, Cura and the Geeetech A20T](/art/multi-material-3d-printing-openscad-cura-geeetech/) 
+I've written about
+[Assembly and configuration of the Geeetech A20T 3D printer](/art/geeetech-a20t-assembly-and-configuration/)
+and also
+[Multi-Material 3D Printing With OpenSCAD, Cura and the Geeetech A20T](/art/multi-material-3d-printing-openscad-cura-geeetech/) 
 and now it's time to actually print something!
 
 ## Straight out of the box
@@ -195,12 +198,6 @@ for more information.
 The result: Cura's commands which normally turn the heaters off too early
 get replaced with harmless comments.
 
-UPDATE: The slicer issues a bunch of other 'standby temperature' commands
-which aren't helpful either.  I've changed my post processing to 
-
-* Search: `M104 (T\d+) (S\d+)`
-* Replace: `; M104 \1 \2 remove in post-processing`
-* Use Regular Expresions: Yes
 
 ### More Circles
 
@@ -321,31 +318,20 @@ So if your startup code just uses a set value like `M109 S190` instead of
 `M109 S{material_print_temperature}` it won't detect it, and Cura will prepend
 its own one.
 
-### Saving to SD Card
-
-It'd be nice to buffer the print from the PC to the printer, ideally
-without having to mess around with OctoPrint.
-
-the [M28 Start SD Write](https://marlinfw.org/docs/gcode/M028.html),
-[M29 Stop SD Write](https://marlinfw.org/docs/gcode/M029.html), 
-[M23 Select SD File](https://marlinfw.org/docs/gcode/M023.html) and
-[M24 Start or Resume SD print](https://marlinfw.org/docs/gcode/M024.html)
-commands should make this possible by wrapping the g-code in something
-like:
-
-```
-M28 buffer.gco
-; rest of the g-code goes here
-M29
-M23 buffer.gco
-M24
-```
-
 ### Ooooooooze
 
 I've had a lot of trouble with ooze on this printer but reducing the
 temperature and also getting rid of a lot of the preamble stuff seems to
 have helped.
+
+Also getting rid of unnecessary temperature changes
+seems to have been a good thing.
+The slicer issues a bunch of other 'standby temperature' commands
+which aren't helpful either.  I've changed my post processing to 
+
+* Search: `M104 (T\d+) (S\d+)`
+* Replace: `; M104 \1 \2 remove in post-processing`
+* Use Regular Expresions: Yes
 
 This test print shows one of the problems ... this is the underside of
 layer 0, and the black filament has oozed during warm-up and left some

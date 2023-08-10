@@ -1,12 +1,12 @@
-@import url(http://fonts.googleapis.com/css?family=Source+Sans+Pro|Oxygen+Mono|Bitter:400,700);
+@import url(http://fonts.googleapis.com/css?family=Acme|PT+Sans);
 
 body {
-    font-family: "Source Sans Pro", sans-serif;
+    font-family: "PT Sans", sans-serif;
     font-weight: 400;
 }
 
 h1, h2, h3, h4, h5, h6 {
-    font-family: Bitter, Impact, sans-serif;
+    font-family: Acme, Impact, sans-serif;
     font-weight: 400;
     margin: 15px;
 }
@@ -45,6 +45,8 @@ pre.medium { font-size: 60% }
 
 p.small { font-size: 72% }
 
+p.tiny { font-size: 33% }
+
 pre, ul, ol {
     display: inline-block;
     text-align: left;
@@ -61,17 +63,22 @@ body.flip {
 }
 
 body > div {
-    text-align: center;
-    border-top: 1px solid black;
     padding: 5px;
+    margin: auto;
+    margin-bottom: 10px;
+    max-width: 50em;
 }
 
-body > div:first-child {
-    border-top: none;
+body > div.slide {
+    border: 1px solid red;
+    text-align: center;
+    padding: 10px;
+    margin-bottom: 10px;
 }
 
 body.flip > div {
     border: 0;
+    width: 100%;
     margin: auto;
     position: absolute;
     top: 0;
@@ -125,6 +132,7 @@ b, .top {
 }
 
 div.footer {
+    text-align: center;
     border: none;
 }
 
@@ -156,6 +164,8 @@ div.footer img.logo {
 
 body.flip .small { font-size: 20px; }
 
+body.flip .tiny { font-size: 16px; }
+
 body.flip table {
     font-size: 40px;
 }
@@ -179,6 +189,11 @@ table td, table th {
 img.whiteborder {
     background-color: white;
     border: 10px solid white;
+}
+
+img.sixty {
+	max-width: 20em;
+	max-height: 60%;
 }
 
 img.eighty {

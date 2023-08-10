@@ -16,19 +16,304 @@
         <a href="https://aus.social/@nickzoic">@nickzoic@aus.social</a></h4>
     </div>
 
-    <div>
+    <div class="slide">
         <h3>Funding</h3>
-	Supported by WEHI and UW and Doug Fowler Lab?
+	<img src="img/wehi.png"/>
+	<p>This work is supported by WEHI (Walter and Eliza Hall Institute of Medical Research)</p>
+	<p>Thanks also to collaborators from the University of Washington.</p>
     </div>
 
-    <!--
-    1. The Problem / The Simple and Obvious Solution / The Actual Problem.
-2. A 4½ minute introduction to bioinformatics
-3. A specific example (probably BRCA1 variant classification)
-4. How we turn that into a CountESS pipeline by combining plugins.
-5. What is a "plugin" anyway (Python entrypoints) & how to write/publish one
-6. where is CountESS going next / how can you contribute? / Questions.
-    -->
+    <div class="slide">
+	    <h3>Content Warnings</h3>
+	    <p>
+	    This presentation mentions:
+	    </p>
+	    <ul>
+		    <li>Cancer</li>
+		    <li>COVID-19</li>
+            </ul>
+	    <p>
+	    ... but doesn't go into gross medical details.
+	    </p>
+    </div>
+
+    <div class="slide"> 
+	    <h2>Bioinformatics in 4½ minutes</h2>
+    </div>
+
+    <div class="notes">
+	    First up, Bioinformatics in 4½ minutes
+    </div>
+
+    <div class="slide">
+	    <h2>Bioinformatics in 4½ minutes</h2>
+	    <p>[*] Approximately</p>
+    </div>
+
+    <div class="notes">
+	    <p>
+	    Okay, so only approximately 4½ minutes, and a lot of this
+	    will be pretty approximate too so don't sweat the details
+	    right now.</p>
+
+	    <p>You could do a lot worse than going down a
+	    <a href="https://en.wikipedia.org/wiki/Bioinformatics">
+		    Bioinformatics Wikipedia Rabbit Hole</a></p>
+
+
+    </div>
+
+    <div class="slide"> 
+      <h3>Bioinformatics in 4½ minutes</h3>
+
+      <h4>Bioinformatics</h4>
+
+      <ul>
+	      <li>Bioinformatics: quantitative analysis of biological data.</li>
+	      <li>Generally using computers.</li>
+	      <li>Lots of parallels between biological science and computer science.</li>
+      </ul>
+    </div>
+
+    <div class="notes">
+	    <p>
+	    Bioinfomatics is the quantitative analysis of biological data.
+	    </p><p>
+	    Biological data tends to be big, and complicated and messy, so we use computers. There's also a lot of connections between computer science and genetic science which are fun to explore.
+	    </p>
+    </div>
+
+	    
+    <div class="slide"> 
+      <h3>Bioinformatics in 4½ minutes</h3>
+      <h4>Cell Biology</h4>
+
+      <img src="img/endomembrane.svg" class="sixty"/>
+
+      <p class="tiny">Image: <a href="https://commons.wikimedia.org/wiki/File:Endomembrane_system_diagram_en.svg">LadyofHats</a>, Public domain, via Wikimedia Commons</p>
+    </div>
+
+    <div class="notes">
+	    <p>There's a lot we don't know about cell biology. The mechanisms
+	    by which all living things function and reproduce are complex and
+	    difficult to observe directly, since they occur inside living
+	    cells.</p>
+
+	    <p>But we can construct experiments which let us observe the
+	    outward behaviour of cells and through analysis we can determine
+            what's going on inside.  This is not totally unlike black-box testing of
+            software: you might not be able to read the code, but if you can find a
+            correlation between a change in input and a change in output, you can start
+            to understand what the program does even if you can't directly watch it
+            doing it.</p>
+    </div>
+
+    <div class="slide"> 
+      <h3>Bioinformatics in 4½ minutes</h3>
+      <h4>The Human Genome</h4>
+
+      <img src="img/dna.png" class="sixty"/>
+
+      <p class="tiny">Image: <a href="https://commons.wikimedia.org/wiki/File:DNA_Structure%2BKey%2BLabelled.pn_NoBB.png">Zephyris</a>, <a href="https://creativecommons.org/licenses/by-sa/3.0">CC BY-SA 3.0</a>, via Wikimedia Commons</p>
+    </div>
+
+    <div class="notes">
+	    <p>The "program" of a cell is called its genome.  The human genome is split into 23 chromosomes each of which is a DNA molecule, a chain of a hundred million or so little building blocks called base pairs. All in all, the human genome consists of about 12Gbit of information. All of your cells have the same genome, like sharing a container image, but different genes are active in different cells, depending on their role in the body.</p>
+    </div>
+
+    <div class="slide"> 
+      <h3>Bioinformatics in 4½ minutes</h3>
+      <h4>Nanopore Electrophoresis</h4>
+
+      <img src="img/nanopore.svg" class="sixty"/>
+
+      <p class="tiny">Image: <a href="https://commons.wikimedia.org/wiki/File:202001_nanopore_sequencing.svg">DataBase Center for Life Science (DBCLS)</a>, <a href="https://creativecommons.org/licenses/by/4.0">CC BY 4.0</a>, via Wikimedia Commons</p>
+    </div>
+
+    <div class="notes">
+	    <p>These days, we can actually read out an entire individual genome
+	    using a technique called "nanopore electrophoresis", which draws
+            the DNA molecule through a tiny hole like a small child slurping up
+            spaghetti.  And using techniques we've learned from studying bacteria and
+            viruses, we can even edit DNA molecules and change or append base pairs.
+            So we can read and write the binary, but that doesn't mean we understand
+            the program.</p> </div>
+
+    <div class="slide"> 
+      <h3>Bioinformatics in 4½ minutes</h3>
+      <h4>Genes</h4>
+
+      <img src="img/gene.svg" class="sixty"/>
+
+      <p class="tiny">Image: <a href="https://commons.wikimedia.org/wiki/File:Gene_structure_eukaryote_2_annotated.svg">Thomas Shafee</a>, <a href="https://creativecommons.org/licenses/by/4.0">CC BY 4.0</a>, via Wikimedia Commons</p>
+    </div>
+
+    <div class="notes">
+	    <p>We do know a bit about the syntax.  Each chromosome contains
+	    many regions called genes, with each gene providing the
+	    instructions to make tiny blobby machines called proteins, which
+	    the cell uses to do its job.  Each gene is wrapped up in more
+	    instructions which form a kind of header and footer and which
+	    regulate how and when the gene is used.  Some genes are small,
+	    hundreds of base pairs long and producing a single protein and some
+	    are very large, a couple of million base pairs and encoding dozens
+	    of proteins.</p>
+	    <p>There are no debug symbols in the genome, so
+	    when we think we know what a gene does, we give it an arbitrary
+	    name. This process is familiar to anyone who's reverse engineered a
+	    binary, either with paper and pencil or with modern
+	    reverse-engineering tools like Ghidra.</p>
+	    <p>Every person's genome
+	    is different. Some differences in genes lead to obvious, observable
+	    differences in the organism, such as hair colour or ability to
+	    digest lactose. These tend to have a large variation in the
+	    population because they don't matter very much, or at least not in
+	    our current lives.  Because there's a big population to work with,
+	    it's possible to find correlations, for example between lactose
+	    intolerance and specific variants of genes we've called "LCR" and
+	    "MCM6".</p> </div>
+
+    <div class="slide"> 
+      <h3>Bioinformatics in 4½ minutes</h3>
+      <h4>Cancer</h4>
+    </div>
+
+    <div class="notes">
+	    <p>Other gene variations lead to more subtle differences, such as
+	    your likelihood of developing specific cancers.  Cancers are caused
+	    by damage to DNA, perhaps due to chemicals or radiation or just bad
+	    luck. Most such damage triggers cellular defense mechanisms, which
+	    repair DNA or destroy the cell rather than allow it to become a
+	    tumor. But we know clinically that some gene variants prevent these
+	    defense mechanisms working effectively, greatly increasing the risk
+	    of developing specific cancers.</p>
+    </div>
+
+    <div class="slide"> 
+      <h3>Bioinformatics in 4½ minutes</h3>
+      <h4>Bug Hunting</h4>
+    </div>
+
+    <div class="notes">
+	    <p>Because these pathogenic variants are rare, and people's lives
+	    are complicated, it's much harder to find them in among the
+            background noise of benign variants and unrelated risk factors.  To put it
+            in programming terms, we're looking for a bug in an exception handler in
+            some critical legacy code which is exposed to the Internet.  But out of
+            hundreds of thousands of known variants of these genes we've been able to
+            identify a few thousand particularly harmful variants which result in an
+            increased probability of developing specific cancers.</p> </div>
+
+    <div class="slide"> 
+      <h3>Bioinformatics in 4½ minutes</h3>
+      <h4>MAVEs</h4>
+    </div>
+
+    <div class="notes">
+	    <p>But there's a lot of variants we don't know anything about,
+	    because we've never observed them clinically.  Some of those are
+            very likely harmless, and others might be very serious: this information
+            can inform individual choices for the prevention or treatment of cancer.
+            Multiplex Assays of Variant Effect (MAVEs) (which my colleague Alan Rubin
+            talked about on Friday) are an attempt to catalog not just the gene
+            variants we've seen clinically but *all possible variants* of a gene,
+            classifying their effects as more or less concerning.</p> </div>
+
+    <div class="slide"> 
+      <h3>Bioinformatics in 4½ minutes</h3>
+      <h4>Saturation Genome Editing</h4>
+    </div>
+
+    <div class="notes">
+	    <p>For example this paper [Findlay et al] uses Saturation Genome
+	    Editing to analyze almost 4000 single-base variants of BRCA1.  For
+            each variant, the effect on cell longevity is assessed by counting the
+            variants in the cell population after 11 days.  The results show good
+            correlation with the variants we already know of clinically and also
+            identifies new pathogenic variants Similar work is underway to analyse
+            other tumor suppressing genes such as BRCA2 and PALB2.</p> </div>
+
+    <div class="slide"> 
+      <h3>Bioinformatics in 4½ minutes</h3>
+      <h4>VAMP-seq</h4>
+    </div>
+
+    <div class="notes">
+	    <p>And this work [Popp] attempts to classify variants of the "F9"
+	    gene which can cause hemophilia, using a technique called VAMP-seq.
+            A fluorescent protein gene derived from jellyfish is added to cells and
+            classified by how much they glow. This is as close as biological science
+            gets to that technique beloved of embedded programmers, debugging by
+            LED.</p> </div>
+
+    <div class="slide">
+      <h3>The Problem</h3>
+      <h4>Counting Things</h4>
+
+      <img src="img/tabulating.jpg" class="sixty"/>
+
+      <p class="tiny">Image: <a href="https://commons.wikimedia.org/wiki/File:IBM_D11_(early_Tabulation_Machine).jpg">Ben Franske (BenFranske)</a>, <a href="https://creativecommons.org/licenses/by-sa/2.5">CC BY-SA 2.5</a>, via Wikimedia Commons</p>
+    </div>
+
+    <div class="notes">
+	    <p>Central to all these methods is the need to *count things*.</p>
+	    <p>This sounds really simple, and it is.  Computers have been
+	    counting things since the first tablulating machines started 
+	    processing punched cards.</p>
+    </div>
+
+    <div class="slide">
+	    <h3>The Problem</h3>
+	    <p>Findlay et al's BRCA1 paper:
+	    <ul>
+		    <li>13 exons</li>
+		    <li>163 files</li>
+		    <li>350 M sequences</li>
+		</ul>
+	    </p>
+    </div>
+
+    <div class="notes">
+	    <p>The </p>
+    </div>
+
+    <div class="slide">
+	    <h3>The Problem</h3>
+            <h4>The Simple And Obvious Solution</h4>
+            <pre>sort sequences.txt | uniq -cd</pre>
+    </div>
+
+    <div class="notes">
+	    <p>Okay, so it's only a few hundred million sequences.
+	    There's tools for that.</p>
+    </div>
+
+    <div class="slide">
+	    <h3></h3>
+	    <h4></h4>
+    </div>
+
+    <div class="notes">
+	    <p></p>
+    </div>
+
+    <div class="slide">
+	    <h3></h3>
+	    <h4></h4>
+    </div>
+
+    <div class="notes">
+	    <p></p>
+    </div>
+
+    <div class="slide">
+	    <h3></h3>
+	    <h4></h4>
+    </div>
+
+    <div class="notes">
+	    <p></p>
+    </div>
 
     <div class="slide">
       <h3>The Problem</h3>

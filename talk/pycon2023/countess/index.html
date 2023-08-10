@@ -1,0 +1,146 @@
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="flip.css"/>
+    <script src="flip.js"></script>
+    <title>CountESS</title>
+  </head>
+  <body>
+
+    <div class="slide">
+      <h1>CountESS</h1>
+      <h2>Count-based Experiment Scoring and Statistics<h2>
+      
+      <h4>Nick Moore<br/>
+        <a href="mailto:nick@zoic.org">nick@zoic.org</a><br/>
+        <a href="https://aus.social/@nickzoic">@nickzoic@aus.social</a></h4>
+    </div>
+
+    <div>
+        <h3>Funding</h3>
+	Supported by WEHI and UW and Doug Fowler Lab?
+    </div>
+
+    <!--
+    1. The Problem / The Simple and Obvious Solution / The Actual Problem.
+2. A 4½ minute introduction to bioinformatics
+3. A specific example (probably BRCA1 variant classification)
+4. How we turn that into a CountESS pipeline by combining plugins.
+5. What is a "plugin" anyway (Python entrypoints) & how to write/publish one
+6. where is CountESS going next / how can you contribute? / Questions.
+    -->
+
+    <div class="slide">
+      <h3>The Problem</h3>
+      <p>
+      We want to determine what effects, if any, various genetic
+      variations have on the functioning of cells.
+      </p>
+
+      <p>
+      We do this by performing experiments, and then analysing the 
+      frequency of the different variants.
+      </p>
+    </div>
+
+    <div class="notes">
+        this is a test
+    </div>
+
+    <div class="slide">
+      <h3>The Simple And Obvious Solution</h3>
+
+      <pre>sort sequences.txt | uniq -cd</pre>
+    </div>
+
+    <div class="slide">
+      <h3>The Actual Problem &mdash; 1</h3>
+      <ul>
+	      <li>Many input file formats</li>
+	      <li>Filtering & transforming data</li>
+	      <li>Combining, scoring, visualizing</li>
+	      <li>Lots of intermediate steps & side outputs</li>
+      </ul>
+    </div>
+
+    <div class="slide">
+      <h3>The Actual Problem &mdash; 2</h3>
+      <ul>
+	      <li>Many subtly incompatible tools</li>
+	      <li>Make, Snakemake, Python, R, shell</li>
+	      <li>Scientists want to Science, not program</li>
+      </ul>
+    </div>	     
+
+    <div class="slide">
+      <img src="img/gene-name-error-1.png" width="99%">
+    </div>
+
+    <div class="slide">
+      <img src="img/gene-name-error-2.png" width="49%">
+    </div>
+
+    <div class="slide">
+      <img src="img/gene-name-error-3.png" width="49%">
+    </div>
+
+    <div class="slide">
+      <h3>The Actual Problem &mdash; 3</h3>
+      <ul>
+	      <li>humans</li>
+      </ul>
+    </div>
+
+    <div class="slide">
+      <h3>A 4½ minute introduction to bioinformatics</h3>
+    </div>
+
+    <div class="slide">
+      <h3>A Specific Example</h3>
+    </div>
+
+    <div class="slide">
+      <h3>Constructing CountESS pipelines</h3>
+    </div>
+
+    <div class="slide">
+      <h3>What is a plugin?</h3>
+    </div>
+
+    <div class="slide">
+      <h3>Python Entrypoints</h3>
+    </div>
+
+    <div class="slide">
+      <h3>Where is CountESS going next?</h3>
+    </div>
+
+    <div class="slide">
+      <h3></h3>
+    </div>
+
+    <div class="slide">
+      <h3></h3>
+    </div>
+
+    <div class="slide">
+      <h3></h3>
+    </div>
+
+    <div class="slide">
+      <h3></h3>
+    </div>
+
+    <div class="slide">
+      <h3></h3>
+    </div>
+
+    <div class="slide">
+      <h3>Questions</h3>
+    </div>
+
+    <div class="footer">
+      <span>Nick Moore &lt;nick@zoic.org&gt; for <a href="https://2023.pycon.org.au/">PyCon AU 2023</a></span>
+    </div>
+  </body>
+</html>

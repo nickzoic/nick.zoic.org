@@ -459,7 +459,13 @@ hadn't made the support tree out of a different material.
 But still, multi material printing for individual
 small parts is pretty wasteful.
 
-## TO BE CONTINUED
+## A Tale of 3½ Benchies
+
+It's improved a lot since that first print, which shows how
+much difference tuning the profile can make:
+
+![3½ Benchies](img/boat7.jpg)
+*3½ Benchies*
 
 I'll keep working on tuning the printer settings and hopefully
 we'll get to the point of a competent Benchy soon!

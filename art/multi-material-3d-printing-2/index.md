@@ -26,4 +26,33 @@ need a two-way mixing nozzle plus another separate nozzle ... or two
 two-way mixing nozzles!  The possibilities are endless.
 This way, clearly, lies madness.
 
+## Multiple Settings
 
+The most maddening thing about Cura turns out to be the per-extruder
+settings.  It's really easy to set the infill for one material and forget
+to change it for the others, for example.  It'd be nice if the UI 
+supported this in some way, perhaps by highlighting fields where 
+different materials have different values.
+
+## Saving to SD Card
+
+It'd be nice to buffer the print from the PC to the printer, ideally
+without having to mess around with OctoPrint.
+
+the [M28 Start SD Write](https://marlinfw.org/docs/gcode/M028.html),
+[M29 Stop SD Write](https://marlinfw.org/docs/gcode/M029.html),
+[M23 Select SD File](https://marlinfw.org/docs/gcode/M023.html) and
+[M24 Start or Resume SD print](https://marlinfw.org/docs/gcode/M024.html)
+commands should make this possible by wrapping the g-code in something
+like:
+
+```
+M28 buffer.gco
+; rest of the g-code goes here
+M29
+M23 buffer.gco
+M24
+```
+
+I think with this code in place the printer's built-in filament
+run-out and power fail resume functions should actually work, too.

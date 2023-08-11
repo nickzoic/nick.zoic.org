@@ -33,7 +33,7 @@
     <div class="slide">
 	    <h3>Content Warnings</h3>
 	    <p>
-	    This presentation mentions:
+	    This presentation briefly mentions:
 	    </p>
 	    <ul>
 		    <li>Cancer</li>
@@ -75,44 +75,26 @@
 
       <ul>
 	      <li>Bioinformatics: quantitative analysis of biological data.</li>
+	      <li>Arguably started with the protein sequencing of insulin in the 1950s</li>
 	      <li>Generally using computers.</li>
 	      <li>Lots of parallels between biological science and computer science.</li>
       </ul>
     </div>
 
-    <div class="notes">
-	    <p>
-	    Bioinfomatics is the quantitative analysis of biological data.
-	    </p><p>
-	    Biological data tends to be big, and complicated and messy, so we use computers. There's also a lot of connections between computer science and genetic science which are fun to explore.
-	    </p>
-    </div>
-
     <div class="slide">
       <h3>Cell Biology</h3>
 
-      <img src="img/animal.svg" class="seventy"/>
+      <img src="img/animal.svg" class="sixty"/>
+      <img src="img/endomembrane.svg" class="sixty"/>
 
-      <p class="tiny">Image: <a href="https://commons.wikimedia.org/wiki/File:Animal_cell_structure_en.svg">LadyofHats</a>, Public domain, via Wikimedia Commons</p>
+      <p class="tiny">Images: <a href="https://commons.wikimedia.org/wiki/File:Animal_cell_structure_en.svg">LadyofHats</a>, Public domain, via Wikimedia Commons</p>
     </div>
 
     <div class="notes">
-	    <p>There's a lot we don't know about cell biology. The mechanisms
+	    <p>There's a lot we still don't know about cell biology. The mechanisms
 	    by which all living things function and reproduce are complex and
 	    difficult to observe directly, since they occur inside living
 	    cells.</p>
-    </div>
-
-	    
-    <div class="slide"> 
-      <h3>Cell Biology</h3>
-
-      <img src="img/endomembrane.svg" class="seventy"/>
-
-      <p class="tiny">Image: <a href="https://commons.wikimedia.org/wiki/File:Endomembrane_system_diagram_en.svg">LadyofHats</a>, Public domain, via Wikimedia Commons</p>
-    </div>
-
-    <div class="notes">
 	    <p>But we can construct experiments which let us observe the
 	    outward behaviour of cells and through analysis we can determine
             what's going on inside.  This is not totally unlike black-box testing of
@@ -191,6 +173,8 @@
 	    We're pretty sure at least 80% of the genome does <b>something</b>,
 	    so we've got a ways to go.
 	    </p>
+	    <p>As you can see on the right, naming things is going about as well
+	    as naming things always does.</p>
 	    <p>Reference: <a href="https://www.science.org/doi/10.1126/science.337.6099.1159">"Encode Project Writes Eulogy For Junk DNA", Science Magazine.</a></p>
     </div>
 
@@ -323,10 +307,11 @@ GGATTCCTATGATTATCTCCTATGCAAATGAACAGAATTGACCTTAC</pre>
 
     <div class="notes">
 	    <p>The most common kind of variant is a single base (nucleotide)
-	    change like we saw above.  If it's a common kind of change, it's
-	    called a Polymorphism, whereas if it's a rare change it's often
+	    change like we saw above.  If it's a common kind of difference, 
+	    see in more that 1% of the population, it's
+	    called a Polymorphism. Whereas if it's a rare change it's generally
 	    called a Variant.  It means the same thing: one base is changed.</p>
-	    <p>Variants are also often given numbers like "rsid" or "RCV"
+	    <p>Variants are also often given reference numbers like "rsid" or "RCV"
 	    because people really like numbering things.</p>
     </div>
 
@@ -334,17 +319,19 @@ GGATTCCTATGATTATCTCCTATGCAAATGAACAGAATTGACCTTAC</pre>
 	<h3>Gene Variants</h3>
 	    <p>Easily observable:</p>
 	    <ul>
-		    <li>Hair Colour</li>
 		    <li>Lactase persistence</li>
+		    <li>Hair Colour</li>
 	    </ul>
 	</div>
 
 	<div class="notes">
 	    <p>Some differences in genes lead to obvious, observable
-	    differences in the organism, such as hair colour or ability to
-	    digest lactose. These tend to have a large variation in the
+	    differences in the organism, such as ability to digest 
+	    lactose as an adult, or hair colour.
+	    These tend to have a large variation in the
 	    population because they don't matter very much, or at least not in
-	    our current lives.  Because there's a big population to work with,
+	    our current lives.</p>
+	    <p>Because there's a big population to work with,
 	    it's possible to find correlations, for example between lactose
 	    intolerance and specific variants of genes we've called
 	    <tt>LCT</tt> and <tt>MCM6</tt>.</p>
@@ -352,7 +339,19 @@ GGATTCCTATGATTATCTCCTATGCAAATGAACAGAATTGACCTTAC</pre>
 	    <p>References:<ul>
 		    <li><a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3057002/">"Model-based prediction of human hair color using DNA variants"</a></li>
 		    <li><a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3401057/">"Lactose intolerance: diagnosis, genetic, and clinical factors"</a></li>
+		    <li><a href="https://www.smithsonianmag.com/science-nature/human-genome-recovered-5700-year-old-chewing-gum-180973801/">Human Genome Recovered From 5,700-Year-Old Chewing Gum</a></li>
 	    </ul></p>
+	</div>
+
+	<div class="slide">
+		<h3>Gene Variants</h3>
+		<img src="img/chewy.png" class="sixty"/>
+	</div>
+
+	<div class="notes">
+		<p>... or to determine the likely hair colour of a person
+		from DNA in her 5700 year old chewing gum.
+		</p>
 	</div>
 
     <div class="slide">
@@ -610,6 +609,7 @@ GGATTCCTATGATTATCTCCTATGCAAATGAACAGAATTGACCTTAC</pre>
 		    <li>Data Previews</li>
 		    <li>Plugin Based</li>
 		    <li>Flexible Pipelines</li>
+		    <li>Receipts</li>
 	    </ul>
     </div>
 
@@ -628,6 +628,10 @@ GGATTCCTATGATTATCTCCTATGCAAATGAACAGAATTGACCTTAC</pre>
 
     <div class="slide">
 	    <h3>CountESS — Flexible Pipelines</h3>
+    </div>
+
+    <div class="slide">
+	    <h3>CountESS — Receipts</h3>
     </div>
 
     <div class="slide">

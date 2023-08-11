@@ -137,13 +137,16 @@
     </div>
 
     <div class="notes">
-	    <p>These days, we can actually read out an entire individual genome
+	    <p>These days, we can actually read out an individual cell's entire genome
 	    using a technique called "nanopore electrophoresis", which draws
             the DNA molecule through a tiny hole like a small child slurping up
             spaghetti.  And using techniques we've learned from studying bacteria and
             viruses, we can even edit DNA molecules and change or append base pairs.
             So we can read and write the binary, but that doesn't mean we understand
-            the program.</p> </div>
+            the program.</p>
+
+	    <p><a href="https://en.wikipedia.org/wiki/CRISPR">CRISPR</a></p>
+    </div>
 
     <div class="slide"> 
       <h3>Genes</h3>
@@ -179,36 +182,34 @@
 	    reverse-engineering tools like Ghidra.</p>
 	    <p>We know of about 20,000 genes which encode proteins, but those
 	    constitute about 3% of the entire genome.
-	    At least 80% of the genome does <b>something</b>, so we've got a ways to go.
+	    We're pretty sure at least 80% of the genome does <b>something</b>,
+	    so we've got a ways to go.
 	    </p>
-	    <a href="https://www.science.org/doi/10.1126/science.337.6099.1159">ref</a>
+	    <p>Reference: <a href="https://www.science.org/doi/10.1126/science.337.6099.1159">"Encode Project Writes Eulogy For Junk DNA", Science Magazine.</a></p>
     </div>
 
     <div class="slide">
-	    <h3>Gene Variants</h3>
-	    <h4>Single Nucleotide Polymorphism (SNP)</h4>
-	    <p>Easily observable:</p>
-	    <ul>
-		    <li>Hair Colour</li>
-		    <li>Lactase persistence</li>
-	    </ul>
-	</div>
+	    <h3>Variants</h3>
+	    <pre class="medium">
+GTTGTCATTTTATAAACCTTTTAAAAAGATATATATATATGTTTTTC
+TAATGTGTTAAAGTTCATTGGAACAGAAAGAAATGGATTTATCTGCT
+CTTCGCGTTGAAGAAGTACAAAATGTCATTAATGCTATGCAGAAAAT
+CTTAGAGTGTCCCATCTGGTAAGTCAGCACAAGAGTGTATTAATTTG
+GGATTCCTATGATTATCTCCTATGCAAATGAACAGAATTGACCTTAC</pre>
+    </div>
 
-	<div class="notes">
-	    <p>Every person's genome
-	    is different. Some differences in genes lead to obvious, observable
-	    differences in the organism, such as hair colour or ability to
-	    digest lactose. These tend to have a large variation in the
-	    population because they don't matter very much, or at least not in
-	    our current lives.  Because there's a big population to work with,
-	    it's possible to find correlations, for example between lactose
-	    intolerance and specific variants of genes we've called "LCT" and
-	    "MCM6".</p>
+    <div class="notes">
+	    <p>
+	   Every person's genome is different.  We have the concept of 
+	   a "reference genome" which describes what we think the "normal"
+	   sequence for every gene is, but no-one's ac
 
-	    <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3057002/">ref: PMC3057002</a>
-	    <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3401057/">ref: PMC3401057</a>
-	    
-	</div>
+	    </p>
+	    <p>
+	    This is a small segment of a gene called <tt>BRCA1</tt>
+	    which we'll talk about more soon.
+	    </p>
+    </div>
 
     <div class="slide">
 	    <h3>Variant Calling</h3>
@@ -228,7 +229,10 @@ GGATTCCTATGATTATCTCCTATGCAAATGAACAGAATTGACCTTAC</pre>
     </div>
 
     <div class="notes">
-
+	    <p>
+	    this shows the reference <tt>BRCA1</tt> and also a
+	    variant.
+	    </p>
     </div>
 
     <div class="slide">
@@ -239,7 +243,7 @@ TAATGTGTTAAAGTTCA<b>T</b>TGGAACAGAAAGAAATGGATTTATCTGCT
 CTTCGCGTTGAAGAAGTACAAAATGTCATTAATGCTATGCAGAAAAT
 CTTAGAGTGTCCCATCTGGTAAGTCAGCACAAGAGTGTATTAATTTG
 GGATTCCTATGATTATCTCCTATGCAAATGAACAGAATTGACCTTAC</pre>
-
+	    <br/>
 	    <pre class="medium">
 GTTGTCATTTTATAAACCTTTTAAAAAGATATATATATATGTTTTTC
 TAATGTGTTAAAGTTCA<b>C</b>TGGAACAGAAAGAAATGGATTTATCTGCT
@@ -249,7 +253,7 @@ GGATTCCTATGATTATCTCCTATGCAAATGAACAGAATTGACCTTAC</pre>
     </div>
 
     <div class="notes">
-
+          <p>Here it is!  One <tt>T</tt> got changed to a <tt>C</tt></p>
     </div>
 
     <div class="slide">
@@ -260,7 +264,7 @@ TAATGTGTTAAAGTTCA<b class="major">T</b>TGGAACAGAAAGAAATGGATTTATCTGCT
 CTTCGCGTTGAAGAAGTACAAAATGTCATTAATGCTATGCAGAAAAT
 CTTAGAGTGTCCCATCTGGTAAGTCAGCACAAGAGTGTATTAATTTG
 GGATTCCTATGATTATCTCCTATGCAAATGAACAGAATTGACCTTAC</pre>
-
+	    <br/>
 	    <pre class="medium">
 GTTGTCATTTTATAAACCTTTTAAAAAGATATATATATATGTTTTTC
 TAATGTGTTAAAGTTCA<b class="major">C</b>TGGAACAGAAAGAAATGGATTTATCTGCT
@@ -270,7 +274,8 @@ GGATTCCTATGATTATCTCCTATGCAAATGAACAGAATTGACCTTAC</pre>
     </div>
 
     <div class="notes">
-	    ... or for those of you up the back
+	    ... or for those of you up the back I've brought back 
+	    the <tt class="blinky">&lt;blink&gt;</tt> tag.
     </div>
 
     <div class="slide">
@@ -283,9 +288,7 @@ GGATTCCTATGATTATCTCCTATGCAAATGAACAGAATTGACCTTAC</pre>
     
     <div class="notes">
 	    <p>These sorts of change are normally represented as a kind of 
-	    diff, showing what has changed.  This is widely called "HGVS" 
-	    but the correct name is of course "HGVS<s>'s Monster</s> Sequence Variant Nomenclature</p>
-	    </p>
+	    diff string, showing what has changed and where.</p>
     </div>
 
     <div class="slide">
@@ -301,8 +304,39 @@ GGATTCCTATGATTATCTCCTATGCAAATGAACAGAATTGACCTTAC</pre>
     </div>
 
     <div class="notes">
-	    <p></p>
+	    <p>Multiple complicated changes can also be represented.</p>
+	    <p>This is widely called "HGVS" 
+	    but the correct name is of course "HGVS<s>'s Monster</s> Sequence Variant Nomenclature</p>
     </div>
+
+    <div class="slide">
+	    <h3>Gene Variants</h3>
+	    <h4>Single Nucleotide Polymorphism (SNP)</h4>
+	    <h4>Single Nucleotide Variants (SNV)</h4>
+    </div>
+<div class="slide">
+	<h3>Gene Variants</h3>
+	    <p>Easily observable:</p>
+	    <ul>
+		    <li>Hair Colour</li>
+		    <li>Lactase persistence</li>
+	    </ul>
+	</div>
+
+	<div class="notes">
+	    <p>Some differences in genes lead to obvious, observable
+	    differences in the organism, such as hair colour or ability to
+	    digest lactose. These tend to have a large variation in the
+	    population because they don't matter very much, or at least not in
+	    our current lives.  Because there's a big population to work with,
+	    it's possible to find correlations, for example between lactose
+	    intolerance and specific variants of genes we've called "LCT" and
+	    "MCM6".</p>
+
+	    <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3057002/">ref: PMC3057002</a>
+	    <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3401057/">ref: PMC3401057</a>
+	    
+	</div>
 
     <div class="slide">
 	    <h3>Long COVID?</h3>
@@ -312,14 +346,11 @@ GGATTCCTATGATTATCTCCTATGCAAATGAACAGAATTGACCTTAC</pre>
     </div>
 
 	<div class="notes">
-		<p>
-	   And recent work published on MedRXiv
+		<p>And recent work published on MedRXiv
 	   suggests a link between variants of FOXP4 and severity of 
-	   COVID infection as well as susceptibility to Long COVID.
-		</p>
+	   COVID infection as well as susceptibility to Long COVID.</p>
 
-	   <p>
-	   See also: <a href="https://www.npr.org/sections/goatsandsoda/2023/08/08/1192496578/a-new-clue-to-the-reason-some-people-come-down-with-long-covid">NPR Goats and Soda</a></p>
+	   <p>See also: <a href="https://www.npr.org/sections/goatsandsoda/2023/08/08/1192496578/a-new-clue-to-the-reason-some-people-come-down-with-long-covid">NPR Goats and Soda</a></p>
 
 	</div>
 
@@ -338,14 +369,6 @@ GGATTCCTATGATTATCTCCTATGCAAATGAACAGAATTGACCTTAC</pre>
 	    effectiveness of these defense mechanisms, greatly increasing the risk
 	    of developing specific cancers.</p>
 
-	    <p>See also: <a href="https://onlinelibrary.wiley.com/doi/10.1002/jcp.10257">Rosen et al, "BRCA1 gene in breast cancer", 2003</a></p>
-    </div>
-
-    <div class="slide"> 
-      <h3>Cancer</h3>
-    </div>
-
-    <div class="notes">
 	    <p>Because these pathogenic variants are rare, and people's lives
 	    are complicated, it's much harder to find them in among the
             background noise of benign variants and unrelated risk factors.  To put it
@@ -355,10 +378,20 @@ GGATTCCTATGATTATCTCCTATGCAAATGAACAGAATTGACCTTAC</pre>
 	    But out of
             hundreds of thousands of known variants of these genes we've been able to
             identify a few thousand particularly harmful variants which result in an
-            increased probability of developing specific cancers.</p> </div>
+            increased probability of developing specific cancers.</p>
+
+	    <p>See also: <a href="https://onlinelibrary.wiley.com/doi/10.1002/jcp.10257">Rosen et al, "BRCA1 gene in breast cancer", 2003</a></p>
+    </div>
 
     <div class="slide"> 
       <h3>MAVEs</h3>
+      <h4>Multiplex Assays of Variant Effect</h4>
+
+      <ul>
+	      <li><a href="https://www.mavedb.org/">MaveDB</a></li>
+      </ul>
+
+
     </div>
 
     <div class="notes">

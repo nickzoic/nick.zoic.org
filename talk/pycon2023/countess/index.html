@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html>
   <head>
     <meta charset="UTF-8">
@@ -9,11 +10,16 @@
 
     <div class="slide">
       <h1>CountESS</h1>
-      <h2>Count-based Experiment Scoring and Statistics<h2>
+      <h2>Count-based Experiment Scoring and Statistics</h2>
       
       <h4>Nick Moore<br/>
         <a href="mailto:nick@zoic.org">nick@zoic.org</a><br/>
         <a href="https://aus.social/@nickzoic">@nickzoic@aus.social</a></h4>
+    </div>
+
+    <div class="notes">
+	    Press "." to enter slideshow, once entered "PgUp" and "PgDn" to navigate,
+	    "Esc" to leave slideshow again.
     </div>
 
     <div class="slide">
@@ -202,12 +208,12 @@ GGATTCCTATGATTATCTCCTATGCAAATGAACAGAATTGACCTTAC</pre>
 	    <p>
 	   Every person's genome is different.  We have the concept of 
 	   a "reference genome" which describes what we think the "normal"
-	   sequence for every gene is, but no-one's ac
-
+	   sequence for every gene is, but no-one's actually got that
+	   exact genome. 
 	    </p>
 	    <p>
-	    This is a small segment of a gene called <tt>BRCA1</tt>
-	    which we'll talk about more soon.
+	    This is a small segment of the reference version of a gene
+	    called <tt>BRCA1</tt> which we'll talk about more soon.
 	    </p>
     </div>
 
@@ -231,7 +237,8 @@ GGATTCCTATGATTATCTCCTATGCAAATGAACAGAATTGACCTTAC</pre>
     <div class="notes">
 	    <p>
 	    this shows the reference <tt>BRCA1</tt> and also a
-	    variant.
+	    variant.  Even in a small sequence like this it's 
+	    pretty hard to spot a variant ...
 	    </p>
     </div>
 
@@ -279,8 +286,7 @@ GGATTCCTATGATTATCTCCTATGCAAATGAACAGAATTGACCTTAC</pre>
     </div>
 
     <div class="slide">
-	    <h3>Variant Calling</h3>
-	    <h4>HGVS Nomenclature</h4>
+	    <h3>Variant Calling — HGVS</h3>
 	    <pre>g.65T&gt;C</pre>
 	    <p class="tiny"><a href="http://www.hgvs.org/">Human Genome Variation Society</a></p>
 	    <p class="tiny"><a href="https://varnomen.hgvs.org/">Sequence Variant Nomenclature @ HGVS</a></p>
@@ -288,12 +294,12 @@ GGATTCCTATGATTATCTCCTATGCAAATGAACAGAATTGACCTTAC</pre>
     
     <div class="notes">
 	    <p>These sorts of change are normally represented as a kind of 
-	    diff string, showing what has changed and where.</p>
+	    diff string, showing what has changed and where.  In this case,
+	    the 65th base has changed from a T to a C.</p>
     </div>
 
     <div class="slide">
-	    <h3>Variant Calling</h3>
-	    <h4>HGVS Nomenclature</h4>
+	    <h3>Variant Calling — HGVS</h3>
 	    <pre>g.65T&gt;C</pre><br/>
 	    <pre class="medium">g.123_167del</pre>
 	    <pre class="medium">g.135_140dup</pre>
@@ -305,8 +311,8 @@ GGATTCCTATGATTATCTCCTATGCAAATGAACAGAATTGACCTTAC</pre>
 
     <div class="notes">
 	    <p>Multiple complicated changes can also be represented.</p>
-	    <p>This is widely called "HGVS" 
-	    but the correct name is of course "HGVS<s>'s Monster</s> Sequence Variant Nomenclature</p>
+	    <p>This is often called "HGVS" but the correct name is of
+	    course "HGVS<s>'s Monster</s> Sequence Variant Nomenclature</p>
     </div>
 
     <div class="slide">
@@ -314,7 +320,17 @@ GGATTCCTATGATTATCTCCTATGCAAATGAACAGAATTGACCTTAC</pre>
 	    <h4>Single Nucleotide Polymorphism (SNP)</h4>
 	    <h4>Single Nucleotide Variants (SNV)</h4>
     </div>
-<div class="slide">
+
+    <div class="notes">
+	    <p>The most common kind of variant is a single base (nucleotide)
+	    change like we saw above.  If it's a common kind of change, it's
+	    called a Polymorphism, whereas if it's a rare change it's often
+	    called a Variant.  It means the same thing: one base is changed.</p>
+	    <p>Variants are also often given numbers like "rsid" or "RCV"
+	    because people really like numbering things.</p>
+    </div>
+
+    <div class="slide">
 	<h3>Gene Variants</h3>
 	    <p>Easily observable:</p>
 	    <ul>
@@ -330,12 +346,13 @@ GGATTCCTATGATTATCTCCTATGCAAATGAACAGAATTGACCTTAC</pre>
 	    population because they don't matter very much, or at least not in
 	    our current lives.  Because there's a big population to work with,
 	    it's possible to find correlations, for example between lactose
-	    intolerance and specific variants of genes we've called "LCT" and
-	    "MCM6".</p>
+	    intolerance and specific variants of genes we've called
+	    <tt>LCT</tt> and <tt>MCM6</tt>.</p>
 
-	    <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3057002/">ref: PMC3057002</a>
-	    <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3401057/">ref: PMC3401057</a>
-	    
+	    <p>References:<ul>
+		    <li><a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3057002/">"Model-based prediction of human hair color using DNA variants"</a></li>
+		    <li><a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3401057/">"Lactose intolerance: diagnosis, genetic, and clinical factors"</a></li>
+	    </ul></p>
 	</div>
 
     <div class="slide">
@@ -347,7 +364,7 @@ GGATTCCTATGATTATCTCCTATGCAAATGAACAGAATTGACCTTAC</pre>
 
 	<div class="notes">
 		<p>And recent work published on MedRXiv
-	   suggests a link between variants of FOXP4 and severity of 
+		suggests a link between variants of <tt>FOXP4</tt> and severity of 
 	   COVID infection as well as susceptibility to Long COVID.</p>
 
 	   <p>See also: <a href="https://www.npr.org/sections/goatsandsoda/2023/08/08/1192496578/a-new-clue-to-the-reason-some-people-come-down-with-long-covid">NPR Goats and Soda</a></p>
@@ -484,6 +501,7 @@ GGATTCCTATGATTATCTCCTATGCAAATGAACAGAATTGACCTTAC</pre>
     <div class="slide">
             <h3>The Simple And Obvious Solution</h3>
             <pre>sort sequences.txt | uniq -cd</pre>
+	    <br/>
 	    <ul>
 		    <li>Pretty well optimized</li>
 		    <li>Bottleneck probably I/O</li>
@@ -532,9 +550,9 @@ GGATTCCTATGATTATCTCCTATGCAAATGAACAGAATTGACCTTAC</pre>
 
     <div class="notes">
 	    <p>... because it's important to check if you
-	    really did discover somthing or it's just noise.</p>
+	    really did discover something or it's just noise.</p>
     </div>
-    
+
     <div class="slide">
 	   <h3>Spreadsheets</h3>
       <img src="img/gene-name-error-1.png" width="50%">
@@ -542,7 +560,74 @@ GGATTCCTATGATTATCTCCTATGCAAATGAACAGAATTGACCTTAC</pre>
       <img src="img/gene-name-error-2.png" width="25%">
       <img src="img/gene-name-error-3.png" width="25%">
       <p class="tiny">
-      Source: <a href="https://genomebiology.biomedcentral.com/articles/10.1186/s13059-016-1044-7">Biomedcentral</a></p>
+      Source: <a href="https://genomebiology.biomedcentral.com/articles/10.1186/s13059-016-1044-7">Biomedcentral</a> (emphasis mine)</p>
+    </div>
+
+    <div class="notes"><p>
+	    A lot of analysis work used to be done in spreadsheets, but in 
+	    recent years data sizes have grown faster than spreadsheets have
+	    kept up, plus there's a few foot-guns to be found in Excel's 
+	    handling of gene names such as <tt>SEPT2</tt> and alphanumeric
+	    identifiers with an <tt>E</tt> in them.
+    </p></div>
+
+    <div class="slide"><p>
+	    <h3>Programming Languages</h3>
+	    <ul>
+		    <li>Python</li>
+		    <li>R</li>
+		    <li>Bash</li>
+		    <li>Make</li>
+		    <li>Snakemake</li>
+	  </ul>
+    </div>
+
+    <div class="notes">
+	    <p>A lot of work happens in languages like Python and R, with
+	    support from various others like Bash, Make and Snakemake.</p>
+	    <p>A fair bit of this code is pretty flakey and hard to 
+	    replicate, we wanted to take a different approach.</p>
+    </div>
+
+    <div class="slide"><p>
+	    <h3>Enrich2</h3>
+	    <ul>
+		    <li>Python2</li>
+		    <li>Specific to a few experiments</li>
+		    <li>Difficult to continue growing</li>
+	    </ul>
+    </div>
+
+    <div class="slide">
+	    <h2>CountESS</h2>
+            <h3>Count-based Experiment Scoring and Statistics</h3>
+    </div>
+
+    <div class="slide">
+	    <h3>CountESS</h3>
+	    <ul>
+		    <li>Graphical user interface</li>
+		    <li>Data Previews</li>
+		    <li>Plugin Based</li>
+		    <li>Flexible Pipelines</li>
+	    </ul>
+    </div>
+
+    <div class="slide">
+	    <h3>CountESS — GUI</h3>
+    </div>
+
+    <div class="slide">
+	    <h3>CountESS — Data Previews</h3>
+    </div>
+
+    <div class="slide">
+	    <h3>CountESS — Plugin Based</h3>
+	    <img src="img/science.jpg" class="ninety"/>
+    </div>
+
+    <div class="slide">
+	    <h3>CountESS — Flexible Pipelines</h3>
     </div>
 
     <div class="slide">

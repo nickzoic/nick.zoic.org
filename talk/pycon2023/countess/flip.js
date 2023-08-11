@@ -11,10 +11,10 @@
 
 (function () {
     var p = 0; 
+    var s = document.getElementsByClassName('slide');
 
     function change_slide(n) {
 	window.scrollTo(0,0);
-        var s = document.getElementsByClassName('slide');
         if (n<0) n = s.length;
         if (!n || n < 0 || n > s.length) n = 0;
         if (p==n) return;

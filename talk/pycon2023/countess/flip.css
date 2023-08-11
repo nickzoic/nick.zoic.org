@@ -102,6 +102,11 @@ body.flip-hide > div, body.flip-unhide > div {
     transition: opacity: 2000ms;
 }
 
+div.slide {
+    page-break-inside: avoid;
+    clear: both;
+}
+
 body.flip > div.show {
     opacity: 1;
     transition: opacity 250ms;
@@ -194,6 +199,7 @@ img.sixty {
 	max-width: 20em;
 	max-height: 60%;
 }
+
 img.eighty {
     max-width: 20em;
     max-height: 75%;

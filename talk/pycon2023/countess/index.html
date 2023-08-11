@@ -18,9 +18,10 @@
 
     <div class="slide">
         <h3>Funding</h3>
-	<img src="img/wehi.png"/>
+	<img src="img/wehi.png" width="20%"/>
 	<p>This work is supported by WEHI (Walter and Eliza Hall Institute of Medical Research)</p>
-	<p>Thanks also to collaborators from the University of Washington.</p>
+	<p>Thanks also to collaborators from the Brotman Baty Institute and University of Washington Genome Sciences.</p>
+	<img src="img/bbi.png" width="20%"/> <img src="img/uw.png" width="20%"/>
     </div>
 
     <div class="slide">
@@ -84,7 +85,7 @@
     <div class="slide">
       <h3>Cell Biology</h3>
 
-      <img src="img/animal.svg" class="sixty"/>
+      <img src="img/animal.svg" class="seventy"/>
 
       <p class="tiny">Image: <a href="https://commons.wikimedia.org/wiki/File:Animal_cell_structure_en.svg">LadyofHats</a>, Public domain, via Wikimedia Commons</p>
     </div>
@@ -100,7 +101,7 @@
     <div class="slide"> 
       <h3>Cell Biology</h3>
 
-      <img src="img/endomembrane.svg" class="sixty"/>
+      <img src="img/endomembrane.svg" class="seventy"/>
 
       <p class="tiny">Image: <a href="https://commons.wikimedia.org/wiki/File:Endomembrane_system_diagram_en.svg">LadyofHats</a>, Public domain, via Wikimedia Commons</p>
     </div>
@@ -118,19 +119,19 @@
     <div class="slide"> 
       <h3>The Human Genome</h3>
 
-      <img src="img/dna.png" class="sixty"/>
+      <img src="img/dna.png" class="seventy"/>
 
       <p class="tiny">Image: <a href="https://commons.wikimedia.org/wiki/File:DNA_Structure%2BKey%2BLabelled.pn_NoBB.png">Zephyris</a>, <a href="https://creativecommons.org/licenses/by-sa/3.0">CC BY-SA 3.0</a>, via Wikimedia Commons</p>
     </div>
 
     <div class="notes">
-	    <p>The "program" of a cell is called its genome.  The human genome is split into 23 chromosomes each of which is a DNA molecule, a chain of a hundred million or so little building blocks called base pairs. All in all, the human genome consists of about 12Gbit of information. All of your cells have the same genome, like sharing a container image, but different genes are active in different cells, depending on their role in the body.</p>
+	    <p>The "program" of a cell is called its genome.  The human genome is split into 23 chromosomes each of which is a DNA molecule, a chain of a hundred million or so little building blocks called base pairs or nucleotides. All in all, the human genome consists of about 12Gbit of information. All of your cells have the same genome, like sharing a container image, but different genes are active in different cells, depending on their role in the body.</p>
     </div>
 
     <div class="slide"> 
       <h3>Nanopore Electrophoresis</h3>
 
-      <img src="img/nanopore.svg" class="sixty"/>
+      <img src="img/nanopore.svg" class="seventy"/>
 
       <p class="tiny">Image: <a href="https://commons.wikimedia.org/wiki/File:202001_nanopore_sequencing.svg">DataBase Center for Life Science (DBCLS)</a>, <a href="https://creativecommons.org/licenses/by/4.0">CC BY 4.0</a>, via Wikimedia Commons</p>
     </div>
@@ -147,7 +148,7 @@
     <div class="slide"> 
       <h3>Genes</h3>
 
-      <img src="img/gene.svg" class="sixty"/>
+      <img src="img/gene.svg" class="seventy"/>
 
       <p class="tiny">Image: <a href="https://commons.wikimedia.org/wiki/File:Gene_structure_eukaryote_2_annotated.svg">Thomas Shafee</a>, <a href="https://creativecommons.org/licenses/by/4.0">CC BY 4.0</a>, via Wikimedia Commons</p>
     </div>
@@ -162,11 +163,38 @@
 	    hundreds of base pairs long and producing a single protein and some
 	    are very large, a couple of million base pairs and encoding dozens
 	    of proteins.</p>
+    </div>
+
+    <div class="slide">
+	    <h3>Gene Names</h3>
+      <img src="img/gene-table.png" class="eighty"/>
+      <p class="tiny"><a href="https://www.ncbi.nlm.nih.gov/gene?term=17%5BChr%5D%20AND%20%22Homo%20sapiens%22%5BOrganism%5D%20AND%20%28%22has%20ccds%22%5BProperties%5D%20AND%20alive%5Bprop%5D%29&cmd=DetailsSearch">source: NBCI</a></p>
+</div>
+
+    <div class="notes">
 	    <p>There are no debug symbols in the genome, so
 	    when we think we know what a gene does, we give it an arbitrary
 	    name. This process is familiar to anyone who's reverse engineered a
 	    binary, either with paper and pencil or with modern
 	    reverse-engineering tools like Ghidra.</p>
+	    <p>We know of about 20,000 genes which encode proteins, but those
+	    constitute about 3% of the entire genome.
+	    At least 80% of the genome does <b>something</b>, so we've got a ways to go.
+	    </p>
+	    <a href="https://www.science.org/doi/10.1126/science.337.6099.1159">ref</a>
+    </div>
+
+    <div class="slide">
+	    <h3>Gene Variants</h3>
+	    <h4>Single Nucleotide Polymorphism (SNP)</h4>
+	    <p>Easily observable:</p>
+	    <ul>
+		    <li>Hair Colour</li>
+		    <li>Lactase persistence</li>
+	    </ul>
+	</div>
+
+	<div class="notes">
 	    <p>Every person's genome
 	    is different. Some differences in genes lead to obvious, observable
 	    differences in the organism, such as hair colour or ability to
@@ -174,146 +202,13 @@
 	    population because they don't matter very much, or at least not in
 	    our current lives.  Because there's a big population to work with,
 	    it's possible to find correlations, for example between lactose
-	    intolerance and specific variants of genes we've called "LCR" and
-	    "MCM6".</p> </div>
+	    intolerance and specific variants of genes we've called "LCT" and
+	    "MCM6".</p>
 
-    <div class="slide"> 
-      <h3>Cancer</h3>
-    </div>
-
-    <div class="notes">
-	    <p>Other gene variations lead to more subtle differences, such as
-	    your likelihood of developing specific cancers.  Cancers are caused
-	    by damage to DNA, perhaps due to chemicals or radiation or just bad
-	    luck. Most such damage triggers cellular defense mechanisms, which
-	    repair DNA or destroy the cell rather than allow it to become a
-	    tumor. But we know clinically that some gene variants prevent these
-	    defense mechanisms working effectively, greatly increasing the risk
-	    of developing specific cancers.</p>
-    </div>
-
-    <div class="slide"> 
-      <h3>Bug Hunting</h3>
-    </div>
-
-    <div class="notes">
-	    <p>Because these pathogenic variants are rare, and people's lives
-	    are complicated, it's much harder to find them in among the
-            background noise of benign variants and unrelated risk factors.  To put it
-            in programming terms, we're looking for a bug in an exception handler in
-            some critical legacy code which is exposed to the Internet.  But out of
-            hundreds of thousands of known variants of these genes we've been able to
-            identify a few thousand particularly harmful variants which result in an
-            increased probability of developing specific cancers.</p> </div>
-
-    <div class="slide"> 
-      <h3>MAVEs</h3>
-    </div>
-
-    <div class="notes">
-	    <p>But there's a lot of variants we don't know anything about,
-	    because we've never observed them clinically.  Some of those are
-            very likely harmless, and others might be very serious: this information
-            can inform individual choices for the prevention or treatment of cancer.
-            Multiplex Assays of Variant Effect (MAVEs) (which my colleague Alan Rubin
-            talked about on Friday) are an attempt to catalog not just the gene
-            variants we've seen clinically but *all possible variants* of a gene,
-            classifying their effects as more or less concerning.</p> </div>
-
-    <div class="slide"> 
-      <h3>Saturation Genome Editing</h3>
-    </div>
-
-    <div class="notes">
-	    <p>For example this paper [Findlay et al] uses Saturation Genome
-	    Editing to analyze almost 4000 single-base variants of BRCA1.  For
-            each variant, the effect on cell longevity is assessed by counting the
-            variants in the cell population after 11 days.  The results show good
-            correlation with the variants we already know of clinically and also
-            identifies new pathogenic variants Similar work is underway to analyse
-            other tumor suppressing genes such as BRCA2 and PALB2.</p> </div>
-
-    <div class="slide"> 
-      <h3>VAMP-seq</h3>
-    </div>
-
-    <div class="notes">
-	    <p>And this work [Popp] attempts to classify variants of the "F9"
-	    gene which can cause hemophilia, using a technique called VAMP-seq.
-            A fluorescent protein gene derived from jellyfish is added to cells and
-            classified by how much they glow. This is as close as biological science
-            gets to that technique beloved of embedded programmers, debugging by
-            LED.</p> </div>
-
-    <div class="slide">
-	    <h2>The Problem</h2>
-    </div>
-
-    <div class="slide">
-      <h3>Counting Things</h3>
-
-      <img src="img/tabulating.jpg" class="sixty"/>
-
-      <p class="tiny">Image: <a href="https://commons.wikimedia.org/wiki/File:IBM_D11_(early_Tabulation_Machine).jpg">Ben Franske (BenFranske)</a>, <a href="https://creativecommons.org/licenses/by-sa/2.5">CC BY-SA 2.5</a>, via Wikimedia Commons</p>
-    </div>
-
-    <div class="notes">
-	    <p>Central to all these methods is the need to *count things*.</p>
-	    <p>This sounds really simple, and it is.  Computers have been
-	    counting things since the first tablulating machines started 
-	    processing punched cards.</p>
-    </div>
-
-    <div class="slide">
-	    <h3>The Problem</h3>
-	    <p>Findlay et al's BRCA1 paper:
-	    <ul>
-		    <li>13 exons</li>
-		    <li>163 files</li>
-		    <li>350 M sequences</li>
-		    <li>66 Gbases</li>
-		</ul>
-	    </p>
-    </div>
-
-    <div class="notes">
-	    <p>The </p>
-    </div>
-
-    <div class="slide">
-	    <h3>The Problem</h3>
-            <h4>The Simple And Obvious Solution</h4>
-            <pre>sort sequences.txt | uniq -cd</pre>
-	    <ul>
-		    <li>Pretty well optimized</li>
-		    <li>Bottleneck probably I/O</li>
-		    <li>Already on your computer</li>
-            </ul>
-    </div>
-
-    <div class="notes">
-	    <p>Okay, so it's only a few hundred million sequences.
-	    There's tools for that, and they're probably already on
-	    your computer.</p>
-    </div>
-
-    <div class="slide">
-	    <h3>The Problem</h3>
-	    <ul>
-		    <li>File Formats</li>
-		    <li>Metadata</li>
-		    <li>Grouping</li>
-		    <li>Transformation</li>
-            </ul>
-    </div>
-
-    <div class="notes">
-	    <p>Of course it isn't as simple as that. Sequencing data
-	    isn't generally in text format, it's in FASTQ or FASTA
-	    or SAM or CRAM format.</p>
-	    <p>And, this being biology, you 
-	    probably need to filter out low quality or bad reads.</p>
-    </div>
+	    <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3057002/">ref: PMC3057002</a>
+	    <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3401057/">ref: PMC3401057</a>
+	    
+	</div>
 
     <div class="slide">
 	    <h3>Variant Calling</h3>
@@ -323,13 +218,17 @@ TAATGTGTTAAAGTTCATTGGAACAGAAAGAAATGGATTTATCTGCT
 CTTCGCGTTGAAGAAGTACAAAATGTCATTAATGCTATGCAGAAAAT
 CTTAGAGTGTCCCATCTGGTAAGTCAGCACAAGAGTGTATTAATTTG
 GGATTCCTATGATTATCTCCTATGCAAATGAACAGAATTGACCTTAC</pre>
-
+	    <br/>
 	    <pre class="medium">
 GTTGTCATTTTATAAACCTTTTAAAAAGATATATATATATGTTTTTC
 TAATGTGTTAAAGTTCACTGGAACAGAAAGAAATGGATTTATCTGCT
 CTTCGCGTTGAAGAAGTACAAAATGTCATTAATGCTATGCAGAAAAT
 CTTAGAGTGTCCCATCTGGTAAGTCAGCACAAGAGTGTATTAATTTG
 GGATTCCTATGATTATCTCCTATGCAAATGAACAGAATTGACCTTAC</pre>
+    </div>
+
+    <div class="notes">
+
     </div>
 
     <div class="slide">
@@ -349,6 +248,10 @@ CTTAGAGTGTCCCATCTGGTAAGTCAGCACAAGAGTGTATTAATTTG
 GGATTCCTATGATTATCTCCTATGCAAATGAACAGAATTGACCTTAC</pre>
     </div>
 
+    <div class="notes">
+
+    </div>
+
     <div class="slide">
 	    <h3>Variant Calling</h3>
 	    <pre class="medium">
@@ -366,27 +269,35 @@ CTTAGAGTGTCCCATCTGGTAAGTCAGCACAAGAGTGTATTAATTTG
 GGATTCCTATGATTATCTCCTATGCAAATGAACAGAATTGACCTTAC</pre>
     </div>
 
+    <div class="notes">
+	    ... or for those of you up the back
+    </div>
+
     <div class="slide">
 	    <h3>Variant Calling</h3>
 	    <h4>HGVS Nomenclature</h4>
 	    <pre>g.65T&gt;C</pre>
+	    <p class="tiny"><a href="http://www.hgvs.org/">Human Genome Variation Society</a></p>
+	    <p class="tiny"><a href="https://varnomen.hgvs.org/">Sequence Variant Nomenclature @ HGVS</a></p>
     </div>
     
     <div class="notes">
-	    <p></p>
+	    <p>These sorts of change are normally represented as a kind of 
+	    diff, showing what has changed.  This is widely called "HGVS" 
+	    but the correct name is of course "HGVS<s>'s Monster</s> Sequence Variant Nomenclature</p>
+	    </p>
     </div>
 
     <div class="slide">
 	    <h3>Variant Calling</h3>
 	    <h4>HGVS Nomenclature</h4>
 	    <pre>g.65T&gt;C</pre><br/>
-	    <pre>g.123_167del</pre><br/>
-	    <pre>g.158_159insTTTCT</pre>
-	    <pre>g.[9del;36G&gt;T;61_65del]</pre>
-    </div>
-    <div class="slide">
-	    <h3>The Problem</h3>
-	    <h4></h4>
+	    <pre class="medium">g.123_167del</pre>
+	    <pre class="medium">g.135_140dup</pre>
+	    <pre class="medium">g.158_159insTTTCT</pre>
+	    <pre class="medium">g.[9del;36G&gt;T;61_65del]</pre>
+	    <pre class="small">g.[45_46del;58A&gt;T;63C&gt;A;65T&gt;C;73G&gt;C;79A&gt;T;82_83delinsTT;86T&gt;A;154C&gt;A]</pre>
+	    <br/>
     </div>
 
     <div class="notes">
@@ -394,108 +305,211 @@ GGATTCCTATGATTATCTCCTATGCAAATGAACAGAATTGACCTTAC</pre>
     </div>
 
     <div class="slide">
-      <h3>The Problem</h3>
-      <p>
-      We want to determine what effects, if any, various genetic
-      variations have on the functioning of cells.
-      </p>
+	    <h3>Long COVID?</h3>
+            <img src="img/foxp4.png" class="eighty"/>
+	    <p class="tiny">Source: 
+	    <a href="https://www.medrxiv.org/content/10.1101/2023.06.29.23292056v1">MedRxiv / Lammi et. al. "Genome-wide Association Study of Long COVID", 2023-06-29</a>
+    </div>
 
-      <p>
-      We do this by performing experiments, and then analysing the 
-      frequency of the different variants.
-      </p>
+	<div class="notes">
+		<p>
+	   And recent work published on MedRXiv
+	   suggests a link between variants of FOXP4 and severity of 
+	   COVID infection as well as susceptibility to Long COVID.
+		</p>
+
+	   <p>
+	   See also: <a href="https://www.npr.org/sections/goatsandsoda/2023/08/08/1192496578/a-new-clue-to-the-reason-some-people-come-down-with-long-covid">NPR Goats and Soda</a></p>
+
+	</div>
+
+    <div class="slide"> 
+      <h3>Cancer</h3>
     </div>
 
     <div class="notes">
-        this is a test
+	    <p>Other gene variations lead to more subtle differences, such as
+	    your likelihood of developing specific cancers.  Cancers are caused
+	    by damage to DNA, perhaps due to chemicals or radiation or just bad
+	    luck. Most such damage triggers cellular defense mechanisms, which
+	    repair the DNA, or destroy the cell rather than allow it to become a
+	    tumor.</p>
+	    <p>But we know clinically that some gene variants reduce the
+	    effectiveness of these defense mechanisms, greatly increasing the risk
+	    of developing specific cancers.</p>
+
+	    <p>See also: <a href="https://onlinelibrary.wiley.com/doi/10.1002/jcp.10257">Rosen et al, "BRCA1 gene in breast cancer", 2003</a></p>
+    </div>
+
+    <div class="slide"> 
+      <h3>Cancer</h3>
+    </div>
+
+    <div class="notes">
+	    <p>Because these pathogenic variants are rare, and people's lives
+	    are complicated, it's much harder to find them in among the
+            background noise of benign variants and unrelated risk factors.  To put it
+            in programming terms, we're looking for a bug in an exception handler in
+            some critical legacy code which is exposed to the Internet.
+	    </p><p>
+	    But out of
+            hundreds of thousands of known variants of these genes we've been able to
+            identify a few thousand particularly harmful variants which result in an
+            increased probability of developing specific cancers.</p> </div>
+
+    <div class="slide"> 
+      <h3>MAVEs</h3>
+    </div>
+
+    <div class="notes">
+	    <p>But there's a lot of variants we don't know anything about,
+	    because we've never observed them clinically.  Some of those are
+            very likely harmless, and others might be very serious: this information
+            can inform individual choices for the prevention or treatment of cancer.
+            Multiplex Assays of Variant Effect (MAVEs) (which my colleague Alan Rubin
+            talked about on Friday) are an attempt to catalog not just the gene
+            variants we've seen clinically but *all possible variants* of a gene,
+            classifying their effects as more or less concerning.</p>
+    </div>
+
+    <div class="slide"> 
+      <h3>Saturation Genome Editing</h3>
+      <img src="img/findlay.png" class="eighty"/>
+      <p class="tiny">Source: <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6181777/pdf/nihms-1501643.pdf">ncbi.nlm.nih.gov</a></p>
+    </div>
+
+    <div class="notes">
+	    <p>For example this paper [Greg Findlay et al] uses Saturation Genome
+	    Editing to analyze almost 4000 single-base variants of BRCA1.  For
+            each variant, the effect on cell longevity is assessed by counting the
+            variants in the cell population after 11 days.  The results show good
+            correlation with the variants we already know of clinically and also
+            identifies new pathogenic variants.  Similar work is underway to analyse
+            other tumor suppressing genes such as BRCA2 and PALB2.</p> </div>
+
+    <div class="slide">
+	    <h3>Saturation Genome Editing</h3>
+      <img src="img/brca1var1.png" class="eighty"/>
+      <p class="tiny">Source: <a href="https://sge.gs.washington.edu/BRCA1/">UW / BBI</a></p>
+    </div>
+    <div class="slide">
+	    <h3>Saturation Genome Editing</h3>
+      <img src="img/brca1var2.png" class="eighty"/>
+      <p class="tiny">Source: <a href="https://sge.gs.washington.edu/BRCA1/">UW / BBI</a></p>
+    </div>
+
+    <div class="slide"> 
+      <h3>VAMP-seq</h3>
+    </div>
+
+    <div class="notes">
+	    <p>And this work [Popp] attempts to classify variants of the "F9"
+	    gene which can cause hemophilia, using a technique called VAMP-seq.
+            A fluorescent protein gene derived from jellyfish is added to cells and
+            classified by how much they glow. This is as close as biological science
+            gets to that technique beloved of embedded programmers, debugging by
+            LED.</p>
     </div>
 
     <div class="slide">
-      <h3>The Simple And Obvious Solution</h3>
-
-      <pre>sort sequences.txt | uniq -cd</pre>
+	    <h2>The Problem</h2>
     </div>
 
     <div class="slide">
-      <h3>The Actual Problem &mdash; 1</h3>
-      <ul>
-	      <li>Many input file formats</li>
-	      <li>Filtering & transforming data</li>
-	      <li>Combining, scoring, visualizing</li>
-	      <li>Lots of intermediate steps & side outputs</li>
-      </ul>
+      <h3>Counting Things</h3>
+
+      <img src="img/tabulating.jpg" class="sixty"/>
+
+      <p class="tiny">Image: <a href="https://commons.wikimedia.org/wiki/File:IBM_D11_(early_Tabulation_Machine).jpg">Ben Franske (BenFranske)</a>, <a href="https://creativecommons.org/licenses/by-sa/2.5">CC BY-SA 2.5</a>, via Wikimedia Commons</p>
+    </div>
+
+    <div class="notes">
+	    <p>Central to all these methods is the need to <em>count things</em>.</p>
+	    <p>This sounds really simple, and it is.  Computers have been
+	    counting things since the first tablulating machines started 
+	    processing punched cards.</p>
     </div>
 
     <div class="slide">
-      <h3>The Actual Problem &mdash; 2</h3>
-      <ul>
-	      <li>Many subtly incompatible tools</li>
-	      <li>Make, Snakemake, Python, R, shell</li>
-	      <li>Scientists want to Science, not program</li>
-      </ul>
-    </div>	     
+	    <h3>The Problem</h3>
+	    <p>Findlay et al's BRCA1 paper:
+	    <ul>
+		    <li>13 exons</li>
+		    <li>163 files</li>
+		    <li>350 M sequences</li>
+		    <li>66 G bases</li>
+		</ul>
+	    </p>
 
-    <div class="slide">
-      <img src="img/gene-name-error-1.png" width="99%">
+	    <p><a href="https://www.ncbi.nlm.nih.gov/Traces/study/?acc=PRJNA481326">Data at NCBI</a></p>
+    </div>
+
+    <div class="notes">
+	    <p>The  </p>
     </div>
 
     <div class="slide">
-      <img src="img/gene-name-error-2.png" width="49%">
+            <h3>The Simple And Obvious Solution</h3>
+            <pre>sort sequences.txt | uniq -cd</pre>
+	    <ul>
+		    <li>Pretty well optimized</li>
+		    <li>Bottleneck probably I/O</li>
+		    <li>Already on your computer</li>
+            </ul>
+    </div>
+
+    <div class="notes">
+	    <p>Okay, so it's only a few hundred million sequences.
+	    There's tools for that, and they're probably already on
+	    your computer.  Sequences go in, counts go out, problem
+	    solved.</p>
     </div>
 
     <div class="slide">
-      <img src="img/gene-name-error-3.png" width="49%">
+	    <h3>The Actual Problem</h3>
+	    <ul>
+		    <li>File Formats</li>
+		    <li>Metadata</li>
+		    <li>Filtering</li>
+		    <li>Grouping</li>
+		    <li>Transformation</li>
+		    <li>Statistics</li>
+            </ul>
+    </div>
+
+    <div class="notes">
+	    <p>Of course it isn't as simple as that. Sequencing data
+	    isn't generally in text format, it's in FASTQ or FASTA
+	    or SAM or CRAM or SRA format.</p>
+	    <p>Often there's metadata hanging around in filenames or 
+	    as separate metadata files.</p>
+	    <p>And, this being biology, everything is squishy, you'll
+	    probably need to filter out low quality or bad reads.</p>
+	    <p>Then you'll need to collect those counts together in 
+	    some way, so you can compare them, calculate some ratios,
+	    come up with some scores, that kind of thing.</p>
+	    <p>And finally, before you get too excited, you'll want to
+	    run some statistical tools over the data ...</p>
     </div>
 
     <div class="slide">
-      <h3>The Actual Problem &mdash; 3</h3>
-      <ul>
-	      <li>humans</li>
-      </ul>
+	    <img src="img/correlation.png" class="ninety"/>
+	    <p class="tiny">Image: tragically, unknown.</p>
     </div>
 
-    <div class="slide">
-      <h3>A 4½ minute introduction to bioinformatics</h3>
+    <div class="notes">
+	    <p>... because it's important to check if you
+	    really did discover somthing or it's just noise.</p>
     </div>
-
+    
     <div class="slide">
-      <h3>A Specific Example</h3>
-    </div>
-
-    <div class="slide">
-      <h3>Constructing CountESS pipelines</h3>
-    </div>
-
-    <div class="slide">
-      <h3>What is a plugin?</h3>
-    </div>
-
-    <div class="slide">
-      <h3>Python Entrypoints</h3>
-    </div>
-
-    <div class="slide">
-      <h3>Where is CountESS going next?</h3>
-    </div>
-
-    <div class="slide">
-      <h3></h3>
-    </div>
-
-    <div class="slide">
-      <h3></h3>
-    </div>
-
-    <div class="slide">
-      <h3></h3>
-    </div>
-
-    <div class="slide">
-      <h3></h3>
-    </div>
-
-    <div class="slide">
-      <h3></h3>
+	   <h3>Spreadsheets</h3>
+      <img src="img/gene-name-error-1.png" width="50%">
+      <br/>
+      <img src="img/gene-name-error-2.png" width="25%">
+      <img src="img/gene-name-error-3.png" width="25%">
+      <p class="tiny">
+      Source: <a href="https://genomebiology.biomedcentral.com/articles/10.1186/s13059-016-1044-7">Biomedcentral</a></p>
     </div>
 
     <div class="slide">

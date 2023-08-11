@@ -43,6 +43,8 @@ span.strike span {
 
 pre.medium { font-size: 60% }
 
+pre.small { font-size: 40% }
+
 p.small { font-size: 72% }
 
 p.tiny { font-size: 33% }
@@ -171,12 +173,13 @@ body.flip .small { font-size: 20px; }
 body.flip .tiny { font-size: 16px; }
 
 body.flip table {
-    font-size: 40px;
+    font-size: 30px;
 }
 
 table {
     margin: auto;
     border-collapse: collapse;
+    max-width: 90%;
 }
 
 table tr:first-child th {
@@ -198,6 +201,11 @@ img.whiteborder {
 img.sixty {
 	max-width: 20em;
 	max-height: 60%;
+}
+
+img.seventy {
+	max-width: 30em;
+	max-height: 70%;
 }
 
 img.eighty {
@@ -226,8 +234,12 @@ body.flip ul.floatright {
 }
 
 
+.blinky {
+	animation: blinker 1s linear infinite;
+}
+
 b.major {
-    font-size: 200%;
+    font-size: 180%;
     vertical-align: middle;
     animation: blinker 1s linear infinite;
     }
@@ -235,5 +247,4 @@ b.major {
     @keyframes blinker { 
 	    50% { opacity: 0; }
     }
-
 

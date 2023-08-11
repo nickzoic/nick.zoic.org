@@ -64,9 +64,7 @@
     </div>
 
     <div class="slide"> 
-      <h3>Bioinformatics in 4½ minutes</h3>
-
-      <h4>Bioinformatics</h4>
+      <h3>Bioinformatics</h3>
 
       <ul>
 	      <li>Bioinformatics: quantitative analysis of biological data.</li>
@@ -83,14 +81,12 @@
 	    </p>
     </div>
 
-	    
-    <div class="slide"> 
-      <h3>Bioinformatics in 4½ minutes</h3>
-      <h4>Cell Biology</h4>
+    <div class="slide">
+      <h3>Cell Biology</h3>
 
-      <img src="img/endomembrane.svg" class="sixty"/>
+      <img src="img/animal.svg" class="sixty"/>
 
-      <p class="tiny">Image: <a href="https://commons.wikimedia.org/wiki/File:Endomembrane_system_diagram_en.svg">LadyofHats</a>, Public domain, via Wikimedia Commons</p>
+      <p class="tiny">Image: <a href="https://commons.wikimedia.org/wiki/File:Animal_cell_structure_en.svg">LadyofHats</a>, Public domain, via Wikimedia Commons</p>
     </div>
 
     <div class="notes">
@@ -98,7 +94,18 @@
 	    by which all living things function and reproduce are complex and
 	    difficult to observe directly, since they occur inside living
 	    cells.</p>
+    </div>
 
+	    
+    <div class="slide"> 
+      <h3>Cell Biology</h3>
+
+      <img src="img/endomembrane.svg" class="sixty"/>
+
+      <p class="tiny">Image: <a href="https://commons.wikimedia.org/wiki/File:Endomembrane_system_diagram_en.svg">LadyofHats</a>, Public domain, via Wikimedia Commons</p>
+    </div>
+
+    <div class="notes">
 	    <p>But we can construct experiments which let us observe the
 	    outward behaviour of cells and through analysis we can determine
             what's going on inside.  This is not totally unlike black-box testing of
@@ -109,8 +116,7 @@
     </div>
 
     <div class="slide"> 
-      <h3>Bioinformatics in 4½ minutes</h3>
-      <h4>The Human Genome</h4>
+      <h3>The Human Genome</h3>
 
       <img src="img/dna.png" class="sixty"/>
 
@@ -122,8 +128,7 @@
     </div>
 
     <div class="slide"> 
-      <h3>Bioinformatics in 4½ minutes</h3>
-      <h4>Nanopore Electrophoresis</h4>
+      <h3>Nanopore Electrophoresis</h3>
 
       <img src="img/nanopore.svg" class="sixty"/>
 
@@ -140,8 +145,7 @@
             the program.</p> </div>
 
     <div class="slide"> 
-      <h3>Bioinformatics in 4½ minutes</h3>
-      <h4>Genes</h4>
+      <h3>Genes</h3>
 
       <img src="img/gene.svg" class="sixty"/>
 
@@ -174,8 +178,7 @@
 	    "MCM6".</p> </div>
 
     <div class="slide"> 
-      <h3>Bioinformatics in 4½ minutes</h3>
-      <h4>Cancer</h4>
+      <h3>Cancer</h3>
     </div>
 
     <div class="notes">
@@ -190,8 +193,7 @@
     </div>
 
     <div class="slide"> 
-      <h3>Bioinformatics in 4½ minutes</h3>
-      <h4>Bug Hunting</h4>
+      <h3>Bug Hunting</h3>
     </div>
 
     <div class="notes">
@@ -205,8 +207,7 @@
             increased probability of developing specific cancers.</p> </div>
 
     <div class="slide"> 
-      <h3>Bioinformatics in 4½ minutes</h3>
-      <h4>MAVEs</h4>
+      <h3>MAVEs</h3>
     </div>
 
     <div class="notes">
@@ -220,8 +221,7 @@
             classifying their effects as more or less concerning.</p> </div>
 
     <div class="slide"> 
-      <h3>Bioinformatics in 4½ minutes</h3>
-      <h4>Saturation Genome Editing</h4>
+      <h3>Saturation Genome Editing</h3>
     </div>
 
     <div class="notes">
@@ -234,8 +234,7 @@
             other tumor suppressing genes such as BRCA2 and PALB2.</p> </div>
 
     <div class="slide"> 
-      <h3>Bioinformatics in 4½ minutes</h3>
-      <h4>VAMP-seq</h4>
+      <h3>VAMP-seq</h3>
     </div>
 
     <div class="notes">
@@ -247,8 +246,11 @@
             LED.</p> </div>
 
     <div class="slide">
-      <h3>The Problem</h3>
-      <h4>Counting Things</h4>
+	    <h2>The Problem</h2>
+    </div>
+
+    <div class="slide">
+      <h3>Counting Things</h3>
 
       <img src="img/tabulating.jpg" class="sixty"/>
 
@@ -269,6 +271,7 @@
 		    <li>13 exons</li>
 		    <li>163 files</li>
 		    <li>350 M sequences</li>
+		    <li>66 Gbases</li>
 		</ul>
 	    </p>
     </div>
@@ -281,33 +284,108 @@
 	    <h3>The Problem</h3>
             <h4>The Simple And Obvious Solution</h4>
             <pre>sort sequences.txt | uniq -cd</pre>
+	    <ul>
+		    <li>Pretty well optimized</li>
+		    <li>Bottleneck probably I/O</li>
+		    <li>Already on your computer</li>
+            </ul>
     </div>
 
     <div class="notes">
 	    <p>Okay, so it's only a few hundred million sequences.
-	    There's tools for that.</p>
+	    There's tools for that, and they're probably already on
+	    your computer.</p>
     </div>
 
     <div class="slide">
-	    <h3></h3>
-	    <h4></h4>
+	    <h3>The Problem</h3>
+	    <ul>
+		    <li>File Formats</li>
+		    <li>Metadata</li>
+		    <li>Grouping</li>
+		    <li>Transformation</li>
+            </ul>
     </div>
 
+    <div class="notes">
+	    <p>Of course it isn't as simple as that. Sequencing data
+	    isn't generally in text format, it's in FASTQ or FASTA
+	    or SAM or CRAM format.</p>
+	    <p>And, this being biology, you 
+	    probably need to filter out low quality or bad reads.</p>
+    </div>
+
+    <div class="slide">
+	    <h3>Variant Calling</h3>
+	    <pre class="medium">
+GTTGTCATTTTATAAACCTTTTAAAAAGATATATATATATGTTTTTC
+TAATGTGTTAAAGTTCATTGGAACAGAAAGAAATGGATTTATCTGCT
+CTTCGCGTTGAAGAAGTACAAAATGTCATTAATGCTATGCAGAAAAT
+CTTAGAGTGTCCCATCTGGTAAGTCAGCACAAGAGTGTATTAATTTG
+GGATTCCTATGATTATCTCCTATGCAAATGAACAGAATTGACCTTAC</pre>
+
+	    <pre class="medium">
+GTTGTCATTTTATAAACCTTTTAAAAAGATATATATATATGTTTTTC
+TAATGTGTTAAAGTTCACTGGAACAGAAAGAAATGGATTTATCTGCT
+CTTCGCGTTGAAGAAGTACAAAATGTCATTAATGCTATGCAGAAAAT
+CTTAGAGTGTCCCATCTGGTAAGTCAGCACAAGAGTGTATTAATTTG
+GGATTCCTATGATTATCTCCTATGCAAATGAACAGAATTGACCTTAC</pre>
+    </div>
+
+    <div class="slide">
+	    <h3>Variant Calling</h3>
+	    <pre class="medium">
+GTTGTCATTTTATAAACCTTTTAAAAAGATATATATATATGTTTTTC
+TAATGTGTTAAAGTTCA<b>T</b>TGGAACAGAAAGAAATGGATTTATCTGCT
+CTTCGCGTTGAAGAAGTACAAAATGTCATTAATGCTATGCAGAAAAT
+CTTAGAGTGTCCCATCTGGTAAGTCAGCACAAGAGTGTATTAATTTG
+GGATTCCTATGATTATCTCCTATGCAAATGAACAGAATTGACCTTAC</pre>
+
+	    <pre class="medium">
+GTTGTCATTTTATAAACCTTTTAAAAAGATATATATATATGTTTTTC
+TAATGTGTTAAAGTTCA<b>C</b>TGGAACAGAAAGAAATGGATTTATCTGCT
+CTTCGCGTTGAAGAAGTACAAAATGTCATTAATGCTATGCAGAAAAT
+CTTAGAGTGTCCCATCTGGTAAGTCAGCACAAGAGTGTATTAATTTG
+GGATTCCTATGATTATCTCCTATGCAAATGAACAGAATTGACCTTAC</pre>
+    </div>
+
+    <div class="slide">
+	    <h3>Variant Calling</h3>
+	    <pre class="medium">
+GTTGTCATTTTATAAACCTTTTAAAAAGATATATATATATGTTTTTC
+TAATGTGTTAAAGTTCA<b class="major">T</b>TGGAACAGAAAGAAATGGATTTATCTGCT
+CTTCGCGTTGAAGAAGTACAAAATGTCATTAATGCTATGCAGAAAAT
+CTTAGAGTGTCCCATCTGGTAAGTCAGCACAAGAGTGTATTAATTTG
+GGATTCCTATGATTATCTCCTATGCAAATGAACAGAATTGACCTTAC</pre>
+
+	    <pre class="medium">
+GTTGTCATTTTATAAACCTTTTAAAAAGATATATATATATGTTTTTC
+TAATGTGTTAAAGTTCA<b class="major">C</b>TGGAACAGAAAGAAATGGATTTATCTGCT
+CTTCGCGTTGAAGAAGTACAAAATGTCATTAATGCTATGCAGAAAAT
+CTTAGAGTGTCCCATCTGGTAAGTCAGCACAAGAGTGTATTAATTTG
+GGATTCCTATGATTATCTCCTATGCAAATGAACAGAATTGACCTTAC</pre>
+    </div>
+
+    <div class="slide">
+	    <h3>Variant Calling</h3>
+	    <h4>HGVS Nomenclature</h4>
+	    <pre>g.65T&gt;C</pre>
+    </div>
+    
     <div class="notes">
 	    <p></p>
     </div>
 
     <div class="slide">
-	    <h3></h3>
-	    <h4></h4>
+	    <h3>Variant Calling</h3>
+	    <h4>HGVS Nomenclature</h4>
+	    <pre>g.65T&gt;C</pre><br/>
+	    <pre>g.123_167del</pre><br/>
+	    <pre>g.158_159insTTTCT</pre>
+	    <pre>g.[9del;36G&gt;T;61_65del]</pre>
     </div>
-
-    <div class="notes">
-	    <p></p>
-    </div>
-
     <div class="slide">
-	    <h3></h3>
+	    <h3>The Problem</h3>
 	    <h4></h4>
     </div>
 

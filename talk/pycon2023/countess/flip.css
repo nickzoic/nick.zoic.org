@@ -126,6 +126,10 @@ b, .top {
     color: #800;
 }
 
+pre b {
+    color: #F00;
+}
+
 div.footer {
     text-align: center;
     border: none;
@@ -214,4 +218,16 @@ body.flip ul.floatright {
     float: right;
     max-width: 50%;
 }
+
+
+b.major {
+    font-size: 200%;
+    vertical-align: middle;
+    animation: blinker 1s linear infinite;
+    }
+
+    @keyframes blinker { 
+	    50% { opacity: 0; }
+    }
+
 

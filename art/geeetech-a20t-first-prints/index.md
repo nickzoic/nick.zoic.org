@@ -468,4 +468,6 @@ much difference tuning the profile can make:
 *3½ Benchies*
 
 I'll keep working on tuning the printer settings and hopefully
-we'll get to the point of a competent Benchy soon!
+we'll have a new article and a competent Benchy print soon!
+
+But first: [PyConAU!](/art/pycon-pyconau-2023-adelaide/)

@@ -45,7 +45,7 @@
     </div>
 
     <div class="slide"> 
-	    <h2>Bioinformatics in 4½ minutes</h2>
+	    <h2>Bioinformatics in 7½ minutes</h2>
     </div>
 
     <div class="notes">
@@ -53,21 +53,20 @@
     </div>
 
     <div class="slide">
-	    <h2>Bioinformatics in 4½ minutes</h2>
+	    <h2>Bioinformatics in 7½ minutes</h2>
 	    <p>[*] Approximately</p>
     </div>
 
     <div class="notes">
 	    <p>
-	    Okay, so only approximately 4½ minutes, and a lot of this
-	    will be pretty approximate too so don't sweat the details
-	    right now.</p>
+	    A lot of this will be pretty approximate too so don't sweat the details
+	    right now.  If you're interested in the details let's catch up after
+	    this session over lunch.
+	    </p>
 
-	    <p>You could do a lot worse than going down a
+	    <p>Or you could do a lot worse than going down a
 	    <a href="https://en.wikipedia.org/wiki/Bioinformatics">
 		    Bioinformatics Wikipedia Rabbit Hole</a></p>
-
-
     </div>
 
     <div class="slide"> 
@@ -97,7 +96,7 @@
 	    cells.</p>
 	    <p>But we can construct experiments which let us observe the
 	    outward behaviour of cells and through analysis we can determine
-            what's going on inside.  This is not totally unlike black-box testing of
+            what's going on inside them.  This is not totally unlike black-box testing of
             software: you might not be able to read the code, but if you can find a
             correlation between a change in input and a change in output, you can start
             to understand what the program does even if you can't directly watch it
@@ -614,6 +613,20 @@ GGATTCCTATGATTATCTCCTATGCAAATGAACAGAATTGACCTTAC</pre>
     </div>
 
     <div class="slide">
+	    <h3>CountESS — Architecture</h3>
+
+	    <table>
+		    <tr><td colspan="5">GUI</td><td class="gap"></td>
+			  <td colspan="5">CLI</td></tr>
+		    <tr><td class="gap" colspan="5">⇅</td><td class="gap"></td><td class="gap" colspan="5">⇅</td></tr>
+		    <tr><td colspan="11">Pipeline</td><td class="gap">⇄</td><td>Config Files</td></tr>
+		    <tr><td class="gap" colspan="3">⇅</td><td class="gap"/><td class="gap" colspan="3">⇅</td><td class="gap"/><td class="gap" colspan="3">⇅</td></tr>
+		    <tr><td colspan="3">Plugin</td><td class="gap"></td><td colspan="3">Plugin</td><td class="gap"></td><td colspan="3">Plugin</td></tr>
+		    <tr style="border: 0px"><td colspan="3" class="gap">⇅</td><td class="gap"/><td class="gap">⇅</td><td class="gap"/><td class="gap">⇅</td><td class="gap"/><td class="gap" colspan="3">⇅</td></tr>
+		    <tr><td colspan="5">Pandas</td><td class="gap"/><td colspan="5">Other Libraries</td></tr>
+	    </table>
+	   </div>
+    <div class="slide">
 	    <h3>CountESS — GUI</h3>
     </div>
 
@@ -636,6 +649,9 @@ GGATTCCTATGATTATCTCCTATGCAAATGAACAGAATTGACCTTAC</pre>
 
     <div class="slide">
       <h3>Questions</h3>
+      <img src="img/qrcode.png" class="sixty"/>
+      <br/>
+      <tt>https://nick.zoic.org/PYCON23/</tt>
     </div>
 
     <div class="footer">

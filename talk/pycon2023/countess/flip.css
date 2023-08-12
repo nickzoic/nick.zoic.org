@@ -189,8 +189,14 @@ table tr:first-child th {
 table td, table th {
     border: 3px solid #666;
     padding: 10px;
-    min-width: 25%;
+    min-width: 15%;
     text-align: center;
+}
+
+td.gap { 
+	border: 0px;
+	padding: 0px;
+	min-width: 2%;
 }
 
 img.whiteborder {

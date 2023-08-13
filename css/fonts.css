@@ -2,11 +2,11 @@
   font-family: 'Acme';
   font-style: normal;
   font-weight: 400;
-  src: local('Acme Regular'), local('Acme-Regular'), url(https://fonts.gstatic.com/s/acme/v7/RrQfboBx-C5_XxrBaw.ttf) format('truetype');
+  src: local('Acme Regular'), local('Acme-Regular'), url(/css/acme_regular.woff2) format('woff2');
 }
 @font-face {
   font-family: 'PT Sans';
   font-style: normal;
   font-weight: 400;
-  src: local('PT Sans'), local('PTSans-Regular'), url(https://fonts.gstatic.com/s/ptsans/v9/jizaRExUiTo99u79D0KEwA.ttf) format('truetype');
+  src: local('PT Sans'), local('PTSans-Regular'), url(/css/pt_sans.woff2) format('woff2');
 }

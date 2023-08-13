@@ -79,7 +79,7 @@ body > div.slide {
 }
 
 body.flip > div {
-    border: 0;
+    border: 0px;
     width: 100%;
     margin: auto;
     position: absolute;
@@ -167,6 +167,8 @@ div.footer img.logo {
     height: 1.5em;
     padding-right: 1em;
 }
+
+body.flip .medium { font-size: 30px; }
 
 body.flip .small { font-size: 20px; }
 

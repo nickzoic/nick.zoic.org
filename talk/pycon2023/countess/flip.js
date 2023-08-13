@@ -48,7 +48,7 @@
 	// Enter or period "." key enters the slideshow
 	// or jumps to the end (unless you're already at the end)
 	else if (k == 13 || k == 190) {
-	    if (n == 0 or n == s.length) {
+	    if (!n || n == s.length) {
 	        change_slide(1);
 	    } else {
 		change_slide(s.length);

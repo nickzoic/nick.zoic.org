@@ -83,9 +83,20 @@
 
       <ul>
 	      <li>Bioinformatics: quantitative analysis of biological data.</li>
-	      <li>Arguably started with the protein sequencing of insulin in the 1950s</li>
-	      <li>Generally using computers.</li>
+	      <li>Arguably started in 1952:</li>
+	      <ul>
+	          <li>Protein sequencing of insulin by Albert Sanger</li>
+		  <li>Alan Turing's "Chemical basis of morphogenesis"</li>
+	      </ul>
+	      <li>Really got going as computers got invented:</li>
+	      <ul><li>Margaret Dayhoff's COMPROTEIN ~ 1960</li></ul>
 	      <li>Lots of parallels between biological science and computer science.</li>
+      </ul>
+
+      <p class="medium">
+      References:
+      <ul class="medium"><li><a href="https://www.dna.caltech.edu/courses/cs191/paperscs191/turing.pdf">A M Turing: A reaction-diffusion model for development, The chemical basis of morphogenesis</a></li>
+	      <li><a href="https://en.wikipedia.org/wiki/Margaret_Oakley_Dayhoff">Margaret Oakley Dayhoff @ Wikipedia</a></li>
       </ul>
     </div>
 
@@ -316,11 +327,12 @@ GGATTCCTATGATTATCTCCTATGCAAATGAACAGAATTGACCTTAC</pre>
     <div class="notes">
 	    <p>The most common kind of variant is a single base (nucleotide)
 	    change like we saw above.  If it's a common kind of difference, 
-	    see in more that 1% of the population, it's
+	    seen in more that 1% of the population, it's
 	    called a Polymorphism. Whereas if it's a rare change it's generally
 	    called a Variant.  It means the same thing: one base is changed.</p>
 	    <p>Variants are also often given reference numbers like "rsid" or "RCV"
-	    because people really like numbering things.</p>
+	    because database people really like numbering things.</p>
+	    <p>Most of this information can be explored online for free.</p>
     </div>
 
     <div class="slide">
@@ -347,7 +359,6 @@ GGATTCCTATGATTATCTCCTATGCAAATGAACAGAATTGACCTTAC</pre>
 	    <p>References:<ul>
 		    <li><a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3057002/">"Model-based prediction of human hair color using DNA variants"</a></li>
 		    <li><a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3401057/">"Lactose intolerance: diagnosis, genetic, and clinical factors"</a></li>
-		    <li><a href="https://www.smithsonianmag.com/science-nature/human-genome-recovered-5700-year-old-chewing-gum-180973801/">Human Genome Recovered From 5,700-Year-Old Chewing Gum</a></li>
 	    </ul></p>
 	</div>
 
@@ -360,6 +371,8 @@ GGATTCCTATGATTATCTCCTATGCAAATGAACAGAATTGACCTTAC</pre>
 		<p>... or to determine the likely hair colour of an
 		ancient human from the DNA in her 5700 year old chewing gum.
 		</p>
+
+		<p>Reference: <a href="https://www.smithsonianmag.com/science-nature/human-genome-recovered-5700-year-old-chewing-gum-180973801/">Human Genome Recovered From 5,700-Year-Old Chewing Gum</a></p>
 	</div>
 
     <div class="slide">
@@ -922,20 +935,23 @@ class MyNewPlugin(PandasTransformDictToSinglePlugin):
     <div class="slide">
 	    <h3>CountESS — Plugins — 2</h3>
 
-	    Your plugin's <tt>pyproject.toml</tt>
+	    Your plugin's <tt>pyproject.toml</tt><br/>
 	    <pre class="medium">
 [project.entry-points.countess_plugins]
 variants = "mypluginpackage:MyNewPlugin"</pre><br/>
 
-	    CountESS:
+	    CountESS:<br/>
 	    <pre class="medium">
 entry_points = importlib.metadata.entry_points().select(
     group="countess_plugins"
 )
 
 for ep in entry_points:
-    plugin_class = ep.load()
-    assert issubclass(plugin_class, BasePlugin)
+    try:
+        plugin_class = ep.load()
+        assert issubclass(plugin_class, BasePlugin)
+    except Exception as exc:
+        logger.exception(exc)
 </pre>
     </div>
 

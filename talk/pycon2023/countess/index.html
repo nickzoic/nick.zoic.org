@@ -83,8 +83,8 @@
     <div class="slide">
       <h3>Cell Biology</h3>
 
-      <img src="img/animal.svg" class="sixty"/>
-      <img src="img/endomembrane.svg" class="sixty"/>
+      <img src="img/animal.svg" class="eighty"/>
+      <!--img src="img/endomembrane.svg" class="sixty"/-->
 
       <p class="tiny">Images: <a href="https://commons.wikimedia.org/wiki/File:Animal_cell_structure_en.svg">LadyofHats</a>, Public domain, via Wikimedia Commons</p>
     </div>
@@ -348,8 +348,8 @@ GGATTCCTATGATTATCTCCTATGCAAATGAACAGAATTGACCTTAC</pre>
 	</div>
 
 	<div class="notes">
-		<p>... or to determine the likely hair colour of a person
-		from DNA in her 5700 year old chewing gum.
+		<p>... or to determine the likely hair colour of an
+		ancient human from the DNA in her 5700 year old chewing gum.
 		</p>
 	</div>
 
@@ -361,8 +361,8 @@ GGATTCCTATGATTATCTCCTATGCAAATGAACAGAATTGACCTTAC</pre>
     </div>
 
 	<div class="notes">
-		<p>And recent work published on MedRXiv
-		suggests a link between variants of <tt>FOXP4</tt> and severity of 
+		<p>Recent work published on MedRXiv
+		suggests a link between specific variants of <tt>FOXP4</tt> and severity of 
 	   COVID infection as well as susceptibility to Long COVID.</p>
 
 	   <p>See also: <a href="https://www.npr.org/sections/goatsandsoda/2023/08/08/1192496578/a-new-clue-to-the-reason-some-people-come-down-with-long-covid">NPR Goats and Soda</a></p>
@@ -397,6 +397,16 @@ GGATTCCTATGATTATCTCCTATGCAAATGAACAGAATTGACCTTAC</pre>
             increased probability of developing specific cancers.</p>
 
 	    <p>See also: <a href="https://onlinelibrary.wiley.com/doi/10.1002/jcp.10257">Rosen et al, "BRCA1 gene in breast cancer", 2003</a></p>
+    </div>
+
+    <div class="slide">
+	    <h3>MAVEs</h3>
+	    <img src="img/rous.jpg" class="eighty">
+	    <p class="tiny">Image: A Rodent of Unusual Size, from The Princess Bride</p>
+    </div>
+
+    <div class="notes">
+	    <p>wait, wrong slide ...</p>
     </div>
 
     <div class="slide"> 
@@ -454,11 +464,33 @@ GGATTCCTATGATTATCTCCTATGCAAATGAACAGAATTGACCTTAC</pre>
 Massively Parallel Sequencing"</a></p>
     </div>
 
+    <div class="notes">
+	    <p>The <tt>F9</tt> gene codes for a protein called Coagulation Factor IX which is
+	    essential for blood clotting.  Variants of <tt>F9</tt> can cause 
+	    hemophilia.  And work by [Popp] attempts to classify variants of <tt>F9</tt>,
+	    using a technique called VAMP-seq.
+	    </p><p>
+	    The VAMP-seq technique produces cells of each possible gene variant, as above,
+	    but also adds the sequence
+	    to create a fluorescent protein called EGFP, derived from a jellyfish protein.
+	    This protein is useful for all kinds of experiments and is kind of the equivalent
+	    of an embedded software developer adding in a couple of diagnostic LEDs.
+	    </p>
+    </div>
+
     <div class="slide"> 
       <h3>VAMP-seq — 2</h3>
       <img src="img/vampseq2.png" class="ninety"/>
       <p class="tiny">Reference: <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5980760/pdf/nihms956040.pdf">"Multiplex Assessment of Protein Variant Abundance by
       Massively Parallel Sequencing"</a></p>
+    </div>
+
+    <div class="notes">
+	    <p>
+	    The more the gene is expressed the more EGFP is produced, and the more the
+	    cell fluoresces.
+	    Cells are then "binned", mechanically sorted by how much they glow.
+	    </p>
     </div>
 
     <div class="slide"> 
@@ -468,11 +500,24 @@ Massively Parallel Sequencing"</a></p>
       Massively Parallel Sequencing"</a></p>
     </div>
 
+    <div class="notes">
+	    <p>
+	    Each bin is then sequenced, and the population of each variant in each bin
+	    is counted.
+	    </p>
+    </div>
+
     <div class="slide"> 
       <h3>VAMP-seq — 4</h3>
       <img src="img/vampseq4.png" class="ninety"/>
       <p class="tiny">Reference: <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5980760/pdf/nihms956040.pdf">"Multiplex Assessment of Protein Variant Abundance by
       Massively Parallel Sequencing"</a></p>
+    </div>
+
+    <div class="notes">
+	    <p>
+	    This is then used to "score" each variant on how much protein is present.
+	    </p>
     </div>
 
     <div class="slide"> 
@@ -483,15 +528,14 @@ Massively Parallel Sequencing"</a></p>
     </div>
 
     <div class="notes">
-	    <p>The <tt>F9</tt> gene codes for a protein called Factor IX which is
-	    essential for blood clotting.  Variants of <tt>F9</tt> can cause 
-	    hemophilia.  And work by [Popp] attempts to classify variants of <tt>F9</tt>,
-	    using a technique called VAMP-seq.
-	    </p><p>
-            A fluorescent protein gene derived from jellyfish is added to cells and they
-            classified by how much they glow. This is as close as biological science
-            gets to that technique beloved of embedded programmers, debugging by
-            LED.</p>
+	    <p>
+	    ... and a heat map can be made showing the effect on the change of each
+	    amino acid at each position in the protein under investigation.
+	    </p>
+	    <p>
+	    When the cells are measured under varying conditions, this can reveal
+	    useful information about the role of each part of the protein.
+	    </p>
     </div>
 
     <div class="slide">
@@ -509,7 +553,7 @@ Massively Parallel Sequencing"</a></p>
     <div class="notes">
 	    <p>Central to all these methods is the need to <em>count things</em>.</p>
 	    <p>This sounds really simple, and it is.  Computers have been
-	    counting things since the first tablulating machines started 
+	    counting things since the first tabulating machines started 
 	    processing punched cards.</p>
     </div>
 
@@ -528,7 +572,8 @@ Massively Parallel Sequencing"</a></p>
     </div>
 
     <div class="notes">
-	    <p>The  </p>
+	    <p>Let's have a look at the numbers from the BRCA1 paper I mentioned earlier.</p>
+	    <p>It's only a few hundred million sequences, a few billon base pairs all up.</p>
     </div>
 
     <div class="slide">
@@ -543,8 +588,7 @@ Massively Parallel Sequencing"</a></p>
     </div>
 
     <div class="notes">
-	    <p>Okay, so it's only a few hundred million sequences.
-	    There's tools for that, and they're probably already on
+	    <p>There's tools for that, and they're probably already on
 	    your computer.  Sequences go in, counts go out, problem
 	    solved.</p>
     </div>
@@ -565,8 +609,8 @@ Massively Parallel Sequencing"</a></p>
 	    <p>Of course it isn't as simple as that. Sequencing data
 	    isn't generally in text format, it's in FASTQ or FASTA
 	    or SAM or CRAM or SRA format.</p>
-	    <p>Often there's metadata hanging around in filenames or 
-	    as separate metadata files.</p>
+	    <p>Often there's metadata hanging around in columns, or 
+	    in filenames or as separate metadata files.</p>
 	    <p>And, this being biology, everything is squishy, you'll
 	    probably need to filter out low quality or bad reads.</p>
 	    <p>Then you'll need to collect those counts together in 
@@ -599,9 +643,9 @@ Massively Parallel Sequencing"</a></p>
     <div class="notes"><p>
 	    A lot of analysis work used to be done in spreadsheets, but in 
 	    recent years data sizes have grown faster than spreadsheets have
-	    kept up, plus there's a few foot-guns to be found in Excel's 
+	    kept up.  Plus there's a few foot-guns to be found in Excel's 
 	    handling of gene names such as <tt>SEPT2</tt> and alphanumeric
-	    identifiers with an <tt>E</tt> in them.
+	    identifiers with a single <tt>E</tt> in them.
     </p></div>
 
     <div class="slide"><p>
@@ -616,19 +660,37 @@ Massively Parallel Sequencing"</a></p>
     </div>
 
     <div class="notes">
-	    <p>A lot of work happens in languages like Python and R, with
+	    <p>A lot of ad-hoc work happens in languages like Python and R, with
 	    support from various others like Bash, Make and Snakemake.</p>
 	    <p>A fair bit of this code is pretty flakey and hard to 
 	    replicate, we wanted to take a different approach.</p>
     </div>
 
-    <div class="slide"><p>
+    <div class="slide">
 	    <h3>Enrich2</h3>
 	    <ul>
-		    <li>Python2</li>
+		    <li>Python 2</li>
 		    <li>Specific to a few experiments</li>
 		    <li>Difficult to continue growing</li>
 	    </ul>
+    </div>
+
+    <div class="notes">
+	    <p>A tool called "Enrich2" was popular for some specific experiments,
+	    but it was implemented in Python 2, proved difficult to upgrade to Python 3
+	    and was limited to a specific set of experimental designs.
+	    </p>
+    </div>
+
+    <div class="slide">
+	    <h3>CountESS — Science!</h3>
+	    <img src="img/science.jpg" class="eighty"/>
+	    <p class="tiny">Image: Valve Software (Half Life)</p>
+    </div>
+
+    <div class="notes">
+	    <p>This is problematic because as technology advances and new techniques are
+	    invented scientists will keep coming up with new kinds of experiment!</p>
     </div>
 
     <div class="slide">
@@ -636,16 +698,26 @@ Massively Parallel Sequencing"</a></p>
             <h3>Count-based Experiment Scoring and Statistics</h3>
     </div>
 
+	   <div class="notes"><p>
+		So we've developed CountESS, which is short for "Count-based Experiment Scoring and Statistics".
+	   </p></div>
+
     <div class="slide">
 	    <h3>CountESS</h3>
 	    <ul>
-		    <li>Graphical user interface</li>
-		    <li>Data Previews</li>
+		    <li>Graphical user interface with Data Previews</li>
 		    <li>Plugin Based</li>
 		    <li>Flexible Pipelines</li>
-		    <li>Receipts</li>
+		    <li>Configuration File</li>
 	    </ul>
     </div>
+
+	   <div class="notes"><p>
+		It has a graphical user interface featuring a preview of your data as it is manipulated.
+		It's plugin based so anyone can contribute functionality.
+		It has a flexible, data flow graph based architecture.
+		And all the configuration is held in a single file, which is easy to organize.
+	   </p></div>
 
     <div class="slide">
 	    <h3>CountESS — Architecture</h3>
@@ -662,12 +734,9 @@ Massively Parallel Sequencing"</a></p>
 	    </table>
 	   </div>
 
-
-    <div class="slide">
-	    <h3>CountESS — Science!</h3>
-	    <img src="img/science.jpg" class="ninety"/>
-	    <p class="tiny">Image: Valve Software (Half Life)</p>
-    </div>
+	   <div class="notes"><p>
+		   This shows the general architecture, and now we'll step through each of these parts.
+	   </p></div>
 
     <div class="slide">
 	    <h3>CountESS — GUI</h3>
@@ -684,18 +753,58 @@ Massively Parallel Sequencing"</a></p>
 	    </table>
 	   </div>
 
+	   <div class="notes"><p>
+		   The GUI code is kept quite separate from the rest.  At the moment, it's implemented in 
+		   TkInter, which seemed like an expedient choice since it comes bundled with Python.</p>
+	   </p></div>
+
+    <div class="slide">
+	    <h3>CountESS — GUI — Overall</h3>
+	    <img src="img/countess1.png" class="eighty"/>
+    </div>
+
+	   <div class="notes"><p>
+		   It's not all that pretty but works passably well over X11 forwarding,
+		   which is nice.
+		   </p><p>
+		   There's a row of buttons along the top to load and save configuration,
+		   There's a plugin graph, which lets you select and rearrange plugins.
+		   The currently selected plugin is highlights, and on the right is a
+		   configuration pane and a data preview pane showing the state of the
+		   selected plugin.
+	   </p></div>
+
     <div class="slide">
 	    <h3>CountESS — GUI — Plugin Tree</h3>
+	    <img src="img/countess2.png" class="ninety"/>
     </div>
+
+	   <div class="notes"><p>
+The plugin tree lets you connect plugins together graphically.
+This lets you have multiple inputs to a plugin, and also multiple outputs from 
+a plugin.  So you can use the plugin graph to join sources of data and also to 
+process data in multiple ways.
+	   </p></div>
 
     <div class="slide">
 	    <h3>CountESS — GUI — Configuration</h3>
+	    <img src="img/countess3.png" class="ninety"/>
     </div>
+
+	   <div class="notes"><p>
+	The configuration pane lets you set up the configuration of each plugin.
+	   </p></div>
 
     <div class="slide">
 	    <h3>CountESS — GUI — Data Previews</h3>
+	    <img src="img/countess4.png" class="ninety"/>
     </div>
 
+	   <div class="notes"><p>
+		   The preview pane shows the output of the plugin.
+		   While using the GUI to edit configurations, about 100,000 rows of your
+		   data are processed, with live updates as the configuration changes.
+	   </p></div>
 
     <div class="slide">
 	    <h3>CountESS — CLI</h3>
@@ -711,27 +820,21 @@ Massively Parallel Sequencing"</a></p>
 	    </table>
 	   </div>
 
-    <div class="slide">
-	    <h3>CountESS — CLI</h3>
-    </div>
-
-    <div class="slide">
-	    <h3>CountESS — Pipeline</h3>
-
-	    <table>
-		    <tr><td colspan="5">GUI</td><td class="gap"></td> <td colspan="5">CLI</td></tr>
-		    <tr><td class="gap" colspan="5">⇅</td><td class="gap"></td><td class="gap" colspan="5">⇅</td></tr>
-		    <tr><td colspan="11" style="background: #69F">Pipeline</td><td class="gap">⇄</td><td>Config Files</td></tr>
-		    <tr><td class="gap" colspan="3">⇅</td><td class="gap"/><td class="gap" colspan="3">⇅</td><td class="gap"/><td class="gap" colspan="3">⇅</td></tr>
-		    <tr><td colspan="3">Plugins</td><td class="gap"></td><td colspan="3">Plugins</td><td class="gap"></td><td colspan="3">Plugins</td></tr>
-		    <tr style="border: 0px"><td colspan="3" class="gap">⇅</td><td class="gap"/><td class="gap">⇅</td><td class="gap"/><td class="gap">⇅</td><td class="gap"/><td class="gap" colspan="3">⇅</td></tr>
-		    <tr><td colspan="5">Pandas / Numpy</td><td class="gap"/><td colspan="5">Other Libraries</td></tr>
-	    </table>
+	   <div class="slide">
+		   <h3>CountESS — CLI</h3>
+		   <ul>
+			   <li>GUI loads and saves configuration files</li>
+			   <li>CLI loads and runs configuration file</li>
+			   <li>Allows remote use without GUI available</li>
+		   </ul>
 	   </div>
 
-    <div class="slide">
-	    <h3>CountESS — Pipeline</h3>
-    </div>
+	   <div class="notes">
+		   There's not too much to say about the CLI.  The GUI loads and saves its configuration in a 
+		   configuration file, and the CLI can read that file and run it, with diagnostics to standard output
+		   and standard error.  This lets you set up your work in the GUI with live preview, and then
+		   run it possibly on a remote machine with no GUI available.
+	   </div>
 
     <div class="slide">
 	    <h3>CountESS — Config Files</h3>
@@ -752,7 +855,30 @@ Massively Parallel Sequencing"</a></p>
     </div>
 
     <div class="slide">
-	    <h3>CountESS — Plugins</h3>
+	    <h3>CountESS — Pipeline</h3>
+
+	    <table>
+		    <tr><td colspan="5">GUI</td><td class="gap"></td> <td colspan="5">CLI</td></tr>
+		    <tr><td class="gap" colspan="5">⇅</td><td class="gap"></td><td class="gap" colspan="5">⇅</td></tr>
+		    <tr><td colspan="11" style="background: #69F">Pipeline</td><td class="gap">⇄</td><td>Config Files</td></tr>
+		    <tr><td class="gap" colspan="3">⇅</td><td class="gap"/><td class="gap" colspan="3">⇅</td><td class="gap"/><td class="gap" colspan="3">⇅</td></tr>
+		    <tr><td colspan="3">Plugins</td><td class="gap"></td><td colspan="3">Plugins</td><td class="gap"></td><td colspan="3">Plugins</td></tr>
+		    <tr style="border: 0px"><td colspan="3" class="gap">⇅</td><td class="gap"/><td class="gap">⇅</td><td class="gap"/><td class="gap">⇅</td><td class="gap"/><td class="gap" colspan="3">⇅</td></tr>
+		    <tr><td colspan="5">Pandas / Numpy</td><td class="gap"/><td colspan="5">Other Libraries</td></tr>
+	    </table>
+	   </div>
+
+    <div class="slide">
+	    <h3>CountESS — Pipeline</h3>
+	    <ul>
+		    <li>This is where all the tricky stuff happens!</li>
+		    <li>Multiprocessing to use CPU efficiently</li>
+		    <li>Streaming data to use memory efficiently</li>
+	    </ul>
+    </div>
+
+    <div class="slide">
+	    <h3>CountESS — Plugins — 1</h3>
 
 	    <table>
 		    <tr><td colspan="5">GUI</td><td class="gap"></td> <td colspan="5">CLI</td></tr>
@@ -766,8 +892,44 @@ Massively Parallel Sequencing"</a></p>
 	   </div>
 
     <div class="slide">
-	    <h3>CountESS — Plugins</h3>
+	    <h3>CountESS — Plugins — 2</h3>
+
+	    <pre class="small">
+from countess.core.plugins import PandasTransformDictToSinglePlugin
+
+class MyNewPlugin(PandasTransformDictToSinglePlugin):
+
+    parameters = {
+        "a": ColumnChoiceParam("Column A"),
+	"c": IntegerParam("Favourite Number", 42),
+    }
+
+    def process_dict(self, data: dict, logger: Logger) -> Optional[int]:
+        return data[self.parameters['a'].value] // self.parameters['c'].value
+</pre>
+
     </div>
+
+    <div class="slide">
+	    <h3>CountESS — Plugins — 2</h3>
+
+	    Your plugin's <tt>pyproject.toml</tt>
+	    <pre class="medium">
+[project.entry-points.countess_plugins]
+variants = "mypluginpackage:MyNewPlugin"</pre><br/>
+
+	    CountESS:
+	    <pre class="medium">
+entry_points = importlib.metadata.entry_points().select(
+    group="countess_plugins"
+)
+
+for ep in entry_points:
+    plugin_class = ep.load()
+    assert issubclass(plugin_class, BasePlugin)
+</pre>
+    </div>
+
 
     <div class="slide">
 	    <h3>CountESS — Pandas / Numpy</h3>
@@ -796,15 +958,6 @@ Massively Parallel Sequencing"</a></p>
 		    <tr><td colspan="5">Pandas / Numpy</td><td class="gap"/><td colspan="5" style="background: #69F">Other Libraries</td></tr>
 	    </table>
 	   </div>
-
-
-    <div class="slide">
-	    <h3>CountESS — Flexible Pipelines</h3>
-    </div>
-
-    <div class="slide">
-	    <h3>CountESS — Receipts</h3>
-    </div>
 
     <div class="slide">
       <h3>Questions</h3>

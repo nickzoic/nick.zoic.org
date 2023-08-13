@@ -1,4 +1,15 @@
-@import url(https://fonts.googleapis.com/css?family=Acme|PT+Sans);
+@font-face {
+  font-family: 'Acme';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Acme Regular'), local('Acme-Regular'), url(/css/acme_regular.woff2) format('woff2');
+}
+@font-face {
+  font-family: 'PT Sans';
+  font-style: normal;
+  font-weight: 400;
+  src: local('PT Sans'), local('PTSans-Regular'), url(/css/pt_sans.woff2) format('woff2');
+}
 
 body {
     font-family: "PT Sans", sans-serif;

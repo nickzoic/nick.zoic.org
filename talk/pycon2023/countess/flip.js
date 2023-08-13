@@ -15,9 +15,6 @@
 
     function change_slide(n) {
 	window.scrollTo(0,0);
-        if (n<0) n = s.length;
-        if (!n || n < 0 || n > s.length) n = 0;
-        if (p==n) return;
         if (p) s[p-1].className="slide";
         if (n) s[n-1].className="slide show";
         if (n && !p) {
@@ -44,17 +41,29 @@
         var k = e.keyCode;
 
 	// escape exits the slideshow
-        if (k == 27) change_slide(0);
+        if (k == 27) {
+    	    change_slide(0);
+	}
 
-	// period "." key enters the slideshow
-	else if (k == 190) change_slide(1);
+	// Enter or period "." key enters the slideshow
+	// or jumps to the end (unless you're already at the end)
+	else if (k == 13 || k == 190) {
+	    if (n == 0 or n == s.length) {
+	        change_slide(1);
+	    } else {
+		change_slide(s.length);
+	    }
+        }
 
 	// rightarrow, spacebar, page down
-        else if (p > 0 && (k == 39 || k == 32 || k ==  34)) change_slide(p+1);
+	else if (k == 39 || k == 32 || k == 34) {
+            if (p > 0 && p < s.length) change_slide(p+1);
+	}
 
 	// leftarrow, backspace, page up
-        else if (p > 0 && (k == 37 || k == 8 || k == 33 )) change_slide(p-1);
-
+        else if (k == 37 || k == 8 || k == 33) {
+	    if (p > 1) change_slide(p-1);
+	}
 
         else return;
 

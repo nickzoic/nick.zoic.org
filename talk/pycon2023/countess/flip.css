@@ -89,7 +89,11 @@ body > div.slide {
     margin-bottom: 10px;
 }
 
-body.flip > div {
+body.flip > div.notes {
+	display: none;
+}
+
+body.flip > div.slide {
     border: 0px;
     width: 100%;
     margin: auto;

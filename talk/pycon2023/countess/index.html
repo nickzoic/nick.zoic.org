@@ -73,7 +73,7 @@
 	    this session over lunch.
 	    </p>
 
-	    <p>Or you could do a lot worse than going down a
+	    <p>Or for those of you watching online, you could do a lot worse than going down a
 	    <a href="https://en.wikipedia.org/wiki/Bioinformatics">
 		    Bioinformatics Wikipedia Rabbit Hole</a></p>
     </div>
@@ -84,19 +84,29 @@
       <ul>
 	      <li>Bioinformatics: quantitative analysis of biological data.</li>
 	      <li>Arguably started in 1952:</li>
-	      <ul>
+	      <ul class="medium">
 	          <li>Protein sequencing of insulin by Albert Sanger</li>
 		  <li>Alan Turing's "Chemical basis of morphogenesis"</li>
 	      </ul>
 	      <li>Really got going as computers got invented:</li>
-	      <ul><li>Margaret Dayhoff's COMPROTEIN ~ 1960</li></ul>
-	      <li>Lots of parallels between biological science and computer science.</li>
+	      <ul class="medium"><li>Margaret Dayhoff's COMPROTEIN ~ 1960</li>
+		      <li>Protein Information Resource (1984-)</li></ul>
+	      
+	      <li>Perhaps unsurprisingly, many parallels between biological science and computer science.</li>
       </ul>
 
+    </div>
+
+    <div class="notes">
+	    There's some really interesting history here which would
+	    make a great historical research presentation in its own
+	    right.
       <p class="medium">
       References:
-      <ul class="medium"><li><a href="https://www.dna.caltech.edu/courses/cs191/paperscs191/turing.pdf">A M Turing: A reaction-diffusion model for development, The chemical basis of morphogenesis</a></li>
+      <ul class="medium">
+	      <li><a href="https://www.dna.caltech.edu/courses/cs191/paperscs191/turing.pdf">A M Turing: A reaction-diffusion model for development, The chemical basis of morphogenesis</a></li>
 	      <li><a href="https://en.wikipedia.org/wiki/Margaret_Oakley_Dayhoff">Margaret Oakley Dayhoff @ Wikipedia</a></li>
+	      <li><a href="https://proteininformationresource.org/pirwww/about/aboutpir.shtml">Protein Information Resource</a></li>
       </ul>
     </div>
 
@@ -112,7 +122,7 @@
     <div class="notes">
 	    <p>There's a lot we still don't know about cell biology. The mechanisms
 	    by which all living things function and reproduce are complex and
-	    difficult to observe directly, since they occur inside living
+	    difficult to observe directly, since they are hidden inside living
 	    cells.</p>
 	    <p>But we can construct experiments which let us observe the
 	    outward behaviour of cells and through analysis we can determine
@@ -132,7 +142,12 @@
     </div>
 
     <div class="notes">
-	    <p>The "program" of a cell is called its genome.  The human genome is split into 23 chromosomes each of which is a DNA molecule, a chain of a hundred million or so little building blocks called base pairs or nucleotides. All in all, the human genome consists of about 12Gbit of information. All of your cells have the same genome, like sharing a container image, but different genes are active in different cells, depending on their role in the body.</p>
+	    <p>The "program" of a cell is called its genome.
+	    The human genome is split into 23 chromosomes each of which is a DNA molecule,
+	    a chain of a hundred million or so little building blocks called base pairs or nucleotides.
+	    All in all, the human genome consists of about 12Gbit of information.</p>
+	    <p>All of your cells have the same genome, like sharing a container image,
+	    but different genes are active in different cells, depending on their role in the body.</p>
     </div>
 
     <div class="slide"> 
@@ -186,136 +201,13 @@
 	    when we think we know what a gene does, we give it an arbitrary
 	    name. This process is familiar to anyone who's reverse engineered a
 	    binary, either with paper and pencil or with modern
-	    reverse-engineering tools like Ghidra.</p>
+	    reverse-engineering tools.</p>
 	    <p>We know of about 20,000 genes which encode proteins, but those
 	    constitute about 3% of the entire genome.
 	    We're pretty sure at least 80% of the genome does <b>something</b>,
 	    so we've got a ways to go.
 	    </p>
-	    <p>As you can see on the right, naming things is going about as well
-	    as naming things always does.</p>
 	    <p>Reference: <a href="https://www.science.org/doi/10.1126/science.337.6099.1159">"Encode Project Writes Eulogy For Junk DNA", Science Magazine.</a></p>
-    </div>
-
-    <div class="slide">
-	    <h3>Variants</h3>
-	    <pre class="medium">
-GTTGTCATTTTATAAACCTTTTAAAAAGATATATATATATGTTTTTC
-TAATGTGTTAAAGTTCATTGGAACAGAAAGAAATGGATTTATCTGCT
-CTTCGCGTTGAAGAAGTACAAAATGTCATTAATGCTATGCAGAAAAT
-CTTAGAGTGTCCCATCTGGTAAGTCAGCACAAGAGTGTATTAATTTG
-GGATTCCTATGATTATCTCCTATGCAAATGAACAGAATTGACCTTAC</pre>
-    </div>
-
-    <div class="notes">
-	    <p>
-	   Every person's genome is different.  We have the concept of 
-	   a "reference genome" which describes what we think the "normal"
-	   sequence for every gene is, but no-one's actually got that
-	   exact genome. 
-	    </p>
-	    <p>
-	    This is a small segment of the reference version of a gene
-	    called <tt>BRCA1</tt> which we'll talk about more soon.
-	    </p>
-    </div>
-
-    <div class="slide">
-	    <h3>Variant Calling</h3>
-	    <pre class="medium">
-GTTGTCATTTTATAAACCTTTTAAAAAGATATATATATATGTTTTTC
-TAATGTGTTAAAGTTCATTGGAACAGAAAGAAATGGATTTATCTGCT
-CTTCGCGTTGAAGAAGTACAAAATGTCATTAATGCTATGCAGAAAAT
-CTTAGAGTGTCCCATCTGGTAAGTCAGCACAAGAGTGTATTAATTTG
-GGATTCCTATGATTATCTCCTATGCAAATGAACAGAATTGACCTTAC</pre>
-	    <br/>
-	    <pre class="medium">
-GTTGTCATTTTATAAACCTTTTAAAAAGATATATATATATGTTTTTC
-TAATGTGTTAAAGTTCACTGGAACAGAAAGAAATGGATTTATCTGCT
-CTTCGCGTTGAAGAAGTACAAAATGTCATTAATGCTATGCAGAAAAT
-CTTAGAGTGTCCCATCTGGTAAGTCAGCACAAGAGTGTATTAATTTG
-GGATTCCTATGATTATCTCCTATGCAAATGAACAGAATTGACCTTAC</pre>
-    </div>
-
-    <div class="notes">
-	    <p>
-	    this shows the reference <tt>BRCA1</tt> and also a
-	    variant.  Even in a small sequence like this it's 
-	    pretty hard to spot a variant ...
-	    </p>
-    </div>
-
-    <div class="slide">
-	    <h3>Variant Calling</h3>
-	    <pre class="medium">
-GTTGTCATTTTATAAACCTTTTAAAAAGATATATATATATGTTTTTC
-TAATGTGTTAAAGTTCA<b>T</b>TGGAACAGAAAGAAATGGATTTATCTGCT
-CTTCGCGTTGAAGAAGTACAAAATGTCATTAATGCTATGCAGAAAAT
-CTTAGAGTGTCCCATCTGGTAAGTCAGCACAAGAGTGTATTAATTTG
-GGATTCCTATGATTATCTCCTATGCAAATGAACAGAATTGACCTTAC</pre>
-	    <br/>
-	    <pre class="medium">
-GTTGTCATTTTATAAACCTTTTAAAAAGATATATATATATGTTTTTC
-TAATGTGTTAAAGTTCA<b>C</b>TGGAACAGAAAGAAATGGATTTATCTGCT
-CTTCGCGTTGAAGAAGTACAAAATGTCATTAATGCTATGCAGAAAAT
-CTTAGAGTGTCCCATCTGGTAAGTCAGCACAAGAGTGTATTAATTTG
-GGATTCCTATGATTATCTCCTATGCAAATGAACAGAATTGACCTTAC</pre>
-    </div>
-
-    <div class="notes">
-          <p>Here it is!  One <tt>T</tt> got changed to a <tt>C</tt></p>
-    </div>
-
-    <div class="slide">
-	    <h3>Variant Calling</h3>
-	    <pre class="medium">
-GTTGTCATTTTATAAACCTTTTAAAAAGATATATATATATGTTTTTC
-TAATGTGTTAAAGTTCA<b class="major">T</b>TGGAACAGAAAGAAATGGATTTATCTGCT
-CTTCGCGTTGAAGAAGTACAAAATGTCATTAATGCTATGCAGAAAAT
-CTTAGAGTGTCCCATCTGGTAAGTCAGCACAAGAGTGTATTAATTTG
-GGATTCCTATGATTATCTCCTATGCAAATGAACAGAATTGACCTTAC</pre>
-	    <br/>
-	    <pre class="medium">
-GTTGTCATTTTATAAACCTTTTAAAAAGATATATATATATGTTTTTC
-TAATGTGTTAAAGTTCA<b class="major">C</b>TGGAACAGAAAGAAATGGATTTATCTGCT
-CTTCGCGTTGAAGAAGTACAAAATGTCATTAATGCTATGCAGAAAAT
-CTTAGAGTGTCCCATCTGGTAAGTCAGCACAAGAGTGTATTAATTTG
-GGATTCCTATGATTATCTCCTATGCAAATGAACAGAATTGACCTTAC</pre>
-    </div>
-
-    <div class="notes">
-	    ... or for those of you up the back I've brought back 
-	    the <tt class="blinky">&lt;blink&gt;</tt> tag.
-    </div>
-
-    <div class="slide">
-	    <h3>Variant Calling — HGVS</h3>
-	    <pre>g.65T&gt;C</pre>
-	    <p class="tiny"><a href="http://www.hgvs.org/">Human Genome Variation Society</a></p>
-	    <p class="tiny"><a href="https://varnomen.hgvs.org/">Sequence Variant Nomenclature @ HGVS</a></p>
-    </div>
-    
-    <div class="notes">
-	    <p>These sorts of change are normally represented as a kind of 
-	    diff string, showing what has changed and where.  In this case,
-	    the 65th base has changed from a T to a C.</p>
-    </div>
-
-    <div class="slide">
-	    <h3>Variant Calling — HGVS</h3>
-	    <pre>g.65T&gt;C</pre><br/>
-	    <pre class="medium">g.123_167del</pre>
-	    <pre class="medium">g.135_140dup</pre>
-	    <pre class="medium">g.158_159insTTTCT</pre>
-	    <pre class="medium">g.[9del;36G&gt;T;61_65del]</pre>
-	    <pre class="small">g.[45_46del;58A&gt;T;63C&gt;A;65T&gt;C;73G&gt;C;79A&gt;T;82_83delinsTT;86T&gt;A;154C&gt;A]</pre>
-	    <br/>
-    </div>
-
-    <div class="notes">
-	    <p>Multiple complicated changes can also be represented.</p>
-	    <p>This is often called "HGVS" but the correct name is of
-	    course "HGVS<s>'s Monster</s> Sequence Variant Nomenclature</p>
     </div>
 
     <div class="slide">
@@ -325,14 +217,15 @@ GGATTCCTATGATTATCTCCTATGCAAATGAACAGAATTGACCTTAC</pre>
     </div>
 
     <div class="notes">
+	    <p>Every person's genome is different.  We have the concept of 
+	   a "reference genome" which describes what we think the "normal"
+	   sequence for every gene is, but no-one's actually got that
+	   exact genome. </p>
 	    <p>The most common kind of variant is a single base (nucleotide)
 	    change like we saw above.  If it's a common kind of difference, 
 	    seen in more that 1% of the population, it's
 	    called a Polymorphism. Whereas if it's a rare change it's generally
 	    called a Variant.  It means the same thing: one base is changed.</p>
-	    <p>Variants are also often given reference numbers like "rsid" or "RCV"
-	    because database people really like numbering things.</p>
-	    <p>Most of this information can be explored online for free.</p>
     </div>
 
     <div class="slide">
@@ -352,9 +245,8 @@ GGATTCCTATGATTATCTCCTATGCAAATGAACAGAATTGACCTTAC</pre>
 	    population because they don't matter very much, or at least not in
 	    our current lives.</p>
 	    <p>Because there's a big population to work with,
-	    it's possible to find correlations, for example between lactose
-	    intolerance and specific variants of genes we've called
-	    <tt>LCT</tt> and <tt>MCM6</tt>.</p>
+	    it's possible to find a correlation between lactose
+	    intolerance and specific variants of genes <tt>LCT</tt> and <tt>MCM6</tt>.</p>
 
 	    <p>References:<ul>
 		    <li><a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3057002/">"Model-based prediction of human hair color using DNA variants"</a></li>
@@ -383,7 +275,7 @@ GGATTCCTATGATTATCTCCTATGCAAATGAACAGAATTGACCTTAC</pre>
     </div>
 
 	<div class="notes">
-		<p>Recent work published on MedRXiv
+		<p>As another example, recent work published on MedRXiv
 		suggests a link between specific variants of <tt>FOXP4</tt> and severity of 
 	   COVID infection as well as susceptibility to Long COVID.</p>
 
@@ -409,11 +301,10 @@ GGATTCCTATGATTATCTCCTATGCAAATGAACAGAATTGACCTTAC</pre>
 
 	    <p>Because these pathogenic variants are rare, and people's lives
 	    are complicated, it's much harder to find them in among the
-            background noise of benign variants and unrelated risk factors.  To put it
-            in programming terms, we're looking for a bug in an exception handler in
-            some critical legacy code which is exposed to the Internet.
-	    </p><p>
-	    But out of
+	    background noise of benign variants and unrelated risk factors.</P>
+	    <p>To put it in programming terms, we're looking for a bug in an exception handler in
+            some critical legacy code which is live and exposed to the Internet.
+	    </p><p>But out of
             hundreds of thousands of known variants of these genes we've been able to
             identify a few thousand particularly harmful variants which result in an
             increased probability of developing specific cancers.</p>
@@ -422,35 +313,72 @@ GGATTCCTATGATTATCTCCTATGCAAATGAACAGAATTGACCTTAC</pre>
     </div>
 
     <div class="slide">
-	    <h3>MAVEs</h3>
+	    <h3>Multiplex Assays of Variant Effect (MAVEs)</h3>
 	    <img src="img/rous.jpg" class="eighty">
 	    <p class="tiny">Image: A Rodent of Unusual Size, from The Princess Bride</p>
     </div>
 
     <div class="notes">
-	    <p>wait, wrong slide ...</p>
+	    <p>Multiplex Assays of Variant Effect ... wait, wrong slide ...</p>
     </div>
 
     <div class="slide"> 
-      <h3>MAVEs</h3>
-      <h4>Multiplex Assays of Variant Effect</h4>
+      <h3>Multiplex Assays of Variant Effect (MAVEs)</h3>
 
-      <ul>
-	      <li><a href="https://www.mavedb.org/">MaveDB</a></li>
-      </ul>
-
-
+      <table>
+	      <tr><td>Clinical Cases</td></tr>
+	      <tr><td class="gap">↓</td></tr>
+	      <tr><td>Gene Sequencing</td></tr>
+	      <tr><td class="gap">↓</td></tr>
+	      <tr><td colspan="3">Variant Classification</td></tr>
+	</table>
     </div>
 
     <div class="notes">
+	    <p>Multiplex Assays of Variant Effect ... right, 
+	    so there's a few thousand known variants we've learned about from clinical cases.</p>
 	    <p>But there's a lot of variants we don't know anything about,
 	    because we've never observed them clinically.  Some of those are
             very likely harmless, and others might be very serious: this information
             can inform individual choices for the prevention or treatment of cancer.
-            Multiplex Assays of Variant Effect (MAVEs) (which my colleague Alan Rubin
-            talked about on Friday) are an attempt to catalog not just the gene
+	    </p>
+    </div>
+
+    <div class="slide"> 
+      <h3>Multiplex Assays of Variant Effect (MAVEs)</h3>
+
+      <table>
+	      <tr><td>Clinical Cases</td><td class="gap"><td>Gene editing</td></tr>
+	      <tr><td class="gap">↓</td><td class="gap"></td><td class="gap">↓</td></tr>
+	      <tr><td>Gene Sequencing</td><td class="gap"><td>Experimental Assay</td></tr>
+	      <tr><td class="gap">↓</td><td class="gap"></td><td class="gap">↓</td></tr>
+	      <tr><td colspan="3">Variant Classification</td><td class="gap"></tr>
+	</table>
+    </div>
+    <div class="notes">
+    <p>
+            Multiplex Assays of Variant Effect (MAVEs) are an attempt to catalog not just the gene
             variants we've seen clinically but *all possible variants* of a gene,
-            classifying their effects as more or less concerning.</p>
+            classifying their effects as more or less concerning, by contructing experiments
+	    which measure the variant effect.
+    </p><p>
+    The outcome is the same: variants classified by harmfulness, and the two approaches complement
+    each other.
+    </p>
+    </div>
+
+    <div class="slide">
+	    <h3>MaveDB</h3>
+	    <img src="img/mavedb.png" class="eighty"><br/>
+	    <p class="tiny">Image: <a href="https://mavedb.org">MaveDB</a></p>
+
+	   </div>
+	   <div class="notes">
+	    <p>As part of Friday's Django miniconf, my colleague Alan Rubin spoke about MaveDB,
+	    an online respository for results from MAVE experiments so if you missed that one check
+	    it on the conference videos.</p>
+	    <p>I'm going to briefly introduce a couple of MAVE experimental techniques:
+	    Saturation Genome Editing and VAMP-seq, and then we'll look at the problem we're trying to solve.</p>
     </div>
 
     <div class="slide"> 
@@ -460,9 +388,9 @@ GGATTCCTATGATTATCTCCTATGCAAATGAACAGAATTGACCTTAC</pre>
     </div>
 
     <div class="notes">
-	    <p>For example this paper [Greg Findlay et al] uses Saturation Genome
+	    <p>This paper uses Saturation Genome
 	    Editing to analyze almost 4000 single-base variants of BRCA1.  For
-            each variant, the effect on cell longevity is assessed by counting the
+            each variant, the effect on cell growth is assessed by counting the
             variants in the cell population after 11 days.  The results show good
             correlation with the variants we already know of clinically and also
             identifies new pathogenic variants.  Similar work is underway to analyse
@@ -470,9 +398,18 @@ GGATTCCTATGATTATCTCCTATGCAAATGAACAGAATTGACCTTAC</pre>
 
     <div class="slide">
 	    <h3>Saturation Genome Editing</h3>
+      <p><a href="https://sge.gs.washington.edu/BRCA1/">https://sge.gs.washington.edu/BRCA1/</a></p>
       <img src="img/brca1var1.png" class="eighty"/>
       <p class="tiny">Source: <a href="https://sge.gs.washington.edu/BRCA1/">UW / BBI</a></p>
     </div>
+
+    <div class="notes">
+	    <p>This chart shows the distribution of scores for different single nucleotide variants
+	    of BRCA1.  The largest peak is around a score of 0, indicating that a lot of variants are 
+	    pretty much harmless, but the other peak shows the variants which cause "loss of function",
+	    and thus increased risk of cancer developing.</p>
+
+</div>
     <div class="slide">
 	    <h3>Saturation Genome Editing</h3>
       <img src="img/brca1var2.png" class="eighty"/>
@@ -487,14 +424,10 @@ Massively Parallel Sequencing"</a></p>
     </div>
 
     <div class="notes">
-	    <p>The <tt>F9</tt> gene codes for a protein called Coagulation Factor IX which is
-	    essential for blood clotting.  Variants of <tt>F9</tt> can cause 
-	    hemophilia.  And work by [Popp] attempts to classify variants of <tt>F9</tt>,
-	    using a technique called VAMP-seq.
+	    <p>
+	    The VAMP-seq technique produces cells of each possible gene variant, like SGE,
+	    but also adds the sequence to create a fluorescent protein called EGFP, derived from a jellyfish protein.
 	    </p><p>
-	    The VAMP-seq technique produces cells of each possible gene variant, as above,
-	    but also adds the sequence
-	    to create a fluorescent protein called EGFP, derived from a jellyfish protein.
 	    This protein is useful for all kinds of experiments and is kind of the equivalent
 	    of an embedded software developer adding in a couple of diagnostic LEDs.
 	    </p>
@@ -554,14 +487,20 @@ Massively Parallel Sequencing"</a></p>
 	    ... and a heat map can be made showing the effect on the change of each
 	    amino acid at each position in the protein under investigation.
 	    </p>
-	    <p>
-	    When the cells are measured under varying conditions, this can reveal
-	    useful information about the role of each part of the protein.
+	    <p>Because multiple variants are measured together, this is a more
+	    cost-effective experimental technique.</p>
+	    <p>This technique is currently being used to investigate the  <tt>F9</tt>
+	    gene, which codes for a protein called Coagulation Factor IX which is
+	    essential for blood clotting.  Variants of <tt>F9</tt> can cause hemophilia.
 	    </p>
     </div>
 
     <div class="slide">
 	    <h2>The Problem</h2>
+    </div>
+
+    <div class="notes">
+	    <p>That brings us to the next section: The Problem</p>
     </div>
 
     <div class="slide">
@@ -594,7 +533,7 @@ Massively Parallel Sequencing"</a></p>
     </div>
 
     <div class="notes">
-	    <p>Let's have a look at the numbers from the BRCA1 paper I mentioned earlier.</p>
+	    <p>Let's have a look at the numbers from the SGE paper I mentioned earlier.</p>
 	    <p>It's only a few hundred million sequences, a few billon base pairs all up.</p>
     </div>
 
@@ -790,8 +729,9 @@ Massively Parallel Sequencing"</a></p>
 		   which is nice.
 		   </p><p>
 		   There's a row of buttons along the top to load and save configuration,
+		   </p><p>
 		   There's a plugin graph, which lets you select and rearrange plugins.
-		   The currently selected plugin is highlights, and on the right is a
+		   The currently selected plugin is highlighted, and on the right is a
 		   configuration pane and a data preview pane showing the state of the
 		   selected plugin.
 	   </p></div>
@@ -806,7 +746,24 @@ The plugin tree lets you connect plugins together graphically.
 This lets you have multiple inputs to a plugin, and also multiple outputs from 
 a plugin.  So you can use the plugin graph to join sources of data and also to 
 process data in multiple ways.
-	   </p></div>
+		   </p><p>
+		   This is pretty similar to the shader graphs in Unity or the 
+		   Fusion tools in Davinci Resolve or, for that matter,
+		   LabView in the 1990s, which I talked about back at 
+		   <a href="PyConline 2020">https://nick.zoic.org/art/decoding-programming-beyond-text-files/</a>
+		   </p><p>
+		   The thing I always hate about these graph views is that they
+		   get messy quickly and inspire a lot of fidgeting about.
+		   I've implemented a "tidy graph" button which rearranges
+		   the graph to line up strata and space nodes evenly while keeping
+		   their relative order.
+		   </p><p>
+		   It could be improved by adding in force-directed placement ala
+		   GraphViz, but it's already good enough that 
+		   I'm going to add in a "tidy mode" where this
+		   is just done automatically any time you move or add anything.
+		   </P>
+	   </div>
 
     <div class="slide">
 	    <h3>CountESS — GUI — Configuration</h3>
@@ -814,7 +771,8 @@ process data in multiple ways.
     </div>
 
 	   <div class="notes"><p>
-	The configuration pane lets you set up the configuration of each plugin.
+	The configuration pane lets you set up the configuration of each plugin, like filling in
+	a form. Plugins can 
 	   </p></div>
 
     <div class="slide">
@@ -829,7 +787,7 @@ process data in multiple ways.
 	   </p></div>
 
     <div class="slide">
-	    <h3>CountESS — CLI</h3>
+	    <h3>CountESS — CLI — 1</h3>
 
 	    <table>
 		    <tr><td colspan="5">GUI</td><td class="gap"></td> <td style="background: #69F" colspan="5">CLI</td></tr>
@@ -843,7 +801,7 @@ process data in multiple ways.
 	   </div>
 
 	   <div class="slide">
-		   <h3>CountESS — CLI</h3>
+		   <h3>CountESS — CLI — 2</h3>
 		   <ul>
 			   <li>GUI loads and saves configuration files</li>
 			   <li>CLI loads and runs configuration file</li>
@@ -859,7 +817,7 @@ process data in multiple ways.
 	   </div>
 
     <div class="slide">
-	    <h3>CountESS — Config Files</h3>
+	    <h3>CountESS — Config Files — 1</h3>
 
 	    <table>
 		    <tr><td colspan="5">GUI</td><td class="gap"></td> <td colspan="5">CLI</td></tr>
@@ -873,11 +831,11 @@ process data in multiple ways.
 	   </div>
 
     <div class="slide">
-	    <h3>CountESS — Config Files</h3>
+	    <h3>CountESS — Config Files — 2</h3>
     </div>
 
     <div class="slide">
-	    <h3>CountESS — Pipeline</h3>
+	    <h3>CountESS — Pipeline — 1 </h3>
 
 	    <table>
 		    <tr><td colspan="5">GUI</td><td class="gap"></td> <td colspan="5">CLI</td></tr>
@@ -891,7 +849,7 @@ process data in multiple ways.
 	   </div>
 
     <div class="slide">
-	    <h3>CountESS — Pipeline</h3>
+	    <h3>CountESS — Pipeline — 2</h3>
 	    <ul>
 		    <li>This is where all the tricky stuff happens!</li>
 		    <li>Multiprocessing to use CPU efficiently</li>
@@ -913,8 +871,22 @@ process data in multiple ways.
 	    </table>
 	   </div>
 
-    <div class="slide">
+	   <div class="slide">
 	    <h3>CountESS — Plugins — 2</h3>
+
+	    <p>Loosely three kinds of plugins:</p>
+	    <ul>
+		    <li>Input Plugins</li>
+		    <li>Transformer Plugins</li>
+		    <li>Output Plugins</li>
+	    </ul>
+ </div>	
+
+    <div class="slide">
+	    <h3>CountESS — Plugins — 3</h3>
+
+	    <p>Plugins subclass one of the many <tt>countess.core.plugins.BasePlugin</tt>
+	    subclasses:</p>
 
 	    <pre class="small">
 from countess.core.plugins import PandasTransformDictToSinglePlugin
@@ -926,22 +898,23 @@ class MyNewPlugin(PandasTransformDictToSinglePlugin):
 	"c": IntegerParam("Favourite Number", 42),
     }
 
-    def process_dict(self, data: dict, logger: Logger) -> Optional[int]:
+    def process_dict(self, data: dict, logger: Logger) -&gt; Optional[int]:
         return data[self.parameters['a'].value] // self.parameters['c'].value
 </pre>
+    <p class="tiny">(a simplified example)</p>
 
     </div>
 
     <div class="slide">
-	    <h3>CountESS — Plugins — 2</h3>
+	    <h3>CountESS — Plugins — 4</h3>
 
 	    Your plugin's <tt>pyproject.toml</tt><br/>
 	    <pre class="medium">
 [project.entry-points.countess_plugins]
-variants = "mypluginpackage:MyNewPlugin"</pre><br/>
+myplugin = "mypluginpackage:MyNewPlugin"</pre><br/>
 
 	    CountESS:<br/>
-	    <pre class="medium">
+	    <pre class="small">
 entry_points = importlib.metadata.entry_points().select(
     group="countess_plugins"
 )
@@ -953,8 +926,8 @@ for ep in entry_points:
     except Exception as exc:
         logger.exception(exc)
 </pre>
+    <p class="tiny">(modified for dramatic effect)</p>
     </div>
-
 
     <div class="slide">
 	    <h3>CountESS — Pandas / Numpy</h3>
@@ -984,6 +957,9 @@ for ep in entry_points:
 	    </table>
 	   </div>
 
+	   <div class="slide">
+		   <h3>CountESS — Example</h3>
+		   <img src="countess
     <div class="slide">
       <h3>Questions</h3>
       <img src="img/qrcode.png" class="sixty"/>

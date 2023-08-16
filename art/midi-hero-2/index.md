@@ -5,7 +5,7 @@ tags:
   - electronics
   - music
   - microcontrollers
-title: 'MIDI Hero (2)'
+title: 'MIDI Hero (part Ⅱ)'
 summary: 'Turning a thrift store Guitar Hero controller into a MIDI controller (continued)'
 ---
 

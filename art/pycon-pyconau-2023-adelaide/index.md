@@ -14,7 +14,7 @@ This is just a quick post to let you know I'll be at
 talking about
 [CountESS](https://github.com/CountESS-Project/CountESS/)
 and also presenting 
-[my lame MIDI Guitar](/art/midi-hero/)
+[my lame MIDI Guitar](/art/midi-hero-2/)
 at the inaugural PyConAU Fair!
 
 This will be my first in-person conference since

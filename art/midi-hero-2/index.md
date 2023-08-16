@@ -1,6 +1,6 @@
 ---
-date: '2023-06-30'
-layout: draft
+date: '2023-08-16'
+layout: article
 tags:
   - electronics
   - music
@@ -143,3 +143,8 @@ screw back together nicely.
 Then the onboard software will map each of these things to
 [MIDI Messages](http://www.music.mcgill.ca/~ich/classes/mumt306/StandardMIDIfileformat.html#BMA1_1) 
 such as notes, velocities, pressures, pitch bends and control changes.
+
+## See you at PyConAU!
+
+![packing my bags for PyConAU](img/packing.jpg)
+*packing my bags for PyConAU*

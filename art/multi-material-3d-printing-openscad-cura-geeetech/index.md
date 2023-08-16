@@ -17,8 +17,10 @@ which has about 12× the build volume of the old printer,
 and has three filaments feeding into a single extuder, letting
 it print designs in multiple materials and/or colours.
 
-I've written a separate article on
-[assembling and configuring the Geeetech A20T](/art/geeetech-a20t-assembly-and-configuration/):
+I've written separate articles on
+[assembling and configuring the Geeetech A20T](/art/geeetech-a20t-assembly-and-configuration/)
+and
+[First prints with the A20T](/art/geeetech-a20t-first-prints/),
 this article is all about the technical details of getting a multi-material
 workflow set up with OpenSCAD and Cura.
 

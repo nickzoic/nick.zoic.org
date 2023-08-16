@@ -95,9 +95,10 @@ All up it took about an hour from the courier arriving to
 powering the printer up for the first time.
 
 UPDATE: On my one, the two little screws which attach the
-Z axis nut to the gantry were very loose as shipped.
+Z axis nut to the X axis were very loose as shipped.
 Definitely check this and then run the Z axis 
-up and down to make sure it's moving smoothly.
+up and down to make sure it's moving smoothly and not
+binding anywhere.
 
 ## Loading
 
@@ -124,26 +125,41 @@ they look quite messy too, some cable clips might be in order.
 
 ## Printing Dimensions
 
+The printer is advertised as 250 x 250 x 250 mm print volume
+but I figured I should check.
+
+### X axis
+
 When homed, the X axis is at -10mm, and moves cleanly to
 +242mm before one of the print carriage screws
 fouls on the right hand gantry and the stepper cogs.
 This is no big deal but if you hit this point it
 will cause layer misalignment so the software really
-should know about this.  You can flip the screw around to
-avoid it hitting the ganty, but
+should know about this.
+
+You can flip the screw around to avoid it hitting the ganty, but
 then the print carriage cable bracket fouls on the gantry
 at +244mm.
 
 ![X-axis interference](img/x-axis.jpg)
 *X-axis interference*
 
+It doesn't look like this is going to be just my printer,
+so I guess I'll put this in the profile as X\_max = 240mm.
+
+### Y axis
+
 The Y axis homes at -5mm and moves to +250mm before software
-stops it, so that's nice.
+stops it cleanly, so that's nice.
+
+### Z axis
 
 The Z axis homes to 0 and as supplied it moves to +249mm
 before the print head cable fouls on the gantry. This can be 
 fixed by loosening the Z stop microswitch and moving it down ~2mm
 and leveling the print bed again.
+
+Now it works fine and stops at +250mm.
 
 ## Machine Dimensions
 

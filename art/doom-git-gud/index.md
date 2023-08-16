@@ -23,17 +23,18 @@ by having the enemies actually shoot straight.
 
 ![Screenshot 3](img/screenshot-3.png)
 
-There's not an easy way to make a new "GIT GUD" label just
-select the one which says "END GAME".
+There's not an easy way to make a new "GIT GUD" label, the graphics 
+live in the WAD file which is separate.  Just select the one which says "END GAME".
 
-DOOM GIT GUD expresses its distaste if you pick any other option:
+Of course, DOOM GIT GUD expresses its distaste if you pick any other option:
 
 ![Screenshot 1](img/screenshot-1.png)
 
 I was originally intending to patch the enemies' movement code to 
 have them behave less stupidly than directly walking into fire,
-but it turns out that a one line patch reducing the randomization
-which causes them to rarely shoot straight is probably enough ...
+but it turns out that a one line patch to make them shoot straight is probably enough ...
+
+The change looks like a bit like this:
 
 ```
 -    angle += P_SubRandom() << 20;
@@ -42,14 +43,19 @@ which causes them to rarely shoot straight is probably enough ...
 
 ![Screenshot 2](img/screenshot-2.png)
 
-`P_SubRandom()` returns the difference between two
+This code just takes `angle`, the correct angle for the enemy to
+be firing at to hit you, and modifies it a bit.
+
+`P_SubRandom()` returns a random number between -255 and 255.
+
+(Actually: the difference between two
 pseudo-random numbers between 0 and 255, so between
 -255 and 255 but with a bias towards the middle much
-like rolling two dice and adding them up.
+like rolling two dice and adding them up)
 
-'angle' is a 32 bit number representing 360⁰ of 
+`angle` is a 32 bit number representing 360⁰ of 
 rotation, so `P_SubRandom() << 20` represents an
-aiming error of ±22⁰.  `P_SubRandom() << 16` is 
+aiming error of about ±22⁰.  `P_SubRandom() << 16` is 
 a much healthier aiming error of about ±1.4⁰, which
 seems like it's roughly the same as what the player gets:
 if you're shooting at a soldier, they hit you about as

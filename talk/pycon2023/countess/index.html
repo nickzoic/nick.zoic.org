@@ -772,7 +772,7 @@ process data in multiple ways.
 
 	   <div class="notes"><p>
 	The configuration pane lets you set up the configuration of each plugin, like filling in
-	a form. Plugins can 
+	a form.
 	   </p></div>
 
     <div class="slide">
@@ -874,7 +874,7 @@ process data in multiple ways.
 	   <div class="slide">
 	    <h3>CountESS — Plugins — 2</h3>
 
-	    <p>Loosely three kinds of plugins:</p>
+	    <p>Three kinds of plugins:</p>
 	    <ul>
 		    <li>Input Plugins</li>
 		    <li>Transformer Plugins</li>
@@ -882,6 +882,11 @@ process data in multiple ways.
 	    </ul>
  </div>	
 
+ <div class="notes">
+	 <p>Loosely, there are three kinds of plugins: input, transformer and output.
+	 Input plugins read from files and produce dataframes, transformer plugins combine and transform dataframes,
+	 and output plugins write dataframes back to disk in one form or another.</p>
+ </div>
     <div class="slide">
 	    <h3>CountESS — Plugins — 3</h3>
 
@@ -929,8 +934,14 @@ for ep in entry_points:
     <p class="tiny">(modified for dramatic effect)</p>
     </div>
 
+    <div class="notes"><p>
+	    CountESS uses the Python "importlib" mechanism to find plugins,
+	    both built-in and third party.   So anyone can create, distribute
+	    and use CountESS plugins.
+	    </p></div>
+
     <div class="slide">
-	    <h3>CountESS — Pandas / Numpy</h3>
+	    <h3>CountESS — Libraries</h3>
 
 	    <table>
 		    <tr><td colspan="5">GUI</td><td class="gap"></td> <td colspan="5">CLI</td></tr>
@@ -939,27 +950,166 @@ for ep in entry_points:
 		    <tr><td class="gap" colspan="3">⇅</td><td class="gap"/><td class="gap" colspan="3">⇅</td><td class="gap"/><td class="gap" colspan="3">⇅</td></tr>
 		    <tr><td colspan="3">Plugins</td><td class="gap"></td><td colspan="3">Plugins</td><td class="gap"></td><td colspan="3">Plugins</td></tr>
 		    <tr style="border: 0px"><td colspan="3" class="gap">⇅</td><td class="gap"/><td class="gap">⇅</td><td class="gap"/><td class="gap">⇅</td><td class="gap"/><td class="gap" colspan="3">⇅</td></tr>
-		    <tr><td colspan="5" style="background: #69F">Pandas / Numpy</td><td class="gap"/><td colspan="5">Other Libraries</td></tr>
+		    <tr><td colspan="5" style="background: #69F">Pandas / Numpy</td><td class="gap"/><td style="background: #69F" colspan="5">Other Libraries</td></tr>
 	    </table>
 	   </div>
 
-    <div class="slide">
-	    <h3>CountESS — Other Libraries</h3>
-
-	    <table>
-		    <tr><td colspan="5">GUI</td><td class="gap"></td> <td colspan="5">CLI</td></tr>
-		    <tr><td class="gap" colspan="5">⇅</td><td class="gap"></td><td class="gap" colspan="5">⇅</td></tr>
-		    <tr><td colspan="11">Pipeline</td><td class="gap">⇄</td><td>Config Files</td></tr>
-		    <tr><td class="gap" colspan="3">⇅</td><td class="gap"/><td class="gap" colspan="3">⇅</td><td class="gap"/><td class="gap" colspan="3">⇅</td></tr>
-		    <tr><td colspan="3">Plugins</td><td class="gap"></td><td colspan="3">Plugins</td><td class="gap"></td><td colspan="3">Plugins</td></tr>
-		    <tr style="border: 0px"><td colspan="3" class="gap">⇅</td><td class="gap"/><td class="gap">⇅</td><td class="gap"/><td class="gap">⇅</td><td class="gap"/><td class="gap" colspan="3">⇅</td></tr>
-		    <tr><td colspan="5">Pandas / Numpy</td><td class="gap"/><td colspan="5" style="background: #69F">Other Libraries</td></tr>
-	    </table>
+	   <div class="notes">
+		   CountESS plugins are mostly built over Pandas and Numpy functions, and/or over other Python libraries
+		   such as MiniMap2.  If your function is expressible in Pandas it's easy to turn into a CountESS plugin.
 	   </div>
 
 	   <div class="slide">
-		   <h3>CountESS — Example</h3>
-		   <img src="countess
+		   <h3>CountESS — Example — 1</h3>
+		   <img src="img/cx01.png" class="eighty"/>
+	   </div>
+
+	   <div class="notes">
+		   <p>Okay so a quick example of how CountESS can
+		   solve experimental problems. This is a setup 
+		   much like the SGE experiment, using the same
+		   BRCA1 data from that experiment.</p>
+		   <p>That data is in 163 FASTQ files, so the first
+		   thing we do is load those up. This plugin can also
+		   count up the number of repeats of the same sequence
+		   in a file, so we'll do that as well.</p>
+	   </div>
+
+	   <div class="slide">
+		   <h3>CountESS — Example — 2</h3>
+		   <img src="img/cx02.png" class="eighty"/>
+	   </div>
+
+	   <div class="notes">
+		   <p>Then we just extract the run number,
+		   `Run`, from the header field.</p>
+	   </div>
+
+	   <div class="slide">
+		   <h3>CountESS — Example — 3</h3>
+		   <img src="img/cx03.png" class="eighty"/>
+	   </div>
+
+	   <div class="notes">
+		   <p>There's another file in with the data files,
+		   a CSV file called `SRaRunTable.txt`.  This 
+		   tells you which experiment each of those Runs
+		   belongs to, and which phase of the experiment.</p>
+	   </div>
+
+	   <div class="slide">
+		   <h3>CountESS — Example — 4</h3>
+		   <img src="img/cx04.png" class="eighty"/>
+	   </div>
+
+	   <div class="notes">
+		   <p>For the moment we'll just extract the exon
+		   number out of that ...</p>
+	   </div>
+
+	   <div class="slide">
+		   <h3>CountESS — Example — 5</h3>
+		   <img src="img/cx05.png" class="eighty"/>
+	   </div>
+
+	   <div class="notes">
+		   <p>... and then we can join that back to the 
+		   input file, using the Run number.  Now we know
+		   which exon each sequence belongs to.</p>
+	   </div>
+
+	   <div class="slide">
+		   <h3>CountESS — Example — 6</h3>
+		   <img src="img/cx06.png" class="eighty"/>
+	   </div>
+
+	   <div class="notes">
+		   <p>We know what the reference sequence is for 
+		   each of these exons, so we'll put that in another
+		   file ...</p>
+	   </div>
+
+	   <div class="slide">
+		   <h3>CountESS — Example — 7</h3>
+		   <img src="img/cx07.png" class="eighty"/>
+	   </div>
+
+	   <div class="notes">
+		   <p>... so we can join that in with the sequences.</p>
+	   </div>
+
+	   <div class="slide">
+		   <h3>CountESS — Example — 8</h3>
+		   <img src="img/cx08.png" class="eighty"/>
+	   </div>
+
+	   <div class="notes">
+		   <p>Okay so some of these sequences are unchanged.
+		   We call those the "wildtypes".  We can filter just those
+		   one way and keep those counts ...</p>
+	   </div>
+
+	   <div class="slide">
+		   <h3>CountESS — Example — 9</h3>
+		   <img src="img/cx09.png" class="eighty"/>
+	   </div>
+
+	   <div class="notes">
+		   <p>... and the ones that have changed, we'll 
+		   separate those off ...</p>
+	   </div>
+
+	   <div class="slide">
+		   <h3>CountESS — Example — 10</h3>
+		   <img src="img/cx10.png" class="eighty"/>
+	   </div>
+
+	   <div class="notes">
+		   <p>... and call each of the variants, comparing the 
+		   reference sequence to the variant sequence, recording
+		   the HGVS variant string.</p>
+	   </div>
+
+	   <div class="slide">
+		   <h3>CountESS — Example — 11</h3>
+		   <img src="img/cx11.png" class="eighty"/>
+	   </div>
+
+	   <div class="notes">
+		   <p>Then we can join this back to the wildtype counts ...</p>
+	   </div>
+
+	   <div class="slide">
+		   <h3>CountESS — Example — 12</h3>
+		   <img src="img/cx12.png" class="eighty"/>
+	   </div>
+
+	   <div class="notes">
+		   <p>... calculate a score ...</p>
+	   </div>
+
+	   <div class="slide">
+		   <h3>CountESS — Example — 13</h3>
+		   <img src="img/cx13.png" class="eighty"/>
+	   </div>
+
+	   <div class="notes">
+		   <p>... and finally save that off to a CSV file.</p>
+	   </div>
+
+	   <div class="slide">
+		   <h3>CountESS</h3>
+
+		   <p>So hopefully we've seen ...</p>
+
+		   <ul>
+			   <li>A little bit of bioinformatics</li>
+			   <li>Some interesting problems to solve</li>
+			   <li>Some useful Python techniques</li>
+			   <li>And maybe, a nifty approach to data processing ...</li>
+		   </ul>
+	   </div>
+
     <div class="slide">
       <h3>Questions</h3>
       <img src="img/qrcode.png" class="sixty"/>

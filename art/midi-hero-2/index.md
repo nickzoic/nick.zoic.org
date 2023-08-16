@@ -148,3 +148,31 @@ such as notes, velocities, pressures, pitch bends and control changes.
 
 ![packing my bags for PyConAU](img/packing.jpg)
 *packing my bags for PyConAU*
+
+I was in a rush so I just soldered things to other things
+at random and kept going until almost everything worked:
+
+| Pin | Function | Use |
+|-----|----------|-----|
+| A0  | Analog Input or Output | |
+| A1  | Analog Input or Output | Whammy Bar |
+| A2  | Analog Input or Digital I/O | Slide sensor |
+| A3  | Analog Input or Digital I/O | Microphone |
+| A4  | Analog Input or Digital I/O | Pressure sensor |
+| A5  | Analog Input or Digital I/O | Knob |
+| D0  | Digital I/O or Serial1 RX | Start Button |
+| D1  | Digital I/O or I2S SDI or Serial1 TX | Select Button |
+| D2  | Digital I/O or I2S MC | |
+| D3  | Digital I/O or I2S BCK | |
+| D4  | Digital I/O | Strum Up |
+| D5  | Digital I/O | Strum Down |
+| D6  | Digital I/O | Fret 8 (additional) |
+| D7  | Digital I/O | Fret 7 (additional) |
+| D8  | Digital I/O or I2S SDO | Fret 6 (additional) |
+| D9  | Digital I/O or I2S WS | Fret 5 |
+| D10 | Digital I/O | Fret 4 |
+| D11 | Digital I/O | Fret 3 |
+| D12 | Digital I/O | Fret 2 |
+| D13 | Digital I/O (red LED) | Fret 1 |
+
+Hopefully not too much of it will break in transit.

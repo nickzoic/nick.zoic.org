@@ -26,7 +26,7 @@
   <p>This work is supported by WEHI (Walter and Eliza Hall
   Institute of Medical Research)</p>
   <p>Thanks also to collaborators from the Brotman Baty Institute
-  and University of Washington Genome Sciences.</p><img src=
+  <br/>and<br/>University of Washington Genome Sciences.</p><img src=
   "img/bbi.png" width="20%"> <img src="img/uw.png" width=
   "20%"></div>
   <div class="slide">
@@ -66,7 +66,7 @@
   <div class="slide">
     <h3>Bioinformatics</h3>
     <ul>
-      <li>Bioinformatics: quantitative analysis of biological
+      <li>Bioinformatics: analysis of biological
       data.</li>
       <li>Arguably started in 1952:</li>
       <ul class="medium">
@@ -132,8 +132,11 @@
     watch it doing it.</p>
   </div>
   <div class="slide">
-    <h3>The Human Genome</h3><img src="img/dna.png" class=
-    "seventy">
+    <h3>The Human Genome</h3>
+    <table style="border: 0px;"><tr>
+		    <td style="border: 0px;"><img src="img/dna.png" class=
+				  "sixty"/></td>
+		    <td style="border: 0px;">
     <ul>
       <li>The "program" of your cells</li>
       <li>23 Chromosomes, each is a very long molecule</li>
@@ -141,6 +144,7 @@
       nucleotides</li>
       <li>All of your cells have the same genome</li>
     </ul>
+		    </td></tr></table>
     <p class="tiny">Image: <a href=
     "https://commons.wikimedia.org/wiki/File:DNA_Structure%2BKey%2BLabelled.pn_NoBB.png">
     Zephyris</a>, <a href=
@@ -158,8 +162,9 @@
     cells, depending on their role in the body.</p>
   </div>
   <div class="slide">
-    <h3>Nanopore Electrophoresis</h3><img src="img/nanopore.svg"
-    class="seventy">
+    <h3>Nanopore Electrophoresis</h3>
+    <img src="img/nanopore.svg"
+			class="seventy"/>
     <ul>
       <li>Reading DNA molecule one base at a time</li>
       <li>Can also edit / append to DNA</li>
@@ -265,8 +270,8 @@
     <h3>Gene Variants</h3>
     <p>Easily observable:</p>
     <ul>
-      <li>Lactase persistence (LCT, MCM6)</li>
-      <li>Hair Colour</li>
+      <li>Infant Lactose Intolerance / Adult Lactase Persistence (LCT, MCM6)</li>
+      <li>Hair Colour ...</li>
     </ul>
   </div>
   <div class="notes">
@@ -324,7 +329,8 @@
       <li>More subtle problems</li>
       <li>Cell damage from radiation / chemicals / bad luck</li>
       <li>Cell repair mechanisms (BRCA1, BRCA2, PALB2)</li>
-      <li>Because variants are rare, much harder to find</li>
+      <li>Variants can reduce effectiveness</li>
+      <li>Much harder to find because rare, and lives are complicated</li>
       <li>Like a bug in an exception handler ...</li>
     </ul>
   </div>
@@ -361,6 +367,7 @@
   </div>
   <div class="slide">
     <h3>Multiplex Assays of Variant Effect (MAVEs)</h3>
+    <h4>Clinical Approach</h4>
     <table>
       <tr>
         <td>Clinical Cases</td>
@@ -397,6 +404,7 @@
   </div>
   <div class="slide">
     <h3>Multiplex Assays of Variant Effect (MAVEs)</h3>
+    <h4>Experimental Approach</h4>
     <table>
       <tr>
         <td>Clinical Cases</td>
@@ -457,7 +465,7 @@
   </div>
   <div class="slide">
     <h3>Saturation Genome Editing</h3><img src="img/findlay.png"
-    class="eighty">
+    class="sixty">
     <p class="tiny">Source: <a href=
     "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6181777/pdf/nihms-1501643.pdf">
     ncbi.nlm.nih.gov</a></p>
@@ -595,14 +603,11 @@
     Factor IX which is essential for blood clotting. Variants of
     <tt>F9</tt> can cause hemophilia.</p>
   </div>
-  <div class="slide">
-    <h2>The Problem</h2>
-  </div>
   <div class="notes">
-    <p>That brings us to the next section: The Problem</p>
+    <p>That brings us to the next section: Counting Things</p>
   </div>
   <div class="slide">
-    <h3>Counting Things</h3><img src="img/tabulating.jpg" class=
+    <h2>Counting Things</h2><img src="img/tabulating.jpg" class=
     "sixty">
     <p class="tiny">Image: <a href=
     "https://commons.wikimedia.org/wiki/File:IBM_D11_(early_Tabulation_Machine).jpg">
@@ -619,13 +624,14 @@
   </div>
   <div class="slide">
     <h3>The Problem</h3>
-    <p>Findlay et al's BRCA1 paper:</p>
+    <p>From the SGE paper I just mentioned:</p>
     <ul>
       <li>13 exons</li>
       <li>163 files</li>
       <li>350 M sequences</li>
       <li>66 G bases</li>
     </ul>
+    <p>Data sizes only increasing ...</p>
     <p><a href=
     "https://www.ncbi.nlm.nih.gov/Traces/study/?acc=PRJNA481326">Data
     at NCBI</a></p>
@@ -657,7 +663,7 @@
       <li>Filtering</li>
       <li>Grouping</li>
       <li>Transformation</li>
-      <li>Statistics</li>
+      <li>Statistics ...</li>
     </ul>
   </div>
   <div class="notes">
@@ -675,7 +681,7 @@
     some statistical tools over the data ...</p>
   </div>
   <div class="slide">
-    <img src="img/correlation.png" class="ninety">
+    <img src="img/correlation.png" height="80%" class="ninety">
     <p class="tiny">Image: tragically, unknown.</p>
   </div>
   <div class="notes">
@@ -718,6 +724,7 @@
   <div class="slide">
     <h3>Enrich2</h3>
     <ul>
+      <li>GUI based</li>
       <li>Python 2</li>
       <li>Specific to a few experiments</li>
       <li>Difficult to continue growing</li>
@@ -733,6 +740,10 @@
     <h3>CountESS — Science!</h3><img src="img/science.jpg" class=
     "eighty">
     <p class="tiny">Image: Valve Software (Half Life)</p>
+    <ul>
+	    <li>File sizes always increasing</li>
+	    <li>Scientists are always coming up with new kinds of experiment</li>
+    </ul>
   </div>
   <div class="notes">
     <p>This is problematic because as technology advances and new
@@ -753,7 +764,7 @@
       <li>Graphical user interface with Data Previews</li>
       <li>Plugin Based</li>
       <li>Flexible Pipelines</li>
-      <li>Configuration File</li>
+      <li>Single text configuration file</li>
     </ul>
   </div>
   <div class="notes">
@@ -869,8 +880,13 @@
     expedient choice since it comes bundled with Python.</p>
   </div>
   <div class="slide">
-  <h3>CountESS — GUI — Overall</h3><img src="img/countess1.png"
-  class="eighty"></div>
+    <h3>CountESS — GUI — Overall</h3><img height="80%" src="img/countess1.png" class="eighty">
+    <ul>
+	  <li>tkinter</li>
+	  <li>Works over X11 forwarding</li>
+	  <li>very separate from the rest of the code</li>
+    </ul>
+  </div>
   <div class="notes">
     <p>It's not all that pretty but works passably well over X11
     forwarding, which is nice.</p>
@@ -883,7 +899,13 @@
   </div>
   <div class="slide">
   <h3>CountESS — GUI — Plugin Tree</h3><img src="img/countess2.png"
-  class="ninety"></div>
+  class="ninety">
+  <ul>
+	  <li>Plugin graph</li>
+	  <li>Drag and drop, multiple inputs and outputs</li>
+	  <li>State saved to config file, automatic tidying</li>
+  </ul>
+  </div>
   <div class="notes">
     <p>The plugin tree lets you connect plugins together
     graphically. This lets you have multiple inputs to a plugin,
@@ -906,14 +928,14 @@
   </div>
   <div class="slide">
   <h3>CountESS — GUI — Configuration</h3><img src=
-  "img/countess3.png" class="ninety"></div>
+  "img/countess3.png" class="ninety"><p>Configuration pane lets you configure each plugin, like filling in a form</p></div>
   <div class="notes">
     <p>The configuration pane lets you set up the configuration of
     each plugin, like filling in a form.</p>
   </div>
   <div class="slide">
   <h3>CountESS — GUI — Data Previews</h3><img src=
-  "img/countess4.png" class="ninety"></div>
+  "img/countess4.png" class="ninety"><p>Preview pane shows current output of plugin run on 100k rows</li></div>
   <div class="notes">
     <p>The preview pane shows the output of the plugin. While using
     the GUI to edit configurations, about 100,000 rows of your data
@@ -921,7 +943,7 @@
     changes.</p>
   </div>
   <div class="slide">
-    <h3>CountESS — CLI — 1</h3>
+    <h3>CountESS — CLI</h3>
     <table>
       <tr>
         <td colspan="5">GUI</td>
@@ -967,9 +989,6 @@
         <td colspan="5">Other Libraries</td>
       </tr>
     </table>
-  </div>
-  <div class="slide">
-    <h3>CountESS — CLI — 2</h3>
     <ul>
       <li>GUI loads and saves configuration files</li>
       <li>CLI loads and runs configuration file</li>
@@ -985,7 +1004,7 @@
     machine with no GUI available.
   </div>
   <div class="slide">
-    <h3>CountESS — Config Files — 1</h3>
+    <h3>CountESS — Config Files</h3>
     <table>
       <tr>
         <td colspan="5">GUI</td>
@@ -1031,12 +1050,14 @@
         <td colspan="5">Other Libraries</td>
       </tr>
     </table>
+    <ul>
+	    <li>Single config file</li><li>.INI format</li>
+	    <li>Loaded and saved by GUI</li>
+	    <li>Loaded by CLI</li>
+    </ul>
   </div>
   <div class="slide">
-    <h3>CountESS — Config Files — 2</h3>
-  </div>
-  <div class="slide">
-    <h3>CountESS — Pipeline — 1</h3>
+    <h3>CountESS — Pipeline</h3>
     <table>
       <tr>
         <td colspan="5">GUI</td>
@@ -1082,9 +1103,6 @@
         <td colspan="5">Other Libraries</td>
       </tr>
     </table>
-  </div>
-  <div class="slide">
-    <h3>CountESS — Pipeline — 2</h3>
     <ul>
       <li>This is where all the tricky stuff happens!</li>
       <li>Multiprocessing to use CPU efficiently</li>
@@ -1092,7 +1110,7 @@
     </ul>
   </div>
   <div class="slide">
-    <h3>CountESS — Plugins — 1</h3>
+    <h3>CountESS — Plugins</h3>
     <table>
       <tr>
         <td colspan="5">GUI</td>
@@ -1138,9 +1156,6 @@
         <td colspan="5">Other Libraries</td>
       </tr>
     </table>
-  </div>
-  <div class="slide">
-    <h3>CountESS — Plugins — 2</h3>
     <p>Three kinds of plugins:</p>
     <ul>
       <li>Input Plugins</li>
@@ -1156,7 +1171,7 @@
     one form or another.</p>
   </div>
   <div class="slide">
-    <h3>CountESS — Plugins — 3</h3>
+    <h3>CountESS — Plugins — 2</h3>
     <p>Plugins subclass one of the many
     <tt>countess.core.plugins.BasePlugin</tt> subclasses:</p>
     <pre class="small">
@@ -1257,7 +1272,7 @@ for ep in entry_points:
     into a CountESS plugin.
   </div>
   <div class="slide">
-  <h3>CountESS — Example — 1</h3><img src="img/cx01.png" class=
+  <h3>CountESS — Example — 1</h3><img src="img/cx01.png" height="80%" class=
   "eighty"></div>
   <div class="notes">
     <p>Okay so a quick example of how CountESS can solve
@@ -1269,14 +1284,14 @@ for ep in entry_points:
     well.</p>
   </div>
   <div class="slide">
-  <h3>CountESS — Example — 2</h3><img src="img/cx02.png" class=
+  <h3>CountESS — Example — 2</h3><img src="img/cx02.png" height="80%" class=
   "eighty"></div>
   <div class="notes">
     <p>Then we just extract the run number, `Run`, from the header
     field.</p>
   </div>
   <div class="slide">
-  <h3>CountESS — Example — 3</h3><img src="img/cx03.png" class=
+  <h3>CountESS — Example — 3</h3><img src="img/cx03.png" height="80%" class=
   "eighty"></div>
   <div class="notes">
     <p>There's another file in with the data files, a CSV file
@@ -1285,14 +1300,14 @@ for ep in entry_points:
     experiment.</p>
   </div>
   <div class="slide">
-  <h3>CountESS — Example — 4</h3><img src="img/cx04.png" class=
+  <h3>CountESS — Example — 4</h3><img src="img/cx04.png" height="80%" class=
   "eighty"></div>
   <div class="notes">
     <p>For the moment we'll just extract the exon number out of
     that ...</p>
   </div>
   <div class="slide">
-  <h3>CountESS — Example — 5</h3><img src="img/cx05.png" class=
+  <h3>CountESS — Example — 5</h3><img src="img/cx05.png" height="80%" class=
   "eighty"></div>
   <div class="notes">
     <p>... and then we can join that back to the input file, using
@@ -1300,20 +1315,20 @@ for ep in entry_points:
     to.</p>
   </div>
   <div class="slide">
-  <h3>CountESS — Example — 6</h3><img src="img/cx06.png" class=
+  <h3>CountESS — Example — 6</h3><img src="img/cx06.png" height="80%" class=
   "eighty"></div>
   <div class="notes">
     <p>We know what the reference sequence is for each of these
     exons, so we'll put that in another file ...</p>
   </div>
   <div class="slide">
-  <h3>CountESS — Example — 7</h3><img src="img/cx07.png" class=
+  <h3>CountESS — Example — 7</h3><img src="img/cx07.png" height="80%" class=
   "eighty"></div>
   <div class="notes">
     <p>... so we can join that in with the sequences.</p>
   </div>
   <div class="slide">
-  <h3>CountESS — Example — 8</h3><img src="img/cx08.png" class=
+  <h3>CountESS — Example — 8</h3><img src="img/cx08.png" height="80%" class=
   "eighty"></div>
   <div class="notes">
     <p>Okay so some of these sequences are unchanged. We call those
@@ -1321,14 +1336,14 @@ for ep in entry_points:
     those counts ...</p>
   </div>
   <div class="slide">
-  <h3>CountESS — Example — 9</h3><img src="img/cx09.png" class=
+  <h3>CountESS — Example — 9</h3><img src="img/cx09.png" height="80%" class=
   "eighty"></div>
   <div class="notes">
     <p>... and the ones that have changed, we'll separate those off
     ...</p>
   </div>
   <div class="slide">
-  <h3>CountESS — Example — 10</h3><img src="img/cx10.png" class=
+  <h3>CountESS — Example — 10</h3><img src="img/cx10.png" height="80%" class=
   "eighty"></div>
   <div class="notes">
     <p>... and call each of the variants, comparing the reference
@@ -1336,19 +1351,19 @@ for ep in entry_points:
     string.</p>
   </div>
   <div class="slide">
-  <h3>CountESS — Example — 11</h3><img src="img/cx11.png" class=
+  <h3>CountESS — Example — 11</h3><img src="img/cx11.png" height="80%" class=
   "eighty"></div>
   <div class="notes">
     <p>Then we can join this back to the wildtype counts ...</p>
   </div>
   <div class="slide">
-  <h3>CountESS — Example — 12</h3><img src="img/cx12.png" class=
+  <h3>CountESS — Example — 12</h3><img src="img/cx12.png" height="80%" class=
   "eighty"></div>
   <div class="notes">
     <p>... calculate a score ...</p>
   </div>
   <div class="slide">
-  <h3>CountESS — Example — 13</h3><img src="img/cx13.png" class=
+  <h3>CountESS — Example — 13</h3><img src="img/cx13.png" height="80%" class=
   "eighty"></div>
   <div class="notes">
     <p>... and finally save that off to a CSV file.</p>

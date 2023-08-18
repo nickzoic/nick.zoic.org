@@ -44,25 +44,24 @@
 	    </p>
     </div>
 
-    <div class="slide">
+    <!--div class="slide">
 	    <ol>
-		    <li>Bioinformatics in 7½ minutes</li>
+		    <li>Bioinformatics in 9½ minutes</li>
 		    <li>The Problem</li>
 		    <li>CountESS — Overview</li>
-		    <li>CountESS — Roadmap</li>
 	    </ol>
-    </div>
+    </div-->
 
     <div class="slide"> 
-	    <h2>Bioinformatics in 7½ minutes</h2>
+	    <h2>Bioinformatics in 9½ minutes</h2>
     </div>
 
     <div class="notes">
-	    First up, Bioinformatics in 7½ minutes
+	    First up, Bioinformatics in 9½ minutes
     </div>
 
     <div class="slide">
-	    <h2>Bioinformatics in 7½ minutes</h2>
+	    <h2>Bioinformatics in 9½ minutes</h2>
 	    <p>[*] Approximately</p>
     </div>
 
@@ -115,8 +114,13 @@
 
       <img src="img/animal.svg" class="eighty"/>
       <!--img src="img/endomembrane.svg" class="sixty"/-->
+     <ul>
+	     <li>there's a lot we still don't know</li>
+	     <li>experiments let us make theories</li>
+	     <li>a lot like black-box testing</li>
+     </ul>
 
-      <p class="tiny">Images: <a href="https://commons.wikimedia.org/wiki/File:Animal_cell_structure_en.svg">LadyofHats</a>, Public domain, via Wikimedia Commons</p>
+      <p class="tiny">Image: <a href="https://commons.wikimedia.org/wiki/File:Animal_cell_structure_en.svg">LadyofHats</a>, Public domain, via Wikimedia Commons</p>
     </div>
 
     <div class="notes">
@@ -137,6 +141,12 @@
       <h3>The Human Genome</h3>
 
       <img src="img/dna.png" class="seventy"/>
+      <ul>
+	      <li>The "program" of your cells</li>
+	      <li>23 Chromosomes, each is a very long molecule</li>
+	      <li>Each is 100M or so building blocks called "base pairs" or nucleotides</li>
+	      <li>All of your cells have the same genome</li>
+      </ul>
 
       <p class="tiny">Image: <a href="https://commons.wikimedia.org/wiki/File:DNA_Structure%2BKey%2BLabelled.pn_NoBB.png">Zephyris</a>, <a href="https://creativecommons.org/licenses/by-sa/3.0">CC BY-SA 3.0</a>, via Wikimedia Commons</p>
     </div>
@@ -154,6 +164,12 @@
       <h3>Nanopore Electrophoresis</h3>
 
       <img src="img/nanopore.svg" class="seventy"/>
+      <ul>
+	      <li>Reading DNA molecule one base at a time</li>
+	      <li>Can also edit / append to DNA</li>
+	      <li>Doesn't mean we understand everything ...</li>
+      </ul>
+			   
 
       <p class="tiny">Image: <a href="https://commons.wikimedia.org/wiki/File:202001_nanopore_sequencing.svg">DataBase Center for Life Science (DBCLS)</a>, <a href="https://creativecommons.org/licenses/by/4.0">CC BY 4.0</a>, via Wikimedia Commons</p>
     </div>
@@ -174,6 +190,13 @@
       <h3>Genes</h3>
 
       <img src="img/gene.svg" class="seventy"/>
+      <br/>
+      <ul>
+	      <li>Genes code for proteins</li>
+	      <li>Wrapped in headers and footers which regulate expression</li>
+	      <li>Some small: one protein, hundreds of base pairs</li>
+	      <li>Some huge: dozens of proteins, millions of base pairs</li>
+      </ul>
 
       <p class="tiny">Image: <a href="https://commons.wikimedia.org/wiki/File:Gene_structure_eukaryote_2_annotated.svg">Thomas Shafee</a>, <a href="https://creativecommons.org/licenses/by/4.0">CC BY 4.0</a>, via Wikimedia Commons</p>
     </div>
@@ -194,6 +217,14 @@
 	    <h3>Gene Names</h3>
       <img src="img/gene-table.png" class="eighty"/>
       <p class="tiny"><a href="https://www.ncbi.nlm.nih.gov/gene?term=17%5BChr%5D%20AND%20%22Homo%20sapiens%22%5BOrganism%5D%20AND%20%28%22has%20ccds%22%5BProperties%5D%20AND%20alive%5Bprop%5D%29&cmd=DetailsSearch">source: NBCI</a></p>
+
+      <br/>
+      <ul>
+	      <li>No debug symbols</li>
+	      <li>About 20,000 genes which encode proteins</li>
+	      <li>That's about 3% of the entire genome</li>
+	      <li>We know ~80% of the genome does *something*</li>
+      </ul>
 </div>
 
     <div class="notes">
@@ -214,6 +245,13 @@
 	    <h3>Gene Variants</h3>
 	    <h4>Single Nucleotide Polymorphism (SNP)</h4>
 	    <h4>Single Nucleotide Variants (SNV)</h4>
+	    <ul>
+		    <li>Every person's genome is different</li>
+		    <li>Reference genome</li>
+		    <li>Most common kind of variant is a single base change</li>
+		    <li>If it's common it's called an SNP</li>
+		    <li>If it's rare it's called an SNV</li>
+	    </ul>
     </div>
 
     <div class="notes">
@@ -222,17 +260,18 @@
 	   sequence for every gene is, but no-one's actually got that
 	   exact genome. </p>
 	    <p>The most common kind of variant is a single base (nucleotide)
-	    change like we saw above.  If it's a common kind of difference, 
+	    change.  If it's a common kind of difference, 
 	    seen in more that 1% of the population, it's
 	    called a Polymorphism. Whereas if it's a rare change it's generally
-	    called a Variant.  It means the same thing: one base is changed.</p>
+	    called a Variant.  It means the same thing: one base is changed
+	    from the reference.</p>
     </div>
 
     <div class="slide">
 	<h3>Gene Variants</h3>
 	    <p>Easily observable:</p>
 	    <ul>
-		    <li>Lactase persistence</li>
+		    <li>Lactase persistence (LCT, MCM6)</li>
 		    <li>Hair Colour</li>
 	    </ul>
 	</div>
@@ -256,7 +295,7 @@
 
 	<div class="slide">
 		<h3>Gene Variants</h3>
-		<img src="img/chewy.png" class="sixty"/>
+		<img src="img/chewy.png" class="ninety"/>
 	</div>
 
 	<div class="notes">
@@ -269,7 +308,7 @@
 
     <div class="slide">
 	    <h3>Long COVID?</h3>
-            <img src="img/foxp4.png" class="eighty"/>
+            <img src="img/foxp4.png" class="ninety"/>
 	    <p class="tiny">Source: 
 	    <a href="https://www.medrxiv.org/content/10.1101/2023.06.29.23292056v1">MedRxiv / Lammi et. al. "Genome-wide Association Study of Long COVID", 2023-06-29</a>
     </div>
@@ -286,6 +325,14 @@
     <div class="slide"> 
       <h3>Cancer</h3>
       <img src="img/tumor.svg" class="ninety"/>
+      <br/>
+      <ul>
+	      <li>More subtle problems</li>
+	      <li>Cell damage from radiation / chemicals / bad luck</li>
+	      <li>Cell repair mechanisms (BRCA1, BRCA2, PALB2)</li>
+	      <li>Because variants are rare, much harder to find</li>
+	      <li>Like a bug in an exception handler ...</li>
+      </ul>
     </div>
 
     <div class="notes">
@@ -304,10 +351,7 @@
 	    background noise of benign variants and unrelated risk factors.</P>
 	    <p>To put it in programming terms, we're looking for a bug in an exception handler in
             some critical legacy code which is live and exposed to the Internet.
-	    </p><p>But out of
-            hundreds of thousands of known variants of these genes we've been able to
-            identify a few thousand particularly harmful variants which result in an
-            increased probability of developing specific cancers.</p>
+	    </p>
 
 	    <p>See also: <a href="https://onlinelibrary.wiley.com/doi/10.1002/jcp.10257">Rosen et al, "BRCA1 gene in breast cancer", 2003</a></p>
     </div>
@@ -332,12 +376,18 @@
 	      <tr><td class="gap">↓</td></tr>
 	      <tr><td colspan="3">Variant Classification</td></tr>
 	</table>
+
+	<ul>
+		<li>A few thousand known variants of these genes</li>
+		<li>A lot more we don't know about because they'e never been seen clinically</li>
+		<li>Some might be very serious</li>
+	</ul>
     </div>
 
     <div class="notes">
 	    <p>Multiplex Assays of Variant Effect ... right, 
-	    so there's a few thousand known variants we've learned about from clinical cases.</p>
-	    <p>But there's a lot of variants we don't know anything about,
+	    so there's a few thousand known variants of these genes we've learned about from clinical cases.</p>
+	    <p>But there's a lot of possible variants we don't know anything about,
 	    because we've never observed them clinically.  Some of those are
             very likely harmless, and others might be very serious: this information
             can inform individual choices for the prevention or treatment of cancer.
@@ -354,6 +404,11 @@
 	      <tr><td class="gap">↓</td><td class="gap"></td><td class="gap">↓</td></tr>
 	      <tr><td colspan="3">Variant Classification</td><td class="gap"></tr>
 	</table>
+	<ul>
+		<li>Catalog all possible variants of a gene</li>
+		<li>Constructing experiments to score variant effect</li>
+		<li>Outcome is same: variants classified by harmfulness</li>
+	</ul>
     </div>
     <div class="notes">
     <p>
@@ -371,6 +426,9 @@
 	    <h3>MaveDB</h3>
 	    <img src="img/mavedb.png" class="eighty"><br/>
 	    <p class="tiny">Image: <a href="https://mavedb.org">MaveDB</a></p>
+	    <ul>
+		    <li>See Alan Rubin's talk on Friday Django miniconf</li>
+	    </ul>
 
 	   </div>
 	   <div class="notes">
@@ -378,13 +436,19 @@
 	    an online respository for results from MAVE experiments so if you missed that one check
 	    it on the conference videos.</p>
 	    <p>I'm going to briefly introduce a couple of MAVE experimental techniques:
-	    Saturation Genome Editing and VAMP-seq, and then we'll look at the problem we're trying to solve.</p>
+	    Saturation Genome Editing and VAMP-seq, because they illustrate the problem we're trying to solve.</p>
     </div>
 
     <div class="slide"> 
       <h3>Saturation Genome Editing</h3>
       <img src="img/findlay.png" class="eighty"/>
       <p class="tiny">Source: <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6181777/pdf/nihms-1501643.pdf">ncbi.nlm.nih.gov</a></p>
+      <ul>
+	      <li>Almost 4000 single-base variants of BRCA1</li>
+	      <li>Effect on cell growth assessed after 11 days</li>
+	      <li>Good correlation with variants we already know of</li>
+	      <li>Identifies new pathogenic variants</li>
+      </ul>
     </div>
 
     <div class="notes">
@@ -401,6 +465,9 @@
       <p><a href="https://sge.gs.washington.edu/BRCA1/">https://sge.gs.washington.edu/BRCA1/</a></p>
       <img src="img/brca1var1.png" class="eighty"/>
       <p class="tiny">Source: <a href="https://sge.gs.washington.edu/BRCA1/">UW / BBI</a></p>
+      <ul>
+	      <li>Similar work under way on BRCA2 and PALB2</li>
+      </ul>
     </div>
 
     <div class="notes">
@@ -410,17 +477,21 @@
 	    and thus increased risk of cancer developing.</p>
 
 </div>
-    <div class="slide">
+    <!--div class="slide">
 	    <h3>Saturation Genome Editing</h3>
       <img src="img/brca1var2.png" class="eighty"/>
       <p class="tiny">Source: <a href="https://sge.gs.washington.edu/BRCA1/">UW / BBI</a></p>
-    </div>
+    </div-->
 
     <div class="slide"> 
       <h3>VAMP-seq — 1</h3>
       <img src="img/vampseq1.png" class="ninety"/>
       <p class="tiny">Reference: <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5980760/pdf/nihms956040.pdf">"Multiplex Assessment of Protein Variant Abundance by
 Massively Parallel Sequencing"</a></p>
+      <ul>
+	      <li>Cells of each possible variant</li>
+	      <li>Fluorescent marker protein EGFP</li>
+      </ul>
     </div>
 
     <div class="notes">
@@ -438,6 +509,10 @@ Massively Parallel Sequencing"</a></p>
       <img src="img/vampseq2.png" class="ninety"/>
       <p class="tiny">Reference: <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5980760/pdf/nihms956040.pdf">"Multiplex Assessment of Protein Variant Abundance by
       Massively Parallel Sequencing"</a></p>
+      <ul>
+	      <li>The more gene is expressed the more the cell glows</li>
+	      <li>Cells are sorted mechanically by how much they glow</li>
+      </ul>
     </div>
 
     <div class="notes">
@@ -453,6 +528,10 @@ Massively Parallel Sequencing"</a></p>
       <img src="img/vampseq3.png" class="ninety"/>
       <p class="tiny">Reference: <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5980760/pdf/nihms956040.pdf">"Multiplex Assessment of Protein Variant Abundance by
       Massively Parallel Sequencing"</a></p>
+      <ul>
+	      <li>Each bin then sequenced</li>
+	      <li>Populations counted</li>
+      </ul>
     </div>
 
     <div class="notes">
@@ -467,6 +546,9 @@ Massively Parallel Sequencing"</a></p>
       <img src="img/vampseq4.png" class="ninety"/>
       <p class="tiny">Reference: <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5980760/pdf/nihms956040.pdf">"Multiplex Assessment of Protein Variant Abundance by
       Massively Parallel Sequencing"</a></p>
+      <ul>
+	      <li>Variants scored</li>
+      </ul>
     </div>
 
     <div class="notes">
@@ -480,6 +562,11 @@ Massively Parallel Sequencing"</a></p>
       <img src="img/vampseq5.png" class="ninety"/>
       <p class="tiny">Reference: <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5980760/pdf/nihms956040.pdf">"Multiplex Assessment of Protein Variant Abundance by
       Massively Parallel Sequencing"</a></p>
+      <ul>
+	      <li>... and made into a "heat map"</li>
+	      <li>Cost effective technique</li>
+	      <li>Currently being used to investigate Factor IX (hemophilia)</li>
+      </ul>
     </div>
 
     <div class="notes">

@@ -19,7 +19,7 @@ so I'm very excited ...
 
 ## CountESS
 
-* [Slides from "CountESS: Count-based Experimental Scoring and Statistics"](/talk/pycon23/countess/)
+* [Slides from "CountESS: Count-based Experimental Scoring and Statistics"](/talk/pycon2023/countess/)
 * [countess github repo](https://github.com/CountESS-Project/CountESS/)
 
 ## MIDI Hero

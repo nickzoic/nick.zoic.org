@@ -1,5 +1,5 @@
 ---
-date: '2023-08-18'
+date: '2023-08-20'
 layout: article
 summary: |
     PyConAU 2023 Adelaide!
@@ -9,16 +9,22 @@ tags:
 title: 'PyConAU 2023 Adelaide!'
 ---
 
-This is just a quick post to let you know I'll be at
+This is just a quick post to let you know I'm at
 [PyConAU 2023 Adelaide](https://2023.pycon.org.au/)
-talking about
-[CountESS](https://github.com/CountESS-Project/CountESS/)
-and also presenting 
-[my lame MIDI Guitar](/art/midi-hero-2/)
-at the inaugural PyConAU Fair!
+I'll add some more stuff later.
 
-This will be my first in-person conference since
+This is my first in-person conference since
 [PyConAU and Compose Melbourne in 2018](https://nick.zoic.org/art/pycon-2018-sydney/)
-so I'm very excited and I hope you can come along too.
+so I'm very excited ...
 
-I'll add more info here closer to the event ...
+## CountESS
+
+* [Slides from "CountESS: Count-based Experimental Scoring and Statistics"](/talk/pycon23/countess/)
+* [countess github repo](https://github.com/CountESS-Project/CountESS/)
+
+## MIDI Hero
+
+... at the inaugural PyConAU Fair!
+
+* [MIDI Hero blogpost 1](/art/midi-hero/)
+* [MIDI Hero blogpost 2](/art/midi-hero-2/)

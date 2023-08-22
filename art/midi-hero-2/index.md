@@ -176,3 +176,20 @@ at random and kept going until almost everything worked:
 | D13 | Digital I/O (red LED) | Fret 1 |
 
 Hopefully not too much of it will break in transit.
+
+# UPDATE 2023-08-21
+
+Well it [went to PyConAU](/art/pycon-pyconau-2023-adelaide/), it survived, the overall conclusion was that:
+
+* The latency makes it practically unplayable, this needs fixing.
+* I need to do something about debouncing & also a curve to make the pressure pad more expressive.
+* I really like the idea of having the pressure pad actually control a parameter rather than the velocity 
+  or aftertouch.
+* The "soft pot" components worked okay, but they're not necessarily a nice feel,
+  and the big ones are very expensive.
+  I might try making some custom boards for [Capacitive Touch Sensing](/art/esp32-capacitive-sensors/#update-2018-12-11)
+  for frets instead.
+* It sure is fun to make annoying boop noises though
+
+Thanks to everyone who popped past and said hi and had a go at it, and also [cTrix](https://ctrix.net/) who was
+busy filming but I got to chat to at the airport on the way home ...

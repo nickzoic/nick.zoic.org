@@ -217,6 +217,15 @@ Disk access is pretty slow, so it'd be nice to show some kind of splash
 screen once the first track has arrived and some kind of loading message
 as the others roll in.
 
+### UPDATE: Copy Protection
+
+This kind of direct access to hardware led to all sorts of creative 
+abuse of the system, largely with the goal of preventing copying of 
+disks.  This is a really great write-up of how a copy protection system
+works and can be reverse engineered:
+
+* [Spare Change: 4am Crack](https://ia904502.us.archive.org/30/items/SpareChange4amCrack/Spare%20Change%20%284am%20%26%20san%20inc%20crack%29.txt)
+
 ## Memory Map
 
 My aim here is to write an absolutely minimal program, so it's worth considering
@@ -340,6 +349,9 @@ but I never really got into Rogue to be honest and also as soon as you
 try to draw a little sword wielding dude in a tile you end up looking
 an awful lot like Ultima but without the plot.
 
+UPDATE: [Beneath Apple Manor](https://en.wikipedia.org/wiki/Beneath_Apple_Manor)
+is pretty much a Roguelike, despite predating Rogue itself by a couple of years.
+
 ### The impractical dream
 
 My next idea was to do something utterly impossible: Minecraft for Apple 2.
@@ -374,6 +386,10 @@ which as a bonus has much larger 800kB floppies.
 
 To be interesting, the game would also have to write back sectors to the disk,
 which adds a level of complexity I'm not sure I want to deal with right now!
+
+UPDATE: How about 2½D, ala Doom? Each X/Y location would only have a few numbers
+(ground height, water depth, foliage height, etc) rather than a whole stack of 
+voxels as in Minecraft)
  
 ### Slightly Less Impossible
 

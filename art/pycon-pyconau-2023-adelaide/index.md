@@ -21,7 +21,7 @@ so I'm very excited ...
 ## CountESS
 
 * [Slides from "CountESS: Count-based Experimental Scoring and Statistics"](/talk/pycon2023/countess/)
-* [Video at YouTube](https://www.youtube.com/watch?v=-HYz7bc9IM4)
+* [Video at YouTube](http://youtu.be/JzU6cbvZ0a0)
 * [countess github repo](https://github.com/CountESS-Project/CountESS/)
 
 **ERRATA: I somehow got [Frederick Sanger](https://en.wikipedia.org/wiki/Frederick_Sanger)'s

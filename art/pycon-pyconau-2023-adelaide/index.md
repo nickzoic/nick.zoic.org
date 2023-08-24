@@ -21,7 +21,12 @@ so I'm very excited ...
 ## CountESS
 
 * [Slides from "CountESS: Count-based Experimental Scoring and Statistics"](/talk/pycon2023/countess/)
+* [Video at YouTube](https://www.youtube.com/watch?v=-HYz7bc9IM4)
 * [countess github repo](https://github.com/CountESS-Project/CountESS/)
+
+**ERRATA: I somehow got [Frederick Sanger](https://en.wikipedia.org/wiki/Frederick_Sanger)'s
+name wrong in the slides and just read it out without noticing. Ooops. Hopefully I'll be able to 
+put a correction in the video.  Sorry, Fred.**
 
 ## MIDI Hero
 

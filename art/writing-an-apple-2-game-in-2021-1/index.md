@@ -95,6 +95,90 @@ track 0 sector 0 of the floppy, known as BOOT1, into memory at locations
 Using a raw disk image also avoids the whole question of whether distributing Apple DOS is
 allowed or not.
 
+### Finding BOOT0
+
+The disk controller card is usually in Slot 6, with its ROM mapped to addresses
+$C600 .. $C6FF, but it could be in some other slot.
+
+Older Apple 2 machines needed the user to run a command `PR#6` to jump to the 
+disk controller ROM, but newer "autostart" would look in each successive ROM
+mapping locations $C700 through $C100.  If a ROM is found, jump to it:
+
+From [AutoF8ROM Disassembly](https://6502disassembly.com/a2-rom/AutoF8ROM.html):
+
+```
+fab4: a9 c8                    lda     #$c8            ;load hi slot +1
+fab6: 86 00                    stx     LOC0            ;SETPG3 must return X=0
+fab8: 85 01                    sta     LOC1            ;set ptr H
+faba: a0 07        SLOOP       ldy     #$07            ;Y is byte ptr
+fabc: c6 01                    dec     LOC1
+fabe: a5 01                    lda     LOC1
+fac0: c9 c0                    cmp     #$c0            ;at last slot yet?
+fac2: f0 d7                    beq     FIXSEV          ;yes and it cant be a disk
+fac4: 8d f8 07                 sta     MSLOT
+fac7: b1 00        NXTBYT      lda     (LOC0),y        ;fetch a slot byte
+fac9: d9 01 fb                 cmp     DISKID-1,y      ;is it a disk ??
+facc: d0 ec                    bne     SLOOP           ;no so next slot down
+face: 88                       dey
+facf: 88                       dey                     ;yes so check next byte
+fad0: 10 f5                    bpl     NXTBYT          ;until 4 checked
+fad2: 6c 00 00                 jmp     (LOC0)
+
+fb02: 20 ff 00 ff+ DISKID      .bulk   $20,$ff,$00,$ff,$03,$ff,$3c
+```
+
+What's interesting (note the doubled `dey` ...) is that DISKID is checking *every second* byte in the ROM,
+offset by one ...
+
+From [C600ROM Disassembly](https://6502disassembly.com/a2-rom/C600ROM.html):
+```
+                   bits          .var    $3c
+...
+c600: a2 20        ENTRY         ldx     #$20              ;20/00/03 is the controller signature
+c602: a0 00                      ldy     #$00
+c604: a2 03                      ldx     #$03
+                   CreateDecTabLoop
+c606: 86 3c                      stx     bits
+```
+
+which happen to correspond to the bytes $20, $00, $03 and $3C in the BOOT0 ROM 
+listing above, but *WHY* is an interesting question!  Why not just a magic number
+at $C6FC .. $C6FF or whatever?
+
+# Finding BOOT0 Again
+
+Anyway, this code might not be running at $C600 if the disk controller is in a different
+slot so a short time later we do some stack shenanigans to find out where our code is running:
+
+From [C600ROM Disassembly](https://6502disassembly.com/a2-rom/C600ROM.html):
+```
+                   STACK         .eq     $0100  {addr/256}
+                   MON_IORTS     .eq     $ff58             ;JSR here to find out where one is
+                   slot_index    .var    $2b    {addr/1}   ;slot number << 4
+
+c621: 20 58 ff                   jsr     MON_IORTS         ;known RTS
+c624: ba                         tsx
+c625: bd 00 01                   lda     STACK,x           ;pull hi byte of our address off stack
+c628: 0a                         asl     A                 ;(we assume no interrupts have hit)
+c629: 0a                         asl     A                 ;multiply by 16
+c62a: 0a                         asl     A
+c62b: 0a                         asl     A
+c62c: 85 2b                      sta     slot_index        ;keep this around
+```
+
+From [AutoF8ROM Disassembly](https://6502disassembly.com/a2-rom/AutoF8ROM.html):
+```
+ff58: 60                       rts
+```
+
+Yep, so we JSR to a location which will definitely just RTS back to us straight away, and now we know
+our current address will be on top of the stack, so we read that and store it in a
+handy zero page location which BOOT1 can read when it needs to find BOOT0 later.
+
+Why not just JSR to BOOT1 in the first place?  Why not use an RTS which is actually in this ROM?
+There's an entire *FIVE SPARE BYTES* on the end of BOOT0!  All these decisions, lost in time,
+like tears in rain.
+
 ### Loading One Sector
 
 So, let's write our own loader.
@@ -152,6 +236,7 @@ to inspect, manipulate and execute memory.
 ### Sector Interleaving
 
 Actually, BOOT0 will do more than load one sector.
+
 If you set the very first byte of that very
 first sector to a larger value it'll load several sectors, up to `$10` to load
 the whole first track into memory from `$0800` to `$17FF`.
@@ -242,10 +327,14 @@ what memory we've got available with no DOS or anything loaded:
 | $0800 | $0BFF | Text / LORES Screen 2, also BOOT1 or available space |
 | $0C00 | $1FFF | Available Space |
 | $2000 | $3FFF | HIRES Screen 1 |
-| $4000 | $5FFF | HIRES Screen 2 |
-| $6000 | $BFFF | Available Space |
+| $4000 | $5FFF | HIRES Screen 2`*` |
+| $6000 | $BFFF | Available Space`**` |
 | $C000 | $CFFF | I/O, Peripheral mapped memory |
 | $D000 | $FFFF | ROM |
+
+`*`: Not in 16K models
+
+`**`: Except for 16K models, and 32K models only have $6000 .. $7FFF available.
 
 If we don't want to use Text / LORES Screen 2 we can just load our entire program
 in in chunks all the way from $0800 to $BFFF.  Once we've finished loading,
@@ -265,6 +354,29 @@ If we're not using AppleSoft BASIC or DOS, we can use pretty much any part
 of memory except for what's needed by the
 [Monitor](https://www.callapple.org/Books2/Monitor_Peeled.pdf) ... it's nice
 to still have that available!
+
+### I/O, Peripheral mapped memory
+
+There are seven "expansion slots".  Most pins are common across all slots,
+but each slot has its own "device select" and "i/o select" pins which are used to map 16 
+I/O addresses and 256 ROM addresses, so the non-RAM address space ends up looking
+like this:
+
+| Slot   | I/O Addresses  | ROM Addresses  |
+|--------|----------------|----------------|
+| Main   | $C000 .. $C07F | $D000 .. $FFFF |
+| 0      | $C080 .. $C08F | N/A            |
+| 1      | $C090 .. $C09F | $C100 .. $C1FF |
+| 2      | $C0A0 .. $C0AF | $C200 .. $C2FF |
+| 3      | $C0B0 .. $C0BF | $C300 .. $C3FF |
+| 4      | $C0C0 .. $C0CF | $C400 .. $C4FF |
+| 5      | $C0D0 .. $C0DF | $C500 .. $C5FF |
+| 6      | $C0E0 .. $C0EF | $C600 .. $C6FF |
+| 7      | $C0F0 .. $C0FF | $C700 .. $C7FF |
+| Shared | N/A            | $C800 .. $CFFF |
+
+* [some good documentation of this on Stack Overflow](https://retrocomputing.stackexchange.com/questions/5730/how-did-the-address-decode-for-apple-ii-expansion-cards-work)
+
 
 ## Graphics
 

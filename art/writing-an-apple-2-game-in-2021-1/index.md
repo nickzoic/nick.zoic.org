@@ -101,8 +101,8 @@ The disk controller card is usually in Slot 6, with its ROM mapped to addresses
 $C600 .. $C6FF, but it could be in some other slot.
 
 Older Apple 2 machines needed the user to run a command `PR#6` to jump to the 
-disk controller ROM, but newer "autostart" would look in each successive ROM
-mapping locations $C700 through $C100.  If a ROM is found, jump to it:
+disk controller ROM, but newer "autostart" machines would look in each successive ROM
+mapping locations $C700 through $C100.  If a disk ROM is found, jump to it:
 
 From [AutoF8ROM Disassembly](https://6502disassembly.com/a2-rom/AutoF8ROM.html):
 
@@ -127,8 +127,15 @@ fad2: 6c 00 00                 jmp     (LOC0)
 fb02: 20 ff 00 ff+ DISKID      .bulk   $20,$ff,$00,$ff,$03,$ff,$3c
 ```
 
-What's interesting (note the doubled `dey` ...) is that DISKID is checking *every second* byte in the ROM,
-offset by one ...
+What's interesting is that DISKID is checking *every second* byte in the ROM 
+(note the doubled `dey` ...), offset by one, in reverse order ...
+
+| y   | (LOC0),y | DISID-1,y | expected byte |
+|-----|----------|-----------|---------------|
+| $07 | $Cx07    | $FB08     | $3C           |
+| $05 | $Cx05    | $FB06     | $03           |
+| $03 | $Cx03    | $FB04     | $00           |
+| $01 | $Cx01    | $FB02     | $20           |
 
 From [C600ROM Disassembly](https://6502disassembly.com/a2-rom/C600ROM.html):
 ```
@@ -145,9 +152,9 @@ which happen to correspond to the bytes $20, $00, $03 and $3C in the BOOT0 ROM
 listing above, but *WHY* is an interesting question!  Why not just a magic number
 at $C6FC .. $C6FF or whatever?
 
-# Finding BOOT0 Again
+# Finding BOOT0 ... Again
 
-Anyway, this code might not be running at $C600 if the disk controller is in a different
+Anyway, the BOOT0 code might not be running at $C600 if the disk controller is in a different
 slot so a short time later we do some stack shenanigans to find out where our code is running:
 
 From [C600ROM Disassembly](https://6502disassembly.com/a2-rom/C600ROM.html):
@@ -176,8 +183,9 @@ our current address will be on top of the stack, so we read that and store it in
 handy zero page location which BOOT1 can read when it needs to find BOOT0 later.
 
 Why not just JSR to BOOT1 in the first place?  Why not use an RTS which is actually in this ROM?
-There's an entire *FIVE SPARE BYTES* on the end of BOOT0!  All these decisions, lost in time,
-like tears in rain.
+There's an entire *FIVE SPARE BYTES* on the end of BOOT0!
+
+All these strange decisions, lost in time, like tears in rain.
 
 ### Loading One Sector
 

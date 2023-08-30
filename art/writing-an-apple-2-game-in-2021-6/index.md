@@ -28,7 +28,7 @@ to distract them.  But it's been 269 days since the
 ## Priorities
 
 Men were real men back then, but also games were real games.
-By which I mean, everything was a smidge less sophisticated `:-)`.
+By which I mean, everything was a smidge less "sophisticated" `:-)`.
 
 Having recently had a look at a couple of examples,
 [Spare Change](https://archive.org/details/SpareChange4amCrack)
@@ -46,11 +46,4 @@ could be minimized with careful tile layout (eg: making tiles a multiple of 7
 pixels wide).  I'd still have green grass, blue water and white geese with orange beaks, but 
 we'd lose a lot of the fun, undersaturated colors that made this idea attractive
 in the first place.
-
-
-
-
-
-
-
 

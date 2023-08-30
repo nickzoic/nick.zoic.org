@@ -54,11 +54,18 @@ and so far ones that I've found interesting:
 
 * [David Lawrence: Analysing and sharing genetic data with Python](https://youtu.be/vmQ1_Pzh4Us)
 
+  More dataflows!  This time on the clinical analysis side.
+
+  Building a graphical query into a Django `Q` query which
+  then turns into an efficient SQL query on the backend.
+
 ### Other science stuff
 
 * [Alex Ware: An Introduction to PySpark](https://youtu.be/ZFLOMSuWHxg)
 
   How is PySpark useful and how is it like and unlike Pandas?
+
+  Should CountESS be running over Spark?  Quite possibly.
 
 * [Andrew Williams: Using Python and 19,200 bits/second serial links to manage antennae for the Square Kilometre Array](https://youtu.be/tYP6nypJWtY)
 

@@ -53,6 +53,7 @@ These are all, in some way or another, me:
 -   [ORCID: 0000-0001-7511-0990](https://orcid.org/0000-0001-7511-0990)
 -   [LinkedIn: nickzoic](https://www.linkedin.com/in/nickzoic)
 -   [Youtube: nickzoic](https://www.youtube.com/channel/UCRl22LCzA_8_vevzT9TJVeg)
+-   [Bluesky: @nickzoic.bsky.social](https://bsky.app/profile/nickzoic.bsky.social)
 
 I've been very active on [Twitter: @nickzoic](https://twitter.com/nickzoic/)
 and [Twitter: @mnemote](https://twitter.com/mnemote/)

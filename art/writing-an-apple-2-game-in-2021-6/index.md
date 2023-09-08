@@ -40,6 +40,9 @@ It worked for
 [Beneath Apple Manor](https://en.wikipedia.org/wiki/Beneath_Apple_Manor)
 and [Ultima IV](/art/ultima-iv-reflections/) after all!
 
+*Incidentally, Beneath Apple Manor is particularly interesting 
+because it is a graphical [roguelike](https://en.wikipedia.org/wiki/Roguelike) which predates Rogue!*
+
 The [eccentric HIRES memory layout](https://en.wikipedia.org/wiki/Apple_II_graphics#High-Resolution_%28Hi-Res%29_graphics)
 doesn't exactly make this easy, of course, but the color interference issues
 could be minimized with careful tile layout (eg: making tiles a multiple of 7

@@ -120,9 +120,19 @@ or just rolling (which falls very slowly, and can get caught up itself as it dro
 ![me and the hat](img/hat2.jpg)
 *Me and the Hat*
 
-## UPDATE 2023
+## UPDATE JULY 2023
 
 This year it's going to be [Frozen Jr.](https://www.dvsingers.org/frozen)!
 
 I'm not doing set construction this time around, but will be helping out with props 
 and lighting.
+
+## UPDATE OCTOBER 2023
+
+DVS's Seussical has got
+[multiple nominations for 2023 Junior Lyrebird Awards](https://lyrebirdawards.au/2023-junior-nominations)
+including for our set design
+(**BEST SET - YOUTH MUSICAL UNDER $40K**) and also 
+congrats to Cara, Cathie & Ellouise for their nominations
+(and to everyone in the company for the "outstanding dance number"
+nomination)

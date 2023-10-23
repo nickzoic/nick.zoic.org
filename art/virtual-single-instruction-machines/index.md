@@ -1,6 +1,6 @@
 ---
 date: '2022-03-29'
-layout: draft
+layout: article
 tags:
     - languages
     - speculation

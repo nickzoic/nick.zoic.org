@@ -1,7 +1,7 @@
 ---
 title: "Multi Material 3D Printing (part 2)"
 date: '2023-08-02'
-layout: draft
+layout: article
 summary: "More on multi-material 3D Printing"
 tags:
   - 3dprint
@@ -17,12 +17,12 @@ See also:
 I was able to get decent color separation on the Geeetech printer by
 setting the following:
 
+| Setting                           | Value     |
 |-----------------------------------|-----------|
 | Prime Tower Size                  | 35 mm     |
 | Prime Tower Minimum Volume        | 25.0 mm³  |
 | Nozzle Switch Retraction Distance | 15.0 mm   |
 | Nozzle Switch Retraction Speed    | 10.0 mm/s |
-|-----------------------------------|-----------|
 
 But this wastes a lot of plastic and there's still visible 
 contamination between colors.
@@ -92,4 +92,4 @@ handy feature to have.
 This could also be done as a plugin if you wanted somewhat more
 flexible file naming.
 
-## 
+## TO BE CONTINUED

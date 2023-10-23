@@ -4,6 +4,7 @@ layout: article
 tags:
     - speculation
     - maths
+    - not-computers
 title: 'Hyper-Normal'
 summary: "Why is it that every case is an exception to a rule?"
 ---

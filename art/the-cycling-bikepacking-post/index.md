@@ -2,6 +2,7 @@
 date: '2023-10-24'
 layout: draft
 tags:
+  - not-computers
 title: 'The Cycling / Bikepacking Post'
 summary: 'It was inevitable that I'd get around to writing about cycling / bikepacking eventually ...'
 ---
@@ -66,3 +67,12 @@ entirely rational here) had a very nice color scheme going on.
 
 # Going for Distance
 
+# You Tubers
+
+* [Tim from AdVANture ST](https://www.youtube.com/@advanturest)
+* [Galaxy on Trail](https://www.youtube.com/@galaxyontrail)
+* [Ryan Van Duzer](https://www.youtube.com/@duzer)
+* [Maudi & Eric: Wheels to Wander](https://www.youtube.com/@WheelstoWander)
+* [Tim Fitzwater](https://www.youtube.com/@TimFitzwater)
+* [Amy Cycling Adventures](https://www.youtube.com/@amy.cycling.adventures)
+* [Scotland MTB and Cross Country Adventures](https://www.youtube.com/@scotlandmtbandcrosscountry8367)

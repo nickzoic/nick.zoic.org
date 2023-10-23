@@ -4,7 +4,7 @@ layout: draft
 tags:
   - not-computers
 title: 'The Cycling / Bikepacking Post'
-summary: 'It was inevitable that I'd get around to writing about cycling / bikepacking eventually ...'
+summary: "It was inevitable that I'd get around to writing about cycling / bikepacking eventually ..."
 ---
 
 # Pre-history

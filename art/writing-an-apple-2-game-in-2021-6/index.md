@@ -28,7 +28,7 @@ to distract them.  But it's been 269 days since the
 ## Priorities
 
 Men were real men back then, but also games were real games.
-By which I mean, everything was a smidge less sophisticated `:-)`.
+By which I mean, everything was a smidge less "sophisticated" `:-)`.
 
 Having recently had a look at a couple of examples,
 [Spare Change](https://archive.org/details/SpareChange4amCrack)
@@ -40,17 +40,13 @@ It worked for
 [Beneath Apple Manor](https://en.wikipedia.org/wiki/Beneath_Apple_Manor)
 and [Ultima IV](/art/ultima-iv-reflections/) after all!
 
+*Incidentally, Beneath Apple Manor is particularly interesting 
+because it is a graphical [roguelike](https://en.wikipedia.org/wiki/Roguelike) which predates Rogue!*
+
 The [eccentric HIRES memory layout](https://en.wikipedia.org/wiki/Apple_II_graphics#High-Resolution_%28Hi-Res%29_graphics)
 doesn't exactly make this easy, of course, but the color interference issues
 could be minimized with careful tile layout (eg: making tiles a multiple of 7
 pixels wide).  I'd still have green grass, blue water and white geese with orange beaks, but 
 we'd lose a lot of the fun, undersaturated colors that made this idea attractive
 in the first place.
-
-
-
-
-
-
-
 

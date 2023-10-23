@@ -32,6 +32,7 @@ put a correction in the video.  Sorry, Fred.**
 
 ... at the inaugural PyConAU Fair!
 
+* [PyConAU Fair on Youtube](https://www.youtube.com/watch?v=Q16T5wsKdCM)
 * [MIDI Hero blogpost 1](/art/midi-hero/)
 * [MIDI Hero blogpost 2](/art/midi-hero-2/)
 
@@ -53,13 +54,23 @@ and so far ones that I've found interesting:
 
 * [David Lawrence: Analysing and sharing genetic data with Python](https://youtu.be/vmQ1_Pzh4Us)
 
+  More dataflows!  This time on the clinical analysis side.
+
+  Building a graphical query into a Django `Q` query which
+  then turns into an efficient SQL query on the backend.
+
 ### Other science stuff
 
 * [Alex Ware: An Introduction to PySpark](https://youtu.be/ZFLOMSuWHxg)
 
+  How is PySpark useful and how is it like and unlike Pandas?
+
+  Should CountESS be running over Spark?  Quite possibly.
+
 * [Andrew Williams: Using Python and 19,200 bits/second serial links to manage antennae for the Square Kilometre Array](https://youtu.be/tYP6nypJWtY)
 
-  The number 19,200 will apparently haunt me always.  It's interesting to see the lengths that this
+  The number 19,200 will apparently haunt me forever.
+  It's interesting to see the lengths that this
   team have had to go to to avoid radio interference.
 
 ### Other
@@ -67,12 +78,18 @@ and so far ones that I've found interesting:
 * [Russell Keith-Magee: How to build a cross-platform graphical user interface with Python](https://youtu.be/vmQ1_Pzh4Us)
 
   All about Toga, which is a nice GUI toolkit alternative to ... well, all the other ones.
-  CountESS's GUI should probably be rewritten in Toga.
+
+  CountESS's GUI should probably be rewritten in Toga if only because it solves a
+  couple of immediate irritations and hopefully looks a bit nicer on Mac / Windows
+  than just the Tkthemes.
 
 * [Amanda J Hogan: Zero or Hero? Assessing Pygame Zero in the classroom](https://youtu.be/g5Tw1sYzXg0)
 
-  Amanda brings some perspective on what it's like to teach beginner programmers, which I think 
-  is really interesting as we're all begineers from time to time.
+  Amanda brings some perspective on what it's like to teach beginner programmers,
+  which I think is really interesting as we're all begineers from time to time.
+
+  Also check out the [Education Showcase](https://www.youtu.be/Z60fVOQJzpc) for the
+  other side of the same story.
 
 ### WASM, etc
 
@@ -83,6 +100,9 @@ somewhat connected so watch Katie's first ...
 * [Katie Bell: What can't WebAssembly do?](https://youtu.be/JbZAsSzzk0E)
 
 * [Jim Mussared: WASM in your wheel](https://youtu.be/yVA4TUtTDks)
+
+... the tragic thing is, at some point I might have to admit that maybe Java
+got it right in the first place with JAR files containing their own dependencies, etc.
 
 ### More
 

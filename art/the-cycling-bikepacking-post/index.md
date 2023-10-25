@@ -2,8 +2,9 @@
 date: '2023-10-24'
 layout: draft
 tags:
+  - not-computers
 title: 'The Cycling / Bikepacking Post'
-summary: 'It was inevitable that I'd get around to writing about cycling / bikepacking eventually ...'
+summary: "It was inevitable that I'd get around to writing about cycling / bikepacking eventually ..."
 ---
 
 ## Pre-history
@@ -113,3 +114,12 @@ And then down to the empty beach at Carrum for a swim!
 
 ![bike, packed](img/IMG_20231021_132051991.jpg)
 
+# You Tubers
+
+* [Tim from AdVANture ST](https://www.youtube.com/@advanturest)
+* [Galaxy on Trail](https://www.youtube.com/@galaxyontrail)
+* [Ryan Van Duzer](https://www.youtube.com/@duzer)
+* [Maudi & Eric: Wheels to Wander](https://www.youtube.com/@WheelstoWander)
+* [Tim Fitzwater](https://www.youtube.com/@TimFitzwater)
+* [Amy Cycling Adventures](https://www.youtube.com/@amy.cycling.adventures)
+* [Scotland MTB and Cross Country Adventures](https://www.youtube.com/@scotlandmtbandcrosscountry8367)

@@ -6,7 +6,7 @@ title: 'The Cycling / Bikepacking Post'
 summary: 'It was inevitable that I'd get around to writing about cycling / bikepacking eventually ...'
 ---
 
-# Pre-history
+## Pre-history
 
 As a kid I rode bikes.  I mean, everyone did.  We lived in a very hilly suburb though so mostly
 we didn't ride at home, we rode when we were down at Philip Island, since that's almost entirely
@@ -14,6 +14,8 @@ flat.  I never really had a decent bike though until when I was at Uni I went an
 new Shogun Metro to get around on, and despite also having various cars and motorcycles I kept
 the pushie handy and used to commute from Fitzroy to the city on it fairly regularly.  Zipping
 around the inner suburbs on two wheels was always a joy.
+
+![shogun metro](img/20201004_175948.jpg)
 
 Then I got married and moved to a hilly suburb and the bike gathered cobwebs for many years.
 More motorcycles came and went, a couple of kids came along and we wobbled around the park on
@@ -51,7 +53,7 @@ The train was still there as a backup when the weather was too hot or too cold o
 couldn't be bothered, but I'd somehow transitioned from occasional recreational wobbler to 
 committed commuter.
 
-# Commuting Life
+## Commuting Life
 
 After a couple of years on the red rattler, I decided it was time to upgrade.  I was pretty 
 sure I knew what I wanted: alloy frame, carbon forks, disc brakes and a whole lot of gears 
@@ -62,7 +64,52 @@ racer which cost more than my car and weighed less than my wallet, but in the en
 on a Giant Cross City 1, which ticked all the boxes and also (in case you think I'm being
 entirely rational here) had a very nice color scheme going on.
 
-# The Great Unpleasantness
+![commuter](img/20191018_215627.jpg)
 
-# Going for Distance
+I didn't really change the bike at all during this time, other than fitting a very
+basic rack and upgrading the tyres from the stock 32mm tyres (which I found quite
+squirrelly on crushed gravel trails) to 38mm Schwalbe Marathons
+which were much nicer.  Mostly I just commuted on the Darebin Creek, Main Yarra and
+Merri Creek trails, and also poked my nose into the more accessible bits of
+Plenty Gorge from time to time.
+
+![plenty gorge](img/20191026_104118.jpg)
+
+## The Great Unpleasantness
+
+And then in 2020, COVID struck and Melbourne was plunged into a series of lockdowns
+of various levels of pointlessness.  The bike proved an essential mental health
+measure, and just about every day I'd jump on and try to find a new way to get to
+the 5km limit and back.  A lot of the time that meant heading over into 
+Plenty Gorge and I reckon I rode, or at least pushed the bike along, every trail 
+in the southern part of the gorge at one time or another.
+
+![burn the witch](img/20210120_112148.jpg)
+
+## Going for Distance
+
+Once the more ridiculous restrictions were lifted I got around to installing
+[Ride with GPS](https://ridewithgps.com/), recording a few rides and starting
+to make some plans.  One thing in particular had leapt out at me: 
+
+    Watsonia -> Darebin Creek Trail -> Main Yarra Trail ->
+    Mullum Mullum Creek Trail -> Eastlink Trail ->
+    Dandenong Creek Trail -> Carrum
+
+That's right, I could ride all the way to the beach, 99% on bike trails.
+76km was further than I'd ridden before, but ... I could get the train back
+home from Carrum, and if anything went wrong there were plenty of train
+stations to provide a 'crap out' option.
+
+And after a couple of false starts, in November 2021, I finally did it!
+One trail merged into another and before I knew it I was crossing the 
+footbridge over the Maroondah Highway, the highest point of my trip.
+
+And then down to the empty beach at Carrum for a swim!  
+
+![bike on carrum beach](img/IMG_20211123_154135315.jpg)
+
+## Bikepacking
+
+![bike, packed](img/IMG_20231021_132051991.jpg)
 

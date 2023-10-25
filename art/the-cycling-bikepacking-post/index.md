@@ -105,16 +105,40 @@ stations to provide a 'crap out' option.
 And after a couple of false starts, in November 2021, I finally did it!
 One trail merged into another and before I knew it I was crossing the 
 footbridge over the Maroondah Highway, the highest point of my trip.
-
 And then down to the empty beach at Carrum for a swim!  
 
 ![bike on carrum beach](img/IMG_20211123_154135315.jpg)
 
+I've done some other long loops but it's just such a nice ride, and
+jumping into the water at the end is so damned refreshing.  I've
+done Westerfolds to Carrum and back a couple of times, which is about 
+120km and cuts out the annoying last hills up into Darebin.
+
+Now my ambition is the crack the ton, 100 miles (161km) in a day.
+Perhaps I should go somewhere a lot flatter to try it out.
+
+Another highlight was riding up Mt Donna Buang, starting from
+Healesville and going up, over then back via the O'Shannassy 
+Aqueduct Trail and Panton's Gap.  A very big day but well worth it.
+
+![bike on mt donna buang](img/IMG_20230424_140849000_HDR.jpg)
+
 ## Bikepacking
+
+I used to do a fair bit of solo travel by [motorcycle](https://moto.zoic.org/)
+and while I've got rid of all my old bikes now I do kind of miss it.
+So I've started working towards Bikepacking!
 
 ![bike, packed](img/IMG_20231021_132051991.jpg)
 
-# You Tubers
+## Further Inspiration
+
+### Sites
+
+* [Sheldon Brown](https://www.sheldonbrown.com/)
+* [Melbourne Cycle Loops](https://www.melbournecycleloops.com/)
+
+### Youtubers
 
 * [Tim from AdVANture ST](https://www.youtube.com/@advanturest)
 * [Galaxy on Trail](https://www.youtube.com/@galaxyontrail)

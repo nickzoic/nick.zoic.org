@@ -9,50 +9,62 @@ summary: "It was inevitable that I'd get around to writing about cycling / bikep
 
 ## Pre-history
 
-As a kid I rode bikes.  I mean, everyone did.  We lived in a very hilly suburb though so mostly
-we didn't ride at home, we rode when we were down at Philip Island, since that's almost entirely
-flat.  I never really had a decent bike though until when I was at Uni I went and bought a shiny
-new Shogun Metro to get around on, and despite also having various cars and motorcycles I kept
-the pushie handy and used to commute from Fitzroy to the city on it fairly regularly.  Zipping
-around the inner suburbs on two wheels was always a joy.
+As a kid I rode bikes.  I mean, everyone did.  We lived in a very hilly suburb
+though so mostly we didn't ride at home, we rode when we were down at Philip
+Island, since that's almost entirely flat.  I never really had a decent bike
+though until when I was at Uni I went and bought a shiny new Shogun Metro to
+get around on, and despite also having various cars and motorcycles I kept the
+pushie handy and used to commute from Fitzroy to the city on it fairly
+regularly. Zipping around the inner suburbs on two wheels was always a joy.
 
 ![shogun metro](img/20201004_175948.jpg)
+*Shogun Metro AT (the Red Rattler)*
 
-Then I got married and moved to a hilly suburb and the bike gathered cobwebs for many years.
-More motorcycles came and went, a couple of kids came along and we wobbled around the park on
-our bikes a bit, but I never really rode it much.
+Then I got married and moved to a hilly suburb and the bike gathered cobwebs
+for many years.  More motorcycles came and went, a couple of kids came along
+and we wobbled around the park on our bikes a bit, but I never really rode it
+much.
 
-But then: I was working for a client where a lot of the staff rode to work every day, and one
-of those Ride To Work Day things was happening, and in a fit of bravado I declared I was going
-to dust the bike off and ride in for it.  Well, not all the way from Watsonia to Fitzroy, I'd
-catch the train most of the way, but still, that counted, right?
+## Ride to Work
 
-That first morning was a disaster, the brain may not forget how to ride a bicycle but the 
-muscles sure do and I was barely a kilometer from home when I ran out of puff and almost threw
-up my breakfast. I was tempted to abandon the bike but I hadn't brought a lock or anything
-and rather than leave it to the wolves I pushed it up the remaining hill and down to the station.
+But then: I was working for a client where a lot of the staff rode to work
+every day, and one of those [Ride To Work
+Day](https://bicyclenetwork.com.au/rides-and-events/ride2work/ride2work-day/)
+things was happening, and in a fit of bravado I declared I was going to dust
+the bike off and ride in for it.  Well, not all the way from Watsonia to
+Fitzroy, I'd catch the train most of the way, but still, that counted, right?
 
-The train commute in gave me time to catch my breath, and rolling off at Clifton Hill I felt a
-renewed willingness to give it a go.  Also, it was gently downhill all the way to Fitzroy.
-So I got back in the saddle and zigged and zagged my way slowly across the familiar Fitzroy grid,
-feeling like a bit of a fraud, but I got a free breakfast anyway.
+That first morning was a disaster, the brain may not forget how to ride a
+bicycle but the muscles sure do and I was barely a kilometer from home when I
+ran out of puff and almost threw up my breakfast. I was tempted to abandon the
+bike but I hadn't brought a lock or anything and rather than leave it to the
+wolves I pushed it up the remaining hill and down to the station.
 
-I got the train home and the bike stayed locked up at work for a couple of days until I found
-the energy to roll down to Victoria Park station and the train home.  In retrospect, I decided I'd
-quite enjoyed *parts* of this process, and so over the next few weeks I did this same thing a
-few more times: bike and train in, walk and train home, the opposite the next day.  Eventually I
-was riding to and from the station more often than walking or taking the tram.
+The train commute in gave me time to catch my breath, and rolling off at
+Clifton Hill I felt a renewed willingness to give it a go.  Also, it was gently
+downhill all the way to Fitzroy.  So I got back in the saddle and zigged and
+zagged my way slowly across the familiar Fitzroy grid, feeling like a bit of a
+fraud, but I got a free breakfast anyway.
 
-And then one fateful morning, maybe I'd just missed a train at Watsonia, maybe the weather was
-especially beautiful, I don't remember, but instead of getting off the bike at Watsonia I kept 
-going to Macleod, and got the train from there.  And then at some point I leapfrogged 
-Macleod and went to Rosanna.  And one day I jumped off at Dennis instead of waiting for Clifton
-Hill.  Before I knew it, I was riding at least half way fairly regularly and before too
-long I was working out how to follow the Darebin Creek Trail and even starting to enjoy it.
+I got the train home and the bike stayed locked up at work for a couple of days
+until I found the energy to roll down to Victoria Park station and the train
+home.  In retrospect, I decided I'd quite enjoyed *parts* of this process, and
+so over the next few weeks I did this same thing a few more times: bike and
+train in, walk and train home, the opposite the next day.  Eventually I was
+riding to and from the station more often than walking or taking the tram.
 
-The train was still there as a backup when the weather was too hot or too cold or I just 
-couldn't be bothered, but I'd somehow transitioned from occasional recreational wobbler to 
-committed commuter.
+And then one fateful morning, maybe I'd just missed a train at Watsonia, maybe
+the weather was especially beautiful, I don't remember, but instead of getting
+off the bike at Watsonia I kept going to Macleod, and got the train from there.
+And then at some point I leapfrogged Macleod and went to Rosanna.  And one day
+I jumped off at Dennis instead of waiting for Clifton Hill.  Before I knew it,
+I was riding at least half way fairly regularly and before too long I was
+working out how to follow the Darebin Creek Trail and even starting to enjoy
+it.
+
+The train was still there as a backup when the weather was too hot or too cold
+or I just couldn't be bothered, but I'd somehow transitioned from occasional
+recreational wobbler to committed commuter.
 
 ## Commuting Life
 
@@ -62,10 +74,12 @@ for the Watsonia hills.  If I was smarter I would have searched for a bargain on
 whatever but instead I just walked into Ivanhoe Cycles, the same shop which had sold me that
 Shogun Metro a couple of decades earlier.  I test rode a bunch of things including a carbon
 racer which cost more than my car and weighed less than my wallet, but in the end I decided
-on a Giant Cross City 1, which ticked all the boxes and also (in case you think I'm being
-entirely rational here) had a very nice color scheme going on.
+on a [Giant Cross City 1](https://www.giant-bicycles.com/au/cross-city-disc-1-2022),
+which ticked all the boxes and also (in case you think I'm being
+entirely rational here) had a very nice grey-and-orange color scheme going on.
 
 ![commuter](img/20191018_215627.jpg)
+*Bicycle/Train commuting with panniers and raincoat*
 
 I didn't really change the bike at all during this time, other than fitting a very
 basic rack and upgrading the tyres from the stock 32mm tyres (which I found quite
@@ -74,7 +88,8 @@ which were much nicer.  Mostly I just commuted on the Darebin Creek, Main Yarra 
 Merri Creek trails, and also poked my nose into the more accessible bits of
 Plenty Gorge from time to time.
 
-![plenty gorge](img/20191026_104118.jpg)
+![heathcote](img/20191026_104118.jpg)
+*Me and the bike, somewhere near Heathcote I think*
 
 ## The Great Unpleasantness
 
@@ -86,12 +101,20 @@ Plenty Gorge and I reckon I rode, or at least pushed the bike along, every trail
 in the southern part of the gorge at one time or another.
 
 ![burn the witch](img/20210120_112148.jpg)
+*"Burn The Witch" trail in Plenty Gorge*
+
+Once the [more ridiculous restrictions](/art/qr-codes-advice/) were lifted
+I got around to installing
+[Ride with GPS](https://ridewithgps.com/), recording a few rides and starting
+to make plans for longer rides around the local creek trails and further afield,
+like the [Warrnambool / Port Fairy Rail Trail](https://www.portfairytowarrnamboolrailtrail.com.au/)
+
+![warrnambool / port fairy rail trail](img/IMG_20220103_175224225.jpg)
+*Warrnambool / Port Fairy Rail Trail*
 
 ## Going for Distance
 
-Once the more ridiculous restrictions were lifted I got around to installing
-[Ride with GPS](https://ridewithgps.com/), recording a few rides and starting
-to make some plans.  One thing in particular had leapt out at me: 
+One series of trails in particular had leapt out at me: 
 
     Watsonia -> Darebin Creek Trail -> Main Yarra Trail ->
     Mullum Mullum Creek Trail -> Eastlink Trail ->
@@ -108,20 +131,23 @@ footbridge over the Maroondah Highway, the highest point of my trip.
 And then down to the empty beach at Carrum for a swim!  
 
 ![bike on carrum beach](img/IMG_20211123_154135315.jpg)
+*Bike down at Carrum Beach*
 
-I've done some other long loops but it's just such a nice ride, and
-jumping into the water at the end is so damned refreshing.  I've
-done Westerfolds to Carrum and back a couple of times, which is about 
-120km and cuts out the annoying last hills up into Darebin.
+That was enough for the day, so I got the train home via the city
+and had just enough energy left to ride up from Richmond to Jolimont ...
 
+Recently I've done Westerfolds to Carrum and back a couple of times,
+which is about 120km and cuts out the annoying last hills up into Darebin.
 Now my ambition is the crack the ton, 100 miles (161km) in a day.
 Perhaps I should go somewhere a lot flatter to try it out.
 
-Another highlight was riding up Mt Donna Buang, starting from
-Healesville and going up, over then back via the O'Shannassy 
-Aqueduct Trail and Panton's Gap.  A very big day but well worth it.
+Another recent highlight was riding up Mt Donna Buang, starting from
+Healesville and going up, over then back down the other side and
+back to the car via the O'Shannassy Aqueduct Trail and Panton's Gap.
+A very big day, pretty slow going in places, but well worth it.
 
 ![bike on mt donna buang](img/IMG_20230424_140849000_HDR.jpg)
+*The hang-glider launch pad at Mount Donna Buang*
 
 ## Bikepacking
 
@@ -130,6 +156,12 @@ and while I've got rid of all my old bikes now I do kind of miss it.
 So I've started working towards Bikepacking!
 
 ![bike, packed](img/IMG_20231021_132051991.jpg)
+*Bike, packed.*
+
+Is it bikepacking or cycle touring?  I'm not sure.  Like a lot of things
+it's a bit of a grey area.  But I've taken the bike out for a few rides 
+with the gear pictured and it handles everything from singletrack to 
+fast concrete with no problem.
 
 ## Further Inspiration
 

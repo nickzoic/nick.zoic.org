@@ -25,7 +25,7 @@ for many years.  More motorcycles came and went, a couple of kids came along
 and we wobbled around the park on our bikes a bit, but I never really rode it
 much.
 
-## Ride to Work
+# Ride to Work ...
 
 But then: I was working for a client where a lot of the staff rode to work
 every day, and one of those [Ride To Work
@@ -45,6 +45,8 @@ Clifton Hill I felt a renewed willingness to give it a go.  Also, it was gently
 downhill all the way to Fitzroy.  So I got back in the saddle and zigged and
 zagged my way slowly across the familiar Fitzroy grid, feeling like a bit of a
 fraud, but I got a free breakfast anyway.
+
+## In Train-ing ...
 
 I got the train home and the bike stayed locked up at work for a couple of days
 until I found the energy to roll down to Victoria Park station and the train
@@ -93,8 +95,9 @@ Plenty Gorge from time to time.
 
 ## The Great Unpleasantness
 
-And then in 2020, COVID struck and Melbourne was plunged into a series of lockdowns
-of various levels of pointlessness.  The bike proved an essential mental health
+And then in 2020, COVID struck and Melbourne was plunged into a series of lockdowns of
+[various levels of pointlessness](/art/qr-codes-advice/).
+The bike proved an essential mental health
 measure, and just about every day I'd jump on and try to find a new way to get to
 the 5km limit and back.  A lot of the time that meant heading over into 
 Plenty Gorge and I reckon I rode, or at least pushed the bike along, every trail 

@@ -9,14 +9,12 @@ tags:
 title: 'PyConAU 2023 Adelaide!'
 ---
 
-This is just a quick post to let you know I'm at
-[PyConAU 2023 Adelaide](https://2023.pycon.org.au/)
-I'll add some more stuff later.
-
-This is my first in-person conference since
+I was at [PyConAU 2023 Adelaide](https://2023.pycon.org.au/)
+... my first in-person conference since
 [PyConAU and Compose Melbourne in 2018](https://nick.zoic.org/art/pycon-2018-sydney/)
-so I'm very excited ...
-
+so I was very excited ...
+I presented on my current work, CountESS, and also for the inaugural PyConAU Fair I
+presented a silly toy I created out of a thrift shop guitar hero controller ...
 
 ## CountESS
 
@@ -50,7 +48,8 @@ and so far ones that I've found interesting:
 
 * [Alan Rubin: Building a biological database with Python](https://youtu.be/uy7FEXW9onE)
 
-  This is all about MaveDB, which is somewhat related to CountESS in that it deals with MAVEs.
+  This is all about MaveDB, which is somewhat related to CountESS in that it deals with
+  Multiplex Assays of Variant Effect, which is the kind of data which CountESS can process.
 
 * [David Lawrence: Analysing and sharing genetic data with Python](https://youtu.be/vmQ1_Pzh4Us)
 
@@ -58,6 +57,8 @@ and so far ones that I've found interesting:
 
   Building a graphical query into a Django `Q` query which
   then turns into an efficient SQL query on the backend.
+  This is [the kind of thing I've dabbled with a little](/art/tranquil-apis/)
+  and it's a really interesting aim.
 
 ### Other science stuff
 
@@ -103,7 +104,3 @@ somewhat connected so watch Katie's first ...
 
 ... the tragic thing is, at some point I might have to admit that maybe Java
 got it right in the first place with JAR files containing their own dependencies, etc.
-
-### More
-
-There's heaps more I haven't watched yet so I'll update this page as I do ...

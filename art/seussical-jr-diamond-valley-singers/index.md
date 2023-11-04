@@ -132,7 +132,7 @@ coronation scene:
 *Orb and Scepter for Frozen, Jr.*
 
 See [thingiverse](https://www.thingiverse.com/thing:6297143/files)
-or [github](https://github.com/nickzoic/models3d/tree/master/props)u
+or [github](https://github.com/nickzoic/models3d/tree/master/props)
 for the STL files.
 
 ## UPDATE OCTOBER 2023

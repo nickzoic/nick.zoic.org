@@ -125,8 +125,15 @@ or just rolling (which falls very slowly, and can get caught up itself as it dro
 
 This year it's going to be [Frozen Jr.](https://www.dvsingers.org/frozen)!
 
-I'm not doing set construction this time around, but will be helping out with props 
-and lighting.
+I'm not doing set construction this time around, but will be helping out with props including this Orb and Scepter from Elsa's 
+coronation scene:
+
+![orb and scepter for Frozen, Jr](img/scepter.jpg)
+*Orb and Scepter for Frozen, Jr.*
+
+See [thingiverse](https://www.thingiverse.com/thing:6297143/files)
+or [github](https://github.com/nickzoic/models3d/tree/master/props)u
+for the STL files.
 
 ## UPDATE OCTOBER 2023
 

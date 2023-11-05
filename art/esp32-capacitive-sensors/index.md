@@ -353,3 +353,13 @@ You might also enjoy this excellent [Touch Sensor Application Note](https://gith
 I'd really like to experiment further with a 2D touch pad which would let you interpolate a 
 2D position from 4 channels ... might be time to work out how that
 [PCB mill](https://hackaday.com/2018/01/04/guide-why-etch-when-you-can-mill/) works!
+
+UPDATE 2023
+===========
+
+These analog captouch things have staying power :-)
+
+* Todbot's captouch wheel
+[mastodon.social](https://mastodon.social/@todbot/111344221925307966)
+[(github)](https://github.com/todbot/touchwheels/)
+

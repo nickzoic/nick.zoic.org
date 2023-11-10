@@ -183,8 +183,8 @@ I'll write some more about turning a commuter bike into a touring bike
 later, suffice to say the geometry is pretty similar and it's really
 just a bit of upgraded ergonomics and some extra luggage.
 
-![Starling's Gap](IMG_20231028_174555358_HDR.jpg)
-*I made it up to Starling's Gap*
+![Starling's Gap](img/IMG_20231028_174555358_HDR.jpg)
+*The bike and I made it up to Starling's Gap*
 
 ## Further Inspiration
 

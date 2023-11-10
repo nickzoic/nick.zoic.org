@@ -25,7 +25,7 @@ for many years.  More motorcycles came and went, a couple of kids came along
 and we wobbled around the park on our bikes a bit, but I never really rode it
 much.
 
-# Ride to Work ...
+## Ride to Work ...
 
 But then: I was working for a client where a lot of the staff rode to work
 every day, and one of those [Ride To Work
@@ -88,10 +88,18 @@ basic rack and upgrading the tyres from the stock 32mm tyres (which I found quit
 squirrelly on crushed gravel trails) to 38mm Schwalbe Marathons
 which were much nicer.  Mostly I just commuted on the Darebin Creek, Main Yarra and
 Merri Creek trails, and also poked my nose into the more accessible bits of
-Plenty Gorge from time to time.
+Plenty Gorge from time to time.  And a few side trips, of course ...
 
 ![heathcote](img/20191026_104118.jpg)
 *Me and the bike, somewhere near Heathcote I think*
+
+In 2019 several of us met up in Scotland and rode the Great Glen Way from
+Inverness to Fort William, which was a fantastic experience.  We took 4 days
+to do it, doing all of about 40km a day, it was better understood as
+a pub crawl with bikes rather than cycle touring per se:
+
+![white bridge](img/20190626_120957_1.jpg)
+*Bikes at White Bridge pub*
 
 ## The Great Unpleasantness
 
@@ -114,6 +122,11 @@ like the [Warrnambool / Port Fairy Rail Trail](https://www.portfairytowarrnamboo
 
 ![warrnambool / port fairy rail trail](img/IMG_20220103_175224225.jpg)
 *Warrnambool / Port Fairy Rail Trail*
+
+*Incidentally, a huge thankyou to
+[Bicycle Center Warrnambool](https://www.bicycle-centre.com.au/store_locations/Warrnambool-bike-shop)
+for squeezing a broken spoke replacement and wheel truing in late on
+ a Friday afternoon.*
 
 ## Going for Distance
 
@@ -165,6 +178,10 @@ Is it bikepacking or cycle touring?  I'm not sure.  Like a lot of things
 it's a bit of a grey area.  But I've taken the bike out for a few rides 
 with the gear pictured and it handles everything from singletrack to 
 fast concrete with no problem.
+
+I'll write some more about turning a commuter bike into a touring bike
+later, suffice to say the geometry is pretty similar and it's really
+just a bit of upgraded ergonomics and some extra luggage.
 
 ## Further Inspiration
 

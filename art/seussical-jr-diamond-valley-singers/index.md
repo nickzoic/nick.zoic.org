@@ -6,6 +6,7 @@ tags:
     - music
     - updates
     - not-computers
+    - 3dprint
 summary: |
     In totally not work related news, I've been working
     on set design and construction for a musical theater

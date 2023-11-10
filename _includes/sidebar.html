@@ -12,22 +12,16 @@
       <p>
 	<a class="sidebar-nav-item{% if page.url == '/nick-moore/' %} active{% endif %}" href="/nick-moore/">About me: Nick Moore</a>
         <a class="sidebar-nav-item{% if page.url == '/ref/' %} active{% endif %}" href="/ref/">Interesting Links</a>
+	<a class="sidebar-nav-item{% if page.url == '/everything/' %} active{% endif %}" href="/everything/">Everything (by date)</a>
+	<a class="sidebar-nav-item{% if page.url == '/all_tags/' %} active{% endif %}" href="/all_tags/">Everything (by tag)</a>
       </p>
 
-      <h2><a href="/everything/">Recently</a>:</h2>
+      <h2>Recently</h2>
       {% assign pages_list = site.pages | where:"layout","article" | sort:"date" | reverse %}
       {% for node in pages_list limit:10 %}
         {% if node.title != null %}
           <a class="sidebar-nav-item{% if page.url == node.url %} active{% endif %}" href="{{ node.url }}">{{ node.title }}</a>
         {% endif %}
-      {% endfor %}
-    </nav>
-
-    <nav class="sidebar-tags">
-	    <h2><a href="/all_tags/">Tags</a>:</h2>
-      {% assign sorted_pages = site.pages | where:"layout","tag" | sort:"tag" %}
-      {% for node in sorted_pages %}
-	<a class="sidebar-nav-item{% if page.url == node.url %} active{% endif %}" style="display: inline-block" href="{{ node.url }}">{{ node.title }}</a>
       {% endfor %}
     </nav>
 

@@ -2,6 +2,7 @@
 date: '2023-11-10'
 layout: article
 tags:
+  - cycling
   - not-computers
 title: 'The Cycling / Bikepacking Post'
 summary: "It was inevitable that I'd get around to writing about cycling / bikepacking eventually ..."

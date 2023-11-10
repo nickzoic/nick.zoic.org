@@ -1,6 +1,6 @@
 ---
-date: '2023-10-24'
-layout: draft
+date: '2023-11-10'
+layout: article
 tags:
   - not-computers
 title: 'The Cycling / Bikepacking Post'
@@ -183,12 +183,16 @@ I'll write some more about turning a commuter bike into a touring bike
 later, suffice to say the geometry is pretty similar and it's really
 just a bit of upgraded ergonomics and some extra luggage.
 
+![Starling's Gap](IMG_20231028_174555358_HDR.jpg)
+*I made it up to Starling's Gap*
+
 ## Further Inspiration
 
 ### Sites
 
 * [Sheldon Brown](https://www.sheldonbrown.com/)
 * [Melbourne Cycle Loops](https://www.melbournecycleloops.com/)
+* [Ride With GPS](https://ridewithgps.com/)
 
 ### Youtubers
 

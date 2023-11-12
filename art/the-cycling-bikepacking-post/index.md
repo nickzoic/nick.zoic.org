@@ -175,7 +175,7 @@ A very big day, pretty slow going in places, but well worth it.
 ![bike on mt donna buang](img/IMG_20230424_140849000_HDR.jpg)
 *The hang-glider launch pad at Mount Donna Buang*
 
-![bike on o'shannassy aqueduct trail](img/IMG_20230424_152449556_HDR.jpg)
+![bike on o'shannassy aqueduct trail](img/IMG_20230424_162449556_HDR.jpg)
 *A giant valve on the O'Shannassy Aqueduct Trail*
 
 ## Bikepacking

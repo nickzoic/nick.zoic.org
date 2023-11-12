@@ -43,6 +43,12 @@ while you wait for the can to warm up enough for gas to come out.
 If it's going to be chilly overnight it's best to keep butane cans
 in the foot of your sleeping bag along with your microfilter!)
 
+| | Stove | Fuel | Windshield | Legs | Total |
+|:---:|:---:|:---:|:---:|:---:|:---:|
+| Mini | 115 | 300 | 109 | 32 | 556 |
+| Kovea | 354 | 300 | 52 | 0 | 706 |
+| Rocket | 586 | 0 | 0 | 0 | 586 |
+
 Looking at overall weight, the Kovea stove plus nominal 300g gas can is
 actually heavier than my stainless steel rocket stove (586g) which runs on
 sustainable free fuel you find laying on the ground in every bush campsite.
@@ -52,6 +58,11 @@ Of course, there are places and conditions where a gas stove is safe/permitted
 and a rocket stove isn't, or where dry kindling is hard to find.  Plus the rocket
 stove has to cool down before you can pack it up and it covers all your cookware
 in soot, so it's not as clear cut as all that.
+
+Hexamine (solid fuel tablet) stoves might also be worth considering for short
+trips.  I should also talk about liquid fuel stoves, eg: trangia type alcohol burners
+and pressurized shellite stoves, but the former I've always found horribly slow
+and the latter terrifyingly erratic.
 
 ## Coffee for Weight Weenies
 
@@ -77,6 +88,13 @@ Depending on your feelings about luxury items, it is maybe a bit heavy and fiddl
 bikepacking use.  Interestingly, they have new "smaller, lighter" models but according to
 the website they're not much lighter.
 
+A lighter alternative is the Aeropress, which is just a plastic cylinder with a 
+holder for a paper filter at the bottom and a plunger to force the coffee through
+the filter.  That's only 160g, and to be honest you can leave the plunger at home
+and just let it drip through in its own good time.
 
+Or, if we're happy to wait, we can dispense with the cylinder and just bring
+the filter: a conical stainless steel filter weights about 10g and just sits
+inside your coffee cup until it's ready and then lift it out and let it drain.
 
 

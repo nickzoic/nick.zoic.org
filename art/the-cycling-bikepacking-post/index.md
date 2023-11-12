@@ -11,10 +11,11 @@ summary: "It was inevitable that I'd get around to writing about cycling / bikep
 ## Pre-history
 
 As a kid I rode bikes.  I mean, everyone did.  We lived in a very hilly suburb
-though so mostly we didn't ride at home, we rode when we were down at Philip
-Island, since that's almost entirely flat.  I never really had a decent bike
-though until when I was at Uni I went and bought a shiny new Shogun Metro to
-get around on, and despite also having various cars and motorcycles I kept the
+though so mostly we didn't ride at home, we rode when we were down at
+[Phillip Island](https://www.visitphillipisland.com.au/),
+since that's almost entirely flat.  I never really had a decent bike
+until when I was at Uni I went and bought a shiny new Shogun Metro to
+get around on. Despite also having various cars and motorcycles I kept the
 pushie handy and used to commute from Fitzroy to the city on it fairly
 regularly. Zipping around the inner suburbs on two wheels was always a joy.
 
@@ -29,11 +30,12 @@ much.
 ## Ride to Work ...
 
 But then: I was working for a client where a lot of the staff rode to work
-every day, and one of those [Ride To Work
-Day](https://bicyclenetwork.com.au/rides-and-events/ride2work/ride2work-day/)
+every day, and one of those
+[Ride To Work Day](https://bicyclenetwork.com.au/rides-and-events/ride2work/ride2work-day/)
 things was happening, and in a fit of bravado I declared I was going to dust
-the bike off and ride in for it.  Well, not all the way from Watsonia to
-Fitzroy, I'd catch the train most of the way, but still, that counted, right?
+the bike off and ride it in.  Well, not all the way from Watsonia to
+Fitzroy, I'd catch the train most of the way, but still, that counted enough
+for breakfast, right?
 
 That first morning was a disaster, the brain may not forget how to ride a
 bicycle but the muscles sure do and I was barely a kilometer from home when I
@@ -49,7 +51,7 @@ fraud, but I got a free breakfast anyway.
 
 ## In Train-ing ...
 
-I got the train home and the bike stayed locked up at work for a couple of days
+That night I walked to the station and the bike stayed locked up at work for a couple of days
 until I found the energy to roll down to Victoria Park station and the train
 home.  In retrospect, I decided I'd quite enjoyed *parts* of this process, and
 so over the next few weeks I did this same thing a few more times: bike and
@@ -94,10 +96,15 @@ Plenty Gorge from time to time.  And a few side trips, of course ...
 ![heathcote](img/20191026_104118.jpg)
 *Me and the bike, somewhere near Heathcote I think*
 
+## Scotland
+
 In 2019 several of us met up in Scotland and rode the Great Glen Way from
 Inverness to Fort William, which was a fantastic experience.  We took 4 days
-to do it, doing all of about 40km a day, it was better understood as
-a pub crawl with bikes rather than cycle touring per se:
+to do it, doing all of about 40km a day, and staying at pubs and backpackers'
+along the way.
+
+It was better understood as a pub crawl with bikes rather than cycle touring
+per se, with lots of long lunches and loch-side relaxation.
 
 ![white bridge](img/20190626_120957_1.jpg)
 *Bikes at White Bridge pub*
@@ -105,8 +112,7 @@ a pub crawl with bikes rather than cycle touring per se:
 ## The Great Unpleasantness
 
 And then in 2020, COVID struck and Melbourne was plunged into a series of lockdowns of
-[various levels of pointlessness](/art/qr-codes-advice/).
-The bike proved an essential mental health
+various levels of pointlessness.  The bike proved an essential mental health
 measure, and just about every day I'd jump on and try to find a new way to get to
 the 5km limit and back.  A lot of the time that meant heading over into 
 Plenty Gorge and I reckon I rode, or at least pushed the bike along, every trail 
@@ -126,7 +132,7 @@ like the [Warrnambool / Port Fairy Rail Trail](https://www.portfairytowarrnamboo
 
 *Incidentally, a huge thankyou to
 [Bicycle Center Warrnambool](https://www.bicycle-centre.com.au/store_locations/Warrnambool-bike-shop)
-for squeezing a broken spoke replacement and wheel truing in late on
+for squeezing a broken spoke replacement and wheel trueing in late on
  a Friday afternoon.*
 
 ## Going for Distance
@@ -153,18 +159,24 @@ And then down to the empty beach at Carrum for a swim!
 That was enough for the day, so I got the train home via the city
 and had just enough energy left to ride up from Richmond to Jolimont ...
 
-Recently I've done Westerfolds to Carrum and back a couple of times,
+Recently I've done [Westerfolds](https://www.parks.vic.gov.au/places-to-see/parks/yarra-valley-parklands/attractions/westerfolds-park)
+to Carrum and back a couple of times,
 which is about 120km and cuts out the annoying last hills up into Darebin.
 Now my ambition is the crack the ton, 100 miles (161km) in a day.
 Perhaps I should go somewhere a lot flatter to try it out.
 
-Another recent highlight was riding up Mt Donna Buang, starting from
-Healesville and going up, over then back down the other side and
+Another recent highlight was riding up
+[Mt Donna Buang](https://theclimbingcyclist.com/climbs/yarra-ranges/mt-donna-buang/),
+starting from [Healesville](https://www.visityarravalley.com.au/discover/yarra-valley/healesville)
+and going up, over then back down the other side and
 back to the car via the O'Shannassy Aqueduct Trail and Panton's Gap.
 A very big day, pretty slow going in places, but well worth it.
 
 ![bike on mt donna buang](img/IMG_20230424_140849000_HDR.jpg)
 *The hang-glider launch pad at Mount Donna Buang*
+
+![bike on o'shannassy aqueduct trail](img/IMG_20230424_152449556_HDR.jpg)
+*A giant valve on the O'Shannassy Aqueduct Trail*
 
 ## Bikepacking
 

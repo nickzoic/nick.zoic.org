@@ -40,8 +40,8 @@ saving is costing you $.40 per gram.  By comparison, a cheap lightweight chair w
 [Helinox Zero](https://www.anacondastores.com/camping-hiking/camp-furniture/camping-chairs/helinox-zero-chair/90187413)
 weighs 490g and costs $149.  So reducing that weight is only costing you $.24 per gram.
 
-So, is buying titanium cutlery an economically effective way to save weight?  No.
-Do I love my titanium splade anyway?  Yes.
+So, is buying titanium cutlery an economically effective way to save weight?  **No.**<br>
+Do I love my titanium splade anyway?  **Yes.**
 
 ## Stoves for Weight Weenies
 
@@ -95,14 +95,13 @@ There are smaller 100g cans available but they're hard to find cheaply.
 although I haven't done methodical testing here.  The Kovea is probably more
 efficient too.-->
 
-**(as an aside: you really want to use fuel cans filled with
-[**Iso**butane](https://en.wikipedia.org/wiki/Isobutane) and/or
+*(as an aside: you really want to use fuel cans filled with
+[Isobutane](https://en.wikipedia.org/wiki/Isobutane) and/or
 [Propane](https://en.wikipedia.org/wiki/Propane), because regular
 [Butane](https://en.wikipedia.org/wiki/Butane) stops evaporating
-at around 0⁰C ... which can really cramp your cooking style on a cold morning
-while you wait for the can to warm up enough for gas to come out.
+at around 0⁰C ... which can really cramp your cooking style on a cold morning.
 If you can only find Butane and it's going to be chilly overnight it's best
-to keep the can in the foot of your sleeping bag along with your microfilter!)**
+to keep the can in the foot of your sleeping bag along with your microfilter!)*
 
 ### Rocket Stove
 
@@ -135,7 +134,8 @@ a regular campfire started.
 Looking at overall weight, the rocket stove (586g) is actually lighter
 than the Kovea stove plus windshield and nominal 300g gas can.
 And it runs on sustainable free fuel you find laying on the ground in
-every bush campsite, and gives off a cheery campfire light.
+every bush campsite, you can burn off your paper trash in it, and it gives
+off a cheery campfire light.
 
 Of course, there are places and conditions where a gas stove is safe/permitted
 and a rocket stove isn't, or where dry kindling is hard to find.  Plus the rocket
@@ -164,7 +164,7 @@ want to carry a whole lot of extra weight to do so.
 | Bialetti Caffettiera (stainless) | 526 |
 | Wacaco Minipresso | 400 |
 | Aeropress | 160 |
-| Aeropress w/o pluger | 87 |
+| Aeropress without plunger | 87 |
 | Stainless conical filter | 10 |
 
 On the motorcycle, I used to schlep that stainless caffettiera everywhere and it
@@ -178,10 +178,10 @@ The Wacaco website says it weighs 360g but I measure it as 400g, perhaps
 mine is an older model.
 Depending on your feelings about luxury items, it is maybe a bit heavy and fiddly for
 bikepacking use.  Interestingly, they have new "smaller, lighter" models but according to
-the website they're not *much* lighter.
+the website they're a bit smaller but *not very much* lighter, still over 300g.
 
 A lighter alternative is the
-[Aeropress](https://aeropress.com/products/aeropress-go-travel-coffee-press),
+[Travel Aeropress](https://aeropress.com/products/aeropress-go-travel-coffee-press),
 which is really just a robust plastic cylinder with a 
 holder for a paper filter at the bottom and an airtight plunger to force
 the coffee through the filter.

@@ -34,8 +34,13 @@ To decide where to more effectively save weight, weigh everything:
 |Snowpeak Titanium Splade | 15 | 15 |
 |The fanciest looking full sized steel fork<br>found in my kitchen cutlery drawer | 51 | 0.50 |
 
-So, is buying titanium cutlery an economically effective way to save weight?  No.
+So you're spending $14.50 to save 35 grams, or to put it another way this weight
+saving is costing you $.40 per gram.  By comparison, a cheap lightweight chair weighs
+900g and costs about $50, whereas the 
+[Helinox Zero](https://www.anacondastores.com/camping-hiking/camp-furniture/camping-chairs/helinox-zero-chair/90187413)
+weighs 490g and costs $149.  So reducing that weight is only costing you $.24 per gram.
 
+So, is buying titanium cutlery an economically effective way to save weight?  No.
 Do I love my titanium splade anyway?  Yes.
 
 ## Stoves for Weight Weenies

@@ -137,8 +137,9 @@ And it runs on sustainable free fuel you find laying on the ground in
 every bush campsite, you can burn off your paper trash in it, and it gives
 off a cheery campfire light.
 
-Of course, there are places and conditions where a gas stove is safe/permitted
-and a rocket stove isn't, or where dry kindling is hard to find.  Plus the rocket
+Of course, there are places and conditions where
+[a gas stove is safe/permitted and a rocket stove isn't](https://www.cfa.vic.gov.au/warnings-restrictions/total-fire-bans-fire-danger-ratings/can-i-or-cant-i),
+or where dry kindling is hard to find.  Plus the rocket
 stove has to cool down before you can pack it up and it covers all your cookware
 in soot (not as much as an open fire, but still), so it's not as clear cut as all that.
 
@@ -152,6 +153,26 @@ I should also talk about liquid fuel stoves, eg:
 [trangia](https://www.snowys.com.au/27-1-small-ultralight-aluminium) type alcohol burners
 and pressurized shellite stoves, but the former I've always found horribly slow
 and the latter terrifyingly erratic, but some people swear by them.
+
+## Cookware
+
+As well as three stoves I've got three lots of cookware ... okay, so I have a problem.
+
+| Item | Weight,g | 
+|:---:|:---:|
+| Small pot & lid with folding handles |  |
+| Swedish Army mess kit | |
+| Large double pot & lid | |
+
+The smallest is just the right size to fit a gas canister and mini stove inside.
+
+The [Swedish Army mess kit](https://www.ebay.com.au/sch/i.html?_nkw=swedish+army+mess+kit)
+fits the kovea stove really nicely inside (but not the gas canister).  It's an aluminium one,
+not stainless.
+Mine didn't come with the windshield or the alcohol burner, but rest assured I did not pay $200 for it.
+
+The largest has two pans which share a lid, and is just the right size to fit the rocket stove inside.
+
 
 ## Coffee for Weight Weenies
 

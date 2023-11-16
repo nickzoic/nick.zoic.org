@@ -550,6 +550,7 @@ html {
 /* Sidebar links */
 .sidebar a {
   color: #fff;
+  line-height: 1.5;
 }
 
 /* About section */
@@ -557,7 +558,7 @@ html {
   color: #fff;
   margin-top: 0;
   font-family: "Acme", serif;
-  font-size: 2.75rem;
+  font-size: 1.5rem;
   text-align: center;
 }
 
@@ -567,14 +568,15 @@ html {
 }
 .sidebar-nav-item {
   display: block;
-  line-height: 1.75;
+  line-spacing: 1;
 }
+
 a.sidebar-nav-item:hover,
 a.sidebar-nav-item:focus {
   text-decoration: underline;
 }
 .sidebar-nav-item.active {
-  font-weight: bold;
+  font-weight: 900;
 }
 
 /* Sticky sidebar

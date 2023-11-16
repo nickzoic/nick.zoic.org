@@ -158,27 +158,44 @@ and the latter terrifyingly erratic, but some people swear by them.
 
 As well as three stoves I've got three lots of cookware ... okay, so I have a problem.
 
-| Item | Weight,g | 
+| Item | Weight, g | 
 |:---:|:---:|
 | Small pot & lid with folding handles | 220  |
 | Swedish Army mess kit | 465 |
-| Large double pot & lid * | 525 |
+| Large double pot & lid (no handle) | 525 |
 | Removeable pot handle | ? |
 
-\* no handle
+The small pot is just the right size to fit a gas canister, gas can tripod and mini stove inside.
+it's just big enough to cook some sausage and tinned beans or something like that.
+It has plastic-coated folding handles which mean it's not really suitable for use on a fire or on the rocket stove though.
 
-The small pot is just the right size to fit a gas canister, gas can tripod and mini stove inside.  It has plastic-coated folding handles which mean it's not really suitable for use on a fire or on the rocket stove though.
+The [Swedish Army mess kit](https://www.ebay.com.au/sch/i.html?_nkw=swedish+army+mess+kit)
+is an aluminum billy with a loop handle and a matching saucepan/lid with a fold-out steel handle.
+It fits the kovea stove really nicely inside (but not the gas canister).
+Mine didn't come with the windshield or the alcohol burner, but rest assured I did not pay $200 for it.
+I've had it for years and it works well on the gas burner, on coals or suspended over a fire.
+It's possibly a bit small for the rocket stove, across the narrow axis.
 
-The [Swedish Army mess kit](https://www.ebay.com.au/sch/i.html?_nkw=swedish+army+mess+kit) is an aluminum billy with a loop handle and
-a matching saucepan/lid with a fold-out steel handle. It
-fits the kovea stove really nicely inside (but not the gas canister).
-Mine didn't come with the windshield or the alcohol burner, but rest assured I did not pay $200 for it.  I've had it for years and it 
-works well on the gas burner, on coals
-or suspended over a fire.
+The large cookset has two pans which share a lid, and is just the right size to fit the rocket stove inside.
+And both pots are a nice size to fit on top of the rocket stove without too much heat getting lost up the sides.
+There's no handles, so you need a clip-on one to pick the pots up by. 
 
-The large cookset has two pans which share a lid, and is just the right size to fit the rocket stove inside.  There's no handles, so you
-need a clip-on one to pick the pots up by.
+So I guess the three options match up pretty nicely:
 
+| Stove | Cookset | Stove, g | Cookset, g | Total, g |
+|:---:|:---:|:---:|:---:|:---:|
+| Mini | Small | 556 | 220 | 776 |
+| Kovea | Swedish | 706 | 465 | 1171 |
+| Kovea | Large | 706 | 525 | 1231 |
+| Rocket | Large | 586 | 525 | 1111 |
+
+... and if I'm going for minimal weight it's the mini stove, and maybe hang on to a half-empty
+fuel canister to save a little more.  If cooking for two, the large cookset is going to be more
+practical, either over the rocket stove if weather isn't too hot or too wet otherwise over the
+Kovea.  Decisions, decisions, decisions.
+
+(For comparison, a [Trangia cookset](https://www.snowgum.com.au/products/trangia-25-1-ultra-light-cooking-system?categoryId=218)
+is about 845g without fuel)
 
 ## Coffee for Weight Weenies
 

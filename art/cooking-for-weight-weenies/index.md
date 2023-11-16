@@ -160,18 +160,24 @@ As well as three stoves I've got three lots of cookware ... okay, so I have a pr
 
 | Item | Weight,g | 
 |:---:|:---:|
-| Small pot & lid with folding handles |  |
-| Swedish Army mess kit | |
-| Large double pot & lid | |
+| Small pot & lid with folding handles | 220  |
+| Swedish Army mess kit | 465 |
+| Large double pot & lid * | 525 |
+| Removeable pot handle | ? |
 
-The smallest is just the right size to fit a gas canister and mini stove inside.
+\* no handle
 
-The [Swedish Army mess kit](https://www.ebay.com.au/sch/i.html?_nkw=swedish+army+mess+kit)
-fits the kovea stove really nicely inside (but not the gas canister).  It's an aluminium one,
-not stainless.
-Mine didn't come with the windshield or the alcohol burner, but rest assured I did not pay $200 for it.
+The small pot is just the right size to fit a gas canister, gas can tripod and mini stove inside.  It has plastic-coated folding handles which mean it's not really suitable for use on a fire or on the rocket stove though.
 
-The largest has two pans which share a lid, and is just the right size to fit the rocket stove inside.
+The [Swedish Army mess kit](https://www.ebay.com.au/sch/i.html?_nkw=swedish+army+mess+kit) is an aluminum billy with a loop handle and
+a matching saucepan/lid with a fold-out steel handle. It
+fits the kovea stove really nicely inside (but not the gas canister).
+Mine didn't come with the windshield or the alcohol burner, but rest assured I did not pay $200 for it.  I've had it for years and it 
+works well on the gas burner, on coals
+or suspended over a fire.
+
+The large cookset has two pans which share a lid, and is just the right size to fit the rocket stove inside.  There's no handles, so you
+need a clip-on one to pick the pots up by.
 
 
 ## Coffee for Weight Weenies
@@ -179,6 +185,9 @@ The largest has two pans which share a lid, and is just the right size to fit th
 I do like a [decent cup of coffee](https://www.youtube.com/watch?v=EdKP6B8NkGw)
 in the mornings, but also I really don't 
 want to carry a whole lot of extra weight to do so.
+
+![coffee makers](img/coffee2.jpg)
+*coffee makers*
 
 | Item | Weight, g |
 |:---:|:---:|

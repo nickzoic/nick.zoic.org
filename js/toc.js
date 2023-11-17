@@ -55,7 +55,7 @@ window.addEventListener('DOMContentLoaded', function (event) {
         }
     }
     
-    toc.appendChild(ul);       // add list to the container
+    tocContainer.appendChild(ul);       // add list to the container
     
     // Add a class to the first list item to allow for toggling active state.
     var links = tocContainer.getElementsByClassName("sidenav__item");

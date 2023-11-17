@@ -5,7 +5,7 @@ tags:
   - not-computers
 date: '2023-11-13'
 summary: "Looking at camp cooking if you're trying to save pack weight"
-layout: draft
+layout: "draft-with-toc"
 ---
 
 I've [gotten into bikepacking](/art/the-cycling-bikepacking-post/) lately,

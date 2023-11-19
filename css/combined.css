@@ -741,3 +741,25 @@ nav.sidebar-nav, nav.sidebar-tags {
 nav h2 {
   font-size: 1rem;
 }
+
+div.toc {
+    border: 3px dotted black;
+    padding: 1em;
+    margin: 1em;
+}
+
+div.toc ul {
+    margin-bottom: 0;
+}
+
+div.watermark { 
+    position: absolute;
+    left: 0;
+    font-size: 1000px;
+    text-orientation: upright;
+    writing-mode: vertical-lr;
+    opacity: 20%;
+    color: red;
+    pointer-events: none;
+}
+

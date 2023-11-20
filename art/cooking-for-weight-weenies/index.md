@@ -5,7 +5,7 @@ tags:
   - not-computers
 date: '2023-11-13'
 summary: "Looking at camp cooking if you're trying to save pack weight"
-layout: "draft-with-toc"
+layout: "draft"
 ---
 
 I've [gotten into bikepacking](/art/the-cycling-bikepacking-post/) lately,
@@ -42,6 +42,10 @@ weighs 490g and costs $149.  So reducing that weight is only costing you $.24 pe
 
 So, is buying titanium cutlery an economically effective way to save weight?  **No.**<br>
 Do I love my titanium splade anyway?  **Yes.**
+
+On the other hand,
+[four titanium bottle cage screws](https://www.pushys.com.au/silca-sicuro-bottle-cage-titanium-bolts-4-pack.html)
+will cost you $35 and save you about 10g, so it could be worse.
 
 ## Stoves for Weight Weenies
 
@@ -111,11 +115,14 @@ efficient burning.  There's a few different ways to make this work,
 and I'm not sure there's a precise definition of what is and isn't
 a rocket stove.
 
-My one is just a cheap assembly of double-walled stainless steel tubes.
+[My one](https://share.temu.com/qavK5e3s5rA) is just an inexpensive
+assembly of stacking double-walled stainless steel tubes.
+When packed away the parts nest neatly inside each other.
 The double stainless steel walls keep a lot of heat
-in and reflect radiant heat back into the center, and fresh air is drawn
-in at the bottom, heated between the walls and reintroduced at the
-top where it causes any wood gases to be completely burnt off, producing
+in and reflect radiant heat back into the center.
+Fresh air is drawn in at the bottom, heated between the walls and reintroduced at the
+top where it causes any wood gases to be completely burnt off. 
+Based on the blue color of the stainless steel it's producing
 [temperatures up to 300⁰C](https://blog.adafruit.com/2016/06/20/the-color-spectrum-of-heated-steel/).
 
 ![rocket stove](img/rocket.jpg)

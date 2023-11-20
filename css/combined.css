@@ -742,9 +742,15 @@ nav h2 {
   font-size: 1rem;
 }
 
-div.toc {
-    border: 3px dotted black;
-    padding: 0.5em;
+div.toc:empty {
+    border-top: 1px solid;
+    margin: 1em;
+}
+
+div.toc > ul.sidenav {
+    border: 2px dotted;
+    padding-top: 0.5em;
+    padding-bottom: 0.5em;
     margin: 0.5em;
     font-size: 72%;
 }

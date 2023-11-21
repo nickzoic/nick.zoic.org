@@ -115,7 +115,7 @@ efficient burning.  There's a few different ways to make this work,
 and I'm not sure there's a precise definition of what is and isn't
 a rocket stove.
 
-[My one](https://share.temu.com/qavK5e3s5rA) is just an inexpensive
+My [rocket stove](https://share.temu.com/qavK5e3s5rA) is just an inexpensive
 assembly of stacking double-walled stainless steel tubes.
 When packed away the parts nest neatly inside each other.
 The double stainless steel walls keep a lot of heat
@@ -245,8 +245,9 @@ it's about 87g. You can get stainless filters for these too if you don't
 like the disposable paper ones.
 
 Or, if we're happy to wait anyway, we can dispense with the cylinder and the
-disposable paper filters and just bring the filter: a conical stainless steel
-filter weighs about 10g and just sits inside your coffee cup until you reckon
+disposable paper filters and just bring the filter:
+[a conical stainless steel filter](https://share.temu.com/tK6zRCoZltA)
+folds flat, weighs about 10g and just sits inside your coffee cup until you reckon
 its brewed enough and then lift it up and let it drain.
 
 ![coffee filter](img/coffee.jpg)

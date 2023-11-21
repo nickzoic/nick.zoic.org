@@ -5,7 +5,7 @@ tags:
   - containers
 date: '2023-11-21'
 summary: "How to run docker in an ephemeral filesystem (for fun and profit)"
-layout: "draft"
+layout: "article"
 ---
 
 ## Problem
@@ -39,9 +39,8 @@ but there's three issues I've bumped into a lot:
 
         tmpfs /tmp/ramdisk tmpfs rw,nosuid,nodev,size=16G 0 0
 
-   Mount this volume (it'll automatically remount at restart):
-
-        mount /tmp/ramdisk
+   Mount this volume with `mount /tmp/ramdisk`
+   (it'll automatically remount at restart).
 
 4. Tell docker to write its stuff there by creating `/etc/docker/daemon.json`,
    or adding this clause to it if it already exists:
@@ -50,9 +49,7 @@ but there's three issues I've bumped into a lot:
 
    Docker will create that directory when it starts.
 
-5. Restart docker:
-
-        service docker restart
+5. Restart docker using `service docker restart`.
 
 ## Result
 

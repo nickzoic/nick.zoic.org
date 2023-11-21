@@ -8,6 +8,7 @@ tags:
     - mysql
     - postgres
     - systems
+    - container
 summary: |
     I've quite often wanted to host "stupid toys" based on a Python/Django/Postgres
     stack but having to think about a bunch of Linux VMs really doesn't cheer me 

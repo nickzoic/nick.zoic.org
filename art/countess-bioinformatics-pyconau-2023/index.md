@@ -1,5 +1,5 @@
 ---
-title: CountESS: Bioinformatics at PyConAU 2023
+title: "CountESS: Bioinformatics at PyConAU 2023"
 date: '2023-08-18'
 layout: draft
 tags:

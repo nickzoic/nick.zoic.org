@@ -150,16 +150,49 @@ or where dry kindling is hard to find.  Plus the rocket
 stove has to cool down before you can pack it up and it covers all your cookware
 in soot (not as much as an open fire, but still), so it's not as clear cut as all that.
 
+### Alcohol stoves
+
+In this article I'd originally dismissed alcohol burners like the 
+[trangia](https://www.snowys.com.au/27-1-small-ultralight-aluminium)
+as "horribly slow" but I went and bought a cheap one anyway just so I
+could give it a go for you, good reader.
+
+Maybe I've become more patient in my old age but five minutes to
+boil 250mL of water is ... well it isn't quick but then again it's not that bad.
+
+| Item | Weight, g |
+|:---:|:---:|
+| Alcohol Stove | 30 |
+| Fuel bottle 100 mL | 25 |
+| Liquid fuel ~95 mL | 75 |
+| Trivet | 60 ? |
+| Windshield | 60 ? |
+| *TOTAL* | 250 ? | 
+
+30 grams seems amazingly low weight compared even to the mini butane burner,
+but doesn't include fuel or any kind of windshield or trivet to place your pot on,
+and without those the stove isn't usable.
+I forgot to order a trivet for it, so that's on its way.
+For test purposes, I made a trivet/windshield out of a Milo can but it's not very
+portable.
+
+![alcohol burner in milo can shield](img/milo.jpg)
+
+For comparison, a [Trangia cookset](https://www.snowgum.com.au/products/trangia-25-1-ultra-light-cooking-system?categoryId=218)
+with burner, windshield/pan support, two pots and a frypan is about 845g without fuel.
+
+Methylated Spirits fuel is [quite cheap](https://www.bunnings.com.au/diggers-1l-methylated-spirits_p1560782)
+and it only took about 10g to vigorously boil a cup of water so a little 100mL bottle should
+last for a short trip (in case you're wondering: ethanol is less dense than water, about 0.8 g/mL)
+
 ### Other kinds of stove
 
 Hexamine (solid fuel tablet) stoves might also be worth considering for short
 trips.  They're compact, low weight and easy to light but as I understand it
 not particularly fast to cook over.
 
-I should also talk about liquid fuel stoves, eg:
-[trangia](https://www.snowys.com.au/27-1-small-ultralight-aluminium) type alcohol burners
-and pressurized shellite stoves, but the former I've always found horribly slow
-and the latter terrifyingly erratic, but some people swear by them.
+Pressurized shellite stoves have their loyal adherents, but I've always found them
+terrifyingly erratic, with blocked jets, leaking o-rings and sudden flare-ups.
 
 ## Cookware
 
@@ -187,10 +220,11 @@ The large cookset has two pans which share a lid, and is just the right size to 
 And both pots are a nice size to fit on top of the rocket stove without too much heat getting lost up the sides.
 There's no handles, so you need a clip-on one to pick the pots up by. 
 
-So I guess the three options match up pretty nicely:
+So I guess the options match up pretty nicely:
 
 | Stove | Cookset | Stove, g | Cookset, g | Total, g |
 |:---:|:---:|:---:|:---:|:---:|
+| Alcohol | Small | 250 | 220 | 470 |
 | Mini | Small | 556 | 220 | 776 |
 | Kovea | Swedish | 706 | 465 | 1171 |
 | Kovea | Large | 706 | 525 | 1231 |
@@ -200,9 +234,6 @@ So I guess the three options match up pretty nicely:
 fuel canister to save a little more.  If cooking for two, the large cookset is going to be more
 practical, either over the rocket stove if weather isn't too hot or too wet otherwise over the
 Kovea.  Decisions, decisions, decisions.
-
-(For comparison, a [Trangia cookset](https://www.snowgum.com.au/products/trangia-25-1-ultra-light-cooking-system?categoryId=218)
-is about 845g without fuel)
 
 ## Coffee for Weight Weenies
 

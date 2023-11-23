@@ -753,9 +753,10 @@ div.toc ul {
 }
 
 div.watermark { 
+    font-family: "Acme", serif;
     position: absolute;
-    left: 0;
-    font-size: 1000px;
+    left: 1em;
+    font-size: 25em;
     text-orientation: upright;
     writing-mode: vertical-lr;
     opacity: 20%;

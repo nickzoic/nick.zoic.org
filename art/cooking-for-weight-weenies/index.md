@@ -20,6 +20,9 @@ not moving.  But all that extra weight only works out to about an extra
 15% of so of the combined weight of bike + rider so once we're moving
 it really doesn't make a huge difference.
 
+![bike on blacksands road, near warburton](img/blacksands.jpg)
+*Packed for camping, on Blacksands Road, near Warburton*
+
 There's lots of different ways to save weight but lightness costs money
 so you've got to be a bit organized to work out where to save weight
 economically.
@@ -81,8 +84,10 @@ flexible pipe.
 
 There's a few interesting things to note here.
 
-The windshields were both originally twice as long (and twice as heavy),
-but I shortened them as butane stoves only really need a shield on the upwind side.
+The windshields are made of multiple panels of alumnium joined with steel hinge wires.
+They were both originally twice as long (and twice as heavy),
+but I shortened them by removing half the panels, as butane stoves only really
+need a shield on the upwind side.
 The moonwalker is very low and doesn't need a proper shield in most conditions,
 you can just leave a pack or some sticks upwind and that'll work.  But I've
 included a low wind shield in the numbers just to be fair.
@@ -299,3 +304,4 @@ of beans or a cold, refreshing canned beverage.  Or half a water bottle.
 The only lighter options are "coffee bags", which I've never found to be any
 good at all, and instant coffee which, well, any port in a storm but it'd better
 be a hell of a storm.
+

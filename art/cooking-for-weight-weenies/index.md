@@ -3,9 +3,9 @@ title: 'Cooking for Weight Weenies'
 tags:
   - cycling
   - not-computers
-date: '2023-11-13'
+date: '2023-11-24'
 summary: "Looking at camp cooking if you're trying to save pack weight"
-layout: "draft"
+layout: "article"
 ---
 
 I've [gotten into bikepacking](/art/the-cycling-bikepacking-post/) lately,
@@ -54,15 +54,15 @@ will cost you $35 and save you about 10g, so it could be worse.  It could always
 
 Stoves provide a way of heating food and also boiling water to sterilize it
 or just for a cup of tea and a nice hot water bottle on a cold night.
-But they're one of the heaviest bits of kit you'll carry, and also one of the
-cheapest opportunities to reduce weight.
+But they're one of the heaviest bits of kit you'll carry.
 
 You can do without and eat cold peanut butter tortillas for every meal.
 That is definitely a thing you could choose to do.
-
 Or everywhere you go you could build a tiny fireplace out of rocks and
 cook over the coals, but it's pretty time consuming way to do it.
-So mostly it's practical to have some kind of stove.
+
+So mostly it's practical to have some kind of stove, and thankfully
+they're one of the cheapest opportunities to reduce weight.
 
 ### Gas Stoves
 
@@ -185,12 +185,11 @@ boil 250mL of water is ... well it isn't quick but then again it's not that bad.
 30 grams seems amazingly low weight compared even to the mini butane burner,
 but doesn't include fuel or any kind of windshield or trivet to place your pot on,
 and without those the stove isn't usable.
-Like the rocket stove, but Unlike the gas stoves, you can't turn it up or down
-so it's pretty much a fast boil or nothing: simmering is a bit fraught.
+Like the rocket stove, but unlike the gas stoves, you can't turn it up or down
+so it's pretty much a fast boil or nothing: simmering isn't really possible.
 
 For test purposes, I made a trivet/windshield out of a Milo can which is
 efficient but not very portable.
-portable.
 
 ![alcohol burner in milo can shield](img/milo.jpg)
 
@@ -250,6 +249,13 @@ fuel canister to save a little more.  If cooking for two, the large cookset is g
 practical, either over the rocket stove if weather isn't too hot or too wet otherwise over the
 Kovea.  Decisions, decisions, decisions.
 
+### Additional stuff
+
+Don't forget you'll also need some utensils: at the very least a plastic splade and
+probably something to stir with.  Unless you want to eat with sticks and tyre levers I 
+suppose.  Unless you're doing exclusively dehydrated or boil-in-the-bag stuff you'll
+need something to wash up with too.
+
 ## Coffee for Weight Weenies
 
 I do like a [decent cup of coffee](https://www.youtube.com/watch?v=EdKP6B8NkGw)
@@ -299,10 +305,22 @@ its brewed enough and then lift it up and let it drain.
 ![coffee filter](img/coffee.jpg)
 *Coffee Filter*
 
-Congratulations, you've just saved 390g, which is about the weight of a tin
-of beans or a cold, refreshing canned beverage.  Or half a water bottle.
+Congratulations, you've just saved about the weight of a tin
+of beans or a cold, refreshing canned beverage.  Or maybe even
+a tiny chair.
 
 The only lighter options are "coffee bags", which I've never found to be any
 good at all, and instant coffee which, well, any port in a storm but it'd better
 be a hell of a storm.
 
+## Conclusion
+
+You could save a kilo by spending a few thousand bucks on a lighter bike,
+or spending a few hundred bucks on lighter camping gear or you could just spend a 
+couple of tenners on a tiny stove and eat with a tyre lever.
+
+Or you could just bring your credit card and stay at a nice B&B.
+
+There's many ways to do it but hopefully you've enjoyed joining me in
+pondering the details from the comfort of your sofa, rather than bemoaning
+your fate as you drag a kitchen sink up the side of a mountain.

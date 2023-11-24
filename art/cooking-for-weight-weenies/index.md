@@ -20,6 +20,9 @@ not moving.  But all that extra weight only works out to about an extra
 15% of so of the combined weight of bike + rider so once we're moving
 it really doesn't make a huge difference.
 
+![bike on blacksands road, near warburton](img/blacksands.jpg)
+*Packed for camping, on Blacksands Road, near Warburton*
+
 There's lots of different ways to save weight but lightness costs money
 so you've got to be a bit organized to work out where to save weight
 economically.
@@ -45,13 +48,14 @@ Do I love my titanium splade anyway?  **Yes.**
 
 On the other hand,
 [four titanium bottle cage screws](https://www.pushys.com.au/silca-sicuro-bottle-cage-titanium-bolts-4-pack.html)
-will cost you $35 and save you about 10g, so it could be worse.
+will cost you $35 and save you about 10g, so it could be worse.  It could always be worse.
 
 ## Stoves for Weight Weenies
 
 Stoves provide a way of heating food and also boiling water to sterilize it
 or just for a cup of tea and a nice hot water bottle on a cold night.
-But they're one of the heavier bits of kit you'll carry.
+But they're one of the heaviest bits of kit you'll carry, and also one of the
+cheapest opportunities to reduce weight.
 
 You can do without and eat cold peanut butter tortillas for every meal.
 That is definitely a thing you could choose to do.
@@ -80,11 +84,16 @@ flexible pipe.
 
 There's a few interesting things to note here.
 
-The windshields were both originally twice as long (and twice as heavy),
-but I shortened them as butane stoves only really need a shield on the upwind side.
+The windshields are made of multiple panels of alumnium joined with steel hinge wires.
+They were both originally twice as long (and twice as heavy),
+but I shortened them by removing half the panels, as butane stoves only really
+need a shield on the upwind side.
 The moonwalker is very low and doesn't need a proper shield in most conditions,
 you can just leave a pack or some sticks upwind and that'll work.  But I've
 included a low wind shield in the numbers just to be fair.
+
+![mini gas stove, tripod, small pot](img/mini.jpg)
+*Mini gas stove, with canister tripod and small pot*
 
 Bringing the mini gas stove (115g) instead seems like it saves a fair bit of weight
 over the Kovea (354g), saving 239g but it requires a taller wind shield and
@@ -158,6 +167,9 @@ In this article I'd originally dismissed alcohol burners like the
 as "horribly slow" but I went and bought a cheap one anyway just so I
 could give it a go for you, good reader.
 
+![metho-burning stove with fuel bottle](img/metho.jpg)
+*Metho-burning stove with fuel bottle*
+
 Maybe I've become more patient in my old age but five minutes to
 boil 250mL of water is ... well it isn't quick but then again it's not that bad.
 
@@ -171,11 +183,14 @@ boil 250mL of water is ... well it isn't quick but then again it's not that bad.
 | *TOTAL* | 250 ? | 
 
 30 grams seems amazingly low weight compared even to the mini butane burner,
-but doesn't include a lighter or fuel or any kind of windshield or trivet
-to place your pot on, and without those the stove isn't usable.
-I forgot to order a trivet for it, so that's on its way.
+but doesn't include fuel or any kind of windshield or trivet to place your pot on,
+and without those the stove isn't usable.
+Like the rocket stove, but Unlike the gas stoves, you can't turn it up or down
+so it's pretty much a fast boil or nothing: simmering is a bit fraught.
+
 For test purposes, I made a trivet/windshield out of a Milo can which is
 efficient but not very portable.
+portable.
 
 ![alcohol burner in milo can shield](img/milo.jpg)
 
@@ -290,3 +305,4 @@ of beans or a cold, refreshing canned beverage.  Or half a water bottle.
 The only lighter options are "coffee bags", which I've never found to be any
 good at all, and instant coffee which, well, any port in a storm but it'd better
 be a hell of a storm.
+

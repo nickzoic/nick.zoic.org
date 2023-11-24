@@ -1,6 +1,6 @@
 ﻿---
 layout: page
-title: Résumé: Nicholas Moore
+title: "Résumé: Nicholas Moore"
 ---
 
 #### January 2020

@@ -1,5 +1,5 @@
 ---
-date: 2023-11-23
+date: '2023-11-23'
 title: "Finding happiness in containers"
 summary: "Best practices for using containers simply and effectively"
 tags:

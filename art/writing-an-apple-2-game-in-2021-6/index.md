@@ -5,7 +5,7 @@ tags:
   - apple
   - games
 title: 'Writing an Apple 2 game in 2021 (Part 6)'
-summary: "Part 6 -- Oh gosh, is that the time?
+summary: "Part 6 -- Oh gosh, is that the time?"
 ---
 
 Previously:

@@ -32,7 +32,7 @@ To decide where to more effectively save weight, weigh everything:
 | Item | Weight, g | Cost, $ |
 |:---:|:---:|
 |Snowpeak Titanium Splade | 15 | 15 |
-|The fanciest looking full sized steel fork<br>found in my kitchen cutlery drawer | 51 | 0.50 |
+|The fanciest looking full sized steel fork<br>I could find in my kitchen cutlery drawer | 51 | 0.50 |
 
 So you're spending $14.50 to save 35 grams, or to put it another way this weight
 saving is costing you $.40 per gram.  By comparison, a cheap lightweight chair weighs
@@ -149,6 +149,7 @@ Of course, there are places and conditions where
 or where dry kindling is hard to find.  Plus the rocket
 stove has to cool down before you can pack it up and it covers all your cookware
 in soot (not as much as an open fire, but still), so it's not as clear cut as all that.
+Also: don't forget your matches.
 
 ### Alcohol stoves
 
@@ -170,11 +171,11 @@ boil 250mL of water is ... well it isn't quick but then again it's not that bad.
 | *TOTAL* | 250 ? | 
 
 30 grams seems amazingly low weight compared even to the mini butane burner,
-but doesn't include fuel or any kind of windshield or trivet to place your pot on,
-and without those the stove isn't usable.
+but doesn't include a lighter or fuel or any kind of windshield or trivet
+to place your pot on, and without those the stove isn't usable.
 I forgot to order a trivet for it, so that's on its way.
-For test purposes, I made a trivet/windshield out of a Milo can but it's not very
-portable.
+For test purposes, I made a trivet/windshield out of a Milo can which is
+efficient but not very portable.
 
 ![alcohol burner in milo can shield](img/milo.jpg)
 
@@ -182,7 +183,7 @@ For comparison, a [Trangia cookset](https://www.snowgum.com.au/products/trangia-
 with burner, windshield/pan support, two pots and a frypan is about 845g without fuel.
 
 Methylated Spirits fuel is [quite cheap](https://www.bunnings.com.au/diggers-1l-methylated-spirits_p1560782)
-and it only took about 10g to vigorously boil a cup of water so a little 100mL bottle should
+and it only took about 10g / 12mL to vigorously boil a cup of water so a little 100mL bottle should
 last for a short trip (in case you're wondering: ethanol is less dense than water, about 0.8 g/mL)
 
 ### Other kinds of stove
@@ -202,8 +203,7 @@ As well as three stoves I've got three lots of cookware ... okay, so I have a pr
 |:---:|:---:|
 | Small pot & lid with folding handles | 220  |
 | Swedish Army mess kit | 465 |
-| Large double pot & lid (no handle) | 525 |
-| Removeable pot handle | ? |
+| Large double pot & lid & handle | 555 |
 
 The small pot is just the right size to fit a gas canister, gas can tripod and mini stove inside.
 it's just big enough to cook some sausage and tinned beans or something like that.
@@ -218,7 +218,7 @@ It's possibly a bit small for the rocket stove, across the narrow axis.
 
 The large cookset has two pans which share a lid, and is just the right size to fit the rocket stove inside.
 And both pots are a nice size to fit on top of the rocket stove without too much heat getting lost up the sides.
-There's no handles, so you need a clip-on one to pick the pots up by. 
+There's no handles, so you need a separate clip-on one to pick the pots up by. 
 
 So I guess the options match up pretty nicely:
 
@@ -227,8 +227,8 @@ So I guess the options match up pretty nicely:
 | Alcohol | Small | 250 | 220 | 470 |
 | Mini | Small | 556 | 220 | 776 |
 | Kovea | Swedish | 706 | 465 | 1171 |
-| Kovea | Large | 706 | 525 | 1231 |
-| Rocket | Large | 586 | 525 | 1111 |
+| Rocket | Large | 586 | 555 | 1171 |
+| Kovea | Large | 706 | 555 | 1261 |
 
 ... and if I'm going for minimal weight it's the mini stove, and maybe hang on to a half-empty
 fuel canister to save a little more.  If cooking for two, the large cookset is going to be more

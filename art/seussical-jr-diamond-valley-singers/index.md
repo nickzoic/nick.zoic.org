@@ -145,3 +145,9 @@ including for our set design
 congrats to Cara, Cathie & Ellouise for their nominations
 (and to everyone in the company for the "outstanding dance number"
 nomination)
+
+## UPDATE DECEMBER 2023
+
+Tickets are [on sale for DVS's production of Frozen Jr](https://www.dvsingers.org/tickets)
+and are selling alarmingly fast.  I've seen the rehearsals and it's looking and sounding great.
+I don't think we'll be able to add more shows so get in quick.

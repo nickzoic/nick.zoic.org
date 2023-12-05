@@ -41,7 +41,7 @@ So you're spending $14.50 to save 35 grams, or to put it another way this weight
 saving is costing you $.40 per gram.  By comparison, a cheap lightweight chair weighs
 900g and costs about $50, whereas the 
 [Helinox Zero](https://www.anacondastores.com/camping-hiking/camp-furniture/camping-chairs/helinox-zero-chair/90187413)
-weighs 490g and costs $149.  So reducing that weight is only costing you $.24 per gram.
+weighs 500g and costs $149.  So reducing that weight is only costing you $.24 per gram.
 
 So, is buying titanium cutlery an economically effective way to save weight?  **No.**<br>
 Do I love my titanium splade anyway?  **Yes.**
@@ -178,9 +178,8 @@ boil 250mL of water is ... well it isn't quick but then again it's not that bad.
 | Alcohol Stove | 30 |
 | Fuel bottle 100 mL | 25 |
 | Liquid fuel ~95 mL | 75 |
-| Trivet | 60 ? |
-| Windshield | 60 ? |
-| *TOTAL* | 250 ? | 
+| Trivet / Windshield | 30 |
+| *TOTAL* | 160 | 
 
 30 grams seems amazingly low weight compared even to the mini butane burner,
 but doesn't include fuel or any kind of windshield or trivet to place your pot on,
@@ -188,10 +187,12 @@ and without those the stove isn't usable.
 Like the rocket stove, but unlike the gas stoves, you can't turn it up or down
 so it's pretty much a fast boil or nothing: simmering isn't really possible.
 
-For test purposes, I made a trivet/windshield out of a Milo can which is
-efficient but not very portable.
-
 ![alcohol burner in milo can shield](img/milo.jpg)
+
+For test purposes, I made a trivet/windshield out of a Milo can which is
+efficient but not very portable.  Since then I've got a tiny flexy stainless
+windshield which also works as a trivet and weighs almost nothing.
+It's not very stable, but if ultralight is what you want that's the price you pay.
 
 For comparison, a [Trangia cookset](https://www.snowgum.com.au/products/trangia-25-1-ultra-light-cooking-system?categoryId=218)
 with burner, windshield/pan support, two pots and a frypan is about 845g without fuel.
@@ -199,6 +200,9 @@ with burner, windshield/pan support, two pots and a frypan is about 845g without
 Methylated Spirits fuel is [quite cheap](https://www.bunnings.com.au/diggers-1l-methylated-spirits_p1560782)
 and it only took about 10g / 12mL to vigorously boil a cup of water so a little 100mL bottle should
 last for a short trip (in case you're wondering: ethanol is less dense than water, about 0.8 g/mL)
+
+Note that it is really important to use a childproof bottle for your fuel and 
+label it appropriately to make sure no-one mistakes it for a really terrible cough remedy.
 
 ### Other kinds of stove
 
@@ -238,7 +242,7 @@ So I guess the options match up pretty nicely:
 
 | Stove | Cookset | Stove, g | Cookset, g | Total, g |
 |:---:|:---:|:---:|:---:|:---:|
-| Alcohol | Small | 250 | 220 | 470 |
+| Alcohol | Small | 160 | 220 | 380 |
 | Mini | Small | 556 | 220 | 776 |
 | Kovea | Swedish | 706 | 465 | 1171 |
 | Rocket | Large | 586 | 555 | 1171 |
@@ -324,3 +328,5 @@ Or you could just bring your credit card and stay at a nice B&B.
 There's many ways to do it but hopefully you've enjoyed joining me in
 pondering the details from the comfort of your sofa, rather than bemoaning
 your fate as you drag a kitchen sink up the side of a mountain.
+
+And, yeah, I went and bought that 500g chair.  Because of course I did.

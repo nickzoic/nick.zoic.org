@@ -12,6 +12,15 @@ I've [gotten into bikepacking](/art/the-cycling-bikepacking-post/) lately,
 and as well as learning some stuff about bike mechanics and working on
 my fitness, I've also had to work on how to pack.
 
+*A lot of the cheaper stuff mentioned here was bought from Temu,
+I've so far found their deliveries to be super reliable and most
+of their stuff to be very good for the price.
+if you're considering trying it out you can use
+[this Temu affiliate link](https://temu.to/m/un8i4z9z5w9)
+and you'll get some kind of discount voucher and when you actually
+buy something I'll get some kind of store credit to spend on more
+random cycling stuff*
+
 ## The Weight
 
 Weight is a funny thing.  My bike fully packed for camping weighs about
@@ -329,4 +338,4 @@ There's many ways to do it but hopefully you've enjoyed joining me in
 pondering the details from the comfort of your sofa, rather than bemoaning
 your fate as you drag a kitchen sink up the side of a mountain.
 
-And, yeah, I went and bought that 500g chair.  Because of course I did.
+And, yeah, I went and bought that 500g chair.  Because of course I did.  After all, I'd just saved 500g on a coffee filter ...

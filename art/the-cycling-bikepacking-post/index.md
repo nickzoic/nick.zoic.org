@@ -193,6 +193,7 @@ with the gear pictured and it handles everything from singletrack to
 fast concrete with no problem.
 
 I'll write some more about turning a commuter bike into a touring bike
+and [cooking for weight weenies](/art/cooking-for-weight-weenies/)
 later, suffice to say the geometry is pretty similar and it's really
 just a bit of upgraded ergonomics and some extra luggage.
 

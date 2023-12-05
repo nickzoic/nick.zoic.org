@@ -12,6 +12,12 @@ with an easy to write URL ...
 
 (updated whenever I think of something)
 
+## Quotes
+
+* "All models are wrong, but some are useful." -- George E. P. Box
+* "Things are the way they are because they got that way." -- Gerald Weinberg
+* "Any organization that designs a system (defined broadly) will produce a design whose structure is a copy of the organization's communication structure"
+  ( [Conway's Law](http://www.melconway.com/Home/Conways_Law.html) )
 
 ## MicroPython
 
@@ -26,8 +32,6 @@ with an easy to write URL ...
 * [The Mother of All Demos](http://www.dougengelbart.org/firsts/dougs-1968-demo.html) ([wikipedia](https://en.wikipedia.org/wiki/The_Mother_of_All_Demos)) (Douglas Engelbart)
 * [Computer Lib / Dream Machines](https://archive.org/details/computer-lib-dream-machines/mode/2up) (Ted Nelson) [alt](https://kupdf.net/download/ted-nelson-computer-lib-dream-machines_59bc49cd08bbc59209686eb8_pdf)
 * [Project Xanadu](https://en.wikipedia.org/wiki/Project_Xanadu) (Ted Nelson) / [Xanadu System Proposal](https://sentido-labs.com/en/library/201904240732/Xanadu%20Hypertext%20Documents.html)
-* [Conway's Law](http://www.melconway.com/Home/Conways_Law.html)
-  "Any organization that designs a system (defined broadly) will produce a design whose structure is a copy of the organization's communication structure"
 
 (see also [autonomic layouts](/art/autonomic-layouts/) )
 

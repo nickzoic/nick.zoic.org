@@ -3,11 +3,11 @@ layout: base
 ---
     <h1 class="page-title">All Tags ...</h1>
     <div class="page">
-      {% assign sorted_pages = site.pages | sort:"title" %}
+      {% assign sorted_pages = site.pages | sort:"tag" %}
       {% for page in sorted_pages %}
           {% if page.layout == "tag" %}
               <a href="{{ page.url }}"><h3>{{ page.title }}</h3></a>
-              {{ page.content }}
+              {{ page.content|markdownify }}
               <ul>
                   {% for page2 in sorted_pages %}
                       {% if page2.layout == "article" %}

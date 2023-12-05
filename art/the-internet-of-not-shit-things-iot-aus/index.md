@@ -26,8 +26,7 @@ lots of other interesting stuff on there including lots of
 [ESP8266](../buzzconf-nights-esp8266-flobot-ciril/) stuff and lots
 more to come.
 
-Follow [@mnemote](https://twitter.com/mnemote) for updates or [get in
-touch](/nick-moore/).
+~~Follow @mnemote for updates or get in touch~~
 
 Also don't forget to check out [MicroPython](https://micropython.org/),
 [BuzzConf](https://buzzconf.io/) and of course

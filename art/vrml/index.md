@@ -1,9 +1,6 @@
 ---
-category: etc
-date: '2011-05-01'
+date: '2009-08-18'
 layout: article
-redirect_from: '/etc/vrml/'
-slug: vrml
 tags:
   - networks
   - languages

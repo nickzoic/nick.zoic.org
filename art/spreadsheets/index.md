@@ -4,7 +4,9 @@ layout: article
 tags:
   - speculation
   - languages
+  - gui
 title: 'Much Ado about Spreadsheets'
+summary: Spreadsheets were arguably the first Killer App for personal computers, a tabular ledger but also a kind of visual dataflow language. However, the standard spreadsheet has some pretty severe problems... sometimes, it really is time to reinvent the wheel!
 ---
 
 ## Background
@@ -36,16 +38,23 @@ less used to command line programming.
 
 ## Issues
 
-However, the standard spreadsheet has some pretty severe problems.
-From [botched economic analysis](https://theconversation.com/the-reinhart-rogoff-error-or-how-not-to-excel-at-economics-13646)
-to [scrambled genes](https://genomebiology.biomedcentral.com/articles/10.1186/s13059-016-1044-7).
-
-Some issues:
+However, the standard spreadsheet has some pretty severe problems:
 
 * Types are per *cell*, not per *row* or *column*.  A column could have a whole jumble
   of different typed cells in it.
 * Aggregate functions like `SUM()` can easily be incorrectly set up to address a subset of
   rows in a table area, losing important data.
+
+  See this [botched economic analysis](https://theconversation.com/the-reinhart-rogoff-error-or-how-not-to-excel-at-economics-13646)
+
+  > [The authors] had not selected the entire row when averaging growth figures: they omitted data from Australia,
+  > Austria, Belgium, Canada and Denmark [...] When that error was corrected, the “0.1% decline” data became a 2.2%
+  > average increase in economic growth. 
+
+* Anything that looks like a number, and anything that looks like a date, gets autoconverted.
+
+  See this paper on [scrambled gene names](https://genomebiology.biomedcentral.com/articles/10.1186/s13059-016-1044-7)
+  
 * It's not clear, at first glance, if a cell is a static value or gets its value from a 
   formula.
 * Formulae are cut-and-pasted between cells, and its easy to get this wrong.  The
@@ -55,6 +64,12 @@ Some issues:
 * Presentation information, like fonts and column widths, are jumbled up with formulae
   and with data.  
 * Dealing with large amounts (>1Mrows) of data in spreadsheets can be rather slow.
+
+*UPDATE: I already had a few examples of terrible spreadsheet accidents but this
+one is pretty shocking even to me:*
+
+![Spreadsheets & Contact Tracing](img/spreadcovid.png)
+*[via @fetzert on twitter](https://twitter.com/fetzert/status/1331139902965227520?s=20)*
 
 ### Naming Things
 
@@ -113,7 +128,7 @@ The problem is, the information within the file is generally too patchy to someh
 magically extract types and form classes etc.
 You could use some heuristic or another, like the
 [Decompilers](https://en.wikipedia.org/wiki/Decompiler)
-of old[2] but fixing up the wrong guesses is always going to be a bear.
+of old but fixing up the wrong guesses is always going to be a bear.
 Header rows aren't always marked, columns aren't always consistent, formulae may be 
 different or missing in places.
 
@@ -203,7 +218,7 @@ layout of the spreadsheet, so that a user with different requirements
 (eg: mobile devices, bigger fonts, clearer colours)
 could display the spreadsheet differently without the issues that this causes in Excel.
 
-### 3. Types Whereever Possible
+### 4. Types Whereever Possible
 
 Labels are separate from the row or column they're labelling.  As well as a label,
 each row/column can be given a type ... integer, float, all the usuals.
@@ -215,7 +230,7 @@ It might also be useful to use row/column predicates to limit the valid
 values of cells, bringing in a bit of
 [Design by Contract](https://en.wikipedia.org/wiki/Design_by_contract) as well.
 
-### 4. Explicit is better than Implicit
+### 5. Explicit is better than Implicit
 
 (Borrowed from [PEP20](https://www.python.org/dev/peps/pep-0020/))
 
@@ -232,6 +247,14 @@ It's still possible to write a misleading spreadsheet, of course, but it
 makes it a lot harder to do [subtly, sneakily](http://www.underhanded-c.org/)
 or by accident.
 
+### 6. Graphical / Textual duality
+
+Much like [Flobot](/art/flobot-graphical-dataflow-language-for-robots/), every
+graphical program in this system would be "dual" with a text representation.
+This would mean that programs could be compared and maintained using
+[familiar source control systems](/art/a-canticle-for-diff3/).
+
+
 ## Further Work
 
 We've considered the strengths and weaknesses of conventional spreadsheets and 
@@ -240,4 +263,51 @@ proposed some interesting principles for designing something better.
 It sounds a bit radical, but sometimes, it really is time to 
 [reinvent the wheel](https://en.wikipedia.org/wiki/John_Boyd_Dunlop#Pneumatic_tyres)!
 
+## UPDATE
 
+[I posted this on twitter](https://twitter.com/nickzoic/status/1270518501174726657)
+and got some good feedback already.
+
+* I haven't really talked about it so far because
+  I've been thinking mostly about the programming experience but a "table" in this sense
+  absolutely could be a view into an external database or into an API, and a "table" could 
+  also be exposed to the world as an microservices-like API.
+
+* If rows and columns are notationally equivalent, how do I express that some are 
+  orthoganal to others?  Can this generalize to more dimensions?
+
+* It's easy enough to write "this cell is the total of those cells", but there's a
+  notational issue around how to express "the cells in table X are the totals of
+  each of the columns of table Y".
+
+* I desparately need a name for a "row or column".  Vector, in math terms, would be a 
+  `Nx1` or `1xM` matrix, so would be a good name for mathematicians, but I'm not sure
+  it gives the right idea for anyone else.
+
+* [graphical programming is programming](/art/programming-beyond-text-files/)
+
+* If anyone does know a product and/or service which covers these bases already, let
+  me know!
+
+## FURTHER READING
+
+* [SIEUFERD](http://people.csail.mit.edu/ebakke/sieuferd/) "a general-purpose user interface
+  for relational databases"
+
+* [Scientists rename human genes to stop Microsoft Excel from misreading them as dates](https://www.theverge.com/2020/8/6/21355674/human-genes-rename-microsoft-excel-misreading-dates) (at The Verge)
+
+# UPDATE
+
+![Satya Nadella Tweet: Excel formulas, the world’s most popular programming language, is now Turing-complete. Go check it out!](img/satya-nadella.png)
+*Excel grows Lambda functions, is now Turing-complete ([link](https://twitter.com/satyanadella/status/1359289655565291520))*
+
+Mind you, I'm somewhat convinced that
+[Turing Completeness](/art/fibonacci-regex-perversity/)
+isn't necessarily a good goal for programming languages and that
+[Total (Provably Terminating)](https://en.wikipedia.org/wiki/Total_functional_programming)
+languages are a sensible restriction.
+
+# UPDATE 2023
+
+* [I Will Fucking Dropkick You If You Use That Spreadsheet](https://ludic.mataroa.blog/blog/i-will-fucking-dropkick-you-if-you-use-that-spreadsheet/)
+* I'll be talking about [Spreadsheet Related Stuff](/art/attack-and-dethrone-excel/) at [PyConAU 2023](https://2023.pycon.org.au/)

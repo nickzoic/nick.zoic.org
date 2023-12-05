@@ -10,40 +10,23 @@
 
     <nav class="sidebar-nav">
       <p>
-	About me:
-	<a class="sidebar-nav-item{% if page.url == '/nick-moore/' %} active{% endif %}" style="display: inline-block" href="/nick-moore/">Nick Moore</a>
+	<a class="sidebar-nav-item{% if page.url == '/nick-moore/' %} active{% endif %}" href="/nick-moore/">About me: Nick Moore</a>
+        <a class="sidebar-nav-item{% if page.url == '/ref/' %} active{% endif %}" href="/ref/">Interesting Links</a>
+	<a class="sidebar-nav-item{% if page.url == '/everything/' %} active{% endif %}" href="/everything/">Everything (by date)</a>
+	<a class="sidebar-nav-item{% if page.url == '/all_tags/' %} active{% endif %}" href="/all_tags/">Everything (by tag)</a>
       </p>
 
-      <p>
-        Finding this stuff interesting and/or useful?<br/>
-        Why not
-	<a class="sidebar-nav-link" href="https://github.com/sponsors/nickzoic">Sponsor me via GitHub!</a>
-      </p>
-
-      <h2>Recently:</h2>
-      {% assign pages_list = site.pages | sort:"date" | reverse %}
+      <h2>Recently</h2>
+      {% assign pages_list = site.pages | where:"layout","article" | sort:"date" | reverse %}
       {% for node in pages_list limit:10 %}
         {% if node.title != null %}
-          {% if node.layout == "article" %}
-            <a class="sidebar-nav-item{% if page.url == node.url %} active{% endif %}" href="{{ node.url }}">{{ node.title }}</a>
-          {% endif %}
+          <a class="sidebar-nav-item{% if page.url == node.url %} active{% endif %}" href="{{ node.url }}">{{ node.title }}</a>
         {% endif %}
-      {% endfor %}
-      <p><a href="/everything/">More ...</a></p>
-    </nav>
-
-    <nav class="sidebar-tags">
-      <h2>Tags:</h2>
-      {% assign sorted_pages = site.pages | sort:"tag" %}
-      {% for node in sorted_pages %}
-        {% if node.layout == "tag" %}
-	<a class="sidebar-nav-item{% if page.url == node.url %} active{% endif %}" style="display: inline-block" href="{{ node.url }}">{{ node.title }}</a>
-	{% endif %}
       {% endfor %}
     </nav>
 
     <nav class="sidebar-copy">
-    <p class="sidebar-copy">All content Copyright © 2011-2020 Nick Moore unless otherwise noted</p>
+    <p class="sidebar-copy">All content Copyright © 2009-2023 Nick Moore unless otherwise noted</p>
     </nav>
 
   </div>

@@ -73,7 +73,8 @@ three screws holding each segment in place.
 
 *pictured: two screws per segment*
 
-*not pictured: yet another trip to the hardware store*
+*not pictured: yet another trip to the hardware store to buy more screws.
+It now has three screws per segment, which helps prevent the segments from warping away from the base.*
 
 I wanted to have the motor components all accessible from on top of the base in case I need
 to fix anything.
@@ -231,10 +232,10 @@ chain to attach extra power connections to boost the voltage in the chain.
 This is still very much a work in progress, or to put it another way, it's 
 rather janky.
 
-[Code in MicroPython/ESP32](https://github.com/nickzoic/saturnalia/) controls
+[Code in MicroPython/ESP32](https://github.com/nickzoic/saturnalia) controls
 both stepper and lights.
 
-A simple web server using [PyCoSe](https://github/nickzoic/pycose/) lets 
+A simple web server using [PyCoSe](https://github.com/nickzoic/pycose) lets 
 the tree be remote controlled from devices on our home WiFi.
 Yeah, PyCoSe is a bit experimental at this point and I'm mostly using it for
 this project to eat my own dog food.
@@ -267,9 +268,6 @@ thus has a much higher moment of inertia ... I've added some code to gently
 accelerate and decelerate the tree to reduce load on the geartrain, but it's 
 interesting to see how much movement there is in the decorations as the tree
 wobbles very slightly in its orbit.
-
-If you're interested in following along, [follow me on Twitter](https://twitter.com/nickzoic/)
-and I'll post updates and videos and so on there.
 
 ## MQTT
 

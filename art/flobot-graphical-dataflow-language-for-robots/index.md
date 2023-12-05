@@ -11,6 +11,8 @@ tags:
     - electronics
     - education
     - html5
+    - languages
+    - gui
 title: 'FloBot: A Graphical Dataflow Language for Robots'
 ---
 
@@ -66,8 +68,8 @@ up functions a flows between these to control the behaviour of the
 robot.
 
 Examples of thing kind of programming include
-[Labview](http://www.ni.com/labview/) and [Spreadsheet
-Formulae](https://en.wikipedia.org/wiki/Spreadsheet#Usage) and while it
+[Labview](http://www.ni.com/labview/) and
+[Spreadsheet Formulae](/art/spreadsheets/) and while it
 isn't a very common paradigm it is quite easy to explain and use.
 
 You can also blame nostalgia for [Rocky's

@@ -74,3 +74,4 @@ Links
 
 -   [Flobot project](http://github.com/mnemote/flobot).
 -   [Ciril project](https://github.com/mnemote/ciril/).
+-   [Chipey-bot](/art/chipey-bot-at-nodebots/).

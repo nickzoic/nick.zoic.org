@@ -193,6 +193,7 @@ Potential upgrades:
   magnetic bed some extra grip.
 
   ![Lifting corner](img/lifting1.jpg)
+  *Lifting corner*
 
 * I've managed to gum the print head up a couple of times now and had to remove & disassemble
   it to get rid of bits of broken PLA.  It seems like it's a good idea to remove the filament
@@ -209,3 +210,46 @@ Potential upgrades:
 
 Some of my stuff is [now on Thingiverse](https://www.thingiverse.com/nickzoic/designs)
 and there's [lots more on Github](https://github.com/nickzoic/models3d/).
+
+# UPDATE 2022-07-19
+
+Yeah, the printer is still going, I still mostly use OpenSCAD and Cura.
+
+If you do have to pull the print head apart for some reason, note that the nozzle screws up 
+flush to the heater block and the heat sink doesn't ... there's supposed to be a few mm
+gap there.
+If you assemble it in the wrong order, the heat sink can end up touching the heater block
+and too much heat will end up being conducted into the
+heatsink instead of the nozzle.
+The print head will heat up very slowly or not at all, and weirdly this caused the firmware
+to crash after a few minutes which made it appear to be a software error: it wasn't.
+
+![Nozzle](img/nozzle.jpg)
+*Nozzle*
+
+# UPDATE 2023-07-15
+
+I somehow wrecked the hot end, it ended up solidly glommed up with plastic and seized into
+place, and somehow I couldn't get the right nozzles etc. to fit the original.  So instead 
+I've modified the printer to use a
+[Creality Ender 3 V2/Ender 3 Pro Hot End from Ebay](https://www.ebay.com.au/itm/255814966439).
+This is a bit shorter than the original hot end so I've modified the hot end bracket,
+cut down the heat shield and mounted the fan differently.  the top of the heatsink still 
+mounts directly to the bracket but over a ~13 hour print the heater stayed stable at 190⁰C
+and the bracket never got even warm.
+
+![New Hot End](img/new-hot-end.jpg)
+*New Hot End: [photo: kissbuyonline store](https://www.ebay.com.au/str/kissbuyonline)*
+
+The changes are mostly reversible but those hot ends seem really common and are 
+inexpensive so I'm not too worried.
+Because it's a little shorter I could probably sneak another ~10mm of vertical
+travel out of the printer with a bit more fettling.
+
+![New Hot End Bracket](img/new-hot-end-bracket.jpg) ![New Hot End Bracket](img/new-hot-end-bracket2.jpg)
+*New Hot End Bracket*
+
+I should probably print some kind of fan mount shroud / duct / etc but for the moment
+it's hanging in there with one screw and a cable tie.  The bracket is somewhat in the 
+way of the very top of the fan, but the heatsink is working well and the fan housing
+is a couple of mm clear of the print nozzle which actually gives pretty good print cooling.

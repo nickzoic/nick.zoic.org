@@ -1,13 +1,11 @@
 ---
-category: etc
-date: '2012-08-22'
+date: '2009-06-23'
 layout: article
-redirect_from: '/etc/tortoise-svn/'
-slug: 'tortoise-svn'
 tags:
     - windows
     - ssh
 title: 'Quick guide to setting up TortoiseCVS / TortoiseSVN'
+summary: probably out of date now, but these are really handy and I think TortoiseGit works pretty much the same way.
 ---
 
 [TortoiseCVS](http://www.tortoisecvs.org/) and

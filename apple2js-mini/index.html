@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<!--
+ Copyright 2010-2019 Will Scullin <scullin@scullinsteel.com>
+
+ Modified only a tiny bit by Nick Moore <nick@zoic.org> to make it embed into
+ a web page!
+
+ Permission to use, copy, modify, distribute, and sell this software and its
+ documentation for any purpose is hereby granted without fee, provided that
+ the above copyright notice appear in all copies and that both that
+ copyright notice and this permission notice appear in supporting
+ documentation.  No representations are made about the suitability of this
+ software for any purpose.  It is provided "as is" without express or
+ implied warranty.
+-->
+<html>
+<head>
+
+<title>Apple ][js - An Apple 2 Emulator in JavaScript</title>
+
+<meta name="viewport" content="width=640, user-scalable=no" />
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Apple ][js">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta charset="utf-8" />
+<meta name="description" content="Apple ][js is an Apple ][ emulator written using only JavaScript and HTML5. It has color display, sound and disk support. It works best in the Chrome and Safari browsers." />
+<meta name="keywords" content="apple2,apple,ii,javascript,emulator,html5" />
+
+<link rel="apple-touch-icon" href="img/webapp-iphone.png" />
+<link rel="apple-touch-icon" size="72x72" href="img/webapp-ipad.png" />
+<link rel="shortcut icon" href="img/logoicon.png" />
+<style type="text/css">
+html, body { overflow: hidden; }
+div#header, div.inset, div.modal { display: none; }
+div.footer p { text-align: center; }
+</style>
+
+<!-- Disk Index -->
+<script type="text/javascript" src="json/disks/index.js"></script>
+
+</head>
+<body class="apple2"
+      ondragover="Apple2.handleDragOver(0, event)"
+      ondrop="Apple2.handleDrop(0, event)"
+      ondragend="Apple2.handleDragEnd(0, event)">
+  <div class="outer">
+    <div id="header">
+      <a href="https://github.com/whscullin/apple2js#readme" target="_blank">
+        <img src="img/badge.png" id="badge" />
+      </a>
+      <div id="subtitle">An Apple ][ Emulator in JavaScript</div>
+    </div>
+    <div id="display">
+      <div class="overscan">
+        <canvas id="screen" width="592" height="416"></canvas>
+      </div>
+    </div>
+    <div class="footer">
+      <p>
+        <em>Emulated by <a href="https://www.scullinsteel.com/apple2/">Apple2js</a> ... mouseover to type</em>
+        click here to <a href="#" onclick="window.location.reload()">reset</a>
+      </p>
+    </div>
+
+    <!-- just hide all this stuff with a stylesheet, yeah, I know,
+	    not cool but I'm here to write 6502 assembly not typescript! -->
+
+    <div class="inset">
+      <div class="disk"
+           ondragover="Apple2.handleDragOver(1, event)"
+           ondrop="Apple2.handleDrop(1, event)"
+           ondragend="Apple2.handleDragEnd(1, event)">
+        <div class="disk-light" id="disk1"></div>
+        <button title="Load Disk"
+                onclick="Apple2.openLoad(1, event);">
+          <i class="fas fa-folder-open"></i>
+        </button>
+        <button title="Save Disk"
+                onclick="Apple2.openSave(1, event);">
+          <i class="fas fa-save"></i>
+        </button>
+        <div id="disk-label1" class="disk-label">Disk 1</div>
+      </div>
+      <div class="disk"
+           ondragover="Apple2.handleDragOver(2, event)"
+           ondrop="Apple2.handleDrop(2, event)"
+           ondragend="Apple2.handleDragEnd(2, event)">
+        <div class="disk-light" id="disk2"></div>
+        <button title="Load Disk"
+                onclick="Apple2.openLoad(2, event);">
+          <i class="fas fa-folder-open"></i>
+        </button>
+        <button title="Save Disk"
+                onclick="Apple2.openSave(2, event);">
+          <i class="fas fa-save"></i>
+        </button>
+        <div id="disk-label2" class="disk-label">Disk 2</div>
+      </div>
+    </div>
+    <div class="inset">
+      <div id="khz" onclick="Apple2.toggleShowFPS()">0 kHz</div>
+      <button id="pause-run" onclick="Apple2.pauseRun()" title="Pause/Run">
+        <i class="fas fa-pause"></i>
+      </button>
+      <button id="toggle-sound" onclick="Apple2.toggleSound()" title="Toggle Sound">
+        <i class="fas fa-volume-off"></i>
+      </button>
+      <button id="toggle-printer" onclick="Apple2.openPrinterModal()" title="Toggle Printer">
+        <i class="fas fa-print"></i>
+      </button>
+      <div class="spacer"></div>
+      <button onclick="window.open('https://github.com/whscullin/apple2js#readme', 'blank')" title="About">
+        <i class="fas fa-info"></i>
+      </button>
+      <button onclick="Apple2.openOptions()" title="Options">
+        <i class="fas fa-cog"></i>
+      </button>
+    </div>
+    <div class="inset">
+      <div style="margin: 0 10px">
+        <div id="keyboard"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal" id="loading-modal" aria-hidden="true">
+    <div class="modal__overlay" tabindex="-1" data-micromodal-close>
+      <div class="modal__container" role="dialog" aria-modal="true" aria-labelledby="Loading" >
+        <header class="modal__header">
+          <div class="modal__title" id="loading-modal-title">
+            Loading...
+          </div>
+        </header>
+        <main class="modal__content" id="loading-modal-content">
+          <div class="meter">
+            <div class="progress"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal" id="options-modal" aria-hidden="true">
+    <div class="modal__overlay" tabindex="-1" data-micromodal-close>
+      <div class="modal__container" role="dialog" aria-modal="true" aria-labelledby="Options">
+        <header class="modal__header">
+          <span class="modal__title" id="options-modal-title">
+            Options
+          </span>
+          <button class="modal__close" aria-label="Close modal" data-micromodal-close>
+          </button>
+        </header>
+        <main class="modal__content" id="options-modal-content">
+          <h3>Type</h3>
+          <ul>
+            <li>
+              <select id="computer_type2" value="apple2plus" onchange="Apple2.updateCPU()">
+                <option value="apple2plus">Apple ][+</option>
+                <option value="apple2">Autostart Apple ][</option>
+                <option value="apple213">13 Sector Apple ][</option>
+                <option value="original">Apple ][</option>
+                <option value="apple2j">Apple ][j+</option>
+                <option value="apple2lc">Apple ][+ (lowercase font)</option>
+                <option value="apple2pig">Apple ][+ (pig font)</option>
+              </select>
+            </li>
+            <li>
+              <i>* Reload page to take effect</i>
+            </li>
+          </ul>
+          <h3>CPU</h3>
+          <ul>
+            <li>
+              <input type="checkbox" id="accelerator_toggle" onclick="Apple2.updateCPU()"/>
+              <label for="accelerator_toggle">
+                Accelerated CPU
+              </label>
+            </li>
+          </ul>
+          <h3>Joystick</h3>
+          <ul>
+            <li>
+              <input type="checkbox" id="disable_mouse"
+                    onclick="Apple2.updateJoystick()" />
+              <label for="disable_mouse">
+                Disable Mouse Joystick
+              </label>
+            </li>
+            <li>
+              <input type="checkbox" id="flip_x"
+                    onclick="Apple2.updateJoystick()" />
+              <label for="flip_x">
+                Flip X-Axis
+              </label>
+            </li>
+            <li>
+              <input type="checkbox" id="flip_y"
+                    onclick="Apple2.updateJoystick()" />
+              <label for="flip_y">
+                Flip Y-Axis
+              </label>
+            </li>
+            <li>
+              <input type="checkbox" id="swap_x_y"
+                    onclick="Apple2.updateJoystick()" />
+              <label for="swap_x_y">
+                Swap X-Y Axis
+              </label>
+            </li>
+          </ul>
+          <h3>Monitor</h3>
+          <ul>
+            <li>
+              <input type="checkbox" id="mono_screen"
+                    onclick="Apple2.updateScreen()" />
+              <label for="mono_screen">
+                Mono Screen
+              </label>
+            </li>
+            <li>
+              <input type="checkbox" id="show_scanlines"
+                    onclick="Apple2.updateScreen()" />
+              <label for="show_scanlines">
+                Show Scanlines
+              </label>
+            </li>
+            <li>
+              <input type="checkbox" id="gl_canvas"
+                    onclick="Apple2.updateScreen()" />
+              <label for="gl_canvas">
+                GL Renderer (Restart required)
+              </label>
+            </li>
+          </ul>
+          <h3>Sound</h3>
+          <ul>
+            <li>
+              <input type="checkbox" id="enable_sound"
+				     onclick="Apple2.updateSound()" />
+              <label for="enable_sound">
+                Enable
+              </label>
+            </li>
+          </ul>
+        </main>
+        <footer class="modal__footer">
+          <button class="modal__btn" data-micromodal-close aria-label="Close this dialog window">Close</button>
+        </footer>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal" id="save-modal" aria-hidden="true">
+    <div class="modal__overlay" tabindex="-1" data-micromodal-close>
+      <div class="modal__container" role="dialog" aria-modal="true" aria-labelledby="Save Disk">
+        <header class="modal__header">
+          <span class="modal__title" id="save-modal-title">
+            Save Disk
+          </span>
+          <button class="modal__close" aria-label="Close modal" data-micromodal-close>
+          </button>
+        </header>
+        <main class="modal__content" id="save-modal-content">
+          <form action="#" onsubmit="return false;">
+            <h3>Save to Browser</h3>
+            Save Name: <input type="text" name="name" id="save_name" />
+          </form>
+          <hr />
+          <div>
+            <h3>Download to Local Disk</h3>
+            <a id="local_save_link" class="button">Download</a>
+          </div>
+        </main>
+        <footer class="modal__footer">
+          <button class="modal__btn" onclick="Apple2.doSave()" aria-label="Save disk locally">Save</button>
+        </footer>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal" id="manage-modal" aria-hidden="true">
+    <div class="modal__overlay" tabindex="-1" data-micromodal-close>
+      <div class="modal__container" role="dialog" aria-modal="true" aria-labelledby="Load Disk">
+        <header class="modal__header">
+          <span class="modal__title" id="manage-modal-title">
+            Manage Local Saves
+          </span>
+          <button class="modal__close" aria-label="Close modal" data-micromodal-close>
+          </button>
+        </header>
+        <main class="modal__content" id="manage-modal-content">
+        </main>
+        <footer class="modal__footer">
+          <button class="modal__btn" data-micromodal-close aria-label="Close this dialog window">OK</button>
+        </footer>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal" id="http-modal" aria-hidden="true">
+    <div class="modal__overlay" tabindex="-1" data-micromodal-close>
+      <div class="modal__container" role="dialog" aria-modal="true" aria-labelledby="Load Disk">
+        <header class="modal__header">
+          <span class="modal__title" id="http-modal-title">
+            Load URL
+          </span>
+          <button class="modal__close" aria-label="Close modal" data-micromodal-close>
+          </button>
+        </header>
+        <main class="modal__content" id="http-modal-content">
+          <form action="#">
+            <input type="text" id="http_url" />
+          </form>
+        </main>
+        <footer class="modal__footer">
+          <button class="modal__btn" data-micromodal-close aria-label="Load this URL">OK</button>
+        </footer>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal" id="load-modal" aria-hidden="true">
+    <div class="modal__overlay" tabindex="-1" data-micromodal-close>
+      <div class="modal__container" role="dialog" aria-modal="true" aria-labelledby="Load Disk">
+        <header class="modal__header">
+          <span class="modal__title" id="load-modal-title">
+            Load Disk
+          </span>
+          <button class="modal__close" aria-label="Close modal" data-micromodal-close>
+          </button>
+        </header>
+        <main class="modal__content" id="load-modal-content">
+          <table>
+            <tr>
+              <td>
+                <select id="category_select" multiple="multiple"
+                        onchange="Apple2.selectCategory(event)" >
+                </select>
+              </td>
+              <td>
+                <select id="disk_select" multiple="multiple"
+                        onchange="Apple2.selectDisk(event)"
+                        ondblclick="Apple2.clickDisk(event)">
+                </select>
+              </td>
+            </tr>
+          </table>
+          <form action="#">
+            <input type="file" id="local_file" />
+          </form>
+        </main>
+        <footer class="modal__footer">
+          <button class="modal__btn" data-micromodal-close aria-label="Close this dialog window">Cancel</button>
+          <button class="modal__btn" onclick="Apple2.doLoad()" aria-label="Open the selected disk">Open</button>
+        </footer>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal" id="printer-modal" aria-hidden="true">
+    <div class="modal__overlay" tabindex="-1" data-micromodal-close>
+      <div class="modal__container" role="dialog" aria-modal="true" aria-labelledby="Printer">
+        <header class="modal__header">
+          <span class="modal__title" id="printer-modal-title">
+              Printer
+          </span>
+          <button class="modal__close" aria-label="Close modal" data-micromodal-close>
+          </button>
+        </header>
+        <main class="modal__content" id="printer-modal-content">
+          <div class="paper"></div>
+        </main>
+        <footer class="modal__footer">
+          <a id="raw_printer_output" class="button">Download Raw Output</a>
+          <button class="modal__btn" onclick="Apple2.clearPrinterPaper()" aria-label="Clear the paper">Clear</button>
+          <button class="modal__btn" data-micromodal-close aria-label="Close this dialog window">Close</button>
+        </footer>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal" id="alert-modal" aria-hidden="true">
+    <div class="modal__overlay" tabindex="-1" data-micromodal-close>
+      <div class="modal__container" role="dialog" aria-modal="true" aria-labelledby="Alert">
+        <header class="modal__header">
+          <span class="modal__title" id="alert-modal-title">
+              Alert
+          </span>
+          <button class="modal__close" aria-label="Close modal" data-micromodal-close>
+          </button>
+        </header>
+        <main class="modal__content" id="alert-modal-content">
+          <div class="message">
+          </div>
+        </main>
+        <footer class="modal__footer">
+          <button class="modal__btn" data-micromodal-close aria-label="Close this dialog window">Close</button>
+        </footer>
+      </div>
+    </div>
+  </div>
+
+  <svg width="0" height="0" xmlns="http://www.w3.org/2000/svg">
+    <filter id="green">
+      <feColorMatrix
+        type="matrix"
+        values="0.0 0.0 0.0 0.0 0
+                0.0 1.0 0.0 0.0 0
+                0.0 0.0 0.5 0.0 0
+                0.0 0.0 0.0 1.0 0"
+      />
+      </filter>
+  </svg>
+
+  <script src="js/main2.js"></script>
+</body>
+</html>

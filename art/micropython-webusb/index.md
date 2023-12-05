@@ -367,18 +367,39 @@ I've also got some hardware on the way to program the SAMD21 processor on the
 so rather than starting from scratch I might have a go at adding WebUSB to 
 the existing USB stack.
 
+# UPDATE 2020
 
+Also check out [PICO-8](https://github.com/pico-8/awesome-PICO-8), especially the way it flips
+between CLI and file editor seamlessly.
+That'd be a killer app for MicroPython.
 
+## UPDATE 2021
 
+There are now quite a few chipsets around which support native USB with TinyUSB,
+including the new [RPi Pico / RP2040](/art/rpi-pico-impressions/) and the
+ESP32-S2 so these seem like obvious targets for a WebUSB enhancement and quite
+they'd be great platforms for [WebPad](/art/micropython-webpad/).
 
+I made a quick demo for RPi Pico, It isn't working perfectly yet
+(see [this issue](https://github.com/raspberrypi/pico-examples/issues/42))
+but here's an example of connecting to the board with WebUSB:
 
+![MicroPython WebUSB demo](img/mpy-webusb-demo.gif)
 
+* connect to RPi Pico board
+* run help()
+* paste some text from the clipboard
+* ... it shifts to paste mode and back automatically
+* upload a 'main.py' file
+* ... it reboots itself and main.py runs
 
+from WebUSB:
 
+![MicroPython WebUSB demo](img/mpy-webusb-demo.gif)
 
-  
-
-
-
-
-
+* connect to RPi Pico board
+* run help()
+* paste some text from the clipboard
+* ... it shifts to paste mode and back automatically
+* upload a 'main.py' file
+* ... it reboots itself and main.py runs

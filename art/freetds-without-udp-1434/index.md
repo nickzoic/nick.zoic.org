@@ -1,8 +1,7 @@
 ---
 category: Systems
-date: '2011-04-28'
+date: '2010-07-02'
 layout: article
-redirect_from: '/Systems/freetds-without-udp-1434/'
 slug: 'freetds-without-udp-1434'
 tags: systems
 title: FreeTDS without udp 1434

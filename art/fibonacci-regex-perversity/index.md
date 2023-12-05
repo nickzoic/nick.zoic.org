@@ -1,8 +1,7 @@
 ---
 category: Languages
-date: '2011-06-02'
+date: '2010-06-01'
 layout: article
-redirect_from: '/Languages/regex/'
 tags:
     - languages
 title: Fibonacci Regex Perversity

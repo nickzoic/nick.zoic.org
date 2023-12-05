@@ -11,6 +11,7 @@ tags:
     - html5
     - python
     - speculation
+    - gui
 ---
 
 ## Frontend and Backend

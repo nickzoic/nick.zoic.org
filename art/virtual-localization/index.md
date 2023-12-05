@@ -2,7 +2,6 @@
 category: etc
 date: '2011-05-01'
 layout: article
-redirect_from: '/etc/virtual-localization/'
 slug: 'virtual-localization'
 tags:
   - networks
@@ -28,7 +27,9 @@ There’s been lots of work along these lines over the years, almost all
 of which attempts to map out the network by using triangulation of the
 distances between nodes. Mostly, people attempt to measure distance by
 looking at the signal attenuation: theoretically, radio signals
-attenuation as 1/r^2^. However, in practice there are all sorts of
+attenuate as `1/r`<sup>`2`</sup>.
+
+However, in practice there are all sorts of
 measurement errors introduced by reflection and absorbtion by your
 surroundings, including buildings, furniture, people, etc, and so
 distance measurement is often inaccurate, making triangulation rather
@@ -53,13 +54,10 @@ New Work
 ========
 
 So I recently reworked my mesh network simulator to merge the “hardware”
-code in with the “simulator” code … so that they can share the
+code in with the “simulator” code ... so that they can share the
 implementation of the actual Virtual Localization algorithm. There’s
-some new VRML files [^1] based on simulation over at
+some new [VRML files](../vrml/) based on simulation over at
 <https://mesh.zoic.org/> ... the idea is to eventually test the software
 on hardware nodes.
 
 ![Screenshot of 100 nodes](100nodes.png)
-
-[^1]: It seemed like a good idea at the time: see [VRML: Very
-    Odd](../vrml/)

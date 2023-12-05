@@ -1,8 +1,7 @@
 ---
 category: Languages
-date: '2011-05-15'
+date: '2010-04-05'
 layout: article
-redirect_from: '/Languages/parallel/'
 slug: parallel
 tags:
     - languages

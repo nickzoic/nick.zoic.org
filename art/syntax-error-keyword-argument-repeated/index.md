@@ -1,8 +1,7 @@
 ---
 category: Python
-date: '2012-02-20'
+date: '2009-09-22'
 layout: article
-redirect_from: '/Python/syntax-error-keyword-argument-repeated/'
 slug: 'syntax-error-keyword-argument-repeated'
 tags:
     - python

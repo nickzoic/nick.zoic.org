@@ -21,12 +21,13 @@ Where you’ve got machines lurking behind other machines, inaccesible
 from the Internet, you can add a clause like this to your `.ssh/config`
 file:
 
-    Host: lurker
-    ProxyCommand: ssh gateway.work /bin/nc %h %p
+    Hos: lurker
+    ProxyCommand ssh gateway.work /bin/nc %h %p
 
 This causes ‘ssh lurker’ to open an ssh connection to gateway.work, then
-use nc (may be called netcat on your system, or you may have to install
-it yourself) to connect on to lurker (the %h %p interpolates the target
+use nc (may be called `nc` or `ncat` or `netcat` on your system,
+or you may have to install it yourself)
+to connect on to lurker (the `%h %p` interpolates the target
 hostname and port into the proxy command)
 
 ## 2. Reverse Tunnelling

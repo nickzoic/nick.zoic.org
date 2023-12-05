@@ -1,9 +1,10 @@
 ---
 layout: base
 ---
-<div class="page">
+<script src="/js/toc.js"></script>
+<div class="watermark">DRAFT</div>
+<div class="page" id="content">
   <h1 class="page-title">{{ page.title }}</h1>
-  <h2>DRAFT</h2>
   <span class="page-date">{{ page.date }}</span>
   <span class="page-tags" style="float: right">
     {% for tag in page.tags %}
@@ -12,6 +13,6 @@ layout: base
     {% endfor %}
   </span>
   <div style="clear: both; text-align: center"><em>{{ page.summary }}</em></div>
-  <hr/>
+  <div class="toc" id="toc"></div>
   {{ content }}
 </div>

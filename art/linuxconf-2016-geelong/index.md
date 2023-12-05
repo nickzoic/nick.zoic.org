@@ -29,12 +29,9 @@ Lots of other videos are up at the [youtube channel](https://www.youtube.com/use
 I intend to write up a summary of the ones I thought were especially
 interesting, but here's a few links to get you started:
 
--   [Haskell is not for production and other
-    tales](https://www.youtube.com/watch?v=mlTO510zO78)
--   [Data made out of
-    functions](https://www.youtube.com/watch?v=GSPB6YgPmZw)
--   [Parametricity
-    types](https://www.youtube.com/watch?v=4hTtcUeqmfY)
+-   [Haskell is not for production and other tales](https://www.youtube.com/watch?v=mlTO510zO78)
+-   [Data made out of functions](https://www.youtube.com/watch?v=GSPB6YgPmZw)
+-   [Parametricity types](https://www.youtube.com/watch?v=4hTtcUeqmfY)
 -   [Tridge on heli planes](https://www.youtube.com/watch?v=kifraO9yMrk)
 -   [RPi projects](https://www.youtube.com/watch?v=22dKTGyuRrc)
 -   [Blue/Green deployments](https://www.youtube.com/watch?v=KD1JHpzKW3Q)
@@ -47,9 +44,8 @@ Blog Posts
 ==========
 
 I've got a string of blog posts to write based on ideas kicked around at
-LCA, so follow the RSS feed or [@mnemote on
-twitter](https://twitter.com/mnemote/) if you're interested!
+LCA, so follow the RSS feed
+~~or @mnemote on twitter~~ if you're interested!
 
 -   [Complete Containers](../complete-containers-immutable-git/)
--   [Flobot: A Graphical Dataflow Language for
-    Robots](../flobot-graphical-dataflow-language-for-robots/)
+-   [Flobot: A Graphical Dataflow Language for Robots](../flobot-graphical-dataflow-language-for-robots/)

@@ -7,13 +7,14 @@ tags:
   - languages
   - python
   - speculation
+  - gui
 title: Programming Beyond Text Files
 ---
 
 ## Programs as Text Files
 
 We're used to thinking of programs as text files: the first step on the road
-to being a [Real Programmer](http://web.mit.edu/humor/Computers/real.programmers)
+to being a [Real Programmer](https://www.ee.ryerson.ca/~elf/hack/realmen.html)
 is pick a text editor "that reflects [your] personal style".  In old-school Unix 
 that's probably `vi` or `emacs`, but even modern IDEs are really a tangle of
 enhancements wrapped around a text editor.
@@ -42,7 +43,7 @@ so we could take our programs away to think about.  When did you last print out 
 ### UPDATE
 
 * [Interesting article about the origin of punch card sizes](http://exple.tive.org/blarg/2019/10/23/80x25/)
-
+* [Ken Shirriff on the history of the 80x24 display](http://www.righto.com/2019/11/ibm-sonic-delay-lines-and-history-of.html)
 ## Programming beyond Text
 
 But that's not the only way to program:
@@ -108,3 +109,11 @@ like `find` and `grep` and `diff3`, but think of what we'd gain ...
 Another interesting reference: the [New York Times' Oak Editor](https://open.nytimes.com/building-a-text-editor-for-a-digital-first-newsroom-f1cb8367fc21) which is kind of similar.
 
 And another visual language: [Prograph](https://medium.com/@noelrap/prograph-c3caa90b89e8)
+
+[Luna](https://www.luna-lang.org/) is a visual dataflow pure-functional language with lots of 
+bells and whistles
+
+### UPDATE 2020
+
+I presented a talk related to this at [pyconline AU 2020](https://2020.pycon.org.au/)
+see [Decoding: Programming beyond text files](/art/decoding-programming-beyond-text-files/)

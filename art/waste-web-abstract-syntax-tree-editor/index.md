@@ -8,6 +8,7 @@ tags:
   - www
   - python
   - speculation
+  - gui
 ---
 
 I'm interested in the idea of [Programming beyond Text Files](/art/programming-beyond-text-files/) and

@@ -2,6 +2,7 @@
 date: '2019-10-24'
 layout: article
 tags:
+  - updates
 title: 'Occasional Update'
 summary: "Where am I? What have I been up to? Is this thing even working?"
 ---

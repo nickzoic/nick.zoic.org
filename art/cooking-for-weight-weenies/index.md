@@ -19,7 +19,7 @@ if you're considering trying it out you can use
 [this Temu affiliate link](https://temu.to/m/un8i4z9z5w9)
 and you'll get some kind of discount voucher and when you actually
 buy something I'll get some kind of store credit to spend on more
-random cycling stuff*
+random cycling stuff.*
 
 ## The Weight
 
@@ -188,7 +188,7 @@ boil 250mL of water is ... well it isn't quick but then again it's not that bad.
 | Fuel bottle 100 mL | 25 |
 | Liquid fuel ~95 mL | 75 |
 | Trivet / Windshield | 30 |
-| *TOTAL* | 160 | 
+| **TOTAL** | **160** | 
 
 30 grams seems amazingly low weight compared even to the mini butane burner,
 but doesn't include fuel or any kind of windshield or trivet to place your pot on,
@@ -338,4 +338,6 @@ There's many ways to do it but hopefully you've enjoyed joining me in
 pondering the details from the comfort of your sofa, rather than bemoaning
 your fate as you drag a kitchen sink up the side of a mountain.
 
-And, yeah, I went and bought that 500g chair.  Because of course I did.  After all, I'd just saved 500g on a coffee filter ...
+And, yeah, I went and bought that 500g chair.
+Because of course I did.
+After all, I did just save 500g on a coffee filter ...

@@ -771,3 +771,9 @@ div.watermark {
     pointer-events: none;
 }
 
+p:has(em:only-child) {
+    border: 2px dotted;
+    padding: 0.5em;
+    margin: 0.5em;
+}
+	

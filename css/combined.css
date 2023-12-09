@@ -771,7 +771,7 @@ div.watermark {
     pointer-events: none;
 }
 
-div.aside {
+.aside {
     border-left: 3px solid;
     padding-left: 0.5em;
     margin-left: 0.5em;

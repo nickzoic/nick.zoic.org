@@ -12,7 +12,7 @@ I've [gotten into bikepacking](/art/the-cycling-bikepacking-post/) lately,
 and as well as learning some stuff about bike mechanics and working on
 my fitness, I've also had to work on how to pack.
 
-<span class="aside">
+<div class="aside"></div>
 
 *A lot of the cheaper stuff mentioned here, including the rocket stove, the
 alcohol stove, the stove windshields and the coffee filter was bought from Temu.com.
@@ -20,13 +20,13 @@ I've so far found their deliveries to be super reliable and while they
 have some crappy items most of the stuff I've bought has been very good
 for the price.*
 
+<div class="aside"></div>
+
 *If you're considering trying it out you can use
 [this Temu affiliate link](https://temu.to/m/un8i4z9z5w9) or
 coupon code `apr43524` and you'll get some kind of discount /
 discount voucher and when you actually buy something I'll get some
 kind of store credit to spend on more random cycling stuff!*
-
-</span>
 
 ## The Weight
 
@@ -124,7 +124,7 @@ There are smaller 100g cans available but they're hard to find cheaply.
 although I haven't done methodical testing here.  The Kovea is probably more
 efficient too.-->
 
-<span class="aside">
+<div class="aside"></div>
 
 *(as an aside: you really want to use fuel cans filled with
 [Isobutane](https://en.wikipedia.org/wiki/Isobutane) and/or
@@ -133,8 +133,6 @@ efficient too.-->
 at around 0⁰C ... which can really cramp your cooking style on a cold morning.
 If you can only find Butane and it's going to be chilly overnight it's best
 to keep the can in the foot of your sleeping bag along with your microfilter!)*
-
-</span>
 
 ### Rocket Stove
 

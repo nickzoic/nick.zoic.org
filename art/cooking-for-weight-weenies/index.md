@@ -24,7 +24,7 @@ for the price.*
 [this Temu affiliate link](https://temu.to/m/un8i4z9z5w9) or
 coupon code `apr43524` and you'll get some kind of discount /
 discount voucher and when you actually buy something I'll get some
-kind of store credit to spend on more random cycling stuff.*
+kind of store credit to spend on more random cycling stuff!*
 
 </div>
 

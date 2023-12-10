@@ -145,7 +145,7 @@ efficient burning.  There's a few different ways to make this work,
 and I'm not sure there's a precise definition of what is and isn't
 a rocket stove.
 
-My [rocket stove](https://share.temu.com/qavK5e3s5rA) is just an inexpensive
+My [rocket stove](https://en.wikipedia.org/wiki/Rocket_stove) is just an inexpensive
 assembly of stacking double-walled stainless steel tubes.
 When packed away the parts nest neatly inside each other.
 The double stainless steel walls keep a lot of heat
@@ -154,6 +154,10 @@ Fresh air is drawn in at the bottom, heated between the walls and reintroduced a
 top where it causes any wood gases to be completely burnt off. 
 Based on the blue color of the stainless steel it's producing
 [temperatures up to 300⁰C](https://blog.adafruit.com/2016/06/20/the-color-spectrum-of-heated-steel/).
+
+[This one is from Temu]( https://share.temu.com/72OqEdYsuEA)
+but you could also
+[make one out of a couple of cans](https://www.youtube.com/watch?v=ENhwbQljpM8).
 
 ![rocket stove](img/rocket.jpg)
 *Rocket Stove*
@@ -171,7 +175,7 @@ a regular campfire started.
 Looking at overall weight, the rocket stove (586g) is actually lighter
 than the Kovea stove plus windshield and nominal 300g gas can.
 And it runs on sustainable free fuel you find laying on the ground in
-every bush campsite, you can burn off your paper trash in it, and it gives
+every bush campsite, plus you can burn off your paper trash in it, and it gives
 off a cheery campfire light.
 
 Of course, there are places and conditions where

@@ -16,13 +16,11 @@ my fitness, I've also had to work on how to pack.
 
 *A lot of the cheaper stuff mentioned here, including the rocket stove, the
 alcohol stove, the stove windshields and the coffee filter was bought from Temu.com.
+Also a tiny luggage scale I used for a lot of the weights in this article.
 I've so far found their deliveries to be super reliable and while they
 have some crappy items most of the stuff I've bought has been very good
-for the price.*
-
-<div class="aside"></div>
-
-*If you're considering trying it out you can use
+for the price.
+If you're considering trying Temu out you can use
 [this Temu affiliate link](https://temu.to/m/un8i4z9z5w9) or
 coupon code `apr43524` and you'll get some kind of discount /
 discount voucher and when you actually buy something I'll get some
@@ -31,7 +29,7 @@ kind of store credit to spend on more random cycling stuff!*
 ## The Weight
 
 Weight is a funny thing.  My bike fully packed for camping weighs about
-twice what it does in commuter mode, so it feels *horrible* when its 
+twice what it does in commuter mode, so it feels *horrible* when it's 
 not moving.  But all that extra weight only works out to about an extra
 15% of so of the combined weight of bike + rider so once we're moving
 it really doesn't make a huge difference.
@@ -62,20 +60,22 @@ weighs 500g and costs $149.  So reducing that weight is only costing you $.24 pe
 So, is buying titanium cutlery an economically effective way to save weight?  **No.**<br>
 Do I love my titanium splade anyway?  **Yes.**
 
-On the other hand,
+On the other hand, you can save about 10g with
 [four titanium bottle cage screws](https://www.pushys.com.au/silca-sicuro-bottle-cage-titanium-bolts-4-pack.html)
-will cost you $35 and save you about 10g, so it could be worse.  It could always be worse.
+for $35 ($3.50 per gram saved), so it could be worse.  It could always be worse.
 
 ## Stoves for Weight Weenies
 
-Stoves provide a way of heating food and also boiling water to sterilize it
+Stoves provide a way of heating food and also
+[boiling water to sterilize it](https://www.cdc.gov/parasites/crypto/index.html)
 or just for a cup of tea and a nice hot water bottle on a cold night.
 But they're one of the heaviest bits of kit you'll carry.
 
-You can do without and eat cold peanut butter tortillas for every meal.
-That is definitely a thing you could choose to do.
-Or everywhere you go you could build a tiny fireplace out of rocks and
-cook over the coals, but it's pretty time consuming way to do it.
+You can do without and [eat cold bean tortillas](https://www.youtube.com/watch?v=6UMVjmGnejk&t=269)
+for every meal.  That is definitely a thing you could choose to do.
+Or everywhere you go you could build a
+[tiny fireplace out of twigs and out of bark](https://www.youtube.com/watch?v=ILnvtUirHr8)
+and cook over the coals, but it's pretty time consuming way to do it.
 
 So mostly it's practical to have some kind of stove, and thankfully
 they're one of the cheapest opportunities to reduce weight.
@@ -104,9 +104,10 @@ The windshields are made of multiple panels of alumnium joined with steel hinge 
 They were both originally twice as long (and twice as heavy),
 but I shortened them by removing half the panels, as butane stoves only really
 need a shield on the upwind side.
-The moonwalker is very low and doesn't need a proper shield in most conditions,
-you can just leave a pack or some sticks upwind and that'll work.  But I've
-included a low wind shield in the numbers just to be fair.
+The moonwalker is very low which means it is is very stable and doesn't need a proper
+windshield in most conditions,
+you can just leave a pack or some sticks upwind and that'll work.
+But I've included a low wind shield in the numbers just to be fair.
 
 ![mini gas stove, tripod, small pot](img/mini.jpg)
 *Mini gas stove, with canister tripod and small pot*
@@ -126,13 +127,15 @@ efficient too.-->
 
 <div class="aside"></div>
 
-*(as an aside: you really want to use fuel cans filled with
+*as an aside: you really want to use fuel cans filled with
 [Isobutane](https://en.wikipedia.org/wiki/Isobutane) and/or
 [Propane](https://en.wikipedia.org/wiki/Propane), because regular
 [Butane](https://en.wikipedia.org/wiki/Butane) stops evaporating
-at around 0⁰C ... which can really cramp your cooking style on a cold morning.
+at around 0⁰C ... which can really cramp your cooking style on a cold morning
+when your gas fuel stays a liquid.
 If you can only find Butane and it's going to be chilly overnight it's best
-to keep the can in the foot of your sleeping bag along with your microfilter!)*
+to keep the can in the foot of your sleeping bag
+[along with your microfilter](https://www.halfwayanywhere.com/trails/pacific-crest-trail/platypus-quickdraw-microfilter-review/#the-bad)!*
 
 ### Rocket Stove
 
@@ -176,6 +179,7 @@ Of course, there are places and conditions where
 or where dry kindling is hard to find.  Plus the rocket
 stove has to cool down before you can pack it up and it covers all your cookware
 in soot (not as much as an open fire, but still), so it's not as clear cut as all that.
+
 Also: don't forget your matches.
 
 ### Alcohol stoves
@@ -295,15 +299,17 @@ want to carry a whole lot of extra weight to do so.
 | Aeropress without plunger | 87 |
 | Stainless conical filter | 10 |
 
-On the motorcycle, I used to schlep that stainless caffettiera everywhere and it
-makes a good coffee but I didn't often have to push it up hills so the weight didn't
+On the motorcycle, I used to schlep that stainless caffettiera / moka pot everywhere and it
+makes a good coffee but I didn't often have to push the bike up hills so the weight didn't
 worry me.  The classic aluminium ones are a bit less heavy but don't last long under 
-camping conditions, in my experience.
+camping conditions, in my experience: they go all weird and furry inside.  Maybe that's 
+just the Australian river water.
 
 I've used a [Minipresso](https://www.wacaco.com/products/minipresso-gr) a lot
 on camping trips and at home and it makes a really excellent coffee.
 The Wacaco website says it weighs 360g but I measure it as 400g, perhaps
 mine is an older model.
+
 Depending on your feelings about luxury items, it is maybe a bit heavy and fiddly for
 bikepacking use.  Interestingly, they have new "smaller, lighter" models but according to
 the website they're a bit smaller but *not very much* lighter, still over 300g.

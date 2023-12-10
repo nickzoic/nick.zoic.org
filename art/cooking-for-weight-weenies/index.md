@@ -258,7 +258,7 @@ It's possibly a bit small for the rocket stove, across the narrow axis.
 
 The large cookset has two pans which share a lid, and is just the right size to fit the rocket stove inside.
 And both pots are a nice size to fit on top of the rocket stove without too much heat getting lost up the sides.
-There's no handles, so you need a separate clip-on one to pick the pots up by. 
+There's no handles, so you need a separate clip-on one (30g) to pick the pots up by. 
 
 So I guess the options match up pretty nicely:
 
@@ -270,8 +270,9 @@ So I guess the options match up pretty nicely:
 | Rocket | Large | 586 | 555 | 1171 |
 | Kovea | Large | 706 | 555 | 1261 |
 
-... and if I'm going for minimal weight it's the mini stove, and maybe hang on to a half-empty
-fuel canister to save a little more.  If cooking for two, the large cookset is going to be more
+... and if I'm going for minimal weight it's the alcohol stove, or maybe the mini stove but
+hang on to a half-empty fuel canister to save a little weight.
+If cooking for two, the large cookset is going to be more
 practical, either over the rocket stove if weather isn't too hot or too wet otherwise over the
 Kovea.  Decisions, decisions, decisions.
 

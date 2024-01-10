@@ -206,8 +206,9 @@ boil 250mL of water is ... well it isn't quick but then again it's not that bad.
 | Alcohol Stove | 30 |
 | Fuel bottle 100 mL | 25 |
 | Liquid fuel ~95 mL | 75 |
-| Trivet / Windshield | 30 |
-| **TOTAL** | **160** | 
+| Trivet | 25 |
+| Windshield | 52 |
+| **TOTAL** | **207** | 
 
 30 grams seems amazingly low weight compared even to the mini butane burner,
 but doesn't include fuel or any kind of windshield or trivet to place your pot on,
@@ -268,9 +269,9 @@ There's no handles, so you need a separate clip-on one (30g) to pick the pots up
 
 So I guess the options match up pretty nicely:
 
-| Stove | Cookset | Stove, g | Cookset, g | Total, g |
+| Stove | Cookset | Stove (etc), g | Cookset, g | Total, g |
 |:---:|:---:|:---:|:---:|:---:|
-| Alcohol | Small | 160 | 220 | 380 |
+| Alcohol | Small | 207 | 220 | 427 |
 | Mini | Small | 556 | 220 | 776 |
 | Kovea | Swedish | 706 | 465 | 1171 |
 | Rocket | Large | 586 | 555 | 1171 |
@@ -306,11 +307,16 @@ want to carry a whole lot of extra weight to do so.
 | Aeropress without plunger | 87 |
 | Stainless conical filter | 10 |
 
-On the motorcycle, I used to schlep that stainless caffettiera / moka pot everywhere and it
-makes a good coffee but I didn't often have to push the bike up hills so the weight didn't
+On the motorcycle, I used to schlep that stainless
+[caffettiera / moka pot](https://www.youtube.com/watch?v=LuZiqLb70tM)
+everywhere and it
+makes a good coffee but I didn't often have to push it up hills so the weight didn't
 worry me.  The classic aluminium ones are a bit less heavy but don't last long under 
 camping conditions, in my experience: they go all weird and furry inside.  Maybe that's 
 just the Australian river water.
+
+(I found my old single shot aluminium one, it still weighs 250g even with the
+plastic handle half melted off.)
 
 I've used a [Minipresso](https://www.wacaco.com/products/minipresso-gr) a lot
 on camping trips and at home and it makes a really excellent coffee.

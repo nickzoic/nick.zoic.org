@@ -207,6 +207,7 @@ just a bit of upgraded ergonomics and some extra luggage.
 * [Sheldon Brown](https://www.sheldonbrown.com/)
 * [Melbourne Cycle Loops](https://www.melbournecycleloops.com/)
 * [Ride With GPS](https://ridewithgps.com/)
+* [Adventure Cycling Victoria](https://www.adventurecyclingvictoria.com/) (also [at ridewithgps](https://ridewithgps.com/users/661133))
 
 ### Youtubers
 

@@ -62,7 +62,9 @@ Do I love my titanium splade anyway?  **Yes.**
 
 On the other hand, you can save about 10g with
 [four titanium bottle cage screws](https://www.pushys.com.au/silca-sicuro-bottle-cage-titanium-bolts-4-pack.html)
-for $35 ($3.50 per gram saved), so it could be worse.  It could always be worse.
+for $35 ($3.50 per gram saved), so it could be worse.
+
+[It could always be worse.](https://www.youtube.com/watch?v=ZvI4ZpD_7EA)
 
 ## Stoves for Weight Weenies
 

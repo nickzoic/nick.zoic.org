@@ -79,7 +79,7 @@ for the Watsonia hills.  If I was smarter I would have searched for a bargain on
 whatever but instead I just walked into Ivanhoe Cycles, the same shop which had sold me that
 Shogun Metro a couple of decades earlier.  I test rode a bunch of things including a carbon
 racer which cost more than my car and weighed less than my wallet, but in the end I decided
-on a [Giant Cross City 1](https://www.giant-bicycles.com/au/cross-city-disc-1-2022),
+on a [Giant Cross City 1](https://www.giant-bicycles.com/au/cross-city-1-disc-2018),
 which ticked all the boxes and also (in case you think I'm being
 entirely rational here) had a very nice grey-and-orange color scheme going on.
 

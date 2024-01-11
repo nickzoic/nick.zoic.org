@@ -1,11 +1,12 @@
 ---
+date: '2024-01-11'
+layout: draft
+tags:
+  - cycling
+  - not-computers
 title: The Touring Commuter
 summary: Turning a commuter bicycle into a touring machine ...
-date: 2024-01-11
-layout: draft
 ---
-
-# The Touring Commuter
 
 This is a quick summary of how I turned my
 [commuter bike](../the-cycling-bikepacking-post/#commuting-life)
@@ -15,8 +16,10 @@ into a touring/bikepacking bike.
 
 The bike is a [Giant Cross City 1 Disc 2018](https://www.giant-bicycles.com/au/cross-city-1-disc-2018)
 size Large.
+
 I test rode a few things but I really liked this one: it's not a huge bike and
-the standover height is quite low.
+the standover height is quite low, but it's got good brakes, carbon forks and a
+wide range of gears.
 
 ## Tyres
 

@@ -59,6 +59,10 @@ tube angle, having the stem negative moves
 the bars a little further forward as well.  There's a few mm left
 in the stack if I want to got slightly higher or lower.
 
+I also have a couple of [inner bar ends](https://bikepacking.com/gear/adding-alt-hand-positions-to-flat-bars/)
+which are just cheap 150mm "classic bar ends" from BBB, with a pair of very cheap
+flexi rubber grips forced over them (try some compressed air down the hole in the end)
+
 ## Granny Gears
 
 One of the things I really liked about this bike was that it came with
@@ -68,7 +72,7 @@ The lowest gear, 26:34, is quite low indeed at 21
 using it quite a bit, for example on gravel where it's quite nice to be able to spin
 up hills even if you're carrying a bunch of stuff.
 
-To that end, when the 11x34 cassette was getting worn out I replaced it with a 11x36,
+To that end, when the 11x34 cassette was getting worn out I replaced it with a 11-36T,
 making that lowest gear about 6% lower, and when the inner crankset gears were starting
 to look a bit shonky I replaced the smallest one with a 24 tooth, making those gears
 about 7% lower, so now I have a ridiculously low 24:36 (18 gear inches) granny gear.

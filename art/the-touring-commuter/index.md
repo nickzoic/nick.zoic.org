@@ -20,7 +20,7 @@ The bike is a [Giant Cross City 1 Disc 2018](https://www.giant-bicycles.com/au/c
 size Large.
 
 I test rode a few things but I really liked this one: it's not a huge bike and
-the standover height is quite low, but it's got an alloy frame, good brakes,
+the standover height is quite low, but it has an alloy frame, good brakes,
 carbon forks and a wide range of gears.
 
 I [bought it as a commuter](../the-cycling-bikepacking-post/#commuting-life) and
@@ -49,7 +49,8 @@ the whole thing narrower, and liked it like that.  I think I cut it down to abou
 Later I replaced the bars with
 [SQlab 310 Sport 2.0](https://www.sq-lab.com/en/area-of-use/trekking/sqlab-handlebar-310-sport-2-0-31-8.html)
 bars which have a little more backsweep (16⁰) and a little downsweep (10⁰) and no rise at all.
-They're about 680mm wide.
+They're about 680mm wide.  I might get around to trimming them back a little.
+I don't really understand super wide bars, unless you're doing downhill or something.
 
 To compensate for the lack of rise, and my aging back, that 120mm stem is now
 flipped to -6⁰ on top of 90mm of
@@ -57,7 +58,7 @@ flipped to -6⁰ on top of 90mm of
 stem on top of a riser might seem a bit perverse but combined with the head 
 tube angle, having the stem negative moves
 the bars a little further forward as well.  There's a few mm left
-in the stack if I want to got slightly higher or lower.
+in the stack if I want to go slightly higher or lower.
 
 I also have a couple of [inner bar ends](https://bikepacking.com/gear/adding-alt-hand-positions-to-flat-bars/)
 which are just cheap 150mm "classic bar ends" from BBB, with a pair of very cheap
@@ -69,14 +70,16 @@ One of the things I really liked about this bike was that it came with
 a broad range of gears: a triple 26/36/48 crankset and a 9 speed 11x34 cassette.
 The lowest gear, 26:34, is quite low indeed at 21
 [gear inches](https://www.sheldonbrown.com/gloss_g.html#gearinch), but I ended up
-using it quite a bit, for example on gravel where it's quite nice to be able to spin
-up hills even if you're carrying a bunch of stuff.
+using it quite a bit, for example on gravel roads where it's quite nice to be able to spin
+up hills even if you're going slow.
 
-To that end, when the 11x34 cassette was getting worn out I replaced it with a 11-36T,
+To that end, when the 11-34T cassette was getting worn out I replaced it with a 11-36T,
 making that lowest gear about 6% lower, and when the inner crankset gears were starting
 to look a bit shonky I replaced the smallest one with a 24 tooth, making those gears
 about 7% lower, so now I have a ridiculously low 24:36 (18 gear inches) granny gear.
 I don't need it very often but I reckon I use it more than the 48:11 (119 gear inches)
 highest gear.
+
+## Bags
 
 

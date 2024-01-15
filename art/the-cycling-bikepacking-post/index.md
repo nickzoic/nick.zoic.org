@@ -39,15 +39,16 @@ for breakfast, right?
 
 That first morning was a disaster, the brain may not forget how to ride a
 bicycle but the muscles sure do and I was barely a kilometer from home when I
-ran out of puff and almost threw up my breakfast. I was tempted to abandon the
+ran out of puff and almost threw up my (first) breakfast.
+I was tempted to abandon the
 bike but I hadn't brought a lock or anything and rather than leave it to the
-wolves I pushed it up the remaining hill and down to the station.
+wolves I pushed it up the remaining hill and rolled down to the station.
 
 The train commute in gave me time to catch my breath, and rolling off at
 Clifton Hill I felt a renewed willingness to give it a go.  Also, it was gently
 downhill all the way to Fitzroy.  So I got back in the saddle and zigged and
 zagged my way slowly across the familiar Fitzroy grid, feeling like a bit of a
-fraud, but I got a free breakfast anyway.
+fraud, but I got a free second breakfast anyway.
 
 ## In Train-ing ...
 
@@ -69,7 +70,7 @@ it.
 
 The train was still there as a backup when the weather was too hot or too cold
 or I just couldn't be bothered, but I'd somehow transitioned from occasional
-recreational wobbler to committed commuter.
+recreational wobbler to semi committed commuter.
 
 ## Commuting Life
 
@@ -99,9 +100,9 @@ Plenty Gorge from time to time.  And a few side trips, of course ...
 ## Scotland
 
 In 2019 several of us met up in Scotland and rode the Great Glen Way from
-Inverness to Fort William, which was a fantastic experience.  We took 4 days
-to do it, doing all of about 40km a day, and staying at pubs and backpackers'
-along the way.
+Inverness to Fort William, which was a fantastic experience.
+We took 4 days to do it, on rental bikes and doing all of about 40km a day,
+staying at pubs and backpackers' along the way.
 
 It was better understood as a pub crawl with bikes rather than cycle touring
 per se, with lots of long lunches and loch-side relaxation.

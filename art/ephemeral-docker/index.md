@@ -25,9 +25,12 @@ but there's three issues I've bumped into a lot:
    probably don't, which brings me to ...
 
 3. Sometimes images, layers or volumes contain stuff they shouldn't,
-   often accidentally, and those end up hanging around in
-   the probably not encrypted l`/var/lib/docker` for far longer
-   than they should.
+   like passwords or secrets or ssh keys, often accidentally,
+   and those end up hanging around in
+   the probably not encrypted `/var/lib/docker` for far longer
+   than they should.  It's generally someone else's fault but its 
+   still your computer so it's your problem now.
+
 
 ## Solution
 

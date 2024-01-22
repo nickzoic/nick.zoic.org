@@ -35,7 +35,8 @@ It was bugging me though: how on earth could it possibly work with no sliding pa
 *US Patent 3486413, Figure 1*
 
 Patents are written in weird language which attempts to both communicate an idea with an example
-and prevent its limitation by that example, but the following sentences sum it up:
+and prevent its limitation by that example, but the following sentences in the patent description
+sum it up:
 
 * *A rotating support is mounted on a stationary surface for rotation about an axis.*
 * *A rotating platform is mounted on the rotating support to permit relative rotation between the two.*

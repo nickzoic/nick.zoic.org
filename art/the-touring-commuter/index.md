@@ -64,10 +64,18 @@ I also have a couple of [inner bar ends](https://bikepacking.com/gear/adding-alt
 which are just cheap 150mm "classic bar ends" from BBB, with a pair of very cheap
 flexi rubber grips forced over them (try some compressed air down the hole in the end)
 
+Since the bars got a bit narrower as well there's no problem with the cables
+reaching.
+
 ## Granny Gears
 
 One of the things I really liked about this bike was that it came with
 a broad range of gears: a triple 26/36/48 crankset and a 9 speed 11x34 cassette.
+
+I know triples are uncool these days, and everyone loves 1x drivetrains
+and that have two separate gear shifts is rocket surgery and beyond young 
+people or whatever.  I don't mind them.
+
 The lowest gear, 26:34, is quite low indeed at 21
 [gear inches](https://www.sheldonbrown.com/gloss_g.html#gearinch), but I ended up
 using it quite a bit, for example on gravel roads where it's quite nice to be able to spin
@@ -78,8 +86,31 @@ making that lowest gear about 6% lower, and when the inner crankset gears were s
 to look a bit shonky I replaced the smallest one with a 24 tooth, making those gears
 about 7% lower, so now I have a ridiculously low 24:36 (18 gear inches) granny gear.
 I don't need it very often but I reckon I use it more than the 48:11 (119 gear inches)
-highest gear.
+highest gear.  The chain is a bit short if you try to shift into the largest
+gear on the back and the front but there's no reason to want to do that so don't.
+
+## Axles & Skewers
+
+The only thing which has really gone wrong on this bike has been the
+[quick-release skewers](https://www.sheldonbrown.com/skewers.html),
+each of which let me down at one point or another.
+
+I ended up replacing the rear axle with a solid axle which weighs the same
+as the hollow axle plus skewer and is a bit stronger.  The only annoyance 
+is that the solid axle doesn't fit with a lot of cassette ring tools which
+use the skewer hole for alignment, and also I have to have a 15mm spanner 
+in the toolkit to undo the axle nuts.
+
+The front axle I've kept and just replaced the skewer with a
+[alley key skewer](https://www.99bikes.com.au/qr-skewer-set-bbb-wheelfixed-allenkey)
+since I always carry allen keys anyway.  It's really just a very long
+bolt and a fancy nut and washer but it looks okay and it's easy to tighten and
+as a bonus the front wheel is slightly less convenient to steal.
+
+I reckon I'll end up switching the rear
+axle back to the stock hollow axle and one of these skewers too, next time
+I do the bearings.
+
+## Pedals
 
 ## Bags
-
-

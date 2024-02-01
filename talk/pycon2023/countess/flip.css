@@ -153,6 +153,7 @@ pre b {
 }
 
 div.footer {
+    max-width: 100%;
     text-align: center;
     border: none;
 }

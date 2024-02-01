@@ -42,8 +42,9 @@ module has an FCC report `2AUIE-FSBTC1` from which we can
 
 ![fs-bt-c1 pinout](img/fsbtc1.png)
 
-There's a "Fitshow" app but reviews are very poor and it wants me to
-make an account before proceeding, which I don't really want to do.
+There's a "Fitshow" app but reviews are poor and it wants me to
+agree to a bunch of stuff and make an account before proceeding,
+which I don't really want to do.
 
 Let's see if we can get away without it.
 
@@ -70,11 +71,12 @@ quite flat so you could easily store it under a bed or couch when not in use.
 
 At 180VDC, 0.6HP would work out to 2.5A, so this is all making sense so far.
 There seem to be a few 240VAC to 180VDC PWM controllers out there, it's a 
-pretty simple circuit.
+pretty simple circuit, so if worst comes to worst we could just scrap the 
+controller entirely and use a new one.
 
 ## Controller Board
 
-I'd rather use the existing controller board if possible.
+But I'd rather use the existing controller board if possible.
 It's not just a PWM controller though, there's lots of other stuff in there.
 
 * ARM Cortex M0 [HC32F005C6PA](https://jlcpcb.com/partdetail/XHSC-HC32F005C6PATSSOP20/C235578)
@@ -121,6 +123,10 @@ I'm not entirely clear on which board is sending RX and which is sending TX.
 You don't see 12V logic much any more ... I'll need a couple of resistors to shift the level down to
 where I can read it with a UART.
 
+The SW wire is probably there to attach a hardware kill switch but on this device
+it is probably either hardwired 'on' or wired to one of the communications board's
+outputs.
+
 ## Communications Board
 
 Since the controller board has lots of scary voltages on it, let's 
@@ -134,10 +140,11 @@ look at the communications board in isolation.
 
 The MCU has several serial I/O peripherals.
 Probably one of its UARTs is attached to the TXD and RXD wires, and the other 
-interfaces to the bluetooth controller and the IR receiver and the 
+interfaces connect to the bluetooth controller and the IR receiver and display
+driver.
 
-The SW wire is probably there to attach a hardware kill switch but on this device
-it is probably either hardwired 'on' or wired to one of the MCU's outputs.
+There's also an unpopulated 6-pin header right next to the MCU which is probably
+a JTAG port or similar.
 
 Let's hand this little board some power and see which pin is which.
 The benchtop power supply comes out again and it turns out to draw about 110mA at 12V.

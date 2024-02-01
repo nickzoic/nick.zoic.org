@@ -72,38 +72,67 @@ At 180VDC, 0.6HP would work out to 2.5A, so this is all making sense so far.
 There seem to be a few 240VAC to 180VDC PWM controllers out there, it's a 
 pretty simple circuit.
 
-
 ## Controller Board
 
-But I'd rather use the existing controller board if possible.  That
-5-wire interface between the two boards seems like the easiest place to
-start.
+I'd rather use the existing controller board if possible.
+It's not just a PWM controller though, there's lots of other stuff in there.
+
+* ARM Cortex M0+
+* PWM Controller
+* Relay
+
+![control board](img/control-board.jpg)
+
+The connections to the communications board appear to be protected by four
+optoisolators.  Why four, though, when there's only RX, TX and maybe SW?
+
+There's five unpopulated header pins right next to the MCU which are 
+maybe a JTAG or similar.
+
+## Protocol
+
+That 5-wire interface between the two boards seems like the easiest place to
+start.  To be careful of the ridiculously high voltages on the control board, 
+I soldered some wires to the GND, RX and TX pins and put my faith in the 
+oscilloscope's isolation ...
+
+![1](img/SDS00040.png)
+*first part of signal*
+
+![2](img/SDS00041.png)
+*second part of signal*
+
+The signals are quite bad because the long wires picked up lots of noise from surrounding circuitry.
+But you can clearly see a conversation happening here: a message on the RX line (yellow) is followed
+by a reply on the TX line (purple) and then a long pause.
+
+![3](img/SDS00044.png)
+*expanded view of signal*
+
+Looking at the RX line on the 'scope, there are 9 pulse widths in about
+3.75ms, so this is 2400 bps.
+Interestingly the RX line is at 5V logic, but the TX line is 12V logic!  You don't see
+that much any more ... I'll need a couple of resistors to shift the level down to
+where I can read it with a UART.
+
+## Communications Board
 
 Since the controller board has lots of scary voltages on it, let's 
-look at the communications board first.
+look at the communications board in isolation.
 
 As well as the FS-BT-01 bluetooth module it has a
 [Megawin MG82F6D17](http://www.megawin.com.tw/en-global/product/productDetail/MG82F6D17)
 which is *drumroll please* an [8051](https://en.wikipedia.org/wiki/MCS-51) MCU.
 
+This MCU has several serial I/Os.
 Probably one of its UARTs is attached to the TXD and RXD wires, and the other 
 interfaces to the bluetooth controller and the IR receiver and the 
 [TM1668](https://www.sunrom.com/p/tm1668-soic24-led-displaykeypad-driver) display driver.
+
 The SW wire is probably there to attach a hardware kill switch but on this device
 it is probably either hardwired 'on' or wired to one of the MCU's outputs.
 
 Let's hand this little board some power and see which pin is which.
+The benchtop power supply comes out again and it turns out to draw about 110mA at 12V.
 
-## Protocol
-
-scoping the RX and TX lines:
-
-![1](img/SDS00040.png)
-![2](img/SDS00041.png)
-
-Looking at the RX line on the 'scope, 9 pulse widths works out to about
-3.75ms, so this is 2400 bps.  It's followed by a reply from the TX side, and a long gap.
-
-![3](img/SDS00044.png)
-
-
+It starts up with the display saying `OFF` for a few seconds before changing to `E06`.  

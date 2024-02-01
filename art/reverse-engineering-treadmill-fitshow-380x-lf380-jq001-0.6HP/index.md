@@ -77,8 +77,9 @@ pretty simple circuit.
 I'd rather use the existing controller board if possible.
 It's not just a PWM controller though, there's lots of other stuff in there.
 
-* ARM Cortex M0+
-* PWM Controller
+* ARM Cortex M0 [HC32F005C6PA](https://jlcpcb.com/partdetail/XHSC-HC32F005C6PATSSOP20/C235578)
+* UC3813 Current-mode PWM Controller
+* Ginormous Capacitor
 * Relay
 
 ![control board](img/control-board.jpg)
@@ -106,13 +107,18 @@ The signals are quite bad because the long wires picked up lots of noise from su
 But you can clearly see a conversation happening here: a message on the RX line (yellow) is followed
 by a reply on the TX line (purple) and then a long pause.
 
+
 ![3](img/SDS00044.png)
 *expanded view of signal*
 
 Looking at the RX line on the 'scope, there are 9 pulse widths in about
 3.75ms, so this is 2400 bps.
-Interestingly the RX line is at 5V logic, but the TX line is 12V logic!  You don't see
-that much any more ... I'll need a couple of resistors to shift the level down to
+
+* The RX line is usually high (5V) and drops low (0V).
+* The TX line is usually low (0V) and goes high (12V).
+
+I'm not entirely clear on which board is sending RX and which is sending TX.
+You don't see 12V logic much any more ... I'll need a couple of resistors to shift the level down to
 where I can read it with a UART.
 
 ## Communications Board
@@ -120,14 +126,15 @@ where I can read it with a UART.
 Since the controller board has lots of scary voltages on it, let's 
 look at the communications board in isolation.
 
-As well as the FS-BT-01 bluetooth module it has a
-[Megawin MG82F6D17](http://www.megawin.com.tw/en-global/product/productDetail/MG82F6D17)
-which is *drumroll please* an [8051](https://en.wikipedia.org/wiki/MCS-51) MCU.
+* FitShow FS-BT-01 module
+* [Megawin MG82F6D17](http://www.megawin.com.tw/en-global/product/productDetail/MG82F6D17)
+  which is *drumroll please* an [8051](https://en.wikipedia.org/wiki/MCS-51) MCU.
+* EUP9818 audio amplifier IC.
+* [TM1668](https://www.sunrom.com/p/tm1668-soic24-led-displaykeypad-driver) display driver.
 
-This MCU has several serial I/Os.
+The MCU has several serial I/O peripherals.
 Probably one of its UARTs is attached to the TXD and RXD wires, and the other 
 interfaces to the bluetooth controller and the IR receiver and the 
-[TM1668](https://www.sunrom.com/p/tm1668-soic24-led-displaykeypad-driver) display driver.
 
 The SW wire is probably there to attach a hardware kill switch but on this device
 it is probably either hardwired 'on' or wired to one of the MCU's outputs.
@@ -136,3 +143,12 @@ Let's hand this little board some power and see which pin is which.
 The benchtop power supply comes out again and it turns out to draw about 110mA at 12V.
 
 It starts up with the display saying `OFF` for a few seconds before changing to `E06`.  
+
+![E06](img/e06.jpg)
+
+## New Controller
+
+I don't feel like there's any real need for this to be an
+[Internet of Things](../the-internet-of-not-shit-things/) device, really.
+It could easily be: once we crack the protocol we could just create a new
+comms board out of an [ESP32](../../tag/esp32/).  Or add a monitor stand 

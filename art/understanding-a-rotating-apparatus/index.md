@@ -28,7 +28,7 @@ It was bugging me though: how on earth could it possibly work with no sliding pa
 
 ## The Patent
 
-[US Patent 3,586,413](https://patents.google.com/patent/US3586413A/en) by describes an
+[US Patent 3,586,413](https://patents.google.com/patent/US3586413A/en) by Dale A. Adams describes an
 "Apparatus for providing energy communication between a moving and a stationary terminal".
 
 ![US3486413 Figure 1](img/fig1.png)
@@ -59,9 +59,27 @@ However, the following patent text hints at the fact that the gearing is not ess
 
 ## Simplifying
 
+Okay, so let's ignore the gears and any other parts which we can possibly ignore.  What's left?
+
+Well, there's a conductor which comes out of the base, around and over the top of the rotating
+platform.  And there's a support piece which fits between the base and the platform and guides 
+the conductor.
+
+![simplified diagram](img/simple.jpg)
+*simplified diagram*
+
+The rotating platform rotates, obviously.  The support piece rotates between the stationary base
+and the rotating platform, at half the speed the platform does.  The conductor rotates within the
+rotating guide but somehow it does not itself twist.  There's a whole lot of rotation going on.
+
+My head is spinning.
+
 ## Thinking Flexibly
+
+Sometimes it's helpful to start from the middle.  Let's consider things from the point of view of the guide.
 
 ## The Spinor Linkage
 
-[The Spinor Linkage](https://www.researchgate.net/publication/360037741_The_spinor_linkage_-_a_mechanical_implementation_of_the_plate_trick)
+[The Spinor Linkage](https://www.researchgate.net/publication/360037741_The_spinor_linkage_-_a_mechanical_implementation_of_the_plate_trick) /
+[Antitwister](http://ariwatch.com/VS/Algorithms/Antitwister.htm)
 

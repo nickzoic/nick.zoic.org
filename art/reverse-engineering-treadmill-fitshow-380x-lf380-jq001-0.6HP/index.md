@@ -58,17 +58,41 @@ The motor is marked:
 
 There wasn't much point continuing if the motor didn't work, so I put
 60VDC across it with a benchtop power supply and lo and behold it gently
-trundled along at 60VDC / 0.8A.
+trundled along slowly but smoothly at 60VDC / 0.8A.
 
 There's a small belt reduction drive (about 23:70) and the roller
 for the treadmill is 30mm, so 3500RPM translates to 108 meters/min
 or 6.5 km/h which seems about right for a "walking" treadmill.
 
-At 180VDC, 0.6HP would work out to 2.5A, so this is all making sense so far.
-
 It's definitely a walker rather than a running treadmill, but with no safety
 rail or stop switch that's probably for the best.  On the upside, it is 
 quite flat so you could easily store it under a bed or couch when not in use.
+
+At 180VDC, 0.6HP would work out to 2.5A, so this is all making sense so far.
+There seem to be a few 240VAC to 180VDC PWM controllers out there, it's a 
+pretty simple circuit.
+
+
+## Controller Board
+
+But I'd rather use the existing controller board if possible.  That
+5-wire interface between the two boards seems like the easiest place to
+start.
+
+Since the controller board has lots of scary voltages on it, let's 
+look at the communications board first.
+
+As well as the FS-BT-01 bluetooth module it has a
+[Megawin MG82F6D17](http://www.megawin.com.tw/en-global/product/productDetail/MG82F6D17)
+which is *drumroll please* an [8051](https://en.wikipedia.org/wiki/MCS-51) MCU.
+
+Probably one of its UARTs is attached to the TXD and RXD wires, and the other 
+interfaces to the bluetooth controller and the IR receiver and the 
+[TM1668](https://www.sunrom.com/p/tm1668-soic24-led-displaykeypad-driver) display driver.
+The SW wire is probably there to attach a hardware kill switch but on this device
+it is probably either hardwired 'on' or wired to one of the MCU's outputs.
+
+Let's hand this little board some power and see which pin is which.
 
 ## Protocol
 
@@ -81,4 +105,5 @@ Looking at the RX line on the 'scope, 9 pulse widths works out to about
 3.75ms, so this is 2400 bps.  It's followed by a reply from the TX side, and a long gap.
 
 ![3](img/SDS00044.png)
+
 

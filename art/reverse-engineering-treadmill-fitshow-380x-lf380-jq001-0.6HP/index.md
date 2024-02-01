@@ -65,6 +65,20 @@ for the treadmill is 30mm, so 3500RPM translates to 108 meters/min
 or 6.5 km/h which seems about right for a "walking" treadmill.
 
 At 180VDC, 0.6HP would work out to 2.5A, so this is all making sense so far.
+
 It's definitely a walker rather than a running treadmill, but with no safety
 rail or stop switch that's probably for the best.  On the upside, it is 
 quite flat so you could easily store it under a bed or couch when not in use.
+
+## Protocol
+
+scoping the RX and TX lines:
+
+![1](img/SDS00040.png)
+![2](img/SDS00041.png)
+
+Looking at the RX line on the 'scope, 9 pulse widths works out to about
+3.75ms, so this is 2400 bps.  It's followed by a reply from the TX side, and a long gap.
+
+![3](img/SDS00044.png)
+

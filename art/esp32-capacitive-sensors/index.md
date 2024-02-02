@@ -363,3 +363,8 @@ These analog captouch things have staying power :-)
 [mastodon.social](https://mastodon.social/@todbot/111344221925307966)
 [(github)](https://github.com/todbot/touchwheels/)
 
+UPDATE 2024
+===========
+
+* Check out the [Tangara Music Player](https://www.crowdsupply.com/cool-tech-zone/tangara)
+and its beautiful circular three-phase touch sensor.

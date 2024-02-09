@@ -368,3 +368,4 @@ UPDATE 2024
 
 * Check out the [Tangara Music Player](https://www.crowdsupply.com/cool-tech-zone/tangara)
 and its beautiful circular three-phase touch sensor.
+* [more Tangara @ crowdsupply](https://www.crowdsupply.com/cool-tech-zone/tangara/updates/a-deep-dive-into-the-design-of-our-touchwheel)

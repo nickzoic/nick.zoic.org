@@ -338,3 +338,8 @@ I can't believe this code scans, but it does ...
 It got worse:
 [Anime-style QR Codes with Stable Diffusion](https://arstechnica.com/information-technology/2023/06/redditor-creates-working-anime-qr-codes-using-stable-diffusion/).
 Look actually I secretly love this but FFS don't use it for anything sensible.
+
+## LINKS
+
+* [Mechanical Sympathy for QR Codes: Making NSW Check-in Better](https://huonw.github.io/blog/2021/10/nsw-covid-qr/) is a similar article
+about the NSW check-in experience, which had similar issues.

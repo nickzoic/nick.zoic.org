@@ -1,5 +1,5 @@
 ---
-date: '2024-01-11'
+date: '2024-03-04'
 layout: draft
 tags:
   - cycling
@@ -33,18 +33,27 @@ The bike came with 32mm road tyres which were okay but I found them sluggish at 
 pressures and squirrelly at high pressures and never found a sweet spot 
 between the two.  I replaced them with a set of 40mm Schwalbe Marathon Mondials
 (I'd checked the maximum tyre clearance before I bought it) which I liked 
-a lot better.
+a lot better.  I also ran it with regular Marathons, or with a Marathon on the front
+and a Marathon Mondial on the back, which worked nicely.
 
 It's been rather wet around here lately so I'm currently running 40mm Maxxis Ramblers
 which aren't quite as easy rolling as the Marathons but a lot more effective
 in the mud.
 
+I tend to run the rear tyre pretty much at it's pressure limit and the front tyre
+a little softer, which given the weight distribution of bike & rider should help a bit.
+
 ## Bars & Stem
 
 Originally it would have had a 105mm stem length but the dealer changed it over
-for a 120mm +6⁰ to add a little room.  The bars were fairly long and I found my hands
+for a 120mm +6⁰ to add a little room.
+
+The bars were fairly long (maybe 720mm?) and I found my hands
 always moved in a little on the grips so I hacksawed a bit off each bar end to make
 the whole thing narrower, and liked it like that.  I think I cut it down to about 660mm.
+
+(It's pretty easy to do.  If you don't have a pipe cutter, you can just wrap masking 
+tape around the bar and use that as a guide line for a hacksaw with a fine tooth blade.)
 
 Later I replaced the bars with
 [SQlab 310 Sport 2.0](https://www.sq-lab.com/en/area-of-use/trekking/sqlab-handlebar-310-sport-2-0-31-8.html)
@@ -52,31 +61,42 @@ bars which have a little more backsweep (16⁰) and a little downsweep (10⁰) a
 They're about 680mm wide.  I might get around to trimming them back a little.
 I don't really understand super wide bars, unless you're doing downhill or something.
 
+*The other option I was considering was
+[Ritchey Kyote](https://ritcheylogic.com/bike/handlebars/comp-kyote-handlebar)
+which have more backsweep at 27.5⁰ ... but at 800mm I'd have to cut a lot off
+the ends ...*
+
 To compensate for the lack of rise, and my aging back, that 120mm stem is now
 flipped to -6⁰ on top of 90mm of
 [stem riser](https://sheldonbrown.com/handsup.html).  Putting a negative
 stem on top of a riser might seem a bit perverse but combined with the head 
-tube angle, having the stem negative moves
+tube angle, having the stem angle negative makes the stem pretty much horizontal and moves
 the bars a little further forward as well.  There's a few mm left
 in the stack if I want to go slightly higher or lower.
 
 I also have a couple of [inner bar ends](https://bikepacking.com/gear/adding-alt-hand-positions-to-flat-bars/)
 which are just cheap 150mm "classic bar ends" from BBB, with a pair of very cheap
 flexi rubber grips forced over them (try some compressed air down the hole in the end)
+They're not perfect but they're enough to let me swap my hand positions
+around when they're getting tired, or pull myself forward for a long slow climb.
 
+While that takes my hands away from the
+brakes it's actually pretty easy to slide my hands down and brake with my outer fingers.
 Since the bars got a bit narrower as well there's no problem with the cables
 reaching.
 
 ## Granny Gears
 
 One of the things I really liked about this bike was that it came with
-a broad range of gears: a triple 26/36/48 crankset and a 9 speed 11x34 cassette.
+a broad range of gears: a triple 26/36/48 crankset and a 9 speed 11-34 cassette.
 
-I know triples are uncool these days, and everyone loves 1x drivetrains
+*I know triples are uncool these days, and everyone loves 1x drivetrains
 and that have two separate gear shifts is rocket surgery and beyond young 
-people or whatever.  I don't mind them.
+people or whatever.  Hey, I can be a hipster too, I retrofitted my daughter's
+bike with a single narrow/wide front sprocket and a 9 speed friction shifter
+for the back.  Gnarly.*
 
-The lowest gear, 26:34, is quite low indeed at 21
+But I still like them.  The stock lowest gear, 26:34, is quite low indeed at 21
 [gear inches](https://www.sheldonbrown.com/gloss_g.html#gearinch), but I ended up
 using it quite a bit, for example on gravel roads where it's quite nice to be able to spin
 up hills even if you're going slow.
@@ -89,17 +109,21 @@ I don't need it very often but I reckon I use it more than the 48:11 (119 gear i
 highest gear.  The chain is a bit short if you try to shift into the largest
 gear on the back and the front but there's no reason to want to do that so don't.
 
+The smallest chainring is an alloy Truvative 24T, the middle a Deore FC-M590 36T and
+the biggest one is the stock Acera 48T but they all seem to get along just fine.
+
 ## Axles & Skewers
 
 The only thing which has really gone wrong on this bike has been the
 [quick-release skewers](https://www.sheldonbrown.com/skewers.html),
-each of which let me down at one point or another.
+each of which let me down at one point or another.  Yes, the QR skewers
+make it quicker to change tyres *but I've had more QR failures than punctures!*.
 
 I ended up replacing the rear axle with a solid axle which weighs the same
 as the hollow axle plus skewer and is a bit stronger.  The only annoyance 
 is that the solid axle doesn't fit with a lot of cassette ring tools which
 use the skewer hole for alignment, and also I have to have a 15mm spanner 
-in the toolkit to undo the axle nuts.
+in the toolkit to undo the axle nuts, which is a nuisance.
 
 The front axle I've kept and just replaced the skewer with a
 [alley key skewer](https://www.99bikes.com.au/qr-skewer-set-bbb-wheelfixed-allenkey)
@@ -111,6 +135,19 @@ I reckon I'll end up switching the rear
 axle back to the stock hollow axle and one of these skewers too, next time
 I do the bearings.
 
+Note to self: the rear wheel bearings are 1/4" and the front ones are 3/16".
+
 ## Pedals
 
-## Bags
+The stock plastic pedals got dangerously slippery real quick, but I'm just
+too much of an idiot for cleats / clipless pedals.
+
+I've replaced those with some DMR V11 flat pedals (hey, they were on special)
+but unfortunately they have very pointy little studs which I'll replace with 
+some M4 x 0.7 x 8mm stainless socket head screws when I get around to it.
+They are very grippy though, I'll give them that, and the bearings are lovely.
+
+## Saddle
+
+All of the above stuff is subjective and personal, but there is nothing more
+subjective and personal than the saddle.

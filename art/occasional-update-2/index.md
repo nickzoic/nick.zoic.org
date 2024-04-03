@@ -42,7 +42,8 @@ I won't be ruining it for myself by writing about it here
 ([much](/art/3d-printed-ukulele-bridge-saddle-pla/)) — although it has given me the opportunity to
 experience just how offputting it is to beginners to describe any new skill as "easy"!
 
-And I've done a lot of cycling, which I probably will write about at some point.
+And I've done a lot of cycling, which I probably [will write about](/tag/cycling/)
+at some point.
 Like just about everyone, I did eventually catch COVID, and despite a whole bunch of 
 vaccinations it was not a whole bundle of laughs,
 but over the year I've recovered well and I'm back to cycling again and 

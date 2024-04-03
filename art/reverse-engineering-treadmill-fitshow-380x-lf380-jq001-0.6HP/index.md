@@ -158,4 +158,14 @@ It starts up with the display saying `OFF` for a few seconds before changing to 
 I don't feel like there's any real need for this to be an
 [Internet of Things](../the-internet-of-not-shit-things/) device, really.
 It could easily be: once we crack the protocol we could just create a new
-comms board out of an [ESP32](../../tag/esp32/).  Or add a monitor stand 
+comms board out of an [ESP32](../../tag/esp32/).
+
+Maybe the simplest control mechanism would be a distance sensor at chest 
+height, which would increase speed as the walker got further forward,
+and reduce speed as they fell back, effectively turning the entire 
+system into a [servomechanism](https://en.wikipedia.org/wiki/Servomechanism)
+for centering the user on the belt.
+
+Or just have a [knob and a switch](https://www.aliexpress.com/item/32917539516.html)
+to set the speed between 0 and maximum.  It doesn't need to be so complicated!
+

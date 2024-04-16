@@ -19,6 +19,9 @@ documenting what I did and not what might or might not work for you.
 The bike is a [Giant Cross City 1 Disc 2018](https://www.giant-bicycles.com/au/cross-city-1-disc-2018)
 size Large.
 
+![the bike, on the Port Fairy Rail Trail](img/pfff.jpg)
+*The bike, on the Port Fairy Rail Trail*
+
 I test rode a few things but I really liked this one: it's not a huge bike and
 the standover height is quite low, but it has an alloy frame, good brakes,
 carbon forks and a wide range of gears.
@@ -122,7 +125,8 @@ The smallest chainring is an alloy
 [Deore FC-M590 36T](https://www.pushys.com.au/shimano-deore-fc-m590-36t-chainring-black.html)
 and the biggest one is the stock Acera 48T but they all seem to get along.
 
-Oh, and I've changed the chain and pulleys over for Deore ones.
+Oh, and as they've worn out I've changed the bottom bracket and chain
+and pulleys over for Deore ones which are a very slight upgrade.
 
 ## Axles & Skewers
 

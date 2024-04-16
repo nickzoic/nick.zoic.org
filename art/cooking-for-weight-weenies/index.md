@@ -8,9 +8,9 @@ summary: "Looking at camp cooking if you're trying to save pack weight"
 layout: "article"
 ---
 
-I've [gotten into bikepacking](/art/the-cycling-bikepacking-post/) lately,
-and as well as learning some stuff about bike mechanics and working on
-my fitness, I've also had to work on how to pack.
+I've [gotten into bikepacking](../the-cycling-bikepacking-post/) lately,
+and as well as learning [some stuff about bike mechanics](../the-touring-commuter/)
+and working on my fitness, I've also had to work on how to pack.
 
 <div class="aside"></div>
 

@@ -3,6 +3,9 @@ title: 'A Modest Proposal'
 layout: draft
 ---
 
+![Agile Card Wall](img/img/agile-card-wall.jpg)
+*source: unknown*
+
 ![Van Dam Punch Cards](img/van_dam_punch-card.jpg)
 *[source: neh.gov](https://www.neh.gov/divisions/odh/featured-project/invitation-film-screening-talk-the-university-maryland-celebrate-the-work-andy-van-dam)*
 

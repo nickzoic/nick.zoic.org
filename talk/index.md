@@ -33,3 +33,5 @@ title: "Talks: Nick Moore"
   * [OMNICODE](pycon2017/omnicode/)
 * [Rocket Surgery](mpug2/) & lightning talk at PyConAU 2018
 * [YOW Connected: Easy IoT with MicroPython on ESP SOCs](yow1/)
+* [PyConAU 2023: CountESS](pycon2023/countess/)
+* [CAVA: CountESS](cava/cava_all_hands_2024_04_30.pdf)

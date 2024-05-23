@@ -89,6 +89,12 @@ brakes it's actually pretty easy to slide my hands down and brake with my outer 
 Since the bars got a bit narrower as well there's no problem with the cables
 reaching.
 
+I found with the swept bars the "ergonomic" grips which came with the bike no 
+longer really sat well in my hands so I've put on
+[PNW Loam XL](https://www.mtbdirect.com.au/products/pnw-components-loam-xl-grip?variant=40691101827117)
+grips which are just amazing.  These are a couple of mm larger diameter 
+than the standard ones and that makes a big difference to hand comfort for me.
+
 ## Granny Gears
 
 One of the things I really liked about this bike was that it came with

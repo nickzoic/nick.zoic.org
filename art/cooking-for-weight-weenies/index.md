@@ -48,8 +48,8 @@ To decide where to more effectively save weight, weigh everything:
 
 | Item | Weight, g | Cost, $ |
 |:---:|:---:|
-|Snowpeak Titanium Splade | 15 | 15 |
-|The fanciest looking full sized steel fork<br>I could find in my kitchen cutlery drawer | 51 | 0.50 |
+|Snowpeak Titanium Splade | 15 | 15.00 |
+|The fanciest looking full sized steel fork<br>I could find in my kitchen cutlery drawer,<br>which you could buy from a thrift store<br>for fifty cents | 51 | 0.50 |
 
 So you're spending $14.50 to save 35 grams, or to put it another way this weight
 saving is costing you $.40 per gram.  By comparison, a cheap lightweight chair weighs
@@ -60,10 +60,10 @@ weighs 500g and costs $149.  So reducing that weight is only costing you $.24 pe
 So, is buying titanium cutlery an economically effective way to save weight?  **No.**<br>
 Do I love my titanium splade anyway?  **Yes.**
 
-On the other hand, you can save about 10g with
+On the other hand, replacing four steel bottle cage screws with
 [four titanium bottle cage screws](https://www.pushys.com.au/silca-sicuro-bottle-cage-titanium-bolts-4-pack.html)
-for $35 ($3.50 per gram saved), so it could be worse.
-
+would cost $35 for 10g weight saved, that's $3.50 per gram saved,
+so it could be worse.
 [It could always be worse.](https://www.youtube.com/watch?v=ZvI4ZpD_7EA)
 
 ## Stoves for Weight Weenies
@@ -117,15 +117,16 @@ But I've included a low wind shield in the numbers just to be fair.
 Bringing the mini gas stove (115g) instead seems like it saves a fair bit of weight
 over the Kovea (354g), saving 239g but it requires a taller wind shield and
 a clip-on plastic tripod for the gas canister, so the difference is only 150g,
-plus the Kovea stove is better at simmering and will work at lower temperatures.
+plus the Kovea stove is better at simmering, far more stable
+and will work at lower temperatures due to its evaporator loop.
 
 Both those stoves use isobutane fuel canisters so there's also about 180-380g
 of fuel canister to carry, depending on how full it is.  
 There are smaller 100g cans available but they're hard to find cheaply.
 
-<!--Heating up a typical meal takes about 10g of gas with the tiny gas stove,
+Heating up a typical meal takes about 10g of gas with the tiny gas stove,
 although I haven't done methodical testing here.  The Kovea is probably more
-efficient too.-->
+efficient too.
 
 <div class="aside"></div>
 
@@ -133,8 +134,8 @@ efficient too.-->
 [Isobutane](https://en.wikipedia.org/wiki/Isobutane) and/or
 [Propane](https://en.wikipedia.org/wiki/Propane), because regular
 [Butane](https://en.wikipedia.org/wiki/Butane) stops evaporating
-at around 0⁰C ... which can really cramp your cooking style on a cold morning
-when your gas fuel stays a liquid.
+at around 0⁰C ... which can really cramp your style on a cold morning
+when your gas fuel stays a liquid instead of burning.
 If you can only find Butane and it's going to be chilly overnight it's best
 to keep the can in the foot of your sleeping bag
 [along with your microfilter](https://www.halfwayanywhere.com/trails/pacific-crest-trail/platypus-quickdraw-microfilter-review/#the-bad)!*
@@ -230,17 +231,30 @@ Methylated Spirits fuel is [quite cheap](https://www.bunnings.com.au/diggers-1l-
 and it only took about 10g / 12mL to vigorously boil a cup of water so a little 100mL bottle should
 last for a short trip (in case you're wondering: ethanol is less dense than water, about 0.8 g/mL)
 
-Note that it is really important to use a childproof bottle for your fuel and 
-label it appropriately to make sure no-one mistakes it for a really terrible cough remedy.
+<div class="aside"></div>
+
+*[Methylated Spirits contain](https://en.wikipedia.org/wiki/Denatured_alcohol)
+[horribly toxic Methanol](https://en.wikipedia.org/wiki/Methanol_toxicity)
+so it is really important to use a well-sealed, childproof bottle
+for your fuel. I've saved a couple of kids' liquid medicine bottles
+which have those push-and-twist lids on them, in various sizes.
+Be sure to relabel appropriately to make sure no-one mistakes the
+fuel for a really terrible cough remedy.*
 
 ### Other kinds of stove
 
-Hexamine (solid fuel tablet) stoves might also be worth considering for short
+[Hexamine](https://en.wikipedia.org/wiki/Hexamine_fuel_tablet)
+(solid fuel tablet) stoves might also be worth considering for short
 trips.  They're compact, low weight and easy to light but as I understand it
 not particularly fast to cook over.
 
-Pressurized shellite stoves have their loyal adherents, but I've always found them
-terrifyingly erratic, with blocked jets, leaking o-rings and sudden flare-ups.
+Pressurized [Shellite / Naptha / White Gas](https://en.wikipedia.org/wiki/Naphtha)
+stoves have their loyal adherents, but I've always found them
+terrifyingly erratic, with blocked jets, leaking o-rings and
+sudden flare-ups.
+
+* [MyLifeOutdoors (youtube) compares several types of stove](https://www.youtube.com/watch?v=ARwKxQ30oOI)
+including canister, alcohol and solid fuel.
 
 ## Cookware
 
@@ -285,10 +299,15 @@ Kovea.  Decisions, decisions, decisions.
 
 ### Additional stuff
 
-Don't forget you'll also need some utensils: at the very least a plastic splade and
-probably something to stir with.  Unless you want to eat with sticks and tyre levers I 
-suppose.  Unless you're doing exclusively dehydrated or boil-in-the-bag stuff you'll
-need something to wash up with too.
+Don't forget you'll also need some utensils: at the very least
+a plastic splade and probably something longer to stir with.
+Unless you want to eat with tent pegs and tyre levers I 
+suppose but that might be a bit too much weight weenie even for me.
+
+Unless you're doing exclusively dehydrated or boil-in-the-bag stuff you'll
+need something to wash up with too.  I saw a great tip somewhere
+to keep those mesh bags oranges come in because they make great
+pot scourers but also take up no room and dry very quickly.
 
 ## Coffee for Weight Weenies
 
@@ -303,6 +322,7 @@ want to carry a whole lot of extra weight to do so.
 |:---:|:---:|
 | Bialetti Caffettiera (stainless) | 526 |
 | Wacaco Minipresso | 400 |
+| Single-shot Caffettiera (aluminium) | 250 |
 | Aeropress | 160 |
 | Aeropress without plunger | 87 |
 | Stainless conical filter | 10 |
@@ -315,31 +335,33 @@ worry me.  The classic aluminium ones are a bit less heavy but don't last long u
 camping conditions, in my experience: they go all weird and furry inside.  Maybe that's 
 just the Australian river water.
 
-(I found my old single shot aluminium one, it still weighs 250g even with the
-plastic handle half melted off.)
-
 I've used a [Minipresso](https://www.wacaco.com/products/minipresso-gr) a lot
 on camping trips and at home and it makes a really excellent coffee.
 The Wacaco website says it weighs 360g but I measure it as 400g, perhaps
 mine is an older model.
 
 Depending on your feelings about luxury items, it is maybe a bit heavy and fiddly for
-bikepacking use.  Interestingly, they have new "smaller, lighter" models but according to
-the website they're a bit smaller but *not very much* lighter, still over 300g.
+bikepacking use.  There's a lot of individual parts and if you 
+lose any of them the thing is worthless.
+Interestingly, they have new "smaller, lighter" models but according to
+the website they're a bit smaller but *not very much* lighter, still over 300g.  
 
 A lighter alternative is the
 [Travel Aeropress](https://aeropress.com/products/aeropress-go-travel-coffee-press),
 which is really just a robust plastic cylinder with a 
 holder for a paper filter at the bottom and an airtight plunger to force
 the coffee through the filter.
-That's only 160g, and to be honest you might as well leave the plunger at home
-and just let it drip through in its own good time.  Without the plunger
-it's about 87g. You can get stainless filters for these too if you don't
-like the disposable paper ones.
+That's only 160g, and to be honest unless you're in a huge rush
+you might as well leave the plunger at home
+and just let it drip through in its own good time: the coffee isn't
+really espresso-like even when pushed and without the plunger
+it weighs only about 87g.
+You can get stainless filters for these too if you don't
+like the disposable paper ones, but I haven't tried them.
 
-Or, if we're happy to wait anyway, we can dispense with the cylinder and the
-disposable paper filters and just bring the filter:
-[a conical stainless steel filter](https://share.temu.com/tK6zRCoZltA)
+Or why not dispense with the cylinder and the
+disposable paper filters and just bring the filter?
+A [conical stainless steel filter](https://share.temu.com/tK6zRCoZltA)
 folds flat, weighs about 10g and just sits inside your coffee cup until you reckon
 its brewed enough and then lift it up and let it drain.
 
@@ -350,15 +372,11 @@ Congratulations, you've just saved about the weight of a tin
 of beans or a cold, refreshing canned beverage.  Or maybe even
 a tiny chair.
 
-The only lighter options are "coffee bags", which I've never found to be any
-good at all, and instant coffee which, well, any port in a storm but it'd better
-be a hell of a storm.
-
 ## Conclusion
 
 You could save a kilo by spending a few thousand bucks on a lighter bike,
-or spending a few hundred bucks on lighter camping gear or you could just spend a 
-couple of tenners on a tiny stove and eat with a tyre lever.
+or spending a few hundred bucks on lighter camping gear or you could
+spend nothing and just eat cold beans with a tyre lever.
 
 Or you could just bring your credit card and stay at a nice B&B.
 
@@ -368,4 +386,4 @@ your fate as you drag a kitchen sink up the side of a mountain.
 
 And, yeah, I went and bought that 500g chair.
 Because of course I did.
-After all, I did just save 500g on a coffee filter ...
+After all, I'd just saved 500g on a coffee filter ...

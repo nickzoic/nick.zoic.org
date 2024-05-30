@@ -39,9 +39,10 @@ between the two.  I replaced them with a set of 40mm Schwalbe Marathon Mondials
 a lot better.  I've also run it with regular Marathons, or with a Marathon on the front
 and a Marathon Mondial on the back, which worked nicely.
 
-It's been rather wet around here lately so I'm currently running 40mm Maxxis Ramblers
-which aren't quite as easy rolling as the Marathons but a lot more effective
-when the trails are muddy.
+It's been rather wet around here lately so I'm currently running 40mm gravel tyres
+which aren't quite as hard wearing or easy rolling as the Marathons but a lot more effective
+when the trails are muddy.  So far I've tried Maxxis Ramblers and WTB Vulpines,
+pretty happy with both although the Vulpines were a real battle to get mounted.
 
 I tend to run the rear tyre pretty much at it's pressure limit and the front tyre
 a little softer, which given the [weight distribution](../cooking-for-weight-weenies/)
@@ -77,6 +78,9 @@ stem on top of a riser might seem a bit perverse but combined with the head
 tube angle, having the stem angle negative makes the stem pretty much horizontal
 and that moves the bars a little further forward as well.  There's a few mm left
 in the stack if I want to go slightly higher or lower.
+
+![Handlebar setup](img/getagrip.jpg)
+*Handlebar setup*
 
 I also have a couple of [inner bar ends](https://bikepacking.com/gear/adding-alt-hand-positions-to-flat-bars/)
 which are just cheap 150mm "classic bar ends" from BBB, with a pair of very cheap
@@ -158,11 +162,14 @@ Note to self: the rear wheel bearings are 1/4" and the front ones are 3/16".
 The stock plastic pedals got dangerously slippery real quick, but I'm just
 too much of an idiot for cleats / clipless pedals.
 
+![Pedals with replacement studs](img/studs.jpg)
+*Pedals with replacement studs*
+
 I've replaced those with some [DMR V11](https://www.dmrbikes.com/Catalogue/Pedals/V11-2/V11)
 flat pedals (hey, they were on special)
-but unfortunately they have very pointy little studs which I'll replace with 
-some M4 x 0.7 x 8mm stainless socket head screws before I carve too many more
-chunks out of my calves.
+but unfortunately they have very pointy little studs which were quite painful
+if I made a little slip hike-a-biking, so I've replaced them with 
+some M4 x 0.7 x 6mm stainless socket head screws.
 
 They are very grippy though, I'll give them that, and the bearings are much 
 better than the previous Giant flat pedals.

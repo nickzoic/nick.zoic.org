@@ -25,7 +25,8 @@ by having the enemies actually shoot straight.
 ![Screenshot 3](img/screenshot-3.png)
 
 There's not an easy way to make a new "GIT GUD" label, the graphics 
-live in the WAD file which is separate.  Just select the one which says "END GAME".
+live in the WAD file which is separate and I can't be bothered dealing with it.
+Just select the one which says "END GAME".
 
 Of course, DOOM GIT GUD expresses its distaste if you pick any other option:
 
@@ -35,7 +36,8 @@ I was originally intending to patch the enemies' movement code to
 have them behave less stupidly than directly walking into fire,
 but it turns out that a one line patch to make them shoot straight is probably enough ...
 
-The change looks like a bit like this:
+[The change](https://github.com/chocolate-doom/chocolate-doom/compare/master...nickzoic:doom-git-gud:master)
+looks like a bit like this, in a few places:
 
 ```
 -    angle += P_SubRandom() << 20;
@@ -62,7 +64,7 @@ seems like it's roughly the same as what the player gets:
 if you're shooting at a soldier, they hit you about as
 often as you hit them.
 
-If that's too easy for you, change it to:
+If that's still too easy for you, change it to:
 
 ```
 angle += (gameskill < sk_gitgud) ? (P_SubRandom() << 20) : 0;

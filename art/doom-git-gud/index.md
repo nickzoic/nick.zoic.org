@@ -14,7 +14,8 @@ If Nightmare mode is not enough of a challenge for you, you'd better just git gu
 
 [DOOM Git Gud](https://github.com/nickzoic/doom-git-gud/)
 
-Possibly the dumbest thing I've actually bothered to do based on a joke tweet:
+Possibly the dumbest thing I've actually bothered to do based on a
+[joke tweet](https://twitter.com/nickzoic/status/1115793964844507136):
 
 [![tweets](img/tweeters.png)](https://twitter.com/nickzoic/status/1115793964844507136)
 
@@ -66,3 +67,5 @@ If that's too easy for you, change it to:
 ```
 angle += (gameskill < sk_gitgud) ? (P_SubRandom() << 20) : 0;
 ```
+
+And remember, "if you can win at all it's because a person made it possible to win."

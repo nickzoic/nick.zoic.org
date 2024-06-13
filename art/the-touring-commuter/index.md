@@ -39,9 +39,10 @@ between the two.  I replaced them with a set of 40mm Schwalbe Marathon Mondials
 a lot better.  I've also run it with regular Marathons, or with a Marathon on the front
 and a Marathon Mondial on the back, which worked nicely.
 
-It's been rather wet around here lately so I'm currently running 40mm Maxxis Ramblers
-which aren't quite as easy rolling as the Marathons but a lot more effective
-when the trails are muddy.
+It's been rather wet around here lately so I'm currently running 40mm gravel tyres
+which aren't quite as hard wearing or easy rolling as the Marathons but a lot more effective
+when the trails are muddy.  So far I've tried Maxxis Ramblers and WTB Vulpines,
+pretty happy with both although the Vulpines were a real battle to get mounted.
 
 I tend to run the rear tyre pretty much at it's pressure limit and the front tyre
 a little softer, which given the [weight distribution](../cooking-for-weight-weenies/)
@@ -56,14 +57,14 @@ The bars were fairly long (maybe 720mm?) and I found my hands
 always moved in a little on the grips so I hacksawed a bit off each bar end to make
 the whole thing narrower, and liked it like that.  I think I cut it down to about 660mm.
 
-(It's pretty easy to do.  If you don't have a pipe cutter, you can just wrap masking 
+(Cutting down bars is pretty easy to do.  If you don't have a pipe cutter, you can just wrap masking 
 tape around the bar and use that as a guide line for a hacksaw with a fine tooth blade.)
 
 Later I replaced the bars with
 [SQlab 310 Sport 2.0](https://www.sq-lab.com/en/area-of-use/trekking/sqlab-handlebar-310-sport-2-0-31-8.html)
 bars which have a little more backsweep (16⁰) and a little downsweep (10⁰) and no rise at all.
 They're about 680mm wide.  I might get around to trimming them back a little.
-I don't really understand super wide bars, unless you're doing downhill or something.
+I don't really understand super wide bars, unless you're doing downhill or something, they just turn you into a windsock.
 
 *The other option I was considering was
 [Ritchey Kyote](https://ritcheylogic.com/bike/handlebars/comp-kyote-handlebar)
@@ -77,6 +78,9 @@ stem on top of a riser might seem a bit perverse but combined with the head
 tube angle, having the stem angle negative makes the stem pretty much horizontal
 and that moves the bars a little further forward as well.  There's a few mm left
 in the stack if I want to go slightly higher or lower.
+
+![Handlebar setup](img/getagrip.jpg)
+*Handlebar setup*
 
 I also have a couple of [inner bar ends](https://bikepacking.com/gear/adding-alt-hand-positions-to-flat-bars/)
 which are just cheap 150mm "classic bar ends" from BBB, with a pair of very cheap
@@ -123,7 +127,7 @@ about 7% lower.
 So now I have a ridiculously low 24:36 (18 gear inches) granny gear.
 I don't need it very often but I reckon I use it more than the 48:11 (119 gear inches)
 highest gear.  The chain is a bit short if you try to shift into the largest
-gear on both the back and the front but there's no reason to want to do that so don't.
+gear on both the back and the front but there's no reason to want to do that so I don't.
 
 The smallest chainring is an alloy
 [Truvative 24T](https://www.pushys.com.au/truvativ-v1-24t-9-10-speed-triple-inner-aluminium-chainring-black.html)
@@ -164,13 +168,16 @@ Note to self: the rear wheel bearings are 1/4" and the front ones are 3/16".
 The stock plastic pedals got dangerously slippery real quick, but I'm just
 too much of an idiot for cleats / clipless pedals.
 
+![Pedals with replacement studs](img/studs.jpg)
+*Pedals with replacement studs*
+
 I've replaced those with some [DMR V11](https://www.dmrbikes.com/Catalogue/Pedals/V11-2/V11)
 flat pedals (hey, they were on special)
-but unfortunately they have very pointy little studs which I'll replace with 
-some M4 x 0.7 x 8mm stainless socket head screws before I carve too many more
-chunks out of my calves.
+but unfortunately they have very pointy little studs which were quite painful
+if I made a little slip hike-a-biking, so I've replaced them with 
+some M4 x 0.7 x 6mm stainless socket head screws.
 
-They are very grippy though, I'll give them that, and the bearings are much 
+They are still very grippy, and the bearings are much 
 better than the previous Giant flat pedals.
 
 ## Saddle

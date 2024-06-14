@@ -173,7 +173,8 @@ too much of an idiot for cleats / clipless pedals.
 
 I've replaced those with some [DMR V11](https://www.dmrbikes.com/Catalogue/Pedals/V11-2/V11)
 flat pedals (hey, they were on special)
-but unfortunately they have very pointy little studs which were quite painful
+but unfortunately they have very pointy little studs which were
+[quite painful](img/blood.jpg)
 if I made a little slip hike-a-biking, so I've replaced them with 
 some M4 x 0.7 x 6mm stainless socket head screws.
 

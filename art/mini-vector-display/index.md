@@ -25,9 +25,10 @@ tube with power supply and composite video circuitry.
 The part numbers seem to be `VIS4001D`, `VIS4001EA` or `VIS4001EC`,
 with some small differences between them.
 
-![ebay1.jpg](img/ebay1.jpg)
-![ebay2.jpg](img/ebay2.jpg)
-![ebay3.jpg](img/ebay3.jpg)
+[![ebay1.jpg](img/ebay1t.jpg)](img/ebay1.jpg)
+[![ebay2.jpg](img/ebay2t.jpg)](img/ebay2.jpg)
+[![ebay3.jpg](img/ebay3t.jpg)](img/ebay3.jpg)
+*images from Ebay listing*
 
 ## Resources
 
@@ -51,6 +52,9 @@ getting radiated from the three-terminal TO220 regulator and associated
 heatsink on the right side of the board, which is interesting.
 
 ## Displaying Composite Video
+
+http://www.breakintoprogram.co.uk/projects/pico/composite-video-on-the-raspberry-pi-pico
+https://areed.me/posts/2021-07-14_implementing_composite_video_output_using_the_pi_picos_pio/
 
 ## Taking Control
 

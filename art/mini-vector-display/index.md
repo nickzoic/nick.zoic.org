@@ -54,6 +54,7 @@ getting radiated from the three-terminal TO220 regulator and associated
 heatsink on the right side of the board, which is interesting.
 
 ![flir.jpg](img/flir.jpg)
+*Photo: ZxSpectROM on Twitter*
 
 By contrast, the tube and the HV power module seem to run fairly cool.
 This is good because I'll want to make a housing for this thing

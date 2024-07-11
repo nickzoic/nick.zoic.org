@@ -36,7 +36,7 @@ with some small differences between them.
 [[archive.org]](https://web.archive.org/web/20230522080743/https://geeseang.wordpress.com/experiment-with-sony-flat-4inch-crt/)
 * [tweet by ZxSpectROM](https://x.com/ZxSpectROM/status/1407363271171186695)
 * [Jerry Walker on youtube](https://www.youtube.com/watch?v=mh_9LUYnDv0)
-* [DiodeGoneWilld on youtube](https://www.youtube.com/watch?v=l9CXZXSwG7I)
+* [DiodeGoneWild on youtube](https://www.youtube.com/watch?v=l9CXZXSwG7I)
 
 ## Connectors
 

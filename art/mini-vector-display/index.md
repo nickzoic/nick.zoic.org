@@ -26,11 +26,11 @@ The part numbers seem to be `VIS4001D`, `VIS4001EA` or `VIS4001EC`,
 with some small differences between them.
 
 <p><table><tr><td>
-<a href="img/ebay1.jpg"><img src="img/ebay1t.jpg"></a>
-</td></td>
-<a href="img/ebay2.jpg"><img src="img/ebay2t.jpg"></a>
-</td></td>
-<a href="img/ebay3.jpg"><img src="img/ebay3t.jpg"></a>
+<a href="img/ebay1.jpg"><img src="img/ebay1t.jpg"/></a>
+</td><td>
+<a href="img/ebay2.jpg"><img src="img/ebay2t.jpg"/></a>
+</td><td>
+<a href="img/ebay3.jpg"><img src="img/ebay3t.jpg"/></a>
 </td></tr></table>
 <em style="display: inline-block; width: 100%; text-align: center">images from Ebay listing</em>
 </p>

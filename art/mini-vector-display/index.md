@@ -40,26 +40,38 @@ with some small differences between them.
 
 ## Connectors
 
-JST XH? 
+There's a six-pin connector for brightness/contrast pots, and a 4 pin 
+connector for power and composite video.  JST XH? 
 
 ## Power
 
 The sticker on the side of the assembly says `DC12V,4.0W`.
 
-Somewhere there was an infrared image of the board which suggested that a
+[This tweet](https://x.com/ZxSpectROM/status/1408460498882940934) 
+includes an infrared image of the board which suggested that a
 large proportion of the 4W power consumption was
 getting radiated from the three-terminal TO220 regulator and associated
 heatsink on the right side of the board, which is interesting.
 
+![flir.jpg](img/flir.jpg)
+*Photo: ZxSpectROM on Twitter*
+
+By contrast, the tube and the HV power module seem to run fairly cool.
+This is good because I'll want to make a housing for this thing
+eventually.
+
 ## Displaying Composite Video
+
+[RPi Composite Video](https://en.wikipedia.org/wiki/Raspberry_Pi#Video)
 
 http://www.breakintoprogram.co.uk/projects/pico/composite-video-on-the-raspberry-pi-pico
 https://areed.me/posts/2021-07-14_implementing_composite_video_output_using_the_pi_picos_pio/
 
 ## Taking Control
 
-
-
+But what I *actually* want is to control the horizontal and the vertical
+and the beam intensity separately, from a microcontroller.  This would then
+let me implement a vector display.
 
 
 

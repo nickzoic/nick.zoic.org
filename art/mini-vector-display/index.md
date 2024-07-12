@@ -25,18 +25,23 @@ tube with power supply and composite video circuitry.
 The part numbers seem to be `VIS4001D`, `VIS4001EA` or `VIS4001EC`,
 with some small differences between them.
 
-[![ebay1.jpg](img/ebay1t.jpg)](img/ebay1.jpg)
-[![ebay2.jpg](img/ebay2t.jpg)](img/ebay2.jpg)
-[![ebay3.jpg](img/ebay3t.jpg)](img/ebay3.jpg)
-*images from Ebay listing*
+<p><table><tr><td>
+<a href="img/ebay1.jpg"><img src="img/ebay1t.jpg"/></a>
+</td><td>
+<a href="img/ebay2.jpg"><img src="img/ebay2t.jpg"/></a>
+</td><td>
+<a href="img/ebay3.jpg"><img src="img/ebay3t.jpg"/></a>
+</td></tr></table>
+<em style="display: inline-block; width: 100%; text-align: center">images from Ebay listing</em>
+</p>
 
 ## Resources
 
 * ["Experiment with Sony flat 4inch CRT"](https://geeseang.wordpress.com/experiment-with-sony-flat-4inch-crt/)
 [[archive.org]](https://web.archive.org/web/20230522080743/https://geeseang.wordpress.com/experiment-with-sony-flat-4inch-crt/)
-* [tweet by ZxSpectROM](https://x.com/ZxSpectROM/status/1407363271171186695)
+* [tweet by ZxSpectROM](https://twitter.com/ZxSpectROM/status/1407363271171186695)
 * [Jerry Walker on youtube](https://www.youtube.com/watch?v=mh_9LUYnDv0)
-* [DiodeGoneWilld on youtube](https://www.youtube.com/watch?v=l9CXZXSwG7I)
+* [DiodeGoneWild on youtube](https://www.youtube.com/watch?v=l9CXZXSwG7I)
 
 ## Connectors
 
@@ -47,25 +52,27 @@ connector for power and composite video.  JST XH?
 
 The sticker on the side of the assembly says `DC12V,4.0W`.
 
-[This tweet](https://x.com/ZxSpectROM/status/1408460498882940934) 
-includes an infrared image of the board which suggested that a
-large proportion of the 4W power consumption was
-getting radiated from the three-terminal TO220 regulator and associated
-heatsink on the right side of the board, which is interesting.
+[This tweet](https://twitter.com/ZxSpectROM/status/1408460498882940934) 
+includes an infrared image of the board with the three-terminal TO220
+regulator clocking in at 56.3⁰C, which suggests that a
+large proportion of the 4W power consumption is getting radiated from
+that device alone.
 
-![flir.jpg](img/flir.jpg)
-*Photo: ZxSpectROM on Twitter*
+[![flir.jpg](img/flirt.jpg)](img/flir.jpg)
+*Photo: [ZxSpectROM on Twitter](https://twitter.com/ZxSpectROM/)*
 
-By contrast, the tube and the HV power module seem to run fairly cool.
-This is good because I'll want to make a housing for this thing
+By contrast, the tube itself and the "may cause mortal damage" HV power
+module seem to run fairly cool.
+This is good because I'll want to make a 3D printed housing for this thing
 eventually.
 
 ## Displaying Composite Video
 
 [RPi Composite Video](https://en.wikipedia.org/wiki/Raspberry_Pi#Video)
 
-http://www.breakintoprogram.co.uk/projects/pico/composite-video-on-the-raspberry-pi-pico
-https://areed.me/posts/2021-07-14_implementing_composite_video_output_using_the_pi_picos_pio/
+You can also get composite video out of a RPi Pico, with a bit of trickery
+[1](http://www.breakintoprogram.co.uk/projects/pico/composite-video-on-the-raspberry-pi-pico)
+[2](https://areed.me/posts/2021-07-14_implementing_composite_video_output_using_the_pi_picos_pio/)
 
 ## Taking Control
 

@@ -58,8 +58,8 @@ regulator clocking in at 56.3⁰C, which suggests that a
 large proportion of the 4W power consumption is getting radiated from
 that device alone.
 
-[![flir.jpg](img/flirt.jpg)](img/flir.jpg)
-*Photo: [ZxSpectROM on Twitter](https://twitter.com/ZxSpectROM/)*
+![flir.jpg](img/flirt.jpg)
+*Image: [ZxSpectROM on Twitter](https://twitter.com/ZxSpectROM/)*
 
 By contrast, the tube itself and the "may cause mortal damage" HV power
 module seem to run fairly cool.
@@ -71,8 +71,8 @@ eventually.
 [RPi Composite Video](https://en.wikipedia.org/wiki/Raspberry_Pi#Video)
 
 You can also get composite video out of a RPi Pico, with a bit of trickery
-[1](http://www.breakintoprogram.co.uk/projects/pico/composite-video-on-the-raspberry-pi-pico)
-[2](https://areed.me/posts/2021-07-14_implementing_composite_video_output_using_the_pi_picos_pio/)
+([1](http://www.breakintoprogram.co.uk/projects/pico/composite-video-on-the-raspberry-pi-pico),
+[2](https://areed.me/posts/2021-07-14_implementing_composite_video_output_using_the_pi_picos_pio/))
 
 ## Taking Control
 
@@ -80,5 +80,92 @@ But what I *actually* want is to control the horizontal and the vertical
 and the beam intensity separately, from a microcontroller.  This would then
 let me implement a vector display.
 
+Controlling the actual device may prove a little tricky, so let's start with
+the simplest possible thing.  I already have a device which can act like a 
+vector CRT ... my old [Tektronix 2225 oscilloscope](https://w140.com/tekwiki/wiki/2225),
+which I pulled out of a skip at Monash Uni many years ago.
 
+And I have any number of microcontroller boards.  The
+[ESP32](/tag/esp32/) runs
+[micropython](/tag/micropython/) has two 8-bit
+DACs on board, so let's go with that for the moment.
+
+There's some code up at
+[github:nickzoic/mini-vector](https://github.com/nickzoic/mini-vector/)
+
+### points
+
+We can start off by defining an array of points to visit:
+
+```
+points = [
+        (0.0, 0.0),
+        (0.0, 1.0),
+        (0.25, 1.0),
+        (0.75, 0.5),
+        (0.75, 1.0),
+        (1.0, 1.0),
+        (1.0, 0.0),
+        (0.75, 0.0),
+        (0.25, 0.5),
+        (0.25, 0.0),
+]
+```
+
+Here's how those points would look plotted:
+
+![a big N](img/big-n.svg)
+*a big N*
+
+[`micropython-itertools`](https://pypi.org/project/micropython-itertools/)
+implements a lot of the core python `itertools`, including a handy function `cycle`
+which repeats an iterable indefinitely, so `cycle(points)` runs through all the points
+in an endless loop.
+
+If you don't have `itertools` installed you can always define this function yourself:
+
+```
+def cycle(iterable):
+    while True:
+        yield from iterable
+```
+
+### segments
+
+At this point, I wanted to loop over each line segment.
+Unfortunately, it doesn't include `pairwise`, so I had to implement that myself:
+
+```
+from itertools import cycle
+
+def pairwise(iterable):
+    it = iter(iterable)
+    a = next(it)
+    for b in it:
+        yield a, b
+        a = b
+```
+
+now we can easily step through the line segments like this:
+
+```
+for (x1, y1), (x2, y2) in pairwise(cycle(points)):
+    print (x1, y1, x2, y2)
+```
+
+now we've got each line segment, what are we going to do with it?
+Let's try breaking it up into a number of intermediate points,
+
+```
+steps = 8
+
+for (x1, y1), (x2, y2) in pairwise(cycle(points)):
+    for s in range(0,steps):
+        f = s / steps
+        x = x1 * (1-f) + x2 * f
+        y = x1 * (1-f) + y2 * f
+        print(x,y)
+```
+
+### intensity
 

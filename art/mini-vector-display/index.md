@@ -167,5 +167,49 @@ for (x1, y1), (x2, y2) in pairwise(cycle(points)):
         print(x,y)
 ```
 
+```
+def interpolate(iterable_of_pairs_of_points, steps=8):
+    for (x1, y1), (x2, y2) in iterable_of_pairs_of_points:
+        for s in range(0,steps):
+            f = s / steps
+            x = x1 * (1-f) + x2 * f
+            y = x1 * (1-f) + y2 * f
+            yield x, y
+```
+
+### writing to the DACs
+
+```
+from machine import Pin, DAC
+
+dac_x = DAC(Pin(25))
+dac_y = DAC(Pin(26))
+
+for x, y in interpolate(pairwise(cycle(points))):
+    dac_x.write(int(x*255))
+    dac_y.write(int(y*255))
+```
+
+This isn't *nice* but it's enough to get us *something*:
+
+![big N on the oscilloscope](img/big-n-osc1.jpg)
+*big N on the oscilloscope*
+
+There's some pretty big problems with this code:
+
+* the number of points per segment is fixed, so the density of points depends
+  on the length of the segment
+* if you look at the diagonals, you can see that updates of X and Y aren't happening
+  in sync, there's quite a long delay resulting in a 16 point "stair step" between
+  the 8 points.
+* even the densest lines aren't smooth enough not to look like lines of dots.
+
+Fortunately, we can get around a lot of these problems using
+[ESP32 I2S](https://docs.espressif.com/projects/esp-idf/en/stable/esp32/api-reference/peripherals/i2s.html#)
+
+As in this 
+[example code by infrasonicaudio](https://github.com/infrasonicaudio/esp32-i2s-synth-example), the 
+I2S peripheral can be routed to the in-built DAC pins rather than using an external device.
+
 ### intensity
 

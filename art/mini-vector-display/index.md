@@ -5,6 +5,8 @@ summary: Making a miniature vector display out of a new/old CRT.
 date: '2024-07-09'
 tags:
   - electronics
+  - micropython
+  - esp32
 ---
 
 ## Vector Displays
@@ -34,6 +36,15 @@ with some small differences between them.
 </td></tr></table>
 <em style="display: inline-block; width: 100%; text-align: center">images from Ebay listing</em>
 </p>
+
+By a curious coincidence I spotted one of these in the wild!
+
+![swann video intercom](img/swann.jpg)
+*Swann Video Intercom*
+
+Note that unlike the phosphor surface on a normal CRT which has phosphor
+on the front, with this device you're looking right through the tube to
+the phosphor on the back side.
 
 ## Resources
 

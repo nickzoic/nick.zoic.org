@@ -48,6 +48,7 @@ the phosphor on the back side.
 
 ## Resources
 
+* [Jeroen Domburg: Building a Portable Vectrex, The Right Way](https://www.youtube.com/live/zBVmCFS2sYs)
 * ["Experiment with Sony flat 4inch CRT"](https://geeseang.wordpress.com/experiment-with-sony-flat-4inch-crt/)
 [[archive.org]](https://web.archive.org/web/20230522080743/https://geeseang.wordpress.com/experiment-with-sony-flat-4inch-crt/)
 * [tweet by ZxSpectROM](https://twitter.com/ZxSpectROM/status/1407363271171186695)
@@ -64,10 +65,10 @@ connector for power and composite video.  JST XH?
 The sticker on the side of the assembly says `DC12V,4.0W`.
 
 [This tweet](https://twitter.com/ZxSpectROM/status/1408460498882940934) 
-includes an infrared image of the board with the three-terminal TO220
-regulator clocking in at 56.3⁰C, which suggests that a
+includes an infrared image of the board with the 7810 regulator
+(the TO220 package and heatsink) clocking in at 56.3⁰C, which suggests that a
 large proportion of the 4W power consumption is getting radiated from
-that device alone.
+that device alone. 
 
 ![flir.jpg](img/flirt.jpg)
 *Image: [ZxSpectROM on Twitter](https://twitter.com/ZxSpectROM/)*
@@ -180,3 +181,17 @@ for (x1, y1), (x2, y2) in pairwise(cycle(points)):
 
 ### intensity
 
+## Back to the CRT
+
+Unlike Jeroen's "portable vectrex" project there's no way I'm going to try
+to make a new driver board for this thing.  The existing board is based on
+a Sanyo `LA7806` "B/W TV Synchronization, Deflection Circuit" ... a 16 pin 
+IC which decodes the sync pulses from composite video into horizontal and
+vertical deflection signals.
+
+First things first, I'll get it working with a composite video input and
+check out the signals on pins 3 and 6, which should be horizontal and
+vertical drive respectively.
+
+There's a lot of supporting circuitry, but perhaps I can just de-solder the
+chip and drive the existing deflection circuits through those pins?

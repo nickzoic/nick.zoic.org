@@ -143,6 +143,12 @@ I think all power is routed through the LM7810 regulator so the whole device cou
 be made >15% more efficient by replacing this part with a more efficient
 regulator.
 
+The chip at the heart of this circuit, the `LA7806` has two separate power pins called
+`V12` and `V15`, on pins 12 and 15 respectively.
+Both have a recommended voltage of 12V, and a maximum of 14V.
+No minimum voltage is listed but this board appears to run both from the regulator
+at 10V.
+
 ## Displaying Composite Video
 
 ## Taking Control
@@ -301,7 +307,7 @@ the grid and yoke drivers and mixes horizontal and vertical to match the weird g
 of the picture tube.  I'd rather not have to recreate that either, although
 I suppose it wouldn't be impossible in software.
 
-![LA7806](img/la8706.png)
+![LA7806](img/la7806.png)
 *Image: Excerpt from LA7806 datasheet*
 
 The datasheets for this chip are pretty minimal, so

@@ -301,6 +301,9 @@ the grid and yoke drivers and mixes horizontal and vertical to match the weird g
 of the picture tube.  I'd rather not have to recreate that either, although
 I suppose it wouldn't be impossible in software.
 
+![LA7806](img/la8706.png)
+*Image: Excerpt from LA7806 datasheet*
+
 The datasheets for this chip are pretty minimal, so
 first things first, I'll get it working with a composite video input and
 check out the signals on pins 3 and 6. These should be horizontal and

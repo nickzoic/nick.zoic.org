@@ -143,7 +143,7 @@ I think all power is routed through the LM7810 regulator so the whole device cou
 be made >15% more efficient by replacing this part with a more efficient
 regulator.
 
-The chip at the heart of this circuit, the [`LA7806`](https://www.datasheetcatalog.com/datasheets_pdf/L/A/7/8/LA7806.shtml)
+The chip at the heart of this circuit, the [LA7806](https://www.datasheetcatalog.com/datasheets_pdf/L/A/7/8/LA7806.shtml)
 has two separate power pins called
 `V12` and `V15`, on pins 12 and 15 respectively.
 Both have a recommended voltage of 12V, and a maximum of 14V.
@@ -282,7 +282,7 @@ It works, despite some pretty big problems with this code:
 
 Fortunately, we can get around a lot of these problems using
 [I²S](https://en.wikipedia.org/wiki/I%C2%B2S).
-Using I2S lets us stream coordinates out to the display at set time intervals 
+Using I²S lets us stream coordinates out to the display at set time intervals 
 without having to worry about the rest of our code keeping up in real time.
 
 The [ESP32's I²S](https://docs.espressif.com/projects/esp-idf/en/stable/esp32/api-reference/peripherals/i2s.html#)
@@ -387,16 +387,72 @@ drawn, but I'm hoping that it'll be sufficient to move the beam very rapidly to
 "skip" between lines.  Then I can just wire the beam intensity for full power.
 This will save having a third output channel to coordinate.
 
+### Loading fonts.
+
+The big `N` is a good start, but I want to do something nice as a font.
+The only characters I actually need are digits.  To get them I
+just opened up an inkscape document, typed in `0123456789:` and then
+converted that text with "Path » Object to Path" and then saved it as
+an SVG.  Then I wrote
+[a script to convert the SVG paths into a bunch of points](https://github.com/nickzoic/mini-vector/blob/main/svg_paths_to_python.py)
+using `xml.dom.minidom` and `svg.path.parse_path`.
+
+Each character gets converted to an
+[SVG Path](https://developer.mozilla.org/en-US/docs/Web/SVG/Tutorial/Paths).
+Each path is a series of line segments (straight or
+[splines](/art/mouse-canvas-splines/)) but we don't want to deal with SVG on the
+microcontroller so what we do is covert each of them into a series of
+points, interpolating points on the longer strokes to make sure they have the
+correct shape.  The script them emits these point lists as python code so
+they can get imported in MicroPython.
+
+```
+# simplified version for clarity
+
+with minidom.parse(sys.argv[1]) as doc:
+    for path in doc.getElementsByTagName('path'):
+        for segment in parse_path(path.getAttribute('d')):
+            for l in range(0, int(segment.length)+1):
+                point = segment.point(l)
+                print(point.real, point.imag)
+```
+
+That's enough to get some nice curvy digits displayed on the CRO ...
+which in my excitement I didn't take photos of.
+
+### Multiple Digits
+
+Instead I just moved on to multiple digits.
+Setting the i2s port up as before, this code just combines the paths
+for three digits and writes them out, updating the paths every time the
+time changes:
+
+```
+while True:
+    t = time()
+    points = \
+        [ ((x+0)/3, y) for x, y in characters[t//100%10] ] + \
+        [ ((x+1)/3, y) for x, y in characters[t//10%10] ] + \
+        [ ((x+2)/3, y) for x, y in characters[t%10] ]
+    buffer = pack("<" + "h" * (2*len(points)), *[int(z * 0xFFFF - 0x8000) for x, y in points for z in (x,y)])
+
+    while t == time():
+        i2s_out.write(buffer)
+```
+
+Multiple digits don't work so well:
+
 ![multiple digits don't work quite so well (CRO)](img/scope3.jpg)
 *multiple digits don't work quite so well (CRO)*
 
 ![multiple digits don't work quite so well (DSO)](img/sds00048.png)
 *multiple digits don't work quite so well (DSO)*
 
-![multiple digits don't work quite so well (DSO)](img/sds00049.png)
-*multiple digits don't work quite so well (DSO)*
+(or watch a very boring video on [youtube](https://youtu.be/QbrYeHJTxxc))
 
-Multiple digits don't work quite so well.  I attempted to "lift the pen" by moving the beam very quickly between strokes, but
+<div style="position: relative; width: 100%; height: 0; padding-bottom: 100%"><iframe src="https://www.youtube.com/embed/QbrYeHJTxxc" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" style="position: absolute; width: 100%; height: 100%; left: 0; top: 0" allowfullscreen></iframe></div>
+
+I attempted to "lift the pen" by moving the beam very quickly between strokes, but
 the built-in digital filtering on the I2S module works against us here, with the digital filter "ringing" both before *and* after the abrupt movement!
 
 It's a pity there's no [quadraphonic](https://en.wikipedia.org/wiki/Quadraphonic_sound) I²S modules `:-)`.
@@ -404,8 +460,7 @@ Maybe I should consider using a [continuous script font](https://www.1001fonts.c
 instead of numerals!
 
 Or perhaps I could modify the "font" to make sure all paths enter and leave at a tangent.
-Or make a feature of a line through the center.
-
+Perhaps always along the bottom of the digits.  Or make a feature of a line through the center.  The smaller jumps — eg: between inner and outer loops of the 0 — don't seem to be as big a problem.
 
 ## Back to the CRT
 

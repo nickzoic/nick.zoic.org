@@ -143,7 +143,8 @@ I think all power is routed through the LM7810 regulator so the whole device cou
 be made >15% more efficient by replacing this part with a more efficient
 regulator.
 
-The chip at the heart of this circuit, the `LA7806` has two separate power pins called
+The chip at the heart of this circuit, the [`LA7806`](https://www.datasheetcatalog.com/datasheets_pdf/L/A/7/8/LA7806.shtml)
+has two separate power pins called
 `V12` and `V15`, on pins 12 and 15 respectively.
 Both have a recommended voltage of 12V, and a maximum of 14V.
 No minimum voltage is listed but this board appears to run both from the regulator
@@ -166,7 +167,7 @@ which I pulled out of a skip at Monash Uni many years ago.
 
 And I have any number of microcontroller boards.  The
 [ESP32](/tag/esp32/) runs
-[micropython](/tag/micropython/) has two 8-bit
+[micropython](/tag/micropython/) and has two 8-bit
 DACs on board, so let's go with that for the moment.
 
 ### Python Code
@@ -274,27 +275,104 @@ It works, despite some pretty big problems with this code:
   the 8 points.
 * even the densest lines aren't smooth enough not to look like lines of dots.
 * the update rate isn't high enough to increase the number of points much.
+* there's a big of crosstalk between the DAC pins (thus the sloping lines)
 
 Fortunately, we can get around a lot of these problems using
-[ESP32 I2S](https://docs.espressif.com/projects/esp-idf/en/stable/esp32/api-reference/peripherals/i2s.html#)
+[I²S](https://en.wikipedia.org/wiki/I%C2%B2S).
+Using I2S lets us stream coordinates out to the display at set time intervals 
+without having to worry about the rest of our code keeping up in real time.
 
-Allegedly, as in this 
-[example code by infrasonicaudio](https://github.com/infrasonicaudio/esp32-i2s-synth-example), the 
-I2S peripheral can be routed to the in-built DAC pins rather than using an external device.
-This may no longer be supported though?  In ESP-IDF 5.0.4 the only mention of this functionality
-is under `components/driver/deprecated/driver/i2s.h` which seems ominous.
+The [ESP32's I²S](https://docs.espressif.com/projects/esp-idf/en/stable/esp32/api-reference/peripherals/i2s.html#)
+can [allegedly](https://github.com/infrasonicaudio/esp32-i2s-synth-example) be routed to the in-built
+DAC pins but this is [deprecated](https://github.com/espressif/esp-idf/blob/master/components/driver/deprecated/driver/i2s.h).
 
 But I do have a [`PCM5102A`](https://www.ti.com/product/PCM5102A) based
 [I2S DAC module](https://www.aliexpress.com/item/1005006816695590.html) 
 in the junkbox which will give me 2 × 16 bit channels at quite a high sample rate,
 and includes digital filtering to remove artifacts.
 
-![I2S Big N on CRO](img/scope2.jpg)
+Let's hook it up and see what happens.  I'm using the chip in "System Clock PLL Mode", which just needs a three wire interface:
+
+---|---|---
+machine.I2S Parameter | ESP32 Pin | GY-PCM5102 Pin
+---|---|---
+sck | GPIO 32 | BCK
+sd | GPIO 33 | DIN
+ws | GPIO 25 | LRCK
+---|---|---
+
+Some setup pins are also required, and are set using solder jumpers on the module board:
+
+---|---|---|---
+GY-PCM5102 Pin | State | Purpose | Setting
+---|---|---|---
+DEMP | L | De-emphasis | Off
+FLT | L | Filter Select | Normal
+FMT | L | Audio Format | I²S
+XSMT | H | Soft Mute | Un-mute
+---|---|---|---
+
+The two audio output channels L and R are then connected to X and Y axis respectively.
+
+Now we can write some Python code to configure the I2S port, based on
+[this micropython i2s example](https://github.com/miketeachman/micropython-i2s-examples/blob/master/examples/play_tone.py):
+
+```
+from machine import I2S, Pin
+
+I2S_ID = 0
+SCK_PIN = 32
+WS_PIN = 25
+SD_PIN = 33
+BUFFER_LENGTH_IN_BYTES = 20000 
+SAMPLE_RATE_IN_HZ = 22050
+
+i2s_out = I2S(
+    I2S_ID,
+    sck=Pin(SCK_PIN),
+    ws=Pin(WS_PIN),
+    sd=Pin(SD_PIN),
+    mode=I2S.TX,
+    bits=16,
+    format=I2S.STEREO,
+    rate=SAMPLE_RATE_IN_HZ,
+    ibuf=BUFFER_LENGTH_IN_BYTES,
+)
+```
+
+Then all we need to do is fill up a buffer and write it continuously.  When the write buffer
+is full, the `i2s_out.write()` will block, which saves us from worrying about asynchronous
+operation.
+
+```
+buffer = pack("<" + "h" * (2*len(points)), *[int(z * 0x8000 - 0x4000) for x, y in points for z in (x,y)])
+try:
+    while True:
+        i2s_out.write(buffer)
+finally:
+    i2s_out.deinit()
+```
 
 ![I2S Big N on DSO](img/sds00047.png)
 
-Using I2S lets us stream coordinates out to the display at set time intervals 
-without having to worry about the rest of our code keeping up.
+If you look at the trace on the CRO, you can see that the beam still lingers a little on intermediate
+points: those aren't introduced by my code, the 8x digital interpolation filter on the PCM5102 is doing it for us.
+A little bit of analogue filtering should help remove the discontinuities.
+At least there's no stair-stepping on the diagonals.
+
+![I2S Big N on CRO](img/scope2.jpg)
+
+Adding in some of our own interpolation and/or running at a lower refresh rate should also make the 
+straight lines straighter.  It's currently updating at 2.2kHz which is a lot higher than it needs to be!
+
+In "System Clock PLL Mode", the PCM5102 can operate at
+32, 44.1, 48, 96, 192 or 384 kHz
+× 16 bit × 2 sample rates.
+
+My "Big N" has 10 points.
+If we're emitting points at 48kHz and we want to have our image refresh at ~50Hz, that's a
+maximum of ~960 points per image, which should be more than enough for our clock application,
+even allowing for some interpolation of longer line segments.
 
 ### Intensity
 
@@ -303,12 +381,18 @@ drawn, but I'm hoping that it'll be sufficient to move the beam very rapidly to
 "skip" between lines.  Then I can just wire the beam intensity for full power.
 This will save having a third output channel to coordinate.
 
+The built-in filtering on the I2S module may work against us here though.
+It's a pity there's no [quadraphonic](https://en.wikipedia.org/wiki/Quadraphonic_sound) I²S modules `:-)`.
+Maybe I should consider using a [continuous script font](https://www.1001fonts.com/monoline+script+cursive-fonts.html)
+instead of numerals!
+
 ## Back to the CRT
 
-There's no way I'm going to try to make a new driver board for this thing.
+There's no way I'm going to try to make a whole new driver board for this thing.
+
 The existing board is based on
-a Sanyo `LA7806` "B/W TV Synchronization, Deflection Circuit" ... a 16 pin 
-IC which decodes the sync pulses from composite video, and sends out
+a [Sanyo `LA7806` B/W TV Synchronization, Deflection Circuit](https://www.datasheetcatalog.com/datasheets_pdf/L/A/7/8/LA7806.shtml)
+... a 16 pin IC which decodes the sync pulses from composite video, and sends out
 horizontal and vertical deflection signals.
 
 There's a lot of analogue circuitry on this board which presumably handles

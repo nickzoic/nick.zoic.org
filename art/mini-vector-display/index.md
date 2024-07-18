@@ -182,7 +182,7 @@ There's some code up at
 
 We can start off by defining an array of points to visit:
 
-```
+```python3
 points = [
         (0.0, 0.0),
         (0.0, 1.0),
@@ -209,7 +209,7 @@ in an endless loop.
 
 If you don't have `itertools` installed you can always define this function yourself:
 
-```
+```python3
 def cycle(iterable):
     while True:
         yield from iterable
@@ -220,7 +220,7 @@ def cycle(iterable):
 At this point, I wanted to loop over each line segment.
 Unfortunately, it doesn't include `pairwise`, so I had to implement that myself:
 
-```
+```python3
 from itertools import cycle
 
 def pairwise(iterable):
@@ -233,7 +233,7 @@ def pairwise(iterable):
 
 now we can easily step through the line segments like this:
 
-```
+```python3
 for (x1, y1), (x2, y2) in pairwise(cycle(points)):
     print (x1, y1, x2, y2)
 ```
@@ -241,7 +241,7 @@ for (x1, y1), (x2, y2) in pairwise(cycle(points)):
 now we've got each line segment, what are we going to do with it?
 Let's try breaking it up into a number of intermediate points,
 
-```
+```python3
 def interpolate(iterable_of_pairs_of_points, steps=8):
     for (x1, y1), (x2, y2) in iterable_of_pairs_of_points:
         for s in range(0,steps):
@@ -253,7 +253,7 @@ def interpolate(iterable_of_pairs_of_points, steps=8):
 
 #### writing to the DACs
 
-```
+```python3
 from machine import Pin, DAC
 
 dac_x = DAC(Pin(25))
@@ -327,7 +327,7 @@ The two audio output channels L and R are then connected to X and Y axis respect
 Now we can write some Python code to configure the I2S port, based on
 [this micropython i2s example](https://github.com/miketeachman/micropython-i2s-examples/blob/master/examples/play_tone.py):
 
-```
+```python3
 from machine import I2S, Pin
 
 I2S_ID = 0
@@ -354,7 +354,7 @@ Then all we need to do is fill up a buffer and write it continuously.  When the 
 is full, the `i2s_out.write()` will block, which saves us from worrying about asynchronous
 operation.
 
-```
+```python3
 buffer = pack("<" + "h" * (2*len(points)), *[int(z * 0x8000 - 0x4000) for x, y in points for z in (x,y)])
 try:
     while True:
@@ -413,13 +413,13 @@ points, interpolating points on the longer strokes to make sure they have the
 correct shape.  The script them emits these point lists as python code so
 they can get imported in MicroPython.
 
-```
+```python3
 # simplified version for clarity
 
 with minidom.parse(sys.argv[1]) as doc:
     for path in doc.getElementsByTagName('path'):
         for segment in parse_path(path.getAttribute('d')):
-            for l in range(0, int(segment.length)+1):
+            for l in range(0, int(segment.length())+1):
                 point = segment.point(l)
                 print(point.real, point.imag)
 ```
@@ -434,7 +434,7 @@ Setting the i2s port up as before, this code just combines the paths
 for three digits and writes them out, updating the paths every time the
 time changes:
 
-```
+```python3
 while True:
     t = time()
     points = \

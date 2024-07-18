@@ -145,6 +145,9 @@ regulator.
 
 ## Displaying Composite Video
 
+To prove this thing actually works I'd like to get it displaying from a composite video source.
+Composite isn't that common these days --- most things have moved on to HDMI --- but I've got a couple of old toy video game devices which output PAL composite so let's see how it goes.
+
 ## Taking Control
 
 But what I *actually* want is to control the horizontal and the vertical

@@ -317,6 +317,9 @@ XSMT | H | Soft Mute | Un-mute
 
 The two audio output channels L and R are then connected to X and Y axis respectively.
 
+![experimental setup with ESP32 and PCM5102 boards](img/boards1.jpg)
+*experimental setup with ESP32 and PCM5102 boards*
+
 Now we can write some Python code to configure the I2S port, based on
 [this micropython i2s example](https://github.com/miketeachman/micropython-i2s-examples/blob/master/examples/play_tone.py):
 
@@ -384,17 +387,32 @@ drawn, but I'm hoping that it'll be sufficient to move the beam very rapidly to
 "skip" between lines.  Then I can just wire the beam intensity for full power.
 This will save having a third output channel to coordinate.
 
-The built-in filtering on the I2S module may work against us here though.
+![multiple digits don't work quite so well (CRO)](img/scope3.jpg)
+*multiple digits don't work quite so well (CRO)*
+
+![multiple digits don't work quite so well (DSO)](img/sds00048.png)
+*multiple digits don't work quite so well (DSO)*
+
+![multiple digits don't work quite so well (DSO)](img/sds00049.png)
+*multiple digits don't work quite so well (DSO)*
+
+Multiple digits don't work quite so well.  I attempted to "lift the pen" by moving the beam very quickly between strokes, but
+the built-in digital filtering on the I2S module works against us here, with the digital filter "ringing" both before *and* after the abrupt movement!
+
 It's a pity there's no [quadraphonic](https://en.wikipedia.org/wiki/Quadraphonic_sound) I²S modules `:-)`.
 Maybe I should consider using a [continuous script font](https://www.1001fonts.com/monoline+script+cursive-fonts.html)
 instead of numerals!
+
+Or perhaps I could modify the "font" to make sure all paths enter and leave at a tangent.
+Or make a feature of a line through the center.
+
 
 ## Back to the CRT
 
 There's no way I'm going to try to make a whole new driver board for this thing.
 
 The existing board is based on
-a [Sanyo `LA7806` B/W TV Synchronization, Deflection Circuit](https://www.datasheetcatalog.com/datasheets_pdf/L/A/7/8/LA7806.shtml)
+a [Sanyo LA7806 B/W TV Synchronization, Deflection Circuit](https://www.datasheetcatalog.com/datasheets_pdf/L/A/7/8/LA7806.shtml)
 ... a 16 pin IC which decodes the sync pulses from composite video, and sends out
 horizontal and vertical deflection signals.
 

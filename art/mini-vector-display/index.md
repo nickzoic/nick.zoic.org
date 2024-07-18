@@ -143,7 +143,7 @@ I think all power is routed through the LM7810 regulator so the whole device cou
 be made >15% more efficient by replacing this part with a more efficient
 regulator.
 
-The chip at the heart of this circuit, the [`LA7806`](https://www.datasheetcatalog.com/datasheets_pdf/L/A/7/8/LA7806.shtml)
+The chip at the heart of this circuit, the [LA7806](https://www.datasheetcatalog.com/datasheets_pdf/L/A/7/8/LA7806.shtml)
 has two separate power pins called
 `V12` and `V15`, on pins 12 and 15 respectively.
 Both have a recommended voltage of 12V, and a maximum of 14V.
@@ -286,7 +286,7 @@ The [ESP32's I²S](https://docs.espressif.com/projects/esp-idf/en/stable/esp32/a
 can [allegedly](https://github.com/infrasonicaudio/esp32-i2s-synth-example) be routed to the in-built
 DAC pins but this is [deprecated](https://github.com/espressif/esp-idf/blob/master/components/driver/deprecated/driver/i2s.h).
 
-But I do have a [`PCM5102A`](https://www.ti.com/product/PCM5102A) based
+But I do have a [PCM5102A](https://www.ti.com/product/PCM5102A) based
 [I2S DAC module](https://www.aliexpress.com/item/1005006816695590.html) 
 in the junkbox which will give me 2 × 16 bit channels at quite a high sample rate,
 and includes digital filtering to remove artifacts.
@@ -300,6 +300,10 @@ sck | GPIO 32 | BCK
 sd | GPIO 33 | DIN
 ws | GPIO 25 | LRCK
 ---|---|---
+
+To enable this mode, `SCK` should be pulled low.
+In this mode, if you feed it an appropriate `BCK` (data bit clock) and `LRCK` (data word clock) 
+it'll work out its own `SCK` (system clock) which saves a bit of messing around.
 
 Some setup pins are also required, and are set using solder jumpers on the module board:
 
@@ -363,16 +367,15 @@ At least there's no stair-stepping on the diagonals.
 ![I2S Big N on CRO](img/scope2.jpg)
 
 Adding in some of our own interpolation and/or running at a lower refresh rate should also make the 
-straight lines straighter.  It's currently updating at 2.2kHz which is a lot higher than it needs to be!
+straight lines straighter.  It's currently refreshing at 2.2kHz which is a lot higher than it needs to be!
 
-In "System Clock PLL Mode", the PCM5102 can operate at
-32, 44.1, 48, 96, 192 or 384 kHz
-× 16 bit × 2 sample rates.
+According to the datasheet, in "System Clock PLL Mode", the PCM5102 can operate at
+32, 44.1, 48, 96, 192 or 384 kHz sample rates.
 
 My "Big N" has 10 points.
 If we're emitting points at 48kHz and we want to have our image refresh at ~50Hz, that's a
 maximum of ~960 points per image, which should be more than enough for our clock application,
-even allowing for some interpolation of longer line segments.
+even allowing for some extra interpolation of longer line segments.
 
 ### Intensity
 
@@ -386,12 +389,18 @@ It's a pity there's no [quadraphonic](https://en.wikipedia.org/wiki/Quadraphonic
 Maybe I should consider using a [continuous script font](https://www.1001fonts.com/monoline+script+cursive-fonts.html)
 instead of numerals!
 
+### Character Set
+
+For now at least, my character set is limited to `0123456789:`.
+Each of these could be represented as a series of points, or multiple loops
+if I want to draw "outline" characters.
+ 
 ## Back to the CRT
 
 There's no way I'm going to try to make a whole new driver board for this thing.
 
 The existing board is based on
-a [Sanyo `LA7806` B/W TV Synchronization, Deflection Circuit](https://www.datasheetcatalog.com/datasheets_pdf/L/A/7/8/LA7806.shtml)
+a [Sanyo LA7806 B/W TV Synchronization, Deflection Circuit](https://www.datasheetcatalog.com/datasheets_pdf/L/A/7/8/LA7806.shtml)
 ... a 16 pin IC which decodes the sync pulses from composite video, and sends out
 horizontal and vertical deflection signals.
 

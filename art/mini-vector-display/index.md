@@ -281,10 +281,19 @@ Fortunately, we can get around a lot of these problems using
 Allegedly, as in this 
 [example code by infrasonicaudio](https://github.com/infrasonicaudio/esp32-i2s-synth-example), the 
 I2S peripheral can be routed to the in-built DAC pins rather than using an external device.
-This may no longer be supported though?  But I do have a I2S -> stereo audio
-module somewhere anyway.
+This may no longer be supported though?  In ESP-IDF 5.0.4 the only mention of this functionality
+is under `components/driver/deprecated/driver/i2s.h` which seems ominous.
 
-Using I2S would let us stream coordinates out to the display at set time intervals 
+But I do have a [`PCM5102A`](https://www.ti.com/product/PCM5102A) based
+[I2S DAC module](https://www.aliexpress.com/item/1005006816695590.html) 
+in the junkbox which will give me 2 × 16 bit channels at quite a high sample rate,
+and includes digital filtering to remove artifacts.
+
+![I2S Big N on CRO](img/scope2.jpg)
+
+![I2S Big N on DSO](img/sds00047.png)
+
+Using I2S lets us stream coordinates out to the display at set time intervals 
 without having to worry about the rest of our code keeping up.
 
 ### Intensity

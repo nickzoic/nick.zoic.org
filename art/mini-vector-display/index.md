@@ -460,17 +460,44 @@ Multiple digits don't work so well:
 <div style="position: relative; width: 100%; height: 0; padding-bottom: 100%"><iframe src="https://www.youtube.com/embed/QbrYeHJTxxc" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" style="position: absolute; width: 100%; height: 100%; left: 0; top: 0" allowfullscreen></iframe></div>
 
 I attempted to "lift the pen" by moving the beam very quickly between strokes, but
-the built-in digital filtering on the I2S module works against us here, with the digital filter "ringing" both before *and* after the abrupt movement!
+the built-in digital filtering on the I2S module works against us here, with the
+digital filter "ringing" both *before* and after each abrupt movement.  That's because
+the impulse response of the digital filter looks like this:
 
-It's a pity there's no [quadraphonic](https://en.wikipedia.org/wiki/Quadraphonic_sound) I²S modules `:-)`.
-Maybe I should consider using a [continuous script font](https://www.1001fonts.com/monoline+script+cursive-fonts.html)
+![impulse response from the PCM5102 datasheet](img/impulse.png)
+*impulse response from the PCM5102 datasheet*
+
+It's not magic, actually the entire signal is delayed by 20 samples
+(= 160 interpolated samples) to produce this clean filter effect.
+
+### Lifting the pen
+
+So that strategy isn't going to work too well.
+
+With I²S, I can't easily use a separate GPIO to shut down the beam because I don't know
+how long the I²S buffer is delaying the outputs by, so my beam shutoff signal
+would be out of sync with my beam position signals.
+It's a pity there's no [quadraphonic](https://en.wikipedia.org/wiki/Quadraphonic_sound) I²S modules so I could have beam intensity as a third synchronized channel `:-)`.
+
+One possibility would be to switch off the filter ... the datasheet mentions
+"x1 (bypass)" mode, but I can't find any documentation on how to do so.
+I could also switch to a simpler I²C DAC like the MCP4725 / MCP4728 since
+I can do the digital filtering myself already.
+
+Or maybe I should approach it in a different way and consider using a
+[continuous script font](https://www.1001fonts.com/monoline+script+cursive-fonts.html)
 instead of numerals!
  
-Or perhaps I could modify the "font" to make sure all paths enter and leave at a tangent.
-Perhaps always along the bottom of the digits.  Or make a feature of a line through the center.  The smaller jumps — eg: between inner and outer loops of the 0 — don't seem to be as big a problem.
+Perhaps I could modify the "font" to make sure all paths enter and leave at a tangent,
+always along the bottom of the digits.  That might reduce the visibility of the
+ringing effect.
+The smaller jumps — eg: between inner and outer loops of the `0` —
+don't seem to be as big a problem.  It's pretty easy to edit the paths manually
+since they're each just an array of points.
 
 ## Back to the CRT
 
+OK, messing around with 'scopes is one thing, but let's try getting the CRT working.
 There's no way I'm going to try to make a whole new driver board for this thing.
 
 The existing board is based on

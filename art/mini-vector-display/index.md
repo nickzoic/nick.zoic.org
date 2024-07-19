@@ -1,8 +1,8 @@
 ---
-layout: draft
+layout: article
 title: "Look Mum No Pixels: a Mini Vector Display"
 summary: Making a miniature vector display out of a new/old CRT.
-date: '2024-07-09'
+date: '2024-07-19'
 tags:
   - electronics
   - micropython
@@ -11,8 +11,8 @@ tags:
 
 ## Vector Displays
 
-A [Vector Display](https://en.wikipedia.org/wiki/Vector_monitor) is a 
-form of
+A [Vector Display](https://en.wikipedia.org/wiki/Vector_monitor) is an
+unusal form of
 [CRT](https://en.wikipedia.org/wiki/Cathode-ray_tube) display.
 
 A conventional "raster" display moves the electron beam through a predefined
@@ -23,9 +23,11 @@ the brightness of the array of pixels.  The size of the pixels sets the
 resolution of the display.
 
 By contrast a vector display just steers the electron beam to where it wants to
-draw, and can therefore draw lines with effectively unlimited resolution.
+draw, and can therefore draw lines with resolution limited only by the "focus"
+of the beam.
 
-The only commercially available vector display I'm aware of is the 
+Vector displays were used a bit in the early days of computing and some
+arcade games, but the only widely available vector display I'm aware of is the 
 [Vectrex](https://en.wikipedia.org/wiki/Vectrex)
 home game console from 1982.
 
@@ -34,7 +36,7 @@ home game console from 1982.
 I'd already started on this project when I stumbled upon
 [Jeroen Domburg's "Building a Portable Vectrex, The Right Way"](https://www.youtube.com/live/zBVmCFS2sYs)
 which does way more with this than I have any intention of doing,
-hopefully this little project will still be fun ...
+but hopefully this little project will still be fun ...
 
 The aim is to make some kind of retrofuturistic clock / weather display,
 with the mini CRT mounted in a 3D-printed
@@ -398,9 +400,15 @@ Each of these could be represented as a series of points, or multiple loops
 if I want to draw "outline" characters.
 
 What I need is an array of points for each character.  To get them I
-just opened up an inkscape document, typed in `0123456789:` and then
+just opened up an inkscape document, picked a nice font ("TeX Gyre Bonum"),
+typed in `0123456789:` and then
 converted that text with "Path » Object to Path" and then saved it as
-an SVG.  Then I wrote
+an SVG.
+
+![characters.svg](img/characters.svg)
+*characters in TeX Gyre Bonum*
+
+Then I wrote
 [a script to convert the SVG paths](https://github.com/nickzoic/mini-vector/blob/main/svg_paths_to_python.py)
 using `xml.dom.minidom` and `svg.path.parse_path`.
 
@@ -457,7 +465,7 @@ Multiple digits don't work so well:
 
 (or watch a very boring video on [youtube](https://youtu.be/QbrYeHJTxxc))
 
-<div style="position: relative; width: 100%; height: 0; padding-bottom: 100%"><iframe src="https://www.youtube.com/embed/QbrYeHJTxxc" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" style="position: absolute; width: 100%; height: 100%; left: 0; top: 0" allowfullscreen></iframe></div>
+<div style="position: relative; width: 100%; height: 0; padding-bottom: 100%"><iframe src="https://www.youtube.com/embed/QbrYeHJTxxc" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" style="position: absolute; width: 100%; height: 75%; left: 0; top: 0" allowfullscreen></iframe></div>
 
 I attempted to "lift the pen" by moving the beam very quickly between strokes, but
 the built-in digital filtering on the I2S module works against us here, with the
@@ -509,7 +517,7 @@ Plus I added an extra point between each digit and some more points to control t
 
 (counting in ternary now on [youtube](https://www.youtube.com/watch?v=JdwzVnAM2qI))
 
-<div style="position: relative; width: 100%; height: 0; padding-bottom: 100%"><iframe src="https://www.youtube.com/embed/JdwzVnAM2qI" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" style="position: absolute; width: 100%; height: 100%; left: 0; top: 0" allowfullscreen></iframe></div>
+<div style="position: relative; width: 100%; height: 0; padding-bottom: 100%"><iframe src="https://www.youtube.com/embed/JdwzVnAM2qI" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" style="position: absolute; width: 100%; height: 75%; left: 0; top: 0" allowfullscreen></iframe></div>
 
 Overall this ends up looking fairly nice I think and is probably a good enough
 approach to move forward with even if I can't blank the beam.
@@ -542,4 +550,6 @@ are presumably current sources.
 Hopefully I can just de-solder the LA7806 and feed my own signals into the
 board instead.
 
+# WORK IN PROGRESS
 
+This is still a work in progress but I'm publishing it anyway while I wait for some parts to arrive ...

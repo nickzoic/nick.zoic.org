@@ -71,7 +71,13 @@ The yoke is also labelled `DDY-0402B-26C LOT 10-51`.
 On the reverse of the tube is a label:
 "Direct Heating Flat Picture Tube `12SXP45ZRG`"
 
-### In the wild
+### Resources
+
+* ["Experiment with Sony flat 4inch CRT"](https://geeseang.wordpress.com/experiment-with-sony-flat-4inch-crt/)
+[[archive.org]](https://web.archive.org/web/20230522080743/https://geeseang.wordpress.com/experiment-with-sony-flat-4inch-crt/)
+* [tweet by ZxSpectROM](https://twitter.com/ZxSpectROM/status/1407363271171186695)
+* [Jerry Walker on youtube](https://www.youtube.com/watch?v=mh_9LUYnDv0)
+* [DiodeGoneWild on youtube](https://www.youtube.com/watch?v=l9CXZXSwG7I)
 
 By a curious coincidence I spotted one of these in the wild!
 
@@ -102,14 +108,6 @@ to the phosphor on the back side.
 
 The 6kV connector on the shoulder of the tube is protected by a small rubber
 boot but this is removeable so the housing will have to cover it for safety.
-
-### Resources
-
-* ["Experiment with Sony flat 4inch CRT"](https://geeseang.wordpress.com/experiment-with-sony-flat-4inch-crt/)
-[[archive.org]](https://web.archive.org/web/20230522080743/https://geeseang.wordpress.com/experiment-with-sony-flat-4inch-crt/)
-* [tweet by ZxSpectROM](https://twitter.com/ZxSpectROM/status/1407363271171186695)
-* [Jerry Walker on youtube](https://www.youtube.com/watch?v=mh_9LUYnDv0)
-* [DiodeGoneWild on youtube](https://www.youtube.com/watch?v=l9CXZXSwG7I)
 
 ### Connectors
 
@@ -152,14 +150,21 @@ Both have a recommended voltage of 12V, and a maximum of 14V.
 No minimum voltage is listed but this board appears to run both from the regulator
 at 10V.
 
-## Displaying Composite Video
+### Displaying Composite Video
 
 To prove this thing actually works I'd like to get it displaying from a composite video source.
-Composite isn't that common these days --- most things have moved on to HDMI --- but I've got a couple of old toy video game devices which output PAL composite so let's see how it goes.
+Composite isn't that common these days --- most things have moved on to HDMI ---
+but I've got a couple of old toy video game devices which output PAL composite so let's see how it goes.
+
+![Intellivision presents NIGHT STALKER](img/night.jpg)
+*Intellivision presents NIGHT STALKER*
+
+Well, with some judicious twiddling of trimpots it does work, although it isn't exactly 
+precisely aligned.  Hopefully it'll work a little better in vector mode ...
 
 ## Taking Control
 
-But what I *actually* want is to control the horizontal and the vertical
+What I *actually* want is to control the horizontal and the vertical
 and the beam intensity separately, from a microcontroller.  This would then
 let me implement a vector display.
 
@@ -377,6 +382,8 @@ At least there's no stair-stepping on the diagonals.
 Adding in some of our own interpolation and/or running at a lower refresh rate should also make the 
 straight lines straighter.  It's currently refreshing at 2.2kHz which is a lot higher than it needs to be!
 
+## Rendering Text
+
 According to the datasheet, in "System Clock PLL Mode", the PCM5102 can operate at
 32, 44.1, 48, 96, 192 or 384 kHz sample rates.
 
@@ -384,8 +391,6 @@ My "Big N" has 10 points.
 If we're emitting points at 48kHz and we want to have our image refresh at ~50Hz, that's a
 maximum of ~960 points per image, which should be more than enough for our clock application,
 even allowing for some extra interpolation of longer line segments.
-
-### Intensity
 
 The electron beam intensity can be modulated to alter the brightness of the line
 drawn, but I'm hoping that it'll be sufficient to move the beam very rapidly to
@@ -465,7 +470,7 @@ Multiple digits don't work so well:
 
 (or watch a very boring video on [youtube](https://youtu.be/QbrYeHJTxxc))
 
-<div style="position: relative; width: 100%; height: 0; padding-bottom: 100%"><iframe src="https://www.youtube.com/embed/QbrYeHJTxxc" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" style="position: absolute; width: 100%; height: 75%; left: 0; top: 0" allowfullscreen></iframe></div>
+<div style="position: relative; width: 100%; height: 0; padding-bottom: 75%"><iframe src="https://www.youtube.com/embed/QbrYeHJTxxc" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" style="position: absolute; width: 100%; height: 100%; left: 0; top: 0" allowfullscreen></iframe></div>
 
 I attempted to "lift the pen" by moving the beam very quickly between strokes, but
 the built-in digital filtering on the I2S module works against us here, with the
@@ -499,25 +504,35 @@ instead of numerals!
  
 Perhaps I could modify the "font" to make sure all paths enter and leave at a tangent,
 always along the bottom of the digits.  That might reduce the visibility of the
-ringing effect.
+ringing effect.  At the moment the paths start and end at an arbitrary point on the
+perimeter, and this leads to all sorts of strange angles between digits.
+
 The smaller jumps — eg: between inner and outer loops of the `0` —
-don't seem to be as big a problem.  It's pretty easy to edit the paths manually
+don't seem to be as big a problem, although the outer loops go anticlockwise and
+the inner loops go clockwise.  It's pretty easy to edit the paths manually
 since they're each just an array of points:
 
 ![scope4](img/scope4.jpg)
 *hand-altered font for digits 0, 1 and 2 improves the "ringing" situation a lot*
 
 With a bit of manipulation, the digits 0, 1 and 2 can be made quite presentable.
-I changed all loops to be counter-clockwise, and start and end at the middle bottom.
+I changed all loops to be counter-clockwise, and start and end each digit at the
+center bottom (see [characters.py](https://github.com/nickzoic/mini-vector/blob/main/characters.py))
 And I changed the link between inner and outer loops of the `0` to be at a nice 
-angle.  `8` might be a bit tricky and I'm not sure how to display the `:`.
+angle.
+
+I haven't done all of them yet.  `8` might be a bit tricky and I'm not sure how to display the `:`.
 
 Plus I added an extra point between each digit and some more points to control the
-"retrace" back from the last digit to the first.
+"retrace" back from the last digit to the first.  If displaying four digits, for the
+clock, I could also change the order the digits are rendered in to optimize
+this path.
 
-(counting in ternary now on [youtube](https://www.youtube.com/watch?v=JdwzVnAM2qI))
+So far I've only optimized digits 0, 1 and 2 so I've set it up to count in ternary,
+and you can watch an example on [youtube](https://www.youtube.com/watch?v=JdwzVnAM2qI).
+Note how the refresh rate changes depending on the total number of points displayed!
 
-<div style="position: relative; width: 100%; height: 0; padding-bottom: 100%"><iframe src="https://www.youtube.com/embed/JdwzVnAM2qI" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" style="position: absolute; width: 100%; height: 75%; left: 0; top: 0" allowfullscreen></iframe></div>
+<div style="position: relative; width: 100%; height: 0; padding-bottom: 75%"><iframe src="https://www.youtube.com/embed/JdwzVnAM2qI" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" style="position: absolute; width: 100%; height: 100%; left: 0; top: 0" allowfullscreen></iframe></div>
 
 Overall this ends up looking fairly nice I think and is probably a good enough
 approach to move forward with even if I can't blank the beam.
@@ -543,7 +558,7 @@ I suppose it wouldn't be impossible in software.
 The datasheets for this chip are pretty minimal, so
 first things first, I'll get it working with a composite video input and
 check out the signals on pins 3 and 6. These should be horizontal and
-vertical drive respectively, in the sample circuit on the datasheet 
+vertical drive respectively, in the sample circuit on the LA7806 datasheet 
 both of these pins drive the bases of NPN transistors directly so they
 are presumably current sources.
 

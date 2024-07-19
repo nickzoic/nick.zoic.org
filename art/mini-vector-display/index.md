@@ -481,7 +481,8 @@ It's a pity there's no [quadraphonic](https://en.wikipedia.org/wiki/Quadraphonic
 
 One possibility would be to switch off the filter ... the datasheet mentions
 "x1 (bypass)" mode, but I can't find any documentation on how to do so.
-I could also switch to a simpler I²C DAC like the MCP4725 / MCP4728 since
+I could also switch to a simpler I²C DAC like the
+[MCP4725](https://ww1.microchip.com/downloads/en/devicedoc/22039d.pdf) / [MCP4728](https://ww1.microchip.com/downloads/en/devicedoc/22187e.pdf) since
 I can do the digital filtering myself already.
 
 Or maybe I should approach it in a different way and consider using a
@@ -493,7 +494,25 @@ always along the bottom of the digits.  That might reduce the visibility of the
 ringing effect.
 The smaller jumps — eg: between inner and outer loops of the `0` —
 don't seem to be as big a problem.  It's pretty easy to edit the paths manually
-since they're each just an array of points.
+since they're each just an array of points:
+
+![scope4](img/scope4.jpg)
+*hand-altered font for digits 0, 1 and 2 improves the "ringing" situation a lot*
+
+With a bit of manipulation, the digits 0, 1 and 2 can be made quite presentable.
+I changed all loops to be counter-clockwise, and start and end at the middle bottom.
+And I changed the link between inner and outer loops of the `0` to be at a nice 
+angle.  `8` might be a bit tricky and I'm not sure how to display the `:`.
+
+Plus I added an extra point between each digit and some more points to control the
+"retrace" back from the last digit to the first.
+
+(counting in ternary now on [youtube](https://www.youtube.com/watch?v=JdwzVnAM2qI))
+
+<div style="position: relative; width: 100%; height: 0; padding-bottom: 100%"><iframe src="https://www.youtube.com/embed/JdwzVnAM2qI" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" style="position: absolute; width: 100%; height: 100%; left: 0; top: 0" allowfullscreen></iframe></div>
+
+Overall this ends up looking fairly nice I think and is probably a good enough
+approach to move forward with even if I can't blank the beam.
 
 ## Back to the CRT
 

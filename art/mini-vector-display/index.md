@@ -521,8 +521,6 @@ center bottom (see [characters.py](https://github.com/nickzoic/mini-vector/blob/
 And I changed the link between inner and outer loops of the `0` to be at a nice 
 angle.
 
-I haven't done all of them yet.  `8` might be a bit tricky and I'm not sure how to display the `:`.
-
 Plus I added an extra point between each digit and some more points to control the
 "retrace" back from the last digit to the first.  If displaying four digits, for the
 clock, I could also change the order the digits are rendered in to optimize
@@ -533,6 +531,10 @@ and you can watch an example on [youtube](https://www.youtube.com/watch?v=JdwzVn
 Note how the refresh rate changes depending on the total number of points displayed!
 
 <div style="position: relative; width: 100%; height: 0; padding-bottom: 75%"><iframe src="https://www.youtube.com/embed/JdwzVnAM2qI" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" style="position: absolute; width: 100%; height: 100%; left: 0; top: 0" allowfullscreen></iframe></div>
+
+I haven't done all of them yet.  `8` might be a bit tricky and I'm not sure how to display the `:`.
+It turns out `5` is wrong, well actually everything *but* the `5` is wrong because the `5` has 
+a cool little ascender which I didn't allow for.
 
 Overall this ends up looking fairly nice I think and is probably a good enough
 approach to move forward with even if I can't blank the beam.

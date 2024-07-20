@@ -1,8 +1,8 @@
 ---
-layout: draft
+layout: article
 title: "Look Mum No Pixels: a Mini Vector Display"
 summary: Making a miniature vector display out of a new/old CRT.
-date: '2024-07-09'
+date: '2024-07-19'
 tags:
   - electronics
   - micropython
@@ -11,8 +11,8 @@ tags:
 
 ## Vector Displays
 
-A [Vector Display](https://en.wikipedia.org/wiki/Vector_monitor) is a 
-form of
+A [Vector Display](https://en.wikipedia.org/wiki/Vector_monitor) is an
+unusal form of
 [CRT](https://en.wikipedia.org/wiki/Cathode-ray_tube) display.
 
 A conventional "raster" display moves the electron beam through a predefined
@@ -23,9 +23,11 @@ the brightness of the array of pixels.  The size of the pixels sets the
 resolution of the display.
 
 By contrast a vector display just steers the electron beam to where it wants to
-draw, and can therefore draw lines with effectively unlimited resolution.
+draw, and can therefore draw lines with resolution limited only by the "focus"
+of the beam.
 
-The only commercially available vector display I'm aware of is the 
+Vector displays were used a bit in the early days of computing and some
+arcade games, but the only widely available vector display I'm aware of is the 
 [Vectrex](https://en.wikipedia.org/wiki/Vectrex)
 home game console from 1982.
 
@@ -34,7 +36,7 @@ home game console from 1982.
 I'd already started on this project when I stumbled upon
 [Jeroen Domburg's "Building a Portable Vectrex, The Right Way"](https://www.youtube.com/live/zBVmCFS2sYs)
 which does way more with this than I have any intention of doing,
-hopefully this little project will still be fun ...
+but hopefully this little project will still be fun ...
 
 The aim is to make some kind of retrofuturistic clock / weather display,
 with the mini CRT mounted in a 3D-printed
@@ -69,7 +71,13 @@ The yoke is also labelled `DDY-0402B-26C LOT 10-51`.
 On the reverse of the tube is a label:
 "Direct Heating Flat Picture Tube `12SXP45ZRG`"
 
-### In the wild
+### Resources
+
+* ["Experiment with Sony flat 4inch CRT"](https://geeseang.wordpress.com/experiment-with-sony-flat-4inch-crt/)
+[[archive.org]](https://web.archive.org/web/20230522080743/https://geeseang.wordpress.com/experiment-with-sony-flat-4inch-crt/)
+* [tweet by ZxSpectROM](https://twitter.com/ZxSpectROM/status/1407363271171186695)
+* [Jerry Walker on youtube](https://www.youtube.com/watch?v=mh_9LUYnDv0)
+* [DiodeGoneWild on youtube](https://www.youtube.com/watch?v=l9CXZXSwG7I)
 
 By a curious coincidence I spotted one of these in the wild!
 
@@ -100,14 +108,6 @@ to the phosphor on the back side.
 
 The 6kV connector on the shoulder of the tube is protected by a small rubber
 boot but this is removeable so the housing will have to cover it for safety.
-
-### Resources
-
-* ["Experiment with Sony flat 4inch CRT"](https://geeseang.wordpress.com/experiment-with-sony-flat-4inch-crt/)
-[[archive.org]](https://web.archive.org/web/20230522080743/https://geeseang.wordpress.com/experiment-with-sony-flat-4inch-crt/)
-* [tweet by ZxSpectROM](https://twitter.com/ZxSpectROM/status/1407363271171186695)
-* [Jerry Walker on youtube](https://www.youtube.com/watch?v=mh_9LUYnDv0)
-* [DiodeGoneWild on youtube](https://www.youtube.com/watch?v=l9CXZXSwG7I)
 
 ### Connectors
 
@@ -150,14 +150,21 @@ Both have a recommended voltage of 12V, and a maximum of 14V.
 No minimum voltage is listed but this board appears to run both from the regulator
 at 10V.
 
-## Displaying Composite Video
+### Displaying Composite Video
 
 To prove this thing actually works I'd like to get it displaying from a composite video source.
-Composite isn't that common these days --- most things have moved on to HDMI --- but I've got a couple of old toy video game devices which output PAL composite so let's see how it goes.
+Composite isn't that common these days --- most things have moved on to HDMI ---
+but I've got a couple of old toy video game devices which output PAL composite so let's see how it goes.
+
+![Intellivision presents NIGHT STALKER](img/night.jpg)
+*Intellivision presents NIGHT STALKER*
+
+Well, with some judicious twiddling of trimpots it does work, although it isn't exactly 
+precisely aligned.  Hopefully it'll work a little better in vector mode ...
 
 ## Taking Control
 
-But what I *actually* want is to control the horizontal and the vertical
+What I *actually* want is to control the horizontal and the vertical
 and the beam intensity separately, from a microcontroller.  This would then
 let me implement a vector display.
 
@@ -182,7 +189,7 @@ There's some code up at
 
 We can start off by defining an array of points to visit:
 
-```
+```python3
 points = [
         (0.0, 0.0),
         (0.0, 1.0),
@@ -209,7 +216,7 @@ in an endless loop.
 
 If you don't have `itertools` installed you can always define this function yourself:
 
-```
+```python3
 def cycle(iterable):
     while True:
         yield from iterable
@@ -220,7 +227,7 @@ def cycle(iterable):
 At this point, I wanted to loop over each line segment.
 Unfortunately, it doesn't include `pairwise`, so I had to implement that myself:
 
-```
+```python3
 from itertools import cycle
 
 def pairwise(iterable):
@@ -233,7 +240,7 @@ def pairwise(iterable):
 
 now we can easily step through the line segments like this:
 
-```
+```python3
 for (x1, y1), (x2, y2) in pairwise(cycle(points)):
     print (x1, y1, x2, y2)
 ```
@@ -241,7 +248,7 @@ for (x1, y1), (x2, y2) in pairwise(cycle(points)):
 now we've got each line segment, what are we going to do with it?
 Let's try breaking it up into a number of intermediate points,
 
-```
+```python3
 def interpolate(iterable_of_pairs_of_points, steps=8):
     for (x1, y1), (x2, y2) in iterable_of_pairs_of_points:
         for s in range(0,steps):
@@ -253,7 +260,7 @@ def interpolate(iterable_of_pairs_of_points, steps=8):
 
 #### writing to the DACs
 
-```
+```python3
 from machine import Pin, DAC
 
 dac_x = DAC(Pin(25))
@@ -304,6 +311,10 @@ sd | GPIO 33 | DIN
 ws | GPIO 25 | LRCK
 ---|---|---
 
+To enable this mode, `SCK` should be pulled low.
+In this mode, if you feed it an appropriate `BCK` (data bit clock) and `LRCK` (data word clock) 
+it'll work out its own `SCK` (system clock) which saves a bit of messing around.
+
 Some setup pins are also required, and are set using solder jumpers on the module board:
 
 ---|---|---|---
@@ -323,7 +334,7 @@ The two audio output channels L and R are then connected to X and Y axis respect
 Now we can write some Python code to configure the I2S port, based on
 [this micropython i2s example](https://github.com/miketeachman/micropython-i2s-examples/blob/master/examples/play_tone.py):
 
-```
+```python3
 from machine import I2S, Pin
 
 I2S_ID = 0
@@ -350,7 +361,7 @@ Then all we need to do is fill up a buffer and write it continuously.  When the 
 is full, the `i2s_out.write()` will block, which saves us from worrying about asynchronous
 operation.
 
-```
+```python3
 buffer = pack("<" + "h" * (2*len(points)), *[int(z * 0x8000 - 0x4000) for x, y in points for z in (x,y)])
 try:
     while True:
@@ -369,18 +380,17 @@ At least there's no stair-stepping on the diagonals.
 ![I2S Big N on CRO](img/scope2.jpg)
 
 Adding in some of our own interpolation and/or running at a lower refresh rate should also make the 
-straight lines straighter.  It's currently updating at 2.2kHz which is a lot higher than it needs to be!
+straight lines straighter.  It's currently refreshing at 2.2kHz which is a lot higher than it needs to be!
 
-In "System Clock PLL Mode", the PCM5102 can operate at
-32, 44.1, 48, 96, 192 or 384 kHz
-× 16 bit × 2 sample rates.
+## Rendering Text
+
+According to the datasheet, in "System Clock PLL Mode", the PCM5102 can operate at
+32, 44.1, 48, 96, 192 or 384 kHz sample rates.
 
 My "Big N" has 10 points.
 If we're emitting points at 48kHz and we want to have our image refresh at ~50Hz, that's a
 maximum of ~960 points per image, which should be more than enough for our clock application,
-even allowing for some interpolation of longer line segments.
-
-### Intensity
+even allowing for some extra interpolation of longer line segments.
 
 The electron beam intensity can be modulated to alter the brightness of the line
 drawn, but I'm hoping that it'll be sufficient to move the beam very rapidly to
@@ -390,11 +400,21 @@ This will save having a third output channel to coordinate.
 ### Loading fonts.
 
 The big `N` is a good start, but I want to do something nice as a font.
-The only characters I actually need are digits.  To get them I
-just opened up an inkscape document, typed in `0123456789:` and then
+The only characters I actually need are digits.
+Each of these could be represented as a series of points, or multiple loops
+if I want to draw "outline" characters.
+
+What I need is an array of points for each character.  To get them I
+just opened up an inkscape document, picked a nice font ("TeX Gyre Bonum"),
+typed in `0123456789:` and then
 converted that text with "Path » Object to Path" and then saved it as
-an SVG.  Then I wrote
-[a script to convert the SVG paths into a bunch of points](https://github.com/nickzoic/mini-vector/blob/main/svg_paths_to_python.py)
+an SVG.
+
+![characters.svg](img/characters.svg)
+*characters in TeX Gyre Bonum*
+
+Then I wrote
+[a script to convert the SVG paths](https://github.com/nickzoic/mini-vector/blob/main/svg_paths_to_python.py)
 using `xml.dom.minidom` and `svg.path.parse_path`.
 
 Each character gets converted to an
@@ -406,13 +426,13 @@ points, interpolating points on the longer strokes to make sure they have the
 correct shape.  The script them emits these point lists as python code so
 they can get imported in MicroPython.
 
-```
+```python3
 # simplified version for clarity
 
 with minidom.parse(sys.argv[1]) as doc:
     for path in doc.getElementsByTagName('path'):
         for segment in parse_path(path.getAttribute('d')):
-            for l in range(0, int(segment.length)+1):
+            for l in range(0, int(segment.length())+1):
                 point = segment.point(l)
                 print(point.real, point.imag)
 ```
@@ -427,7 +447,7 @@ Setting the i2s port up as before, this code just combines the paths
 for three digits and writes them out, updating the paths every time the
 time changes:
 
-```
+```python3
 while True:
     t = time()
     points = \
@@ -450,20 +470,78 @@ Multiple digits don't work so well:
 
 (or watch a very boring video on [youtube](https://youtu.be/QbrYeHJTxxc))
 
-<div style="position: relative; width: 100%; height: 0; padding-bottom: 100%"><iframe src="https://www.youtube.com/embed/QbrYeHJTxxc" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" style="position: absolute; width: 100%; height: 100%; left: 0; top: 0" allowfullscreen></iframe></div>
+<div style="position: relative; width: 100%; height: 0; padding-bottom: 75%"><iframe src="https://www.youtube.com/embed/QbrYeHJTxxc" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" style="position: absolute; width: 100%; height: 100%; left: 0; top: 0" allowfullscreen></iframe></div>
 
 I attempted to "lift the pen" by moving the beam very quickly between strokes, but
-the built-in digital filtering on the I2S module works against us here, with the digital filter "ringing" both before *and* after the abrupt movement!
+the built-in digital filtering on the I2S module works against us here, with the
+digital filter "ringing" both *before* and after each abrupt movement.  That's because
+the impulse response of the digital filter looks like this:
 
-It's a pity there's no [quadraphonic](https://en.wikipedia.org/wiki/Quadraphonic_sound) I²S modules `:-)`.
-Maybe I should consider using a [continuous script font](https://www.1001fonts.com/monoline+script+cursive-fonts.html)
+![impulse response from the PCM5102 datasheet](img/impulse.png)
+*impulse response from the PCM5102 datasheet*
+
+It's not magic, actually the entire signal is delayed by 20 samples
+(= 160 interpolated samples) to produce this clean filter effect.
+
+### Lifting the pen
+
+So that strategy isn't going to work too well.
+
+With I²S, I can't easily use a separate GPIO to shut down the beam because I don't know
+how long the I²S buffer is delaying the outputs by, so my beam shutoff signal
+would be out of sync with my beam position signals.
+It's a pity there's no [quadraphonic](https://en.wikipedia.org/wiki/Quadraphonic_sound) I²S modules so I could have beam intensity as a third synchronized channel `:-)`.
+
+One possibility would be to switch off the filter ... the datasheet mentions
+"x1 (bypass)" mode, but I can't find any documentation on how to do so.
+I could also switch to a simpler I²C DAC like the
+[MCP4725](https://ww1.microchip.com/downloads/en/devicedoc/22039d.pdf) / [MCP4728](https://ww1.microchip.com/downloads/en/devicedoc/22187e.pdf) since
+I can do the digital filtering myself already.
+
+Or maybe I should approach it in a different way and consider using a
+[continuous script font](https://www.1001fonts.com/monoline+script+cursive-fonts.html)
 instead of numerals!
+ 
+Perhaps I could modify the "font" to make sure all paths enter and leave at a tangent,
+always along the bottom of the digits.  That might reduce the visibility of the
+ringing effect.  At the moment the paths start and end at an arbitrary point on the
+perimeter, and this leads to all sorts of strange angles between digits.
 
-Or perhaps I could modify the "font" to make sure all paths enter and leave at a tangent.
-Perhaps always along the bottom of the digits.  Or make a feature of a line through the center.  The smaller jumps — eg: between inner and outer loops of the 0 — don't seem to be as big a problem.
+The smaller jumps — eg: between inner and outer loops of the `0` —
+don't seem to be as big a problem, although the outer loops go anticlockwise and
+the inner loops go clockwise.  It's pretty easy to edit the paths manually
+since they're each just an array of points:
+
+![scope4](img/scope4.jpg)
+*hand-altered font for digits 0, 1 and 2 improves the "ringing" situation a lot*
+
+With a bit of manipulation, the digits 0, 1 and 2 can be made quite presentable.
+I changed all loops to be counter-clockwise, and start and end each digit at the
+center bottom (see [characters.py](https://github.com/nickzoic/mini-vector/blob/main/characters.py))
+And I changed the link between inner and outer loops of the `0` to be at a nice 
+angle.
+
+Plus I added an extra point between each digit and some more points to control the
+"retrace" back from the last digit to the first.  If displaying four digits, for the
+clock, I could also change the order the digits are rendered in to optimize
+this path.
+
+So far I've only optimized digits 0, 1 and 2 so I've set it up to count in ternary,
+and you can watch an example on [youtube](https://www.youtube.com/watch?v=JdwzVnAM2qI).
+Note how the refresh rate changes depending on the total number of points displayed!
+
+<div style="position: relative; width: 100%; height: 0; padding-bottom: 75%"><iframe src="https://www.youtube.com/embed/JdwzVnAM2qI" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" style="position: absolute; width: 100%; height: 100%; left: 0; top: 0" allowfullscreen></iframe></div>
+
+I haven't done all of them yet.  `8` might be a bit tricky and I'm not sure how to display the `:`.
+It turns out `5` is wrong, well actually everything *but* the `5` is wrong because the `5` has 
+a cool little ascender which I didn't allow for.
+
+Overall this ends up looking fairly nice I think and is probably a good enough
+approach to move forward with even if I can't blank the beam.
 
 ## Back to the CRT
 
+OK, messing around with 'scopes is one thing, but let's try getting the CRT working.
 There's no way I'm going to try to make a whole new driver board for this thing.
 
 The existing board is based on
@@ -482,11 +560,13 @@ I suppose it wouldn't be impossible in software.
 The datasheets for this chip are pretty minimal, so
 first things first, I'll get it working with a composite video input and
 check out the signals on pins 3 and 6. These should be horizontal and
-vertical drive respectively, in the sample circuit on the datasheet 
+vertical drive respectively, in the sample circuit on the LA7806 datasheet 
 both of these pins drive the bases of NPN transistors directly so they
 are presumably current sources.
 
 Hopefully I can just de-solder the LA7806 and feed my own signals into the
 board instead.
 
+# WORK IN PROGRESS
 
+This is still a work in progress but I'm publishing it anyway while I wait for some parts to arrive ...

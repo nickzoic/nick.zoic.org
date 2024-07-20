@@ -289,7 +289,7 @@ The [ESP32's I²S](https://docs.espressif.com/projects/esp-idf/en/stable/esp32/a
 can [allegedly](https://github.com/infrasonicaudio/esp32-i2s-synth-example) be routed to the in-built
 DAC pins but this is [deprecated](https://github.com/espressif/esp-idf/blob/master/components/driver/deprecated/driver/i2s.h).
 
-But I do have a [`PCM5102A`](https://www.ti.com/product/PCM5102A) based
+But I do have a [PCM5102A](https://www.ti.com/product/PCM5102A) based
 [I2S DAC module](https://www.aliexpress.com/item/1005006816695590.html) 
 in the junkbox which will give me 2 × 16 bit channels at quite a high sample rate,
 and includes digital filtering to remove artifacts.

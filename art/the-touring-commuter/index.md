@@ -39,6 +39,8 @@ between the two.  I replaced them with a set of 40mm Schwalbe Marathon Mondials
 a lot better.  I've also run it with regular Marathons, or with a Marathon on the front
 and a Marathon Mondial on the back, which worked nicely.
 
+(don't feel bad for the old tyres, they went onto the pub bike)
+
 It's been rather wet around here lately so I'm currently running 40mm gravel tyres
 which aren't quite as hard wearing or easy rolling as the Marathons but a lot more effective
 when the trails are muddy.  So far I've tried Maxxis Ramblers and WTB Vulpines,

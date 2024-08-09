@@ -79,14 +79,17 @@ tube angle, having the stem angle negative makes the stem pretty much horizontal
 and that moves the bars a little further forward as well.  There's a few mm left
 in the stack if I want to go slightly higher or lower.
 
-![Handlebar setup](img/getagrip.jpg)
-*Handlebar setup*
+It'd probably look ridiculous if it wasn't for the top tube bag which sits just
+behind the steerer.
 
 I also have a couple of [inner bar ends](https://bikepacking.com/gear/adding-alt-hand-positions-to-flat-bars/)
 which are just cheap 150mm "classic bar ends" from BBB, with a pair of very cheap
 flexi rubber grips forced over them (try some compressed air down the hole in the end)
 They're not perfect but they're enough to let me swap my hand positions
 around when they're getting tired, or pull myself forward for a long slow climb.
+
+![Handlebar setup](img/getagrip.jpg)
+*Handlebar setup*
 
 While that takes my hands away from the
 brakes it's actually pretty easy to slide my hands down and brake with my outer fingers.

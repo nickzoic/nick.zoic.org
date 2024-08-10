@@ -68,8 +68,7 @@ but this one is labelled `YC-103A`.
 
 The yoke is also labelled `DDY-0402B-26C LOT 10-51`.
 
-On the reverse of the tube is a label:
-"Direct Heating Flat Picture Tube `12SXP45ZRG`"
+On the reverse of the tube is a label: `Direct Heating Flat Picture Tube 12SXP45ZRG`
 
 ### Resources
 
@@ -164,21 +163,26 @@ precisely aligned.  Hopefully it'll work a little better in vector mode ...
 
 ## Taking Control
 
-What I *actually* want is to control the horizontal and the vertical
-and the beam intensity separately, from a microcontroller.  This would then
-let me implement a vector display.
+What I *actually* want is to control the horizontal and the vertical deflection
+separately, and possibly the beam intensity as well.
+
+This would then let me implement a vector display for a microcontroller.
 
 ### CRO prototype
 
-Controlling the actual device may prove a little tricky, so let's start with
-the simplest possible thing.  I already have a device which can act like a 
+Controlling the actual device may prove a little tricky, and I need to order
+some more parts, so let's start with the simplest possible thing.
+
+I already have a device which can act like a 
 vector CRT ... my old [Tektronix 2225 oscilloscope](https://w140.com/tekwiki/wiki/2225),
 which I pulled out of a skip at Monash Uni many years ago.
 
-And I have any number of microcontroller boards.  The
-[ESP32](/tag/esp32/) runs
-[micropython](/tag/micropython/) and has two 8-bit
-DACs on board, so let's go with that for the moment.
+And I have any number of microcontroller boards in the junkbox.
+The [ESP32](/tag/esp32/) runs [micropython](/tag/micropython/)
+and has two 8-bit DACs on board, so let's go with that for the moment.
+
+Later on I'll probably want to find something with an in-built RTC or else
+find a I²C RTC module or something.
 
 ### Python Code
 
@@ -225,7 +229,8 @@ def cycle(iterable):
 #### segments
 
 At this point, I wanted to loop over each line segment.
-Unfortunately, it doesn't include `pairwise`, so I had to implement that myself:
+Unfortunately, micropython-itertools doesn't include `pairwise`,
+so I had to implement that myself:
 
 ```python3
 from itertools import cycle
@@ -281,8 +286,8 @@ It works, despite some pretty big problems with this code:
 * the number of points per segment is fixed, so the density of points depends
   on the length of the segment
 * if you look at the diagonals, you can see that updates of X and Y aren't happening
-  in sync, there's quite a long delay resulting in a 16 point "stair step" between
-  the 8 points.
+  in sync, there's quite a long delay on each write resulting in a 16 point
+  "stair step" between the 8 points.
 * even the densest lines aren't smooth enough not to look like lines of dots.
 * the update rate isn't high enough to increase the number of points much.
 * there's a big of crosstalk between the DAC pins (thus the sloping lines)
@@ -326,7 +331,8 @@ FMT | L | Audio Format | I²S
 XSMT | H | Soft Mute | Un-mute
 ---|---|---|---
 
-The two audio output channels L and R are then connected to X and Y axis respectively.
+The two audio output channels L and R are then connected to X and Y axes of the 
+'scope respectively.
 
 ![experimental setup with ESP32 and PCM5102 boards](img/boards1.jpg)
 *experimental setup with ESP32 and PCM5102 boards*
@@ -370,10 +376,12 @@ finally:
     i2s_out.deinit()
 ```
 
+This is what it looks like on a DSO:
+
 ![I2S Big N on DSO](img/sds00047.png)
 
 If you look at the trace on the CRO, you can see that the beam still lingers a little on intermediate
-points: those aren't introduced by my code, the 8x digital interpolation filter on the PCM5102 is doing it for us.
+points: those aren't introduced by my code, rather the 8x digital interpolation filter on the PCM5102 is doing it for us.
 A little bit of analogue filtering should help remove the discontinuities.
 At least there's no stair-stepping on the diagonals.
 
@@ -411,7 +419,7 @@ converted that text with "Path » Object to Path" and then saved it as
 an SVG.
 
 ![characters.svg](img/characters.svg)
-*characters in TeX Gyre Bonum*
+*characters `0123456789:` in TeX Gyre Bonum, as SVG paths*
 
 Then I wrote
 [a script to convert the SVG paths](https://github.com/nickzoic/mini-vector/blob/main/svg_paths_to_python.py)
@@ -498,14 +506,20 @@ I could also switch to a simpler I²C DAC like the
 [MCP4725](https://ww1.microchip.com/downloads/en/devicedoc/22039d.pdf) / [MCP4728](https://ww1.microchip.com/downloads/en/devicedoc/22187e.pdf) since
 I can do the digital filtering myself already.
 
+### Not lifting the pen
+
 Or maybe I should approach it in a different way and consider using a
 [continuous script font](https://www.1001fonts.com/monoline+script+cursive-fonts.html)
 instead of numerals!
+
+The paths as generated from SVG start and end at arbitrary positions and tangents,
+and any "inner loops" are just stuck on the end, meaning the 'jumps' are quite
+long and at strange angles.
  
-Perhaps I could modify the "font" to make sure all paths enter and leave at a tangent,
+Perhaps I could modify the "font" to make sure all paths enter and leave at the
+same position and tangent, eg:
 always along the bottom of the digits.  That might reduce the visibility of the
-ringing effect.  At the moment the paths start and end at an arbitrary point on the
-perimeter, and this leads to all sorts of strange angles between digits.
+ringing effect since it will occur only in a straight line.
 
 The smaller jumps — eg: between inner and outer loops of the `0` —
 don't seem to be as big a problem, although the outer loops go anticlockwise and
@@ -515,16 +529,17 @@ since they're each just an array of points:
 ![scope4](img/scope4.jpg)
 *hand-altered font for digits 0, 1 and 2 improves the "ringing" situation a lot*
 
-With a bit of manipulation, the digits 0, 1 and 2 can be made quite presentable.
+With a bit of manual anipulation, the digits 0, 1 and 2 can be made quite presentable.
 I changed all loops to be counter-clockwise, and start and end each digit at the
 center bottom (see [characters.py](https://github.com/nickzoic/mini-vector/blob/main/characters.py))
 And I changed the link between inner and outer loops of the `0` to be at a nice 
 angle.
 
 Plus I added an extra point between each digit and some more points to control the
-"retrace" back from the last digit to the first.  If displaying four digits, for the
-clock, I could also change the order the digits are rendered in to optimize
-this path.
+"retrace" back from the last digit to the first.  There ends up being a fixed "underline"
+on the screen as the beam re-traces but maybe that's more a visual eccentricity than 
+a bug.  I could also just retrace by playing all the points in reverse as a way of
+avoiding this.
 
 So far I've only optimized digits 0, 1 and 2 so I've set it up to count in ternary,
 and you can watch an example on [youtube](https://www.youtube.com/watch?v=JdwzVnAM2qI).
@@ -532,9 +547,12 @@ Note how the refresh rate changes depending on the total number of points displa
 
 <div style="position: relative; width: 100%; height: 0; padding-bottom: 75%"><iframe src="https://www.youtube.com/embed/JdwzVnAM2qI" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" style="position: absolute; width: 100%; height: 100%; left: 0; top: 0" allowfullscreen></iframe></div>
 
+*UPDATE: I've done a few more digits.
 I haven't done all of them yet.  `8` might be a bit tricky and I'm not sure how to display the `:`.
-It turns out `5` is wrong, well actually everything *but* the `5` is wrong because the `5` has 
+It turns out `5` is wrong, well actually everything BUT the `5` is wrong because the `5` has 
 a cool little ascender which I didn't allow for.
+Making these edits is pretty complicated and time-consuming, a less manual way to do
+this would be required if I wanted to support more fonts and/or characters.*
 
 Overall this ends up looking fairly nice I think and is probably a good enough
 approach to move forward with even if I can't blank the beam.

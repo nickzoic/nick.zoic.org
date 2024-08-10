@@ -30,6 +30,15 @@ I [bought it as a commuter](../the-cycling-bikepacking-post/#commuting-life) and
 it did a couple of years of that, very slowly getting upgraded as the opportunity
 arose ...
 
+*there's some chance you've stumbled upon this page while trying to find out
+[what derailleur hanger you need for this bike](img/city-cross-1-2018-derailleur-hanger.jpg).
+Why are bicycle manufacturers like this?
+The Cross City isn't listed in the [Giant Hanger Finder](https://www.giantbikespares.com/hanger_finder)
+but it appears to me to be a
+[R01630](https://ivanhoecycles.com.au/products/derailleur-hanger-giant-R01630) ...
+I think the Cross City is just a local name for the Escape City, maybe.
+As Ivanhoe Cycles point out, it **does not** have a ridge which fits inside the dropout.*
+
 ## Tyres
 
 The bike came with 32mm road tyres which were okay but I found them sluggish at low

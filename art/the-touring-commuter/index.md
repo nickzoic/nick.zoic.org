@@ -30,14 +30,17 @@ I [bought it as a commuter](../the-cycling-bikepacking-post/#commuting-life) and
 it did a couple of years of that, very slowly getting upgraded as the opportunity
 arose ...
 
-*there's some chance you've stumbled upon this page while trying to find out
+### Cross City 1 Derailleur Hanger
+
+There's some chance you've stumbled upon this page while trying to find out
 [what derailleur hanger you need for this bike](img/city-cross-1-2018-derailleur-hanger.jpg).
-Why are bicycle manufacturers like this?
+*Why are bicycle manufacturers like this?*
+
 The Cross City isn't listed in the [Giant Hanger Finder](https://www.giantbikespares.com/hanger_finder)
 but it appears to me to be a
 [R01630](https://ivanhoecycles.com.au/products/derailleur-hanger-giant-R01630) ...
-I think the Cross City is just a local name for the Escape City, maybe.
-As Ivanhoe Cycles point out, it **does not** have a ridge which fits inside the dropout.*
+I think the "Cross City" is just a local name for the "Escape City", maybe?
+As Ivanhoe Cycles point out, it **does not** have a ridge which fits inside the dropout.
 
 ## Tyres
 
@@ -159,23 +162,20 @@ The only thing which has really gone wrong on this bike has been the
 each of which let me down at one point or another.  Yes, the QR skewers
 make it quicker to change tyres *but I've had more QR failures than punctures!*.
 
-I ended up replacing the rear axle with an Ebay solid axle which weighs the same
-as the hollow axle plus skewer and is a bit stronger.  The only annoyance 
-is that the solid axle doesn't fit with a lot of cassette ring tools which
-use the skewer hole for alignment, and also I have to have a 15mm spanner 
-in the toolkit to undo the axle nuts, which is a nuisance.
-
-The front axle I've kept and just replaced the skewer with a
-[alley key skewer](https://www.99bikes.com.au/qr-skewer-set-bbb-wheelfixed-allenkey)
+I've ended up replacing the skewers with
+[alley key skewers](https://www.99bikes.com.au/qr-skewer-set-bbb-wheelfixed-allenkey)
 since I always carry allen keys anyway.  It's really just a very long
 bolt and a fancy nut and washer but it looks okay and it's easy to tighten and
-as a bonus the front wheel is slightly less convenient to steal.
+as a bonus the wheels is slightly less convenient to steal.
 
-I reckon I'll end up switching the rear
-axle back to the stock hollow axle and one of these skewers too, next time
-I do the bearings.
+I'd tried replacing the rear axle with an [Ebay solid axle](https://www.ebay.com.au/itm/324139203337)
+(3/8" x 26tpi), which weighed the same
+as the hollow axle plus skewer.  This proved slightly annoying
+because the solid axle didn't fit with a lot of cassette ring tools which
+use the skewer hole for alignment, and also I had to have a 15mm spanner 
+in the toolkit to undo the axle nuts, which was a nuisance.
 
-Note to self: the rear wheel bearings are 1/4" and the front ones are 3/16".
+*Note to self: the rear wheel bearings are 1/4" and the front ones are 3/16".*
 
 ## Pedals
 

@@ -1,6 +1,7 @@
 ---
 title: Aldi "Cocoon Create" 3D Printer
 date: '2018-11-23'
+updated: '2023-07-15'
 layout: article
 summary: "A pretty cheap, nifty little 3D printer which works well right out of the box"
 tags:

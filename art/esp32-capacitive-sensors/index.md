@@ -1,6 +1,7 @@
 ---
 category: etc
 date: '2017-02-14'
+updated: '2024-02-09'
 layout: article
 slug: 'esp32-capacitive-sensors'
 tags:

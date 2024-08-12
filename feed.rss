@@ -19,6 +19,9 @@ layout: null
     <description>{{ page.summary }}</description>
     {% for tag in page.tags %}<category>{{ tag }}</category>{% endfor %}
     <pubDate>{{ page.date | date_to_rfc822 }}</pubDate>
+    {% if page.updated %}
+      <lastBuildDate>{{ page.updated | date_to_rfc822 }}</lastBuildDate>
+    {% endif %}
   </item>
   {% endfor %}
 </channel>

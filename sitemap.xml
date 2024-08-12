@@ -7,10 +7,10 @@ layout: null
     <loc>{{ site.url }}/</loc>
   </url>
   {% for page in site.pages %}
-    {% if page.layout == 'article' %}
+    {% if page.layout == 'article' or page.layout == 'page' %}
       <url>
         <loc>{{ site.url }}{{ page.url }}</loc>
-        <lastmod>{% if page.updated %}{{ page.updated }}{% else %}{{ page.date }}{% endif %}</lastmod>
+	<lastmod>{% if page.updated %}{{ page.updated }}{% else %}{{ page.date }}{% endif %}</lastmod>
       </url>
     {% endif %}
   {% endfor %}

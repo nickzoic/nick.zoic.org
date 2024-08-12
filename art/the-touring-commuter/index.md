@@ -45,6 +45,7 @@ As Ivanhoe Cycles point out, it **does not** have a ridge which fits inside the 
 
 ![giant cross city 1 2018 derailleur hanger](img/cross-city-1-2018-derailleur-hanger.jpg)
 
+Update: [Giant Knox City confirmed this in email](https://shop.giantknoxcity.com.au/collections/all/products/giant-derailleur-hanger-q-r-e-my19-23-amit-exp-rov-roa-tal-temp)
 ## Tyres
 
 The bike came with 32mm road tyres which were okay but I found them sluggish at low

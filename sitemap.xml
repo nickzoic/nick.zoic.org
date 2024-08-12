@@ -3,6 +3,15 @@ layout: null
 ---
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-<url><loc>{{ site.url }}/</loc><lastmod>{{ last_modified_at }}</lastmod></url>
-{% for page in site.pages %}{% if page.layout == 'article' %}<url><loc>{{ site.url }}{{ page.url }}</loc><lastmod>{{ page.last_modified_at | date: '%Y-%m-%d' }}</lastmod></url>
-{% endif %}{% endfor %}</urlset>
+  <url>
+    <loc>{{ site.url }}/</loc>
+  </url>
+  {% for page in site.pages %}
+    {% if page.layout == 'article' %}
+      <url>
+        <loc>{{ site.url }}{{ page.url }}</loc>
+        <lastmod>{% if page.updated %}{{ page.updated }}{% else %}{{ page.date }}{% endif %}</lastmod>
+      </url>
+    {% endif %}
+  {% endfor %}
+</urlset>

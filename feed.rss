@@ -15,12 +15,11 @@ layout: null
   <item>
     <title>{{ page.title }}</title>
     <link>{{ site.url }}{{ page.url }}</link>
+    <guid isPermaLink="true">{{ site.url }}{{ page.url }}</guid>
     {% if page.updated %}
-    <guid isPermaLink="false">{{ page.url }}#{{ page.updated }}</guid>
     <pubDate>{{ page.updated | date_to_rfc822 }}</pubDate>
     {% else %}
-    <guid isPermaLink="false">{{ page.url }}#{{ page.date }}</guid>
-    <pubDate>{{ page.updated | date_to_rfc822 }}</pubDate>
+    <pubDate>{{ page.date | date_to_rfc822 }}</pubDate>
     {% endif %}
     <description>{{ page.summary }}</description>
     {% for tag in page.tags %}<category>{{ tag }}</category>{% endfor %}

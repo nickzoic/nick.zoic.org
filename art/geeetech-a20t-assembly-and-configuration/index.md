@@ -314,9 +314,9 @@ UPDATE: I've run or broken filaments a couple of times now, with Cura sending G-
 and what seems to happen is the heaters turn off but the print head keeps moving!  So maybe this
 feature isn't usable in this mode.  I'll have to investigate further.
 
-# TO BE CONTINUED: First Boats!
+# CONTINUED: First Boats!
 
-Coming soon, first test prints and calibration.
+See also [First test prints and calibration](/art/geeetech-a20t-first-prints/).
 
 Don't forget to check out the
 [Multi Material Printing with Geeetech A20T](/art/multi-material-3d-printing-openscad-cura-geeetech/)

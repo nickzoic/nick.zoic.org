@@ -1,5 +1,6 @@
 ---
 date: '2020-08-27'
+updated: '2023-11-09'
 layout: article
 summary: 'Behind the scenes of my PyConline AU 2020 presentation'
 tags:

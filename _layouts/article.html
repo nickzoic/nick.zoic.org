@@ -4,7 +4,7 @@ layout: base
 <script src="/js/toc.js"></script>
 <div class="page" id="content">
   <h1 class="page-title">{{ page.title }}</h1>
-  <span class="page-date">{{ page.date }}</span>
+  <span class="page-date">{{ page.date }} {% if page.updated %}— {{ page.updated }}{% endif %}</span>
   <span class="page-tags" style="float: right">
     {% for tag in page.tags %}
       <span class="tag"><a href="/tag/{{ tag }}">{{ tag }}</a></span>

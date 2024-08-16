@@ -38,6 +38,9 @@ Everything has a weird name.
 And like software development, it's very much a team effort
 and every contribution counts.
 
+![sewing the curtains](img/sewing.jpg)
+*Sewing the curtains was a team effort*
+
 I came up with a bunch of silly ideas and the directors were cruel
 enough to let me run with them.
 This has meant making things like a 13m x 6m circus curtain

@@ -1,5 +1,6 @@
 ---
 date: '2024-04-16'
+updated: '2024-08-12'
 layout: article
 tags:
   - cycling
@@ -30,15 +31,21 @@ I [bought it as a commuter](../the-cycling-bikepacking-post/#commuting-life) and
 it did a couple of years of that, very slowly getting upgraded as the opportunity
 arose ...
 
-*there's some chance you've stumbled upon this page while trying to find out
-[what derailleur hanger you need for this bike](img/city-cross-1-2018-derailleur-hanger.jpg).
-Why are bicycle manufacturers like this?
+### Cross City 1 Derailleur Hanger
+
+There's some chance you've stumbled upon this page while trying to find out
+what derailleur hanger you need for this bike.
+*Why are bicycle manufacturers like this?*
+
 The Cross City isn't listed in the [Giant Hanger Finder](https://www.giantbikespares.com/hanger_finder)
 but it appears to me to be a
 [R01630](https://ivanhoecycles.com.au/products/derailleur-hanger-giant-R01630) ...
-I think the Cross City is just a local name for the Escape City, maybe.
-As Ivanhoe Cycles point out, it **does not** have a ridge which fits inside the dropout.*
+I think the "Cross City" is just a local name for the "Escape City", maybe?
+As Ivanhoe Cycles point out, it **does not** have a ridge which fits inside the dropout.
 
+![giant cross city 1 2018 derailleur hanger](img/cross-city-1-2018-derailleur-hanger.jpg)
+
+Update: [Giant Knox City confirmed this in email](https://shop.giantknoxcity.com.au/collections/all/products/giant-derailleur-hanger-q-r-e-my19-23-amit-exp-rov-roa-tal-temp)
 ## Tyres
 
 The bike came with 32mm road tyres which were okay but I found them sluggish at low
@@ -74,8 +81,9 @@ tape around the bar and use that as a guide line for a hacksaw with a fine tooth
 Later I replaced the bars with
 [SQlab 310 Sport 2.0](https://www.sq-lab.com/en/area-of-use/trekking/sqlab-handlebar-310-sport-2-0-31-8.html)
 bars which have a little more backsweep (16⁰) and a little downsweep (10⁰) and no rise at all.
-They're about 680mm wide.  I might get around to trimming them back a little.
-I don't really understand super wide bars, unless you're doing downhill or something, they just turn you into a windsock.
+They're about 680mm wide.  I might get around to trimming them back to 660mm or so.
+I don't really understand super wide bars, unless you're doing downhill or something,
+they just turn you into a windsock and catch more trees.
 
 *The other option I was considering was
 [Ritchey Kyote](https://ritcheylogic.com/bike/handlebars/comp-kyote-handlebar)
@@ -90,8 +98,17 @@ tube angle, having the stem angle negative makes the stem pretty much horizontal
 and that moves the bars a little further forward as well.  There's a few mm left
 in the stack if I want to go slightly higher or lower.
 
-It'd probably look ridiculous if it wasn't for the top tube bag which sits just
-behind the steerer.
+![does my steerer look big in this?](img/ridiculous.jpg)
+*does my steerer look big in this?*
+
+It'd probably [look ridiculous](https://en.wikipedia.org/wiki/Tall_bike) if
+it wasn't for the top tube bag which sits just
+behind the steerer.  That holds my headlight battery, some tools and
+generally wallet & keys & such when riding.  It's far forward enough that I can
+still stand over the frame behind it.
+
+![top tube bag in place](img/top-tube-bag.jpg)
+*extended steerer with top tube bag in place*
 
 I also have a couple of [inner bar ends](https://bikepacking.com/gear/adding-alt-hand-positions-to-flat-bars/)
 which are just cheap 150mm "classic bar ends" from BBB, with a pair of very cheap
@@ -138,10 +155,12 @@ Then, when the inner crankset gears were starting
 to look a bit shonky I replaced the smallest one with a 24 tooth, making those gears
 about 7% lower.
 
-So now I have a ridiculously low 24:36 (18 gear inches) granny gear.
-I don't need it very often but I reckon I use it more than the 48:11 (119 gear inches)
+So now I have a 655% gear range and a ridiculously low 24:36 (18 gear inches) granny gear.
+I don't need very often but I reckon I use it more than the 48:11 (119 gear inches)
 highest gear.  The chain is a bit short if you try to shift into the largest
 gear on both the back and the front but there's no reason to want to do that so I don't.
+
+*As for 1x drivetrains: call me back when they release a 10-66 tooth 12 speed cassette :-)*
 
 The smallest chainring is an alloy
 [Truvative 24T](https://www.pushys.com.au/truvativ-v1-24t-9-10-speed-triple-inner-aluminium-chainring-black.html)
@@ -150,50 +169,53 @@ The smallest chainring is an alloy
 and the biggest one is the stock Acera 48T but they all seem to get along.
 
 Oh, and as they've worn out I've changed the bottom bracket and chain
-and pulleys over for Deore ones which are a very slight upgrade.
+and pulleys over for Deore ones which are a very slight upgrade for only
+a couple of bucks extra.
 
 ## Axles & Skewers
 
 The only thing which has really gone wrong on this bike has been the
 [quick-release skewers](https://www.sheldonbrown.com/skewers.html),
-each of which let me down at one point or another.  Yes, the QR skewers
-make it quicker to change tyres *but I've had more QR failures than punctures!*.
+each of which let me down at one point or another.
 
-I ended up replacing the rear axle with an Ebay solid axle which weighs the same
-as the hollow axle plus skewer and is a bit stronger.  The only annoyance 
-is that the solid axle doesn't fit with a lot of cassette ring tools which
-use the skewer hole for alignment, and also I have to have a 15mm spanner 
-in the toolkit to undo the axle nuts, which is a nuisance.
+Yes, the QR skewers make it quicker to change tyres *but on this bike
+I've had more QR failures than punctures!*.
 
-The front axle I've kept and just replaced the skewer with a
-[alley key skewer](https://www.99bikes.com.au/qr-skewer-set-bbb-wheelfixed-allenkey)
+I've ended up replacing the skewers with
+[allen key skewers](https://www.99bikes.com.au/qr-skewer-set-bbb-wheelfixed-allenkey)
 since I always carry allen keys anyway.  It's really just a very long
-bolt and a fancy nut and washer but it looks okay and it's easy to tighten and
-as a bonus the front wheel is slightly less convenient to steal.
+bolt and a fancy nut and washer but it looks okay and it's easy to tighten 
+enough to keep the axle in place and
+as a bonus the wheels are slightly less convenient to steal.
 
-I reckon I'll end up switching the rear
-axle back to the stock hollow axle and one of these skewers too, next time
-I do the bearings.
+(I'd tried replacing the rear axle with an [Ebay solid axle](https://www.ebay.com.au/itm/324139203337)
+(3/8" x 26tpi).  This proved slightly annoying
+because the solid axle didn't fit with a lot of cassette ring tools which
+use the skewer hole for alignment, and also I had to have a 15mm spanner 
+in the toolkit to undo the axle nuts, which was a nuisance.)
 
-Note to self: the rear wheel bearings are 1/4" and the front ones are 3/16".
+*Note to self: the rear wheel bearings are 1/4" and the front ones are 3/16".*
 
 ## Pedals
 
-The stock plastic pedals got dangerously slippery real quick, but I'm just
-too much of an idiot for cleats / clipless pedals.
+The stock plastic pedals got dangerously slippery real quick.
+But I'm just too much of a klutz for cleats / clipless pedals, and also
+I find it useful to have hiking shoes on for inevitable hike-a-biking
+sections.
 
 ![Pedals with replacement studs](img/studs.jpg)
 *Pedals with replacement studs*
 
-I've replaced those with some [DMR V11](https://www.dmrbikes.com/Catalogue/Pedals/V11-2/V11)
-flat pedals (hey, they were on special)
-but unfortunately they have very pointy little studs which were
-[quite painful](img/blood.jpg)
-if I made a little slip hike-a-biking, so I've replaced them with 
-some M4 x 0.7 x 6mm stainless socket head screws.
+I've replaced them with some [DMR V11](https://www.dmrbikes.com/Catalogue/Pedals/V11-2/V11)
+flat pedals (hey, they were on special).
+The bearings are much better than the previous Giant flat pedals
+but unfortunately they come with very pointy little studs which were
+[quite painful if you contact them](img/blood.jpg).
 
-They are still very grippy, and the bearings are much 
-better than the previous Giant flat pedals.
+So I've replaced the studs with 44 stainless socket head screws (M4 x 0.7 x 6mm)
+They are still very grippy with the tread on my usual hiking shoes but much less
+aggressive to my calves.  These cost $20 for 100 from a local bolt supply place.
+The heads fill up with mud but that's a small price to pay.
 
 ## Saddle
 
@@ -202,8 +224,12 @@ subjective and personal than saddles.  There's a million articles out there
 about chamois and sit bones and I'm not going to write another one but I'll
 just say that adjusting a bad saddle correctly won't turn it into a good
 saddle but *not* adjusting a good saddle correctly will still leave you 
-hobbling.  I found the [Selle Italia S5](https://www.selleitalia.com/s-5-superflow/)
-to be a good fit for me personally.
+hobbling.
+
+I found the [Selle Italia S5](https://www.selleitalia.com/s-5-superflow/)
+to be a good fit for me personally and if you're getting any kind of numbness
+in your nether regions on long rides I'd really recommend trying out the
+split-style saddles.
 
 ## Summary
 

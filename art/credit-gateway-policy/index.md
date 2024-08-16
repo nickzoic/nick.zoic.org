@@ -1,6 +1,7 @@
 ---
 category: etc
 date: '2015-11-17'
+updated: '2016-02-05'
 layout: article
 redirect_from: '/etc/credit-gateway-policy/'
 slug: 'credit-gateway-policy'

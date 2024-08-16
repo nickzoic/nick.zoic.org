@@ -1,6 +1,7 @@
 ---
 category: etc
 date: '2017-04-04'
+updated: '2018-05-05'
 layout: article
 summary: 'This site is now on Github Pages.'
 tags: static

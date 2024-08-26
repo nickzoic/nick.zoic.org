@@ -190,5 +190,5 @@ but sadly seems to have disappeared from human memory.
 
 # UPDATE 2023
 
-I noticed that [/art/i-for-one-welcome-our-robot-overlords](the Washington Post)
+I noticed that [the Washington Post](/art/i-for-one-welcome-our-robot-overlords/)
 uses something like this technique to support their interactive articles.

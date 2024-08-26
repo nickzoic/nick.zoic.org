@@ -538,7 +538,7 @@ images onto hundreds of slips of thermal printer paper, each about 10cm x 5cm.
 128 of these small rectangles were then cut out and glued 
 together to form a giant, if rather scruffy, map.
 
-[![Britannia](img/world-thumb.jpg)](./world.html)
+[![Britannia](img/world-thumb.jpg)](img/world.png)
 
 Sadly, the physical map and the programs used to produce it are long gone, but
 years later, I used some resources found online to prduce the following 

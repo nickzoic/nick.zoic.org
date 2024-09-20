@@ -1,7 +1,7 @@
 ---
 title: Aldi "Cocoon Create" 3D Printer
 date: '2018-11-23'
-updated: '2023-07-15'
+updated: '2024-09-20'
 layout: article
 summary: "A pretty cheap, nifty little 3D printer which works well right out of the box"
 tags:
@@ -254,3 +254,23 @@ I should probably print some kind of fan mount shroud / duct / etc but for the m
 it's hanging in there with one screw and a cable tie.  The bracket is somewhat in the 
 way of the very top of the fan, but the heatsink is working well and the fan housing
 is a couple of mm clear of the print nozzle which actually gives pretty good print cooling.
+
+# UPDATE 2024-09-20
+
+It's nice to hear from people who find this blog useful!  A few people have asked about this
+modification, and indicated that it might be a bit *too* much of a hack for their taste ...
+but I just received an email with a easier way of making the shorter hotend fit into the
+unmodified printer:
+
+> I ended up buying the same replacement hot end from eBay and I was actually able to get
+> it attached without modifying the printer at all. Turns out the thread in the top of the
+> hot end is 1/8" BSP thread, so adding a brass 1/8" BSP male-to-female adaptor inline adds
+> enough length to make it similar to the original. You just have to file down the threads
+> a bit on the adaptor, so it screws all the way into the hot end.
+> 
+> ![adaptor](img/adaptor.jpg)
+>
+> You might also want to add a quick note somewhere that making sure the bowden tube is fully
+> seated in the bottom of the hot end is pretty critical.
+     
+Thanks, Dylan!  This looks like a much easier way to go about it.

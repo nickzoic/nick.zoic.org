@@ -18,6 +18,7 @@ with an easy to write URL ...
 * "Things are the way they are because they got that way." -- Gerald Weinberg
 * "Any organization that designs a system (defined broadly) will produce a design whose structure is a copy of the organization's communication structure"
   ( [Conway's Law](http://www.melconway.com/Home/Conways_Law.html) )
+* "Australia is a lucky country run mainly by second rate people who share its luck." ( Donald Horne, [The Lucky County](https://en.wikipedia.org/wiki/The_Lucky_Country) )
 
 ## MicroPython
 

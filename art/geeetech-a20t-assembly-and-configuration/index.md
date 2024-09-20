@@ -7,7 +7,7 @@ tags:
   - 3dprint
 ---
 
-I've been [messing around with my cheap ALDI 3D printer](/art/aldi-coccoon-3d-printer/)
+I've been [messing around with my cheap ALDI 3D printer](/art/aldi-cocoon-3d-printer/)
 for almost five years now and it's time to upgrade!
 
 I've just received my shiny new

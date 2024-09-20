@@ -12,7 +12,7 @@ summary: |
 
 *UPDATE: I've written a whole bunch more about this sort of stuff at 
 [Journey Onward: the Apple 2 and me](/art/journey-onward-apple-2-and-me/)
-and [Writing an Apple 2 game in 2021](/art/writing-an-apple-2-game-in-2021/)*
+and [Writing an Apple 2 game in 2021](/art/writing-an-apple-2-game-in-2021-1/)*
 
 # GALAGA
 

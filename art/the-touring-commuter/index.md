@@ -46,6 +46,7 @@ As Ivanhoe Cycles point out, it **does not** have a ridge which fits inside the 
 ![giant cross city 1 2018 derailleur hanger](img/cross-city-1-2018-derailleur-hanger.jpg)
 
 Update: [Giant Knox City confirmed this in email](https://shop.giantknoxcity.com.au/collections/all/products/giant-derailleur-hanger-q-r-e-my19-23-amit-exp-rov-roa-tal-temp)
+
 ## Tyres
 
 The bike came with 32mm road tyres which were okay but I found them sluggish at low
@@ -194,7 +195,8 @@ because the solid axle didn't fit with a lot of cassette ring tools which
 use the skewer hole for alignment, and also I had to have a 15mm spanner 
 in the toolkit to undo the axle nuts, which was a nuisance.)
 
-*Note to self: the rear wheel bearings are 1/4" and the front ones are 3/16".*
+*Note to self: the actual axle size is 145 x M10.
+The rear wheel bearings are 1/4" and the front ones are 3/16".*
 
 ## Pedals
 

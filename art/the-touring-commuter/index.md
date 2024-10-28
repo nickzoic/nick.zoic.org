@@ -1,6 +1,6 @@
 ---
 date: '2024-04-16'
-updated: '2024-08-12'
+updated: '2024-10-29'
 layout: article
 tags:
   - cycling
@@ -45,7 +45,10 @@ As Ivanhoe Cycles point out, it **does not** have a ridge which fits inside the 
 
 ![giant cross city 1 2018 derailleur hanger](img/cross-city-1-2018-derailleur-hanger.jpg)
 
-Update: [Giant Knox City confirmed this in email](https://shop.giantknoxcity.com.au/collections/all/products/giant-derailleur-hanger-q-r-e-my19-23-amit-exp-rov-roa-tal-temp)
+UPDATE: [Giant Knox City confirmed this in email](https://shop.giantknoxcity.com.au/collections/all/products/giant-derailleur-hanger-q-r-e-my19-23-amit-exp-rov-roa-tal-temp)
+
+UPDATE: I took the old hanger down to Giant Knox City and bought a new R01630 hanger
+from them as a spare, it is definitely the correct one!  So that settles that.
 
 ## Tyres
 
@@ -195,8 +198,19 @@ because the solid axle didn't fit with a lot of cassette ring tools which
 use the skewer hole for alignment, and also I had to have a 15mm spanner 
 in the toolkit to undo the axle nuts, which was a nuisance.)
 
-*Note to self: the actual axle size is 145 x M10.
-The rear wheel bearings are 1/4" and the front ones are 3/16".*
+I recently rebuilt the wheel bearings and the bike feels so much better for it.
+
+| | Rear | Front |
+| Axle Length | 145 | 108 |
+| Axle Thread | M10 | M9 |
+| Cone Dia | 17 | 15 |
+| Cone Flats | 15 | 13 | 
+| Cone Depth | 14 | 12.5 |
+| Ball Size | 1/4" | 3/16" |
+| Ball Count | 9 | 10 |
+
+![Replace your cones _before_ they look like this!](img/bad-cone.jpg)
+*Replace your cones _before_ they look like this!*
 
 ## Pedals
 
@@ -231,7 +245,9 @@ hobbling.
 I found the [Selle Italia S5](https://www.selleitalia.com/s-5-superflow/)
 to be a good fit for me personally and if you're getting any kind of numbness
 in your nether regions on long rides I'd really recommend trying out the
-split-style saddles.
+split-style saddles.  Because it's a curved saddle you've got to mess around
+a bit with the angle adjustment rather than line it up horizontally like
+you could with a flatter saddle.
 
 ## Summary
 

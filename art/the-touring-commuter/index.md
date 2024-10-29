@@ -185,6 +185,14 @@ each of which let me down at one point or another.
 Yes, the QR skewers make it quicker to change tyres *but on this bike
 I've had more QR failures than punctures!*.
 
+*I'd tried replacing the rear axle with an [Ebay solid axle](https://www.ebay.com.au/itm/324139203337)
+(3/8" x 26tpi).  This worked fine, the dimensions are close enough that everything fits, so it's worth bearing in mind if you're stuck with dead bearings in a one-horse town.*
+
+*But it proved slightly annoying because the solid axle didn't
+fit with a lot of cassette lock ring tools which use the skewer hole
+for alignment, and also I had to have a 15mm spanner 
+in the toolkit to undo the axle nuts.*
+
 I've ended up replacing the skewers with
 [allen key skewers](https://www.99bikes.com.au/qr-skewer-set-bbb-wheelfixed-allenkey)
 since I always carry allen keys anyway.  It's really just a very long
@@ -192,25 +200,23 @@ bolt and a fancy nut and washer but it looks okay and it's easy to tighten
 enough to keep the axle in place and
 as a bonus the wheels are slightly less convenient to steal.
 
-(I'd tried replacing the rear axle with an [Ebay solid axle](https://www.ebay.com.au/itm/324139203337)
-(3/8" x 26tpi).  This proved slightly annoying
-because the solid axle didn't fit with a lot of cassette ring tools which
-use the skewer hole for alignment, and also I had to have a 15mm spanner 
-in the toolkit to undo the axle nuts, which was a nuisance.)
-
 I recently rebuilt the wheel bearings and the bike feels so much better for it.
+Useful information:
 
 | | Rear | Front |
 | Axle Length | 145 | 108 |
 | Axle Thread | M10 | M9 |
 | Cone Dia | 17 | 15 |
-| Cone Flats | 15 | 13 | 
-| Cone Depth | 14 | 12.5 |
+| Cone Flats | 15, 16 | 13, 14 | 
+| Cone Depth* | 14 | 12.5 |
 | Ball Size | 1/4" | 3/16" |
-| Ball Count | 9 | 10 |
+| Ball Count | 9 ea | 10 ea |
 
-![Replace your cones _before_ they look like this!](img/bad-cone.jpg)
-*Replace your cones _before_ they look like this!*
+\* as measured, I think the "official" sizes might be 13.8 and 12.8 as 
+per [wheels mfg](https://wheelsmfg.com/products/hub-parts/all-cones.html)
+
+![Replace your cones BEFORE they look like this!](img/bad-cone.jpg)
+*Replace your cones BEFORE they look like this!*
 
 ## Pedals
 

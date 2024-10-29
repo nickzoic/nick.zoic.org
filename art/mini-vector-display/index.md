@@ -3,6 +3,7 @@ layout: article
 title: "Look Mum No Pixels: a Mini Vector Display"
 summary: Making a miniature vector display out of a new/old CRT.
 date: '2024-07-19'
+updated: '2024-10-29'
 tags:
   - electronics
   - micropython
@@ -585,6 +586,10 @@ are presumably current sources.
 Hopefully I can just de-solder the LA7806 and feed my own signals into the
 board instead.
 
-# WORK IN PROGRESS
+# WORK NOT IN PROGRESS
 
-This is still a work in progress but I'm publishing it anyway while I wait for some parts to arrive ...
+At some point while trying to understand the circuit around the LA7806 I think
+I shorted something and now ... not a sausage.  So this project is on hold until
+I get around to buying another mini CRT, or finding a CRT which will be easier to modify.
+
+Hopefully the work on vector fonts will be useful to someone!

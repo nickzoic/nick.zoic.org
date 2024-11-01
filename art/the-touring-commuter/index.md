@@ -222,12 +222,16 @@ Useful information:
 | Axle Length | 145 | 108 |
 | Axle Thread | M10 | M9 |
 | Cone Dia | 17 | 15 |
-| Cone Flats | 15, 16 | 13, 14 | 
-| Cone Depth* | 14 | 12.5 |
+| Cone Flats* | 15, 16 | 13, 14 | 
+| Cone Depth** | 14 | 12.5 |
+| Cone Locknuts | 17 | 17 |
 | Ball Size | 1/4" | 3/16" |
 | Ball Count | 9 ea | 10 ea |
 
-\* as measured, I think the "official" sizes might be 13.8 and 12.8 as 
+\* there's two sets of flat on each, the bigger flats are so narrow as to be almost
+unusable though so you really want a 13/15 combo cone spanner for this.
+
+\*\* as measured, I think the "official" sizes might be 13.8 and 12.8 as 
 per [wheels mfg](https://wheelsmfg.com/products/hub-parts/all-cones.html)
 
 ![Replace your cones BEFORE they look like this!](img/bad-cone.jpg)

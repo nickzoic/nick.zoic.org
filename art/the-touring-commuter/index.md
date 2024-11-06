@@ -210,7 +210,7 @@ bolt and a fancy nut and washer but it looks okay and it's easy to tighten
 enough to keep the axle in place and
 as a bonus the wheels are slightly less convenient to steal.
 
-You can also get [5-sides ones](https://www.omafiets.com.au/security-skewers.html)
+You can also get [5-sided ones](https://www.omafiets.com.au/security-skewers.html)
 which would be slightly more secure but then you'd need to carry an extra tool.
 
 ## Wheel Bearings
@@ -228,7 +228,7 @@ Useful information:
 | Ball Size | 1/4" | 3/16" |
 | Ball Count | 9 ea | 10 ea |
 
-\* there's two sets of flat on each, the bigger flats are so narrow as to be almost
+\* there's two sets of flats on each, the bigger flats are so narrow as to be almost
 unusable though so you really want a 13/15 combo cone spanner for this.
 
 \*\* as measured, I think the "official" sizes might be 13.8 and 12.8 as 

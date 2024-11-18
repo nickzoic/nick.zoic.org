@@ -37,18 +37,22 @@ There's some chance you've stumbled upon this page while trying to find out
 what derailleur hanger you need for this bike.
 *Why are bicycle manufacturers like this?*
 
-The Cross City isn't listed in the [Giant Hanger Finder](https://www.giantbikespares.com/hanger_finder)
-but it appears to me to be a
-[R01630](https://ivanhoecycles.com.au/products/derailleur-hanger-giant-R01630) ...
-I think the "Cross City" is just a local name for the "Escape City", maybe?
-As Ivanhoe Cycles point out, it **does not** have a ridge which fits inside the dropout.
+The Cross City isn't listed in the [GiantBikeSpares Hanger Finder](https://www.giantbikespares.com/hanger_finder)
+but it uses a
+[R01630](https://shop.giantknoxcity.com.au/collections/all/products/giant-derailleur-hanger-q-r-e-my19-23-amit-exp-rov-roa-tal-temp)
+hanger.
+I think the "Cross City" is just a local name for the [Escape](https://www.giantbikespares.com/Giant-2018-Escape-Derailleur-Hanger--1620-R01630-01%09/product_detail/3-45151), maybe?
 
 ![giant cross city 1 2018 derailleur hanger](img/cross-city-1-2018-derailleur-hanger.jpg)
 
-UPDATE: [Giant Knox City confirmed this in email](https://shop.giantknoxcity.com.au/collections/all/products/giant-derailleur-hanger-q-r-e-my19-23-amit-exp-rov-roa-tal-temp)
-
-UPDATE: I took the old hanger down to Giant Knox City and bought a new R01630 hanger
+I took the old hanger down to Giant Knox City and bought a new R01630 hanger
 from them as a spare, it is definitely the correct one!  So that settles that.
+The difference is, it **does not** have a ridge which fits inside the dropout.
+
+UPDATE: The hanger is held in place with two screws, these are countersunk M3 x 8mm total length.
+The stock ones have a 2.5mm allen key head, but it's almost impossible to find these anywhere.
+[2mm hex, T10 and PH1 are available](https://www.boltandnut.com.au/catalogsearch/result/?q=M3%20countersunk&dz_size=M3%20%283mm%29&dz_length=8mm&dz_material_finish=Stainless%20Steel&dz_head_style=Countersunk%20Head)
+though.
 
 ## Tyres
 
@@ -236,6 +240,15 @@ per [wheels mfg](https://wheelsmfg.com/products/hub-parts/all-cones.html)
 
 ![Replace your cones BEFORE they look like this!](img/bad-cone.jpg)
 *Replace your cones BEFORE they look like this!*
+
+## Freehub
+
+I'm about to replace the freehub too.
+The Giant dealer supplied a `152B-FH2040-801 "FH204 FREEHUB BODY (WATERPROOF) FOR GRB52/GRB1035/GRB1032/GDC1022"`
+and this needs an **11mm** hex key to remove.
+Thankfully, the one I bought comes with an 8mm -> 11mm adaptor in the bag.
+
+I should have done this at the same time as I did the bearings.
 
 ## Pedals
 

@@ -57,10 +57,12 @@ These are all, in some way or another, me:
 -   [LinkedIn: nickzoic](https://www.linkedin.com/in/nickzoic)
 -   [Youtube: nickzoic](https://www.youtube.com/channel/UCRl22LCzA_8_vevzT9TJVeg)
 -   [Bluesky: @nickzoic.bsky.social](https://bsky.app/profile/nickzoic.bsky.social)
+-   [PixelFed: @nickzoic@pixelfed.au](https://pixelfed.au/i/portfolio/nickzoic)
+-   [Signal](https://signal.org/): @nickzoic.99 or look me up via my phone number +61409656267.
 
 I was previously very active on [Twitter](https://twitter.com/nickzoic/)
 but given the [state of the place](https://www.wheresyoured.at/free-bird/)
-at the moment I've taken a step back from it.
+I'm not longer using it and will probably delete the account soon.
 
 I'm not active on any of the other social media services at this time
 and haven't bothered to sign up to every one of them just to reserve my usual

@@ -243,12 +243,13 @@ per [wheels mfg](https://wheelsmfg.com/products/hub-parts/all-cones.html)
 
 ## Freehub
 
-I'm about to replace the freehub too.
+I've just replaced the freehub too.
 The Giant dealer supplied a `152B-FH2040-801 "FH204 FREEHUB BODY (WATERPROOF) FOR GRB52/GRB1035/GRB1032/GDC1022"`
 and this needs an **11mm** hex key to remove.
 Thankfully, the one I bought comes with an 8mm -> 11mm adaptor in the bag.
 
-I should have done this at the same time as I did the bearings.
+I should have done this at the same time as I did the bearings, but at least now
+it's done!
 
 ## Pedals
 

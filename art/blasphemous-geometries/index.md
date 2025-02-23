@@ -12,7 +12,15 @@ grid for quantized simulation[1]
 * nodes as a quantum of area
 * edges as a quantum of distance
 
-a "good" grid will have $`A \propto r^2`$
+a "good" grid will have $$ A \propto r^2 $$
+
+`$ testing \pi $`
+
+$` testing \phi `$
+
+`$$ testing \sigma $$`
+
+$$` testing \theta `$$
 
 Ideally all nodes will have the same number of edges, although a mix 
 of $`N`$ and $`N+1`$ would be okay.  It would be very useful for this

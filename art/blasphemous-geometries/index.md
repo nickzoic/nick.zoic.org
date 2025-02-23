@@ -22,6 +22,10 @@ $` testing \phi `$
 
 $$` testing \theta `$$
 
+```math
+testing some more \sum{x=0}{N} x 
+```
+
 Ideally all nodes will have the same number of edges, although a mix 
 of $`N`$ and $`N+1`$ would be okay.  It would be very useful for this
 to be a repetitive pattern or at least in some way predictable.

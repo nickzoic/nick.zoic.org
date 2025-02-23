@@ -1,6 +1,7 @@
 ---
 layout: draft
 title: Blasphemous Geometries
+uses-mathjax: 3
 ---
 
 grid for quantized simulation[1] 

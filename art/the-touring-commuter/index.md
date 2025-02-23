@@ -1,6 +1,6 @@
 ---
 date: '2024-04-16'
-updated: '2024-08-12'
+updated: '2024-11-01'
 layout: article
 tags:
   - cycling
@@ -37,15 +37,23 @@ There's some chance you've stumbled upon this page while trying to find out
 what derailleur hanger you need for this bike.
 *Why are bicycle manufacturers like this?*
 
-The Cross City isn't listed in the [Giant Hanger Finder](https://www.giantbikespares.com/hanger_finder)
-but it appears to me to be a
-[R01630](https://ivanhoecycles.com.au/products/derailleur-hanger-giant-R01630) ...
-I think the "Cross City" is just a local name for the "Escape City", maybe?
-As Ivanhoe Cycles point out, it **does not** have a ridge which fits inside the dropout.
+The Cross City isn't listed in the [GiantBikeSpares Hanger Finder](https://www.giantbikespares.com/hanger_finder)
+but it uses a
+[R01630](https://shop.giantknoxcity.com.au/collections/all/products/giant-derailleur-hanger-q-r-e-my19-23-amit-exp-rov-roa-tal-temp)
+hanger.
+I think the "Cross City" is just a local name for the [Escape](https://www.giantbikespares.com/Giant-2018-Escape-Derailleur-Hanger--1620-R01630-01%09/product_detail/3-45151), maybe?
 
 ![giant cross city 1 2018 derailleur hanger](img/cross-city-1-2018-derailleur-hanger.jpg)
 
-Update: [Giant Knox City confirmed this in email](https://shop.giantknoxcity.com.au/collections/all/products/giant-derailleur-hanger-q-r-e-my19-23-amit-exp-rov-roa-tal-temp)
+I took the old hanger down to Giant Knox City and bought a new R01630 hanger
+from them as a spare, it is definitely the correct one!  So that settles that.
+The difference is, it **does not** have a ridge which fits inside the dropout.
+
+UPDATE: The hanger is held in place with two screws, these are countersunk M3 x 8mm total length.
+The stock ones have a 2.5mm allen key head, but it's almost impossible to find these anywhere.
+[2mm hex, T10 and PH1 are available](https://www.boltandnut.com.au/catalogsearch/result/?q=M3%20countersunk&dz_size=M3%20%283mm%29&dz_length=8mm&dz_material_finish=Stainless%20Steel&dz_head_style=Countersunk%20Head)
+though.
+
 ## Tyres
 
 The bike came with 32mm road tyres which were okay but I found them sluggish at low
@@ -66,7 +74,9 @@ I tend to run the rear tyre pretty much at it's pressure limit and the front tyr
 a little softer, which given the [weight distribution](../cooking-for-weight-weenies/)
 of bike & rider should help a bit.
 
-## Bars & Stem
+## Up Front
+
+### Handlebars
 
 Originally it would have had a 105mm stem length but the dealer changed it over
 for a 120mm +6⁰ to add a little room.
@@ -90,7 +100,15 @@ they just turn you into a windsock and catch more trees.
 which have more backsweep at 27.5⁰ ... but at 800mm I'd have to cut a lot off
 the ends ...*
 
-To compensate for the lack of rise, and my aging back, that 120mm stem is now
+I found with the swept bars the "ergonomic" grips which came with the bike no 
+longer really sat well in my hands so I've put on
+[PNW Loam XL](https://www.mtbdirect.com.au/products/pnw-components-loam-xl-grip?variant=40691101827117)
+grips which are just amazing.  These are a couple of mm larger diameter 
+than the standard ones and that makes a big difference to hand comfort for me.
+
+### Stem Setup
+
+To compensate for the lack of rise in the bars, and my aging back, that 120mm stem is now
 flipped to -6⁰ on top of 90mm of
 [stem riser](https://sheldonbrown.com/handsup.html).  Putting a negative
 stem on top of a riser might seem a bit perverse but combined with the head 
@@ -110,6 +128,12 @@ still stand over the frame behind it.
 ![top tube bag in place](img/top-tube-bag.jpg)
 *extended steerer with top tube bag in place*
 
+Possibly all this indicates that I should have bought the size XL frame, but from
+memory the standover height seemed a bit too high, and that's pretty important for
+comfort too.
+
+### Inner Bar Ends
+
 I also have a couple of [inner bar ends](https://bikepacking.com/gear/adding-alt-hand-positions-to-flat-bars/)
 which are just cheap 150mm "classic bar ends" from BBB, with a pair of very cheap
 flexi rubber grips forced over them (try some compressed air down the hole in the end)
@@ -123,12 +147,6 @@ While that takes my hands away from the
 brakes it's actually pretty easy to slide my hands down and brake with my outer fingers.
 Since the bars got a bit narrower as well there's no problem with the cables
 reaching.
-
-I found with the swept bars the "ergonomic" grips which came with the bike no 
-longer really sat well in my hands so I've put on
-[PNW Loam XL](https://www.mtbdirect.com.au/products/pnw-components-loam-xl-grip?variant=40691101827117)
-grips which are just amazing.  These are a couple of mm larger diameter 
-than the standard ones and that makes a big difference to hand comfort for me.
 
 ## Granny Gears
 
@@ -181,6 +199,14 @@ each of which let me down at one point or another.
 Yes, the QR skewers make it quicker to change tyres *but on this bike
 I've had more QR failures than punctures!*.
 
+*I'd tried replacing the rear axle with an [Ebay solid axle](https://www.ebay.com.au/itm/324139203337)
+(3/8" x 26tpi).  This worked fine, the dimensions are close enough that everything fits, so it's worth bearing in mind if you're stuck with dead bearings in a one-horse town.*
+
+*But it proved slightly annoying because the solid axle didn't
+fit with a lot of [cassette lock ring tools](https://ivanhoecycles.com.au/products/tool-bbb-lockplug-btl-107s-shim)
+which use the skewer hole for alignment, and also I had to keep a 15mm spanner 
+in the toolkit to undo the axle nuts.*
+
 I've ended up replacing the skewers with
 [allen key skewers](https://www.99bikes.com.au/qr-skewer-set-bbb-wheelfixed-allenkey)
 since I always carry allen keys anyway.  It's really just a very long
@@ -188,13 +214,42 @@ bolt and a fancy nut and washer but it looks okay and it's easy to tighten
 enough to keep the axle in place and
 as a bonus the wheels are slightly less convenient to steal.
 
-(I'd tried replacing the rear axle with an [Ebay solid axle](https://www.ebay.com.au/itm/324139203337)
-(3/8" x 26tpi).  This proved slightly annoying
-because the solid axle didn't fit with a lot of cassette ring tools which
-use the skewer hole for alignment, and also I had to have a 15mm spanner 
-in the toolkit to undo the axle nuts, which was a nuisance.)
+You can also get [5-sided ones](https://www.omafiets.com.au/security-skewers.html)
+which would be slightly more secure but then you'd need to carry an extra tool.
 
-*Note to self: the rear wheel bearings are 1/4" and the front ones are 3/16".*
+## Wheel Bearings
+
+I recently rebuilt the wheel bearings and the bike feels so much better for it.
+Useful information:
+
+| | Rear | Front |
+| Axle Length | 145 | 108 |
+| Axle Thread | M10 | M9 |
+| Cone Dia | 17 | 15 |
+| Cone Flats* | 15, 16 | 13, 14 | 
+| Cone Depth** | 14 | 12.5 |
+| Cone Locknuts | 17 | 17 |
+| Ball Size | 1/4" | 3/16" |
+| Ball Count | 9 ea | 10 ea |
+
+\* there's two sets of flats on each, the bigger flats are so narrow as to be almost
+unusable though so you really want a 13/15 combo cone spanner for this.
+
+\*\* as measured, I think the "official" sizes might be 13.8 and 12.8 as 
+per [wheels mfg](https://wheelsmfg.com/products/hub-parts/all-cones.html)
+
+![Replace your cones BEFORE they look like this!](img/bad-cone.jpg)
+*Replace your cones BEFORE they look like this!*
+
+## Freehub
+
+I've just replaced the freehub too.
+The Giant dealer supplied a `152B-FH2040-801 "FH204 FREEHUB BODY (WATERPROOF) FOR GRB52/GRB1035/GRB1032/GDC1022"`
+and this needs an **11mm** hex key to remove.
+Thankfully, the one I bought comes with an 8mm -> 11mm adaptor in the bag.
+
+I should have done this at the same time as I did the bearings, but at least now
+it's done!
 
 ## Pedals
 
@@ -229,7 +284,9 @@ hobbling.
 I found the [Selle Italia S5](https://www.selleitalia.com/s-5-superflow/)
 to be a good fit for me personally and if you're getting any kind of numbness
 in your nether regions on long rides I'd really recommend trying out the
-split-style saddles.
+split-style saddles.  Because it's a curved saddle you've got to mess around
+a bit with the angle adjustment rather than line it up horizontally like
+you could with a flatter saddle.
 
 ## Summary
 

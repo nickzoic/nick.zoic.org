@@ -88,3 +88,6 @@ Also check out the language "Joy", which is even weirder.
 * Effects of environment on rat drug addiction in Rat Park: ([Wikipedia](https://en.wikipedia.org/wiki/Rat_Park) / [Comic](http://www.stuartmcmillen.com/comic/rat-park/))
 * [Ophiocordyceps unilateralis](https://www.theatlantic.com/science/archive/2017/11/how-the-zombie-fungus-takes-over-ants-bodies-to-control-their-minds/545864/)
 
+## Other
+
+* [Fuck Nuance](https://kieranhealy.org/files/papers/fuck-nuance.pdf)

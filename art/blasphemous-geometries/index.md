@@ -35,6 +35,10 @@ When `\(a \ne 0\)`, there are two solutions to `\(ax^2 + bx + c = 0\)` and they 
 When \\(a \ne 0\\), there are two solutions to \\(ax^2 + bx + c = 0\\) and they are
 $$x = {-b \pm \sqrt{b^2-4ac} \over 2a}.$$
 
+`\( \latex \)`
+
+`$$ \latex $$`
+
 ## enough!
 
 Ideally all nodes will have the same number of edges, although a mix 

@@ -12,37 +12,12 @@ grid for quantized simulation[1]
 * nodes as a quantum of area
 * edges as a quantum of distance
 
-a "good" grid will have $$ A \propto r^2 $$
-
-`$ testing \pi $`
-
-$` testing \phi `$
-
-`$$ testing \sigma $$`
-
-$$` testing \theta `$$
-
-```math
-testing some more \sum{x=0}{N} x 
-```
-
-When \(a \ne 0\), there are two solutions to \(ax^2 + bx + c = 0\) and they are
-$$x = {-b \pm \sqrt{b^2-4ac} \over 2a}.$$
-
-When `\(a \ne 0\)`, there are two solutions to `\(ax^2 + bx + c = 0\)` and they are
-`$$x = {-b \pm \sqrt{b^2-4ac} \over 2a}.$$`
-
-When \\(a \ne 0\\), there are two solutions to \\(ax^2 + bx + c = 0\\) and they are
-$$x = {-b \pm \sqrt{b^2-4ac} \over 2a}.$$
-
-`\( \latex \)`
-
-`$$ \latex $$`
+a "good" grid will have `$$ A \propto r^2 $$`
 
 ## enough!
 
 Ideally all nodes will have the same number of edges, although a mix 
-of $`N`$ and $`N+1`$ would be okay.  It would be very useful for this
+of `$N$` and `$N+1$` would be okay.  It would be very useful for this
 to be a repetitive pattern or at least in some way predictable.
 
 (consider the soccer ball)
@@ -66,7 +41,7 @@ J - K - L - M
 
 But drop water on flat ground in minecraft and it'll spread out faster along
 the axes than the diagonals, forming a diamond shape.  Starting from one node,
-in $`N`$ steps we can cover $`2N^2 + 2N + 1`$ nodes.
+in `$N$` steps we can cover `$2N^2 + 2N + 1$` nodes.
 
 ```
         4
@@ -80,9 +55,9 @@ in $`N`$ steps we can cover $`2N^2 + 2N + 1`$ nodes.
         4
 
 ```
-(visualize this as two interlaced diamonds, an outer one with $`(N+1)^2`$ nodes
-and an inner one with $`N^2`$ nodes.  Or think of it as a central $`0`$ 
-surrounded by 4 triangles each of which has area $`(N^2+N)/2`$ ...)
+(visualize this as two interlaced diamonds, an outer one with `$(N+1)^2$` nodes
+and an inner one with `$N^2$` nodes.  Or think of it as a central `$0$` 
+surrounded by 4 triangles each of which has area `$(N^2+N)/2$` ...)
 
 ```
 A - B - C - D
@@ -107,10 +82,10 @@ games and as hex plots for 2D histograms.  The issues are less pronounced than i
    3 3 3 3
 ```
 
-Think of this as a central $`0`$ surrounded by six triangles ... our area is 
-$`3N^2 + 3N + 1`$.  
+Think of this as a central `$0$` surrounded by six triangles ... our area is 
+`$3N^2 + 3N + 1$`.  
 
-That's rounder, but it's still not $`\pi r^2`$
+That's rounder, but it's still not `$\pi r^2$`
 
 We can think of 3- connected as being like 6- connected but with half the edges
 missing.  It isn't very useful or pretty as ASCII art:
@@ -126,7 +101,8 @@ missing.  It isn't very useful or pretty as ASCII art:
 
 ```
 
-although it does look nice as crochet.  Unsuprisingly, our area is $`(3/2)N^2 + (3/2)N + 1`$.
+although it does look nice as crochet.  Unsuprisingly, in a distance of `$N$` we
+can reach `$(3/2)N^2 + (3/2)N + 1$` nodes.
 
 ### Non-planar: 7- and 8- connected
 
@@ -137,6 +113,14 @@ An 8- connected grid would be like the way a king moves on a chessboard:
 all the adjoining squares plus the diagonals.  But these grids aren't planar,
 eg: if you flatten them out some edges cross.  The diagonal moves go through
 each other.
+
+```
+A - B - C - D
+| X | X | X |
+E - F - G - H
+| X | X | X |
+J - K - L - M
+```
 
 A 7- connected grid is harder to visualize, but you can imagine trying to add in 
 edges to a 6- connected grid.  The areas between the edges are triangles, so

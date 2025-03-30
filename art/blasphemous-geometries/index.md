@@ -26,6 +26,9 @@ to be a repetitive pattern or at least in some way predictable.
 
 ### Trivial: 0-, 1-, 2- connected
 
+Disconnected, connected in pairs, or connected in an infinite line.
+None of these are very interesting!
+
 ### Ugly: 3-, 4-, 6- connected
 
 A 4- connected grid is the obvious option, the familar grid of graph paper,
@@ -48,16 +51,16 @@ in `$N$` steps we can cover `$2N^2 + 2N + 1$` nodes.
       4 3 4
     4 3 2 3 4
   4 3 2 1 2 3 4
-4 3 2 1 0 1 2 3 4            0 1 2 3 4
-  4 3 2 1 2 3 4                2 3 4
-    4 3 2 3 4                  3 4
-      4 3 4                    4
+4 3 2 1 0 1 2 3 4
+  4 3 2 1 2 3 4
+    4 3 2 3 4
+      4 3 4
         4
 
 ```
 (visualize this as two interlaced diamonds, an outer one with `$(N+1)^2$` nodes
 and an inner one with `$N^2$` nodes.  Or think of it as a central `$0$` 
-surrounded by 4 triangles each of which has area `$(N^2+N)/2$` ...)
+surrounded by 4 offset triangles each of which has area `$\frac{N^2+N}{2}$` ...)
 
 ```
 A - B - C - D
@@ -76,13 +79,14 @@ games and as hex plots for 2D histograms.  The issues are less pronounced than i
    3 3 3 3
   3 2 2 2 3
  3 2 1 1 2 3
-3 2 1 0 1 2 3            0 1 2 3
- 3 2 1 1 2 3                2 3
-  3 2 2 2 3                  3
+3 2 1 0 1 2 3
+ 3 2 1 1 2 3
+  3 2 2 2 3
    3 3 3 3
 ```
 
-Think of this as a central `$0$` surrounded by six triangles ... our area is 
+Think of this as a central `$0$` surrounded by six offset triangles each
+with area `$\frac{N^2+N}{2}$` ... our area is 
 `$3N^2 + 3N + 1$`.  
 
 That's rounder, but it's still not `$\pi r^2$`
@@ -102,7 +106,7 @@ missing.  It isn't very useful or pretty as ASCII art:
 ```
 
 although it does look nice as crochet.  Unsuprisingly, in a distance of `$N$` we
-can reach `$(3/2)N^2 + (3/2)N + 1$` nodes.
+can reach `$\frac{3}{2}N^2 + \frac{3}{2}N + 1$` nodes.
 
 ### Non-planar: 7- and 8- connected
 

@@ -1,0 +1,1456 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="flip.css">
+  <script src="flip.js"></script>
+  <title>The Primordial Code</title>
+</head>
+<body>
+  <div class="notes">
+    Press "." to enter slideshow, once entered "PgUp" and "PgDn" to
+    navigate, "Esc" to leave slideshow again.
+  </div>
+  <div class="slide">
+    <h1>The Primordial Code</h1>
+    <h2></h2>
+    <h4>Nick Moore<br>
+        for <a href="https://2025.pycon.org.au/">PyConAU 2025</a></h4>
+  </div>
+  <div class="notes">
+    <p>
+     You, by which I mean all the Eukaryotes in the audience,
+     are running on an operating system a couple of billion years old
+     which is full of primordial libraries, monkey patches, self-modifying
+     code, viral hacks and even containers running a different operating system.
+   </p><p>
+     This talk is all about the freakish parallels between cell biology and
+     computer architecture, and will leave you less confident than ever that
+     your seemingly complex life is anything more than a molecule's way of
+     making more molecules.
+   </p>
+  </div>
+
+  <div class="slide">
+    <h2>Content Warnings</h2>
+    <ul>
+	    <li>Brief mention of infectious and genetic diseases but nothing gruesome.</li>
+    </ul>
+  </div>
+ 
+  <div class="slide">
+    <h2>Background - Me</h2>
+
+    <p>
+    <a href="https://nick.zoic.org/">
+    <img src="img/nick-moore.jpg" width="20%"/>
+    <br/><span>nick.zoic.org</span>
+    </a>
+    <br/>
+    Consultant, software developer, notorious tinkerer.
+    </p>
+
+  <p>
+    <img src="img/wehi.png" width="20%">
+    <img src="img/uw.png" width="20%"><br/>
+  Thanks to my colleagues at WEHI (Walter and Eliza Hall
+  Institute of Medical Research)
+  and University of Washington Genome Sciences.</p>
+  </div>
+
+  <div class="slide">
+	  <h2>Biology</h2>
+	  <h3>A summary of the last 3,500,000,000 years</h3>
+	  <img src="img/symbiogenesis.svg" width="80%"/>
+
+	  <p class="tiny">Image: <a href="https://commons.wikimedia.org/wiki/File:Symbiogenesis_2_mergers.svg">Chiswick Chap. Redrawn from File:Symbiogenesis.svg to reflect more recent science., CC BY-SA 4.0 <https://creativecommons.org/licenses/by-sa/4.0>, via Wikimedia Commons</a></p>
+  </div>
+
+  <div class="notes">
+	  <p>
+	  We'll mostly be talking about Eukaryotes because we like to think
+	  that we're the most advanced form of life, but let's not get too 
+	  arrogant because Eukaryota also includes fungi, plants, algae,
+	  yeasts and slime molds.
+	  </p>
+	  <p>We'll come back to this later but note the poor version control
+	  discipline</p>
+  </div>
+
+  <div class="slide">
+	  <h2>Timeline ...</h2>
+  <ul>
+	  <li>1842: Punched Tapes for telegraphy</li>
+	  <li>1866: Mendel "discrete inheritable units"</li>
+	  <li>1869: DNA isolated (purpose unknown)
+	  <li>1913: Morgan &amp; Sturtevant "genetic linkage maps"</li>
+	  <li>1927: Koltsov proposes "giant heriditary molecule"</li>
+	  <li>1936: Alan Turing's "universal computing machines"
+	  <li>1952: Alan Turing works on morphogenesis</li>
+	  <li>1953: Watson, Crick and Franklin discover the
+		  structure of DNA</li>
+  </ul>
+  </div>
+
+  <div class="notes">
+	  Examples include:
+
+    cells as processors with I/O ports.
+    genomes as shared container images with run-time specialization.
+    instruction/bytecode decoding as protein transcription
+    non-coding DNA as:
+    library headers/footers (promoters etc),
+    compiler bootstrapping (tRNA),
+    program inline data (snRNA, etc)
+    dead code (pseudogenes)
+    transformation of code by other code (RNA interactions)
+    mitochondria as little containers with a different architecture (mtDNA)
+  </div>
+
+  <div class="slide">
+    <h2>Bioinformatics in 9½ minutes</h2>
+  </div>
+  <div class="notes">
+    First up, Bioinformatics in 9½ minutes
+  </div>
+  <div class="slide">
+    <h2>Bioinformatics in 9½ minutes</h2>
+    <p>[*] Approximately</p>
+  </div>
+  <div class="notes">
+    <p>A lot of this will be pretty approximate too so don't sweat
+    the details right now. If you're interested in the details
+    let's catch up after this session over lunch.</p>
+    <p>Or for those of you watching online, you could do a lot
+    worse than going down a <a href=
+    "https://en.wikipedia.org/wiki/Bioinformatics">Bioinformatics
+    Wikipedia Rabbit Hole</a></p>
+  </div>
+  <div class="slide">
+    <h3>Bioinformatics</h3>
+    <ul>
+      <li>Bioinformatics: analysis of biological
+      data.</li>
+      <li>Arguably started in 1952:</li>
+      <ul class="medium">
+        <li>Protein sequencing of insulin by Frederick Sanger</li>
+        <li>Alan Turing's "Chemical basis of morphogenesis"</li>
+      </ul>
+      <li>Really got going as computers got invented:</li>
+      <ul class="medium">
+        <li>Margaret Dayhoff's COMPROTEIN ~ 1960</li>
+        <li>Protein Information Resource (1984-)</li>
+      </ul>
+      <li>Perhaps unsurprisingly, many parallels between biological
+      science and computer science.</li>
+    </ul>
+  </div>
+  <div class="notes">
+    There's some really interesting history here which would make a
+    great historical research presentation in its own right.
+    <p class="medium">References:</p>
+    <ul class="medium">
+      <li>
+        <a href=
+        "https://www.dna.caltech.edu/courses/cs191/paperscs191/turing.pdf">
+        A M Turing: A reaction-diffusion model for development, The
+        chemical basis of morphogenesis</a>
+      </li>
+      <li>
+	      <a href="https://en.wikipedia.org/wiki/Frederick_Sanger">Frederick Sanger</a>
+      </li>
+      <li>
+        <a href=
+        "https://en.wikipedia.org/wiki/Margaret_Oakley_Dayhoff">Margaret
+        Oakley Dayhoff @ Wikipedia</a>
+      </li>
+      <li>
+        <a href=
+        "https://proteininformationresource.org/pirwww/about/aboutpir.shtml">
+        Protein Information Resource</a>
+      </li>
+    </ul>
+  </div>
+  <div class="slide">
+    <h3>Cell Biology</h3><img src="img/animal.svg" class="eighty"> 
+    <!--img src="img/endomembrane.svg" class="sixty"/-->
+    <ul>
+      <li>there's a lot we still don't know</li>
+      <li>experiments let us make theories</li>
+      <li>a lot like black-box testing</li>
+    </ul>
+    <p class="tiny">Image: <a href=
+    "https://commons.wikimedia.org/wiki/File:Animal_cell_structure_en.svg">
+    LadyofHats</a>, Public domain, via Wikimedia Commons</p>
+  </div>
+  <div class="notes">
+    <p>There's a lot we still don't know about cell biology. The
+    mechanisms by which all living things function and reproduce
+    are complex and difficult to observe directly, since they are
+    hidden inside living cells.</p>
+    <p>But we can construct experiments which let us observe the
+    outward behaviour of cells and through analysis we can
+    determine what's going on inside them. This is not totally
+    unlike black-box testing of software: you might not be able to
+    read the code, but if you can find a correlation between a
+    change in input and a change in output, you can start to
+    understand what the program does even if you can't directly
+    watch it doing it.</p>
+  </div>
+  <div class="slide">
+    <h3>The Human Genome</h3>
+    <table style="border: 0px;"><tr>
+		    <td style="border: 0px;"><img src="img/dna.png" class=
+				  "sixty"/></td>
+		    <td style="border: 0px;">
+    <ul>
+      <li>The "program" of your cells</li>
+      <li>23 Chromosomes, each is a very long molecule</li>
+      <li>Each is 100M or so building blocks called "base pairs" or
+      nucleotides</li>
+      <li>All of your cells have the same genome</li>
+    </ul>
+		    </td></tr></table>
+    <p class="tiny">Image: <a href=
+    "https://commons.wikimedia.org/wiki/File:DNA_Structure%2BKey%2BLabelled.pn_NoBB.png">
+    Zephyris</a>, <a href=
+    "https://creativecommons.org/licenses/by-sa/3.0">CC BY-SA
+    3.0</a>, via Wikimedia Commons</p>
+  </div>
+  <div class="notes">
+    <p>The "program" of a cell is called its genome. The human
+    genome is split into 23 chromosomes each of which is a DNA
+    molecule, a chain of a hundred million or so little building
+    blocks called base pairs or nucleotides. All in all, the human
+    genome consists of about 12Gbit of information.</p>
+    <p>All of your cells have the same genome, like sharing a
+    container image, but different genes are active in different
+    cells, depending on their role in the body.</p>
+  </div>
+  <div class="slide">
+    <h3>Nanopore Electrophoresis</h3>
+    <img src="img/nanopore.svg"
+			class="seventy"/>
+    <ul>
+      <li>Reading DNA molecule one base at a time</li>
+      <li>Can also edit / append to DNA</li>
+      <li>Doesn't mean we understand everything ...</li>
+    </ul>
+    <p class="tiny">Image: <a href=
+    "https://commons.wikimedia.org/wiki/File:202001_nanopore_sequencing.svg">
+    DataBase Center for Life Science (DBCLS)</a>, <a href=
+    "https://creativecommons.org/licenses/by/4.0">CC BY 4.0</a>,
+    via Wikimedia Commons</p>
+  </div>
+  <div class="notes">
+    <p>These days, we can actually read out an individual cell's
+    entire genome using a technique called "nanopore
+    electrophoresis", which draws the DNA molecule through a tiny
+    hole like a small child slurping up spaghetti. And using
+    techniques we've learned from studying bacteria and viruses, we
+    can even edit DNA molecules and change or append base pairs. So
+    we can read and write the binary, but that doesn't mean we
+    understand the program.</p>
+    <p><a href=
+    "https://en.wikipedia.org/wiki/CRISPR">CRISPR</a></p>
+  </div>
+  <div class="slide">
+    <h3>Genes</h3><img src="img/gene.svg" class="seventy"><br>
+    <ul>
+      <li>Genes code for proteins</li>
+      <li>Wrapped in headers and footers which regulate
+      expression</li>
+      <li>Some small: one protein, hundreds of base pairs</li>
+      <li>Some huge: dozens of proteins, millions of base
+      pairs</li>
+    </ul>
+    <p class="tiny">Image: <a href=
+    "https://commons.wikimedia.org/wiki/File:Gene_structure_eukaryote_2_annotated.svg">
+    Thomas Shafee</a>, <a href=
+    "https://creativecommons.org/licenses/by/4.0">CC BY 4.0</a>,
+    via Wikimedia Commons</p>
+  </div>
+  <div class="notes">
+    <p>We do know a bit about the syntax. Each chromosome contains
+    many regions called genes, with each gene providing the
+    instructions to make tiny blobby machines called proteins,
+    which the cell uses to do its job. Each gene is wrapped up in
+    more instructions which form a kind of header and footer and
+    which regulate how and when the gene is used. Some genes are
+    small, hundreds of base pairs long and producing a single
+    protein and some are very large, a couple of million base pairs
+    and encoding dozens of proteins.</p>
+  </div>
+  <div class="slide">
+    <h3>Gene Names</h3><img src="img/gene-table.png" class=
+    "eighty">
+    <p class="tiny"><a href=
+    "https://www.ncbi.nlm.nih.gov/gene?term=17%5BChr%5D%20AND%20%22Homo%20sapiens%22%5BOrganism%5D%20AND%20%28%22has%20ccds%22%5BProperties%5D%20AND%20alive%5Bprop%5D%29&amp;cmd=DetailsSearch">
+    source: NBCI</a></p><br>
+    <ul>
+      <li>No debug symbols</li>
+      <li>About 20,000 genes which encode proteins</li>
+      <li>That's about 3% of the entire genome</li>
+      <li>We know ~80% of the genome does *something*</li>
+    </ul>
+  </div>
+  <div class="notes">
+    <p>There are no debug symbols in the genome, so when we think
+    we know what a gene does, we give it an arbitrary name. This
+    process is familiar to anyone who's reverse engineered a
+    binary, either with paper and pencil or with modern
+    reverse-engineering tools.</p>
+    <p>We know of about 20,000 genes which encode proteins, but
+    those constitute about 3% of the entire genome. We're pretty
+    sure at least 80% of the genome does <b>something</b>, so we've
+    got a ways to go.</p>
+    <p>Reference: <a href=
+    "https://www.science.org/doi/10.1126/science.337.6099.1159">"Encode
+    Project Writes Eulogy For Junk DNA", Science Magazine.</a></p>
+  </div>
+  <div class="slide">
+    <h3>Gene Variants</h3>
+    <h4>Single Nucleotide Polymorphism (SNP)</h4>
+    <h4>Single Nucleotide Variants (SNV)</h4>
+    <ul>
+      <li>Every person's genome is different</li>
+      <li>Reference genome</li>
+      <li>Most common kind of variant is a single base change</li>
+      <li>If it's common it's called an SNP</li>
+      <li>If it's rare it's called an SNV</li>
+    </ul>
+  </div>
+  <div class="notes">
+    <p>Every person's genome is different. We have the concept of a
+    "reference genome" which describes what we think the "normal"
+    sequence for every gene is, but no-one's actually got that
+    exact genome.</p>
+    <p>The most common kind of variant is a single base
+    (nucleotide) change. If it's a common kind of difference, seen
+    in more that 1% of the population, it's called a Polymorphism.
+    Whereas if it's a rare change it's generally called a Variant.
+    It means the same thing: one base is changed from the
+    reference.</p>
+  </div>
+  <div class="slide">
+    <h3>Gene Variants</h3>
+    <p>Easily observable:</p>
+    <ul>
+      <li>Infant Lactose Intolerance / Adult Lactase Persistence (LCT, MCM6)</li>
+      <li>Hair Colour ...</li>
+    </ul>
+  </div>
+  <div class="notes">
+    <p>Some differences in genes lead to obvious, observable
+    differences in the organism, such as ability to digest lactose
+    as an adult, or hair colour. These tend to have a large
+    variation in the population because they don't matter very
+    much, or at least not in our current lives.</p>
+    <p>Because there's a big population to work with, it's possible
+    to find a correlation between lactose intolerance and specific
+    variants of genes <tt>LCT</tt> and <tt>MCM6</tt>.</p>
+    <p>References:</p>
+    <ul>
+      <li>
+        <a href=
+        "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3057002/">"Model-based
+        prediction of human hair color using DNA variants"</a>
+      </li>
+      <li>
+        <a href=
+        "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3401057/">"Lactose
+        intolerance: diagnosis, genetic, and clinical factors"</a>
+      </li>
+    </ul>
+  </div>
+  <div class="slide">
+  <h3>Gene Variants</h3><img src="img/chewy.png" class=
+  "ninety"></div>
+  <div class="notes">
+    <p>... or to determine the likely hair colour of an ancient
+    human from the DNA in her 5700 year old chewing gum.</p>
+    <p>Reference: <a href=
+    "https://www.smithsonianmag.com/science-nature/human-genome-recovered-5700-year-old-chewing-gum-180973801/">
+    Human Genome Recovered From 5,700-Year-Old Chewing Gum</a></p>
+  </div>
+  <div class="slide">
+    <h3>Long COVID?</h3><img src="img/foxp4.png" class="ninety">
+    <p class="tiny">Source: <a href=
+    "https://www.medrxiv.org/content/10.1101/2023.06.29.23292056v1">
+    MedRxiv / Lammi et. al. "Genome-wide Association Study of Long
+    COVID", 2023-06-29</a></p>
+  </div>
+  <div class="notes">
+    <p>As another example, recent work published on MedRXiv
+    suggests a link between specific variants of <tt>FOXP4</tt> and
+    severity of COVID infection as well as susceptibility to Long
+    COVID.</p>
+    <p>See also: <a href=
+    "https://www.npr.org/sections/goatsandsoda/2023/08/08/1192496578/a-new-clue-to-the-reason-some-people-come-down-with-long-covid">
+    NPR Goats and Soda</a></p>
+  </div>
+  <div class="slide">
+    <h3>Cancer</h3><img src="img/tumor.svg" class="ninety"><br>
+    <ul>
+      <li>More subtle problems</li>
+      <li>Cell damage from radiation / chemicals / bad luck</li>
+      <li>Cell repair mechanisms (BRCA1, BRCA2, PALB2)</li>
+      <li>Variants can reduce effectiveness</li>
+      <li>Much harder to find because rare, and lives are complicated</li>
+      <li>Like a bug in an exception handler ...</li>
+    </ul>
+  </div>
+  <div class="notes">
+    <p>Other gene variations lead to more subtle differences, such
+    as your likelihood of developing specific cancers. Cancers are
+    caused by damage to DNA, perhaps due to chemicals or radiation
+    or just bad luck. Most such damage triggers cellular defense
+    mechanisms, which repair the DNA, or destroy the cell rather
+    than allow it to become a tumor.</p>
+    <p>But we know clinically that some gene variants reduce the
+    effectiveness of these defense mechanisms, greatly increasing
+    the risk of developing specific cancers.</p>
+    <p>Because these pathogenic variants are rare, and people's
+    lives are complicated, it's much harder to find them in among
+    the background noise of benign variants and unrelated risk
+    factors.</p>
+    <p>To put it in programming terms, we're looking for a bug in
+    an exception handler in some critical legacy code which is live
+    and exposed to the Internet.</p>
+    <p>See also: <a href=
+    "https://onlinelibrary.wiley.com/doi/10.1002/jcp.10257">Rosen
+    et al, "BRCA1 gene in breast cancer", 2003</a></p>
+  </div>
+  <div class="slide">
+    <h3>Multiplex Assays of Variant Effect (MAVEs)</h3><img src=
+    "img/rous.jpg" class="eighty">
+    <p class="tiny">Image: A Rodent of Unusual Size, from The
+    Princess Bride</p>
+  </div>
+  <div class="notes">
+    <p>Multiplex Assays of Variant Effect ... wait, wrong slide
+    ...</p>
+  </div>
+  <div class="slide">
+    <h3>Multiplex Assays of Variant Effect (MAVEs)</h3>
+    <h4>Clinical Approach</h4>
+    <table>
+      <tr>
+        <td>Clinical Cases</td>
+      </tr>
+      <tr>
+        <td class="gap">↓</td>
+      </tr>
+      <tr>
+        <td>Gene Sequencing</td>
+      </tr>
+      <tr>
+        <td class="gap">↓</td>
+      </tr>
+      <tr>
+        <td colspan="3">Variant Classification</td>
+      </tr>
+    </table>
+    <ul>
+      <li>A few thousand known variants of these genes</li>
+      <li>A lot more we don't know about because they'e never been
+      seen clinically</li>
+      <li>Some might be very serious</li>
+    </ul>
+  </div>
+  <div class="notes">
+    <p>Multiplex Assays of Variant Effect ... right, so there's a
+    few thousand known variants of these genes we've learned about
+    from clinical cases.</p>
+    <p>But there's a lot of possible variants we don't know
+    anything about, because we've never observed them clinically.
+    Some of those are very likely harmless, and others might be
+    very serious: this information can inform individual choices
+    for the prevention or treatment of cancer.</p>
+  </div>
+  <div class="slide">
+    <h3>Multiplex Assays of Variant Effect (MAVEs)</h3>
+    <h4>Experimental Approach</h4>
+    <table>
+      <tr>
+        <td>Clinical Cases</td>
+        <td class="gap"></td>
+        <td>Gene editing</td>
+      </tr>
+      <tr>
+        <td class="gap">↓</td>
+        <td class="gap"></td>
+        <td class="gap">↓</td>
+      </tr>
+      <tr>
+        <td>Gene Sequencing</td>
+        <td class="gap"></td>
+        <td>Experimental Assay</td>
+      </tr>
+      <tr>
+        <td class="gap">↓</td>
+        <td class="gap"></td>
+        <td class="gap">↓</td>
+      </tr>
+      <tr>
+        <td colspan="3">Variant Classification</td>
+        <td class="gap"></td>
+      </tr>
+    </table>
+    <ul>
+      <li>Catalog all possible variants of a gene</li>
+      <li>Constructing experiments to score variant effect</li>
+      <li>Outcome is same: variants classified by harmfulness</li>
+    </ul>
+  </div>
+  <div class="notes">
+    <p>Multiplex Assays of Variant Effect (MAVEs) are an attempt to
+    catalog not just the gene variants we've seen clinically but
+    *all possible variants* of a gene, classifying their effects as
+    more or less concerning, by contructing experiments which
+    measure the variant effect.</p>
+    <p>The outcome is the same: variants classified by harmfulness,
+    and the two approaches complement each other.</p>
+  </div>
+  <div class="slide">
+    <h3>MaveDB</h3><img src="img/mavedb.png" class="eighty"><br>
+    <p class="tiny">Image: <a href=
+    "https://mavedb.org">MaveDB</a></p>
+    <ul>
+      <li>See Alan Rubin's talk on Friday Django miniconf</li>
+    </ul>
+  </div>
+  <div class="notes">
+    <p>As part of Friday's Django miniconf, my colleague Alan Rubin
+    spoke about MaveDB, an online respository for results from MAVE
+    experiments so if you missed that one check it on the
+    conference videos.</p>
+    <p>I'm going to briefly introduce a couple of MAVE experimental
+    techniques: Saturation Genome Editing and VAMP-seq, because
+    they illustrate the problem we're trying to solve.</p>
+  </div>
+  <div class="slide">
+    <h3>Saturation Genome Editing</h3><img src="img/findlay.png"
+    class="sixty">
+    <p class="tiny">Source: <a href=
+    "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6181777/pdf/nihms-1501643.pdf">
+    ncbi.nlm.nih.gov</a></p>
+    <ul>
+      <li>Almost 4000 single-base variants of BRCA1</li>
+      <li>Effect on cell growth assessed after 11 days</li>
+      <li>Good correlation with variants we already know of</li>
+      <li>Identifies new pathogenic variants</li>
+    </ul>
+  </div>
+  <div class="notes">
+    <p>This paper uses Saturation Genome Editing to analyze almost
+    4000 single-base variants of BRCA1. For each variant, the
+    effect on cell growth is assessed by counting the variants in
+    the cell population after 11 days. The results show good
+    correlation with the variants we already know of clinically and
+    also identifies new pathogenic variants. Similar work is
+    underway to analyse other tumor suppressing genes such as BRCA2
+    and PALB2.</p>
+  </div>
+  <div class="slide">
+    <h3>Saturation Genome Editing</h3>
+    <p><a href=
+    "https://sge.gs.washington.edu/BRCA1/">https://sge.gs.washington.edu/BRCA1/</a></p><img src="img/brca1var1.png"
+    class="eighty">
+    <p class="tiny">Source: <a href=
+    "https://sge.gs.washington.edu/BRCA1/">UW / BBI</a></p>
+    <ul>
+      <li>Similar work under way on BRCA2 and PALB2</li>
+    </ul>
+  </div>
+  <div class="notes">
+    <p>This chart shows the distribution of scores for different
+    single nucleotide variants of BRCA1. The largest peak is around
+    a score of 0, indicating that a lot of variants are pretty much
+    harmless, but the other peak shows the variants which cause
+    "loss of function", and thus increased risk of cancer
+    developing.</p>
+  </div><!--div class="slide">
+            <h3>Saturation Genome Editing</h3>
+      <img src="img/brca1var2.png" class="eighty"/>
+      <p class="tiny">Source: <a href="https://sge.gs.washington.edu/BRCA1/">UW / BBI</a></p>
+    </div-->
+  <div class="slide">
+    <h3>VAMP-seq — 1</h3><img src="img/vampseq1.png" class=
+    "ninety">
+    <p class="tiny">Reference: <a href=
+    "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5980760/pdf/nihms956040.pdf">
+    "Multiplex Assessment of Protein Variant Abundance by Massively
+    Parallel Sequencing"</a></p>
+    <ul>
+      <li>Cells of each possible variant</li>
+      <li>Fluorescent marker protein EGFP</li>
+    </ul>
+  </div>
+  <div class="notes">
+    <p>The VAMP-seq technique produces cells of each possible gene
+    variant, like SGE, but also adds the sequence to create a
+    fluorescent protein called EGFP, derived from a jellyfish
+    protein.</p>
+    <p>This protein is useful for all kinds of experiments and is
+    kind of the equivalent of an embedded software developer adding
+    in a couple of diagnostic LEDs.</p>
+  </div>
+  <div class="slide">
+    <h3>VAMP-seq — 2</h3><img src="img/vampseq2.png" class=
+    "ninety">
+    <p class="tiny">Reference: <a href=
+    "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5980760/pdf/nihms956040.pdf">
+    "Multiplex Assessment of Protein Variant Abundance by Massively
+    Parallel Sequencing"</a></p>
+    <ul>
+      <li>The more gene is expressed the more the cell glows</li>
+      <li>Cells are sorted mechanically by how much they glow</li>
+    </ul>
+  </div>
+  <div class="notes">
+    <p>The more the gene is expressed the more EGFP is produced,
+    and the more the cell fluoresces. Cells are then "binned",
+    mechanically sorted by how much they glow.</p>
+  </div>
+  <div class="slide">
+    <h3>VAMP-seq — 3</h3><img src="img/vampseq3.png" class=
+    "ninety">
+    <p class="tiny">Reference: <a href=
+    "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5980760/pdf/nihms956040.pdf">
+    "Multiplex Assessment of Protein Variant Abundance by Massively
+    Parallel Sequencing"</a></p>
+    <ul>
+      <li>Each bin then sequenced</li>
+      <li>Populations counted</li>
+    </ul>
+  </div>
+  <div class="notes">
+    <p>Each bin is then sequenced, and the population of each
+    variant in each bin is counted.</p>
+  </div>
+  <div class="slide">
+    <h3>VAMP-seq — 4</h3><img src="img/vampseq4.png" class=
+    "ninety">
+    <p class="tiny">Reference: <a href=
+    "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5980760/pdf/nihms956040.pdf">
+    "Multiplex Assessment of Protein Variant Abundance by Massively
+    Parallel Sequencing"</a></p>
+    <ul>
+      <li>Variants scored</li>
+    </ul>
+  </div>
+  <div class="notes">
+    <p>This is then used to "score" each variant on how much
+    protein is present.</p>
+  </div>
+  <div class="slide">
+    <h3>VAMP-seq — 5</h3><img src="img/vampseq5.png" class=
+    "ninety">
+    <p class="tiny">Reference: <a href=
+    "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5980760/pdf/nihms956040.pdf">
+    "Multiplex Assessment of Protein Variant Abundance by Massively
+    Parallel Sequencing"</a></p>
+    <ul>
+      <li>... and made into a "heat map"</li>
+      <li>Cost effective technique</li>
+      <li>Currently being used to investigate Factor IX
+      (hemophilia)</li>
+    </ul>
+  </div>
+  <div class="notes">
+    <p>... and a heat map can be made showing the effect on the
+    change of each amino acid at each position in the protein under
+    investigation.</p>
+    <p>Because multiple variants are measured together, this is a
+    more cost-effective experimental technique.</p>
+    <p>This technique is currently being used to investigate the
+    <tt>F9</tt> gene, which codes for a protein called Coagulation
+    Factor IX which is essential for blood clotting. Variants of
+    <tt>F9</tt> can cause hemophilia.</p>
+  </div>
+  <div class="notes">
+    <p>That brings us to the next section: Counting Things</p>
+  </div>
+  <div class="slide">
+    <h2>Counting Things</h2><img src="img/tabulating.jpg" class=
+    "sixty">
+    <p class="tiny">Image: <a href=
+    "https://commons.wikimedia.org/wiki/File:IBM_D11_(early_Tabulation_Machine).jpg">
+    Ben Franske (BenFranske)</a>, <a href=
+    "https://creativecommons.org/licenses/by-sa/2.5">CC BY-SA
+    2.5</a>, via Wikimedia Commons</p>
+  </div>
+  <div class="notes">
+    <p>Central to all these methods is the need to <em>count
+    things</em>.</p>
+    <p>This sounds really simple, and it is. Computers have been
+    counting things since the first tabulating machines started
+    processing punched cards.</p>
+  </div>
+  <div class="slide">
+    <h3>The Problem</h3>
+    <p>From the SGE paper I just mentioned:</p>
+    <ul>
+      <li>13 exons</li>
+      <li>163 files</li>
+      <li>350 M sequences</li>
+      <li>66 G bases</li>
+    </ul>
+    <p>Data sizes only increasing ...</p>
+    <p><a href=
+    "https://www.ncbi.nlm.nih.gov/Traces/study/?acc=PRJNA481326">Data
+    at NCBI</a></p>
+  </div>
+  <div class="notes">
+    <p>Let's have a look at the numbers from the SGE paper I
+    mentioned earlier.</p>
+    <p>It's only a few hundred million sequences, a few billon base
+    pairs all up.</p>
+  </div>
+  <div class="slide">
+    <h3>The Simple And Obvious Solution</h3>
+    <pre>sort sequences.txt | uniq -cd</pre><br>
+    <ul>
+      <li>Pretty well optimized</li>
+      <li>Bottleneck probably I/O</li>
+      <li>Already on your computer</li>
+    </ul>
+  </div>
+  <div class="notes">
+    <p>There's tools for that, and they're probably already on your
+    computer. Sequences go in, counts go out, problem solved.</p>
+  </div>
+  <div class="slide">
+    <h3>The Actual Problem</h3>
+    <ul>
+      <li>File Formats</li>
+      <li>Metadata</li>
+      <li>Filtering</li>
+      <li>Grouping</li>
+      <li>Transformation</li>
+      <li>Statistics ...</li>
+    </ul>
+  </div>
+  <div class="notes">
+    <p>Of course it isn't as simple as that. Sequencing data isn't
+    generally in text format, it's in FASTQ or FASTA or SAM or CRAM
+    or SRA format.</p>
+    <p>Often there's metadata hanging around in columns, or in
+    filenames or as separate metadata files.</p>
+    <p>And, this being biology, everything is squishy, you'll
+    probably need to filter out low quality or bad reads.</p>
+    <p>Then you'll need to collect those counts together in some
+    way, so you can compare them, calculate some ratios, come up
+    with some scores, that kind of thing.</p>
+    <p>And finally, before you get too excited, you'll want to run
+    some statistical tools over the data ...</p>
+  </div>
+  <div class="slide">
+    <img src="img/correlation.png" height="80%" class="ninety">
+    <p class="tiny">Image: tragically, unknown.</p>
+  </div>
+  <div class="notes">
+    <p>... because it's important to check if you really did
+    discover something or it's just noise.</p>
+  </div>
+  <div class="slide">
+    <h3>Spreadsheets</h3><img src="img/gene-name-error-1.png"
+    width="50%"><br>
+    <img src="img/gene-name-error-2.png" width="25%"> <img src=
+    "img/gene-name-error-3.png" width="25%">
+    <p class="tiny">Source: <a href=
+    "https://genomebiology.biomedcentral.com/articles/10.1186/s13059-016-1044-7">
+    Biomedcentral</a> (emphasis mine)</p>
+  </div>
+  <div class="notes">
+    <p>A lot of analysis work used to be done in spreadsheets, but
+    in recent years data sizes have grown faster than spreadsheets
+    have kept up. Plus there's a few foot-guns to be found in
+    Excel's handling of gene names such as <tt>SEPT2</tt> and
+    alphanumeric identifiers with a single <tt>E</tt> in them.</p>
+  </div>
+  <div class="slide">
+    <h3>Programming Languages</h3>
+    <ul>
+      <li>Python</li>
+      <li>R</li>
+      <li>Bash</li>
+      <li>Make</li>
+      <li>Snakemake</li>
+    </ul>
+  </div>
+  <div class="notes">
+    <p>A lot of ad-hoc work happens in languages like Python and R,
+    with support from various others like Bash, Make and
+    Snakemake.</p>
+    <p>A fair bit of this code is pretty flakey and hard to
+    replicate, we wanted to take a different approach.</p>
+  </div>
+  <div class="slide">
+    <h3>Enrich2</h3>
+    <ul>
+      <li>GUI based</li>
+      <li>Python 2</li>
+      <li>Specific to a few experiments</li>
+      <li>Difficult to continue growing</li>
+    </ul>
+  </div>
+  <div class="notes">
+    <p>A tool called "Enrich2" was popular for some specific
+    experiments, but it was implemented in Python 2, proved
+    difficult to upgrade to Python 3 and was limited to a specific
+    set of experimental designs.</p>
+  </div>
+  <div class="slide">
+    <h3>CountESS — Science!</h3><img src="img/science.jpg" class=
+    "eighty">
+    <p class="tiny">Image: Valve Software (Half Life)</p>
+    <ul>
+	    <li>File sizes always increasing</li>
+	    <li>Scientists are always coming up with new kinds of experiment</li>
+    </ul>
+  </div>
+  <div class="notes">
+    <p>This is problematic because as technology advances and new
+    techniques are invented scientists will keep coming up with new
+    kinds of experiment!</p>
+  </div>
+  <div class="slide">
+    <h2>CountESS</h2>
+    <h3>Count-based Experiment Scoring and Statistics</h3>
+  </div>
+  <div class="notes">
+    <p>So we've developed CountESS, which is short for "Count-based
+    Experiment Scoring and Statistics".</p>
+  </div>
+  <div class="slide">
+    <h3>CountESS</h3>
+    <ul>
+      <li>Graphical user interface with Data Previews</li>
+      <li>Plugin Based</li>
+      <li>Flexible Pipelines</li>
+      <li>Single text configuration file</li>
+    </ul>
+  </div>
+  <div class="notes">
+    <p>It has a graphical user interface featuring a preview of
+    your data as it is manipulated. It's plugin based so anyone can
+    contribute functionality. It has a flexible, data flow graph
+    based architecture. And all the configuration is held in a
+    single file, which is easy to organize.</p>
+  </div>
+  <div class="slide">
+    <h3>CountESS — Architecture</h3>
+    <table>
+      <tr>
+        <td colspan="5">GUI</td>
+        <td class="gap"></td>
+        <td colspan="5">CLI</td>
+      </tr>
+      <tr>
+        <td class="gap" colspan="5">⇅</td>
+        <td class="gap"></td>
+        <td class="gap" colspan="5">⇅</td>
+      </tr>
+      <tr>
+        <td colspan="11">Pipeline</td>
+        <td class="gap">⇄</td>
+        <td>Config Files</td>
+      </tr>
+      <tr>
+        <td class="gap" colspan="3">⇅</td>
+        <td class="gap"></td>
+        <td class="gap" colspan="3">⇅</td>
+        <td class="gap"></td>
+        <td class="gap" colspan="3">⇅</td>
+      </tr>
+      <tr>
+        <td colspan="3">Plugins</td>
+        <td class="gap"></td>
+        <td colspan="3">Plugins</td>
+        <td class="gap"></td>
+        <td colspan="3">Plugins</td>
+      </tr>
+      <tr style="border: 0px">
+        <td colspan="3" class="gap">⇅</td>
+        <td class="gap"></td>
+        <td class="gap">⇅</td>
+        <td class="gap"></td>
+        <td class="gap">⇅</td>
+        <td class="gap"></td>
+        <td class="gap" colspan="3">⇅</td>
+      </tr>
+      <tr>
+        <td colspan="5">Pandas / Numpy</td>
+        <td class="gap"></td>
+        <td colspan="5">Other Libraries</td>
+      </tr>
+    </table>
+  </div>
+  <div class="notes">
+    <p>This shows the general architecture, and now we'll step
+    through each of these parts.</p>
+  </div>
+  <div class="slide">
+    <h3>CountESS — GUI</h3>
+    <table>
+      <tr>
+        <td style="background: #69F" colspan="5">GUI</td>
+        <td class="gap"></td>
+        <td colspan="5">CLI</td>
+      </tr>
+      <tr>
+        <td class="gap" colspan="5">⇅</td>
+        <td class="gap"></td>
+        <td class="gap" colspan="5">⇅</td>
+      </tr>
+      <tr>
+        <td colspan="11">Pipeline</td>
+        <td class="gap">⇄</td>
+        <td>Config Files</td>
+      </tr>
+      <tr>
+        <td class="gap" colspan="3">⇅</td>
+        <td class="gap"></td>
+        <td class="gap" colspan="3">⇅</td>
+        <td class="gap"></td>
+        <td class="gap" colspan="3">⇅</td>
+      </tr>
+      <tr>
+        <td colspan="3">Plugins</td>
+        <td class="gap"></td>
+        <td colspan="3">Plugins</td>
+        <td class="gap"></td>
+        <td colspan="3">Plugins</td>
+      </tr>
+      <tr style="border: 0px">
+        <td colspan="3" class="gap">⇅</td>
+        <td class="gap"></td>
+        <td class="gap">⇅</td>
+        <td class="gap"></td>
+        <td class="gap">⇅</td>
+        <td class="gap"></td>
+        <td class="gap" colspan="3">⇅</td>
+      </tr>
+      <tr>
+        <td colspan="5">Pandas / Numpy</td>
+        <td class="gap"></td>
+        <td colspan="5">Other Libraries</td>
+      </tr>
+    </table>
+  </div>
+  <div class="notes">
+    <p>The GUI code is kept quite separate from the rest. At the
+    moment, it's implemented in TkInter, which seemed like an
+    expedient choice since it comes bundled with Python.</p>
+  </div>
+  <div class="slide">
+    <h3>CountESS — GUI — Overall</h3><img height="80%" src="img/countess1.png" class="eighty">
+    <ul>
+	  <li>tkinter</li>
+	  <li>Works over X11 forwarding</li>
+	  <li>very separate from the rest of the code</li>
+    </ul>
+  </div>
+  <div class="notes">
+    <p>It's not all that pretty but works passably well over X11
+    forwarding, which is nice.</p>
+    <p>There's a row of buttons along the top to load and save
+    configuration,</p>
+    <p>There's a plugin graph, which lets you select and rearrange
+    plugins. The currently selected plugin is highlighted, and on
+    the right is a configuration pane and a data preview pane
+    showing the state of the selected plugin.</p>
+  </div>
+  <div class="slide">
+  <h3>CountESS — GUI — Plugin Tree</h3><img src="img/countess2.png"
+  class="ninety">
+  <ul>
+	  <li>Plugin graph</li>
+	  <li>Drag and drop, multiple inputs and outputs</li>
+	  <li>State saved to config file, automatic tidying</li>
+  </ul>
+  </div>
+  <div class="notes">
+    <p>The plugin tree lets you connect plugins together
+    graphically. This lets you have multiple inputs to a plugin,
+    and also multiple outputs from a plugin. So you can use the
+    plugin graph to join sources of data and also to process data
+    in multiple ways.</p>
+    <p>This is pretty similar to the shader graphs in Unity or the
+    Fusion tools in Davinci Resolve or, for that matter, LabView in
+    the 1990s, which I talked about back at <a href=
+    "PyConline%202020">https://nick.zoic.org/art/decoding-programming-beyond-text-files/</a></p>
+    <p>The thing I always hate about these graph views is that they
+    get messy quickly and inspire a lot of fidgeting about. I've
+    implemented a "tidy graph" button which rearranges the graph to
+    line up strata and space nodes evenly while keeping their
+    relative order.</p>
+    <p>It could be improved by adding in force-directed placement
+    ala GraphViz, but it's already good enough that I'm going to
+    add in a "tidy mode" where this is just done automatically any
+    time you move or add anything.</p>
+  </div>
+  <div class="slide">
+  <h3>CountESS — GUI — Configuration</h3><img src=
+  "img/countess3.png" class="ninety"><p>Configuration pane lets you configure each plugin, like filling in a form</p></div>
+  <div class="notes">
+    <p>The configuration pane lets you set up the configuration of
+    each plugin, like filling in a form.</p>
+  </div>
+  <div class="slide">
+  <h3>CountESS — GUI — Data Previews</h3><img src=
+  "img/countess4.png" class="ninety"><p>Preview pane shows current output of plugin run on 100k rows</li></div>
+  <div class="notes">
+    <p>The preview pane shows the output of the plugin. While using
+    the GUI to edit configurations, about 100,000 rows of your data
+    are processed, with live updates as the configuration
+    changes.</p>
+  </div>
+  <div class="slide">
+    <h3>CountESS — CLI</h3>
+    <table>
+      <tr>
+        <td colspan="5">GUI</td>
+        <td class="gap"></td>
+        <td style="background: #69F" colspan="5">CLI</td>
+      </tr>
+      <tr>
+        <td class="gap" colspan="5">⇅</td>
+        <td class="gap"></td>
+        <td class="gap" colspan="5">⇅</td>
+      </tr>
+      <tr>
+        <td colspan="11">Pipeline</td>
+        <td class="gap">⇄</td>
+        <td>Config Files</td>
+      </tr>
+      <tr>
+        <td class="gap" colspan="3">⇅</td>
+        <td class="gap"></td>
+        <td class="gap" colspan="3">⇅</td>
+        <td class="gap"></td>
+        <td class="gap" colspan="3">⇅</td>
+      </tr>
+      <tr>
+        <td colspan="3">Plugins</td>
+        <td class="gap"></td>
+        <td colspan="3">Plugins</td>
+        <td class="gap"></td>
+        <td colspan="3">Plugins</td>
+      </tr>
+      <tr style="border: 0px">
+        <td colspan="3" class="gap">⇅</td>
+        <td class="gap"></td>
+        <td class="gap">⇅</td>
+        <td class="gap"></td>
+        <td class="gap">⇅</td>
+        <td class="gap"></td>
+        <td class="gap" colspan="3">⇅</td>
+      </tr>
+      <tr>
+        <td colspan="5">Pandas / Numpy</td>
+        <td class="gap"></td>
+        <td colspan="5">Other Libraries</td>
+      </tr>
+    </table>
+    <ul>
+      <li>GUI loads and saves configuration files</li>
+      <li>CLI loads and runs configuration file</li>
+      <li>Allows remote use without GUI available</li>
+    </ul>
+  </div>
+  <div class="notes">
+    There's not too much to say about the CLI. The GUI loads and
+    saves its configuration in a configuration file, and the CLI
+    can read that file and run it, with diagnostics to standard
+    output and standard error. This lets you set up your work in
+    the GUI with live preview, and then run it possibly on a remote
+    machine with no GUI available.
+  </div>
+  <div class="slide">
+    <h3>CountESS — Config Files</h3>
+    <table>
+      <tr>
+        <td colspan="5">GUI</td>
+        <td class="gap"></td>
+        <td colspan="5">CLI</td>
+      </tr>
+      <tr>
+        <td class="gap" colspan="5">⇅</td>
+        <td class="gap"></td>
+        <td class="gap" colspan="5">⇅</td>
+      </tr>
+      <tr>
+        <td colspan="11">Pipeline</td>
+        <td class="gap">⇄</td>
+        <td style="background: #69F">Config Files</td>
+      </tr>
+      <tr>
+        <td class="gap" colspan="3">⇅</td>
+        <td class="gap"></td>
+        <td class="gap" colspan="3">⇅</td>
+        <td class="gap"></td>
+        <td class="gap" colspan="3">⇅</td>
+      </tr>
+      <tr>
+        <td colspan="3">Plugins</td>
+        <td class="gap"></td>
+        <td colspan="3">Plugins</td>
+        <td class="gap"></td>
+        <td colspan="3">Plugins</td>
+      </tr>
+      <tr style="border: 0px">
+        <td colspan="3" class="gap">⇅</td>
+        <td class="gap"></td>
+        <td class="gap">⇅</td>
+        <td class="gap"></td>
+        <td class="gap">⇅</td>
+        <td class="gap"></td>
+        <td class="gap" colspan="3">⇅</td>
+      </tr>
+      <tr>
+        <td colspan="5">Pandas / Numpy</td>
+        <td class="gap"></td>
+        <td colspan="5">Other Libraries</td>
+      </tr>
+    </table>
+    <ul>
+	    <li>Single config file</li><li>.INI format</li>
+	    <li>Loaded and saved by GUI</li>
+	    <li>Loaded by CLI</li>
+    </ul>
+  </div>
+  <div class="slide">
+    <h3>CountESS — Pipeline</h3>
+    <table>
+      <tr>
+        <td colspan="5">GUI</td>
+        <td class="gap"></td>
+        <td colspan="5">CLI</td>
+      </tr>
+      <tr>
+        <td class="gap" colspan="5">⇅</td>
+        <td class="gap"></td>
+        <td class="gap" colspan="5">⇅</td>
+      </tr>
+      <tr>
+        <td colspan="11" style="background: #69F">Pipeline</td>
+        <td class="gap">⇄</td>
+        <td>Config Files</td>
+      </tr>
+      <tr>
+        <td class="gap" colspan="3">⇅</td>
+        <td class="gap"></td>
+        <td class="gap" colspan="3">⇅</td>
+        <td class="gap"></td>
+        <td class="gap" colspan="3">⇅</td>
+      </tr>
+      <tr>
+        <td colspan="3">Plugins</td>
+        <td class="gap"></td>
+        <td colspan="3">Plugins</td>
+        <td class="gap"></td>
+        <td colspan="3">Plugins</td>
+      </tr>
+      <tr style="border: 0px">
+        <td colspan="3" class="gap">⇅</td>
+        <td class="gap"></td>
+        <td class="gap">⇅</td>
+        <td class="gap"></td>
+        <td class="gap">⇅</td>
+        <td class="gap"></td>
+        <td class="gap" colspan="3">⇅</td>
+      </tr>
+      <tr>
+        <td colspan="5">Pandas / Numpy</td>
+        <td class="gap"></td>
+        <td colspan="5">Other Libraries</td>
+      </tr>
+    </table>
+    <ul>
+      <li>This is where all the tricky stuff happens!</li>
+      <li>Multiprocessing to use CPU efficiently</li>
+      <li>Streaming data to use memory efficiently</li>
+    </ul>
+  </div>
+  <div class="slide">
+    <h3>CountESS — Plugins</h3>
+    <table>
+      <tr>
+        <td colspan="5">GUI</td>
+        <td class="gap"></td>
+        <td colspan="5">CLI</td>
+      </tr>
+      <tr>
+        <td class="gap" colspan="5">⇅</td>
+        <td class="gap"></td>
+        <td class="gap" colspan="5">⇅</td>
+      </tr>
+      <tr>
+        <td colspan="11">Pipeline</td>
+        <td class="gap">⇄</td>
+        <td>Config Files</td>
+      </tr>
+      <tr>
+        <td class="gap" colspan="3">⇅</td>
+        <td class="gap"></td>
+        <td class="gap" colspan="3">⇅</td>
+        <td class="gap"></td>
+        <td class="gap" colspan="3">⇅</td>
+      </tr>
+      <tr>
+        <td colspan="3" style="background: #69F">Plugins</td>
+        <td class="gap"></td>
+        <td colspan="3" style="background: #69F">Plugins</td>
+        <td class="gap"></td>
+        <td colspan="3" style="background: #69F">Plugins</td>
+      </tr>
+      <tr style="border: 0px">
+        <td colspan="3" class="gap">⇅</td>
+        <td class="gap"></td>
+        <td class="gap">⇅</td>
+        <td class="gap"></td>
+        <td class="gap">⇅</td>
+        <td class="gap"></td>
+        <td class="gap" colspan="3">⇅</td>
+      </tr>
+      <tr>
+        <td colspan="5">Pandas / Numpy</td>
+        <td class="gap"></td>
+        <td colspan="5">Other Libraries</td>
+      </tr>
+    </table>
+    <p>Three kinds of plugins:</p>
+    <ul>
+      <li>Input Plugins</li>
+      <li>Transformer Plugins</li>
+      <li>Output Plugins</li>
+    </ul>
+  </div>
+  <div class="notes">
+    <p>Loosely, there are three kinds of plugins: input,
+    transformer and output. Input plugins read from files and
+    produce dataframes, transformer plugins combine and transform
+    dataframes, and output plugins write dataframes back to disk in
+    one form or another.</p>
+  </div>
+  <div class="slide">
+    <h3>CountESS — Plugins — 2</h3>
+    <p>Plugins subclass one of the many
+    <tt>countess.core.plugins.BasePlugin</tt> subclasses:</p>
+    <pre class="small">
+from countess.core.plugins import PandasTransformDictToSinglePlugin
+
+class MyNewPlugin(PandasTransformDictToSinglePlugin):
+
+    parameters = {
+        "a": ColumnChoiceParam("Column A"),
+        "c": IntegerParam("Favourite Number", 42),
+    }
+
+    def process_dict(self, data: dict, logger: Logger) -&gt; Optional[int]:
+        return data[self.parameters['a'].value] // self.parameters['c'].value
+</pre>
+    <p class="tiny">(a simplified example)</p>
+  </div>
+  <div class="slide">
+    <h3>CountESS — Plugins — 4</h3>Your plugin's
+    <tt>pyproject.toml</tt><br>
+    <pre class="medium">
+[project.entry-points.countess_plugins]
+myplugin = "mypluginpackage:MyNewPlugin"</pre><br>
+    CountESS:<br>
+    <pre class="small">
+entry_points = importlib.metadata.entry_points().select(
+    group="countess_plugins"
+)
+
+for ep in entry_points:
+    try:
+        plugin_class = ep.load()
+        assert issubclass(plugin_class, BasePlugin)
+    except Exception as exc:
+        logger.exception(exc)
+</pre>
+    <p class="tiny">(modified for dramatic effect)</p>
+  </div>
+  <div class="notes">
+    <p>CountESS uses the Python "importlib" mechanism to find
+    plugins, both built-in and third party. So anyone can create,
+    distribute and use CountESS plugins.</p>
+  </div>
+  <div class="slide">
+    <h3>CountESS — Libraries</h3>
+    <table>
+      <tr>
+        <td colspan="5">GUI</td>
+        <td class="gap"></td>
+        <td colspan="5">CLI</td>
+      </tr>
+      <tr>
+        <td class="gap" colspan="5">⇅</td>
+        <td class="gap"></td>
+        <td class="gap" colspan="5">⇅</td>
+      </tr>
+      <tr>
+        <td colspan="11">Pipeline</td>
+        <td class="gap">⇄</td>
+        <td>Config Files</td>
+      </tr>
+      <tr>
+        <td class="gap" colspan="3">⇅</td>
+        <td class="gap"></td>
+        <td class="gap" colspan="3">⇅</td>
+        <td class="gap"></td>
+        <td class="gap" colspan="3">⇅</td>
+      </tr>
+      <tr>
+        <td colspan="3">Plugins</td>
+        <td class="gap"></td>
+        <td colspan="3">Plugins</td>
+        <td class="gap"></td>
+        <td colspan="3">Plugins</td>
+      </tr>
+      <tr style="border: 0px">
+        <td colspan="3" class="gap">⇅</td>
+        <td class="gap"></td>
+        <td class="gap">⇅</td>
+        <td class="gap"></td>
+        <td class="gap">⇅</td>
+        <td class="gap"></td>
+        <td class="gap" colspan="3">⇅</td>
+      </tr>
+      <tr>
+        <td colspan="5" style="background: #69F">Pandas /
+        Numpy</td>
+        <td class="gap"></td>
+        <td style="background: #69F" colspan="5">Other
+        Libraries</td>
+      </tr>
+    </table>
+  </div>
+  <div class="notes">
+    CountESS plugins are mostly built over Pandas and Numpy
+    functions, and/or over other Python libraries such as MiniMap2.
+    If your function is expressible in Pandas it's easy to turn
+    into a CountESS plugin.
+  </div>
+  <div class="slide">
+  <h3>CountESS — Example — 1</h3><img src="img/cx01.png" height="80%" class=
+  "eighty"></div>
+  <div class="notes">
+    <p>Okay so a quick example of how CountESS can solve
+    experimental problems. This is a setup much like the SGE
+    experiment, using the same BRCA1 data from that experiment.</p>
+    <p>That data is in 163 FASTQ files, so the first thing we do is
+    load those up. This plugin can also count up the number of
+    repeats of the same sequence in a file, so we'll do that as
+    well.</p>
+  </div>
+  <div class="slide">
+  <h3>CountESS — Example — 2</h3><img src="img/cx02.png" height="80%" class=
+  "eighty"></div>
+  <div class="notes">
+    <p>Then we just extract the run number, `Run`, from the header
+    field.</p>
+  </div>
+  <div class="slide">
+  <h3>CountESS — Example — 3</h3><img src="img/cx03.png" height="80%" class=
+  "eighty"></div>
+  <div class="notes">
+    <p>There's another file in with the data files, a CSV file
+    called `SRaRunTable.txt`. This tells you which experiment each
+    of those Runs belongs to, and which phase of the
+    experiment.</p>
+  </div>
+  <div class="slide">
+  <h3>CountESS — Example — 4</h3><img src="img/cx04.png" height="80%" class=
+  "eighty"></div>
+  <div class="notes">
+    <p>For the moment we'll just extract the exon number out of
+    that ...</p>
+  </div>
+  <div class="slide">
+  <h3>CountESS — Example — 5</h3><img src="img/cx05.png" height="80%" class=
+  "eighty"></div>
+  <div class="notes">
+    <p>... and then we can join that back to the input file, using
+    the Run number. Now we know which exon each sequence belongs
+    to.</p>
+  </div>
+  <div class="slide">
+  <h3>CountESS — Example — 6</h3><img src="img/cx06.png" height="80%" class=
+  "eighty"></div>
+  <div class="notes">
+    <p>We know what the reference sequence is for each of these
+    exons, so we'll put that in another file ...</p>
+  </div>
+  <div class="slide">
+  <h3>CountESS — Example — 7</h3><img src="img/cx07.png" height="80%" class=
+  "eighty"></div>
+  <div class="notes">
+    <p>... so we can join that in with the sequences.</p>
+  </div>
+  <div class="slide">
+  <h3>CountESS — Example — 8</h3><img src="img/cx08.png" height="80%" class=
+  "eighty"></div>
+  <div class="notes">
+    <p>Okay so some of these sequences are unchanged. We call those
+    the "wildtypes". We can filter just those one way and keep
+    those counts ...</p>
+  </div>
+  <div class="slide">
+  <h3>CountESS — Example — 9</h3><img src="img/cx09.png" height="80%" class=
+  "eighty"></div>
+  <div class="notes">
+    <p>... and the ones that have changed, we'll separate those off
+    ...</p>
+  </div>
+  <div class="slide">
+  <h3>CountESS — Example — 10</h3><img src="img/cx10.png" height="80%" class=
+  "eighty"></div>
+  <div class="notes">
+    <p>... and call each of the variants, comparing the reference
+    sequence to the variant sequence, recording the HGVS variant
+    string.</p>
+  </div>
+  <div class="slide">
+  <h3>CountESS — Example — 11</h3><img src="img/cx11.png" height="80%" class=
+  "eighty"></div>
+  <div class="notes">
+    <p>Then we can join this back to the wildtype counts ...</p>
+  </div>
+  <div class="slide">
+  <h3>CountESS — Example — 12</h3><img src="img/cx12.png" height="80%" class=
+  "eighty"></div>
+  <div class="notes">
+    <p>... calculate a score ...</p>
+  </div>
+  <div class="slide">
+  <h3>CountESS — Example — 13</h3><img src="img/cx13.png" height="80%" class=
+  "eighty"></div>
+  <div class="notes">
+    <p>... and finally save that off to a CSV file.</p>
+  </div>
+  <div class="slide">
+    <h3>CountESS</h3>
+    <p>So hopefully we've seen ...</p>
+    <ul>
+      <li>A little bit of bioinformatics</li>
+      <li>Some interesting problems to solve</li>
+      <li>Some useful Python techniques</li>
+      <li>And maybe, a nifty approach to data processing ...</li>
+    </ul>
+  </div>
+  <div class="slide">
+    <h3>Questions</h3><img src="img/qrcode.png" class="sixty"><br>
+    <tt>https://nick.zoic.org/PYCON23/</tt>
+  </div>
+  <div class="footer">
+    <span>Nick Moore &lt;nick@zoic.org&gt; for <a href=
+    "https://2023.pycon.org.au/">PyCon AU 2023</a></span>
+  </div>
+</body>
+</html>

@@ -593,3 +593,28 @@ I shorted something and now ... not a sausage.  So this project is on hold until
 I get around to buying another mini CRT, or finding a CRT which will be easier to modify.
 
 Hopefully the work on vector fonts will be useful to someone!
+
+# UPDATE 
+
+Dajgoro wrote to say:
+> 
+> Bad news, it can't be done, at least not with the circuit the telly has. 😕
+> I spent some time reversing the circuit and I managed to control the brightness
+> simply via the composite and using a function generator drew some bars.
+> I also managed to drive the vertical, skew the picture and whatnot, but then
+> I was puzzled about the horizontal.
+> I tried figuring out where the sawtooth wave is, but there isn't one.
+> There is no horizontal at all, its a lie!
+> ![flyback](img/flyback.jpg)
+> See how it drives a transformer and not a yoke coil, when probed all I could
+> see is square waves, and when hijacked the telly just stopped working.
+> When I'd probe the horizontal yoke I'd see 200V.
+> The way it actually works is that the yoke is wired in series with the
+> flyback transformer, and as the transformer switches and generates the high
+> voltage it also drives the horizontal yoke. The reason they did it that way
+> is because the yoke is very inductive and it needs a lot of power to drive,
+> and since the telly always scans the same way they just wired it together.
+> This also probably explains why your telly died, you probably messed up
+> the horizontal burning the hv supply or something around it.
+
+So, yeah, I probably killed that flyback but at least I didn't kill myself!

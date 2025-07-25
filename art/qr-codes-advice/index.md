@@ -1,5 +1,6 @@
 ---
 date: '2021-06-16'
+updated: '2025-02-25'
 layout: article
 tags:
   - architecture
@@ -343,3 +344,9 @@ Look actually I secretly love this but FFS don't use it for anything sensible.
 
 * [Mechanical Sympathy for QR Codes: Making NSW Check-in Better](https://huonw.github.io/blog/2021/10/nsw-covid-qr/) is a similar article
 about the NSW check-in experience, which had similar issues.
+
+## UPDATE 2025
+
+I'm not mad.  Don't put in the paper that I got mad.
+
+![the QR codes John West reject ...](img/john-west.jpg)

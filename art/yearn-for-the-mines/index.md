@@ -1,6 +1,6 @@
 ---
 date: '2025-07-31'
-layout: draft
+layout: article
 title: 'The Children Yearn for the Mines'
 tags:
     - games
@@ -80,8 +80,8 @@ opens a separate 32x32 town map.  So it seemed like the obvious thing
 was to make each world map tile into a 32x32 area, so the towns would
 fit neatly.
 
-But even a scaling each tile to 16x16 seemed a bit ... big?
-The rivers were vast, crossing forests took an enormous time,
+But even scaling each tile to 16x16 seemed a bit ... big?
+The rivers were vast, crossing forests took too bloody long,
 flying high enough to spot landmarks put you up in the clouds.
 
 Also, 16 was a very convenient scale for the file transformation
@@ -95,9 +95,9 @@ settled on is a collection of 4096-element bytearrays, each of which
 maps into a Luanti 16x16x16 block.  That collection gets populated by
 looping over the Ultima IV world map, scaling it up by an arbitrary
 `SCALE` factor.  Trying different values, I've come to think that 
-something around 12 or 14 might be appropriate.
+something around 12 or 14 might be appropriate.  Or maybe 20.
 
-With a `SCALE` of less than 32 the towns hang over the edges of their
+With any `SCALE` of less than 32 the towns hang over the edges of their
 tiles into adjoining tiles but there's some extra space so it doesn't 
 matter too much.
 
@@ -115,9 +115,9 @@ So the steps are:
 * Read each town and offset it into the buffer.
 * For each block in the buffer, write it into the Luanti database.
 
-# Further Work
+## Further Work
 
-## Landscaping
+### Landscaping
 
 At the moment the landscape is pretty boring ... 
 flat ... because it is.
@@ -125,22 +125,24 @@ The continent is hilly as anything.
 
 So I suspect what it needs is some kind of elevation map,
 letting the landscape "fall up" from the coast to
-the mountains.
+the mountains, and down from the coast to the depths.
 
+This would also get rid of the big square corners all
+over the place.
 It also needs trees!
 I can generate saplings, I'm not sure whether they'll
 sprout on their own.
 
-## Shrines and Dungeons
+### Shrines and Dungeons
 
 At the moment there's no mapping for shrines and
 dungeons.
 Or either end of Britannia, which is supposed to look
 like a little castle with towers at each end.
 
-## Roofs and Letters
+### Roofs and Letters
 
-Giant letter blocks are a big feature in the maps.
+Giant letter blocks are a big feature in the Ultima IV maps.
 There's some
 [packages of letters](https://content.luanti.org/packages/?q=letters)
 available to install ... there's a big advantage

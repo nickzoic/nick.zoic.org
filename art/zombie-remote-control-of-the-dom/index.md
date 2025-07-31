@@ -1,6 +1,7 @@
 ---
 category: etc
 date: '2018-05-01'
+updated: '2025-07-25'
 layout: article
 title: 'ZOMBIE: Remote control of the DOM'
 summary: |
@@ -75,18 +76,35 @@ like:
 })();
 {% endhighlight %}
 
-This tiny snippet of code creates a function `Z`, which establishes a connection
-back to the server, passes over a message `args` and asks it what to do next.
-The server can reply with commands to update the DOM and to run snippets of Javascript.
-Those snippets, in turn, can use `Z` to send more messages back
-to the server.  The browser is no longer an independent process with its own mind:
+This tiny snippet of code is wrapped in `(function() { ... })();` which just
+creates an anonymous function and then immediately runs it.  This gives us 
+a nice clean function scope to work inside.
+
+Within that scope it creates a function `Z`, which establishes a connection
+back to the server endpoint `POST /zombie` and sends a message `msg`.
+
+When the server replies, the `xhr.onload` function is run.  The `xhr.responseText`
+gets compiled into a javascript function using `new Function('Z', xhr.responseText)`,
+which indicates that the function takes one parameter (`'Z'`).  It's a slightly nicer
+way of saying `eval("function (Z) {" + xhr.responseText + "}")`, basically.
+
+We then run that function, which can do whatever we want it to:
+update the DOM, run snippets of Javascript, set up further functions, whatever.
+We pass in the `Z` function — yeah, the same one we're currently writing.
+The new function can use `Z` to send more messages back to our server,
+without us having to pass `Z` around in a global namespace.
+
+Lastly, the outer function runs `Z()` to `POST` an inital, blank message and kick
+the whole process off.
+
+The browser is no longer an independent process with its own mind:
 it is a zombie, under control of the server process.
 
 The server could be implemented in just about any language, the messaging protocol could run
 over [POST requests](http://blog.fanout.io/2013/03/04/long-polling-doesnt-totally-suck/)
 or over [WebSockets](https://developer.mozilla.org/en-US/docs/Web/API/WebSockets_API)
-or whatever technology the browser people come up with next.  So long as the zombie
-messaging protocol is agreed upon, it doesn't really matter.
+or whatever technology the browser people come up with next.  The zombie messaging
+protocol is all contained in that function `Z` so it doesn't really matter.
 
 ### That's horrible ...
 

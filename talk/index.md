@@ -31,6 +31,8 @@ title: "Talks: Nick Moore"
 * [PyConAU 2017](pycon2017/)
   * [Micropython on ESP32](pycon2017/micropython-esp32/)
   * [OMNICODE](pycon2017/omnicode/)
+* [PyConAU 2023](pycon2023/)
+  * [CountESS](pycon2023/countess/)
 * [Rocket Surgery](mpug2/) & lightning talk at PyConAU 2018
 * [YOW Connected: Easy IoT with MicroPython on ESP SOCs](yow1/)
 * [PyConAU 2023: CountESS](pycon2023/countess/)

@@ -13,17 +13,14 @@
   </div>
   <div class="slide">
     <h1>The Primordial Code</h1>
-    <h2></h2>
-    <h4>Nick Moore<br>
-        for <a href="https://2025.pycon.org.au/">PyConAU 2025</a></h4>
     <p>
-     You, are running on an operating system a couple of billion years old
+    <em>You are running on an operating system a couple of billion years old
      which is full of primordial libraries, monkey patches, self-modifying
-     code, viral hacks and even containers running a different operating system.
-   </p><p>
-     We'll explore the freakish parallels between cell biology and
-     computer architecture,
-    </p>
+     code, viral hacks and even containers running a different operating system.</em>
+   </p>
+   <table><tr><th>Content Warnings</td></tr><tr><td>
+			   Discussion of infectious and genetic diseases,<br/>
+			   including cancer, but nothing gruesome.</td></tr></table>
   </div>
   <div class="notes">
   <p>
@@ -33,33 +30,29 @@
      code, viral hacks and even containers running a different operating system.
    </p><p>
      This talk is all about the freakish parallels between cell biology and
-     computer architecture, and will leave you less confident than ever that
-     your seemingly complex life is anything more than a molecule's way of
-     making more molecules.
+     computer architecture.
    </p>
+   </p>
+
   </div>
 
-  <div class="slide">
-    <h2>Content Warnings</h2>
-    <ul>
-	    <li>Brief mention of infectious and genetic diseases but nothing gruesome.</li>
-    </ul>
-  </div>
- 
   <div class="slide">
     <h2>Background - Me</h2>
 
     <p>
     <a href="https://nick.zoic.org/">
     <img src="img/nick-moore.jpg" width="20%"/>
+    <br/><span>Nick Moore</span>
     <br/><span>nick.zoic.org</span>
     </a>
+    <br/>
     <br/>
     Consultant, software developer, notorious tinkerer.
     </p>
 
+    <br/>
   <p>
-    <img src="img/wehi.png" width="20%">
+    <img src="img/wehi.png" width="20%"> &nbsp; &nbsp; &nbsp;
     <img src="img/uw.png" width="20%"><br/>
   Thanks to my colleagues at WEHI (Walter and Eliza Hall
   Institute of Medical Research)
@@ -68,19 +61,41 @@
 
   <div class="slide">
 	  <h2>Biology</h2>
-	  <h3>The last 3,500,000,000 years</h3>
+	  <h3>The last 4,000,000,000 years</h3>
+	  <ul>
+                <li>4.5 GYa: Earth Formed</li>
+		<li>4   GYa: UCA Universal Common Ancestors</li>
+		<li>3.5 GYa:  
+
+
+	  
+	  
+
+	  <a href="https://mathcs.clarku.edu/huxley/CE8/B-Ab.html">Huxley "Biogenesis and Abiogenesis" 1870</a>
   </div>
 
+  <div class="notes">
+    <p>About 4.5 billion years ago the Earth formed.</p>
+
+    <p>
+    <p>A lot of this will be pretty approximate too so don't sweat
+    the details right now. If you're interested in the details
+    let's catch up after this session over lunch.</p>
+    <p>Or for those of you watching online, you could do a lot
+    worse than going down a <a href=
+    "https://en.wikipedia.org/wiki/Bioinformatics">Bioinformatics
+    Wikipedia Rabbit Hole</a></p>
+  </div>
   <div class="slide">
 	  <img src="img/symbiogenesis.svg" width="60%"/>
 
-	  <p class="tiny">Image: <a href="https://commons.wikimedia.org/wiki/File:Symbiogenesis_2_mergers.svg">Chiswick Chap. Redrawn from File:Symbiogenesis.svg to reflect more recent science., CC BY-SA 4.0 <https://creativecommons.org/licenses/by-sa/4.0>, via Wikimedia Commons</a></p>
+	  <p class="tiny">Image: <a href="https://commons.wikimedia.org/wiki/File:Symbiogenesis_2_mergers.svg">Chiswick Chap. Redrawn from File:Symbiogenesis.svg to reflect more recent science., CC BY-SA 4.0 &lt;https://creativecommons.org/licenses/by-sa/4.0&gt;, via Wikimedia Commons</a></p>
   </div>
 
   <div class="notes">
 	  <p>
 	  We'll mostly be talking about Eukaryotes because we like to think
-	  that we're the most advanced form of life, but let's not get too 
+	  that <em>we're</em> the most advanced form of life, but let's not get too 
 	  arrogant because Eukaryota also includes fungi, plants, algae,
 	  yeasts and slime molds.
 	  </p>
@@ -93,15 +108,39 @@
   <ul>
 	  <li>1842: Punched Tapes for telegraphy</li>
 	  <li>1866: Mendel "discrete inheritable units"</li>
-	  <li>1869: DNA isolated (purpose unknown)
+	  <li>1869: DNA isolated (purpose unknown)</li>
+	  <li>1870: Huxley "Biogenesis and Abiogenesis</li>
 	  <li>1913: Morgan &amp; Sturtevant "genetic linkage maps"</li>
-	  <li>1927: Koltsov proposes "giant heriditary molecule"</li>
-	  <li>1936: Alan Turing's "universal computing machines"
-	  <li>1952: Alan Turing works on morphogenesis</li>
+	  <li>1927: Koltsov proposes "giant heriditary molecule"<br/>
+		  (but runs afoul of his government)</li>
+	  <li>1936: Alan Turing's "universal computing machines"</li>
+	  <li>1952: Alan Turing works on morphogenesis<br/>
+	  	(but runs afould of his government)</li>
 	  <li>1953: Watson, Crick and Franklin discover the
 		  structure of DNA</li>
   </ul>
   </div>
+
+  <div class="slide">
+	  <h2>What is a cell?</h2>
+    <img src="img/animal.svg" class="eighty"> 
+    <p class="tiny">Image: <a href=
+    "https://commons.wikimedia.org/wiki/File:Animal_cell_structure_en.svg">
+    LadyofHats</a>, Public domain, via Wikimedia Commons</p>
+  </div>
+
+  <div class="slide">
+	  <h2>DNA</h2>
+  </div>
+
+  <div class="slide">
+	  <h2>Transcription</h2>
+  </div>
+
+  <div class="slide">
+	  <h2>What is a computer?</h2>
+  </div>
+
 
   <div class="notes">
 	  Examples include:
@@ -119,14 +158,10 @@
   </div>
 
   <div class="notes">
-    <p>A lot of this will be pretty approximate too so don't sweat
-    the details right now. If you're interested in the details
-    let's catch up after this session over lunch.</p>
-    <p>Or for those of you watching online, you could do a lot
-    worse than going down a <a href=
-    "https://en.wikipedia.org/wiki/Bioinformatics">Bioinformatics
-    Wikipedia Rabbit Hole</a></p>
+	  what is DNA
+
   </div>
+
   <div class="slide">
     <h3>Bioinformatics</h3>
     <ul>
@@ -171,18 +206,6 @@
         Protein Information Resource</a>
       </li>
     </ul>
-  </div>
-  <div class="slide">
-    <h3>Cell Biology</h3><img src="img/animal.svg" class="eighty"> 
-    <!--img src="img/endomembrane.svg" class="sixty"/-->
-    <ul>
-      <li>there's a lot we still don't know</li>
-      <li>experiments let us make theories</li>
-      <li>a lot like black-box testing</li>
-    </ul>
-    <p class="tiny">Image: <a href=
-    "https://commons.wikimedia.org/wiki/File:Animal_cell_structure_en.svg">
-    LadyofHats</a>, Public domain, via Wikimedia Commons</p>
   </div>
   <div class="notes">
     <p>There's a lot we still don't know about cell biology. The

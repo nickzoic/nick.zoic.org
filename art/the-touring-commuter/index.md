@@ -70,6 +70,11 @@ which aren't quite as hard wearing or easy rolling as the Marathons but a lot mo
 when the trails are muddy.  So far I've tried Maxxis Ramblers and WTB Vulpines,
 pretty happy with both although the Vulpines were a real battle to get mounted.
 
+UPDATE: not because they were tight, they were very floppy and kept trying to fold
+themselves back up into the shape they were when shipped.  I changed them out for
+summer and putting them back on this winter wasn't a problem at all, they'd come to
+terms with their new shape by then!
+
 I tend to run the rear tyre pretty much at it's pressure limit and the front tyre
 a little softer, which given the [weight distribution](../cooking-for-weight-weenies/)
 of bike & rider should help a bit.
@@ -154,12 +159,12 @@ One of the things I really liked about this bike was that it came with
 a broad range of gears: a triple 26/36/48 crankset and a 9 speed 11-34 cassette.
 
 *I know triples are uncool these days, and everyone loves 1x drivetrains
-and that have two separate gear shifts is rocket surgery and beyond young 
-people or whatever.  Hey, I can be a hipster too, I retrofitted my daughter's
+because having two separate gear shifts is rocket surgery and beyond young 
+people or whatever.  Hey, I can be a hipster too: I retrofitted my daughter's
 bike with a single narrow/wide front sprocket and a 9 speed friction shifter
-for the back.  Gnarly.*
+for the back.  Gnarly.  But I still like 3x for the wider range.*
 
-But I still like them.  The stock lowest gear, 26:34, is quite low indeed at 21
+The stock lowest gear, 26:34, is quite low indeed at 21
 [gear inches](https://www.sheldonbrown.com/gloss_g.html#gearinch), but I ended up
 using it quite a bit, for example on gravel roads where it's quite nice to be able to spin
 up hills even if you're going slow.
@@ -309,4 +314,3 @@ also considering wider gear ranges as a priority ...
 
 ![Comparing Gear Ranges](img/ranges.png)
 *Path Less Padaled compares gear ranges*
-

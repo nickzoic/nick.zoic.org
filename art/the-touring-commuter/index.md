@@ -1,6 +1,6 @@
 ---
 date: '2024-04-16'
-updated: '2024-11-01'
+updated: '2025-08-11'
 layout: article
 tags:
   - cycling
@@ -301,3 +301,12 @@ can run a total dog's breakfast of bits and pieces and it'll mostly work just fi
 Which is pretty wonderful, when you think about it.
 
 Coming soon: luggage!
+
+# UPDATE 2025-08-11
+
+It's nice to see [Path Less Padaled](https://www.youtube.com/watch?v=DPdyLro3wbs)
+also considering wider gear ranges as a priority ...
+
+![Comparing Gear Ranges](img/ranges.png)
+*Path Less Padaled compares gear ranges*
+

@@ -9,7 +9,7 @@ This talk is all about the freakish parallels between cell biology and computer 
 ### introduction
 
 My name's Nick Moore, I'm a consultant, software developer, notorious tinkerer.
-And recently, a Bioinformatician.
+I've been working with computers for a very long time and Python for a fair proportion of that.
 
 Thanks to my colleagues at Walter and Eliza Hall Institute of Medical Research and at the University of Washington Genome Sciences for their patience while I've found my feet in this field.
 
@@ -30,25 +30,26 @@ We've learned a lot about cellular biology while we've been working out computin
 ## 4 Billion Years of Biology in 8 Minutes
 
 The basic unit of life is the cell.
+
 Primitive organisms like bacteria are *unicellular*, each organism is one cell and each cell is one organism, and they reproduce by copying their innards and splitting in two.
 
 A cell is a little bit like a computer.
+
 There's an outer cell membrane which keeps the insides in and the outsides out.
 Inside there's a bunch of programs called *genes* which tell the cell how to make *proteins*, which are the working machinery of the cell.
 Proteins can stay within the cell or they can make little *channels* through the cell membrane, kind of like ports which selectively let specific molecules in and out of the cell.
-Unicellular organisms reproduce by making copies of their innards, then splitting in two so that each cell now is a full copy of the original.
 
 **Picture of DNA**
 
 Genes, the programs of the cell, are encoded as *chromosomes*, very long *DNA* molecules not unlike a tape.
 DNA is built up out of four "bases", Adenine, Cytosine, Guanine and Thymine, generally just abbreviated as A C G and T.  
 They zip together in pairs, A complements T and C complements G, so we generally refer to this smallest piece of genetic information as a "base pair".
-This is the unit we'll use to compare genome sizes, because there's four
-possible pairs each "base pair" is equivalent to 2 binary bits of information.
+This is the unit we'll use to compare genome sizes.
+Because there's four possible pairs each "base pair" is equivalent to 2 binary bits of information.
 
 **Cells picture**
 
-Bacteria have relatively small genomes, typically a single circular chromosome of hundreds of thousands through to a million base pairs.
+Bacteria have relatively small genomes, typically a single circular chromosome of hundreds of thousands through to a million or so base pairs.
 The human genome by constrast has about 3 billion base pairs, and we have two copies spread over multiple chromosomes.
 We're a lot more complicated than a bacteria, but there's a species of lungfish with 130 billion base pairs and an amoeba with 670 billion base pairs[^lsgitw]. 
 
@@ -63,14 +64,19 @@ Also, we make do with each cell having two copies of our genome but there's a fr
 Unicellular organisms reproduce by copying, and errors can arise during the copying process, sometimes leading to novel features in the cells.
 Good features thrive, bad features dwindle, and that's natural selection, leading to evolution.
 
-Bacteria can also exchange genes with other bacteria, even with differnt kinds of bacteria, by passing *plasmids*, which are like mini chromosomes.
-This is called *horizontal gene transfer*. 
+Copying chromosomes can make simple mutations, kinda like typos, and these can cause a gene to be shortened by changing the start codon or introducing a new stop codon or lengthened by changing a stop codon to something else.
+Bigger errors can also result in multiple copies of a gene appearing, and then these multiple copies can evolve in different directions.
+
+On top of this, pesky things like retroviruses and bacterial plasmids can introduce new genes entirely.
+Retroviruses effectively write themselves into a cell's genome to get the cell to make more retroviruses. 
+Bacteria also exchange genes with different bacteria or even other organisms, by passing *plasmids*, which are like mini chromosomes.
+This is called *horizontal gene transfer*.
+ 
 It may seem counter-intuitive to give away your code to your competitors, but consider: the thing evolution is optimizing here is not the organism, but the gene.
 If a gene which confers, say, antibiotic resistance gets copied into a new organism and that organism thrives, then the gene is successful even if the old organism is out-competed, and the gene will get passed on to more organisms.
 
 Yep, Free Software is billions of years old, and there's been a whole lot of cutting and pasting from the primordial script archive.
 
-At some point some molecules just happened to work out how to organize themselves into cells and reproduce themselves.
 There's no documentation or source control, but by looking at the common features of all cellular life we can hypothesize a "univeral common ancestor" which arose about 4 billion years ago, and from which all life is descended.
 
 ### Transcription and Translation
@@ -112,10 +118,13 @@ In computing, we call this *bootstrapping*.
 You start off by using very primitive tools, possibly even a pencil, to create a very simple first compiler, and then using that compiler you can build a more sophisticated compiler, and so on.
 
 All of this only works because the *oocyte*, the egg you grew from, contained enough of these mechanisms to get the whole process started.
+Kind of a boot disk.
 You can think of these genes, as an "operating system" which the rest of a
 cell's biology is implemented on top of.
 
 ### Expression
+
+**standard coding table**
 
 The mapping from RNA to protein is done by *transfer RNA (tRNA)*.
 Groups of three bases called *codons* correspond to different 
@@ -126,10 +135,15 @@ Not all organisms have the exact same code: this table isn't a law of nature, it
 
 It somewhat resembles the instruction decoding tables used in microprocessors — there's some redundancy where 64 codons translate to 20 amino acids, translation starts at a "start" codon and finishes when it reaches a "stop" codon.
 
-But there's no looping or branching or similar, so how is this like a program?
+But there's no looping or branching or I/O or whatever, so how is this like a program?
 
-Well, the details of how that gene is expressed can depend on the expression of other genes.
+Well, genes are not expressed equally.
+Genes can be promoted or suppressed at transcription or translation.
+Splicing can be suppressed or altered.
+Genes can promote, suppress or alter other genes.
+
 If each gene is a statement, the cell's "program" is found in the interaction between those statements.
+And those interactions are extremely complicated, and not yet well catalogued or understood.
 
 ### Eukaryotes
 
@@ -159,7 +173,7 @@ Also a species of algae has been discovered to have harnessed another cyanobacte
 
 [^nitroplast] `https://en.wikipedia.org/wiki/Nitroplast`
 
-You're probably familiar with the phrase "Embrance, Extend, Extinguish"
+You're probably familiar with the phrase "Embrace, Extend, Extinguish"
 referring to the way proprietary systems can use and then destroy open ones.
 This may be happening here too: there's evidence that the functions in mitochondria are slowly migrating into the nuclear DNA and being lost from mitochondria.
 
@@ -171,10 +185,36 @@ Most (not all) Eukaryotes are multicellular, an organism is made up of many,
 many cells.
 Every cell in an organism has the same DNA, the same programming, and what role it ends up performing depends on how it is specialized.
 
-You can think of a the DNA as a docker container image which gets specialized at runtime.
-The cells in your kidneys contain all the instructions needed to be a brain cell, they just don't use them, and vice-versa.
+You can think of a the DNA as a container image which gets specialized at runtime.
+The cells in your kidneys contain all the instructions needed to be a brain cell, they just don't use the brain-specific ones, and vice-versa.
 
-## mRNA Vaccines
+## Computers and Biology
+
+Okay, great, so biology is hard.
+Well, mostly squishy.
+Let's have a look at a couple more weird overlaps.
+
+### Debugging / Fluorescence
+ 
+**`print()` slide**
+
+Debuggers are nice, but who here has ever resorted to `print()` (or `printf()` or console.log()` or &c) just to find out if a bit of code is even running?
+
+**LED slide**
+
+The embedded software equivalent is the LED.
+Things go wrong quickly in embedded code, and your CPU can halt faster than the first `H` in `Hello, World!` can make it out the serial port.
+So if you want to know where your code is getting to, why not light a series of LEDs, one at a time?
+
+**fluoresence slide**
+
+Debugging isn't easy in biological systems either.
+Thankfully we have an unlikely ally in the jellyfish.
+Jellyfish have a fluorescent protein 
+
+### Fuzzing / Deep Mutational Scanning
+
+### Spam Filtering / mRNA Vaccines
 
 Messenger RNA, or *mRNA* has been in the news a lot recently,
 for all the wrong reasons.  A very large proportion of us here today 

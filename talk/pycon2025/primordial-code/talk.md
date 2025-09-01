@@ -2,7 +2,8 @@
 
 ## welcome
 
-You, by which I mean all the mammals in the audience, are running on an operating system a couple of billion years old which is full of primordial libraries, monkey patches, self-modifying code, viral hacks and even containers running a different operating system.
+You, by which I mean all the mammals in the audience, are running on an operating system a couple of billion years old.
+It is full of primordial libraries, monkey patches, self-modifying code, viral hacks and even containers running a different operating system.
 
 This talk is all about the freakish parallels between cell biology and computer architecture.
 
@@ -11,15 +12,18 @@ This talk is all about the freakish parallels between cell biology and computer 
 My name's Nick Moore, I'm a consultant, software developer, notorious tinkerer.
 I've been working with computers for a very long time and Python for a fair proportion of that.
 
+Recently I've been doing some work in bioinformatics.
+Bioinformatics is the study of biological systems using numerical analysis.
+Biological systems are pretty complex, so typically this analysis requires computers.
+I'm been lucky enough to get involved in that part.
+
 Thanks to my colleagues at Walter and Eliza Hall Institute of Medical Research and at the University of Washington Genome Sciences for their patience while I've found my feet in this field.
 
 Mistakes and oversimplifications are all mine.
 The one true rule of biology is that all rules have exceptions, and those exceptions have exceptions, and it's exceptions all the way down.
-So some of this talk will oversimplify complex issues but hopefully it'll be enough to give you a general idea.
+So some of this talk will oversimplify complex issues and processes but hopefully it'll be enough to give you a general idea.
 
 ## humans timeline
-
-Bioinformatics is the study of biological systems using numerical analysis.  Biological systems are pretty complex, so typically this analysis requires computers.
  
 It's not entirely surprising that cellular biology and computing are a bit intertwined given their overlapping history of discovery:
 
@@ -28,6 +32,8 @@ It's not entirely surprising that cellular biology and computing are a bit inter
 We've learned a lot about cellular biology while we've been working out computing, but evolution has billions of years of head-start on us.
 
 ## 4 Billion Years of Biology in 8 Minutes
+
+**picture of a cell**
 
 The basic unit of life is the cell.
 
@@ -43,9 +49,18 @@ Proteins can stay within the cell or they can make little *channels* through the
 
 Genes, the programs of the cell, are encoded as *chromosomes*, very long *DNA* molecules not unlike a tape.
 DNA is built up out of four "bases", Adenine, Cytosine, Guanine and Thymine, generally just abbreviated as A C G and T.  
+
+base | complement
+---+---
+A | T
+C | G
+G | C
+T | A
+
 They zip together in pairs, A complements T and C complements G, so we generally refer to this smallest piece of genetic information as a "base pair".
 This is the unit we'll use to compare genome sizes.
 Because there's four possible pairs each "base pair" is equivalent to 2 binary bits of information.
+So "1 million base pairs" that means 2 megabits of information.
 
 **Cells picture**
 
@@ -53,7 +68,8 @@ Bacteria have relatively small genomes, typically a single circular chromosome o
 The human genome by constrast has about 3 billion base pairs, and we have two copies spread over multiple chromosomes.
 We're a lot more complicated than a bacteria, but there's a species of lungfish with 130 billion base pairs and an amoeba with 670 billion base pairs[^lsgitw]. 
 
-Also, we make do with each cell having two copies of our genome but there's a frog whose every cell keeps 12 copies[^ucf] so who's counting?
+Also, we make do with each cell having two copies of our genome, but coffee beans have 4 copies and there's a frog whose every cell keeps 12 copies[^ucf]
+So who's counting?
  
 [^lsgitw] `https://www.researchgate.net/publication/235907922_Largest_and_Smallest_Genome_in_the_World`
 
@@ -64,11 +80,17 @@ Also, we make do with each cell having two copies of our genome but there's a fr
 Unicellular organisms reproduce by copying, and errors can arise during the copying process, sometimes leading to novel features in the cells.
 Good features thrive, bad features dwindle, and that's natural selection, leading to evolution.
 
-Copying chromosomes can make simple mutations, kinda like typos, and these can cause a gene to be shortened by changing the start codon or introducing a new stop codon or lengthened by changing a stop codon to something else.
+Copying chromosomes can make simple mutations, kinda like typos, and these can also cause a gene to be shortened or lengthened or split into pieces or fused with another gene.
 Bigger errors can also result in multiple copies of a gene appearing, and then these multiple copies can evolve in different directions.
 
 On top of this, pesky things like retroviruses and bacterial plasmids can introduce new genes entirely.
-Retroviruses effectively write themselves into a cell's genome to get the cell to make more retroviruses. 
+Retroviruses effectively write themselves into a cell's genome to get the cell to make more retroviruses.
+
+It's pretty rare that any of these changes are helpful.
+But over evolutionary timescales, the few helpful changes add up.
+
+**slide: plasmids**
+
 Bacteria also exchange genes with different bacteria or even other organisms, by passing *plasmids*, which are like mini chromosomes.
 This is called *horizontal gene transfer*.
  
@@ -84,13 +106,14 @@ There's no documentation or source control, but by looking at the common feature
 **central dogma slide**
 
 The "source code" of the genome is DNA, but DNA is just a stable storage for the genome, it doesn't actually **do** anything.
-Instead, DNA is *transcribed* into RNA, and then RNA is *translated* into
-proteins.
+Instead, DNA is *transcribed* into RNA, and then RNA is *translated* into proteins.
 This is often called the "central dogma" of cellular biology.
 
 **add some arrows for replication, retrotranscription, ncRNA**
 
-There's also cell replication to consider, and retroviruses can translate RNA back into DNA so we'd better include that, and there's also *non-coding RNA* which functions directly rather than being translated into a protein first.
+There's also cell replication to consider.
+Retroviruses can translate RNA back into DNA so we'd better include that
+There's also *non-coding RNA* which functions directly rather than being translated into a protein first.
 
 **add RNAP arrow back from proteins to DNA->RNA edge**
 
@@ -119,31 +142,35 @@ You start off by using very primitive tools, possibly even a pencil, to create a
 
 All of this only works because the *oocyte*, the egg you grew from, contained enough of these mechanisms to get the whole process started.
 Kind of a boot disk.
-You can think of these genes, as an "operating system" which the rest of a
-cell's biology is implemented on top of.
+You can think of these genes, as an "operating system" which the rest of a cell's biology is implemented on top of.
 
 ### Expression
 
 **standard coding table**
 
 The mapping from RNA to protein is done by *transfer RNA (tRNA)*.
-Groups of three bases called *codons* correspond to different 
-tRNAs which each bring an amino acid molecule to add onto the protein.
+Groups of three bases called *codons* correspond to different tRNAs which each bring an amino acid molecule to add onto the protein.
 
 This table shows the "standard code" which maps codons to amino acids.
-Not all organisms have the exact same code: this table isn't a law of nature, it's a result of what tRNA happen to be around, and tRNA is produced from the genome, so this translation is happening "in software".
+Not all organisms have the exact same code: this table isn't a law of nature.
+It's a result of what tRNA happen to be around, and tRNA is produced from the genome, so this translation is happening "in software".
 
-It somewhat resembles the instruction decoding tables used in microprocessors — there's some redundancy where 64 codons translate to 20 amino acids, translation starts at a "start" codon and finishes when it reaches a "stop" codon.
+It somewhat resembles the instruction decoding tables used in microprocessors — there's some redundancy where 64 codons translate to 20 amino acids.
+Translation starts at a "start" codon and finishes when it reaches a "stop" codon.
 
 But there's no looping or branching or I/O or whatever, so how is this like a program?
 
 Well, genes are not expressed equally.
-Genes can be promoted or suppressed at transcription or translation.
-Splicing can be suppressed or altered.
-Genes can promote, suppress or alter other genes.
+When genes are packed into a chromosome, that's kind of like a library.
+There's some header information before and after each gene, known as the "Regulatory Sequences".
+These affect the way RNA Polymerase attaches to DNA, and how Ribosomes attach to RNA.
+Genes, or groups of genes, can be promoted or suppressed.
+Splicing can be suppressed or altered to produce different proteins.
+
+All this is under the control of the molecules within the cell, which themselves exist through the action of other genes or from external stimuli.
 
 If each gene is a statement, the cell's "program" is found in the interaction between those statements.
-And those interactions are extremely complicated, and not yet well catalogued or understood.
+And those interactions are extremely complicated, and not yet well understood.
 
 ### Eukaryotes
 
@@ -173,12 +200,12 @@ Also a species of algae has been discovered to have harnessed another cyanobacte
 
 [^nitroplast] `https://en.wikipedia.org/wiki/Nitroplast`
 
-You're probably familiar with the phrase "Embrace, Extend, Extinguish"
+You're probably familiar with the phrase "Embrace, Extend, Extinguish"[^eee]
 referring to the way proprietary systems can use and then destroy open ones.
 This may be happening here too: there's evidence that the functions in mitochondria are slowly migrating into the nuclear DNA and being lost from mitochondria.
 
 [^eee] `https://en.wikipedia.org/wiki/Embrace,_extend,_and_extinguish
-`
+
 ### Multicellular Life
 
 Most (not all) Eukaryotes are multicellular, an organism is made up of many,
@@ -203,14 +230,19 @@ Debuggers are nice, but who here has ever resorted to `print()` (or `printf()` o
 **LED slide**
 
 The embedded software equivalent is the LED.
-Things go wrong quickly in embedded code, and your CPU can halt faster than the first `H` in `Hello, World!` can make it out the serial port.
+Things go wrong quickly in embedded code, and your CPU can halt and restart faster than the first `H` in `Hello, World!` can make it out the serial port at RS-232 speeds.
 So if you want to know where your code is getting to, why not light a series of LEDs, one at a time?
 
 **fluoresence slide**
 
 Debugging isn't easy in biological systems either.
+RS-232 is actually fairly modern by comparison.
 Thankfully we have an unlikely ally in the jellyfish.
-Jellyfish have a fluorescent protein 
+Jellyfish have a gene `GFP` which codes for a fluorescent protein.
+This gene can be fused with a gene of interest and then when that gene is expressed, so is the fluorescent protein.
+So cells which express that gene, glow!
+
+This can be used to sort cells by activity.
 
 ### Fuzzing / Deep Mutational Scanning
 

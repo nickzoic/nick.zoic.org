@@ -3,13 +3,14 @@
 ## welcome
 
 You, by which I mean all the mammals in the audience, are running on an operating system a couple of billion years old.
-It is full of primordial libraries, monkey patches, self-modifying code, viral hacks and even containers running a different operating system.
+
+Your genome is full of primordial libraries, monkey patches, self-modifying code, viral hacks and even containers running a different operating system.
 
 This talk is all about the freakish parallels between cell biology and computer architecture.
 
 ### introduction
 
-My name's Nick Moore, I'm a consultant, software developer, notorious tinkerer.
+My name's Nick Moore, I'm a consultant, working in software development and systems architecture.
 I've been working with computers for a very long time and Python for a fair proportion of that.
 
 Recently I've been doing some work in bioinformatics.
@@ -17,19 +18,52 @@ Bioinformatics is the study of biological systems using numerical analysis.
 Biological systems are pretty complex, so typically this analysis requires computers.
 I'm been lucky enough to get involved in that part.
 
-Thanks to my colleagues at Walter and Eliza Hall Institute of Medical Research and at the University of Washington Genome Sciences for their patience while I've found my feet in this field.
+Thanks to my colleagues at *Walter and Eliza Hall Institute of Medical Research* and at the *University of Washington Genome Sciences* for their patience while I've found my feet in this field.
 
 Mistakes and oversimplifications are all mine.
-The one true rule of biology is that all rules have exceptions, and those exceptions have exceptions, and it's exceptions all the way down.
-So some of this talk will oversimplify complex issues and processes but hopefully it'll be enough to give you a general idea.
 
-## humans timeline
+The one true rule of biology is that all rules have exceptions, and those exceptions have exceptions, and it's exceptions all the way down.
+So some of this talk will oversimplify complex issues and processes but hopefully it'll be enough to give you a general idea and some inspiration to find out more.
+
+## Discovery
  
 It's not entirely surprising that cellular biology and computing are a bit intertwined given their overlapping history of discovery:
 
-**TIMELINE GOES HERE**
+* 1833: Charles Babbage's *Analytical Engine* (not completed)
+* 1842: Punched Tapes for telegraphy
+* 1866: Gregor Mendel identifies "discrete inheritable units"
+* 1858: Charles Darwin publishes his theory of natural selection
+* 1869: DNA isolated (an enormously long molecule, purpose unknown)
+* 1870: Huxley "Biogenesis and Abiogenesis"
+* 1913: Morgan & Sturtevant "genetic linkage maps" show linear structure of genetics.
+
+We've had written language, expressed as a sequence of symbols, for several thousand years.
+
+But as our understanding of inheritance developed it became apparent that genetic data was also structured as a sequence of smaller units. 
+
+* 1927: Nikolai Koltsov proposes "giant hereditary molecule" (but runs afoul of his government)
+* 1936: Alan Turing's "universal computing machines" which use an (infinite) tape.
+* 1937: Claude Shannon & foundation of digital computing.
+* 1940: Bletchley Park "Bombe" for cryptanalysis
+* 1944: DNA as the carrier of genetic information
+* 1952: Alan Turing works on morphogenesis (but runs afoul of his government)
+
+Slowly we came to realize that the kind of linear symbolic information processing we were developing to solve 
 
 We've learned a lot about cellular biology while we've been working out computing, but evolution has billions of years of head-start on us.
+
+* 1953: Watson, Crick and Franklin discover the structure of DNA
+* 1970s: DNA sequencing
+* 1977: Full sequence of bacteriophage ΦX174 (5k bases, 11 genes)
+* 1996: Full sequence of brewer's yeast (12 Mbp, 6k genes)
+* 2000: Full sequence of *drosophila melanogaster* (120 Mbp, 15k genes)
+* 2003: Full sequence of human genome (3 Gbp, 20k genes)
+
+Computing has taken off exponentially, and so has genetic sequencing.  In 50 years, we went from the discovery of the structure of DNA to having reference sequence of the entire human genome which you can download for free.
+
+The personal computing era got started when enthusiasts mailed each other printouts, punch tapes, cassettes, floppy discs, whatever it took to share their advances.
+
+Early genetics enthusiasts discovered that *drosophila melanogaster*, a kind of fruit fly, could be caught easily just about anywhere in the world, selectively bred and exchanged with other experimenters to increase the understanding of inheritance.
 
 ## 4 Billion Years of Biology in 8 Minutes
 
@@ -39,11 +73,12 @@ The basic unit of life is the cell.
 
 Primitive organisms like bacteria are *unicellular*, each organism is one cell and each cell is one organism, and they reproduce by copying their innards and splitting in two.
 
-A cell is a little bit like a computer.
+A single cell is a little bit like a tiny computer.
 
 There's an outer cell membrane which keeps the insides in and the outsides out.
 Inside there's a bunch of programs called *genes* which tell the cell how to make *proteins*, which are the working machinery of the cell.
-Proteins can stay within the cell or they can make little *channels* through the cell membrane, kind of like ports which selectively let specific molecules in and out of the cell.
+
+The cell interacts with the world through *channels* in the cell membrane, which are kind of like ports which selectively let specific molecules in and out of the cell.
 
 **Picture of DNA**
 
@@ -51,7 +86,7 @@ Genes, the programs of the cell, are encoded as *chromosomes*, very long *DNA* m
 DNA is built up out of four "bases", Adenine, Cytosine, Guanine and Thymine, generally just abbreviated as A C G and T.  
 
 base | complement
----+---
+---|---
 A | T
 C | G
 G | C
@@ -65,26 +100,20 @@ So "1 million base pairs" that means 2 megabits of information.
 **Cells picture**
 
 Bacteria have relatively small genomes, typically a single circular chromosome of hundreds of thousands through to a million or so base pairs.
-The human genome by constrast has about 3 billion base pairs, and we have two copies spread over multiple chromosomes.
-We're a lot more complicated than a bacteria, but there's a species of lungfish with 130 billion base pairs and an amoeba with 670 billion base pairs[^lsgitw]. 
+The human genome by contrast has about 3 billion base pairs, and each of us have two copies spread over multiple chromosomes.
 
-Also, we make do with each cell having two copies of our genome, but coffee beans have 4 copies and there's a frog whose every cell keeps 12 copies[^ucf]
+We're a lot more complicated than a bacteria, but there's a species of lungfish with 130 billion base pairs and an amoeba with 670 billion base pairs. 
 So who's counting?
- 
-[^lsgitw] `https://www.researchgate.net/publication/235907922_Largest_and_Smallest_Genome_in_the_World`
-
-[^ucf] `https://en.wikipedia.org/wiki/Uganda_clawed_frog`
 
 ### Genes and evolution
 
-Unicellular organisms reproduce by copying, and errors can arise during the copying process, sometimes leading to novel features in the cells.
+Unicellular organisms reproduce by copying, and errors arise during the copying process, sometimes leading to novel features in the cells.
 Good features thrive, bad features dwindle, and that's natural selection, leading to evolution.
 
 Copying chromosomes can make simple mutations, kinda like typos, and these can also cause a gene to be shortened or lengthened or split into pieces or fused with another gene.
 Bigger errors can also result in multiple copies of a gene appearing, and then these multiple copies can evolve in different directions.
 
-On top of this, pesky things like retroviruses and bacterial plasmids can introduce new genes entirely.
-Retroviruses effectively write themselves into a cell's genome to get the cell to make more retroviruses.
+On top of this, pesky things like retroviruses can introduce new genes entirely, effectively writing themselves into a cell's genome to get the cell to make more retroviruses.
 
 It's pretty rare that any of these changes are helpful.
 But over evolutionary timescales, the few helpful changes add up.
@@ -95,7 +124,8 @@ Bacteria also exchange genes with different bacteria or even other organisms, by
 This is called *horizontal gene transfer*.
  
 It may seem counter-intuitive to give away your code to your competitors, but consider: the thing evolution is optimizing here is not the organism, but the gene.
-If a gene which confers, say, antibiotic resistance gets copied into a new organism and that organism thrives, then the gene is successful even if the old organism is out-competed, and the gene will get passed on to more organisms.
+If a gene which confers, say, antibiotic resistance gets copied into a new organism and that organism thrives, then the gene is successful even if the old organism is out-competed by the new.
+The *gene* will get passed on to more organisms.
 
 Yep, Free Software is billions of years old, and there's been a whole lot of cutting and pasting from the primordial script archive.
 
@@ -104,6 +134,8 @@ There's no documentation or source control, but by looking at the common feature
 ### Transcription and Translation
 
 **central dogma slide**
+
+`DNA --transcription--> RNA --translation--> Protein`
 
 The "source code" of the genome is DNA, but DNA is just a stable storage for the genome, it doesn't actually **do** anything.
 Instead, DNA is *transcribed* into RNA, and then RNA is *translated* into proteins.
@@ -297,3 +329,6 @@ Like the unicode characters, the modified nucleosides are different enough to ev
 The technique of using pseudouridine to smuggle mRNA vaccines into cells[^3] was pioneered by Katalin Karikó in 2005, used in the Pfizer and Moderna COVID vaccines in 2020 and won Karikó a Nobel prize in 2023.
 
 [^3] https://pmc.ncbi.nlm.nih.gov/articles/PMC2775451/ 
+
+## Final Thoughts
+

@@ -101,7 +101,6 @@ So "1 million base pairs" that means 2 megabits of information.
 
 Bacteria have relatively small genomes, typically a single circular chromosome of hundreds of thousands through to a million or so base pairs.
 The human genome by contrast has about 3 billion base pairs, and each of us have two copies spread over multiple chromosomes.
-
 We're a lot more complicated than a bacteria, but there's a species of lungfish with 130 billion base pairs and an amoeba with 670 billion base pairs. 
 So who's counting?
 
@@ -164,17 +163,18 @@ This is done by, yep, more ncRNA and more proteins.
 Translation isn't simple either. 
 A protein is a long chain of amino acids, which is built up by a complex molecular machine called a *ribosome*, built from ncRNA and proteins ...
 
-So, this is pretty simple, right?
-Before we can compile the compiler, we need to compile the compiler.
 
 ### bootstrapping
 
+Before we can compile the compiler, we need to compile the compiler.
 In computing, we call this *bootstrapping*.
 You start off by using very primitive tools, possibly even a pencil, to create a very simple first compiler, and then using that compiler you can build a more sophisticated compiler, and so on.
 
 All of this only works because the *oocyte*, the egg you grew from, contained enough of these mechanisms to get the whole process started.
 Kind of a boot disk.
 You can think of these genes, as an "operating system" which the rest of a cell's biology is implemented on top of.
+
+XXX
 
 ### Expression
 
@@ -253,8 +253,60 @@ Okay, great, so biology is hard.
 Well, mostly squishy.
 Let's have a look at a couple more weird overlaps.
 
+### Fuzzing / Deep Mutational Scanning
+
+There are a lot of things we don't know about genes, and while we can make some progress doing one experiment at a time, we can make a lot more progress doing thousands of experiments at once.
+
+For example, some of my colleagues having been looking at `G6PD`.
+This is a human antioxidant gene.
+If your G6PD isn't working well, you might end up with *haemolytic anemia* which is not nice.
+
+We want to find out what parts of `G6PD` do what, so a good first step is to find out which bits stop it from working if they're changed.
+
+**variants table**
+
+`G6PD` is 1548 bp long, so we can make many versions, each of which has one base flipped to another.  That'll end up with about 5000 variants.
+Some of these variants we can predict will work fine because the changed codon still maps to the same amino acid — we call these "synonymous variants".
+Some of these variants we can predict won't work at all because the changed codon maps to a "STOP" — we call these "nonsense variants".
+
+Now a gene is kind of it's own little function so just like in software the first thing is to simplify the test setup.
+Testing on humans is difficult.
+They won't sit still while you bleach them.
+So instead of testing on humans we can take our variants and tranplant them into yeasts.
+
+**yeast picture**
+
+Yep, brewer's yeast, beloved of many a PyConAU speaker.
+First we knock out the yeast's own antioxidant gene, then introduce our variants of `G6PD` via plasmid transfection.
+Under ideal growth conditions, brewer's yeast reproduce asexually, doubling in population every 90 minutes or so.
+Each "daughter" cell is a copy of the parent, so has the same variant `G6PD`. 
+
+**experimental setup**
+
+We put them in an experimental setup called a *turbidostat* which is basically a home brewing setup but designed to keep the yeasts growing forever.
+
+They reproduce happily, until ... we introduce some bleach.
+
+Yeasts with an effective `G6PD` variant can protect themselves against the bleach, and continue to thrive.
+Yeasts with an ineffective `G6PD` can't, and are swiftly out-competed by those that can.
+
+**population graph**
+
+If we sample the population at intervals, we can see which variants thrive and which dwindle away.
+And we can give them a score, from fine to terrible.
+
+**distribution chart**
+
+We can asses our scoring results by comparing the distribution of all variants to the distribution of synonymous variants we thought were going to be fine and the distribution of nonsense variants we thought we were going to be terrible.
+
+**variant map**
+
+Then we can make a map of these variants, and this map illustrates which parts of the protein are most critical and therefore which gene changes matter the most.
+
+Information like this can give us some idea of the clinical significance of otherwise unknown variants, and help doctors give advice to patients with those variants.
+
 ### Debugging / Fluorescence
- 
+
 **`print()` slide**
 
 Debuggers are nice, but who here has ever resorted to `print()` (or `printf()` or console.log()` or &c) just to find out if a bit of code is even running?
@@ -265,23 +317,33 @@ The embedded software equivalent is the LED.
 Things go wrong quickly in embedded code, and your CPU can halt and restart faster than the first `H` in `Hello, World!` can make it out the serial port at RS-232 speeds.
 So if you want to know where your code is getting to, why not light a series of LEDs, one at a time?
 
-**fluoresence slide**
+**jellyfish slide**
 
 Debugging isn't easy in biological systems either.
-RS-232 is actually fairly modern by comparison.
-Thankfully we have an unlikely ally in the jellyfish.
+Even RS-232 is actually fairly modern by comparison.
+Thankfully we have an unlikely ally in the humble jellyfish.
 Jellyfish have a gene `GFP` which codes for a fluorescent protein.
-This gene can be fused with a gene of interest and then when that gene is expressed, so is the fluorescent protein.
+This gene can be located near or fused with a gene of interest and then when that gene is expressed, so is the fluorescent protein.
 So cells which express that gene, glow!
 
-This can be used to sort cells by activity.
+**emissions table**
 
-### Fuzzing / Deep Mutational Scanning
+Since the discovery of GFP, various other genes have been discovered or invented which emit light at different wavelengths, so now we have some serious debugging potential.
+
+**dr dinosaur comic**
+
+Incidentally, every few months this sort of experiment gets picked up as a whacky "scientists have made a chicken which glows in the dark" article in the papers.
+A glowing chicken would be neat, but that's not the whole story.
+
+**vampseq slide**
+
+For example, a technique called VAMP-seq uses fluorescent markers to sort cells and assign scores by gene expression rather than population.
 
 ### Spam Filtering / mRNA Vaccines
 
 Messenger RNA, or *mRNA* has been in the news a lot recently,
-for all the wrong reasons.  A very large proportion of us here today 
+for all the wrong reasons.
+A very large proportion of us here today 
 will have benefited from mRNA vaccine technology and a lot of us will
 get to benefit further as research continues into mRNA therapies.
  

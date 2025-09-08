@@ -13,7 +13,7 @@ This talk is all about the freakish parallels between cell biology and computer 
 My name's Nick Moore, I'm a consultant, working in software development and systems architecture.
 I've been working with computers for a very long time and Python for a fair proportion of that.
 
-Recently I've been doing some work in bioinformatics.
+Recently I've been working in bioinformatics.
 Bioinformatics is the study of biological systems using numerical analysis.
 Biological systems are pretty complex, so typically this analysis requires computers.
 I'm been lucky enough to get involved in that part.
@@ -59,13 +59,17 @@ We've learned a lot about cellular biology while we've been working out computin
 * 2000: Full sequence of *drosophila melanogaster* (120 Mbp, 15k genes)
 * 2003: Full sequence of human genome (3 Gbp, 20k genes)
 
-Computing has taken off exponentially, and so has genetic sequencing.  In 50 years, we went from the discovery of the structure of DNA to having reference sequence of the entire human genome which you can download for free.
+Genetic sequencing has taken off exponentially.
+In 50 years, we went from the discovery of the structure of DNA to having reference sequence of the entire human genome which you can download for free.
+Thankfully, computing has kept up.
+It's hard to imagine how scientists of the 70s would deal with gigabytes of data, whereas these days that's just a movie.
 
-The personal computing era got started when enthusiasts mailed each other printouts, punch tapes, cassettes, floppy discs, whatever it took to share their advances.
+The personal computing era got started when enthusiasts mailed each other printouts, punch tapes, cassettes, floppy discs, whatever it took to share their discoveries and advances.
 
-Early genetics enthusiasts discovered that *drosophila melanogaster*, a kind of fruit fly, could be caught easily just about anywhere in the world, selectively bred and exchanged with other experimenters to increase the understanding of inheritance.
+Early genetics enthusiasts discovered that *drosophila melanogaster*, a kind of fruit fly, could be caught easily just about anywhere in the world, selectively bred and exchanged with other experimenters.
+A lot of early advances in genetics came from the exchange of fruit flies!
 
-## 4 Billion Years of Biology in 8 Minutes
+## 4 Billion Years of Biology in 10 Minutes
 
 **picture of a cell**
 
@@ -73,11 +77,12 @@ The basic unit of life is the cell.
 
 Primitive organisms like bacteria are *unicellular*, each organism is one cell and each cell is one organism, and they reproduce by copying their innards and splitting in two.
 
-A single cell is a little bit like a tiny computer.
+A single cell is a bit like a tiny computer.
 
-There's an outer cell membrane which keeps the insides in and the outsides out.
 Inside there's a bunch of programs called *genes* which tell the cell how to make *proteins*, which are the working machinery of the cell.
 
+There's an outer cell membrane which keeps the insides in and the outsides out.
+As we're aware, just running arbitrary programs can get you in trouble.
 The cell interacts with the world through *channels* in the cell membrane, which are kind of like ports which selectively let specific molecules in and out of the cell.
 
 **Picture of DNA**
@@ -111,11 +116,13 @@ Good features thrive, bad features dwindle, and that's natural selection, leadin
 
 Copying chromosomes can make simple mutations, kinda like typos, and these can also cause a gene to be shortened or lengthened or split into pieces or fused with another gene.
 Bigger errors can also result in multiple copies of a gene appearing, and then these multiple copies can evolve in different directions.
+Changes can lead to parts of the genome effectively being commented out.
 
 On top of this, pesky things like retroviruses can introduce new genes entirely, effectively writing themselves into a cell's genome to get the cell to make more retroviruses.
 
 It's pretty rare that any of these changes are helpful.
-But over evolutionary timescales, the few helpful changes add up.
+Most often, they just result in a broken gene.
+But over evolutionary timescales, the helpful changes add up.
 
 **slide: plasmids**
 
@@ -127,8 +134,6 @@ If a gene which confers, say, antibiotic resistance gets copied into a new organ
 The *gene* will get passed on to more organisms.
 
 Yep, Free Software is billions of years old, and there's been a whole lot of cutting and pasting from the primordial script archive.
-
-There's no documentation or source control, but by looking at the common features of all cellular life we can hypothesize a "univeral common ancestor" which arose about 4 billion years ago, and from which all life is descended.
 
 ### Transcription and Translation
 
@@ -152,33 +157,35 @@ Transcription from DNA to RNA is done by a protein complex called *RNA polymeras
 
 Proteins are produced from genes, so to build the transcription mechanism we first have to run the transcription mechanism ... 
 
-**add arrows for splicing**
+**add arrows for splicing, ribosomes, tRNA**
 
-There's also *splicing* to consider. 
-DNA is translated into RNA but that RNA isn't in it's final form, first it needs to be *spliced*.
+There's also *splicing* and *translation* to consider. 
+DNA is transcribed into RNA but that RNA isn't in it's final form, first it needs to be *spliced*.
 This is done by, yep, more ncRNA and more proteins.
+So RNA is self-modifying code, and one piece of RNA can affect the way another piece is expressed, the proteins it produces.
 
-**add arrows for ribosomes and tRNA**
-
-Translation isn't simple either. 
-A protein is a long chain of amino acids, which is built up by a complex molecular machine called a *ribosome*, built from ncRNA and proteins ...
-
+Before we can compile the compiler, we need to compile the compiler.
 
 ### bootstrapping
 
-Before we can compile the compiler, we need to compile the compiler.
 In computing, we call this *bootstrapping*.
+
 You start off by using very primitive tools, possibly even a pencil, to create a very simple first compiler, and then using that compiler you can build a more sophisticated compiler, and so on.
 
-All of this only works because the *oocyte*, the egg you grew from, contained enough of these mechanisms to get the whole process started.
+All of this only works because the parent cell contained enough of these mechanisms to get the whole process started.
 Kind of a boot disk.
+Those molecules can then make more of themselves, and the cell continues to run.
+
 You can think of these genes, as an "operating system" which the rest of a cell's biology is implemented on top of.
 
-XXX
+There's no documentation or source control, but by looking at the common features of all cellular life we can hypothesize a "univeral common ancestor" which arose about 4 billion years ago, and from which all life is descended.
 
 ### Expression
 
 **standard coding table**
+
+Translation from RNA to Protein isn't simple either. 
+A protein is a long chain of amino acids, which is built up by a complex molecular machine called a *ribosome*, built from ncRNA and proteins.
 
 The mapping from RNA to protein is done by *transfer RNA (tRNA)*.
 Groups of three bases called *codons* correspond to different tRNAs which each bring an amino acid molecule to add onto the protein.
@@ -202,39 +209,41 @@ Splicing can be suppressed or altered to produce different proteins.
 All this is under the control of the molecules within the cell, which themselves exist through the action of other genes or from external stimuli.
 
 If each gene is a statement, the cell's "program" is found in the interaction between those statements.
-And those interactions are extremely complicated, and not yet well understood.
+And those interactions are extremely complicated.
 
 ### Eukaryotes
 
 At some point about 3 billion years ago, a particularly entrepreneurial branch of the Archaea developed a more sophisticated internal cell structure.
 These are the *Eukaryotes*.
 
-Animals (including humans), plants, fungi, algae and slime molds are all Eukaryotes.
+Animals (including humans) are Eukaryotes.
+Also plants, fungi, algae and slime molds.
  
 The Eukaryotic genome is protected inside a *nucleus*, and specialist *organelles* perform specific functions within the cell.
 They're linked together by the *cytoskeleton*, a network of filaments and tubes which spans the inside of the cell.
 
 You can think of these as peripheral controllers or coprocessors supporting the main processor, linked by buses.
-DNA to RNA transcription occurs in the nucleus, and then RNA to protein translation occurs outside the nucleus, in the *endoplasmic reticulum* which surrounds the nucleus.
+DNA to RNA transcription occurs in the nucleus, and then RNA to protein translation occurs in the *endoplasmic reticulum* surrounding the nucleus.
 
-Some of these organelles, the *mitochondria*, appear to once have been independent Proteobacteria, which were engulfed by the proto-Eukaryotes and instead of being destroyed they were put to work.
+Yep, we've just added a separation between kernel and userland programs.
+
+Also, some of these organelles, the *mitochondria*, appear to once have been independent Proteobacteria, which were engulfed by the proto-Eukaryotes and instead of being destroyed they were put to work.
 
 Mitochondria are like little containers with their own separate genome.
+They have their own DNA outside the nuclear DNA.
+They have their own replication, transcription and translation mechanisms.
 The cell benefits from their ability to produce ATP, and the mitochondria benefit from the cell's protection.
 
-But they're effectively running their operating system, like little containers within the host cell, and they have their own replication and protein synthesis.
-They even have their own tRNA, and as a result use a slightly different translation code to the host cell.
+But they're effectively running their operating system, like little containers within the host cell.
+They do their own RNA translation, using their own tRNA, and they happen to use a slightly different translation code to the host cell.
 They've been engulfed but they're still separate and running their own OS.
 
 We like to think of vertebrates as the pinnacle of evolution but plants have done this twice!
 In addition to harnessing proteobacteria as mitochondria, plants have harnessed photosynthetic cyanobacteria as *chloroplasts*.
-Also a species of algae has been discovered to have harnessed another cyanobacteria to let it fix nitrogen[^nitroplast].
-
-[^nitroplast] `https://en.wikipedia.org/wiki/Nitroplast`
 
 You're probably familiar with the phrase "Embrace, Extend, Extinguish"[^eee]
 referring to the way proprietary systems can use and then destroy open ones.
-This may be happening here too: there's evidence that the functions in mitochondria are slowly migrating into the nuclear DNA and being lost from mitochondria.
+This may be happening here too: there's evidence that the functions of mitochondria are slowly migrating into the nuclear DNA and being lost from mitochondria.
 
 [^eee] `https://en.wikipedia.org/wiki/Embrace,_extend,_and_extinguish
 
@@ -246,6 +255,11 @@ Every cell in an organism has the same DNA, the same programming, and what role 
 
 You can think of a the DNA as a container image which gets specialized at runtime.
 The cells in your kidneys contain all the instructions needed to be a brain cell, they just don't use the brain-specific ones, and vice-versa.
+
+The cells in a multicellular organism each have their own separate existence but also communicate by exchanging molecules.
+The multicellular organism is a network!
+
+Even weirder, some organisms like slime moulds and some bacteria can form multicellular colonies which act somewhat like a multicellular organism but which can also break apart into unicellular life, depending on conditions.
 
 ## Computers and Biology
 
@@ -277,15 +291,18 @@ So instead of testing on humans we can take our variants and tranplant them into
 **yeast picture**
 
 Yep, brewer's yeast, beloved of many a PyConAU speaker.
-First we knock out the yeast's own antioxidant gene, then introduce our variants of `G6PD` via plasmid transfection.
-Under ideal growth conditions, brewer's yeast reproduce asexually, doubling in population every 90 minutes or so.
-Each "daughter" cell is a copy of the parent, so has the same variant `G6PD`. 
+Biologists are very fond of yeasts because under ideal growth conditions, they can reproduce asexually, doubling in population every 90 minutes or so.
+
+Also, you can design an experiment which kills a billion of them and no-one cares.
+
+First we knock out the yeast's own antioxidant gene, then introduce our variants of human `G6PD` via plasmid transfection.
+When these yeasts reproduce, they'll keep the variant genes we gave them.
 
 **experimental setup**
 
 We put them in an experimental setup called a *turbidostat* which is basically a home brewing setup but designed to keep the yeasts growing forever.
 
-They reproduce happily, until ... we introduce some bleach.
+They reproduce happily, and the distribution of variants within the population doesn't change until ... we introduce some bleach.
 
 Yeasts with an effective `G6PD` variant can protect themselves against the bleach, and continue to thrive.
 Yeasts with an ineffective `G6PD` can't, and are swiftly out-competed by those that can.
@@ -297,7 +314,7 @@ And we can give them a score, from fine to terrible.
 
 **distribution chart**
 
-We can asses our scoring results by comparing the distribution of all variants to the distribution of synonymous variants we thought were going to be fine and the distribution of nonsense variants we thought we were going to be terrible.
+We can asses our scoring results by comparing the distribution of all variants to the distribution of synonymous variants, the ones we thought were going to be fine, and the distribution of nonsense variants, the ones we were pretty sure were going to be terrible.
 
 **variant map**
 
@@ -315,13 +332,14 @@ Debuggers are nice, but who here has ever resorted to `print()` (or `printf()` o
 
 The embedded software equivalent is the LED.
 Things go wrong quickly in embedded code, and your CPU can halt and restart faster than the first `H` in `Hello, World!` can make it out the serial port at RS-232 speeds.
-So if you want to know where your code is getting to, why not light a series of LEDs, one at a time?
+So if you want to know where your code is getting to before it crashes, why not light a series of LEDs, one at a time?
 
 **jellyfish slide**
 
 Debugging isn't easy in biological systems either.
 Even RS-232 is actually fairly modern by comparison.
 Thankfully we have an unlikely ally in the humble jellyfish.
+
 Jellyfish have a gene `GFP` which codes for a fluorescent protein.
 This gene can be located near or fused with a gene of interest and then when that gene is expressed, so is the fluorescent protein.
 So cells which express that gene, glow!
@@ -343,25 +361,27 @@ For example, a technique called VAMP-seq uses fluorescent markers to sort cells 
 
 Messenger RNA, or *mRNA* has been in the news a lot recently,
 for all the wrong reasons.
-A very large proportion of us here today 
-will have benefited from mRNA vaccine technology and a lot of us will
-get to benefit further as research continues into mRNA therapies.
- 
+A very large proportion of us here today will have benefited from mRNA vaccine technology and a lot of us will get to benefit further as research continues into mRNA therapies for infectious diseases and cancers.
+
+These therapies work by directing your immune system.
 Your immune system is very effective, but also kind of slow to anger.
 If you can give it a hint about what things to look for it can respond
 much more rapidly and effectively.
 
 That's called vaccination.
-Historically it's been done using similar but less
-deadly infections, such as cowpox inoculations for smallpox, or by 
-introducing an attenuated, inactivated or dead organism for our 
-immune system to learn from without risk of infection.
+Historically it's been done using similar but less deadly infections, such as cowpox inoculations for smallpox, or by introducing an attenuated, inactivated or dead organism for our immune system to learn from without risk of infection.
 
-Ideally we'd like to be able to target vaccination more accurately and develop new vaccines more effectively. This can be a tricky thing to manage.
+Ideally we'd like to be able to target vaccination more accurately and develop new vaccines more effectively.
+We can identify proteins on the outside of cells we'd like to target, and teach the immune system to attack.
+This process can target viruses, bacteria or cancerous cells.
 
-Cells don't just read any old mRNA they find laying around.
+But those proteins are often not stable enough to use directly.
+Instead, we can get human cells to make the proteins in place.
+We can do that by introducing mRNA which codes for the protein we want to target.
+
+But Cells don't just read any old mRNA they find laying around.
 Instead, stray mRNA will induce an immune response and get cleaned up by
-your immune system — get caught your body's spam filter, in other words.
+your immune system before all this fun stuff happens — get caught your body's spam filter, in other words.
 
 Instead, mRNA has to get smuggled into the cell with a bit of a
 bait-and-switch ... just like spam:

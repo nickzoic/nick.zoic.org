@@ -12,11 +12,13 @@
 }
 
 body {
+	color: #003;
     font-family: "PT Sans", sans-serif;
     font-weight: 400;
 }
 
 h1, h2, h3, h4, h5, h6 {
+color: #203;
     font-family: Acme, Impact, sans-serif;
     font-weight: 400;
     margin: 15px;
@@ -61,7 +63,7 @@ pre.small { font-size: 40% }
 
 p.small { font-size: 72% }
 
-p.tiny { font-size: 33% }
+p.tiny { font-size: 50% }
 
 pre, ul, ol {
     display: inline-block;
@@ -133,17 +135,15 @@ body.flip > div.show {
 }
 
 pre { 
-    background-color: #CDF;
     padding: 5px;
 }
 
 body.flip pre {
-    background-color: #CDF;
     padding: 10px;
 }
 
 body.flip a {
-    color: #00F;
+    color: #008;
     text-decoration: none;
 }
 
@@ -205,7 +205,8 @@ table {
 
 /* table tr:first-child th { */
 table tr th {
-    background-color: #666;
+color: #200;
+    background-color: #889;
 }
 
 table td, table th {

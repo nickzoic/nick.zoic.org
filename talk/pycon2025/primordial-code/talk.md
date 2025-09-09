@@ -102,8 +102,6 @@ This is the unit we'll use to compare genome sizes.
 Because there's four possible pairs each "base pair" is equivalent to 2 binary bits of information.
 So "1 million base pairs" that means 2 megabits of information.
 
-**Cells picture**
-
 Bacteria have relatively small genomes, typically a single circular chromosome of hundreds of thousands through to a million or so base pairs.
 The human genome by contrast has about 3 billion base pairs, and each of us have two copies spread over multiple chromosomes.
 We're a lot more complicated than a bacteria, but there's a species of lungfish with 130 billion base pairs and an amoeba with 670 billion base pairs. 
@@ -198,6 +196,8 @@ It somewhat resembles the instruction decoding tables used in microprocessors â€
 Translation starts at a "start" codon and finishes when it reaches a "stop" codon.
 
 But there's no looping or branching or I/O or whatever, so how is this like a program?
+
+**regulatory image**
 
 Well, genes are not expressed equally.
 When genes are packed into a chromosome, that's kind of like a library.

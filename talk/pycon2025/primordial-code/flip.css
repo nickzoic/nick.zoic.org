@@ -201,12 +201,13 @@ table {
     max-width: 90%;
 }
 
-table tr:first-child th {
+/* table tr:first-child th { */
+table tr th {
     background-color: #666;
 }
 
 table td, table th {
-    border: 3px solid #666;
+    border: 3px solid #333;
     padding: 10px;
     min-width: 15%;
     text-align: center;

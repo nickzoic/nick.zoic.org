@@ -18,22 +18,9 @@
      which is full of primordial libraries, monkey patches, self-modifying
      code, viral hacks and even containers running a different operating system.</em>
    </p>
-   <table><tr><th>Content Warnings</td></tr><tr><td>
+   <table><tr><th>Content Warnings</th></tr><tr><td>
 			   Discussion of infectious and genetic diseases,<br/>
 			   including cancer, but nothing gruesome.</td></tr></table>
-  </div>
-  <div class="notes">
-  <p>
-     You, by which I mean all the Eukaryotes in the audience,
-     are running on an operating system a couple of billion years old
-     which is full of primordial libraries, monkey patches, self-modifying
-     code, viral hacks and even containers running a different operating system.
-   </p><p>
-     This talk is all about the freakish parallels between cell biology and
-     computer architecture.
-   </p>
-   </p>
-
   </div>
 
   <div class="slide">
@@ -61,124 +48,154 @@
   </div>
 
   <div class="slide">
-	  <h2>This Is A Computer</h2>
-  </div>
-
-  <div class="notes">
-     <p>
-	  This is a computer.
-     </p><p>
-	  It's really just a box which holds a bunch of parts
-	  together with brackets and prevents the insides getting
-	  lost or outside stuff getting in.
-     </p><p>
-	  There's a bunch of ports on the outside to let
-	  power and signals in and out, they have specific
-	  purposes and shapes.
-     </p><p>
-	  This is a central processing unit which executes
-	  programs which tells the whole thing what to do.
-     </p><p>
-          Around it are a bunch of peripherals which support 
-	  those programs and interface between them and the world.
-	  Some of those have their own little processors.
-     </p><p>
-          Computers like this are pretty generic things, but can adapt 
-	  to many different tasks depending on the situation they
-	  find themselves in and the programs they're running.
-     </p><p>
-          Wait, I've got my slides muddled up ...
-     </p>
+	  <h2>Timeline &mdash; 1</h2>
+	  <table>
+	  <tr><th>1833</th><td>Charles Babbage's <em>Analytical Engine</em> (not completed)</td></tr>
+	  <tr><th>1842</th><td>Punched Tapes for telegraphy</td></tr>
+	  <tr><th>1866</th><td>Gregor Mendel identifies "discrete inheritable units"</td></tr>
+	  <tr><th>1858</th><td>Charles Darwin publishes his theory of natural selection</td></tr>
+	  <tr><th>1869</th><td>DNA isolated (an enormously long molecule, purpose unknown)</td></tr>
+	  <tr><th>1870</th><td>Huxley "Biogenesis and Abiogenesis"</td></tr>
+	  <tr><th>1913</th><td>Morgan &amp; Sturtevant "genetic linkage maps" show linear structure of genetics.</td></tr>
+          </table>
   </div>
 
   <div class="slide">
-	  <h2>This is a Cell</h2>
-  </div>
+	  <h2>Timeline &mdash; 2</h2>
+	  <table>
+		  <tr><th>1927</th><td>Nikolai Koltsov proposes "giant hereditary molecule" (but runs afoul of his government)</td></tr>
+		  <tr><th>1936</th><td>Alan Turing's "universal computing machines" which use an (infinite) tape.</td></tr>
+		  <tr><th>1937</th><td>Claude Shannon &amp; foundation of digital computing.</td></tr>
+		  <tr><th>1940</th><td>Bletchley Park "Bombe" for cryptanalysis</td></tr>
+		  <tr><th>1944</th><td>DNA as the carrier of genetic information</td></tr>
+		  <tr><th>1952</th><td>Alan Turing works on morphogenesis (but runs afoul of his government)</td></tr>
+</table>
 
-  <div class="notes">
-	<p>
-		... this is a cell.
-	</p><p>
-	There's a <em>cell membrane</em>, which stops molecules just
-	floating in or out, and inside is a thing called the <em>cytoskeleton</em>
-		which holds everything in place and connects it together.
-     </p><p>
-     The cell membrane has a bunch of <em>channels</em> which 
-		transport specific types of molecule in and out of the cell.
-     </p><p>
-     This is the <em>nucleus</em> which uses instructions encoded in <em>chromosomes</em>.
-     </p><p>
-     Around it are a bunch of periperal <em>organelles</em> which have specific interfacing
-     jobs to do.
-     </p><p>
-     Lastly: cells start off <em>pluripotent</em> and specialize into their roles.
-     </p>
   </div>
 
   <div class="slide">
-	  <h2>Biology</h2>
-	  <h3>The last 4,000,000,000 years</h3>
+	  <h2>Timeline &mdash; 3</h2>
+	  <table>
+		  <tr><th>1953</th><td>Watson, Crick and Franklin discover the structure of DNA</td></tr>
+		  <tr><th>1970s</th><td>DNA sequencing</td></tr>
+		  <tr><th>1977</th><td>Full sequence of bacteriophage ΦX174 (5k bases, 11 genes)</td></tr>
+		  <tr><th>1996</th><td>Full sequence of brewer's yeast (12 Mbp, 6k genes)</td></tr>
+		  <tr><th>2000</th><td>Full sequence of *drosophila melanogaster* (120 Mbp, 15k genes)</td></tr>
+		  <tr><th>2003</th><td>Full sequence of human genome (3 Gbp, 20k genes)</td></tr>
+	</table>
+  </div>
+
+  <div class="slide">
+	  <h2>4 Billion Years of Biology in 10 Minutes</h2>
+
 	  <blockquote><em>
               “Many were increasingly of the opinion that they’d all made a big mistake
 	      in coming down from the trees in the first place. And some said that even
 	      the trees had been a bad move, and that no one should ever have left the oceans.”
               ― Douglas Adams
-		  </em></blockquote>
+          </em></blockquote>
 
-	  <a href="https://mathcs.clarku.edu/huxley/CE8/B-Ab.html">Huxley "Biogenesis and Abiogenesis" 1870</a>
   </div>
 
-  <div class="notes">
-    <p>About 4.5 billion years ago the Earth formed, which made a lot of people angry.</p>
-    <p>Once things settled down a bit, there was a sea, and a bunch of molecules.</p>
-    <p>Some molecules worked out how to make copies of themselves.</p>
-    
-    <p>About 4 billion years ago, cell walls happened, 
-    <p>A lot of this will be pretty approximate too so don't sweat
-    the details right now. If you're interested in the details
-    let's catch up after this session over lunch.</p>
-    <p>Or for those of you watching online, you could do a lot
-    worse than going down a <a href=
-    "https://en.wikipedia.org/wiki/Bioinformatics">Bioinformatics
-    Wikipedia Rabbit Hole</a></p>
-  </div>
   <div class="slide">
-	  <img src="img/symbiogenesis.svg" width="60%"/>
+	  <h2>Cell</h2>
+	  <img src="img/cell.jpg"/>
+  </div>
 
+  <div class="slide">
+	  <h2>DNA</h2>
+	  <img src="img/dna.jpg"/>
+	  <table>
+		  <tr><th>base</th><th>complement</th></tr>
+		  <tr><td>A</td><td>T</td></tr>
+		  <tr><td>C</td><td>G</td></tr>
+		  <tr><td>G</td><td>C</td></tr>
+		  <tr><td>T</td><td>A</td></tr>
+	</table>
+  </div>
+
+  <div class="slide">
+	  <h2>Genomes</h2>
+
+	  <table>XXX genome sizes</table>
+  </div>
+
+  <div class="slide">
+	  <h2>Genes and Evolution</h2>
+
+	  XXX mutation examples
+
+</div>
+
+<div class="slide">
+	<h2>Horizontal Gene Transfer</h2>
+
+	XXX image
+</div>
+
+<div class="slide">
+	<h2>Transcription and Translation &mdash; 1</h2>
+	<img src="img/dogma-1.png"/>
+</div>
+
+<div class="slide">
+	<h2>Transcription and Translation &mdash; 2</h2>
+	<img src="img/dogma-2.png"/>
+</div>
+<div class="slide">
+	<h2>Transcription and Translation &mdash; 3</h2>
+	<img src="img/dogma-3.png"/>
+</div>
+<div class="slide">
+	<h2>Transcription and Translation &mdash; 4</h2>
+	<img src="img/dogma-4.png"/>
+</div>
+<div class="slide">
+        <h2>(ATP Synthase)</h2>
+	<img src="img/atp-synthase.png"/>
+</div>
+<div class="slide">
+	<h2>Transcription and Translation &mdash; 5</h2>
+
+	<table>
+		<tr><th rowspan="2">1st</th><th colspan="8">2nd</th><th rowspan="2">3rd</th></tr>
+		<tr><th colspan="2">U</th><th colspan="2">C</th><th colspan="2">A</th><th colspan="2">G</th></tr>
+		<tr><th rowspan="4">U</th><td>UUU</td><td rowspan="2">Phe</td><td>UCU</td><td rowspan="4">Ser</td><td>UAU</td><td rowspan="2">Tyr</td><td>UGU</td><td rowspan="2">Cys</td><th>U</th></tr>
+		<tr><td>UUC</td><td>UCC</td><td>UAC</td><td>UGC</td><th>C</th></tr>
+		<tr><td>UUA</td><td rowspan="2">Leu</td><td>UCA</td><td>UAA</td><td rowspan="2" style="color: red"><em>STOP</em></td><td>UGA</td><td style="color: red"><em>STOP</em></td><th>A</th></tr>
+		<tr><td>UUG</td><td>UCG</td><td>UAG</td><td>UGG</td><td>Trp</td><th>G</th></tr>
+
+		<tr><th rowspan="4">C</th><td>CUU</td><td rowspan="4">Leu</td><td>CCU</td><td rowspan="4">Pro</td><td>CAU</td><td rowspan="2">His</td><td>CGU</td><td rowspan="4">Arg</td><th>U</th></tr>
+		<tr><td>CUC</td><td>CCC</td><td>CAC</td><td>CGC</td><th>C</th></tr>
+		<tr><td>CUA</td><td>CCA</td><td>CAA</td><td rowspan="2">Gln</td><td>CGA</td><th>A</th></tr>
+		<tr><td>CUG</td><td>CCG</td><td>CAG</td><td>CGG</td><th>G</th></tr>
+
+		<tr><th rowspan="4">A</th><td>AUU</td><td rowspan="3">Ile</td><td>ACU</td><td rowspan="4">Thr</td><td>AAU</td><td rowspan="2">Asn</td><td>AGU</td><td rowspan="2">Ser</td><th>U</th></tr>
+		<tr><td>AUC</td><td>ACC</td><td>AAC</td><td>AGC</td><th>C</th></tr>
+		<tr><td>AUA</td><td>ACA</td><td>AAA</td><td rowspan="2">Lys</td><td>AGA</td><td rowspan="2">Arg</td><th>A</th></tr>
+		<tr><td>AUG</td><td>Met<br/><em style="color: green">START</em></td><td>ACG</td><td>AAG</td><td>AGG</td><th>G</th></tr>
+
+		<tr><th rowspan="4">G</th><td>GUU</td><td rowspan="4">Val</td><td>GCU</td><td rowspan="4">Ala</td><td>GAU</td><td rowspan="2">Asp</td><td>GGU</td><td rowspan="4">Gly</td><th>U</th></tr>
+
+		<tr><td>GUC</td><td>GCC</td><td>GAC</td><td>GGC</td><th>C</th></tr>
+		<tr><td>GUA</td><td>GCA</td><td>GAA</td><td rowspan="2">Glu</td><td>GGA</td><th>A</th></tr>
+		<tr><td>GUG</td><td>GCG</td><td>GAG</td><td>GGG</td><th>G</th></tr>
+	</table>
+
+</div>
+<div class="slide">
+	<h2>Transcription and Translation &mdash; 6</h2>
+	<img src="img/regulatory.png"/>
+</div>
+
+  <div class="slide">
+	  <h2>Eukaryotes</h2>
+	  <img src="img/symbiogenesis.svg" width="60%"/>
 	  <p class="tiny">Image: <a href="https://commons.wikimedia.org/wiki/File:Symbiogenesis_2_mergers.svg">Chiswick Chap. Redrawn from File:Symbiogenesis.svg to reflect more recent science., CC BY-SA 4.0 &lt;https://creativecommons.org/licenses/by-sa/4.0&gt;, via Wikimedia Commons</a></p>
   </div>
 
-  <div class="notes">
-	  <p>
-	  We'll mostly be talking about Eukaryotes because we like to think
-	  that <em>we're</em> the most advanced form of life, but let's not get too 
-	  arrogant because Eukaryota also includes fungi, plants, algae,
-	  yeasts and slime molds.
-	  </p>
-	  <p>We'll come back to this later but note the poor version control
-	  discipline</p>
-  </div>
-
   <div class="slide">
-	  <h2>Timeline ...</h2>
-  <ul>
-	  <li>1842: Punched Tapes for telegraphy</li>
-	  <li>1866: Mendel "discrete inheritable units"</li>
-	  <li>1869: DNA isolated (purpose unknown)</li>
-	  <li>1870: Huxley "Biogenesis and Abiogenesis</li>
-	  <li>1913: Morgan &amp; Sturtevant "genetic linkage maps"</li>
-	  <li>1927: Koltsov proposes "giant heriditary molecule"<br/>
-		  (but runs afoul of his government)</li>
-	  <li>1936: Alan Turing's "universal computing machines"</li>
-	  <li>1952: Alan Turing works on morphogenesis<br/>
-	  	(but runs afould of his government)</li>
-	  <li>1953: Watson, Crick and Franklin discover the
-		  structure of DNA</li>
-  </ul>
-  </div>
-
-  <div class="slide">
-	  <h2>What is a cell?</h2>
+	  <h2>Animal Cell</h2>
     <img src="img/animal.svg" class="eighty"> 
     <p class="tiny">Image: <a href=
     "https://commons.wikimedia.org/wiki/File:Animal_cell_structure_en.svg">
@@ -186,169 +203,26 @@
   </div>
 
   <div class="slide">
-	  <h2>DNA</h2>
+	  <h2>G6PD &mdash; 1</h2>
+	  <img src="img/turbidostat.svg" width="80%">
+	  <p class="tiny">Image: Nick Moore</p>
   </div>
 
   <div class="slide">
-	  <h2>Transcription</h2>
+	  <h2>G6PD &mdash; 2</h2>
+	  <img src="img/g6pd-1.svg" width="90%">
+	  <p class="tiny">Image: Nick Moore, unpublished preliminary results</p>
   </div>
 
   <div class="slide">
-	  <h2>What is a computer?</h2>
-  </div>
-
-
-  <div class="notes">
-	  Examples include:
-
-    cells as processors with I/O ports.
-    genomes as shared container images with run-time specialization.
-    instruction/bytecode decoding as protein transcription
-    non-coding DNA as:
-    library headers/footers (promoters etc),
-    compiler bootstrapping (tRNA),
-    program inline data (snRNA, etc)
-    dead code (pseudogenes)
-    transformation of code by other code (RNA interactions)
-    mitochondria as little containers with a different architecture (mtDNA)
-  </div>
-
-  <div class="notes">
-	  what is DNA
-
-  </div>
-
-  <div class="slide">
-    <h3>Bioinformatics</h3>
-    <ul>
-      <li>Bioinformatics: analysis of biological
-      data.</li>
-      <li>Arguably started in 1952:</li>
-      <ul class="medium">
-        <li>Protein sequencing of insulin by Frederick Sanger</li>
-        <li>Alan Turing's "Chemical basis of morphogenesis"</li>
-      </ul>
-      <li>Really got going as computers got invented:</li>
-      <ul class="medium">
-        <li>Margaret Dayhoff's COMPROTEIN ~ 1960</li>
-        <li>Protein Information Resource (1984-)</li>
-      </ul>
-      <li>Perhaps unsurprisingly, many parallels between biological
-      science and computer science.</li>
-    </ul>
-  </div>
-  <div class="notes">
-    There's some really interesting history here which would make a
-    great historical research presentation in its own right.
-    <p class="medium">References:</p>
-    <ul class="medium">
-      <li>
-        <a href=
-        "https://www.dna.caltech.edu/courses/cs191/paperscs191/turing.pdf">
-        A M Turing: A reaction-diffusion model for development, The
-        chemical basis of morphogenesis</a>
-      </li>
-      <li>
-	      <a href="https://en.wikipedia.org/wiki/Frederick_Sanger">Frederick Sanger</a>
-      </li>
-      <li>
-        <a href=
-        "https://en.wikipedia.org/wiki/Margaret_Oakley_Dayhoff">Margaret
-        Oakley Dayhoff @ Wikipedia</a>
-      </li>
-      <li>
-        <a href=
-        "https://proteininformationresource.org/pirwww/about/aboutpir.shtml">
-        Protein Information Resource</a>
-      </li>
-    </ul>
-  </div>
-  <div class="notes">
-    <p>There's a lot we still don't know about cell biology. The
-    mechanisms by which all living things function and reproduce
-    are complex and difficult to observe directly, since they are
-    hidden inside living cells.</p>
-    <p>But we can construct experiments which let us observe the
-    outward behaviour of cells and through analysis we can
-    determine what's going on inside them. This is not totally
-    unlike black-box testing of software: you might not be able to
-    read the code, but if you can find a correlation between a
-    change in input and a change in output, you can start to
-    understand what the program does even if you can't directly
-    watch it doing it.</p>
+	  <h2>G6PD &mdash; 3</h2>
+	  <img src="img/g6pd-2.png" width="80%">
+	  <p class="tiny">Image: <a href="https://www.biorxiv.org/content/10.1101/2025.08.11.669723v2">Functional evidence for G6PD variant classification from mutational scanning (Geck et al)</a></p>
   </div>
   <div class="slide">
-    <h3>The Human Genome</h3>
-    <table style="border: 0px;"><tr>
-		    <td style="border: 0px;"><img src="img/dna.png" class=
-				  "sixty"/></td>
-		    <td style="border: 0px;">
-    <ul>
-      <li>The "program" of your cells</li>
-      <li>23 Chromosomes, each is a very long molecule</li>
-      <li>Each is 100M or so building blocks called "base pairs" or
-      nucleotides</li>
-      <li>All of your cells have the same genome</li>
-    </ul>
-		    </td></tr></table>
-    <p class="tiny">Image: <a href=
-    "https://commons.wikimedia.org/wiki/File:DNA_Structure%2BKey%2BLabelled.pn_NoBB.png">
-    Zephyris</a>, <a href=
-    "https://creativecommons.org/licenses/by-sa/3.0">CC BY-SA
-    3.0</a>, via Wikimedia Commons</p>
-  </div>
-  <div class="notes">
-    <p>The "program" of a cell is called its genome. The human
-    genome is split into 23 chromosomes each of which is a DNA
-    molecule, a chain of a hundred million or so little building
-    blocks called base pairs or nucleotides. All in all, the human
-    genome consists of about 12Gbit of information.</p>
-    <p>All of your cells have the same genome, like sharing a
-    container image, but different genes are active in different
-    cells, depending on their role in the body.</p>
-  </div>
-  <div class="slide">
-    <h3>Genes</h3><img src="img/gene.svg" class="seventy"><br>
-    <ul>
-      <li>Genes code for proteins</li>
-      <li>Wrapped in headers and footers which regulate
-      expression</li>
-      <li>Some small: one protein, hundreds of base pairs</li>
-      <li>Some huge: dozens of proteins, millions of base
-      pairs</li>
-    </ul>
-    <p class="tiny">Image: <a href=
-    "https://commons.wikimedia.org/wiki/File:Gene_structure_eukaryote_2_annotated.svg">
-    Thomas Shafee</a>, <a href=
-    "https://creativecommons.org/licenses/by/4.0">CC BY 4.0</a>,
-    via Wikimedia Commons</p>
-  </div>
-  <div class="notes">
-    <p>We do know a bit about the syntax. Each chromosome contains
-    many regions called genes, with each gene providing the
-    instructions to make tiny blobby machines called proteins,
-    which the cell uses to do its job. Each gene is wrapped up in
-    more instructions which form a kind of header and footer and
-    which regulate how and when the gene is used. Some genes are
-    small, hundreds of base pairs long and producing a single
-    protein and some are very large, a couple of million base pairs
-    and encoding dozens of proteins.</p>
-  </div>
-  <div class="slide">
-    <img src="img/correlation.png" height="80%" class="ninety">
-    <p class="tiny">Image: tragically, unknown.</p>
-  </div>
-  <div class="notes">
-    <p>... because it's important to check if you really did
-    discover something or it's just noise.</p>
-  </div>
-  <div class="slide">
-    <h3>Questions</h3><img src="img/qrcode.png" class="sixty"><br>
-    <tt>https://nick.zoic.org/PYCON25/</tt>
-  </div>
-  <div class="footer">
-    <span>Nick Moore &lt;nick@zoic.org&gt; for <a href=
-    "https://2025.pycon.org.au/">PyCon AU 2025</a></span>
+	  <h2>G6PD &mdash; 4</h2>
+	  <img src="img/g6pd-3.png" width="90%">
+	  <p class="tiny">Image: <a href="https://www.biorxiv.org/content/10.1101/2025.08.11.669723v2">Functional evidence for G6PD variant classification from mutational scanning (Geck et al)</a></p>
   </div>
 </body>
 </html>

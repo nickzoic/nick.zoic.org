@@ -53,6 +53,8 @@ span.strike span {
     visibility: hidden;
 }
 
+pre.large { font-size: 200% }
+
 pre.medium { font-size: 60% }
 
 pre.small { font-size: 40% }

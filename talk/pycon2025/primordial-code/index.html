@@ -29,7 +29,6 @@
     <p>
     <a href="https://nick.zoic.org/">
     <img src="img/nick-moore.jpg" width="20%"/>
-    <img src="img/qrcode.png" width="20%"/>
     <br/><span>Nick Moore</span>
     <br/><span>nick.zoic.org</span>
     </a>
@@ -41,6 +40,7 @@
     </p>
     <p class="tiny">Photo: Charlotte Moore</p>
   </div>
+
 
   <div class="notes">
 	  <p>My name's Nick Moore, I'm a consultant, working in software development and systems architecture.
@@ -73,6 +73,12 @@ I'm been lucky enough to get involved in that part.
   <div class="notes">
 	  <p>	  Thanks to my colleagues at <strong>Walter and Eliza Hall Institute of Medical Research</strong> and at <strong>University of Washington Genome Sciences</strong> and at the <strong>Brotman Baty Institute</strong> for their patience while I've found my feet in this field.</p>
 	  <p><strong>Mistakes and oversimplifications are all mine!</strong></p>
+  </div>
+
+  <div class="slide">
+	  <h2>Slides, Notes, Errata</h2>
+	  <img src="img/qrcode.png" width="30%"/><br/>
+    <pre>https://nick.zoic.org/PYCON25/</pre>
   </div>
 
   <div class="slide">
@@ -249,17 +255,6 @@ Because there's four possible pairs each "base pair" is equivalent to 2 binary b
 So "1 million base pairs" that means 2 megabits of information.
   </div>
 
-<div class="slide">
-	<img src="img/atp-synthase-animated.gif" width="30%"/>
-	ATP Synthase
-	<p class="tiny">Image: <a href="https://pdb101.rcsb.org/learn/videos/atp-synthase">PDB-101</a></p>
-</div>
-
-<div class="notes">
-I've been talking about proteins as little machines, and just to make sure you don't
-think this is some kind of metaphor, this is a picture of a protein complex called
-ATP synthase.
-</div>
 
   <div class="slide">
 	  <h2>DNA Sequencing &mdash; 1</h2>
@@ -313,6 +308,11 @@ So who's counting?
 		  <tr><td>Deletion</td><td>ACAGAGCT<b><s>AGG</s></b>GGCCCTG</td><td>g.8delAGG</td></tr>
 		  <tr><td>Duplication</td><td>ACAGAGC<u>AGGTGGCC</u><b>AGGTGGCC</b>CTG</td><td>g.8_15dup</td></tr>
           </table>
+	  <ul>
+		  <li>Radiation, replication errors, retroviruses</li>
+		  <li>Most changes are unhelpful</li>
+		  <li>But over vast time scales ...</li>
+	  </ul>
 </div>
 
 <div class="notes"><p>
@@ -439,6 +439,18 @@ There's no documentation or source control, but by looking at the common feature
 </div>
 
 <div class="slide">
+	<img src="img/atp-synthase-animated.gif" width="30%"/>
+	ATP Synthase
+	<p class="tiny">Image: <a href="https://pdb101.rcsb.org/learn/videos/atp-synthase">PDB-101</a></p>
+</div>
+
+<div class="notes">
+I've been talking about proteins as little machines, and just to make sure you don't
+think this is some kind of metaphor, this is an animation of a protein complex called
+ATP synthase.
+</div>
+
+<div class="slide">
 	<h2>Translation</h2>
 
 	<table style="table-layout: fixed; width: 100%; font-size: 12pt">
@@ -553,8 +565,9 @@ These are the *Eukaryotes*.
 	 </p>
   </div>
   <div class="slide">
-	  <h2>Animal Cell</h2>
-    <img src="img/animal.svg" width="60%"> 
+	  <h2>Eukaryote Cell</h2>
+    <img src="img/animal.svg" width="50%"> 
+    <p>mitochondria</p>
     <p class="tiny">Image: <a href="https://commons.wikimedia.org/wiki/File:Animal_cell_structure_en.svg">
     LadyofHats</a>, Public domain, via Wikimedia Commons</p>
   </div>
@@ -585,7 +598,8 @@ They've been engulfed but they're still separate and running their own OS.
 
   <div class="slide">
 	  <h2>Plant Cell</h2>
-	  <img src="img/plant.svg" width="60%">
+	  <img src="img/plant.svg" width="50%">
+	  <p>mitochondria and chloroplasts</p>
     <p class="tiny">Image: <a href="https://en.wikipedia.org/wiki/File:Plant_cell_structure-en.svg">LadyofHats</a>, Public domain, via Wikimedia Commons</p>
   </div>
 

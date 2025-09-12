@@ -148,7 +148,7 @@ body.flip a {
 }
 
 b, .top {
-    color: #800;
+    color: #F00;
 }
 
 pre b {
@@ -277,3 +277,5 @@ b.major {
 	    50% { opacity: 0; }
     }
 
+
+.

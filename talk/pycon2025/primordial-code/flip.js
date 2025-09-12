@@ -40,15 +40,18 @@
     window.onkeydown = function (e) {
         var k = e.keyCode;
 
-	// escape exits the slideshow
-        if (k == 27) {
+	console.log("got keycode" + k);
+
+	// escape or 'p' exits the slideshow
+        if (k == 27 || k == 116) {
     	    change_slide(0);
 	}
 
-	// Enter or period "." key enters the slideshow
+	// Enter or period "." or 'b' key enters the slideshow
 	// or jumps to the end (unless you're already at the end)
-	else if (k == 13 || k == 190) {
-	    if (!n || n == s.length) {
+	else if (k == 13 || k == 190 || k == 66) {
+	    console.log("slide " + n + " / " + s.length);
+	    if (!p || p == s.length) {
 	        change_slide(1);
 	    } else {
 		change_slide(s.length);

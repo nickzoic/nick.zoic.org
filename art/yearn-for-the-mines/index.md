@@ -110,7 +110,13 @@ settled on is a collection of 4096-element bytearrays, each of which
 maps into a Luanti 16x16x16 mapblock.
 
 In Python terms, `World` is a mapping from a triple of integers
-to a 4096 element bytearray:
+to 4096 element bytearrays.  Using `defaultdict` means that a new 
+empty chunk gets created whenever it is needed.
+
+It's easy to write a function `set_block(x, y, z, b)`
+which finds the appropriate chunk and offset for a location `(x, y, z)`
+and writes a block `b` to that position.
+
 
 ```
 CHUNK = 16
@@ -121,6 +127,8 @@ def set_block(x, y, z, b):
     chunk = World[(x//CHUNK,y//CHUNK,z//CHUNK)]
     chunk[(z%CHUNK)*CHUNK*CHUNK + (y%CHUNK)*CHUNK + (x%CHUNK)] = b
 ```
+
+The bytearray values default to `0` so we'll map that to "air".
 
 That collection gets populated by
 looping over the Ultima IV world map, scaling it up by an arbitrary
@@ -149,7 +157,8 @@ So the steps are:
 
 ### Smoothing
 
-The current map is very blocky.  I mean, blockier than it needs to be.
+The current map is very blocky.  I mean, of course it is blocky, but
+it's blockier than it needs to be.
 What I want to do is run some kind of filter over it which will smooth
 out the square corners into more natural looking bends.
 
@@ -164,13 +173,13 @@ Instead I've used a filter which sets each cell to the
 median value of an `(N*2+1) x (N*2+1)` area around the cell.
 Since this is always an odd number of cells, the median
 value is always one of the values in the area, and so 
-no extraneous blocks are added.  It results in some quite
-nice rounded features.
+no extraneous block types are added.  It results in some quite
+nice rounded features:
 
-![median values](img/median1.jpg)
+![median values](img/median1.png)
 *median filter: much nicer*
 
-![median values (zoomed)](img/median2.jpg)
+![median values (zoomed)](img/median2.png)
 *median filter: zoomed in a little more*
 
 ### Landscaping

@@ -194,10 +194,12 @@ nice rounded features:
 ![swampy inlet in Ultima IV](img/river2.png)
 *swampy inlet in Ultima IV*
 
-![swampy inlet in Luanti with median values](img/median1.png)
-*swampy inlet in Luanti with median filter: much nicer*
+![swampy inlet with median values](img/median1.png)
+*swampy inlet with median filter: much nicer*
 
-![
+![swampy inlet from the air, in Luanti](img/ss0913.png)
+*swampy inlet with median filter, in Luanti*
+
 ### Terrain
 
 At the moment the landscape is pretty boring ... 

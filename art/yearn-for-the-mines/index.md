@@ -191,9 +191,13 @@ value is always one of the values in the area, and so
 no extraneous block types are added.  It results in some quite
 nice rounded features:
 
-![median values](img/median1.png)
-*median filter: much nicer*
+![swampy inlet in Ultima IV](img/river2.png)
+*swampy inlet in Ultima IV*
 
+![swampy inlet in Luanti with median values](img/median1.png)
+*swampy inlet in Luanti with median filter: much nicer*
+
+![
 ### Terrain
 
 At the moment the landscape is pretty boring ... 

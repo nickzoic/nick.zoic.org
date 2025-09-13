@@ -147,6 +147,32 @@ So the steps are:
 
 ## Further Work
 
+### Smoothing
+
+The current map is very blocky.  I mean, blockier than it needs to be.
+What I want to do is run some kind of filter over it which will smooth
+out the square corners into more natural looking bends.
+
+Averaging the values isn't right because that would generate a strip of
+"shallow water" (2) where "normal water" (1) touches land (3), and similar
+artifacts in other places.
+
+![averaging values](img/avg.png)
+*averaging filter: blech*
+
+Instead I've used a filter which sets each cell to the
+median value of an `(N*2+1) x (N*2+1)` area around the cell.
+Since this is always an odd number of cells, the median
+value is always one of the values in the area, and so 
+no extraneous blocks are added.  It results in some quite
+nice rounded features.
+
+![median values](img/median1.jpg)
+*median filter: much nicer*
+
+![median values (zoomed)](img/median2.jpg)
+*median filter: zoomed in a little more*
+
 ### Landscaping
 
 At the moment the landscape is pretty boring ... 

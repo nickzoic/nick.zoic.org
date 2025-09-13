@@ -32,8 +32,8 @@ pretty close knockoff[^1] of Minecraft, although written in a more
 modular and customizable way.
 
 [^1]: I mean, you can argue that Minecraft started as a pretty close 
-  knockoff of [Infiniminer](https://en.wikipedia.org/wiki/Infiniminer)
-  and so on and so forth.
+      knockoff of [Infiniminer](https://en.wikipedia.org/wiki/Infiniminer)
+      and we're all standing on each other's feet all the way down.
 
 It's also [open source](https://github.com/luanti-org/luanti)
 and fairly well documented and written in C++ and Lua rather

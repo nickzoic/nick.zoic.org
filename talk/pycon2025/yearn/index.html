@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="flip.css">
+  <script src="flip.js"></script>
+  <title>The Children Yearn for the Mines</title>
+</head>
+<body>
+  <div class="notes">
+    Press "." to enter slideshow, once entered "PgUp" and "PgDn" to
+    navigate, "Esc" to leave slideshow again.
+  </div>
+  <div class="slide">
+    <h1>The Children Yearn for the Mines</h1>
+    <h2>Importing Ultima IV maps into <s>Minecraft</s> <s>Minetest</s>Luanti</h2>
+    <h3>Nick Moore</h3>
+  </div>
+
+  <div class="slide">
+	  <span style="font-size: 1200%">Procrastination</span>
+  </div>
+
+  <div class="slide">
+	  <h2>The Primordial Code</h2>
+	  <h3>TODO:</h3>
+	  <ul>
+		  <li>history of cool stuff</li>
+		  <li>4 billion years of biology in 10 minutes</li>
+		  <li>even cooler stuff</li>
+		  <li>you are in a twisty maze of wikipedia articles, all different</li>
+		  <li>evolution wtaf are you don</li>
+		  <li>is everything a fish?</li>
+		  <li><b>XXX TODO finish todo list LOL</b></li>
+	  </ul>
+   </div>
+
+  <div class="slide">
+	  <img src="img/zstats0.png" width="60%">
+  </div>
+
+  <div class="slide">
+	  <img src="img/world.png" width="50%">
+  </div>
+
+  <div class="slide">
+	  <h2>Minecraft</h2>
+	  <em>Images of Minecraft are the intellectual property of Microsoft.<br/>
+		  This is not a place of honor.<br/>
+		  Do not fold, spindle or mutilate.
+	  </em>
+  </div>
+
+   <div class="slide">
+	   <h2>Reading the Map</h2>
+
+	   <pre class="small">with open("dat/WORLD.MAP", "rb") as fh:
+    ultima_world = fh.read(256*256)
+
+def get_block(x, y):
+    return ultima_world[(y//32)*8192+(x//32)*1024+(y%32)*32+(x%32)]</pre>
+   </div>
+
+   <div class="slide">
+	   <h2>Writing the Map</h2>
+
+	   <s>Minecraft</s><br/>
+	   <s>Minetest</s><br/>
+	   <b>Luanti</b>
+   </div>
+
+   <div class="slide"> 
+	   <pre class="small">def block_to_data(block):
+    # block is a binary array of node IDs in ZYX order.
+    assert len(block) == 4096
+
+    # headers
+
+    yield 14 # flags: generated, lighting expired, day_night_differs, NOT is_underground
+    yield from u16(0) # lighting needs recomputing in all directions
+    yield from u32(0xffffffff) # timestamp
+
+    # block mapping: only bother including blocks present in
+    # this sector.
+
+    present_blocks = set(block)
+    present_block_map = [ (k, v) for k, v in block_map.items() if v in present_blocks ]
+
+    yield 0    # mapping version
+    yield from u16(len(present_block_map)) # length of block map
+    for k, v in present_block_map:
+        yield from u16(v)
+        yield from u16(len(k))
+	yield from bytes(k, 'ascii')</pre>
+   </div>
+   <div class="slide">
+	<pre class="small">yield 2 # content_width (always 2)
+    yield 2 # params_width  (always 2)
+
+    for b in block:
+        yield from u16(b) # param0
+
+    for b in block:
+        yield 0           # param1
+
+    for b in block:
+        yield 0           # param2
+
+    yield from u32(0)
+
+    yield 10             # timer record size (always 10)
+    yield from u16(0)  # no timers</pre>
+   </div>
+
+   <div class="slide">
+	   <pre class="small">def block_to_binary(block):
+    yield 29              # chunk version number
+    yield from zstd.compress(bytes(block_to_data(block)))
+
+db = sqlite3.connect('/home/nick/.minetest/worlds/x/map.sqlite')
+
+def write_block(x, y, z, block):
+    pos = z * 4096 * 4096 + y * 4096 + x
+    data = bytes(block_to_binary(block))
+    db.execute("insert or replace into blocks (pos, data) values (?, ?)", (pos, data))</pre>
+
+   </div>
+
+   <div class="slide">
+	   <img src="img/ss00.png" width="50%">
+   </div>
+
+   <div class="slide">
+	   <img src="img/river.png" width="50%">
+   </div>
+
+   <div class="slide">
+	   <img src="img/ss2.png" width="50%">
+   </div>
+
+   <div class="slide">
+	   <img src="img/bandb.png" width="50%">
+   </div>
+
+   <div class="slide">
+	   <img src="img/britain.png" width="50%">
+   </div>
+
+   <div class="slide">
+	   <img src="img/ss14.png" width="70%">
+   </div>
+
+   <div class="slide">
+	   <img src="img/river2.png" width="60%">
+   </div>
+
+   <div class="slide">
+	   <img src="img/median1.png" width="50%">
+   </div>
+
+   <div class="slide">
+	   <img src="img/ss0913.png" width="50%">
+   </div>
+  
+   <div class="slide">
+	   <h2>Ultima IV in Luanti</h2>
+	   <ul>
+		   <li>Mountains</li>
+		   <li>Trees</li>
+		   <li>Shrines</li>
+		   <li>Dungeons</li>
+		   <li>Moongates</li>
+		   <li><b>XXX TODO finish TODO list ROFLcopter</b></li>
+	   </ul>	
+   </div>
+
+  <div class="slide">
+	  <span style="font-size: 1200%">Procrastination</span>
+  </div>
+
+  <div class="slide" style="background-image: url('img/yeast.jpg')">
+	  <img src="img/qrcode.png">
+	  <pre>https://nick.zoic.org/PYCON25/</pre>
+  </div>
+
+  <div class="footer">
+    <span>Nick Moore &lt;nick@zoic.org&gt; for <a href=
+    "https://2025.pycon.org.au/">PyCon AU 2025</a></span>
+  </div>
+
+</body>
+</html>

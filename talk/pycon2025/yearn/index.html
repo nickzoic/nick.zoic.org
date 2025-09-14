@@ -17,8 +17,23 @@
     <h3>Nick Moore</h3>
   </div>
 
+  <div class="notes">
+	  This is a presentation about copying the Ultima IV maps into
+	  Minecraft, well not minecraft but a thing which was called Minetest
+	  and is now called Luanti
+  </div>
+
   <div class="slide">
 	  <span style="font-size: 1200%">Procrastination</span>
+  </div>
+
+  <div class="notes">
+	  it's okay I'll fix that later<br/>
+
+	  actually it's a talk about procrastination.  Yesterday Ada gave a 
+	  lightning talk about procrastination and I wanted to show that 
+	  while students can procrastinate hard, senior devs can procrastinate
+	  harder.
   </div>
 
   <div class="slide">
@@ -35,12 +50,28 @@
 	  </ul>
    </div>
 
+   <div class="notes">
+	   anyway I was working on yesterday's presentation about bioinformatics and
+	   I'd gotten as far as a to-do list which had lots to do and it was a lot
+	   of hard work but all I had to do was get on with it but ...
+    </div>
+
   <div class="slide">
 	  <img src="img/zstats0.png" width="60%">
   </div>
 
+  <div class="notes">
+	  anyway so when I was a teenager I really loved this game called Ultima IV
+	  which ran on the apple 2 and even though there you saw the world through this
+	  tiny window ...
+  </div>
+
   <div class="slide">
 	  <img src="img/world.png" width="50%">
+  </div>
+
+  <div class="notes">
+	  ... there was a whole world there in your imagination.  Places in games can seem really really even though they're just imaginary ...
   </div>
 
   <div class="slide">
@@ -49,6 +80,16 @@
 		  This is not a place of honor.<br/>
 		  Do not fold, spindle or mutilate.
 	  </em>
+  </div>
+
+  <div class="notes">
+	  NO PICTURES.
+
+	  Anyway, when Minecraft came out I thought about how cool it would be if I 
+	  could take the blocky maps from Ultima IV and put them into the blocky world
+	  of Minecraft.
+
+	  Several years later ...
   </div>
 
    <div class="slide">
@@ -61,12 +102,23 @@ def get_block(x, y):
     return ultima_world[(y//32)*8192+(x//32)*1024+(y%32)*32+(x%32)]</pre>
    </div>
 
+   <div class="notes">
+	   reading the Ultima IV map is really easy because computers were too
+	   primitive to be difficult and so it's just a bunch of bytes in a file 
+	   but not in order of course because computers
+   </div>
+
    <div class="slide">
 	   <h2>Writing the Map</h2>
 
 	   <s>Minecraft</s><br/>
 	   <s>Minetest</s><br/>
 	   <b>Luanti</b>
+   </div>
+
+   <div class="notes">
+	   Instead of targeting Minecraft which is closed source and in Java `:-(`
+	   I decided to target Luanti which is open source and in Lua `:-/`
    </div>
 
    <div class="slide"> 
@@ -93,6 +145,17 @@ def get_block(x, y):
         yield from u16(len(k))
 	yield from bytes(k, 'ascii')</pre>
    </div>
+
+   <div class="notes">
+	   the file format for this is documented.  It's very weird but at least
+	   it is documented.  Well, more like "confessed".
+	   <br/>
+	   I promised I'd show some python source code at this python conference
+	   so here it is.  There's no syntax highlighting.  Git gud.
+	   <br/>
+	   it builds a bunch of binary data ...
+   </div>
+
    <div class="slide">
 	<pre class="small">yield 2 # content_width (always 2)
     yield 2 # params_width  (always 2)
@@ -112,6 +175,11 @@ def get_block(x, y):
     yield from u16(0)  # no timers</pre>
    </div>
 
+   <div class="notes">
+	   ... and some metadata which I don't really understand but I just
+	   set it mostly to 0 and it sort of works.
+   </div>
+
    <div class="slide">
 	   <pre class="small">def block_to_binary(block):
     yield 29              # chunk version number
@@ -126,42 +194,86 @@ def write_block(x, y, z, block):
 
    </div>
 
+   <div class="notes">
+	   Then it writes it into sqlite as a zlib compressed blob.
+	   <br/>
+	   Confession.
+   </div>
+
    <div class="slide">
 	   <img src="img/ss00.png" width="50%">
+   </div>
+
+   <div class="notes">
+	   Now I could write 16x16x16 blocks of random crap into Luanti.
    </div>
 
    <div class="slide">
 	   <img src="img/river.png" width="50%">
    </div>
 
+   <div class="notes">
+	   this is a bit of the Ultima IV map
+   </div>
+
+
    <div class="slide">
 	   <img src="img/ss2.png" width="50%">
+   </div>
+
+   <div class="notes">
+	   here it is copied into Luanti, scaled up 1:12.
    </div>
 
    <div class="slide">
 	   <img src="img/bandb.png" width="50%">
    </div>
 
+   <div class="notes">
+	   there's also towns and castles and stuff
+   </div>
+
    <div class="slide">
 	   <img src="img/britain.png" width="50%">
+   </div>
+
+   <div class="notes">
+	   ... which have their own 32x32 maps so I just write them into
+	   the map at the appropriate places, scaled 1:1.
    </div>
 
    <div class="slide">
 	   <img src="img/ss14.png" width="70%">
    </div>
 
+   <div class="notes">
+	   that worked.
+   </div>
+
    <div class="slide">
 	   <img src="img/river2.png" width="60%">
+   </div>
+
+   <div class="notes">
+	   it all looked a bit square and ugly though
    </div>
 
    <div class="slide">
 	   <img src="img/median1.png" width="50%">
    </div>
 
+   <div class="notes">
+	   so I implemented a filter to round everything off
+   </div>
+
    <div class="slide">
 	   <img src="img/ss0913.png" width="50%">
    </div>
-  
+ 
+   <div class="notes">
+	   and that looked a lot better
+   </div>
+
    <div class="slide">
 	   <h2>Ultima IV in Luanti</h2>
 	   <ul>
@@ -174,13 +286,27 @@ def write_block(x, y, z, block):
 	   </ul>	
    </div>
 
+   <div class="notes">
+	   so now I had a whole list of other things to do: mountains needed
+	   to grow up and oceans grow down and it needed trees and dungeons
+	   and shrines and moongates and it was all a bit hard and tedious.
+   </div>
+
   <div class="slide">
 	  <span style="font-size: 1200%">Procrastination</span>
+  </div>
+
+  <div class="notes">
+	  so i procrastinated
   </div>
 
   <div class="slide" style="background-image: url('img/yeast.jpg')">
 	  <img src="img/qrcode.png">
 	  <pre>https://nick.zoic.org/PYCON25/</pre>
+  </div>
+
+  <div class="notes">
+	  and that's how I finished my bioinformatics presentation slides
   </div>
 
   <div class="footer">

@@ -8,6 +8,8 @@ summary: |
     Two great block-map-based games which taste great together
 ---
 
+UPDATE: [i talked about this in a lightning talk at PyConAU 2025](/talk/pycon2025/yearn/)
+
 I've been a bit [obsessed with Ultima IV](../ultima-iv-reflections)
 for [a while now](../journey-onward-apple-2-and-me/) and when 
 [MineCraft](https://minecraft.net/) first came out in Beta in,

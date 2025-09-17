@@ -1,12 +1,12 @@
 ---
 date: '2025-09-17'
-layout: draft
+layout: article
 title: 'Optimistic Event Driven Simulation / Mixed Mode Simulation'
 tags:
     - networks
     - old-stuff
 summary: |
-    From the lost-to-the-sands-of-time drawer.
+    Two from the lost-to-the-sands-of-time drawer.
 ---
 
 I was looking at publications recently and realized it's been 20 years since
@@ -57,11 +57,11 @@ running two events wih different times the earlier one could interpose an event
 before the later one, causing anachronisms.
 This severely limits the parallelization of simulations across multi CPUs.
 
+### Partitioning
+
 If you know all nodes are at least time `N` apart then you can allow several
 events to be processed in parallel so long as they are on different nodes
 and are within time `N` of each other.
-
-### Partitioning
 
 If our simulation spans large distances, we can partition the problem into 
 multiple queues. 
@@ -78,18 +78,28 @@ which queues.
 
 ## Optimistic Event Driven Simulation
 
-It's *possible* that an event `E_1` at time `t_1` could insert an event before
-event `E_2` at time `t_2`, but maybe it's not likely.
-In which case, we can optimistically go ahead and simulate `E_2`, keeping the
-'before' state(s) around in case an event is received and we have to rewind.
-Old states are only kept around until the slowest clock has caught up, at which
-point they are no longer needed and can be disposed of.
+Imagine we have a simulation of a complex network.
+We'd like to use severl CPU cores for the simulation, in parallel,
+but our nodes are too close together to effectively partition.
+If we have a mechanism to *rewind* events, we can still run
+successive events in parallel and just rewind if an anachronism occurs.
 
+We go ahead and optimistically process events from the queue as processors
+become available.
+Each node has its own state, and we keep a backlog of old states and events.
+If an event causes a new event to be scheduled before an event which has already
+been processed, we can use this information to rewind the
+node to before the new event and replay.
+The backlog of states and events can be trimmed as the oldest
+clock passes.
+
+A maximum 'window' time can be tuned to get a good amount of parallelization
+without too my retrying.
 This matters more when the simulation events are "heavy", which brings us to ...
 
 ## Mixed Mode Simulation
 
-Another thing I spent some time looking at, "Mixed Mode Simulation".
+... another thing I spent some time looking at, "Mixed Mode Simulation".
 
 We were using [User Mode Linux](https://en.wikipedia.org/wiki/User-mode_Linux)
 to work on [HMIPv6](https://www.rfc-editor.org/rfc/rfc4140) and

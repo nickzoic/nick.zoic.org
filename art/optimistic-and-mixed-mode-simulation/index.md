@@ -4,6 +4,7 @@ layout: draft
 title: 'Optimistic Event Driven Simulation / Mixed Mode Simulation'
 tags:
     - networks
+    - old-stuff
 summary: |
     From the lost-to-the-sands-of-time drawer.
 ---

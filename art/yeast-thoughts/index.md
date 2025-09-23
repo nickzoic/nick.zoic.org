@@ -1,7 +1,7 @@
 ---
 title: Yeast Thoughts
 date: 2025-09-23
-summary: Some thoughts about the yeast modeling we've been doing
+summary: "Some thoughts about the yeast modeling we've been doing"
 tags:
   - bioinformatics
   - simulation

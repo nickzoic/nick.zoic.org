@@ -1,0 +1,21 @@
+<?xml version="1.0" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 1000 700">
+  <line x1="100" y1="600" x2="300" y2="100" stroke="black" stroke-width="100" stroke-linecap="round"/>
+  <line x1="500" y1="600" x2="700" y2="100" stroke="black" stroke-width="100" stroke-linecap="round"/>
+  <line x1="300" y1="600" x2="500" y2="100" stroke="black" stroke-width="100" stroke-linecap="round"/>
+  <line x1="700" y1="600" x2="900" y2="100" stroke="black" stroke-width="100" stroke-linecap="round"/>
+  <line x1="300" y1="600" x2="500" y2="100" stroke="#434343" stroke-width="60" stroke-linecap="round"/>
+  <line x1="700" y1="600" x2="900" y2="100" stroke="#434343" stroke-width="60" stroke-linecap="round"/>
+  <line x1="300" y1="100" x2="500" y2="600" stroke="black" stroke-width="100" stroke-linecap="round"/>
+  <line x1="700" y1="100" x2="900" y2="600" stroke="black" stroke-width="100" stroke-linecap="round"/>
+  <line x1="100" y1="600" x2="300" y2="100" stroke="#752123" stroke-width="60" stroke-linecap="round"/>
+  <line x1="500" y1="600" x2="700" y2="100" stroke="#752123" stroke-width="60" stroke-linecap="round"/>
+  <line x1="300" y1="100" x2="500" y2="600" stroke="#752123" stroke-width="60" stroke-linecap="round"/>
+  <line x1="700" y1="100" x2="900" y2="600" stroke="#752123" stroke-width="60" stroke-linecap="round"/>
+  <line x1="500" y1="100" x2="700" y2="600" stroke="black" stroke-width="100" stroke-linecap="round"/>
+  <line x1="500" y1="100" x2="700" y2="600" stroke="#434343" stroke-width="60" stroke-linecap="round"/>
+  <line x1="450" y1="225" x2="500" y2="100" stroke="#434343" stroke-width="60"/>
+  <line x1="700" y1="600" x2="750" y2="475" stroke="#434343" stroke-width="60"/>
+</svg>
+

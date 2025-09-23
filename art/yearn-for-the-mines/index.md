@@ -8,6 +8,8 @@ summary: |
     Two great block-map-based games which taste great together
 ---
 
+UPDATE: [i talked about this in a lightning talk at PyConAU 2025](/talk/pycon2025/yearn/)
+
 I've been a bit [obsessed with Ultima IV](../ultima-iv-reflections)
 for [a while now](../journey-onward-apple-2-and-me/) and when 
 [MineCraft](https://minecraft.net/) first came out in Beta in,
@@ -21,6 +23,8 @@ Attacked by goddamn skeletons!
 Almost immediately I thought: I wonder if it'd be possible to 
 bring Ultima IV's beautifully designed continent into 3D life.
 
+[![The world of Ultima IV](img/world.png)](img/world.png)
+*The world of Ultima IV*
 I did get as far as messing with Minecraft's maps, but the file
 formats changed a few times and many other things kept me busy,
 and I never really got anywhere with this idea, until ...
@@ -32,8 +36,8 @@ pretty close knockoff[^1] of Minecraft, although written in a more
 modular and customizable way.
 
 [^1]: I mean, you can argue that Minecraft started as a pretty close 
-  knockoff of [Infiniminer](https://en.wikipedia.org/wiki/Infiniminer)
-  and so on and so forth.
+      knockoff of [Infiniminer](https://en.wikipedia.org/wiki/Infiniminer)
+      and we're all standing on each other's feet all the way down.
 
 It's also [open source](https://github.com/luanti-org/luanti)
 and fairly well documented and written in C++ and Lua rather
@@ -75,8 +79,11 @@ Looping over the world and writing each tile as a big 16x16x16 mapblock
 went okay, got me to the point of having something which looked a
 tiny bit like a map ...
 
-![behold, a familiar river](img/ss2.png)
-*behold, a familiar river*
+![behold, a familiar river (in Ultima IV)](img/river.png)
+*behold, a familiar river in Ultima IV*
+
+![behold, a familiar river (in Luanti)](img/ss2.png)
+*behold, a familiar river in Luanti*
 
 ... and then it was just a matter of finding the right
 [Luanti materials](https://wiki.minetest.org/Games/Minetest_Game/Nodes)
@@ -110,7 +117,13 @@ settled on is a collection of 4096-element bytearrays, each of which
 maps into a Luanti 16x16x16 mapblock.
 
 In Python terms, `World` is a mapping from a triple of integers
-to a 4096 element bytearray:
+to 4096 element bytearrays.  Using `defaultdict` means that a new 
+empty chunk gets created whenever it is needed.
+
+It's easy to write a function `set_block(x, y, z, b)`
+which finds the appropriate chunk and offset for a location `(x, y, z)`
+and writes a block `b` to that position.
+
 
 ```
 CHUNK = 16
@@ -122,17 +135,29 @@ def set_block(x, y, z, b):
     chunk[(z%CHUNK)*CHUNK*CHUNK + (y%CHUNK)*CHUNK + (x%CHUNK)] = b
 ```
 
-That collection gets populated by
+The bytearray values default to `0` so we'll map that to "air".
+By storing the bytes in the same order as the file format
+expects, we can use the bytearrays directly to write the chunks.
+
+That map gets populated by
 looping over the Ultima IV world map, scaling it up by an arbitrary
 `SCALE` factor.  Trying different values, I've come to think that 
-something around 12 or 14 might be appropriate.  Or maybe 20.
+12 or 14 might be appropriate.
 
 With any `SCALE` of less than 32 the towns hang over the edges of their
-tiles into adjoining tiles but there's some extra space so it doesn't 
-matter too much.
+tiles into adjoining tiles but towns aren't right next to
+each other so it doesn't matter too much.
 
-![Britain and Britannia](img/ss14.png)
-*Britain and Britannia*
+![Britain and Castle Britannia (in Ultima IV)](img/bandb.png)
+*Britain and Castle Britannia in Ultima IV*
+
+![Britain and Castle Britannia (in Luanti)](img/ss14.png)
+*Britain and Castle Britannia in Luanti*
+
+Castle Britannia has two maps stacked on top of 
+each other and also has two "ends" to make it look
+grander but we can just ignore those and fill them in
+manually later.
 
 ## Transformation
 
@@ -147,18 +172,53 @@ So the steps are:
 
 ## Further Work
 
-### Landscaping
+### Smoothing
+
+The current map is very blocky.  I mean, of course it is blocky, but
+it's blockier than it needs to be.
+What I want to do is run some kind of filter over it which will smooth
+out the square corners into more natural looking bends.
+
+Averaging the values isn't right because that would generate a strip of
+"shallow water" (2) where "normal water" (1) touches land (3), and similar
+artifacts in other places.
+
+![averaging values](img/avg.png)
+*averaging filter: blech*
+
+Instead I've used a filter which sets each cell to the
+median value of an `(N*2+1) x (N*2+1)` area around the cell.
+Since this is always an odd number of cells, the median
+value is always one of the values in the area, and so 
+no extraneous block types are added.  It results in some quite
+nice rounded features:
+
+![swampy inlet in Ultima IV](img/river2.png)
+*swampy inlet in Ultima IV*
+
+![swampy inlet with median values](img/median1.png)
+*swampy inlet with median filter: much nicer*
+
+![swampy inlet from the air, in Luanti](img/ss0913.png)
+*swampy inlet with median filter, in Luanti*
+
+### Terrain
 
 At the moment the landscape is pretty boring ... 
 flat ... because it is.
-The continent is hilly as anything.
+The continent of Britain is hilly as anything.
 
-So I suspect what it needs is some kind of elevation map,
+So I suspect what it needs is a `(256 * SCALE × 256 * SCALE)`
+elevation map,
 letting the landscape "fall up" from the coast to
 the mountains, and down from the coast to the depths.
 
-This would also get rid of the big square corners all
-over the place.
+For `SCALE = 12` this is about 10M values, so could be 
+sensibly stored as a single bytearray, and then we 
+take many passes to fill in the heights and depths.
+
+### Trees
+
 It also needs trees!
 I can generate saplings, I'm not sure whether they'll
 sprout on their own.

@@ -32,19 +32,51 @@
     <br/><span>Nick Moore</span>
     <br/><span>nick.zoic.org</span>
     </a>
-    <br/>
-    <br/>
-    Consultant, software developer, notorious tinkerer.<br/>
+    <p>
+    Consultant: software development, systems architecture.<br/>
+    </p>
+	  <img src="img/mnemote-logo-colour.svg" width="5%">
+  <pre>mnemote.com</pre>
+    <p class="tiny">Photo: Charlotte Moore</p>
+  </div>
+
+  <div class="notes">
+	  My name's Nick Moore, I'm a consultant, working in software development and systems architecture.
+I've been working with computers for a very long time and Python for a fair proportion of that.
+
+  </div>
+
+  <div class="slide">
+	  <h2>Previously</h2>
+	  <ul>
+		  <li>MicroPython</li>
+		  <li>Internet of Things</li>
+		  <li>Visual Programming</li>
+		  <li>Functional Programming in Javascript</li>
+		  <li>NoSQL in Postgres</li>
+	  </ul>
+    <br/><br/>
     Bioinformatician?
     </p>
+  </div>
 
-    <br/>
+
+  <div class="notes">
+       <p>I've previously presented at PyConAU and related conferences on
+       MicroPython, Internet of Things, Visual Programming, Functional Programming in Javascript, NoSQL in Postgres.
+       </p>
+	  <p>
+Recently I've been working in bioinformatics.
+Bioinformatics is the study of biological systems using numerical analysis.
+Biological systems are pretty complex, so typically this analysis requires computers.
+I'm been lucky enough to get involved in that part.
+	  </p>
   </div>
 
   <div class="slide">
 	  <h2>Thanks &amp; Apologies</h2><p>
-  Thanks to my colleagues at WEHI (Walter and Eliza Hall
-  Institute of Medical Research),<br/>
+	  Thanks to my colleagues at<br/>
+	  WEHI (Walter and Eliza Hall Institute of Medical Research),<br/>
   University of Washington Genome Sciences <br/>
 	  and the Brotman Baty Institute.</p>
     <img src="img/wehi.png" width="20%"> &nbsp; &nbsp; &nbsp;
@@ -53,54 +85,169 @@
   <p><strong>Mistakes and oversimplifications are all mine!</strong></p>
   </div>
 
-  <div class="slide">
-	  <h1>Background</h1>
-	  <p>4 Billion Years of Biology in 10 Minutes</p>
+  <div class="notes">
+	  <p>	  Thanks to my colleagues at <strong>Walter and Eliza Hall Institute of Medical Research</strong> and at <strong>University of Washington Genome Sciences</strong> and at the <strong>Brotman Baty Institute</strong> for their patience while I've found my feet in this field.</p>
+	  <p><strong>Mistakes and oversimplifications are all mine!</strong></p>
   </div>
 
   <div class="slide">
-	  <h2>Timeline &mdash; 1</h2>
+	  <h2>Slides, Notes, Errata</h2>
+	  <img src="img/qrcode.png" width="30%"/><br/>
+	  <pre>https://nick.zoic.org/PYCON25/</pre><br/>
+  </div>
+
+  <div class="slide">
+	  <h2>Bioinformatics &mdash; 1</h2>
 	  <table>
 	  <tr><th>1833</th><td>Charles Babbage's <em>Analytical Engine</em> (not completed)</td></tr>
 	  <tr><th>1842</th><td>Punched Tapes for telegraphy</td></tr>
 	  <tr><th>1866</th><td>Gregor Mendel identifies "discrete inheritable units"</td></tr>
 	  <tr><th>1858</th><td>Charles Darwin publishes his theory of natural selection</td></tr>
 	  <tr><th>1869</th><td>DNA isolated (an enormously long molecule, purpose unknown)</td></tr>
-	  <tr><th>1870</th><td>Huxley "Biogenesis and Abiogenesis"</td></tr>
-	  <tr><th>1913</th><td>Morgan &amp; Sturtevant "genetic linkage maps" show linear structure of genetics.</td></tr>
+	  <tr><th>1870</th><td>T. H. Huxley "Biogenesis and Abiogenesis"</td></tr>
           </table>
   </div>
 
+  <div class="notes">
+	  <p>
+	  Bioinformatics is the numerical study of biological systems.
+	  Since biological systems tend to be pretty complicated, this involves computers.
+	  </p><p>
+	  Now you've got two problems.
+	  </p><p>
+	  A lot of the foundations of both fields were laid in the 19th century.
+	  Gregor Mendel worked out that inheritence worked using discrete inheritable
+	  units, he didn't use the word 'gene' but that's the idea.
+	  While Charles Babbage and Ada Lovelace were working on the idea that 
+	  machines could perform calculations, Charles Darwin and Thomas Huxley were
+	  working on natural selection and how life could possibly have
+	  gotten started.
+	  </p><p>
+	  In the meantime, the DNA molecule got discovered, an enormously long molecule
+	  with no known purpose.  We'll come back to that shortly.
+	  </p>
+  </div>
+	
   <div class="slide">
-	  <h2>Timeline &mdash; 2</h2>
+	  <h2>Bioinformatics &mdash; 2</h2>
 	  <table>
+	  <tr><th>1913</th><td>Morgan &amp; Sturtevant "genetic linkage maps" show linear structure of genetics.</td></tr>
 		  <tr><th>1927</th><td>Nikolai Koltsov proposes "giant hereditary molecule" (but runs afoul of his government)</td></tr>
 		  <tr><th>1936</th><td>Alan Turing's "universal computing machines" which use an (infinite) tape.</td></tr>
 		  <tr><th>1937</th><td>Claude Shannon &amp; foundation of digital computing.</td></tr>
 		  <tr><th>1940</th><td>Bletchley Park "Bombe" for cryptanalysis</td></tr>
 		  <tr><th>1940s</th><td>Frederick Sanger: Protein Sequencing</td></tr>
-		  <tr><th>1944</th><td>DNA as the carrier of genetic information</td></tr>
 		  <tr><th>1952</th><td>Alan Turing works on morphogenesis (but runs afoul of his government)</td></tr>
 </table>
 
   </div>
 
+  <div class="notes">
+	  During the 20th century, researchers worked out that some genes were 
+	  more closely coupled than others, and this indicated a linear layout of 
+	  genes in some kind of linked structure.
+	  </p><p>
+	  Nikolai Koltsov proposed a giant molecule as the store of genetic information,
+	  but this didn't fit well with the Lysenkoist theories of Soviet Russia,
+	  landing him in hot water with his government and leading to his early death.
+	  </p><p>
+	  In the meantime, Alan Turing and Claude Shannon worked out theoretical
+	  and practical bases for computing, leading to the invention of cryptanalysis
+	  and the cracking of the Nazi Enigma codes.  After the war, Turing would turn
+	  his attention to morphogenesis, the way organisms grow complex structures,
+	  but also ended up getting government attention and an untimely death.
+	  </p><p>
+	  Proteins were known to be composed of a long string of amino acids, and
+	  thought to be something to do with inheritance.
+	  Frederick Sanger earns a Nobel Prize for working out how to read these 
+	  sequences.
+	  <p>
+  </div>
+
   <div class="slide">
-	  <h2>Timeline &mdash; 3</h2>
+	  <h2>Bioinformatics &mdash; 3</h2>
 	  <table>
+		  <tr><th>1944</th><td>DNA as the carrier of genetic information</td></tr>
 		  <tr><th>1953</th><td>Watson, Crick and Franklin discover the structure of DNA</td></tr>
-		  <tr><th>1970s</th><td>DNA sequencing</td></tr>
+		  <tr><th>1970s</th><td>Frederick Sanger: DNA sequencing</td></tr>
 		  <tr><th>2005</th><td>DNA editing with CRISPR</td></tr>
+		  <tr><th>2015</th><td>DNA therapy</td></tr>
+		  <tr><th>2019</th><td>in-body gene editing</td></tr>
 	</table>
 
   </div>
 
+  <div class="notes">
+	  <p>
+	  However, it is soon discovered that proteins are a later step in the process,
+	  and the true carrier of genetic information is DNA.</P><p>
+	  Watson, Crick and Rosalind Franklin work out the structure of DNA and 
+	  unperturbed, Frederick Sanger works out how to read DNA sequences, earning
+	  another Nobel Prize.
+	  </p><p>
+	  In the 2000s, we work out how to edit DNA, eventually culminating in 
+	  editing DNA in living beings to cure genetic diseases.
+	  </p>
+  </div>
+
+  <div class="slide">
+	  <h1>4,000,000,000 years of Biology in 10 minutes</h1>
+	  <blockquote><em>
+              “Many were increasingly of the opinion that they’d all made a big mistake
+	      in coming down from the trees in the first place.<br/>And some said that even
+	      the trees had been a bad move, and that no one should ever have left the oceans.”</em><br/><br/>
+              ― Douglas Adams, The Hitchhiker's Guide to the Galaxy
+          </blockquote>
+  </div>
+
+  <div class="notes">
+          Let's just quickly review the last 4 billion years of biology.
+  </div>
+
+  <div class="slide">
+	  <h2>Cell</h2>
+	  <img src="img/prokaryote.svg" width="30%"/>
+	  <img src="img/animal.svg" width="30%"/>
+	  <img src="img/plant.svg" width="30%"/>
+
+	  <p class="tiny">Images: 
+	  prokaryote: <a href="https://commons.wikimedia.org/wiki/File:Prokaryote_cell.svg">Ali Zifan</a> <a href="https://creativecommons.org/licenses/by-sa/4.0">CC BY-SA 4.0</a>, via Wikimedia Commons<br/>
+	  <a href="https://commons.wikimedia.org/wiki/File:Animal_cell_structure_en.svg">animal</a> &amp;
+
+	  <a href="https://en.wikipedia.org/wiki/File:Plant_cell_structure-en.svg">plant</a>):
+	  Ladyofhats, Public Domain, via Wikimedia Commons.
+  </div>
+
+  <div class="notes">
+	  <p>
+	  The basic unit of life is the cell.
+	  </p><p>
+	  A cell is a bit like a tiny computer.
+	  </p><p>
+	  Inside there's a bunch of programs called <em>genes</em> which tell the cell
+	  how to make <em>proteins</em>, which are the working machinery of the cell.
+	  </p><p>
+	  The cell is bounded by a membrane which keeps the insides in and the
+	  outsides out, and the cell interacts with the world through 
+	  <em>channels</em> which are kind of like ports which selectively
+	  let specific molecules in and out of the cell.
+	  </p><p>
+	  Bacteria, animals and plant cells are a bit different, but they have
+	  these features in common.
+ 	</p>
+  </div>
+
   <div class="slide">
 	  <h2>DNA</h2>
-	  <img src="img/dna.png" width="50%" />
+	  <img src="img/dna.png" width="40%" />
 	<p class="tiny">Image:
 	<a href="https://commons.wikimedia.org/wiki/File:DNA_Structure%2BKey%2BLabelled.png">Zephyris</a>, <a href="https://creativecommons.org/licenses/by-sa/3.0">CC BY-SA 3.0</a>, via Wikimedia Commons
 	</p>
+  </div>
+
+  <div class="notes">
+	  Genes, the programs of the cell, are encoded as *chromosomes*, very long *DNA* molecules not unlike a tape.
+DNA is built up out of four "bases", Adenine, Cytosine, Guanine and Thymine, generally just abbreviated as A C G and T.
   </div>
 
   <div class="slide">
@@ -116,11 +263,20 @@
  4 Mbp = 8 Mbit = 1 MB</p>
   </div>
 
+  <div class="notes"><p>
+They zip together in pairs, A complements T and C complements G, so we generally refer to this smallest piece of genetic information as a "base pair".
+This is the unit we'll use to compare genome sizes.
+Because there's four possible pairs each "base pair" is equivalent to 2 binary bits of information.
+So "1 million base pairs" that means 2 megabits of information.
+  </div>
+
+
   <div class="slide">
 	  <h2>DNA Sequencing &mdash; 1</h2>
 	  <table>
 		  <tr><th/><th>Organism</th><th>Base Pairs</th><th>Genes</th></tr>
 		  <tr><th>1977</th><td>Bacteriophage ΦX174</td><td>5 kbases﹡</td><td>11</td></tr>
+		  <tr><th>1997</th><td><em>Escherichia coli</em></td><td>4.6 Mbp</td><td>4288</td></tr>
 		  <tr><th>1996</th><td>Brewer's yeast<br/><em>Saccharomyces cerevisiae</em></td><td>12 Mbp</td><td>6275</td></tr>
 		  <tr><th>2000</th><td>Fruit Fly<br/><em>Drosophila melanogaster</em></td><td>120 Mbp</td><td>15k</td></tr>
 		  <tr><th>2003</th><td>Human<br/><em>Homo sapiens</em></td><td>3 Gbp</td><td>20k</td></tr>
@@ -129,67 +285,186 @@
 	<div class="tiny">﹡ It's a single stranded DNA virus which infects bacteria, so it's not really "base pairs"</div>
   </div>
 
+  <div class="notes">
+Bacteria have relatively small genomes, typically a single circular chromosome of hundreds of thousands through to a million or so base pairs.
+The human genome by contrast has about 3 billion base pairs, and each of us have two copies spread over multiple chromosomes.
+  </div>
+
   <div class="slide">
 	  <h2>DNA Sequencing &mdash; 2</h2>
 
-	  <img src="img/genome-sizes.png" width="90%">
+	  <img src="img/genome-sizes.png" width="60%">
  <p class="tiny">Image: <a href="https://en.wikipedia.org/wiki/User:Abizar" class="extiw" title="wikipedia:User:Abizar">Abizar</a> at <a href="https://en.wikipedia.org/wiki/" class="extiw" title="wikipedia:">English Wikipedia</a>, <a href="https://creativecommons.org/licenses/by-sa/3.0" title="Creative Commons Attribution-Share Alike 3.0">CC BY-SA 3.0</a>, <a href="https://commons.wikimedia.org/w/index.php?curid=19537795">Link</a></p>
+	  </div>
+
+	  <div class="notes">
+We're a lot more complicated than a bacteria, but there's a species of lungfish with 130 billion base pairs and an amoeba with 670 billion base pairs.
+<br/>
+So who's counting?
 	  </div>
 
   <div class="slide">
 	  <h2>DNA Sequencing &mdash; 3</h2>
-	  <img src="img/genome-costs.jpg" width="90%">
-	  <p><em>the cost is plotted on a log scale!</em></p>
+	  <img src="img/genome-costs.jpg" width="60%">
+	  <ul style="font-size: 75%">
+		  <li>the cost is plotted on a log scale!</li>
+		  <li>precision medicine</li>
+		  <li>pangenome (going beyond a reference genome)</li>
+	  </ul>
 	  <p class="tiny">Image: <a href="https://www.genome.gov/about-genomics/fact-sheets/Sequencing-Human-Genome-cost">National Human Genome Research Institute</a></p>
   </div>
 
   <div class="slide">
-	  <h2>Cell</h2>
-	  <img src="img/prokaryote.svg" width="50%"/>
-  </div>
-
-  <div class="slide">
 	  <h2>Genes and Evolution</h2>
+	  <table>
+		  <tr><td>Original</td><td>ACAGAGCAGGTGGCCCTG</td><td>g.=</td></tr>
+		  <tr><td>Substitution</td><td>ACAG<b>T</b>GCAGGTGGCCCTG</td><td>g.5A&gt;T</td></tr>
+		  <tr><td>Insertion</td><td>ACAGAGC<b>CGAT</b>AGGTGGCCCTG</td><td>g.7_8insCGAT</td></tr>
+		  <tr><td>Deletion</td><td>ACAGAGCT<b><s>AGG</s></b>GGCCCTG</td><td>g.8delAGG</td></tr>
+		  <tr><td>Duplication</td><td>ACAGAGC<u>AGGTGGCC</u><b>AGGTGGCC</b>CTG</td><td>g.8_15dup</td></tr>
+          </table>
+	  <ul>
+		  <li>Radiation, replication errors, retroviruses</li>
+		  <li>Most changes are unhelpful</li>
+		  <li>But over vast time scales ...</li>
+	  </ul>
+</div>
 
-	  XXX mutation examples
+<div class="notes"><p>
+Unicellular organisms reproduce by copying, and errors arise during the copying process, sometimes leading to novel features in the cells.
+Substitions, Insertion, Deletion, Duplication and more unusual errors like inversion cause
+changes in the DNA.
+
+	</p><p>
+These changes can cause a gene to be shortened or lengthened or split into pieces or fused with another gene.
+Bigger errors can also result in multiple copies of a gene appearing, and then these multiple copies can evolve in different directions.
+Changes can lead to parts of the genome effectively being commented out.
+	</p><p>
+On top of this, pesky things like retroviruses can introduce new genes entirely, effectively writing themselves into a cell's genome to get the cell to make more retroviruses.
+	</p><p>
+It's pretty rare that any of these changes are helpful.
+Most often, they just result in a broken gene.
+But over vast timescales, the helpful changes add up.
+Good features thrive, bad features dwindle, and that's natural selection, leading to evolution.
+	</p>
+
 </div>
 
 <div class="slide">
 	<h2>Horizontal Gene Transfer</h2>
 
-	<img src="img/horizontal.png" width="90%">
+	<img src="img/horizontal.png" width="60%">
 
 	<p class="tiny">
 	<a href="https://commons.wikimedia.org/wiki/File:Bacterial_conjugation.png">Jonasz Patkowski</a>, <a href="https://creativecommons.org/licenses/by-sa/4.0">CC BY-SA 4.0</a>, via Wikimedia Commons</a>
 </div>
 
+<div class="notes"><p>
+Bacteria also exchange genes with different bacteria or even other organisms, by passing *plasmids*, which are like mini chromosomes.
+This is called *horizontal gene transfer*.
+	</p><p>
+It may seem counter-intuitive to give away your code to your competitors, but consider: the thing evolution is optimizing here is not the organism, but the gene.
+If a gene which confers, say, antibiotic resistance gets copied into a new organism and that organism thrives, then the gene is successful even if the old organism is out-competed by the new.
+The *gene* will get passed on to more organisms.
+
+	</p><p>
+Yep, Free Software is billions of years old, and there's been a whole lot of cutting and pasting from the primordial script archive.
+
+	</p>
+</div>
+
 <div class="slide">
 	<h2>The Central Dogma &mdash; 1</h2>
-	<img src="img/dogma-1.svg" width="80%"/>
+	<img src="img/dogma-1.svg" width="70%"/>
 	
 	 <p class="tiny">Image: derived from <a href="https://commons.wikimedia.org/wiki/File:Dogme-central-BioMol.svg">tazvld,Squidonius,toony</a>, <a href="https://creativecommons.org/licenses/by-sa/4.0">CC BY-SA 4.0</a>, via Wikimedia Commons
 </div>
 
+<div class="notes">
+	The "source code" of the genome is DNA, but DNA is just a stable storage for the genome, it doesn't actually **do** anything.
+Instead, DNA is *transcribed* into RNA, and then RNA is *translated* into proteins.
+<br/>
+This is often called the "central dogma" of cellular biology.
+</div>
+
 <div class="slide">
 	<h2>The Central Dogma &mdash; 2</h2>
-	<img src="img/dogma-2.svg" width="80%"/>
+	<img src="img/dogma-2.svg" width="70%"/>
 	 <p class="tiny">Image: derived from <a href="https://commons.wikimedia.org/wiki/File:Dogme-central-BioMol.svg">tazvld,Squidonius,toony</a>, <a href="https://creativecommons.org/licenses/by-sa/4.0">CC BY-SA 4.0</a>, via Wikimedia Commons
 </div>
 <div class="slide">
 	<h2>The Central Dogma &mdash; 3</h2>
-	<img src="img/dogma-3.svg" width="80%"/>
+	<img src="img/dogma-3.svg" width="70%"/>
 	 <p class="tiny">Image: derived from <a href="https://commons.wikimedia.org/wiki/File:Dogme-central-BioMol.svg">tazvld,Squidonius,toony</a>, <a href="https://creativecommons.org/licenses/by-sa/4.0">CC BY-SA 4.0</a>, via Wikimedia Commons
 </div>
+
+<div class="notes">
+There's also cell replication to consider.
+Retroviruses can translate RNA back into DNA so we'd better include that
+There's also *non-coding RNA* which functions directly rather than being translated into a protein first.
+</div>
+
 <div class="slide">
 	<h2>The Central Dogma &mdash; 4</h2>
-	<img src="img/dogma-4.svg" width="80%"/>
+	<img src="img/dogma-4.svg" width="70%"/>
 	 <p class="tiny">Image: derived from <a href="https://commons.wikimedia.org/wiki/File:Dogme-central-BioMol.svg">tazvld,Squidonius,toony</a>, <a href="https://creativecommons.org/licenses/by-sa/4.0">CC BY-SA 4.0</a>, via Wikimedia Commons
 </div>
-<div class="slide">
-        <h2>Protein Machines</h2>
-	<img src="img/atp-synthase.png" width="30%"/>
-	<p>ATP Synthase</p>
+
+<div class="notes">
+Transcription from DNA to RNA is done by a protein complex called *RNA polymerase (RNAP)*.  This little machine unzips the DNA and assembles an RNA molecule, but RNAP is itself made of proteins.
+<br/>
+Proteins are produced from genes, so to build the transcription mechanism we first have to run the transcription mechanism ...
 </div>
+
+
+<div class="notes">
+There's also *splicing* and *translation* to consider.
+DNA is transcribed into RNA but that RNA isn't in it's final form, first it needs to be *spliced*.
+This is done by, yep, more ncRNA and more proteins.
+It's a really complicated process,
+<br/>
+So RNA is self-modifying code, and one piece of RNA can affect the way another piece is expressed, the proteins it produces.
+<br/>
+</div>
+
+<div class="slide">
+	<h2>Bootstrapping</h2>
+
+	<img src="img/boot.jpg" width="40%">
+	<img src="img/disk1.png" width="30%">
+
+	<p class="tiny">Images: boot: <a href="https://commons.wikimedia.org/wiki/File:Boots,_pair_woman%27s_(AM_1992.157-4).jpg">Auckland Museum</a>, <a href="https://creativecommons.org/licenses/by/4.0">CC BY 4.0</a>, via Wikimedia Commons<br/>
+	boot disk: <a href="https://archive.org/details/ms-dos-6.22-1994-microsoft-kfx-1440k">archive.org</a> (who as well as an image of a boot disk have a boot disk image)</p>
+</div>
+
+<div class="notes">
+Before we can compile the compiler, we need to compile the compiler.
+<br/>
+In computing, we call this *bootstrapping*.
+<br/>
+You start off by using very primitive tools, possibly even a pencil, to create a very simple first compiler, and then using that compiler you can build a more sophisticated compiler, and so on.
+<br/>
+All of this only works because the parent cell contained enough of these mechanisms to get the whole process started.
+Kind of a boot disk.
+Those molecules can then make more of themselves, and the cell continues to run.
+<br/>
+You can think of these genes, as an "operating system" which the rest of a cell's biology is implemented on top of.
+<br/>
+There's no documentation or source control, but by looking at the common features of all cellular life we can hypothesize a "univeral common ancestor" which arose about 4 billion years ago, and from which all life is descended.
+</div>
+
+<div class="slide">
+	<img src="img/atp-synthase-animated.gif" width="33%"/>
+	ATP Synthase
+	<p class="tiny">Image: <a href="https://pdb101.rcsb.org/learn/videos/atp-synthase">PDB-101</a></p>
+</div>
+
+<div class="notes">
+I've been talking about proteins as little machines, and just to make sure you don't
+think this is some kind of metaphor, this is an animation of a protein complex called
+ATP synthase.
+</div>
+
 <div class="slide">
 	<h2>Translation</h2>
 
@@ -219,15 +494,45 @@
 	</table>
 
 </div>
+
+<div class="notes">
+	Translation from RNA to Protein isn't simple either.
+A protein is a long chain of amino acids, which is built up by a complex molecular machine called a *ribosome*, built from ncRNA and proteins.
+<br/>
+The mapping from RNA to protein is done by *transfer RNA (tRNA)*.
+Groups of three bases called *codons* correspond to different tRNAs which each bring an amino acid molecule to add onto the protein.
+<br/>
+This table shows the "standard code" which maps codons to amino acids.
+Not all organisms have the exact same code: this table isn't a law of nature.
+It's a result of what tRNA happen to be around, and tRNA is produced from the genome, so this translation is happening "in software".
+<br/>
+It somewhat resembles the instruction decoding tables used in microprocessors — there's some redundancy where 64 codons translate to 20 amino acids.
+Translation starts at a "start" codon and finishes when it reaches a "stop" codon.
+<br/>
+But there's no looping or branching or I/O or whatever, so how is this like a program?
+</div>
+
 <div class="slide">
 	<h2>Gene Regulation &mdash; 1</h2>
 
-	<img src="img/gene.svg" width="90%"/>
+	<img src="img/gene.svg" width="80%"/>
 <p class="tiny">Image: <a href=
     "https://commons.wikimedia.org/wiki/File:Gene_structure_eukaryote_2_annotated.svg">
     Thomas Shafee</a>, <a href=
     "https://creativecommons.org/licenses/by/4.0">CC BY 4.0</a>,
     via Wikimedia Commons</p>
+</div>
+
+<div class="notes">
+	Well, genes are not expressed equally.
+When genes are packed into a chromosome, that's kind of like a library.
+There's some header information before and after each gene, known as the "Regulatory Sequences".
+These affect the way RNA Polymerase attaches to DNA, and how Ribosomes attach to RNA.
+Genes, or groups of genes, can be promoted or suppressed.
+Splicing can be suppressed or altered to produce different proteins.
+<br/>
+All this is under the control of the molecules within the cell, which themselves exist through the action of other genes or from external stimuli.
+<br/>
 </div>
 
 <div class="slide">
@@ -249,33 +554,102 @@
 
 	<h2>Gene Regulation &mdash; 3</h2>
 
-	<img src="img/regulatory.png" width="90%">
+	<img src="img/regulatory.png" width="50%">
 
 	<p class="tiny">Image: <a href="https://www.researchgate.net/figure/Gold-standard-gene-regulatory-network-1-Transcription-factors-are-shown-with-large-blue_fig10_265610629">"Gold-standard gene regulatory network #1"</a>(CC-A-4.0)</p>
 </div>
 
-<div class="slide">
-	<h1>Eukaryotes</h1>
-	  <blockquote><em>
-              “Many were increasingly of the opinion that they’d all made a big mistake
-	      in coming down from the trees in the first place.<br/>And some said that even
-	      the trees had been a bad move, and that no one should ever have left the oceans.”</em><br/><br/>
-              ― Douglas Adams, The Hitchhiker's Guide to the Galaxy
-          </blockquote>
+<div class="notes">
+	Regulation is not always by external stimuli: genes can regulate other genes,
+	positively or negatively, in what are called Gene Regulatory Networks.
+</br>
+If each gene is a statement, the cell's "program" is found in the interaction between those statements.
+And those interactions are extremely complicated.
 </div>
 
   <div class="slide">
 	  <h2>Symbiogenesis</h2>
-	  <img src="img/symbiogenesis.svg" width="60%"/>
+	  <img src="img/symbiogenesis.svg" width="50%"/>
 	  <p class="tiny">Image: <a href="https://commons.wikimedia.org/wiki/File:Symbiogenesis_2_mergers.svg">Chiswick Chap. Redrawn from File:Symbiogenesis.svg to reflect more recent science., CC BY-SA 4.0 &lt;https://creativecommons.org/licenses/by-sa/4.0&gt;, via Wikimedia Commons</a></p>
   </div>
 
+  <div class="notes">
+	  <p>
+	  At some point about 3 billion years ago, a particularly entrepreneurial branch of the Archaea developed a more sophisticated internal cell structure.
+These are the *Eukaryotes*.
+	 </p>
+  </div>
   <div class="slide">
-	  <h2>Animal Cell</h2>
-    <img src="img/animal.svg" class="eighty"> 
-    <p class="tiny">Image: <a href=
-    "https://commons.wikimedia.org/wiki/File:Animal_cell_structure_en.svg">
+	  <h2>Eukaryote Cell</h2>
+    <img src="img/animal.svg" width="50%"> 
+    <p>mitochondria</p>
+    <p class="tiny">Image: <a href="https://commons.wikimedia.org/wiki/File:Animal_cell_structure_en.svg">
     LadyofHats</a>, Public domain, via Wikimedia Commons</p>
+  </div>
+  <div class="notes">
+	 <p>
+Animals (including humans) are Eukaryotes.
+Also plants, fungi, algae and slime molds.
+	 </p><p>
+The Eukaryotic genome is protected inside a *nucleus*, and specialist *organelles* perform specific functions within the cell.
+They're linked together by the *cytoskeleton*, a network of filaments and tubes which spans the inside of the cell.
+	 </p><p>
+You can think of these as peripheral controllers or coprocessors supporting the main processor, linked by buses.
+DNA to RNA transcription occurs in the nucleus, and then RNA to protein translation occurs in the *endoplasmic reticulum* surrounding the nucleus.
+	 </p><p>
+Yep, we've just added a separation between kernel and userland programs.
+	 </p><p>
+Also, some of these organelles, the *mitochondria*, appear to once have been independent Proteobacteria, which were engulfed by the proto-Eukaryotes and instead of being destroyed they were put to work.
+	 </p><p>
+Mitochondria are like little containers with their own separate genome.
+They have their own DNA outside the nuclear DNA.
+They have their own replication, transcription and translation mechanisms.
+The cell benefits from their ability to produce ATP, and the mitochondria benefit from the cell's protection.
+	 </p><p>
+But they're effectively running their operating system, like little containers within the host cell.
+They do their own RNA translation, using their own tRNA, and they happen to use a slightly different translation code to the host cell.
+They've been engulfed but they're still separate and running their own OS.
+	 </p></div>
+
+  <div class="slide">
+	  <h2>Plant Cell</h2>
+	  <img src="img/plant.svg" width="50%">
+	  <p>mitochondria and chloroplasts</p>
+    <p class="tiny">Image: <a href="https://en.wikipedia.org/wiki/File:Plant_cell_structure-en.svg">LadyofHats</a>, Public domain, via Wikimedia Commons</p>
+  </div>
+
+		 <div class="notes"><p>
+We like to think of vertebrates as the pinnacle of evolution but plants have done this twice!
+In addition to harnessing proteobacteria as mitochondria, plants have harnessed photosynthetic cyanobacteria as *chloroplasts*.
+	 </p><p>
+You're probably familiar with the phrase "Embrace, Extend, Extinguish"[^eee]
+referring to the way proprietary systems can use and then destroy open ones.
+This may be happening here too: there's evidence that the functions of mitochondria are slowly migrating into the nuclear DNA and being lost from mitochondria.
+	 </p>
+  </div>
+
+  <div class="slide">
+	  <h2>Multicellular Life</h2>
+	  <ul>
+		  <li>Many (not all) Eukaryotes are multicellular</li>
+		  <li>Specialization at runtime</li>
+		  <li>A network of cells, communicating by molecules</li>
+		  <li>Slime Moulds and some bacteria: *sometimes* multicellular</li>
+	  </ul>
+  </div>
+
+  <div class="notes">
+	  Most (not all) Eukaryotes are multicellular, an organism is made up of many,
+many cells.
+Every cell in an organism has the same DNA, the same programming, and what role it ends up performing depends on how it is specialized.
+<br/>
+You can think of a the DNA as a container image which gets specialized at runtime.
+The cells in your kidneys contain all the instructions needed to be a brain cell, they just don't use the brain-specific ones, and vice-versa.
+<br/>
+The cells in a multicellular organism each have their own separate existence but also communicate by exchanging molecules.
+The multicellular organism is a network!
+<br/>
+Even weirder, some organisms like slime moulds and some bacteria can form multicellular colonies which act somewhat like a multicellular organism but which can also break apart into unicellular life, depending on conditions.
   </div>
 
   <div class="slide">
@@ -346,29 +720,34 @@
   <div class="slide">
 	  <h2>G6PD &mdash; 2</h2>
 	  <h4>Saccharomyces cerevisiae</h4>
-	  <img src="img/yeast.jpg" width="80%">
+	  <img src="img/yeast.jpg" width="60%">
 	  <p class="tiny"><a href="https://commons.wikimedia.org/wiki/File:Saccharomyces_cerevisiae_SEM.jpg">Mogana Das Murtey and Patchamuthu Ramasamy</a>, <a href="https://creativecommons.org/licenses/by/3.0">CC BY 3.0</a>, via Wikimedia Commons</p>
   </div>
   <div class="slide">
 	  <h2>G6PD &mdash; 3</h2>
-	  <img src="img/turbidostat.svg" width="80%">
+	  <img src="img/turbidostat.svg" width="60%">
 	  <p class="tiny">Image: Nick Moore</p>
   </div>
 
   <div class="slide">
 	  <h2>G6PD &mdash; 4</h2>
-	  <img src="img/g6pd-1.svg" width="90%">
+	  <img src="img/g6pd-1.svg" width="70%">
 	  <p class="tiny">Image: Nick Moore, unpublished preliminary results</p>
   </div>
 
   <div class="slide">
 	  <h2>G6PD &mdash; 5</h2>
-	  <img src="img/g6pd-2.png" width="80%">
+	  <img src="img/g6pd-2.png" width="50%">
 	  <p class="tiny">Image: <a href="https://www.biorxiv.org/content/10.1101/2025.08.11.669723v2">Functional evidence for G6PD variant classification from mutational scanning (Geck et al)</a></p>
   </div>
   <div class="slide">
 	  <h2>G6PD &mdash; 6</h2>
-	  <img src="img/g6pd-3.png" width="90%">
+	  <img src="img/g6pd-2b.png" width="50%">
+	  <p class="tiny">Image: <a href="https://www.biorxiv.org/content/10.1101/2025.08.11.669723v2">Functional evidence for G6PD variant classification from mutational scanning (Geck et al)</a></p>
+  </div>
+  <div class="slide">
+	  <h2>G6PD &mdash; 7</h2>
+	  <img src="img/g6pd-3.png" width="60%">
 	  <p class="tiny">Image: <a href="https://www.biorxiv.org/content/10.1101/2025.08.11.669723v2">Functional evidence for G6PD variant classification from mutational scanning (Geck et al)</a></p>
   </div>
 
@@ -379,12 +758,19 @@
   </div>	
   <div class="slide">
 	  <h2>Debugging &mdash; 2</h2>
-	  <img src="img/debug-led.jpg" width="80%">
+	  <img src="img/debug-led.jpg" width="70%">
+	  <p class="tiny">Image: <a href="https://www.elektormagazine.com/articles/debugging-microcontrollers-without-a-debugger">Elektor Magazine "Debugging without a debugger"</a>
   </div>
 
   <div class="slide">
 	  <h2>Debugging &mdash; 3</h2>
-	  <img src="img/vampseq.png" width="80%">
+	  <img src="img/jellyfish.jpg" width="70%">
+	  <p class="tiny">Image: <a href="https://qbi.uq.edu.au/brain/nature-discovery/how-jellyfish-revolutionised-brain-science">Queensland Brain Institute</a></p>
+  </div>
+
+  <div class="slide">
+	  <h2>Debugging &mdash; 3</h2>
+	  <img src="img/vampseq.png" width="60%">
 
 	  <p class="tiny">Reference: <a href=
     "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5980760/pdf/nihms956040.pdf">
@@ -393,7 +779,7 @@
   </div>
   <div class="slide">
 	  <h2>mRNA &amp; Spam &mdash; 1</h2>
-	  <pre>Ηο𝚝 Ꮮսхս𝚛у ꓪа𝚝сℎ℮ꜱ
+	  <pre style="font-size: 200%">Ηο𝚝 Ꮮսхս𝚛у ꓪа𝚝сℎ℮ꜱ
 ıո γοᴜⲅ ⍺𝖗ҽа</pre>
 	  <p class="tiny">Thanks to <a href="https://util.unicode.org/UnicodeJsps/confusables.jsp">Unicode Confusables</a></p>
   </div>
@@ -410,6 +796,40 @@
 	  </table>
 
   </div>
+
+  <div class="slide">
+	  <h2>Katalin Karikó</h2>
+	  <table>
+		  <tr><th>1980s</th><td>Research into dsRNA</td></tr>
+		  <tr><th>1985</th><td>Move to USA</td></tr>
+		  <tr><th>1990s</th><td>Research into mRNA</td></tr>
+		  <tr><th>1997</th><td>Collaboration with Drew Weissman</td></tr>
+		  <tr><th>2005</th><td>Pseudouridine to prevent immune response</td></tr>
+		  <tr><th>2013</th><td>VP BioNTech RNA Pharmaceuticals</td></tr>
+		  <tr><th>2020</th><td>BioNTech/Pfizer and Moderna mRNA vaccines for COVID-19</td></tr>
+		  <tr><th>2023</th><td>Nobel Prize in Physiology and Medicine (with DW)</td></tr>
+	  </table>
+	  <h2>Thanks!</h2>
+  </div>
+
+  <div class="slide">
+	<span style="color: #AAA; font-size: 150%">&lt;blink&gt;</span>
+	<span style="color: red; font-size: 300%" class="blinky">Politics</span>
+	<span style="color: #AAA; font-size: 150%">&lt;/blink&gt;</span>
+        <br/>
+	<ul>
+		<li>Open Collaboration</li>
+		<li>Immunotherapy for cancer</li>
+		<li>Huge potential for developing world</li>
+		<li>Imagination!</li>
+	</ul>
+  </div>
+
+  <div class="slide" style="background-image: url('img/yeast.jpg')">
+	  <span style="font-size: 1500%; text-shadow: 0 0 10px pink">?</span>
+	  <p class="tiny">Image: <a href="https://commons.wikimedia.org/wiki/File:Saccharomyces_cerevisiae_SEM.jpg">Mogana Das Murtey and Patchamuthu Ramasamy</a>, <a href="https://creativecommons.org/licenses/by/3.0">CC BY 3.0</a>, via Wikimedia Commons</p>
+  </div>
+
   <div class="footer">
     <span>Nick Moore &lt;nick@zoic.org&gt; for <a href=
     "https://2025.pycon.org.au/">PyCon AU 2025</a></span>

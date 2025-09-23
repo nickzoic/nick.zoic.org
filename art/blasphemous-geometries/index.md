@@ -2,19 +2,25 @@
 layout: draft
 title: Blasphemous Geometries
 uses_mathjax: 3
+tags:
+  - simulation
+  - games
 ---
 
-grid for quantized simulation[1] 
+I'm interested in writing some grid based quantized simulations[^1] 
+but there's some irritating things about square grids.
 
-[1] games
+[^1] games
 
+## Measurement
 
-* nodes as a quantum of area
-* edges as a quantum of distance
+In a grid, we have two ways of measuring space:
 
-a "good" grid will have `$$ A \propto r^2 $$`
+* nodes as a quantum of area (`$A$`)
+* edges as a quantum of distance (`$r$`)
 
-## enough!
+a "good" grid will have `$ A \propto r^2 $` just like in the real 
+world.  This is not often the case in grid based simulations!
 
 Ideally all nodes will have the same number of edges, although a mix 
 of `$N$` and `$N+1$` would be okay.  It would be very useful for this

@@ -1,6 +1,6 @@
 ---
 title: Yeast Thoughts
-date: 2025-09-23
+date: '2025-09-23'
 summary: "Some thoughts about the yeast modeling we've been doing"
 tags:
   - bioinformatics
@@ -16,7 +16,7 @@ just switched into MathJax**
 
 We assume that nonsense variants are going to end up with a score of 0 and wild types/synonyms with a score of 1: eg: there's no enhancement of function likely.
 
-We further assume that there are plenty of wild types/synonyms present in the mix, and that dead yeasts still contribute to turbidity (based on extensive evidence in vitro) and to DNA sequencing.
+We further assume that there are plenty of wild types/synonyms present in the mix, and that dead yeasts still contribute to turbidity (based on extensive evidence *in vitro*) and to DNA sequencing.
 
 The turbidostat lets the yeast population grow indefinitely, so we can pretend the population can grow exponentially and unbounded. So a variety `$v$` at time `$t$` will have a population:
 

@@ -45,36 +45,46 @@ of all possible single base substitutions.
 
 Once that's done, the yeasts are cultured and then placed under oxidative stress
 by adding some bleach.
-This is done in a *turbidostat*, which continually adds nutrients and removes yeasts
-to keep the yeast suspension at a set [turbidity](https://en.wikipedia.org/wiki/Turbidity).
+This is done in a *turbidostat* which keeps the yeast suspension at a set
+[turbidity](https://en.wikipedia.org/wiki/Turbidity).
+This is measured as a quantity [OD<sub>600</sub>](https://en.wikipedia.org/wiki/OD600)
+which is the [optical density](https://en.wikipedia.org/wiki/Absorbance)
+of 600nm ([orange](https://en.wikipedia.org/wiki/Orange_(colour)))
+light on a 1cm path through the yeast suspension.
 
 ![experimental setup](img/turbidostat.svg)
 *experimental setup*
+
+The turbidostat uses a pump to add nutrients and remove excess yeasts to keep the 
+turbidity the same, much like a [thermostat](https://en.wikipedia.org/wiki/Thermostat) 
+controls temperature by turning a heater on and off.
+
+This means there's always plenty of nutrients for the yeasts, it is as if they are
+growing in an unlimited environment where they can multiply indefinitely, doubling
+in population every 90 minutes or so.
 
 Under these conditions, the yeasts are [haploid](https://en.wikipedia.org/wiki/Haploid) and
 reproduce asexually.
 Because of this the "daughter cells" will have exactly the same genome as the parent, and
 thus our population of variants is preserved.
 
-The population doubles every 90 minutes or so, but because the turbidostat continually
-dilutes the yeast population and discards the excess,
-it is as if they are growing in an unlimited environment and they can multiply indefinitely.
-
 However, more successful variants will reproduce more rapidly than less successful
 variants, and come to dominate the population.
 
-In this experiment the turbidity setpoint
-OD<sub>600</sub> = 0.5.
+### Yeast Population
+
+In this experiment the turbidity setpoint is OD<sub>600</sub> = 0.5.
 [Getting from OD<sub>600</sub> to cell concentration is complicated](https://www.nature.com/articles/s41598-023-28800-z)
-but for our experiment we're probably talking about 1 × 10^7 cells per mL per OD<sub>600</sub>,
-so about a billion (1 × 10^9) cells in each 200mL turbidostat.
+but using an approximation of 1 × 10^7 cells per mL per OD<sub>600</sub>,
+there's about a billion (1 × 10^9) cells in each 200mL turbidostat.
 
 ### Measurements
 
 Samples were taken at ten timepoints, for each of the four replicates.
-I'm only really interested in the "stress" replicates at this point, so
-I'm ignoring the controls.
+I'm only really interested in the two "stress" replicates at this point, so
+I'm ignoring the two "control" replicates.
 
+Samples were taken at every four hours at first, backing off to every 12 hours.
 The intention of this was to get some more subtlety in scoring, rather than just
 a score of survived or didn't.
 
@@ -135,16 +145,68 @@ a lot, the smallest sample being 1.4 Mseq and the largest
 For the paper, we just did a linear least-squares fit of 
 population fraction to volume replacements, and that was 
 adequate to get some nice results for score distribution
-with good correlation between replicates:
+with good correlation between replicates, and the distribution of 
+nonsense and synonymous variants was as expected:
 
-![good correlation between replicates](img/g6pd_histo.svg)
-*good correlation between replicates (unpublished preliminary data)*
+![good correlation between replicates and good distribution of nonsense and synonymous variants](img/g6pd_histo.svg)
+*good correlation between replicates and good distribution of nonsense and synonymous variants (unpublished preliminary data)*
+
+## Selected Variants
+
+![selected variants](img/plot-exp.svg)
+*selected variants (unpublished preliminary data)*
+
+This graph shows several selected variants from the experimental data, and how 
+their population changes with time.
+
+| Variant | Classification | Score |
+|---|---|---|
+| p.= | wild type | ~ 1 |
+| p.Ala109Ter | nonsense | ~ 0 |
+| p.Ala300Met | missense | high |
+| p.Asp282Gln | missense | high |
+| p.Gln195Leu | missense | medium |
+| p.Phe237Ser | missense | medium | 
+| p.Phe241Pro | missense | low |
+
+## More Math!
+
+However, it'd be nice to consider a better mathematical model for the
+yeast growth.
+
+The turbidostat lets the yeast population grow indefinitely.
+Imagine we really did have a big enough experimental setup to allow
+the population to grow exponentially and unbounded.
+
+We assume that there's plenty of robust variants in the mix.
+Because of exponential growth, these variants will come to dominate
+the population and all other varieties will be diluted into insignificance eventually.
+
+The overall population `$P$` at time `$t$` can thus be approximated by:
+
+`$ P_{t}=P_{0}a^{t} $`
+
+Where `$a$` is our growth rate (`$a \approx 1.6$` for `$t$` in hours)
+
+Less robust variants will replicate more slowly or not at all.
+A variety `$v$` at time `$t$` would have a population:
+
+`$ p_{v,t}=p_{v,0}a^{k_{v}t} $`
+
+... where `$k_{v}$` is the score of variety `$v$`.
+
+Our turbidostat only keeps a fraction of the yeast suspension around, but the
+ratio of variants will be the same as in the unlimited case.
+A variety `$v$` at time `$t$` will have a fraction `$f_{v,t}$` of population:
+
+`$ f_{v,0}=p_{v,0}/P_{0} $`
+
+`$ f_{v,t}=p_{v,t}/P_{t}=p_{v,0}a^{k_{v}t}/P_{0}a^{t}=f_{v,0}a^{(k_{v}-1)t} $`
+
 
 
 ### Processing Results
 
-![selected variants](img/plot-exp.svg)
-*selected variants (unpublished preliminary data)*
 
 ## More Math!
 
@@ -159,24 +221,9 @@ We assume that nonsense variants are going to end up with a score of 0 and wild 
 
 We further assume that there are plenty of wild types/synonyms present in the mix, and that dead yeasts still contribute to turbidity (based on extensive evidence *in vitro*) and to DNA sequencing.
 
-The turbidostat lets the yeast population grow indefinitely, so we can pretend the population can grow exponentially and unbounded. So a variety `$v$` at time `$t$` will have a population:
-
-`$ p_{v,t}=p_{v,0}a^{k_{v}t} $`
-
-... where `$a$` is the growth rate and `$k_{v}$` is the score of variety `$v$`.
 For our yeast *Saccharomyces cerevisiae*, population doubles about every 1.5 hours so `$a\sim=1.6$` (for `$t$` in hours).
 
-We assume that there's plenty of wild types / synonymous variants in the mix. Because of exponential growth, these varieties (`$k=1$`) will come to dominate the population and all other varieties will be diluted into insignificance eventually.
 
-So the overall population `$P$` at time `$t$` can be approximated by:
-
-`$ P_{t}=P_{0}a^{t} $`
-
-... and a variety `$v$` at time `$t$` will have a fraction `$f$` of population:
-
-`$ f_{v,0}=p_{v,0}/P_{0} $`
-
-`$ f_{v,t}=p_{v,t}/P_{t}=p_{v,0}a^{k_{v}t}/P_{0}a^{t}=f_{v,0}a^{(k_{v}-1)t} $`
 
 We can fit an exponential to the observed numbers and use the exponent to derive the score from `$k_{v}$`, limiting to the range [0,1].
 

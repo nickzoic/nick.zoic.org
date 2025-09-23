@@ -56,7 +56,7 @@ We've learned a lot about cellular biology while we've been working out computin
 * 1970s: DNA sequencing
 * 1977: Full sequence of bacteriophage ΦX174 (5k bases, 11 genes)
 * 1996: Full sequence of brewer's yeast (12 Mbp, 6k genes)
-* 2000: Full sequence of *drosophila melanogaster* (120 Mbp, 15k genes)
+* 2000: Full sequence of *Drosophila melanogaster* (120 Mbp, 15k genes)
 * 2003: Full sequence of human genome (3 Gbp, 20k genes)
 
 Genetic sequencing has taken off exponentially.
@@ -66,7 +66,7 @@ It's hard to imagine how scientists of the 70s would deal with gigabytes of data
 
 The personal computing era got started when enthusiasts mailed each other printouts, punch tapes, cassettes, floppy discs, whatever it took to share their discoveries and advances.
 
-Early genetics enthusiasts discovered that *drosophila melanogaster*, a kind of fruit fly, could be caught easily just about anywhere in the world, selectively bred and exchanged with other experimenters.
+Early genetics enthusiasts discovered that *Drosophila melanogaster*, a kind of fruit fly, could be caught easily just about anywhere in the world, selectively bred and exchanged with other experimenters.
 A lot of early advances in genetics came from the exchange of fruit flies!
 
 ## 4 Billion Years of Biology in 10 Minutes
@@ -180,7 +180,7 @@ There's no documentation or source control, but by looking at the common feature
 
 ### Expression
 
-**standard coding table**
+**standard codon table**
 
 Translation from RNA to Protein isn't simple either. 
 A protein is a long chain of amino acids, which is built up by a complex molecular machine called a *ribosome*, built from ncRNA and proteins.

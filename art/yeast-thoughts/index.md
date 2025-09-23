@@ -9,6 +9,146 @@ layout: draft
 uses_mathjax: 3
 ---
 
+## Background: The Experiment
+
+In my [PyConAU 2025 talk](/art/pycon-pyconau-2025-melbourne/) I talk a little bit
+about testing modified versions of the
+[human *G6PD* gene in yeast (Geck et al)](https://www.biorxiv.org/content/10.1101/2025.08.11.669723v2),
+in that study we just used a simple linear interpolation of growth rates and it worked
+out fine but this is an attempt to tackle the interesting mathematics of yeast growth.
+
+[*G6PD*](https://en.wikipedia.org/wiki/Hemolysis) is an antioxidant gene, and
+[pathogenic variants of *G6PD*](https://en.wikipedia.org/wiki/Glucose-6-phosphate_dehydrogenase_deficiency)
+can lead to the destruction of red blood cells
+([haemolysis](https://en.wikipedia.org/wiki/Hemolysis)) and thus
+[Haemolytic anemia](https://en.wikipedia.org/wiki/Hemolytic_anemia).
+
+### Many Variants
+
+The aim is to test thousands of variants of *G6PD* against each other, and to score
+the different variants from bad (0) to good (1).
+This should give us some additional insight into the structure and behaviour of the G6PD
+protein, as well as some clinical insights into patients with unknown variants, eg:
+if a patient has *this* variant, is that likely to be a problem for them?
+
+This experiment is done in brewer's yeast
+([*Saccharomyces cerevisiae*](https://en.wikipedia.org/wiki/Saccharomyces_cerevisiae)
+because they reproduce very quickly and no-one minds you killing a billion of
+them before lunch.
+
+The experiment is done by knocking out the yeast's own *ZWF1* antioxidant gene 
+and inserting variants of human *G6PD* as plasmids.  The variants used are a library
+of all possible single base substitutions.
+
+### Turbidostat
+
+Once that's done, the yeasts are cultured and then placed under oxidative stress
+by adding some bleach.
+This is done in a *turbidostat*, which continually adds nutrients and removes yeasts
+to keep the yeast suspension at a set [turbidity](https://en.wikipedia.org/wiki/Turbidity).
+
+![experimental setup](img/turbidostat.svg)
+*experimental setup*
+
+Under these conditions, the yeasts are [haploid](https://en.wikipedia.org/wiki/Haploid) and
+reproduce asexually.
+Because of this the "daughter cells" will have exactly the same genome as the parent, and
+thus our population of variants is preserved.
+
+The population doubles every 90 minutes or so, but because the turbidostat continually
+dilutes the yeast population and discards the excess,
+it is as if they are growing in an unlimited environment and they can multiply indefinitely.
+
+However, more successful variants will reproduce more rapidly than less successful
+variants, and come to dominate the population.
+
+In this experiment the turbidity setpoint
+OD<sub>600</sub> = 0.5.
+[Getting from OD<sub>600</sub> to cell concentration is complicated](https://www.nature.com/articles/s41598-023-28800-z)
+but for our experiment we're probably talking about 1 × 10^7 cells per mL per OD<sub>600</sub>,
+so about a billion (1 × 10^9) cells in each 200mL turbidostat.
+
+### Measurements
+
+Samples were taken at ten timepoints, for each of the four replicates.
+I'm only really interested in the "stress" replicates at this point, so
+I'm ignoring the controls.
+
+The intention of this was to get some more subtlety in scoring, rather than just
+a score of survived or didn't.
+
+> more samples were taken within the first 24 hours intending to capture
+variants with very low activity that were rapidly lost from the population
+
+**I should emphasize at this point that I had nothing to do with the "wet lab" side of 
+things, all that hard work was done by other people, and the closest I get to working
+with actual yeasts is having a beer while thinking about the numbers which come out
+of these experiments!**
+
+At the same time, the number of "volume replacements" made by the turbidostat
+was recorded, based on the run time of the turbidostat's pump which
+indicates how much growth medium was added.
+
+| Nominal Time | Volume Replacements (stress 3) | Volume Replacements (stress 4) |
+|---|---|---|
+| 0 | 0 | 0 |
+| 4 | 0.52 | 0.45 |
+| 8 | 2.11 | 2.06 |
+| 12 | 3.71 | 3.68 | 
+| 16 | 5.23 | 5.19 |
+| 24 | 8.78 | 8.82 |
+| 36 | 13.92 | 19.95 |
+| 48 | 19.31 | 19.31 |
+| 60 | 24.63 | 24.65 |
+| 72 | 30.57 | 30.32 |
+
+For each sample, sequencing was performed to see what proportion
+of the yeasts were of what varieties.
+
+The number of sequences captured at each time point varied quite
+a lot, the smallest sample being 1.4 Mseq and the largest
+6.6 Mseq!
+
+| Nominal Time | Experiment | Number of Sequences |
+|---|---|---|
+| 0 | library | 9465789 |
+| 4 | stress 3 | 2194742 |
+| 8 | stress 3 | 1601970 |
+| 12 | stress 3 | 2377144 |
+| 16 | stress 3 | 2529157 |
+| 24 | stress 3 | 1259293 |
+| 36 | stress 3 | 2829533 |
+| 48 | stress 3 | 1616839 |
+| 60 | stress 3 | 4933458 |
+| 72 | stress 3 | 4457441 |
+| 4 | stress 4 | 1408777 |
+| 8 | stress 4 | 2892289 |
+| 12 | stress 4 | 3877352 |
+| 16 | stress 4 | 4711909 |
+| 24 | stress 4 | 2751762 |
+| 36 | stress 4 | 2264457 |
+| 48 | stress 4 | 2469222 |
+| 60 | stress 4 | 6577424 |
+| 72 | stress 4 | 1639330 |
+
+For the paper, we just did a linear least-squares fit of 
+population fraction to volume replacements, and that was 
+adequate to get some nice results for score distribution
+with good correlation between replicates:
+
+![good correlation between replicates](img/g6pd_histo.svg)
+*good correlation between replicates (unpublished preliminary data)*
+
+
+### Processing Results
+
+![selected variants](img/plot-exp.svg)
+*selected variants (unpublished preliminary data)*
+
+## More Math!
+
+# Original Notes
+
 **Copy from my original Yeast Thoughts document as shared with Alan back in Feb 2024,
 just switched into MathJax.  Then I'll fix this up to make it read a bit better.**
 
@@ -20,7 +160,7 @@ We further assume that there are plenty of wild types/synonyms present in the mi
 
 The turbidostat lets the yeast population grow indefinitely, so we can pretend the population can grow exponentially and unbounded. So a variety `$v$` at time `$t$` will have a population:
 
-`$$ p_{v,t}=p_{v,0}a^{k_{v}t} $$`
+`$ p_{v,t}=p_{v,0}a^{k_{v}t} $`
 
 ... where `$a$` is the growth rate and `$k_{v}$` is the score of variety `$v$`.
 For our yeast *Saccharomyces cerevisiae*, population doubles about every 1.5 hours so `$a\sim=1.6$` (for `$t$` in hours).
@@ -29,13 +169,13 @@ We assume that there's plenty of wild types / synonymous variants in the mix. Be
 
 So the overall population `$P$` at time `$t$` can be approximated by:
 
-`$$ P_{t}=P_{0}a^{t} $$`
+`$ P_{t}=P_{0}a^{t} $`
 
 ... and a variety `$v$` at time `$t$` will have a fraction `$f$` of population:
 
-`$$ f_{v,0}=p_{v,0}/P_{0} $$`
+`$ f_{v,0}=p_{v,0}/P_{0} $`
 
-`$$ f_{v,t}=p_{v,t}/P_{t}=p_{v,0}a^{k_{v}t}/P_{0}a^{t}=f_{v,0}a^{(k_{v}-1)t} $$`
+`$ f_{v,t}=p_{v,t}/P_{t}=p_{v,0}a^{k_{v}t}/P_{0}a^{t}=f_{v,0}a^{(k_{v}-1)t} $`
 
 We can fit an exponential to the observed numbers and use the exponent to derive the score from `$k_{v}$`, limiting to the range [0,1].
 

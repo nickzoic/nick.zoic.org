@@ -1,6 +1,6 @@
 ---
 date: '2025-07-22'
-updated: '2025-09-18'
+updated: '2025-09-23'
 layout: article
 summary: |
     PyConAU 2025 Melbourne!
@@ -35,7 +35,9 @@ Video: [The Primordial Code (youtube)](https://www.youtube.com/watch?v=jSm67Agx-
 
 See [The Children Yearn for the Mines](/art/yearn-for-the-mines/)
 
-or for slides: [The Children Yearn for the Mines](/talk/pycon2025/yearn/)
+Slides: [The Children Yearn for the Mines](/talk/pycon2025/yearn/)
+
+Video: [Lightning Talks (Sunday)](https://www.youtube.com/watch?v=Wl1CZTpWFEk&t=95s)
 
 ## Other People's Talks Which I Found Particularly Interesting
 

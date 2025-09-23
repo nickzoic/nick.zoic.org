@@ -1,5 +1,6 @@
 ---
 date: '2022-11-28'
+updated: '2025-09-23'
 layout: article
 tags:
   - apple
@@ -288,3 +289,12 @@ Python code to 6502, without the stress of having to write an actual parser or c
 
 For updates either [follow the RSS](https://nick.zoic.org/feed.rss) or 
 why not [say hi on Mastodon?](https://aus.social/@nickzoic/109419208776734650)
+
+# UPDATE 2025-09-23
+
+So almost three years later I haven't really done any more on this so I think
+we can assume it's not going to get done.  Maybe in time for the Apple ]['s 50th
+birthday instead.
+
+In the meantime, you might like [The Children Yearn For The Mines](/art/yearn-for-the-mines/)
+where I attempt to transfer the Ultima IV maps into Minecraft.

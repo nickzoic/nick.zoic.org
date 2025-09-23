@@ -6,6 +6,7 @@ slug: 'virtual-localization'
 tags:
   - networks
   - iot
+  - simulation
 title: Virtual Localization
 ---
 

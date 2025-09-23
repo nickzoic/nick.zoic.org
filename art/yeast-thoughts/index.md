@@ -17,10 +17,11 @@ about testing modified versions of the
 in that study we just used a simple linear interpolation of growth rates and it worked
 out fine but this is an attempt to tackle the interesting mathematics of yeast growth.
 
-[*G6PD*](https://en.wikipedia.org/wiki/Hemolysis) is an antioxidant gene, and
+*G6PD* is a gene for an [antioxidant enzyme also called G6PD](https://en.wikipedia.org/wiki/Glucose-6-phosphate_dehydrogenase), and
 [pathogenic variants of *G6PD*](https://en.wikipedia.org/wiki/Glucose-6-phosphate_dehydrogenase_deficiency)
-can lead to the destruction of red blood cells
-([haemolysis](https://en.wikipedia.org/wiki/Hemolysis)) and thus
+can lead to
+[haemolysis](https://en.wikipedia.org/wiki/Hemolysis)
+(the destruction of red blood cells) and thus
 [Haemolytic anemia](https://en.wikipedia.org/wiki/Hemolytic_anemia).
 
 ### Many Variants
@@ -32,12 +33,12 @@ protein, as well as some clinical insights into patients with unknown variants, 
 if a patient has *this* variant, is that likely to be a problem for them?
 
 This experiment is done in brewer's yeast
-([*Saccharomyces cerevisiae*](https://en.wikipedia.org/wiki/Saccharomyces_cerevisiae)
+([*Saccharomyces cerevisiae*](https://en.wikipedia.org/wiki/Saccharomyces_cerevisiae))
 because they reproduce very quickly and no-one minds you killing a billion of
 them before lunch.
 
-The experiment is done by knocking out the yeast's own *ZWF1* antioxidant gene 
-and inserting variants of human *G6PD* as plasmids.  The variants used are a library
+The experiment is done by knocking out the yeast's own [*ZWF1*](https://www.alliancegenome.org/gene/SGD:S000005185) gene 
+and inserting variants of [human *G6PD*](https://www.alliancegenome.org/gene/SGD:S000005185) using plasmids.  The variants used are a library
 of all possible single base substitutions.
 
 ### Turbidostat

@@ -23,22 +23,37 @@ but there's some irritating things about square grids.
 For example, [water flows funny in Minecraft](https://www.minecraft101.net/t/water-handling.html), spreading along the cardinal directions
 faster than along the diagonals.  This is unrealistic.
 
-## Measurement
+## What is a grid?
 
-It'd be handy to quantify what I mean by realistic.
+It'd be handy to quantify what I mean by a grid, and what I 
+mean by realistic.
+
+### Graphs & Tilings
+
+By "grid", I mean an [infinite, connected, planar graph](https://en.wikipedia.org/wiki/Graph_(discrete_mathematics)) with some geometric consistency so that any part of the grid looks much like any other part of the grid.
+
+This kind of graph consists of "nodes", joined by "edges".  Each edge joins exactly two nodes.  This kind of graph is equivalent to a 
+[tesselation or tiling](https://en.wikipedia.org/wiki/Tessellation) where each node is a tile and touching tiles have an edge between them.
+
+For our purposes, it'd be nice if the [graph was regular](https://en.wikipedia.org/wiki/Regular_graph), eg: every node was connected to the same number of edges, but a little variation is okay.
+
+### Measurement
+
 In a grid, we have two ways of measuring space:
 
 * nodes as a quantum of area (`$A$`)
 * edges as a quantum of distance (`$r$`)
 
-a "realistic" simulation will have `$ A \propto r^2 $` just like in the real 
+a "realistic" simulation of a flat plane will have `$ A \propto r^2 $` just like in the real 
 world. This is not often the case in grid based simulations!
+
+(In 3D we could also consider `$ V \propto r^3 $`, but I'm not 
+worrying about that right now)
 
 Ideally all nodes will have the same number of edges, although a mix 
 of `$N$` and `$N+1$` would be okay.  It would be very useful for this
 to be a repetitive pattern or at least in some way predictable.
 
-[tesselations](https://en.wikipedia.org/wiki/Tessellation)
 
 ## Bad Grids
 

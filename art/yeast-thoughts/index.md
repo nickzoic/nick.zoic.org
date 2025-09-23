@@ -91,7 +91,8 @@ a score of survived or didn't.
 > more samples were taken within the first 24 hours intending to capture
 variants with very low activity that were rapidly lost from the population
 
-**I should emphasize at this point that I had nothing to do with the "wet lab" side of 
+**I should emphasize at this point that I had nothing to do with the experimental
+design or the "wet lab" side of 
 things, all that hard work was done by other people, and the closest I get to working
 with actual yeasts is having a beer while thinking about the numbers which come out
 of these experiments!**
@@ -171,6 +172,11 @@ their population changes with time.
 
 ## More Math!
 
+> Have you ever noticed that anybody driving slower than you is an idiot,
+> and anyone going faster than you is a maniac?
+>
+> -- George Carlin
+
 However, it'd be nice to consider a better mathematical model for the
 yeast growth.
 
@@ -206,7 +212,6 @@ A variety `$v$` at time `$t$` will have a fraction `$f_{v,t}$` of population:
 
 
 ### Processing Results
-
 
 ## More Math!
 

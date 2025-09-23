@@ -32,8 +32,12 @@ mean by realistic.
 
 By "grid", I mean an [infinite, connected, planar graph](https://en.wikipedia.org/wiki/Graph_(discrete_mathematics)) with some geometric consistency so that any part of the grid looks much like any other part of the grid.
 
-This kind of graph consists of "nodes", joined by "edges".  Each edge joins exactly two nodes.  This kind of graph is equivalent to a 
-[tesselation or tiling](https://en.wikipedia.org/wiki/Tessellation) where each node is a tile and touching tiles have an edge between them.
+This kind of graph consists of "nodes", joined by "edges".  The nodes represent places,
+and each edge represents a tradition between two neighbouring nodes. Like a
+[Go](https://en.wikipedia.org/wiki/Go_(game)) or [Chinese Checkers](https://en.wikipedia.org/wiki/Chinese_checkers) board.
+
+You can also think of this as a
+[tesselation or tiling](https://en.wikipedia.org/wiki/Tessellation) where each node is a tile and touching tiles have an edge between them, like a [Chess](https://en.wikipedia.org/wiki/Chess) board.
 
 For our purposes, it'd be nice if the [graph was regular](https://en.wikipedia.org/wiki/Regular_graph), eg: every node was connected to the same number of edges, but a little variation is okay.
 

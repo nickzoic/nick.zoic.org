@@ -266,10 +266,18 @@ extract a score.
 
 We have a formula for frequency in terms of score but it also includes the total of frequencies which makes it hard to use.  Perhaps we can approximate our curve with a simpler formula:
 
-`$ f_{v,t} = a_v ( b_v - e^(c_{v}t)) / e^(d_{v}t) $`
+`$ f_{v,t} = a_v ( b_v - e^{c_{v}t})) / e^{d_{v}t} $`
 
 ![fit](src/exp-fit.svg)
 *fit*
+
+```
+score 0.00 popt [-5.63651405e-03 -3.55143807e+01  1.43864824e-06  5.37711909e-01]
+score 0.50 popt [-0.49105992  0.59336991  0.15205937  0.42003735]
+score 0.75 popt [-0.55393935  0.63811851  0.12511719  0.24449117]
+score 0.90 popt [-0.62441687  0.67587381  0.10235867  0.14360838]
+score 1.00 popt [-0.67536989  0.69695554  0.08952511  0.08169591]
+```
 
 <hr/>
 <!-- footnotes should appear here! -->

@@ -20,7 +20,7 @@ out fine but this discussion is an attempt to tackle the interesting mathematics
 [^1]: Functional evidence for G6PD variant classification from mutational scanning
     Renee C. Geck, Melinda K. Wheelock, Rachel L. Powell, Ziyu R. Wang, Daniel L. Holmes, Shawn Fayer, Gabriel E. Boyle, Allyssa J. Vandi, Abby V. McGee, Clara J. Amorosi, Nick Moore, Alan F. Rubin, Douglas M. Fowler, Maitreya J. Dunham
     [bioRxiv 2025.08.11.669723](https://www.biorxiv.org/content/10.1101/2025.08.11.669723v2);
-    doi: [https://doi.org/10.1101/2025.08.11.669723](https://doi.org/10.1101/2025.08.11.669723)
+    doi: [10.1101/2025.08.11.669723](https://doi.org/10.1101/2025.08.11.669723)
 
 **I should emphasize at this point that I had nothing to do with the experimental
 design or the "wet lab" side of 
@@ -92,7 +92,7 @@ there's about a billion (1 × 10^9) cells in each 200mL turbidostat.
 [^2]: Fukuda, N.
     Apparent diameter and cell density of yeast strains with different ploidy.
     [Sci Rep 13, 1513 (2023)](https://www.nature.com/articles/s41598-023-28800-z).
-    doi: [https://doi.org/10.1038/s41598-023-28800-z](https://doi.org/10.1038/s41598-023-28800-z)
+    doi: [10.1038/s41598-023-28800-z](https://doi.org/10.1038/s41598-023-28800-z)
 
 ### Measurements
 
@@ -106,7 +106,6 @@ a score of survived or didn't.
 
 > more samples were taken within the first 24 hours intending to capture
 variants with very low activity that were rapidly lost from the population
-
 
 At the same time, the number of "volume replacements" made by the turbidostat
 was recorded, based on the run time of the turbidostat's pump which
@@ -183,12 +182,6 @@ their population changes with time.
 
 ## Math!
 
-> Have you ever noticed that anybody driving slower than you is an idiot,
-> and anyone going faster than you is a maniac?
->
-> -- George Carlin
-
-### Scores, populations and frequencies
 
 Let's consider a simplified situation with five variants of varying score:
 we'll use scores 0, 0.5, 0.75, 0.9 and 1.0 to give us something to compare.
@@ -197,18 +190,20 @@ the variants starting at the same frequency and growing without limit.
 At a maximum score of 1.0 the population will double every time unit,
 and a the minimum score of 0.0 the population won't increase at all.
 
-For each variant `$ v $` with score `$ k_{v} $`, the population `$ p $` at time `$ t $` is given by:
+### Scores, populations and frequencies
+
+For each variant `$v$` with score `$k_{v}$`, the population `$p$` at time `$t$` is given by:
 
 `$ p_{v,t} = (1+k_{v})^{t} $`
 
 We don't actually have a way to directly measure the population of a variant though,
 we're measuring the frequency as a fraction of the total population.
 
-The total population `$ P $` is given by:
+The total population `$P$` at time `$t$` is given by:
 
-`$ P_t = \sum_{v}p_{v,t} $`
+`$ P_t = \displaystyle\sum_{v}p_{v,t} $`
 
-So the fraction `$ f $` of each variant `$ v $` at time `$ t $` is given by:
+So the fraction `$f$` of each variant `$v$` at time `$t$` is given by:
 
 `$ f_{v,t} = p_{v_,t} / P_t $`
 
@@ -220,6 +215,11 @@ Here's the fraction for our five variants, evolving over 30 doublings:
 This looks very much like our experimental data above!
 
 ### Thriving and diminishing
+
+> Have you ever noticed that anybody driving slower than you is an idiot,
+> and anyone going faster than you is a maniac?
+>
+> -- George Carlin
 
 The variant with score = 1 rapidly comes to dominate the population.
 The variant with score = 0 falls away very quickly as the total population increases
@@ -264,69 +264,12 @@ at which to rank variants, for each variant we want to fit *all* the
 frequencies to a curve, and then use the parameters of that curve to
 extract a score.
 
-We have a formula for 
+We have a formula for frequency in terms of score but it also includes the total of frequencies which makes it hard to use.  Perhaps we can approximate our curve with a simpler formula:
 
-However, it'd be nice to consider a better mathematical model for the
-yeast growth.
+`$ f_{v,t} = a_v ( b_v - e^(c_{v}t)) / e^(d_{v}t) $`
 
-The turbidostat lets the yeast population grow indefinitely.
-Imagine we really did have a big enough experimental setup to allow
-the population to grow exponentially and unbounded.
+![fit](src/exp-fit.svg)
+*fit*
 
-We assume that there's plenty of robust variants in the mix.
-Because of exponential growth, these variants will come to dominate
-the population and all other varieties will be diluted into insignificance eventually.
-
-The overall population `$P$` at time `$t$` can thus be approximated by:
-
-`$ P_{t}=P_{0}a^{t} $`
-
-Where `$a$` is our growth rate (`$a \approx 1.6$` for `$t$` in hours)
-
-Less robust variants will replicate more slowly or not at all.
-A variety `$v$` at time `$t$` would have a population:
-
-`$ p_{v,t}=p_{v,0}a^{k_{v}t} $`
-
-... where `$k_{v}$` is the score of variety `$v$`.
-
-Our turbidostat only keeps a fraction of the yeast suspension around, but the
-ratio of variants will be the same as in the unlimited case.
-A variety `$v$` at time `$t$` will have a fraction `$f_{v,t}$` of population:
-
-`$ f_{v,0}=p_{v,0}/P_{0} $`
-
-`$ f_{v,t}=p_{v,t}/P_{t}=p_{v,0}a^{k_{v}t}/P_{0}a^{t}=f_{v,0}a^{(k_{v}-1)t} $`
-
-
-
-### Processing Results
-
-## More Math!
-
-# Original Notes
-
-**Copy from my original Yeast Thoughts document as shared with Alan back in Feb 2024,
-just switched into MathJax.  Then I'll fix this up to make it read a bit better.**
-
- We have raw sequence counts at several times, but what we actually want is a score for each variant, varying from 0 (totally useless) to 1 (totally unaffected).
-
-We assume that nonsense variants are going to end up with a score of 0 and wild types/synonyms with a score of 1: eg: there's no enhancement of function likely.
-
-We further assume that there are plenty of wild types/synonyms present in the mix, and that dead yeasts still contribute to turbidity (based on extensive evidence *in vitro*) and to DNA sequencing.
-
-For our yeast *Saccharomyces cerevisiae*, population doubles about every 1.5 hours so `$a\sim=1.6$` (for `$t$` in hours).
-
-
-
-We can fit an exponential to the observed numbers and use the exponent to derive the score from `$k_{v}$`, limiting to the range [0,1].
-
-As a sanity check, all synonymous variants should have `$k=1$`. We don't really care about `$P_{0}$` or `$a$` or `$f_{v,0}$` but a more sophisticated approach might.
-
-Problems
-
-If we've stumbled onto an enhancement variant then synonymous variants might end up with `$k<1$`. In which case we should normalize scores.
-
-Mediocre varieties (`$0.5\lesssim k\lesssim0.9$`) actually increase in population fraction for a bit while the worse varieties are eliminated which messes up the exponential fit a little. Perhaps ignore data points before the maximum fraction? If the maximum fraction is the last value then we know k=1.
-
-Alternatively fit to `$$ f_{v,t}=f_{v,0}(1-a^{xt})a^{(1-k_{v})t} $$` or something.
+<hr/>
+<!-- footnotes should appear here! -->

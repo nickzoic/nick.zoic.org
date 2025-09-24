@@ -12,15 +12,15 @@ uses_mathjax: 3
 ## Background: The Experiment
 
 In my [PyConAU 2025 talk](/art/pycon-pyconau-2025-melbourne/) I talk a little bit
-about testing modified versions of the
-[human *G6PD* gene in yeast (Geck et al)](https://www.biorxiv.org/content/10.1101/2025.08.11.669723v2)[^1]
-in that study we just used a simple linear interpolation of growth rates and it worked
-out fine but this is an attempt to tackle the interesting mathematics of yeast growth.
+about testing modified versions of the human *G6PD* gene in yeast[^1].
+
+In that study we just used a simple linear interpolation of growth rates and it worked
+out fine but this discussion is an attempt to tackle the interesting mathematics of yeast growth.
 
 [^1]: Functional evidence for G6PD variant classification from mutational scanning
-Renee C. Geck, Melinda K. Wheelock, Rachel L. Powell, Ziyu R. Wang, Daniel L. Holmes, Shawn Fayer, Gabriel E. Boyle, Allyssa J. Vandi, Abby V. McGee, Clara J. Amorosi, Nick Moore, Alan F. Rubin, Douglas M. Fowler, Maitreya J. Dunham
-[bioRxiv 2025.08.11.669723](https://www.biorxiv.org/content/10.1101/2025.08.11.669723v2);
-doi: [https://doi.org/10.1101/2025.08.11.669723](https://doi.org/10.1101/2025.08.11.669723)
+    Renee C. Geck, Melinda K. Wheelock, Rachel L. Powell, Ziyu R. Wang, Daniel L. Holmes, Shawn Fayer, Gabriel E. Boyle, Allyssa J. Vandi, Abby V. McGee, Clara J. Amorosi, Nick Moore, Alan F. Rubin, Douglas M. Fowler, Maitreya J. Dunham
+    [bioRxiv 2025.08.11.669723](https://www.biorxiv.org/content/10.1101/2025.08.11.669723v2);
+    doi: [https://doi.org/10.1101/2025.08.11.669723](https://doi.org/10.1101/2025.08.11.669723)
 
 **I should emphasize at this point that I had nothing to do with the experimental
 design or the "wet lab" side of 
@@ -85,9 +85,14 @@ variants, and come to dominate the population.
 ### Yeast Population
 
 In this experiment the turbidity setpoint is OD<sub>600</sub> = 0.5.
-[Getting from OD<sub>600</sub> to cell concentration is complicated](https://www.nature.com/articles/s41598-023-28800-z)
+Getting from OD<sub>600</sub> to cell concentration is complicated[^2]
 but using an approximation of 1 × 10^7 cells per mL per OD<sub>600</sub>,
 there's about a billion (1 × 10^9) cells in each 200mL turbidostat.
+
+[^2]: Fukuda, N.
+    Apparent diameter and cell density of yeast strains with different ploidy.
+    [Sci Rep 13, 1513 (2023)](https://www.nature.com/articles/s41598-023-28800-z).
+    doi: [https://doi.org/10.1038/s41598-023-28800-z](https://doi.org/10.1038/s41598-023-28800-z)
 
 ### Measurements
 

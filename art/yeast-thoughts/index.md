@@ -13,9 +13,22 @@ uses_mathjax: 3
 
 In my [PyConAU 2025 talk](/art/pycon-pyconau-2025-melbourne/) I talk a little bit
 about testing modified versions of the
-[human *G6PD* gene in yeast (Geck et al)](https://www.biorxiv.org/content/10.1101/2025.08.11.669723v2),
+[human *G6PD* gene in yeast (Geck et al)](https://www.biorxiv.org/content/10.1101/2025.08.11.669723v2)[^1]
 in that study we just used a simple linear interpolation of growth rates and it worked
 out fine but this is an attempt to tackle the interesting mathematics of yeast growth.
+
+[^1]: Functional evidence for G6PD variant classification from mutational scanning
+Renee C. Geck, Melinda K. Wheelock, Rachel L. Powell, Ziyu R. Wang, Daniel L. Holmes, Shawn Fayer, Gabriel E. Boyle, Allyssa J. Vandi, Abby V. McGee, Clara J. Amorosi, Nick Moore, Alan F. Rubin, Douglas M. Fowler, Maitreya J. Dunham
+[bioRxiv 2025.08.11.669723](https://www.biorxiv.org/content/10.1101/2025.08.11.669723v2);
+doi: [https://doi.org/10.1101/2025.08.11.669723](https://doi.org/10.1101/2025.08.11.669723)
+
+**I should emphasize at this point that I had nothing to do with the experimental
+design or the "wet lab" side of 
+things, all that hard work was done by other people, and the closest I get to working
+with actual yeasts is having a beer while thinking about the numbers which come out
+of these experiments!**
+
+### Many Variants
 
 *G6PD* is a gene for an [antioxidant enzyme also called G6PD](https://en.wikipedia.org/wiki/Glucose-6-phosphate_dehydrogenase), and
 [pathogenic variants of *G6PD*](https://en.wikipedia.org/wiki/Glucose-6-phosphate_dehydrogenase_deficiency)
@@ -23,8 +36,6 @@ can lead to
 [haemolysis](https://en.wikipedia.org/wiki/Hemolysis)
 (the destruction of red blood cells) and thus
 [Haemolytic anemia](https://en.wikipedia.org/wiki/Hemolytic_anemia).
-
-### Many Variants
 
 The aim is to test thousands of variants of *G6PD* against each other, and to score
 the different variants from bad (0) to good (1).
@@ -91,11 +102,6 @@ a score of survived or didn't.
 > more samples were taken within the first 24 hours intending to capture
 variants with very low activity that were rapidly lost from the population
 
-**I should emphasize at this point that I had nothing to do with the experimental
-design or the "wet lab" side of 
-things, all that hard work was done by other people, and the closest I get to working
-with actual yeasts is having a beer while thinking about the numbers which come out
-of these experiments!**
 
 At the same time, the number of "volume replacements" made by the turbidostat
 was recorded, based on the run time of the turbidostat's pump which
@@ -170,12 +176,90 @@ their population changes with time.
 | p.Phe237Ser | missense | medium | 
 | p.Phe241Pro | missense | low |
 
-## More Math!
+## Math!
 
 > Have you ever noticed that anybody driving slower than you is an idiot,
 > and anyone going faster than you is a maniac?
 >
 > -- George Carlin
+
+### Scores, populations and frequencies
+
+Let's consider a simplified situation with five variants of varying score:
+we'll use scores 0, 0.5, 0.75, 0.9 and 1.0 to give us something to compare.
+We'll also ignore the physical limitations of the actual experiment and imagine
+the variants starting at the same frequency and growing without limit.
+At a maximum score of 1.0 the population will double every time unit,
+and a the minimum score of 0.0 the population won't increase at all.
+
+For each variant `$ v $` with score `$ k_{v} $`, the population `$ p $` at time `$ t $` is given by:
+
+`$ p_{v,t} = (1+k_{v})^{t} $`
+
+We don't actually have a way to directly measure the population of a variant though,
+we're measuring the frequency as a fraction of the total population.
+
+The total population `$ P $` is given by:
+
+`$ P_t = \sum_{v}p_{v,t} $`
+
+So the fraction `$ f $` of each variant `$ v $` at time `$ t $` is given by:
+
+`$ f_{v,t} = p_{v_,t} / P_t $`
+
+Here's the fraction for our five variants, evolving over 30 doublings:
+
+![Five variants under exponential growth](src/exp-lines.svg)
+*five variants under exponential growth*
+
+This looks very much like our experimental data above!
+
+### Thriving and diminishing
+
+The variant with score = 1 rapidly comes to dominate the population.
+The variant with score = 0 falls away very quickly as the total population increases
+and it doesn't.
+
+Intermediate scores fall less quickly, even seem to rally a little bit
+as lower scored variants diminish quicker, but inevitably they fall as well.
+
+Like in the George Carlin quote above: from the point of view of any variant, 
+there are variants less fit than you, which you out-compete,
+and variants fitter than you, which out-compete you.
+
+This is maybe clearer when plotted as a stack:
+
+![Five variants under exponential growth (stacked)](src/exp-stack.svg)
+*five variants under exponential growth (stacked)*
+
+### Extracting Score from Frequencies
+
+Looking at this data, it seems like we could just
+rank the variants by using the fraction at a selected time point
+(eg: in this example, t=5).
+
+However:
+
+* In the actual experiment there are thousands of variants mixed together.
+* Not all variants start off with the same fraction of the population.
+* In particular, unmodified "wild type" sequences are overrepresented,
+  and have a score ≈ 1
+* There are quite a lot of synonymous variants, also with score ≈ 1 
+* There are quite a lot of nonsense variants, with expected score ≈ 0
+* There is also a great deal of random sampling noise.
+* Scores are not normally distributed.
+
+Sampling noise is particularly interesting as some time points have
+many more sampled sequences than others just due to experimental variability.
+We can still get an estimate of variant fraction at those time points
+but the uncertainty is much higher.
+
+Because of these factors, it's not enough to just pick a single time
+at which to rank variants, for each variant we want to fit *all* the
+frequencies to a curve, and then use the parameters of that curve to
+extract a score.
+
+We have a formula for 
 
 However, it'd be nice to consider a better mathematical model for the
 yeast growth.

@@ -232,7 +232,7 @@ Combining the two equations is ugly but
 
 The variable `$d$` is a measure of how much less well this variant is performing
 compared to the most fit variants, therefore if we assume those have score = 1 
-we can work out a score for our variant of `$score_{v} = $1-d$`
+we can work out a score for our variant of `$score_{v} = 1-d$`
 
 ## Back to Real Data
 

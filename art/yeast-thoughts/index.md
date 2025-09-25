@@ -102,93 +102,38 @@ I'm ignoring the two "control" replicates.
 
 Samples were taken at every four hours at first, backing off to every 12 hours.
 The intention of this was to get some more subtlety in scoring, rather than just
-a score of survived or didn't.
+a score of survived or didn't.  Number of volume replacements was also recorded
+at each time point.
 
 > more samples were taken within the first 24 hours intending to capture
 variants with very low activity that were rapidly lost from the population
 
-At the same time, the number of "volume replacements" made by the turbidostat
-was recorded, based on the run time of the turbidostat's pump which
-indicates how much growth medium was added.
-
-| Nominal Time | Volume Replacements (stress 3) | Volume Replacements (stress 4) |
-|---|---|---|
-| 0 | 0 | 0 |
-| 4 | 0.52 | 0.45 |
-| 8 | 2.11 | 2.06 |
-| 12 | 3.71 | 3.68 | 
-| 16 | 5.23 | 5.19 |
-| 24 | 8.78 | 8.82 |
-| 36 | 13.92 | 19.95 |
-| 48 | 19.31 | 19.31 |
-| 60 | 24.63 | 24.65 |
-| 72 | 30.57 | 30.32 |
-
-For each sample, sequencing was performed to see what proportion
+For each sample, DNA sequencing was performed to see what proportion
 of the yeasts were of what varieties.
-
 The number of sequences captured at each time point varied quite
-a lot, the smallest sample being 1.4 Mseq and the largest
-6.6 Mseq!
+a lot, the library having 9.5 Mseq, and then the smallest sample
+being 1.4 Mseq and the largest sample 6.6 Mseq.
 
-| Nominal Time | Experiment | Number of Sequences |
-|---|---|---|
-| 0 | library | 9465789 |
-| 4 | stress 3 | 2194742 |
-| 8 | stress 3 | 1601970 |
-| 12 | stress 3 | 2377144 |
-| 16 | stress 3 | 2529157 |
-| 24 | stress 3 | 1259293 |
-| 36 | stress 3 | 2829533 |
-| 48 | stress 3 | 1616839 |
-| 60 | stress 3 | 4933458 |
-| 72 | stress 3 | 4457441 |
-| 4 | stress 4 | 1408777 |
-| 8 | stress 4 | 2892289 |
-| 12 | stress 4 | 3877352 |
-| 16 | stress 4 | 4711909 |
-| 24 | stress 4 | 2751762 |
-| 36 | stress 4 | 2264457 |
-| 48 | stress 4 | 2469222 |
-| 60 | stress 4 | 6577424 |
-| 72 | stress 4 | 1639330 |
+### Scoring
 
 For the paper, we just did a linear least-squares fit of 
 population fraction to volume replacements, and that was 
-adequate to get some nice results for score distribution
+adequate to get some nice variant score results
 with good correlation between replicates, and the distribution of 
 nonsense and synonymous variants was as expected:
 
 ![good correlation between replicates and good distribution of nonsense and synonymous variants](img/g6pd_histo.svg)
 *good correlation between replicates and good distribution of nonsense and synonymous variants (unpublished preliminary data)*
 
-## Selected Variants
-
-![selected variants](img/plot-exp.svg)
-*selected variants (unpublished preliminary data)*
-
-This graph shows several selected variants from the experimental data, and how 
-their population changes with time.
-
-| Variant | Classification | Score |
-|---|---|---|
-| p.= | wild type | ~ 1 |
-| p.Ala109Ter | nonsense | ~ 0 |
-| p.Ala300Met | missense | high |
-| p.Asp282Gln | missense | high |
-| p.Gln195Leu | missense | medium |
-| p.Phe237Ser | missense | medium | 
-| p.Phe241Pro | missense | low |
 
 ## Math!
-
 
 Let's consider a simplified situation with five variants of varying score:
 we'll use scores 0, 0.5, 0.75, 0.9 and 1.0 to give us something to compare.
 We'll also ignore the physical limitations of the actual experiment and imagine
 the variants starting at the same frequency and growing without limit.
 At a maximum score of 1.0 the population will double every time unit,
-and a the minimum score of 0.0 the population won't increase at all.
+and at the minimum score of 0.0 the population won't increase at all.
 
 ### Scores, populations and frequencies
 
@@ -264,40 +209,86 @@ at which to rank variants, for each variant we want to fit *all* the
 frequencies to a curve, and then use the parameters of that curve to
 extract a score.
 
-We have a formula for frequency in terms of score but it also includes the total of frequencies which makes it hard to use.  Perhaps we can approximate our curve with a simpler formula:
-
-`$ f_{v,t} = a_v ( b_v - e^{c_{v}t})) / e^{d_{v}t} $`
-
-![fit](src/exp-fit.svg)
-*fitted curves [python source code](src/exp-fit.py)*
-
-```
-score 0.00 popt [-5.63651405e-03 -3.55143807e+01  1.43864824e-06  5.37711909e-01]
-score 0.50 popt [-0.49105992  0.59336991  0.15205937  0.42003735]
-score 0.75 popt [-0.55393935  0.63811851  0.12511719  0.24449117]
-score 0.90 popt [-0.62441687  0.67587381  0.10235867  0.14360838]
-score 1.00 popt [-0.67536989  0.69695554  0.08952511  0.08169591]
-```
-
 Fitting the actual shape of the frequency curves is slightly tricky.
 Variants with score ≈ 0 decay exponentially towards zero frequency,
 something like:
 
-`$ f_t = a / d^t $`
+`$ f_t = a / (d+1)^t $`
 
 Variants with score ≈ 1 increase asymptotically towards a final frequency, something like:
 
-`$ f_t = a - b / c^t $`
+`$ f_t = a - b / (c+1)^t $`
 
 Intermediate scores combine these behaviours, increasing and then falling away.
-Combining the two equations is ugly but [not unprecedented](https://en.wikipedia.org/wiki/Planck%27s_law#Finding_the_empirical_law):
+Combining the two equations is ugly but
+[not unprecedented](https://en.wikipedia.org/wiki/Planck%27s_law#Finding_the_empirical_law):
 
-`$ f_t = (a - b / c^t) / d^t $`
+`$ f_t = (a - b / (c+1)^t) / (d+1)^t $`
 
-... and fits the simulated data quite well:
+... and fits the simulated data rather well:
 
 ![fit2](src/exp-fit2.svg)
 *fitted curves 2 [python source code](src/exp-fit2.py)*
 
-The variable `$ d $` is a measure of how much less
+The variable `$d$` is a measure of how much less well this variant is performing
+compared to the most fit variants, therefore if we assume those have score = 1 
+we can work out a score for our variant of `$score_{v} = $1-d$`
+
+## Back to Real Data
+
+Let's see how well this curve fitting works with real data.
+
+### Statistical treatment of frequencies
+
+For a given variant `$v$` at timepoint `$t$`, the frequency `$f_{v,t}$` 
+is found from the count as a fraction of the total count `$C$` at that timepoint.
+
+`$f_{v,t} = c_{v,t} / C_t$`
+
+This frequency is an *estimate* of the actual frequency of the variant. 
+The sample files contain millions of sequences, but these are just 
+a random sample of the billions of yeasts in the turbidostat.
+The larger the sample, the more certain we can be about the 
+
+It's therefore also useful to calculate a standard deviation of the frequency using the 
+[variance](https://en.wikipedia.org/wiki/Binomial_distribution#Estimation_of_parameters)
+
+`$\sigma_{v,t} = \sqrt{\frac{f_{v,t}(1-f_{v,t})}{C_t}}$`
+
+This expresses the probably obvious intuition that the larger a sample file the
+more certain we can be about the estimates we get from it.  This is useful because
+when we fit the curves we can use the standard deviation at each point to control
+how tightly that point needs to be fitted.
+
+| count | total | estimate | estimate - σ | estimate + σ |
+|---|---|---|---|---|
+| 10 | 1000000 | 10ppm | 6.8ppm | 13.2ppm |
+| 20 | 2000000 | 10ppm | 7.8ppm | 12.2ppm |
+| 50 | 5000000 | 10ppm | 8.6ppm | 11.4ppm |
+| 100 | 10000000 | 10ppm | 9ppm | 11ppm |
+
+XXX special case for zeros.
+
+`$\sigma_{v,t} = 1 / C_t \text{where} c_{v,t} = 0$`
+
+XXX graph of real data with errorbars representing stddev.
+
+## Selected Variants
+
+![selected variants](img/plot-exp.svg)
+*selected variants (unpublished preliminary data)*
+
+This graph shows several selected variants from the experimental data, and how 
+their population changes with time.
+
+| Variant | Classification | Score |
+|---|---|---|
+| p.= | wild type | ~ 1 |
+| p.Ala109Ter | nonsense | ~ 0 |
+| p.Ala300Met | missense | high |
+| p.Asp282Gln | missense | high |
+| p.Gln195Leu | missense | medium |
+| p.Phe237Ser | missense | medium | 
+| p.Phe241Pro | missense | low |
+
 <!-- footnotes should appear below here! -->

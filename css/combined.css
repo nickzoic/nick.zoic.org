@@ -776,4 +776,8 @@ div.aside + p {
     padding-left: 0.5em;
     margin-left: 0.5em;
 }
-	
+
+div.footnotes {
+    border-top: 2px solid black;
+    padding-top: 1em;
+}

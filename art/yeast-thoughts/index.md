@@ -210,7 +210,7 @@ So the fraction `$f$` of each variant `$v$` at time `$t$` is given by:
 Here's the fraction for our five variants, evolving over 30 doublings:
 
 ![Five variants under exponential growth](src/exp-lines.svg)
-*five variants under exponential growth*
+*five variants under exponential growth [python source code](src/exp-lines.py)*
 
 This looks very much like our experimental data above!
 
@@ -235,7 +235,7 @@ and variants fitter than you, which out-compete you.
 This is maybe clearer when plotted as a stack:
 
 ![Five variants under exponential growth (stacked)](src/exp-stack.svg)
-*five variants under exponential growth (stacked)*
+*five variants under exponential growth (stacked) [python source code](src/exp-stack.py)*
 
 ### Extracting Score from Frequencies
 
@@ -269,7 +269,7 @@ We have a formula for frequency in terms of score but it also includes the total
 `$ f_{v,t} = a_v ( b_v - e^{c_{v}t})) / e^{d_{v}t} $`
 
 ![fit](src/exp-fit.svg)
-*fit*
+*fitted curves [python source code](src/exp-fit.py)*
 
 ```
 score 0.00 popt [-5.63651405e-03 -3.55143807e+01  1.43864824e-06  5.37711909e-01]
@@ -289,10 +289,15 @@ Variants with score ≈ 1 increase asymptotically towards a final frequency, som
 
 `$ f_t = a - b / c^t $`
 
-Combining these two is ugly but [somewhat precedented](https://en.wikipedia.org/wiki/Planck%27s_law#Finding_the_empirical_law) ... 
+Intermediate scores combine these behaviours, increasing and then falling away.
+Combining the two equations is ugly but [not unprecedented](https://en.wikipedia.org/wiki/Planck%27s_law#Finding_the_empirical_law):
 
 `$ f_t = (a - b / c^t) / d^t $`
 
+... and fits the simulated data quite well:
 
-<hr/>
-<!-- footnotes should appear here! -->
+![fit2](src/exp-fit2.svg)
+*fitted curves 2 [python source code](src/exp-fit2.py)*
+
+The variable `$ d $` is a measure of how much less
+<!-- footnotes should appear below here! -->

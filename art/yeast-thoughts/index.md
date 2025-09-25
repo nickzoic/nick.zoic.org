@@ -279,5 +279,20 @@ score 0.90 popt [-0.62441687  0.67587381  0.10235867  0.14360838]
 score 1.00 popt [-0.67536989  0.69695554  0.08952511  0.08169591]
 ```
 
+Fitting the actual shape of the frequency curves is slightly tricky.
+Variants with score ≈ 0 decay exponentially towards zero frequency,
+something like:
+
+`$ f_t = a / d^t $`
+
+Variants with score ≈ 1 increase asymptotically towards a final frequency, something like:
+
+`$ f_t = a - b / c^t $`
+
+Combining these two is ugly but [somewhat precedented](https://en.wikipedia.org/wiki/Planck%27s_law#Finding_the_empirical_law) ... 
+
+`$ f_t = (a - b / c^t) / d^t $`
+
+
 <hr/>
 <!-- footnotes should appear here! -->

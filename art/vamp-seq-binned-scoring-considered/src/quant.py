@@ -14,7 +14,7 @@ weights = [ 0.25, 0.5, 0.75, 1.0 ]
 thresholds = [ 0.375, 0.625, 0.875 ]
 
 fig = pyplot.figure(layout='constrained', figsize=(6,10))
-axs = [ x for y in fig.subplots(len(sigmas)//2, 2) for x in y ]
+axs = [ x for y in fig.subplots(len(sigmas)//2, 2, sharex=True, sharey=True) for x in y ]
 
 for ax, sigma in zip(axs, sigmas):
     ax.xaxis.set_ticks(weights)

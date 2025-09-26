@@ -72,7 +72,10 @@ the score is a little overbalanced to the right, a little bit higher than 0.5.
 
 ## Quantization
 
-![fwd](fwd.svg)
+![quant](src/quant.svg)
+*quant*
+
+![fwd](src/fwd.svg)
 *fwd*
 
 ## Standard Deviation

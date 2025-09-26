@@ -13,7 +13,7 @@ sigmas = [ 0.03125, 0.0625, 0.125, 0.25]
 weights = [ 0.25, 0.5, 0.75, 1.0 ]
 thresholds = [ 0.375, 0.625, 0.875 ]
 
-fig = pyplot.figure(layout='constrained')
+fig = pyplot.figure(layout='constrained', figsize=(6,12))
 axs = fig.subplots(len(sigmas))
 
 for ax, sigma in zip(axs, sigmas):

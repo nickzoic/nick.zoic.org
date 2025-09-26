@@ -10,7 +10,7 @@ bin_counts = [
     ( 315, 0, 5, 180 ),
 ]
 
-fig = pyplot.figure(layout='constrained')
+fig = pyplot.figure(layout='constrained', figsize=(6,12))
 axs = fig.subplots(len(bin_counts))
 
 for ax, bins in zip(axs, bin_counts):

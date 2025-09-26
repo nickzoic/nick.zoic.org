@@ -6,9 +6,10 @@ import random
 
 score = 0.575
 sigma = 0.2
-count = 200
+count = 100
 
-sigmas = [ 0.03125, 0.0625, 0.125, 0.25]
+#sigmas = [ 0.03125, 0.0625, 0.125, 0.25]
+sigmas = [ 0.01, 0.05, 0.1, 0.5 ]
 
 weights = [ 0.25, 0.5, 0.75, 1.0 ]
 thresholds = [ 0.375, 0.625, 0.875 ]
@@ -33,8 +34,10 @@ for ax, sigma in zip(axs, sigmas):
         else:
             bins[-1]+=1
 
+    xscore = sum(b * w for b, w in zip(bins, weights)) / sum(bins)
+
     ax.bar(weights, bins, width=1/(len(bins)+1))
-    ax.set_title("mu %.3f sigma %.3f" % (score, sigma))
+    ax.set_title("mu %.3f sigma %.3f score %.3f" % (score, sigma, xscore))
 
     ax2 = ax.twinx()
     ax2.yaxis.set_ticks([])

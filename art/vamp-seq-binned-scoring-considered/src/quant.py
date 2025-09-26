@@ -6,7 +6,7 @@ import random
 
 score = 0.575
 sigma = 0.2
-count = 200
+count = 100
 
 sigmas = [ 0.025, 0.05, 0.1, 0.2, 0.5, 1.0 ]
 

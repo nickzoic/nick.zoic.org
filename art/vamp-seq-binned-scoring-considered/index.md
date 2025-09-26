@@ -79,7 +79,7 @@ the score is a little overbalanced to the right, a little bit higher than 0.5.
 |bin1|bin2|bin3|bin4|score|analysis|
 |---|---|---|---|---|---|
 |100|250|150|0|0.525|typical|
-|100|125|100|100|0.525|high sd|
+|200|125|100|75|0.525|high sd|
 |0|450|50|0|0.525|low sd|
 |315|0|5|180|0.525|experimental error?|
 

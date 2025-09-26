@@ -35,4 +35,5 @@ for ax, bins in zip(axs, bin_counts):
     ax2.plot(x, stats.norm.pdf(x, mu, sigma), color='orange')
 
 
-pyplot.show()
+#pyplot.show()
+pyplot.savefig("bins.svg", bbox_inches="tight")

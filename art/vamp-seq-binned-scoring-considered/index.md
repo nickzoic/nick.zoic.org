@@ -72,6 +72,9 @@ the score is a little overbalanced to the right, a little bit higher than 0.5.
 
 ## Quantization
 
+![fwd](fwd.svg)
+*fwd*
+
 ## Standard Deviation
 
 ## Error Detection
@@ -84,4 +87,6 @@ the score is a little overbalanced to the right, a little bit higher than 0.5.
 |315|0|5|180|0.525|experimental error?|
 
 
+![bins](src/bins.svg)
+*bins*
 

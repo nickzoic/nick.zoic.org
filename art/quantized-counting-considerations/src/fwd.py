@@ -35,6 +35,8 @@ for ax, sigma in zip(axs, sigmas):
             bins[-1]+=1
 
     xscore = sum(b * w for b, w in zip(bins, weights)) / sum(bins)
+    print("mu %.3f sigma %.3f score %.3f" % (score, sigma, xscore))
+    print("bins %s" % bins)
 
     ax.bar(weights, bins, width=1/(len(bins)+1))
     ax.set_title("mu %.3f sigma %.3f score %.3f" % (score, sigma, xscore))

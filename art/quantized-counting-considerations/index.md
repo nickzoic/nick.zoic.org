@@ -69,17 +69,11 @@ I'll come back to that later, but in the mean time let's talk scoring.
 Thresholds between bins are chosen to make the bins *approximately* the same
 size, but to reduce the effect of bin size differences, first the counts are
 scaled to find frequencies of each variant within each bin, eg:
-
-`$ F_{v,i} = C_{v,i} / \sum_{i} C_{v,i} $`
-
+`$$ F_{v,i} = C_{v,i} / \sum_{v} C_{v,i} $$`
 The scaled, weighted averages are calculated like this:
-
-`$ \displaystyle W_{v} = \frac{\displaystyle\sum_{i=1}^{N}{w_i F_{v,i}}}{\displaystyle\sum_{i=1}^{N}{F_{v,i}}} $`
-
+`$$ \displaystyle W_{v} = \sum_{i}{w_i F_{v,i}} / \sum_{i}{F_{v,i}} $$`
 where the weights per bin `$w_i$` are generally given by
-
-`$ w_i = i/N $`
-
+`$$ w_i = i / N $$`
 So for example (ignoring scaling for clarity), if 500 cells of a particular variant
 go into the sorter, they might end up with 100 in bin 1, 250 in bin 2,
 150 in bin 3, and none in bin 4.
@@ -171,5 +165,8 @@ In the process of combining the four bin counts, we've lost quite a lot of infor
 
 Cases like the last one could indicate a problem with the experimental
 setup, for example jumbled or contaminated samples.
+
+Investigation of skew or inversion of bins might also
+prove valuable.
 
 

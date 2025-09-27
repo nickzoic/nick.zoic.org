@@ -150,6 +150,7 @@ investigate what standard deviation our variants seem
 to have, as a way of understanding if we have good
 data or not.  
 `$$\mu = \displaystyle\sum_{i=1}^{N}w_{i}F_{i}
+
 \sigma = \sqrt{\displaystyle\sum_{i=1}^{N}F_{i}(w_i-\mu)^2}$$`
 
 ## Error Detection

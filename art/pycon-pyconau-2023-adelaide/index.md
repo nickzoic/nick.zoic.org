@@ -4,6 +4,7 @@ layout: article
 summary: |
     PyConAU 2023 Adelaide!
 tags:
+- bioinformatics
 - conference
 - python
 title: 'PyConAU 2023 Adelaide!'

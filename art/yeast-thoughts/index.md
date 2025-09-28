@@ -12,12 +12,12 @@ uses_mathjax: 3
 ## Background: The Experiment
 
 In my [PyConAU 2025 talk](/art/pycon-pyconau-2025-melbourne/) I talk a little bit
-about testing modified versions of the human *G6PD* gene in yeast[^1].
+about testing modified versions of the human *G6PD* gene in yeast[^geck].
 
 In that study we just used a simple linear interpolation of growth rates and it worked
 out fine but this discussion is an attempt to tackle the interesting mathematics of yeast growth.
 
-[^1]: Functional evidence for G6PD variant classification from mutational scanning
+[^geck]: Functional evidence for G6PD variant classification from mutational scanning
     Renee C. Geck, Melinda K. Wheelock, Rachel L. Powell, Ziyu R. Wang, Daniel L. Holmes, Shawn Fayer, Gabriel E. Boyle, Allyssa J. Vandi, Abby V. McGee, Clara J. Amorosi, Nick Moore, Alan F. Rubin, Douglas M. Fowler, Maitreya J. Dunham
     [bioRxiv 2025.08.11.669723](https://www.biorxiv.org/content/10.1101/2025.08.11.669723v2);
     doi: [10.1101/2025.08.11.669723](https://doi.org/10.1101/2025.08.11.669723)
@@ -85,11 +85,11 @@ variants, and come to dominate the population.
 ### Yeast Population
 
 In this experiment the turbidity setpoint is OD<sub>600</sub> = 0.5.
-Getting from OD<sub>600</sub> to cell concentration is complicated[^2]
+Getting from OD<sub>600</sub> to cell concentration is complicated[^fukuda]
 but using an approximation of 1 × 10^7 cells per mL per OD<sub>600</sub>,
 there's about a billion (1 × 10^9) cells in each 200mL turbidostat.
 
-[^2]: Fukuda, N.
+[^fukuda]: Fukuda, N.
     Apparent diameter and cell density of yeast strains with different ploidy.
     [Sci Rep 13, 1513 (2023)](https://www.nature.com/articles/s41598-023-28800-z).
     doi: [10.1038/s41598-023-28800-z](https://doi.org/10.1038/s41598-023-28800-z)
@@ -125,7 +125,6 @@ nonsense and synonymous variants was as expected:
 ![good correlation between replicates and good distribution of nonsense and synonymous variants](img/g6pd_histo.svg)
 *good correlation between replicates and good distribution of nonsense and synonymous variants (unpublished preliminary data)*
 
-
 ## Math!
 
 Let's consider a simplified situation with five variants of varying score:
@@ -134,6 +133,27 @@ We'll also ignore the physical limitations of the actual experiment and imagine
 the variants starting at the same frequency and growing without limit.
 At a maximum score of 1.0 the population will double every time unit,
 and at the minimum score of 0.0 the population won't increase at all.
+
+### NOTATION
+
+XXX have to choose best notation for score exponential and be consistent.
+
+`$ (1+k)^t / (1+K)^t \or a^{kt} / a^t \or e^{kt} / e^{Kt} $`
+
+* is base going to be `a` or `e`
+* is exponent going to be `k` or `1+k`
+* is limit exponent going to be `K` or `2`?
+
+arguments:
+
+* don't need both `a` and `K`.
+* `(1+k)` is kinda ugly
+* `k-K` isn't clearly negative.
+* score and k (or k-1) aren't necessarily identical (normalization)
+* don't entirely love `k` vs `K` and `p` vs `P` but at least they're parallel.
+* ditto `c` and `C`.
+
+`$ e^k / e^K = e^{k-K} $`
 
 ### Scores, populations and frequencies
 
@@ -159,7 +179,7 @@ Here's the fraction for our five variants, evolving over 30 doublings:
 
 This looks very much like our experimental data above!
 
-### Thriving and diminishing
+### Thriving and Diminishing
 
 > Have you ever noticed that anybody driving slower than you is an idiot,
 > and anyone going faster than you is a maniac?
@@ -181,6 +201,28 @@ This is maybe clearer when plotted as a stack:
 
 ![Five variants under exponential growth (stacked)](src/exp-stack.svg)
 *five variants under exponential growth (stacked) [python source code](src/exp-stack.py)*
+
+### Majority Rules
+
+The library consists of a thousands of variants, but because of the way it is
+created the "wild type" (unchanged) variant is present in large numbers too.
+These unchanged genes are expected to perform well.
+
+Additionally, many variants are "synonymous", they have nucelotide change(s) but
+because of redundancy in the codon table they produce the same protein as the unmodified gene.
+There are many of these, and they are also expected to perform well.
+
+In time, wild types and synonymous variants will out-compete even variants with 99% as
+good performance as the wild type:
+
+`$ \lim_{t \to \inf} P_t \propto (1+K)^t $`
+
+This means that we can estimate the frequency of any variant compared to this majority:
+
+`$ f_{v,t} \approx (1+k_{v})^{t} / (1+K)^t = (k_{v}-K)^t $`
+
+`$ f_{v,t} \approx (1+k_{v})^{t} / (1+K)^t = (k_{v}-1)^t $`
+
 
 ### Extracting Score from Frequencies
 

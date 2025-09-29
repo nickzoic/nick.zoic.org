@@ -21,6 +21,9 @@ for t in times:
 pyplot.xlabel("time")
 pyplot.ylabel("fraction")
 
+pyplot.xlim([0, 30])
+pyplot.ylim([0, 1])
+
 pyplot.stackplot(times, *lines, labels=["score %.2f" % s for s in scores])
 
 pyplot.legend(loc="upper right", title="variants", reverse=True)

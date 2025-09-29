@@ -69,17 +69,25 @@ I'll come back to that later, but in the mean time let's talk scoring.
 Thresholds between bins are chosen to make the bins *approximately* the same
 size, but to reduce the effect of bin size differences, first the counts are
 scaled to find frequencies of each variant within each bin, eg:
+
 `$$ F_{v,i} = C_{v,i} / \sum_{v} C_{v,i} $$`
+
 The scaled, weighted averages are calculated like this:
-`$$ \displaystyle W_{v} = \sum_{i}{w_i F_{v,i}} / \sum_{i}{F_{v,i}} $$`
+
+`$$ W_{v} = \frac{\sum_{i}{w_i F_{v,i}}}{\sum_{i}{F_{v,i}}} $$`
+
 where the weights per bin `$w_i$` are generally given by
+
 `$$ w_i = i / N $$`
+
 So for example (ignoring scaling for clarity), if 500 cells of a particular variant
 go into the sorter, they might end up with 100 in bin 1, 250 in bin 2,
 150 in bin 3, and none in bin 4.
 
 The score for this variant would be:
+
 `$$ s = (0.25 \cdot 100 + 0.50 \cdot 250 + 0.75 \cdot 150 + 1.00 \cdot 0 ) / 500 = 0.525 $$`
+
 This makes sense: the majority of counts are in bin 2 (weight 0.5) with some 
 hanging over each side, and there's slightly more counts in bin 3 than bin 1 so
 the histogram is a little overbalanced to the right, so the result is a little
@@ -143,9 +151,9 @@ But if what we've got is bin counts, we can also
 investigate what standard deviation our variants seem
 to have, as a way of understanding if we have good
 data or not.  
-`$$\mu = \displaystyle\sum_{i=1}^{N}w_{i}F_{i}
+`$$\mu = \sum_{i=1}^{N}w_{i}F_{i}$$`
 
-\sigma = \sqrt{\displaystyle\sum_{i=1}^{N}F_{i}(w_i-\mu)^2}$$`
+`$$\sigma = \sqrt{\sum_{i=1}^{N}F_{i}(w_i-\mu)^2}$$`
 
 ## Error Detection
 

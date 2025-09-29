@@ -215,11 +215,15 @@ This means that we can estimate the frequency of any variant compared to this ma
 
 `$ \displaystyle\lim_{t \to \infty} f_{v,t} \quad \approx \quad p_{v,0} a^{k_{v}t} / P_{W,0} a^t \quad \propto \quad a^{k_{v}-1}, \quad 0 <= k_v <= 1 $`
 
-`$ 
+testing paragraph
+
+`$$ 
     \begin{split} \displaystyle\lim_{t \to \infty} f_{v,t} &\propto a^{k_{v}t} / a^t \\
       &\propto a^{(k_{v}-1)t} \\
 \end{split}
-$`
+$$`
+
+testing paragraph
 
 `$ \displaystyle\lim_{t \to \infty} f_{v,t} = \left\{
     \begin{array}{ c l }

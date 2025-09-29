@@ -142,7 +142,7 @@ is the situation simulated by the turbidostat.
 
 Each of our variants `$v$` grow exponentially from their initial population `$p_{v,0}$`.
 
-`$$ p_{v,t} = p_{v,0} a^{k_{v}t} \\ 0 \leq k_v \leq 1 $$`
+`$$ \begin{aligned}p_{v,t} = p_{v,0} a^{&k_{v}t} \\ 0 \leq &k_v \leq 1\end{aligned} $$`
 
 Variants have a score `$k_v$` which varies from 0 (doesn't reproduce at all)
 to 1 (reproduces at the maximum rate).

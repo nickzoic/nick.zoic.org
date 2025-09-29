@@ -207,14 +207,20 @@ There are many of these, and they are also expected to perform well.
 In time, wild types and synonymous variants will out-compete all other variants, and population
 will then grow at the full rate:
 
-XXX not quite `$P_0$` though is it
+`$ \lim_{t \to \infty} P_t = P_{W,0} a^t $`
 
-`$ \lim_{t \to \inf} P_t = P_0 a^t} $`
+... where `$P_{W,0}$` is the total population of score=1 variants at time 0.
 
 This means that we can estimate the frequency of any variant compared to this majority:
 
-`$ \lim_{t \to \inf} f_{v,t} \approx p_{v,0} a^{k_{v}t} / P_0 a^t = f_{v,0} a^{k_{v}-1}, 0 <= k_v <= 1 $`
+`$ \lim_{t \to \infty} f_{v,t} \approx p_{v,0} a^{k_{v}t} / P_{W,0} a^t \propto a^{k_{v}-1}, 0 <= k_v <= 1 $`
 
+`$ \lim_{t \to \infty} f_{v_t} = \left\{
+    \begin{array}{ c l }
+      p_{v,0} / P_{W,0} & \quad \textrm{if } k_v \eq 1 \\
+      0                 & \quad \textrm{otherwise}
+    \end{array}
+  \right.$`
 
 ### Extracting Score from Frequencies
 

@@ -125,41 +125,32 @@ nonsense and synonymous variants was as expected:
 ![good correlation between replicates and good distribution of nonsense and synonymous variants](img/g6pd_histo.svg)
 *good correlation between replicates and good distribution of nonsense and synonymous variants (unpublished preliminary data)*
 
-## Math!
+## Let's Do Math!
 
-Let's consider a simplified situation with five variants of varying score:
-we'll use scores 0, 0.5, 0.75, 0.9 and 1.0 to give us something to compare.
+Let's consider a simplified situation with five variants.
 We'll also ignore the physical limitations of the actual experiment and imagine
-the variants starting at the same frequency and growing without limit.
+the variants starting at the same frequency and growing without limit: this
+is the situation simulated by the turbidostat.
+
+Our unmodified, wild-type yeast 
 At a maximum score of 1.0 the population will double every time unit,
 and at the minimum score of 0.0 the population won't increase at all.
 
-### NOTATION
-
-XXX have to choose best notation for score exponential and be consistent.
-
-`$ (1+k)^t / (1+K)^t \or a^{kt} / a^t \or e^{kt} / e^{Kt} $`
-
-* is base going to be `a` or `e`
-* is exponent going to be `k` or `1+k`
-* is limit exponent going to be `K` or `2`?
-
-arguments:
-
-* don't need both `a` and `K`.
-* `(1+k)` is kinda ugly
-* `k-K` isn't clearly negative.
-* score and k (or k-1) aren't necessarily identical (normalization)
-* don't entirely love `k` vs `K` and `p` vs `P` but at least they're parallel.
-* ditto `c` and `C`.
-
-`$ e^k / e^K = e^{k-K} $`
 
 ### Scores, populations and frequencies
 
 For each variant `$v$` with score `$k_{v}$`, the population `$p$` at time `$t$` is given by:
 
-`$ p_{v,t} = (1+k_{v})^{t} $`
+Our unmodified "Wild Type" gene we'll assume grows exponentially from it's initial population `$p_{WT,0}$`
+at a rate `$a$`.
+
+`$ p_{WT,t} = p_{WT,0} a^t $`
+
+Modified variants we give a 'score' `$k_v$` from 0 to 1 based on how much the variant has 
+affected them.  A score of 1 means the variant is just as effective as the wild type, a score
+of 0 means that it does not reproduce at all:
+
+`$ p_{v,t} = p_{v,0} a^{k_{v}t}, 0 <= k_v <= 1 $`
 
 We don't actually have a way to directly measure the population of a variant though,
 we're measuring the frequency as a fraction of the total population.
@@ -168,10 +159,11 @@ The total population `$P$` at time `$t$` is given by:
 
 `$ P_t = \displaystyle\sum_{v}p_{v,t} $`
 
-So the fraction `$f$` of each variant `$v$` at time `$t$` is given by:
+The fraction `$f$` of each variant `$v$` at time `$t$` is given by:
 
-`$ f_{v,t} = p_{v_,t} / P_t $`
+`$ f_{v,t} = p_{v,t} / P_t $`
 
+We'll use scores 0, 0.5, 0.75, 0.9 and 1.0 to give us something to compare.
 Here's the fraction for our five variants, evolving over 30 doublings:
 
 ![Five variants under exponential growth](src/exp-lines.svg)
@@ -212,16 +204,16 @@ Additionally, many variants are "synonymous", they have nucelotide change(s) but
 because of redundancy in the codon table they produce the same protein as the unmodified gene.
 There are many of these, and they are also expected to perform well.
 
-In time, wild types and synonymous variants will out-compete even variants with 99% as
-good performance as the wild type:
+In time, wild types and synonymous variants will out-compete all other variants, and population
+will then grow at the full rate:
 
-`$ \lim_{t \to \inf} P_t \propto (1+K)^t $`
+XXX not quite `$P_0$` though is it
+
+`$ \lim_{t \to \inf} P_t = P_0 a^t} $`
 
 This means that we can estimate the frequency of any variant compared to this majority:
 
-`$ f_{v,t} \approx (1+k_{v})^{t} / (1+K)^t = (k_{v}-K)^t $`
-
-`$ f_{v,t} \approx (1+k_{v})^{t} / (1+K)^t = (k_{v}-1)^t $`
+`$ \lim_{t \to \inf} f_{v,t} \approx p_{v,0} a^{k_{v}t} / P_0 a^t = f_{v,0} a^{k_{v}-1}, 0 <= k_v <= 1 $`
 
 
 ### Extracting Score from Frequencies

@@ -170,7 +170,7 @@ We'll use scores 0, 0.5, 0.75, 0.9 and 1.0 to give us something to compare.
 Here's the fraction for our five variants, evolving over 30 doublings:
 
 ![Five variants under exponential growth](src/exp-lines.svg)
-*five variants under exponential growth [python source code](src/exp-lines.py)*
+*five variants under exponential growth* **[python source code](src/exp-lines.py)**
 
 This looks very much like our experimental data above!
 
@@ -187,7 +187,7 @@ and variants fitter than you, which out-compete you.
 This is maybe clearer when plotted as a stack:
 
 ![Five variants under exponential growth (stacked)](src/exp-stack.svg)
-*five variants under exponential growth (stacked) [python source code](src/exp-stack.py)*
+*five variants under exponential growth (stacked)* **[python source code](src/exp-stack.py)**
 
 ### Extracting Score from Frequencies
 
@@ -268,8 +268,8 @@ Combining the two equations is ugly but
 
 ... and fits the simulated data rather well:
 
-![fit2](src/exp-fit2.svg)
-*fitted curves 2 [python source code](src/exp-fit2.py)*
+![fitting curves to the data](src/exp-fit2.svg)
+*fitting curves to the data* **[python source code](src/exp-fit2.py)**
 
 (the lines of best fit are dashed ... you may need to zoom in)
 
@@ -283,29 +283,33 @@ Let's see how well this curve fitting works with real data.
 
 ### Statistical treatment of frequencies
 
-For a given variant `$v$` at timepoint `$t$`, the frequency `$f_{v,t}$` 
+For a given variant `$v$` at timepoint `$t$`, the frequency estimate `$\hat{f}_{v,t}$` 
 is found from the count as a fraction of the total count `$C$` at that timepoint.
 
-`$$ f_{v,t} = c_{v,t} / C_t $$`
+`$$ \hat{f}_{v,t} = c_{v,t} / C_t $$`
 
-This frequency is an *estimate* of the actual frequency of the variant. 
+`$ \hat{f}_{v,t} $` is an *estimate* of the actual frequency of the variant. 
 The sample files contain millions of sequences, but these are just 
-a random sample of the billions of yeasts in the turbidostat.
-The larger the sample, the more certain we can be about the 
+a random sample of the billions of yeasts growing in the turbidostat.
+The larger the sample, the more certain we can be about the frequencies of
+variants in the population, but the size of sample files vary.
 
-It's therefore also useful to calculate a standard deviation of the frequency using the 
-[variance](https://en.wikipedia.org/wiki/Binomial_distribution#Estimation_of_parameters)
+It's therefore also useful to calculate a standard deviation of the frequency estimate
+using the [variance](https://en.wikipedia.org/wiki/Binomial_distribution#Estimation_of_parameters).
+A zero count would normally have zero standard deviation, but we can add a special case
+to allow for the possibility that some cells exist even if they haven't shown up
+in the sample:
 
 `$$ \sigma_{v,t} = \left\{
 \begin{array}{ c l } 
-\sqrt{\frac{f_{v,t}(1-f_{v,t})}{C_t}} \approx \sqrt{c_{v,t}} / C_t & \quad \textrm{if } c_{v,t} > 0 \\
+\sqrt{\frac{\hat{f}_{v,t}(1-\hat{f}_{v,t})}{C_t}} \approx \sqrt{c_{v,t}} / C_t & \quad \textrm{if } c_{v,t} > 0 \\
 1 / C_t & \quad \textrm{if } c_{v,t} = 0 \\
 \end{array}\right. $$`
 
 This expresses the intuitively obvious idea that the larger a sample file the
 more certain we can be about the estimates we get from it.  This is useful because
-when we fit the curves we can use the standard deviation at each point to control
-how tightly that point needs to be fitted.
+when we fit a curve through the data points, we can use the standard deviation at
+each point to control how tightly that point needs to be fitted.
 
 | count | total | estimate<br>(ppm) | estimate - σ<br>(ppm) | estimate + σ<br>(ppm) |
 |---:|---:|---|---|---|
@@ -314,9 +318,6 @@ how tightly that point needs to be fitted.
 | 50 | 5000000 | 10 | 8.6 | 11.4 |
 | 100 | 10000000 | 10 | 9.0 | 11.0 |
 
-A zero count would normally have zero standard deviation, but we can add a special case
-to allow for the possibility that some cells exist even if they haven't shown up
-in the sample.
 
 XXX graph of real data with errorbars representing stddev.
 

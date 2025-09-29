@@ -26,6 +26,7 @@ def func(t, a, b, c, d):
     #return (1-a/(b+1)**t) * c / (2-d)**t
     #return (a - b/(c+1)**t) / (2-d)**t
     return (a - b/2**(c*t)) / 2**(d*t)
+    #return (a / 2**(b*t)) - (c / 2**(d*t))
 
 pyplot.xlabel("time")
 pyplot.ylabel("fraction")

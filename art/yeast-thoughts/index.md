@@ -48,7 +48,7 @@ This experiment is done in brewer's yeast
 because they reproduce very quickly and no-one minds you killing a billion of
 them before lunch.
 
-The experiment is done by knocking out the yeast's own [*ZWF1*](https://www.alliancegenome.org/gene/SGD:S000005185) gene 
+The experiment is done by knocking out the [yeast *ZWF1*](https://www.alliancegenome.org/gene/SGD:S000005185) gene 
 and inserting variants of [human *G6PD*](https://www.alliancegenome.org/gene/SGD:S000005185) using plasmids.  The variants used are a library
 of all possible single base substitutions.
 
@@ -75,7 +75,7 @@ growing in an unlimited environment where they can multiply indefinitely, doubli
 in population every 90 minutes or so.
 
 Under these conditions, the yeasts are [haploid](https://en.wikipedia.org/wiki/Haploid) and
-reproduce asexually.
+[reproduce asexually](https://en.wikipedia.org/wiki/Asexual_reproduction).
 Because of this the "daughter cells" will have exactly the same genome as the parent, and
 thus our population of variants is preserved.
 
@@ -119,11 +119,17 @@ being 1.4 Mseq and the largest sample 6.6 Mseq.
 For the paper, we just did a linear least-squares fit of 
 population fraction to volume replacements, and that was 
 adequate to get some nice variant score results
-with good correlation between replicates, and the distribution of 
-nonsense and synonymous variants was as expected:
+with good correlation between replicates.
+
+We also identied "nonsense" variants which have an early Stop codon,
+and don't produce a complete protein, and "synonymous" variants which
+have nucleotide change(s) but produce the same protein as the original.
+The distribution of nonsense and synonymous variants was as expected,
+with nonsense variants clutered around score 0 and synonymous variants
+clustered around score 1.
 
 ![good correlation between replicates and good distribution of nonsense and synonymous variants](img/g6pd_histo.svg)
-*good correlation between replicates and good distribution of nonsense and synonymous variants*<br>**unpublished preliminary data**
+*good correlation between replicates and good distribution of nonsense and synonymous variants* **unpublished preliminary data**
 
 ## Let's Do Math!
 
@@ -238,8 +244,9 @@ $$`
 
 It's possible that a variant with `$k_v > 1$` might arise, because even though
 evolution has done a very good job of optimizing genes for their original
-roles our experimental setup isn't quite the same.  Gains tend to be pretty
-marginal though so it's safe enough to assume `0 \leq k_v \leq 1`.
+roles our experimental setup isn't quite the same environment.
+Gains tend to be pretty
+marginal though so it's safe enough for now to assume `$0 \leq k_v \leq 1$`.
 
 ### Fitting Curves
 
@@ -291,7 +298,7 @@ It's therefore also useful to calculate a standard deviation of the frequency us
 
 `$$ \sigma_{v,t} = \left\{
 \begin{array}{ c l } 
-\sqrt{\frac{f_{v,t}(1-f_{v,t})}{C_t}} & \quad \textrm{if } c_{v,t} > 0 \\
+\sqrt{\frac{f_{v,t}(1-f_{v,t})}{C_t}} \approx \sqrt{c_{v,t}} / C_t & \quad \textrm{if } c_{v,t} > 0 \\
 1 / C_t & \quad \textrm{if } c_{v,t} = 0 \\
 \end{array}\right. $$`
 
@@ -316,7 +323,7 @@ XXX graph of real data with errorbars representing stddev.
 ## Selected Variants
 
 ![selected variants](img/plot-exp.svg)
-*selected variants*<br>**unpublished preliminary data**
+*selected variants* **unpublished preliminary data**
 
 This graph shows several selected variants from the experimental data, and how 
 their population changes with time.

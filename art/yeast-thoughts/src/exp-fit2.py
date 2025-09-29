@@ -22,19 +22,20 @@ for t in times:
 
 def func(t, a, b, c, d):
     #return (a * (1+b)**t - c) / (1+d)**t
-    return (1-a*(b+1)**-t) * (c*(2-d)**-t)
+    #return (1-a*(b+1)**-t) * (c*(2-d)**-t)
     #return (1-a/(b+1)**t) * c / (2-d)**t
     #return (a - b/(c+1)**t) / (2-d)**t
+    return (a - b/2**(c*t)) / 2**(d*t)
 
 pyplot.xlabel("time")
 pyplot.ylabel("fraction")
 
 for score, start, line, color in zip(scores, starts, lines, colors):
     pyplot.plot(times, line, color=color, label="score %.2f" % score)
-    popt, pcov = curve_fit(func, times, line, maxfev=100000, bounds=(0,1.1))
+    popt, pcov = curve_fit(func, times, line, maxfev=100000, bounds=(0,1))
     pyplot.plot(times, [ func(t, *popt) for t in times ], color=color, linestyle="dashed")
     print("score %.2f start %.2f popt %s" % (score, start/sum(starts), popt))
 
 pyplot.legend(loc="upper left", title="variants", reverse=True)
 pyplot.savefig("exp-fit2.svg", bbox_inches="tight")
-pyplot.show()
+#pyplot.show()

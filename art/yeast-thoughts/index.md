@@ -123,7 +123,7 @@ with good correlation between replicates, and the distribution of
 nonsense and synonymous variants was as expected:
 
 ![good correlation between replicates and good distribution of nonsense and synonymous variants](img/g6pd_histo.svg)
-*good correlation between replicates and good distribution of nonsense and synonymous variants (unpublished preliminary data)*
+*good correlation between replicates and good distribution of nonsense and synonymous variants*<br>**unpublished preliminary data**
 
 ## Let's Do Math!
 
@@ -247,17 +247,17 @@ Fitting the actual shape of the frequency curves is slightly tricky.
 Variants with score ≈ 0 decay exponentially towards zero frequency,
 something like:
 
-`$ f_t = a / (d+1)^t $`
+`$$ f_t = 1 / 2^{dt} $$`
 
 Variants with score ≈ 1 increase asymptotically towards a final frequency, something like:
 
-`$ f_t = a - b / (c+1)^t $`
+`$$ f_t = a - b / 2^{ct} $$`
 
 Intermediate scores combine these behaviours, increasing and then falling away.
 Combining the two equations is ugly but
 [not unprecedented](https://en.wikipedia.org/wiki/Planck%27s_law#Finding_the_empirical_law):
 
-`$ f_t = (a - b / (c+1)^t) / (d+1)^t $`
+`$$ f_t = \frac{a - b/2^{ct}}{2^{dt}} $$`
 
 ... and fits the simulated data rather well:
 
@@ -289,12 +289,10 @@ The larger the sample, the more certain we can be about the
 It's therefore also useful to calculate a standard deviation of the frequency using the 
 [variance](https://en.wikipedia.org/wiki/Binomial_distribution#Estimation_of_parameters)
 
-XXX special case for zeros.
-
 `$$ \sigma_{v,t} = \left\{
 \begin{array}{ c l } 
 \sqrt{\frac{f_{v,t}(1-f_{v,t})}{C_t}} & \quad \textrm{if } c_{v,t} > 0 \\
-1 / C_t & \quad \textrm{if} c_{v,t} = 0 \\
+1 / C_t & \quad \textrm{if } c_{v,t} = 0 \\
 \end{array}\right. $$`
 
 This expresses the intuitively obvious idea that the larger a sample file the
@@ -309,12 +307,16 @@ how tightly that point needs to be fitted.
 | 50 | 5000000 | 10 | 8.6 | 11.4 |
 | 100 | 10000000 | 10 | 9.0 | 11.0 |
 
+A zero count would normally have zero standard deviation, but we can add a special case
+to allow for the possibility that some cells exist even if they haven't shown up
+in the sample.
+
 XXX graph of real data with errorbars representing stddev.
 
 ## Selected Variants
 
 ![selected variants](img/plot-exp.svg)
-*selected variants (unpublished preliminary data)*
+*selected variants*<br>**unpublished preliminary data**
 
 This graph shows several selected variants from the experimental data, and how 
 their population changes with time.

@@ -339,4 +339,22 @@ their population changes with time.
 | p.Phe237Ser | missense | medium | 
 | p.Phe241Pro | missense | low |
 
+The variable `$ d $` is a measure of how much this variant is outperformed by
+the fittest variant in the experiment. Assuming that the fittest variant has a score of 1, `$ 2-d $` gives us a score.
+
+### Dealing with uncertainty
+
+I mentioned before that in the actual experiment each timed sample
+has a different size and thus a different level of certainty.
+
+We're sampling from a population of about a billion yeasts so it
+seems like our sampling should be "clean" but the number of 
+sequences per sample vary, the smallest is 1.4 MSeq.  
+With thousands of variants of interest the counts per sample size can be small.
+
+XXX histogram of this 
+
+XXX sigma parameter to curve fit: standard deviations
+of errors in ydata.
+
 <!-- footnotes should appear below here! -->

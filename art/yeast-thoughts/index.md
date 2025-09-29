@@ -132,36 +132,33 @@ We'll also ignore the physical limitations of the actual experiment and imagine
 the variants starting at the same frequency and growing without limit: this
 is the situation simulated by the turbidostat.
 
-Our unmodified, wild-type yeast 
-At a maximum score of 1.0 the population will double every time unit,
-and at the minimum score of 0.0 the population won't increase at all.
-
-
 ### Scores, populations and frequencies
 
-For each variant `$v$` with score `$k_{v}$`, the population `$p$` at time `$t$` is given by:
+Each of our variants `$v$` grow exponentially from their initial population `$p_{v,0}$`.
 
-Our unmodified "Wild Type" gene we'll assume grows exponentially from it's initial population `$p_{WT,0}$`
-at a rate `$a$`.
+`$$ p_{v,t} = p_{v,0} a^{k_{v}t} \\ 0 \leq k_v \leq 1 $$`
 
-`$ p_{WT,t} = p_{WT,0} a^t $`
-
-Modified variants we give a 'score' `$k_v$` from 0 to 1 based on how much the variant has 
-affected them.  A score of 1 means the variant is just as effective as the wild type, a score
-of 0 means that it does not reproduce at all:
-
-`$ p_{v,t} = p_{v,0} a^{k_{v}t}, 0 <= k_v <= 1 $`
+Variants have a score `$k_v$` which varies from 0 (doesn't reproduce at all)
+to 1 (reproduces at the maximum rate).
 
 We don't actually have a way to directly measure the population of a variant though,
-we're measuring the frequency as a fraction of the total population.
+we measure sequences in a sample, so we're measuring the frequency as a fraction
+of the total population.
 
 The total population `$P$` at time `$t$` is given by:
 
-`$ P_t = \displaystyle\sum_{v}p_{v,t} $`
+`$$ P_t = \displaystyle\sum_{v}p_{v,t} $$`
 
 The fraction `$f$` of each variant `$v$` at time `$t$` is given by:
 
-`$ f_{v,t} = p_{v,t} / P_t $`
+`$$ f_{v,t} = p_{v,t} / P_t $$`
+
+### Comparing Variants
+
+> Have you ever noticed that anybody driving slower than you is an idiot,
+> and anyone going faster than you is a maniac?
+>
+> -- George Carlin
 
 We'll use scores 0, 0.5, 0.75, 0.9 and 1.0 to give us something to compare.
 Here's the fraction for our five variants, evolving over 30 doublings:
@@ -171,19 +168,11 @@ Here's the fraction for our five variants, evolving over 30 doublings:
 
 This looks very much like our experimental data above!
 
-### Thriving and Diminishing
-
-> Have you ever noticed that anybody driving slower than you is an idiot,
-> and anyone going faster than you is a maniac?
->
-> -- George Carlin
-
-The variant with score = 1 rapidly comes to dominate the population.
-The variant with score = 0 falls away very quickly as the total population increases
-and it doesn't.
-
-Intermediate scores fall less quickly, even seem to rally a little bit
-as lower scored variants diminish quicker, but inevitably they fall as well.
+* The variant with score = 1 rapidly comes to dominate the population.
+* The variant with score = 0 falls away very quickly as the total population increases
+  and it doesn't.
+* Intermediate scores fall less quickly, even seem to rally a little bit
+  as lower scored variants diminish quicker, but inevitably they fall as well.
 
 Like in the George Carlin quote above: from the point of view of any variant, 
 there are variants less fit than you, which you out-compete,
@@ -193,44 +182,6 @@ This is maybe clearer when plotted as a stack:
 
 ![Five variants under exponential growth (stacked)](src/exp-stack.svg)
 *five variants under exponential growth (stacked) [python source code](src/exp-stack.py)*
-
-### Majority Rules
-
-The library consists of a thousands of variants, but because of the way it is
-created the "wild type" (unchanged) variant is present in large numbers too.
-These unchanged genes are expected to perform well.
-
-Additionally, many variants are "synonymous", they have nucelotide change(s) but
-because of redundancy in the codon table they produce the same protein as the unmodified gene.
-There are many of these, and they are also expected to perform well.
-
-In time, wild types and synonymous variants will out-compete all other variants, and population
-will then grow at the full rate:
-
-`$ \displaystyle\lim_{t \to \infty} P_t = P_{W,0} a^t $`
-
-... where `$P_{W,0}$` is the total population of score=1 variants at time 0.
-
-This means that we can estimate the frequency of any variant compared to this majority:
-
-`$ \displaystyle\lim_{t \to \infty} f_{v,t} \quad \approx \quad p_{v,0} a^{k_{v}t} / P_{W,0} a^t \quad \propto \quad a^{k_{v}-1}, \quad 0 <= k_v <= 1 $`
-
-testing paragraph
-
-`$$ 
-    \begin{split} \displaystyle\lim_{t \to \infty} f_{v,t} &\propto a^{k_{v}t} / a^t \\
-      &\propto a^{(k_{v}-1)t} \\
-\end{split}
-$$`
-
-testing paragraph
-
-`$ \displaystyle\lim_{t \to \infty} f_{v,t} = \left\{
-    \begin{array}{ c l }
-      p_{v,0} / P_{W,0} & \quad \textrm{if } k_v = 1 \\
-      0                 & \quad \textrm{if } k_v < 1
-    \end{array}
-  \right.$`
 
 ### Extracting Score from Frequencies
 
@@ -259,6 +210,39 @@ at which to rank variants, for each variant we want to fit *all* the
 frequencies to a curve, and then use the parameters of that curve to
 extract a score.
 
+### Majority Rules
+
+The library consists of a thousands of variants, but because of the way it is
+created the "wild type" (unchanged) variant is present in large numbers too.
+These unchanged genes are expected to perform well.
+
+Additionally, many variants are "synonymous", they have nucelotide change(s) but
+because of redundancy in the codon table they produce the same protein as the
+unmodified gene.  There are many of these, and they are also expected to perform well.
+
+In time, wild types and synonymous variants will out-compete all other variants,
+and population will then grow at the full rate:
+
+`$$ \displaystyle\lim_{t \to \infty} P_t \propto a^t $$`
+
+As this population grows the frequencies of the variants which 
+*aren't* competitive rapidly diminish:
+
+`$$ 
+    \begin{split} \displaystyle\lim_{t \to \infty} f_{v,t} &\propto a^{k_{v}t} / a^t \\
+      &\propto a^{(k_{v}-1)t} \\
+\end{split}
+$$`
+
+#### Even Better Than The Real Thing
+
+It's possible that a variant with `$k_v > 1$` might arise, because even though
+evolution has done a very good job of optimizing genes for their original
+roles our experimental setup isn't quite the same.  Gains tend to be pretty
+marginal though so it's safe enough to assume `0 \leq k_v \leq 1`.
+
+### Fitting Curves
+
 Fitting the actual shape of the frequency curves is slightly tricky.
 Variants with score ≈ 0 decay exponentially towards zero frequency,
 something like:
@@ -280,6 +264,8 @@ Combining the two equations is ugly but
 ![fit2](src/exp-fit2.svg)
 *fitted curves 2 [python source code](src/exp-fit2.py)*
 
+(the lines of best fit are dashed ... you may need to zoom in)
+
 The variable `$d$` is a measure of how much less well this variant is performing
 compared to the most fit variants, therefore if we assume those have score = 1 
 we can work out a score for our variant of `$score_{v} = 1-d$`
@@ -293,7 +279,7 @@ Let's see how well this curve fitting works with real data.
 For a given variant `$v$` at timepoint `$t$`, the frequency `$f_{v,t}$` 
 is found from the count as a fraction of the total count `$C$` at that timepoint.
 
-`$f_{v,t} = c_{v,t} / C_t$`
+`$$ f_{v,t} = c_{v,t} / C_t $$`
 
 This frequency is an *estimate* of the actual frequency of the variant. 
 The sample files contain millions of sequences, but these are just 
@@ -303,23 +289,25 @@ The larger the sample, the more certain we can be about the
 It's therefore also useful to calculate a standard deviation of the frequency using the 
 [variance](https://en.wikipedia.org/wiki/Binomial_distribution#Estimation_of_parameters)
 
-`$\sigma_{v,t} = \sqrt{\frac{f_{v,t}(1-f_{v,t})}{C_t}}$`
+XXX special case for zeros.
 
-This expresses the probably obvious intuition that the larger a sample file the
+`$$ \sigma_{v,t} = \left\{
+\begin{array}{ c l } 
+\sqrt{\frac{f_{v,t}(1-f_{v,t})}{C_t}} & \quad \textrm{if } c_{v,t} > 0 \\
+1 / C_t & \quad \textrm{if} c_{v,t} = 0 \\
+\end{array}\right. $$`
+
+This expresses the intuitively obvious idea that the larger a sample file the
 more certain we can be about the estimates we get from it.  This is useful because
 when we fit the curves we can use the standard deviation at each point to control
 how tightly that point needs to be fitted.
 
-| count | total | estimate | estimate - σ | estimate + σ |
-|---|---|---|---|---|
-| 10 | 1000000 | 10ppm | 6.8ppm | 13.2ppm |
-| 20 | 2000000 | 10ppm | 7.8ppm | 12.2ppm |
-| 50 | 5000000 | 10ppm | 8.6ppm | 11.4ppm |
-| 100 | 10000000 | 10ppm | 9ppm | 11ppm |
-
-XXX special case for zeros.
-
-`$\sigma_{v,t} = 1 / C_t \text{where} c_{v,t} = 0$`
+| count | total | estimate<br>(ppm) | estimate - σ<br>(ppm) | estimate + σ<br>(ppm) |
+|---:|---:|---|---|---|
+| 10 | 1000000 | 10 | 6.8 | 13.2 |
+| 20 | 2000000 | 10 | 7.8 | 12.2 |
+| 50 | 5000000 | 10 | 8.6 | 11.4 |
+| 100 | 10000000 | 10 | 9.0 | 11.0 |
 
 XXX graph of real data with errorbars representing stddev.
 

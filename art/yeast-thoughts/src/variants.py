@@ -10,12 +10,12 @@ from scipy.optimize import curve_fit
 variants = set([
     #'p.=',
     'p.Ala300Met',
-    'p.Asp282Gln',
-    'p.Gln195Leu',
+    #'p.Asp282Gln',
+    #'p.Gln195Leu',
     'p.Phe237Ser',
-    'p.Phe241Pro',
+    #'p.Phe241Pro',
     'p.Ala109Ter',
-    'p.Met267Ter',
+    #'p.Met267Ter',
 ])
 
 replicates = set(['3', '4'])
@@ -49,7 +49,7 @@ freqs = {
 stdevs = {
     r: {
         v: {
-            t: sqrt(counts[r][t][v]) / totals[r][t]
+            t: sqrt(counts[r][t][v] or 1) / totals[r][t]
             for t in times
         }
         for v in variants
@@ -63,19 +63,22 @@ fig = pyplot.figure(layout='constrained', figsize=(6,10))
 axs = fig.subplots(len(replicates))
 
 def func(t, a, b, c, d):
-    return (a - b/2**(c*t)) / 2**(d*t)
+    return (a / b**t) - (c / d**t)
+
 
 for ax, r in zip(axs, replicates):
     ax.set_title("Replicate %s" % r)
     ax.set_xlabel("time")
+    ax.set_xticks(times)
     ax.set_ylabel("fraction")
 
     for c, v in zip(colors, variants):
         y = [freqs[r][v][t] for t in times]
         e = [stdevs[r][v][t] for t in times]
+        print(times, y, e)
         ax.errorbar(times, y, e, linestyle='None', marker='o', color=c)
        
-        popt, pcov = curve_fit(func, times, y, maxfev=100000, bounds=(0,2))
+        popt, pcov = curve_fit(func, times, y, sigma=e, maxfev=100000, bounds=(0,2))
         # XXX sigma=e
 
         print(r, v, popt)

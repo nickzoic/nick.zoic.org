@@ -76,17 +76,17 @@ for ax, r in zip(axs, replicates):
         y = [freqs[r][v][t] for t in times]
         e = [stdevs[r][v][t] for t in times]
         print(times, y, e)
-        ax.errorbar(times, y, e, linestyle='None', marker='o', color=c)
-       
-        popt, pcov = curve_fit(func, times, y, sigma=e, maxfev=100000, bounds=(0,2))
-        # XXX sigma=e
+        ax.errorbar(times, y, e, linestyle='None', marker='o', color=c, capsize=3)
+      
+        popt, pcov = curve_fit(func, times, y, maxfev=100000, bounds=(0,2))
+        ax.plot(times, [ func(t, *popt) for t in times ], color=c, label=v, linestyle="dotted")
 
-        print(r, v, popt)
-        ax.plot(times, [ func(t, *popt) for t in times ], color=c, label=v)
+        popt, pcov = curve_fit(func, times, y, sigma=e, maxfev=100000, bounds=(0,2))
+        ax.plot(times, [ func(t, *popt) for t in times ], color=c, label=v, linestyle="dashed")
 
     ax.legend()
 
 pyplot.xlabel("time")
 pyplot.ylabel("fraction")
-pyplot.show()
-#pyplot.savefig("exp-fit2.svg", bbox_inches="tight")
+#pyplot.show()
+pyplot.savefig("variants.svg", bbox_inches="tight")

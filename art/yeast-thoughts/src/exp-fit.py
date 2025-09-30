@@ -38,5 +38,5 @@ for score, start, line, color in zip(scores, starts, lines, colors):
     print("score %.2f start %.2f popt %s" % (score, start/sum(starts), popt))
 
 pyplot.legend(loc="upper left", title="variants", reverse=True)
-pyplot.savefig("exp-fit2.svg", bbox_inches="tight")
+pyplot.savefig("exp-fit.svg", bbox_inches="tight")
 #pyplot.show()

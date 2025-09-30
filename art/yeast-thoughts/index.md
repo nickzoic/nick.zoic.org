@@ -268,8 +268,8 @@ Combining the two equations is ugly but
 
 ... and fits the simulated data rather well:
 
-![fitting curves to the data](src/exp-fit2.svg)
-*fitting curves to the data* **[python source code](src/exp-fit2.py)**
+![fitting curves to the data](src/exp-fit.svg)
+*fitting curves to the data* **[python source code](src/exp-fit.py)**
 
 (the lines of best fit are dashed ... you may need to zoom in)
 

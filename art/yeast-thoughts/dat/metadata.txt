@@ -1,0 +1,41 @@
+turbidostat	condition	time_hours	volume_replacements	fastq	Notes
+1	control	0	0	G6PD_DMS_00_cat	Made from G6PD_DMS_00_S46 and G6PD_DMS_00_S23
+2	control	0	0	G6PD_DMS_00_cat	Made from G6PD_DMS_00_S46 and G6PD_DMS_00_S23
+3	stress	0	0	G6PD_DMS_00_cat	Made from G6PD_DMS_00_S46 and G6PD_DMS_00_S23
+4	stress	0	0	G6PD_DMS_00_cat	Made from G6PD_DMS_00_S46 and G6PD_DMS_00_S23
+1	control	4	0.6489	G6PD_DMS_ctl1_04_S43	
+1	control	8	2.64474	G6PD_DMS_ctl1_8_S47	
+1	control	12	4.74516	G6PD_DMS_ctl1_12_S49	
+1	control	16	6.69312	G6PD_DMS_ctl1_16_S51	
+1	control	24	11.151	G6PD_DMS_ctl1_24_S53	
+1	control	36	17.40816	G6PD_DMS_ctl1_36_S57	
+1	control	48	23.76612	G6PD_DMS_ctl1_48_S59	
+1	control	60	30.09132	G6PD_DMS_ctl1_60_cat	Made from G6PD_DMS_ctl1_60_S22 and G6PD_DMS_ctl1_60_S63
+1	control	72	36.4959	G6PD_DMS_ctl1_72_cat	Made from G6PD_DMS_ctl1_72_S24 and G6PD_DMS_ctl1_72_S65
+2	control	4	0.76986	G6PD_DMS_ctl2_04_S26	
+2	control	8	2.52	G6PD_DMS_ctl2_08_S27	
+2	control	12	4.40496	G6PD_DMS_ctl2_12_S28	
+2	control	16	6.24456	G6PD_DMS_ctl2_16_S29	
+2	control	24	10.56132	G6PD_DMS_ctl2_24_S54	
+2	control	36	16.48332	G6PD_DMS_ctl2_36_S30	
+2	control	48	22.58676	G6PD_DMS_ctl2_48_S60	
+2	control	60	28.43694	G6PD_DMS_ctl2_60_S44	
+2	control	72	34.79364	G6PD_DMS_ctl2_72_S66	
+3	stress	4	0.51786	G6PD_DMS_stress3_04_cat	"Made from G6PD_DMS_stress3_04_S24, G6PD_DMS_stress3_04_S27, G6PD_DMS_stress3_04_S1"
+3	stress	8	2.11302	G6PD_DMS_stress3_8_S48	
+3	stress	12	3.70692	G6PD_DMS_stress3_12_S50	
+3	stress	16	5.229	G6PD_DMS_stress3_16_S52	
+3	stress	24	8.78346	G6PD_DMS_stress3_24_S55	
+3	stress	36	13.91922	G6PD_DMS_stress3_36_S58	
+3	stress	48	19.31076	G6PD_DMS_stress3_48_S61	
+3	stress	60	24.6267	G6PD_DMS_stress3_60_cat	Made from G6PD_DMS_stress3_60_S23 and G6PD_DMS_stress3_60_S64
+3	stress	72	30.57138	G6PD_DMS_stress3_72_cat	Made from G6PD_DMS_stress3_72_S25 and G6PD_DMS_stress3_72_S67
+4	stress	4	0.4536	G6PD_DMS_stress4_04_S31	
+4	stress	8	2.05758	G6PD_DMS_stress4_08_S32	
+4	stress	12	3.67794	G6PD_DMS_stress4_12_S33	
+4	stress	16	5.19246	G6PD_DMS_stress4_16_S34	
+4	stress	24	8.81622	G6PD_DMS_stress4_24_S56	
+4	stress	36	13.95072	G6PD_DMS_stress4_36_S35	
+4	stress	48	19.31328	G6PD_DMS_stress4_48_S62	
+4	stress	60	24.64812	G6PD_DMS_stress4_60_S45	
+4	stress	72	30.31812	G6PD_DMS_stress4_72_S68	

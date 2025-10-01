@@ -42,6 +42,8 @@ def raw_score(x):
 
 scores = defaultdict(dict)
 
+print("replicate,variant,raw_score")
+
 with multiprocessing.Pool(processes=16) as pool:
     variants = ( 
         (r, v, cc, totals[r])

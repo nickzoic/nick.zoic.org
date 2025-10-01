@@ -32,6 +32,14 @@ with gzip.open("../dat/variant_counts.csv.gz", "rt") as fh:
             totals[row['rep']][time] += count
             if row['protein'] in variants:
                 counts[row['rep']][time][row['protein']] += count
+        elif row['cond'] == 'lib':
+            times.add(0)
+            count = int(row['count__sum__sum'])
+            for rep in replicates:
+                totals[rep][0] += count
+                if row['protein'] in variants:
+                    counts[rep][0][row['protein']] += count
+
 
 times = sorted(times)
 time_range = range(min(times),max(times)+1)

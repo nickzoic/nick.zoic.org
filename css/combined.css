@@ -259,6 +259,13 @@ img + em + em {
   font-size: 0.72rem;
 }
 
+img + em + strong {
+  display: block;
+  padding-left: 10%;
+  padding-right: 10%;
+  text-align: center;
+}
+
 /* Tables */
 table {
   margin-bottom: 1rem;

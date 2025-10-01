@@ -133,6 +133,10 @@ population fraction to volume replacements, and that was
 adequate to get some nice variant score results
 with good correlation between replicates.
 
+*These graphs are preliminary data before score normalization,
+so the score range is -0.03 to 0.03 instead of 0 to 1, but you
+get the idea.*
+
 ![good correlation between replicates](img/g6pd_histo_1.svg)
 *good correlation between replicates* **unpublished preliminary data**
 
@@ -157,7 +161,8 @@ is the situation simulated by the turbidostat.
 
 Each of our variants `$v$` grow exponentially from their initial population `$p_{v,0}$`.
 
-`$$ \begin{aligned}p_{v,t} = p_{v,0} a^{&k_{v}t} \\ 0 \leq &k_v \leq 1\end{aligned} $$`
+`$$ p_{v,t} = p_{v,0} a^{k_{v}t} $$`
+`$$ 0 \leq k_v \leq 1 $$`
 
 Variants have a score `$k_v$` which varies from 0 (doesn't reproduce at all)
 to 1 (reproduces at the maximum rate).
@@ -185,7 +190,8 @@ We'll use scores 0, 0.5, 0.75, 0.9 and 1.0 to give us something to compare.
 Here's the fraction for our five variants, evolving over 30 doublings:
 
 ![Five variants under exponential growth](src/exp-lines.svg)
-*five variants under exponential growth* **[python source code](src/exp-lines.py)**
+*five variants under exponential growth*
+*[python source code](src/exp-lines.py)*
 
 This looks very much like our experimental data above!
 
@@ -202,7 +208,8 @@ and variants fitter than you, which out-compete you.
 This is maybe clearer when plotted as a stack:
 
 ![Five variants under exponential growth (stacked)](src/exp-stack.svg)
-*five variants under exponential growth (stacked)* **[python source code](src/exp-stack.py)**
+*five variants under exponential growth (stacked)*
+*[python source code](src/exp-stack.py)*
 
 ### Extracting Score from Frequencies
 
@@ -284,7 +291,8 @@ Combining the two equations is ugly but
 ... and fits the simulated data rather well:
 
 ![fitting curves to the data](src/exp-fit.svg)
-*fitting curves to the data* **[python source code](src/exp-fit.py)**
+*fitting curves to the data*
+*[python source code](src/exp-fit.py)*
 
 (the lines of best fit are dashed ... you may need to zoom in)
 
@@ -371,5 +379,9 @@ XXX histogram of this
 
 XXX sigma parameter to curve fit: standard deviations
 of errors in ydata.
+
+![variants with stdev](src/variants.svg)
+*variants with stdev*
+*[python source code](src/variants.py)*
 
 <!-- footnotes should appear below here! -->

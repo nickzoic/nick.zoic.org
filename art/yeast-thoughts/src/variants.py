@@ -18,7 +18,7 @@ variants = set([
     #'p.Met267Ter',
 ])
 
-replicates = set(['3', '4'])
+replicates = ['3', '4']
 totals = { r: defaultdict(int) for r in replicates }
 counts = { r: defaultdict(lambda: defaultdict(int)) for r in replicates }
 times = set()
@@ -66,20 +66,26 @@ def func(t, a, b, c, d):
     return (a / b**t) - (c / d**t)
 
 
+print("|replicate|variant|time<br>h|count|total|frequency<br>ppm|stdev<br>ppm|")
+print("|---|---|---:|---:|---:|---:|---:|")
+
 for ax, r in zip(axs, replicates):
     ax.set_title("Replicate %s" % r)
-    ax.set_xlabel("time")
+    ax.set_xlabel("time (h)")
     ax.set_xticks(times)
-    ax.set_ylabel("fraction")
+    ax.set_ylabel("fraction (ppm)")
+    ax.yaxis.set_major_formatter(lambda y, _: "%.0f" % (y*1000000))
 
     for c, v in zip(colors, variants):
         y = [freqs[r][v][t] for t in times]
         e = [stdevs[r][v][t] for t in times]
-        print(times, y, e)
         ax.errorbar(times, y, e, linestyle='None', marker='o', color=c, capsize=3)
-      
-        popt, pcov = curve_fit(func, times, y, maxfev=100000, bounds=(0,2))
-        ax.plot(times, [ func(t, *popt) for t in times ], color=c, label=v, linestyle="dotted")
+
+        for t in times:
+            print("|%s|%s|%s|%d|%d|%.3f|%.3f|" % (r, v, t, counts[r][t][v], totals[r][t], freqs[r][v][t] * 1000000, stdevs[r][v][t] * 1000000))
+        
+        #popt, pcov = curve_fit(func, times, y, maxfev=100000, bounds=(0,2))
+        #ax.plot(times, [ func(t, *popt) for t in times ], color=c, label=v, linestyle="dotted")
 
         popt, pcov = curve_fit(func, times, y, sigma=e, maxfev=100000, bounds=(0,2))
         ax.plot(times, [ func(t, *popt) for t in times ], color=c, label=v, linestyle="dashed")

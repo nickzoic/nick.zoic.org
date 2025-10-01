@@ -13,7 +13,7 @@ variants = set([
     'p.Asp282Gln',
     'p.Gln195Leu',
     'p.Phe237Ser',
-    'p.Phe241Pro',
+    #'p.Phe241Pro',
     'p.Ala109Ter',
     'p.Met267Ter',
 ])
@@ -34,6 +34,7 @@ with gzip.open("../dat/variant_counts.csv.gz", "rt") as fh:
                 counts[row['rep']][time][row['protein']] += count
 
 times = sorted(times)
+time_range = range(min(times),max(times)+1)
 
 freqs = {
     r: {
@@ -52,11 +53,9 @@ fig = pyplot.figure(layout='constrained', figsize=(6,10))
 axs = fig.subplots(len(replicates))
 
 def func(t, a, b, c, d):
-    return (a / b**t) - (c / d**t)
+    #return (a / b**t) - (c / d**t)
+    return (a - b/2**(c*t)) / 2**(d*t)
 
-
-print("|replicate|variant|time<br>h|count|total|frequency<br>ppm|")
-print("|---|---|---:|---:|---:|---:|")
 
 for ax, r in zip(axs, replicates):
     ax.set_title("Replicate %s" % r)
@@ -69,11 +68,9 @@ for ax, r in zip(axs, replicates):
         y = [freqs[r][v][t] for t in times]
         ax.plot(times, y, linestyle='dotted', marker='o', color=c)
 
-        for t in times:
-            print("|%s|%s|%s|%d|%d|%.3f|" % (r, v, t, counts[r][t][v], totals[r][t], freqs[r][v][t] * 1000000))
-        
-        popt, pcov = curve_fit(func, times, y, maxfev=100000, bounds=(0,2))
-        ax.plot(times, [ func(t, *popt) for t in times ], color=c, label=v)
+        popt, pcov = curve_fit(func, times, y, maxfev=100000, bounds=(-10,10))
+        print(popt)
+        ax.plot(time_range, [ func(t, *popt) for t in time_range ], color=c, label=v)
 
     ax.legend()
 

@@ -34,6 +34,7 @@ with gzip.open("../dat/variant_counts.csv.gz", "rt") as fh:
                 counts[row['rep']][time][row['protein']] += count
 
 times = sorted(times)
+time_range = range(min(times),max(times)+1)
 
 freqs = {
     r: {
@@ -63,7 +64,8 @@ fig = pyplot.figure(layout='constrained', figsize=(6,10))
 axs = fig.subplots(len(replicates))
 
 def func(t, a, b, c, d):
-    return (a / b**t) - (c / d**t)
+    return (a - b/2**(c*t)) / 2**(d*t)
+
 
 
 print("|replicate|variant|time<br>h|count|total|frequency<br>ppm|stdev<br>ppm|")
@@ -88,7 +90,7 @@ for ax, r in zip(axs, replicates):
         #ax.plot(times, [ func(t, *popt) for t in times ], color=c, label=v, linestyle="dotted")
 
         popt, pcov = curve_fit(func, times, y, sigma=e, maxfev=100000, bounds=(0,2))
-        ax.plot(times, [ func(t, *popt) for t in times ], color=c, label=v, linestyle="dashed")
+        ax.plot(time_range, [ func(t, *popt) for t in time_range ], color=c, label=v, linestyle="dashed")
 
     ax.legend()
 

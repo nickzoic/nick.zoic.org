@@ -7,6 +7,7 @@ from math import sqrt
 from scipy.optimize import curve_fit
 from statistics import median
 import multiprocessing
+import re
 
 replicates = ['3', '4']
 totals = { r: defaultdict(int) for r in replicates }
@@ -20,7 +21,8 @@ with gzip.open("../dat/variant_counts.csv.gz", "rt") as fh:
             times.add(time)
             count = int(row['count__sum__sum'])
             totals[row['rep']][time] += count
-            counts[row['rep']][row['protein']][time] += count
+            if re.match(r'p.\w\w\w\d+(\w\w\w|=)$', row['protein']):
+                counts[row['rep']][row['protein']][time] += count
 
 times = sorted(times)
 

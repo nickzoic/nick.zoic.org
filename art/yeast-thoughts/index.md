@@ -346,24 +346,6 @@ XXX graph of real data with errorbars representing stddev.
 
 ## Selected Variants
 
-![selected variants](img/plot-exp.svg)
-*selected variants* **unpublished preliminary data**
-
-This graph shows several selected variants from the experimental data, and how 
-their population changes with time.
-
-| Variant | Classification | Score |
-|---|---|---|
-| p.= | wild type | ~ 1 |
-| p.Ala109Ter | nonsense | ~ 0 |
-| p.Ala300Met | missense | high |
-| p.Asp282Gln | missense | high |
-| p.Gln195Leu | missense | medium |
-| p.Phe237Ser | missense | medium | 
-| p.Phe241Pro | missense | low |
-
-The variable `$ d $` is a measure of how much this variant is outperformed by
-the fittest variant in the experiment. Assuming that the fittest variant has a score of 1, `$ 2-d $` gives us a score.
 
 ### Dealing with uncertainty
 
@@ -380,8 +362,8 @@ XXX histogram of this
 XXX sigma parameter to curve fit: standard deviations
 of errors in ydata.
 
-![variants with stdev](src/variants.svg)
+![variants with stdev](src/variants-stdev.svg)
 *variants with stdev*
-*[python source code](src/variants.py)*
+*[python source code](src/variants-stdev.py)*
 
 <!-- footnotes should appear below here! -->

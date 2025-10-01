@@ -95,4 +95,4 @@ for ax, r in zip(axs, replicates):
 pyplot.xlabel("time")
 pyplot.ylabel("fraction")
 #pyplot.show()
-pyplot.savefig("variants.svg", bbox_inches="tight")
+pyplot.savefig("variants-stdev.svg", bbox_inches="tight")

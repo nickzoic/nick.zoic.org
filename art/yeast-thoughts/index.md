@@ -304,6 +304,10 @@ we can work out a score for our variant of `$score_{v} = 1-d$`
 
 Let's see how well this curve fitting works with real data.
 
+![variants](src/variants.svg)
+*variants*
+*[python source code](src/variants.py)*
+
 ### Statistical treatment of frequencies
 
 For a given variant `$v$` at timepoint `$t$`, the frequency estimate `$\hat{f}_{v,t}$` 
@@ -341,33 +345,32 @@ each point to control how tightly that point needs to be fitted.
 | 50 | 5000000 | 10 | 8.6 | 11.4 |
 | 100 | 10000000 | 10 | 9.0 | 11.0 |
 
-
-XXX graph of real data with errorbars representing stddev.
-
-## Selected Variants
-
-
-![variants](src/variants.svg)
-*variants*
-*[python source code](src/variants.py)*
-
-### Dealing with uncertainty
-
 I mentioned before that in the actual experiment each timed sample
 has a different size and thus a different level of certainty.
 
 We're sampling from a population of about a billion yeasts so it
 seems like our sampling should be "clean" but the number of 
-sequences per sample vary, the smallest is 1.4 MSeq.  
+sequences per sample vary considerably, from 1.1 Mseq to 4.6 Mseq.
 With thousands of variants of interest the counts per sample size can be small.
-
-XXX histogram of this 
-
-XXX sigma parameter to curve fit: standard deviations
-of errors in ydata.
+By using the count size and total size we can feed standard deviation information
+into our curve fitting algorithm, increasing its accuracy.
 
 ![variants with stdev](src/variants-stdev.svg)
 *variants with stdev*
 *[python source code](src/variants-stdev.py)*
+
+## Scoring
+
+With all these nice equations floating about it might seem like we've forgotten what the point
+of the exercise is, which is to estimate scores for variants.
+But actually, something rather nice falls out of our equations.
+
+When we fit the curve:
+
+`$$ f_t = \frac{a - b/2^{ct}}{2^{dt}} $$`
+
+... the coefficient `$d$` represents the variant's rate of dwindling due to being out-competed.
+So a very good variant will end up with `$d \approx 0$` and less competitive variants
+will end up with `$d > 0$`.  We can normalize `$d$` to provide an estimate of score.
 
 <!-- footnotes should appear below here! -->

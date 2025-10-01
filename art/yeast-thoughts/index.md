@@ -18,15 +18,19 @@ In that study we just used a simple linear interpolation of growth rates and it 
 out fine but this discussion is an attempt to tackle the interesting mathematics of yeast growth.
 
 [^geck]: Functional evidence for G6PD variant classification from mutational scanning
-    Renee C. Geck, Melinda K. Wheelock, Rachel L. Powell, Ziyu R. Wang, Daniel L. Holmes, Shawn Fayer, Gabriel E. Boyle, Allyssa J. Vandi, Abby V. McGee, Clara J. Amorosi, Nick Moore, Alan F. Rubin, Douglas M. Fowler, Maitreya J. Dunham
+    Renee C. Geck, Melinda K. Wheelock, Rachel L. Powell, Ziyu R. Wang, Daniel L. Holmes,
+    Shawn Fayer, Gabriel E. Boyle, Allyssa J. Vandi, Abby V. McGee, Clara J. Amorosi,
+    Nick Moore, Alan F. Rubin, Douglas M. Fowler, Maitreya J. Dunham
     [bioRxiv 2025.08.11.669723](https://www.biorxiv.org/content/10.1101/2025.08.11.669723v2);
     doi: [10.1101/2025.08.11.669723](https://doi.org/10.1101/2025.08.11.669723)
 
 **I should emphasize at this point that I had nothing to do with the experimental
 design or the "wet lab" side of 
 things, all that hard work was done by other people, and the closest I get to working
-with actual yeasts is having a beer while thinking about the numbers which come out
-of these experiments!**
+with actual yeasts is having a beer while thinking about numbers!**
+
+This section is just a loose summary to give some background,
+for proper details see the paper referenced above.
 
 ### Many Variants
 
@@ -44,18 +48,28 @@ protein, as well as some clinical insights into patients with unknown variants, 
 if a patient has *this* variant, is that likely to be a problem for them?
 
 This experiment is done in brewer's yeast
-([*Saccharomyces cerevisiae*](https://en.wikipedia.org/wiki/Saccharomyces_cerevisiae))
+([*Saccharomyces cerevisiae*](https://en.wikipedia.org/wiki/Saccharomyces_cerevisiae)).
+Yeasts are great
 because they reproduce very quickly and no-one minds you killing a billion of
 them before lunch.
 
 The experiment is done by knocking out the [yeast *ZWF1*](https://www.alliancegenome.org/gene/SGD:S000005185) gene 
-and inserting variants of [human *G6PD*](https://www.alliancegenome.org/gene/SGD:S000005185) using plasmids.  The variants used are a library
-of all possible single base substitutions.
+and inserting variants of [human *G6PD*](https://www.alliancegenome.org/gene/SGD:S000005185) using plasmids.
+
+It might be surprising to you (it certainly was to me!) that this is a thing you can do,
+but both humans (a big complicated animal with bones and a brain and everything)
+and yeasts (a single celled fungus which just floats around eating sugar) are
+[Eukaryotes](https://en.wikipedia.org/wiki/Eukaryote)
+and we share a lot of inner cellular structures and workings.
+
+The variants used are a library of all possible single base substitutions within *G6PD*,
+although there are also a lot of unaltered *G6PD* in there and there ends up being
+a lot of other stuff in there like variants with multiple changes.  
 
 ### Turbidostat
 
-Once that's done, the yeasts are cultured and then placed under oxidative stress
-by adding some bleach.
+The modified yeasts are cultured and then placed under oxidative stress
+(by adding some bleach).
 This is done in a *turbidostat* which keeps the yeast suspension at a set
 [turbidity](https://en.wikipedia.org/wiki/Turbidity).
 This is measured as a quantity [OD<sub>600</sub>](https://en.wikipedia.org/wiki/OD600)
@@ -86,8 +100,8 @@ variants, and come to dominate the population.
 
 In this experiment the turbidity setpoint is OD<sub>600</sub> = 0.5.
 Getting from OD<sub>600</sub> to cell concentration is complicated[^fukuda]
-but using an approximation of 1 × 10^7 cells per mL per OD<sub>600</sub>,
-there's about a billion (1 × 10^9) cells in each 200mL turbidostat.
+but using an approximation of 1 × 10<super>7</super> cells per mL per OD<sub>600</sub>,
+there's about a billion (1 × 10<super>9</super>) cells in each 200mL turbidostat.
 
 [^fukuda]: Fukuda, N.
     Apparent diameter and cell density of yeast strains with different ploidy.
@@ -101,12 +115,10 @@ I'm only really interested in the two "stress" replicates at this point, so
 I'm ignoring the two "control" replicates.
 
 Samples were taken at every four hours at first, backing off to every 12 hours.
-The intention of this was to get some more subtlety in scoring, rather than just
+The intention of this was to get some more subtlety in scoring especially for
+variants with low scores, rather than just
 a score of survived or didn't.  Number of volume replacements was also recorded
 at each time point.
-
-> more samples were taken within the first 24 hours intending to capture
-variants with very low activity that were rapidly lost from the population
 
 For each sample, DNA sequencing was performed to see what proportion
 of the yeasts were of what varieties.
@@ -121,6 +133,9 @@ population fraction to volume replacements, and that was
 adequate to get some nice variant score results
 with good correlation between replicates.
 
+![good correlation between replicates](img/g6pd_histo_1.svg)
+*good correlation between replicates* **unpublished preliminary data**
+
 We also identied "nonsense" variants which have an early Stop codon,
 and don't produce a complete protein, and "synonymous" variants which
 have nucleotide change(s) but produce the same protein as the original.
@@ -128,8 +143,8 @@ The distribution of nonsense and synonymous variants was as expected,
 with nonsense variants clutered around score 0 and synonymous variants
 clustered around score 1.
 
-![good correlation between replicates and good distribution of nonsense and synonymous variants](img/g6pd_histo.svg)
-*good correlation between replicates and good distribution of nonsense and synonymous variants* **unpublished preliminary data**
+![good distribution of nonsense and synonymous variants](img/g6pd_histo_2.svg)
+*good distribution of nonsense and synonymous variants* **unpublished preliminary data**
 
 ## Let's Do Math!
 

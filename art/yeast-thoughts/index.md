@@ -347,6 +347,10 @@ XXX graph of real data with errorbars representing stddev.
 ## Selected Variants
 
 
+![variants](src/variants.svg)
+*variants*
+*[python source code](src/variants.py)*
+
 ### Dealing with uncertainty
 
 I mentioned before that in the actual experiment each timed sample

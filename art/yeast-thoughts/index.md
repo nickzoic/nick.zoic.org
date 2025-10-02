@@ -363,6 +363,8 @@ into our curve fitting algorithm, increasing its accuracy.
 
 With all these nice equations floating about it might seem like we've forgotten what the point
 of the exercise is, which is to estimate scores for variants.
+
+<!--
 But actually, something rather nice falls out of our equations.
 
 When we fit the curve:
@@ -372,5 +374,8 @@ When we fit the curve:
 ... the coefficient `$d$` represents the variant's rate of dwindling due to being out-competed.
 So a very good variant will end up with `$d \approx 0$` and less competitive variants
 will end up with `$d > 0$`.  We can normalize `$d$` to provide an estimate of score.
+-->
+
+**XXX to be continued**
 
 <!-- footnotes should appear below here! -->

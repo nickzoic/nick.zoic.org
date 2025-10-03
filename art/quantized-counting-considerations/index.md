@@ -212,15 +212,16 @@ is implemented in the python
 function so we don't have to deal with the details.
 
 So we can use the CDF to estimate what our bin probabilities `$p_i$` should be for
-a given `$\mu$` and `$\sigma$`, picking thresholds between our bin scores:
+a given `$\mu$` and `$\sigma$`, picking thresholds between our bin scores and 
+baking in all sorts of probably unwarranted assumptions about boundary conditions:
 
 `$$ p_1 = \Phi(\frac{3/8 - \mu}{\sigma}) $$`
-`$$ p_2 = \Phi(\frac{5/8 - \mu}{\sigma}) - \hat{F_1} $$`
-`$$ p_3 = \Phi(\frac{7/8 - \mu}{\sigma}) - \hat{F_1} - \hat{F_2} $$`
-`$$ p_4 = 1 - \hat{F_1} - \hat{F_2} - \hat{F_3} $$`
+`$$ p_2 = \Phi(\frac{5/8 - \mu}{\sigma}) - p_1 $$`
+`$$ p_3 = \Phi(\frac{7/8 - \mu}{\sigma}) - p_1 - p_2 $$`
+`$$ p_4 = 1 - p_1 - p_2 - p_3 $$`
 
 We now have four equations and two unknowns, so we can use any number of numerical
-techniques to find the most plausible value of `$\mu$` and `$\sigma$` for an
+techniques to find the most plausible values of `$\mu$` and `$\sigma$` for an
 observed set of `$(p_1, p_2, p_3, p_4)$`.
 In this case I'm using a least squares fit:
 
@@ -228,18 +229,20 @@ In this case I'm using a least squares fit:
 *estimating score and score variance from CDF*
 *[python source code](src/cdf.py)*
 
-This gives us an alternative way of estimating score and variance of score, but it
-also gives us another useful piece of information, which is an estimate of how well
-it has been able to fit to our expected distribution.
+This gives us an alternative way of estimating score and stdev of score, but it
+also gives us another useful piece of information, which is *the variance of our
+estimate of the score* (written `var(mu)` in the above graphs) ... which is an
+estimate of how well it has been able to fit to our expected distribution.
 
-In the first three cases we've been able to fit quite nicely despite the varying widths.
-In the third case, the outputs of our attempt to fit the data to our expected 
-distribution indicate that something is seriously wrong and that this particular 
-sample cannot be relied upon.
+In the first three cases we've been able to fit quite nicely despite the varying
+stdev.  In the last case, the outputs of our attempt to fit the data to our expected 
+distribution indicate that something is seriously wrong: the score is out of bounds,
+the stddev is very large and the variance of the estimate is also very large.
+This particular sample cannot be relied upon.
  
 ## Further Work
 
-There's lots more to do on this: 
+There's lots more to do on this general concept:
 
 * how does it apply to real world data?
 * what are the sources and characteristics of noise
@@ -251,3 +254,4 @@ There's lots more to do on this:
 * can we incorporate measurement error estimates into our curve fit?
 * is there a better heuristic for error detection?
 
+I hope to return to this soon!

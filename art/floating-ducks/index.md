@@ -1,6 +1,6 @@
 ---
-date: '2025-04-05'
-layout: draft
+date: '2025-04-09'
+layout: article
 tags:
   - database
   - testing
@@ -146,16 +146,18 @@ So I ended up writing up
 optimization just for floating point columns and after a bit of wrestling
 worked out how to get it to pass the CI tests and got that PR submitted.
 
-Some time soon the PR will get accepted and merged and closed and this little
-piece of work will be put away.
+## So: what is the point of this?
 
-I have no idea what the original bug reporter was trying to do.
+The PR has been accepted and merged and closed and this little
+piece of work can be put away.
 
 I have quite a lot of experience with SQL but I don't think I've ever joined
 on a floating point column, and if I ever have I'm sure I never worried
 about inserting negative zeros or comparing the results as cast to strings.
 
-# So: what is the point of this?
+It turns out that the original bug reporter discovered this behaviour while
+["researching finding bugs in DBMS"](https://github.com/duckdb/duckdb/issues/16901#issuecomment-2788272953)
+and, well, it worked!
 
-
-
+There's now one less weird corner case in DuckDB, and you can safely join 
+on signed floating point zeros if, for some weird reason, that's what you want to do :-)

@@ -31,6 +31,9 @@ Slides: [The Primordial Code](/talk/pycon2025/primordial-code/)
 
 Video: [The Primordial Code (youtube)](https://www.youtube.com/watch?v=jSm67Agx-Vw)
 
+(PS: someone always asks me about my [python 3 confirmed t-shirt](/art/python-3-confirmed/)
+which I realize I've worn to a very large number of conference talks now!)
+
 ## Lightning Talk
 
 See [The Children Yearn for the Mines](/art/yearn-for-the-mines/)

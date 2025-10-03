@@ -201,8 +201,18 @@ our assumption that this is a normal distribution is true.
 How about we go back in the other direction and predict what
 bin counts we should see for a given `$\mu$` and `$\sigma$`?
 
-We can do this using the
-[CDF of the normal distribution](https://en.wikipedia.org/wiki/Normal_distribution#Cumulative_distribution_function)
+We can do this using a [Cumulative Distribution Function (CDF)](https://en.wikipedia.org/wiki/Cumulative_distribution_function)
+of the probability distribution we're expecting.  The CDF is a function `$ F(x) $` such that for a random value `$X$` in
+our distribution, we can find the probabilities of `$X$` falling within a range:
+
+`$ p_{X \lte a} = F(a) $`
+`$ p_{a < X \lte b} = F(b) - F(a) $`
+`$ p_{X > b} = 1 - F(b) $`
+
+For example, within the range of one of our bins!
+
+In this case we're assuming a normal distribution, so we'll use the
+[CDF of the normal distribution](https://en.wikipedia.org/wiki/Normal_distribution#Cumulative_distribution_function):
 
 `$$ \Phi(x) = \frac{1}{\sqrt{2\pi}}\int_{-\infty}^{x}e^{-t^2/2}\,dt $$`
 
@@ -238,8 +248,8 @@ In the first three cases we've been able to fit quite nicely despite the varying
 stdev.  In the last case, the outputs of our attempt to fit the data to our expected 
 distribution indicate that something is seriously wrong: the score is out of bounds,
 the stddev is very large and the variance of the estimate is also very large.
-This particular sample cannot be relied upon.
- 
+This particular sample's score cannot be accurately estimated.
+
 ## Further Work
 
 There's lots more to do on this general concept:

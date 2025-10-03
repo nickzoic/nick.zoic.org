@@ -111,6 +111,8 @@ signal to work with.
 This is a well known technique in signal processing called
 [dithering](https://en.wikipedia.org/wiki/Dither).
 
+### Modeling Quantization Effects
+
 This discussion assumes noise is gaussian, which it possibly isn't, but it's 
 a good start.
 These graphs show how a cell might appear in bins 1 .. 4 if it had 
@@ -141,24 +143,32 @@ across four bins:
 Quantization isn't necessarily a huge problem for a lot of studies as we're 
 mostly looking to classify variants into broad categories of benign and pathological.
 But it may also lead to strange correlation artifacts, for example if many 
-variants all end up being all scored at 0.500 
+variants end up being scored at exactly 0.25, 0.50 and 0.75 due to quantization
+this may give us misleading correlation graphs and statistics.
 
-## Standard Deviation
+## Interpreting Experimental Data
 
-Above we've used gaussian noise to model noise in bin
-counts.
-But if what we've got is bin counts, we can also
-investigate what standard deviation our variants seem
-to have, as a way of understanding if we have good
-data or not.  
-`$$\mu = \sum_{i=1}^{N}w_{i}F_{i}$$`
+Actual experimental data contains quite a lot of noise, so we're unlikely to
+get clean results like the above.  Bin counts are only a *sample* of the actual 
+organism being experimented on.
+In the process of combining four bin counts into one score,
+we've lost quite a lot of information.
 
-`$$\sigma = \sqrt{\sum_{i=1}^{N}F_{i}(w_i-\mu)^2}$$`
-
-## Error Detection
+For example, here are four different sets of bin counts, with different distributions
+but all of which end up with a score of 0.525:
 
 ![bins](src/bins.svg)
 *bins*
+
+We can calculate a standard deviation for each set of counts, and this might usefully
+indicate how certain we are of the score and whether the experimental noise is 
+helping or hindering our measurements:
+
+`$$ \mu = \sum_{i=1}^{N}w_{i}F_i / \sum_{i=1}^{N}F_i $$`
+
+`$$ \sigma = \sqrt{\sum_{i=1}^{N}F_{i}(w_i-\mu)^2 / \sum_{i=1}^{N}F_i } $$`
+
+`$$ w_i = i/N $$`
 
 |bin1|bin2|bin3|bin4|score|stdev|comment|
 |---:|---:|---:|---:|---:|---:|:---:|
@@ -167,14 +177,46 @@ data or not.
 |200|125|100|75|0.525|0.273|high sd. skew?|
 |315|0|5|180|0.525|0.360|experimental error?|
 
-However there are many different ways to get the same
-score.
-In the process of combining the four bin counts, we've lost quite a lot of information.
+## Error Detection
 
-Cases like the last one could indicate a problem with the experimental
-setup, for example jumbled or contaminated samples.
+As the above example illustrate, there are many different ways to get the same score.
+The last example seems likely to indicate a problem as it doesn't resemble a normal
+curve at all.  This might indicate swapped or contaminated bins, especially if
+similar issues affect many variants.
 
-Investigation of skew or inversion of bins might also
-prove valuable.
+How can we detect this issue?  The formulae above give us a way to estimate `$\mu$`
+and `$\sigma$` from bin counts, but the answers are only valid if 
+our assumption that this is a normal distribution is true.
 
+How about we go back in the other direction and predict what
+bin counts we should see for a given `$\mu$` and `$\sigma$`?
 
+We can do this using the
+[CDF of the normal distribution](https://en.wikipedia.org/wiki/Normal_distribution#Cumulative_distribution_function)
+
+`$$ \Phi(x) = \frac{1}{\sqrt{2\pi}}\int_{-\infty}^{x}e^{-t^2/2}\,dt $$`
+
+... which involves some tricky maths but thankfully this 
+is implemented in the python
+[scipy.stats.norm.cdf](https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.norm.html)
+function so we don't have to deal with it.
+
+So we can use the CDF to estimate what our bin frequencies `$F_i$` should be for a given `$\mu$` and `$\sigma$`:
+
+`$$ \hat{F_1} = \Phi(\frac{3/8 - \mu}{\sigma}) $$`
+`$$ \hat{F_2} = \Phi(\frac{5/8 - \mu}{\sigma}) - \hat{F_1} $$`
+`$$ \hat{F_3} = \Phi(\frac{7/8 - \mu}{\sigma}) - \hat{F_1} - \hat{F_2} $$`
+`$$ \hat{F_4} = 1 - \hat{F_1} - \hat{F_2} - \hat{F_3} $$`
+
+![estimating score from CDF](img/cdf.svg)
+
+## Further Work
+
+There's lots more to do on this: 
+
+* how does it apply to real world data?
+* what are the sources and characteristics of noise
+  in the measurement apparatus?
+* what is the "ideal" amount of noise?
+* is there a better heuristic for error detection?
+* can we incorporate measurement error estimates into our curve fit?

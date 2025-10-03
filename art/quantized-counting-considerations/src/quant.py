@@ -44,4 +44,4 @@ for ax, sigma in zip(axs, sigmas):
     ax.set_title("sigma %.3f" % sigma)
 
 #pyplot.show()
-pyplot.savefig('quant.svg', bbox_inches='tight')
+pyplot.savefig('../img/quant.svg', bbox_inches='tight')

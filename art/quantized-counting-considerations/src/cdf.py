@@ -18,6 +18,15 @@ def func(i, mu, sigma):
     f_4 = 1 - f_1 - f_2 - f_3
     return (f_1, f_2, f_3, f_4)
 
+def func2(ii, mu, sigma):
+    # this is an alternative version of the fit function which treats
+    # boundary conditions differently
+    n = len(weights)
+    return [
+        norm.cdf((i*2+3)/n/2, loc=mu, scale=sigma) - norm.cdf((i*2+1)/n/2, loc=mu, scale=sigma)
+        for i in ii
+    ]
+
 samples = [
     (100,250,150,0),
     (0,450,50,0),
@@ -42,4 +51,4 @@ for ax, sample in zip(axs, samples):
     ax.set_title(title)
 
 #pyplot.show()
-pyplot.savefig("cdf.svg", bbox_inches="tight")
+pyplot.savefig("../img/cdf.svg", bbox_inches="tight")

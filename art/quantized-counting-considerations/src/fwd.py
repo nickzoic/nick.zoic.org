@@ -47,4 +47,4 @@ for ax, sigma in zip(axs, sigmas):
     ax2.plot(x, stats.norm.pdf(x, score, sigma), color='orange')
 
 #pyplot.show()
-pyplot.savefig("fwd.svg", bbox_inches="tight")
+pyplot.savefig("../img/fwd.svg", bbox_inches="tight")

@@ -36,4 +36,4 @@ for ax, bins in zip(axs, bin_counts):
 
 
 #pyplot.show()
-pyplot.savefig("bins.svg", bbox_inches="tight")
+pyplot.savefig("../img/bins.svg", bbox_inches="tight")

@@ -119,8 +119,9 @@ These graphs show how a cell might appear in bins 1 .. 4 if it had
 a mean score of 0.575 plus gaussian error with standard deviation
 varying from 0.01 up to 0.5:
 
-![fwd](src/fwd.svg)
-*fwd*
+![quantization effects on bin distribution](img/fwd.svg)
+*quantization effects on bin distribution*
+*[python source code](src/fwd.py)*
 
 |mean|stddev|bin1|bin2|bin3|bin4|score|
 |---:|---:|---:|---:|---:|---:|---:|
@@ -137,8 +138,9 @@ becomes an issue.
 These graphs illustrate the effect of quantization of varying average score
 across four bins:
 
-![quant](src/quant.svg)
-*quant*
+![Quantization effects on binned counts](img/quant.svg)
+*Quantization effects on binned counts*
+*[python source code](src/quant.py)*
 
 Quantization isn't necessarily a huge problem for a lot of studies as we're 
 mostly looking to classify variants into broad categories of benign and pathological.
@@ -157,18 +159,26 @@ we've lost quite a lot of information.
 For example, here are four different sets of bin counts, with different distributions
 but all of which end up with a score of 0.525:
 
-![bins](src/bins.svg)
-*bins*
+![Four ways to get the same score](img/bins.svg)
+*Four ways to get the same score*
+*[python source code](src/bins.py)*
 
 We can calculate a standard deviation for each set of counts, and this might usefully
 indicate how certain we are of the score and whether the experimental noise is 
-helping or hindering our measurements:
+helping or hindering our measurements.
 
-`$$ \mu = \sum_{i=1}^{N}w_{i}F_i / \sum_{i=1}^{N}F_i $$`
+First up we can convert our bin frequencies into probabilities by scaling them to 
+add up to 1, and we can use our weights as before:
 
-`$$ \sigma = \sqrt{\sum_{i=1}^{N}F_{i}(w_i-\mu)^2 / \sum_{i=1}^{N}F_i } $$`
+`$$ p_i = F_i / \sum_{i=1}^{N}F_i $$`
 
 `$$ w_i = i/N $$`
+
+Then we can [calculate average and standard deviation](https://en.wikipedia.org/wiki/Standard_deviation#Discrete_random_variable):
+
+`$$ \mu = \sum_{i=1}^{N}w_{i}p_i $$`
+
+`$$ \sigma = \sqrt{\sum_{i=1}^{N}p_{i}(w_i-\mu)^2 } $$`
 
 |bin1|bin2|bin3|bin4|score|stdev|comment|
 |---:|---:|---:|---:|---:|---:|:---:|
@@ -199,24 +209,45 @@ We can do this using the
 ... which involves some tricky maths but thankfully this 
 is implemented in the python
 [scipy.stats.norm.cdf](https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.norm.html)
-function so we don't have to deal with it.
+function so we don't have to deal with the details.
 
-So we can use the CDF to estimate what our bin frequencies `$F_i$` should be for a given `$\mu$` and `$\sigma$`:
+So we can use the CDF to estimate what our bin probabilities `$p_i$` should be for
+a given `$\mu$` and `$\sigma$`, picking thresholds between our bin scores:
 
-`$$ \hat{F_1} = \Phi(\frac{3/8 - \mu}{\sigma}) $$`
-`$$ \hat{F_2} = \Phi(\frac{5/8 - \mu}{\sigma}) - \hat{F_1} $$`
-`$$ \hat{F_3} = \Phi(\frac{7/8 - \mu}{\sigma}) - \hat{F_1} - \hat{F_2} $$`
-`$$ \hat{F_4} = 1 - \hat{F_1} - \hat{F_2} - \hat{F_3} $$`
+`$$ p_1 = \Phi(\frac{3/8 - \mu}{\sigma}) $$`
+`$$ p_2 = \Phi(\frac{5/8 - \mu}{\sigma}) - \hat{F_1} $$`
+`$$ p_3 = \Phi(\frac{7/8 - \mu}{\sigma}) - \hat{F_1} - \hat{F_2} $$`
+`$$ p_4 = 1 - \hat{F_1} - \hat{F_2} - \hat{F_3} $$`
+
+We now have four equations and two unknowns, so we can use any number of numerical
+techniques to find the most plausible value of `$\mu$` and `$\sigma$` for an
+observed set of `$(p_1, p_2, p_3, p_4)$`.
+In this case I'm using a least squares fit:
 
 ![estimating score from CDF](img/cdf.svg)
+*estimating score and score variance from CDF*
+*[python source code](src/cdf.py)*
 
+This gives us an alternative way of estimating score and variance of score, but it
+also gives us another useful piece of information, which is an estimate of how well
+it has been able to fit to our expected distribution.
+
+In the first three cases we've been able to fit quite nicely despite the varying widths.
+In the third case, the outputs of our attempt to fit the data to our expected 
+distribution indicate that something is seriously wrong and that this particular 
+sample cannot be relied upon.
+ 
 ## Further Work
 
 There's lots more to do on this: 
 
 * how does it apply to real world data?
 * what are the sources and characteristics of noise
-  in the measurement apparatus?
-* what is the "ideal" amount of noise?
-* is there a better heuristic for error detection?
+  in the measurement apparatus?  Is "normal" what we expect?
+* what is the "ideal" amount of noise to prevent quantization artifacts without
+  losing too much information?
+* can we use the actual experimental thresholds and use boundary conditions
+  (eg: there's no such thing as negative light) for better estimates?
 * can we incorporate measurement error estimates into our curve fit?
+* is there a better heuristic for error detection?
+

@@ -17,7 +17,7 @@ experiments and while I'm a big fan of
 and the
 [sorting machine](https://www.bdbiosciences.com/en-au/products/instruments/flow-cytometers/research-cell-sorters/bd-facsaria-iii)
 looks like an espresso machine made by [SGI](https://en.wikipedia.org/wiki/SGI_O2),
-there's one thing which always bothered me about this technique.
+there's one thing which always bothered me about this technique: Scoring.
 
 [^popp]: Popp NA, Powell RL, Wheelock MK, Holmes KJ, Zapp BD, Sheldon KM, Fletcher SN, Wu X, Fayer S, Rubin AF, Lannert KW, Chang AT, Sheehan JP, Johnsen JM, Fowler DM.
     Multiplex and multimodal mapping of variant effects in secreted proteins via MultiSTEP.
@@ -36,7 +36,7 @@ there's one thing which always bothered me about this technique.
     Nat Genet 50, 874–882 (2018).
     doi: [10.1038/s41588-018-0122-z](https://doi.org/10.1038/s41588-018-0122-z)
 
-So to very briefly summarize how VAMP-seq works:
+To very briefly summarize how VAMP-seq works:
 
 1. To see how much different cells are expressing a gene, you fuse that gene with
    a gene for EGFP or similar, so the cells glow more the more the gene is expressed.
@@ -49,16 +49,20 @@ So to very briefly summarize how VAMP-seq works:
 6. Scores are normalized, assuming nonsense types should be 0 and wild type should be 1.
 7. Addiional replicates are performed to confirm results.
 
-There are several things which can go wrong here. 
-Thresholds can be set incorrectly or inaccurately.
-Output tubes can get contaminated, sequenced differently,
-lost or swapped[^hallway] into the wrong bin.
+There are several things which can go wrong here with the experimental process:
+
+* Thresholds can be set incorrectly or inaccurately.
+* Output tubes can get contaminated, sequenced differently
+* Output tubes can get lost or swapped[^hallway].
 
 [^hallway]: Discussion with [UW-GS](https://www.gs.washington.edu/) wet-lab people
     and hallway discussions at [MSS 2025 Barcelona](https://www.varianteffect.org/mss2025/).
 
 Some of these problems are probably avoidable using careful lab techniques
 and practices but human error is inevitable.
+The question is: how can we *detect* these sort of problems?
+The sooner we detect them the sooner they can be corrected.
+
 I'll come back to that later, but in the mean time let's talk scoring.
 
 ## VAMP-seq Scoring
@@ -76,10 +80,13 @@ The scaled, weighted averages are calculated like this:
 
 `$$ W_{v} = \frac{\sum_{i}{w_i F_{v,i}}}{\sum_{i}{F_{v,i}}} $$`
 
-where the weights per bin `$w_i$` are generally given by
+### VAMP-seq Weights
+
+Weights per bin `$w_i$` are generally given by:
 
 `$$ w_i = i / N $$`
 
+... where `$ 0 < i \leq N $`.
 So for example (ignoring scaling for clarity), if 500 cells of a particular variant
 go into the sorter, they might end up with 100 in bin 1, 250 in bin 2,
 150 in bin 3, and none in bin 4.
@@ -202,12 +209,12 @@ How about we go back in the other direction and predict what
 bin counts we should see for a given `$\mu$` and `$\sigma$`?
 
 We can do this using a [Cumulative Distribution Function (CDF)](https://en.wikipedia.org/wiki/Cumulative_distribution_function)
-of the probability distribution we're expecting.  The CDF is a function `$ F(x) $` such that for a random value `$X$` in
+of the probability distribution we're expecting.  The CDF is a function `$ F(x) $` such that for a randomly chosen value `$X$` from
 our distribution, we can find the probabilities of `$X$` falling within a range:
 
-`$ p_{X \lte a} = F(a) $`
-`$ p_{a < X \lte b} = F(b) - F(a) $`
-`$ p_{X > b} = 1 - F(b) $`
+`$$ p_{X \leq a} = F(a) $$`
+`$$ p_{a < X \leq b} = F(b) - F(a) $$`
+`$$ p_{X > b} = 1 - F(b) $$`
 
 For example, within the range of one of our bins!
 
@@ -250,18 +257,25 @@ distribution indicate that something is seriously wrong: the score is out of bou
 the stddev is very large and the variance of the estimate is also very large.
 This particular sample's score cannot be accurately estimated.
 
+### Beyond Scoring
+
+In the above discussion we're still using the arbitrary score weights, but it
+might make more sense to use the actual thresholds we set on the sorting machine.
+It's also impossible for a cell to emit *less than zero light* so we can include
+that in our consideration of distributions: the distribution is probably *not* a
+normal curve.  
+
 ## Further Work
 
 There's lots more to do on this general concept:
 
 * how does it apply to real world data?
 * what are the sources and characteristics of noise
-  in the measurement apparatus?  Is "normal" what we expect?
+  in the measurement apparatus?  Is our noise actually normally distributed?
 * what is the "ideal" amount of noise to prevent quantization artifacts without
   losing too much information?
-* can we use the actual experimental thresholds and use boundary conditions
-  (eg: there's no such thing as negative light) for better estimates?
+* will using experimental thresholds and boundary conditions help?
 * can we incorporate measurement error estimates into our curve fit?
 * is there a better heuristic for error detection?
 
-I hope to return to this soon!
+**I hope to return to this soon!**

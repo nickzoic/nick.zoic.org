@@ -4,10 +4,10 @@ from collections import defaultdict
 
 data = defaultdict(list)
 
-with open("../dat/scoring.csv", "rt") as fh:
+with open("../dat/scoring-linear.csv", "rt") as fh:
     for row in csv.DictReader(fh):
         try:
-            data[row['replicate']].append(float(row['raw_score']))
+            data[row['replicate']].append(float(row['raw_score']) * 1000000000)
         except ValueError:
             pass
 
@@ -17,7 +17,7 @@ axs = fig.subplots(len(data))
 for ax, (r, ss) in zip(axs, sorted(data.items())):
     ax.set_title("Replicate %s" % r)
 
-    ax.hist(ss, bins=50)
+    ax.hist(ss, bins=50, log=True)
 
 pyplot.show()
 

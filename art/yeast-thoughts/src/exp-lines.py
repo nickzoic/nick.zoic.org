@@ -24,5 +24,5 @@ for score, line in zip(scores, lines):
     pyplot.plot(times, line, label="score %.2f" % score)
 
 pyplot.legend(loc="upper left", title="variants", reverse=True)
-pyplot.savefig("exp-lines.svg", bbox_inches="tight")
+pyplot.savefig("../img/exp-lines.svg", bbox_inches="tight")
 #pyplot.show()

@@ -27,5 +27,5 @@ pyplot.ylim([0, 1])
 pyplot.stackplot(times, *lines, labels=["score %.2f" % s for s in scores])
 
 pyplot.legend(loc="upper right", title="variants", reverse=True)
-pyplot.savefig("exp-stack.svg", bbox_inches="tight")
+pyplot.savefig("../img/exp-stack.svg", bbox_inches="tight")
 #pyplot.show()

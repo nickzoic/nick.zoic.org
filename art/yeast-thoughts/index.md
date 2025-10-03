@@ -189,7 +189,7 @@ The fraction `$f$` of each variant `$v$` at time `$t$` is given by:
 We'll use scores 0, 0.5, 0.75, 0.9 and 1.0 to give us something to compare.
 Here's the fraction for our five variants, evolving over 30 doublings:
 
-![Five variants under exponential growth](src/exp-lines.svg)
+![Five variants under exponential growth](img/exp-lines.svg)
 *five variants under exponential growth*
 *[python source code](src/exp-lines.py)*
 
@@ -207,7 +207,7 @@ and variants fitter than you, which out-compete you.
 
 This is maybe clearer when plotted as a stack:
 
-![Five variants under exponential growth (stacked)](src/exp-stack.svg)
+![Five variants under exponential growth (stacked)](img/exp-stack.svg)
 *five variants under exponential growth (stacked)*
 *[python source code](src/exp-stack.py)*
 
@@ -290,7 +290,7 @@ Combining the two equations is ugly but
 
 ... and fits the simulated data rather well:
 
-![fitting curves to the data](src/exp-fit.svg)
+![fitting curves to the data](img/exp-fit.svg)
 *fitting curves to the data*
 *[python source code](src/exp-fit.py)*
 
@@ -304,7 +304,7 @@ we can work out a score for our variant of `$score_{v} = 1-d$`
 
 Let's see how well this curve fitting works with real data.
 
-![variants](src/variants.svg)
+![variants](img/variants.svg)
 *variants*
 *[python source code](src/variants.py)*
 
@@ -358,7 +358,7 @@ into our curve fitting algorithm, increasing its accuracy.  In the following plo
 the error bars indicate `$\hat{f}\pm\sigma$`, note that the height of the errorbars
 depends both on the fraction and the sample size at that time point.
 
-![variants with stdev](src/variants-stdev.svg)
+![variants with stdev](img/variants-stdev.svg)
 *variants with stdev*
 *[python source code](src/variants-stdev.py)*
 

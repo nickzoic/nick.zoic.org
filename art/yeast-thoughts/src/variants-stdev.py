@@ -95,8 +95,8 @@ for ax, r in zip(axs, replicates):
         e = [stdevs[r][v][t] for t in times]
         ax.errorbar(times, y, e, linestyle='None', marker='o', color=c, capsize=3)
 
-        for t in times:
-            print("|%s|%s|%s|%d|%d|%.3f|%.3f|" % (r, v, t, counts[r][t][v], totals[r][t], freqs[r][v][t] * 1000000, stdevs[r][v][t] * 1000000))
+#        for t in times:
+#            print("|%s|%s|%s|%d|%d|%.3f|%.3f|" % (r, v, t, counts[r][t][v], totals[r][t], freqs[r][v][t] * 1000000, stdevs[r][v][t] * 1000000))
         
         #popt, pcov = curve_fit(func, times, y, maxfev=100000, bounds=(0,2))
         #ax.plot(times, [ func(t, *popt) for t in times ], color=c, label=v, linestyle="dotted")
@@ -104,9 +104,11 @@ for ax, r in zip(axs, replicates):
         popt, pcov = curve_fit(func, times, y, sigma=e, maxfev=100000, bounds=(0,2))
         ax.plot(time_range, [ func(t, *popt) for t in time_range ], color=c, label=v, linestyle="dashed")
 
+        print("%s,%s,%s" % (r, v, pcov))
+
     ax.legend()
 
 pyplot.xlabel("time")
 pyplot.ylabel("fraction")
 #pyplot.show()
-pyplot.savefig("variants-stdev.svg", bbox_inches="tight")
+pyplot.savefig("../img/variants-stdev.svg", bbox_inches="tight")

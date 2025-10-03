@@ -350,32 +350,25 @@ has a different size and thus a different level of certainty.
 
 We're sampling from a population of about a billion yeasts so it
 seems like our sampling should be "clean" but the number of 
-sequences per sample vary considerably, from 1.1 Mseq to 4.6 Mseq.
+sequences per sample vary considerably, from about 1.1 Mseq to 4.6 Mseq.
 With thousands of variants of interest the counts per sample size can be small.
+
 By using the count size and total size we can feed standard deviation information
-into our curve fitting algorithm, increasing its accuracy.
+into our curve fitting algorithm, increasing its accuracy.  In the following plots,
+the error bars indicate `$\hat{f}\pm\sigma$`, note that the height of the errorbars
+depends both on the fraction and the sample size at that time point.
 
 ![variants with stdev](src/variants-stdev.svg)
 *variants with stdev*
 *[python source code](src/variants-stdev.py)*
 
-## Scoring
+## Further Work
 
 With all these nice equations floating about it might seem like we've forgotten what the point
-of the exercise is, which is to estimate scores for variants.
+of the exercise is, which is to estimate scores for variants, and hopefully to show that 
+the scores we get from this process are a better estimate of gene functional score than our
+previous, much simpler score estimation method.
 
-<!--
-But actually, something rather nice falls out of our equations.
+To that end, my next step is to run our *G6PD* experimental data through these calculations.
 
-When we fit the curve:
-
-`$$ f_t = \frac{a - b/2^{ct}}{2^{dt}} $$`
-
-... the coefficient `$d$` represents the variant's rate of dwindling due to being out-competed.
-So a very good variant will end up with `$d \approx 0$` and less competitive variants
-will end up with `$d > 0$`.  We can normalize `$d$` to provide an estimate of score.
--->
-
-**XXX to be continued**
-
-<!-- footnotes should appear below here! -->
+**Stay tuned!**

@@ -1,6 +1,6 @@
 ---
 date: '2024-01-22'
-layout: draft
+layout: article
 title: "Understanding a Rotating Apparatus"
 summary: "An interesting but probably not that useful patent, decoded."
 tags:
@@ -76,10 +76,32 @@ My head is spinning.
 
 ## Thinking Flexibly
 
-Sometimes it's helpful to start from the middle.  Let's consider things from the point of view of the guide.
+Sometimes it's helpful to start from the middle.  Let's consider things from the point of view of the guide, 
+as if the guide is standing still.  Through the guide runs the flexible axle with a plate on each end, and
+the plates are rotating.  All good?
 
-## The Spinor Linkage
+![flexible axle](img/flex.jpg)
+*flexible axle*
 
-[The Spinor Linkage](https://www.researchgate.net/publication/360037741_The_spinor_linkage_-_a_mechanical_implementation_of_the_plate_trick) /
-[Antitwister](http://ariwatch.com/VS/Algorithms/Antitwister.htm)
+Okay, so now let's flex that axle, while it's still rotating.  Both the plates are still rotating, even though
+they're no longer in the same plane.
+
+In fact, we can turn one of the plates right around on itself, and as the axle transmits the rotation the plate
+will now be rotating in the opposite direction to the other one.
+
+Now, just add a cylinder between the two plates, holding the guide. The plates are rotating in opposite directions,
+relative to the cylinder, right?
+
+Now imagine holding the bottom plate still.  The cylinder is now rotating, and the top plate is rotating at *twice
+that speed*.  Our flexible driveshaft is flexing, still rotating within the guide, but it is still not twisting.
+
+The patented mechanism adds in a gear train to fix the ratio of rotational speed fixed rather than relying on a 
+flexible drive shaft, but the basic idea is the same.
+
+## Related
+
+It turns out it isn't just me who's stumbled onto this weird little concept.  See also:
+
+* [The Spinor Linkage](https://www.researchgate.net/publication/360037741_The_spinor_linkage_-_a_mechanical_implementation_of_the_plate_trick)
+* [Antitwister](http://ariwatch.com/VS/Algorithms/Antitwister.htm)
 

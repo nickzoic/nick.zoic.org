@@ -1,6 +1,6 @@
 ---
 title: Yeast Thoughts
-date: '2025-09-23'
+date: '2025-10-03'
 summary: "Some thoughts about the yeast modeling we've been doing"
 tags:
   - bioinformatics

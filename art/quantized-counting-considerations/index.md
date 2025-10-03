@@ -1,6 +1,6 @@
 ---
 title: Quantized Counting Considerations
-date: '2025-09-25'
+date: '2025-10-03'
 summary: "How to better get a score from quantized (binned) counts"
 tags:
   - bioinformatics

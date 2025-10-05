@@ -100,8 +100,8 @@ variants, and come to dominate the population.
 
 In this experiment the turbidity setpoint is OD<sub>600</sub> = 0.5.
 Getting from OD<sub>600</sub> to cell concentration is complicated[^fukuda]
-but using an approximation of 1 × 10<super>7</super> cells per mL per OD<sub>600</sub>,
-there's about a billion (1 × 10<super>9</super>) cells in each 200mL turbidostat.
+but using an approximation of 1 × 10<sup>7</sup> cells per mL per OD<sub>600</sub>,
+there's about a billion (1 × 10<sup>9</sup>) cells in each 200mL turbidostat.
 
 [^fukuda]: Fukuda, N.
     Apparent diameter and cell density of yeast strains with different ploidy.

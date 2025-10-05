@@ -74,11 +74,11 @@ Thresholds between bins are chosen to make the bins *approximately* the same
 size, but to reduce the effect of bin size differences, first the counts are
 scaled to find frequencies of each variant within each bin, eg:
 
-`$$ F_{v,i} = C_{v,i} / \sum_{v} C_{v,i} $$`
+`$$ F_{v,i} = C_{v,i} / \sum_{v \in V} C_{v,i} $$`
 
 The scaled, weighted averages are calculated like this:
 
-`$$ W_{v} = \frac{\sum_{i}{w_i F_{v,i}}}{\sum_{i}{F_{v,i}}} $$`
+`$$ W_{v} = \frac{\sum_{i=0}^{N}w_i F_{v,i}}{\sum_{i=0}^{N}F_{v,i}} $$`
 
 ### VAMP-seq Weights
 
@@ -108,20 +108,22 @@ four bins this brightness gets
 Any cell whose brightness is between the thresholds for bin 2 will get sorted
 into bin 2, and there will be no way to tell where a cell falls within that range.
 
-Thankfully biological systems are inherently noisy.  When cells brightness is
-measured some noise actually helps
-with our scoring process, as a cell which is close to the edge of a bin sometime
-ends up in a neighbouring bin.
+Thankfully there's some noise in the system.
+When a cell's brightness is measured, a cell which is close to the edge of a bin
+sometimes ends up in a neighbouring bin.
 The closer to the edge of the bin the more often this happens, giving us a
 signal to work with.
 
 This is a well known technique in signal processing called
 [dithering](https://en.wikipedia.org/wiki/Dither).
 
+Where the noise comes from, and how it can be characterized, requires further
+investigation.
+
 ### Modeling Quantization Effects
 
-This discussion assumes noise is gaussian, which it possibly isn't, but it's 
-a good start.
+This discussion assumes noise is
+[gaussian ("normal")](https://en.wikipedia.org/wiki/Normal_distribution).
 These graphs show how a cell might appear in bins 1 .. 4 if it had 
 a mean score of 0.575 plus gaussian error with standard deviation
 varying from 0.01 up to 0.5:
@@ -142,8 +144,8 @@ way to work out where the cell's score lies between the thresholds.
 With too much noise, the counts end up spread across all four bins, and noise
 becomes an issue.
 
-These graphs illustrate the effect of quantization of varying average score
-across four bins:
+These graphs illustrate the effect of quantization of scores across four bins
+with varying standard deviation (sigma):
 
 ![Quantization effects on binned counts](img/quant.svg)
 *Quantization effects on binned counts*
@@ -232,9 +234,9 @@ So we can use the CDF to estimate what our bin probabilities `$p_i$` should be f
 a given `$\mu$` and `$\sigma$`, picking thresholds between our bin scores and 
 baking in all sorts of probably unwarranted assumptions about boundary conditions:
 
-`$$ p_1 = \Phi(\frac{3/8 - \mu}{\sigma}) $$`
-`$$ p_2 = \Phi(\frac{5/8 - \mu}{\sigma}) - p_1 $$`
-`$$ p_3 = \Phi(\frac{7/8 - \mu}{\sigma}) - p_1 - p_2 $$`
+`$$ p_1 = \Phi(\frac{\frac{3}{8} - \mu}{\sigma}) $$`
+`$$ p_2 = \Phi(\frac{\frac{5}{8} - \mu}{\sigma}) - p_1 $$`
+`$$ p_3 = \Phi(\frac{\frac{7}{8} - \mu}{\sigma}) - p_1 - p_2 $$`
 `$$ p_4 = 1 - p_1 - p_2 - p_3 $$`
 
 We now have four equations and two unknowns, so we can use any number of numerical
@@ -256,6 +258,10 @@ stdev.  In the last case, the outputs of our attempt to fit the data to our expe
 distribution indicate that something is seriously wrong: the score is out of bounds,
 the stddev is very large and the variance of the estimate is also very large.
 This particular sample's score cannot be accurately estimated.
+
+Using least-squares fitting to quite a complicated function might well be overkill
+for detecting issues which could be determined from a simpler heuristic, but it at
+least provides a baseline to compare heuristics against.
 
 ### Beyond Scoring
 

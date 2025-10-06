@@ -17,7 +17,7 @@ experiments and while I'm a big fan of
 and the
 [sorting machine](https://www.bdbiosciences.com/en-au/products/instruments/flow-cytometers/research-cell-sorters/bd-facsaria-iii)
 looks like an espresso machine made by [SGI](https://en.wikipedia.org/wiki/SGI_O2),
-there's one thing which always bothered me about this technique.
+there's one thing which always bothered me about this technique: Scoring.
 
 [^popp]: Popp NA, Powell RL, Wheelock MK, Holmes KJ, Zapp BD, Sheldon KM, Fletcher SN, Wu X, Fayer S, Rubin AF, Lannert KW, Chang AT, Sheehan JP, Johnsen JM, Fowler DM.
     Multiplex and multimodal mapping of variant effects in secreted proteins via MultiSTEP.
@@ -36,7 +36,7 @@ there's one thing which always bothered me about this technique.
     Nat Genet 50, 874–882 (2018).
     doi: [10.1038/s41588-018-0122-z](https://doi.org/10.1038/s41588-018-0122-z)
 
-So to very briefly summarize how VAMP-seq works:
+To very briefly summarize how VAMP-seq works:
 
 1. To see how much different cells are expressing a gene, you fuse that gene with
    a gene for EGFP or similar, so the cells glow more the more the gene is expressed.
@@ -49,16 +49,20 @@ So to very briefly summarize how VAMP-seq works:
 6. Scores are normalized, assuming nonsense types should be 0 and wild type should be 1.
 7. Addiional replicates are performed to confirm results.
 
-There are several things which can go wrong here. 
-Thresholds can be set incorrectly or inaccurately.
-Output tubes can get contaminated, sequenced differently,
-lost or swapped[^hallway] into the wrong bin.
+There are several things which can go wrong here with the experimental process:
+
+* Thresholds can be set incorrectly or inaccurately.
+* Output tubes can get contaminated, sequenced differently
+* Output tubes can get lost or swapped[^hallway].
 
 [^hallway]: Discussion with [UW-GS](https://www.gs.washington.edu/) wet-lab people
     and hallway discussions at [MSS 2025 Barcelona](https://www.varianteffect.org/mss2025/).
 
 Some of these problems are probably avoidable using careful lab techniques
 and practices but human error is inevitable.
+The question is: how can we *detect* these sort of problems?
+The sooner we detect them the sooner they can be corrected.
+
 I'll come back to that later, but in the mean time let's talk scoring.
 
 ## VAMP-seq Scoring
@@ -70,16 +74,19 @@ Thresholds between bins are chosen to make the bins *approximately* the same
 size, but to reduce the effect of bin size differences, first the counts are
 scaled to find frequencies of each variant within each bin, eg:
 
-`$$ F_{v,i} = C_{v,i} / \sum_{v} C_{v,i} $$`
+`$$ F_{v,i} = C_{v,i} / \sum_{v \in V} C_{v,i} $$`
 
 The scaled, weighted averages are calculated like this:
 
-`$$ W_{v} = \frac{\sum_{i}{w_i F_{v,i}}}{\sum_{i}{F_{v,i}}} $$`
+`$$ W_{v} = \frac{\sum_{i=0}^{N}w_i F_{v,i}}{\sum_{i=0}^{N}F_{v,i}} $$`
 
-where the weights per bin `$w_i$` are generally given by
+### VAMP-seq Weights
+
+Weights per bin `$w_i$` are generally given by:
 
 `$$ w_i = i / N $$`
 
+... where `$ 0 < i \leq N $`.
 So for example (ignoring scaling for clarity), if 500 cells of a particular variant
 go into the sorter, they might end up with 100 in bin 1, 250 in bin 2,
 150 in bin 3, and none in bin 4.
@@ -101,20 +108,22 @@ four bins this brightness gets
 Any cell whose brightness is between the thresholds for bin 2 will get sorted
 into bin 2, and there will be no way to tell where a cell falls within that range.
 
-Thankfully biological systems are inherently noisy.  When cells brightness is
-measured some noise actually helps
-with our scoring process, as a cell which is close to the edge of a bin sometime
-ends up in a neighbouring bin.
+Thankfully there's some noise in the system.
+When a cell's brightness is measured, a cell which is close to the edge of a bin
+sometimes ends up in a neighbouring bin.
 The closer to the edge of the bin the more often this happens, giving us a
 signal to work with.
 
 This is a well known technique in signal processing called
 [dithering](https://en.wikipedia.org/wiki/Dither).
 
+Where the noise comes from, and how it can be characterized, requires further
+investigation.
+
 ### Modeling Quantization Effects
 
-This discussion assumes noise is gaussian, which it possibly isn't, but it's 
-a good start.
+This discussion assumes noise is
+[gaussian ("normal")](https://en.wikipedia.org/wiki/Normal_distribution).
 These graphs show how a cell might appear in bins 1 .. 4 if it had 
 a mean score of 0.575 plus gaussian error with standard deviation
 varying from 0.01 up to 0.5:
@@ -135,8 +144,8 @@ way to work out where the cell's score lies between the thresholds.
 With too much noise, the counts end up spread across all four bins, and noise
 becomes an issue.
 
-These graphs illustrate the effect of quantization of varying average score
-across four bins:
+These graphs illustrate the effect of quantization of scores across four bins
+with varying standard deviation (sigma):
 
 ![Quantization effects on binned counts](img/quant.svg)
 *Quantization effects on binned counts*
@@ -201,8 +210,18 @@ our assumption that this is a normal distribution is true.
 How about we go back in the other direction and predict what
 bin counts we should see for a given `$\mu$` and `$\sigma$`?
 
-We can do this using the
-[CDF of the normal distribution](https://en.wikipedia.org/wiki/Normal_distribution#Cumulative_distribution_function)
+We can do this using a [Cumulative Distribution Function (CDF)](https://en.wikipedia.org/wiki/Cumulative_distribution_function)
+of the probability distribution we're expecting.  The CDF is a function `$ F(x) $` such that for a randomly chosen value `$X$` from
+our distribution, we can find the probabilities of `$X$` falling within a range:
+
+`$$ p_{X \leq a} = F(a) $$`
+`$$ p_{a < X \leq b} = F(b) - F(a) $$`
+`$$ p_{X > b} = 1 - F(b) $$`
+
+For example, within the range of one of our bins!
+
+In this case we're assuming a normal distribution, so we'll use the
+[CDF of the normal distribution](https://en.wikipedia.org/wiki/Normal_distribution#Cumulative_distribution_function):
 
 `$$ \Phi(x) = \frac{1}{\sqrt{2\pi}}\int_{-\infty}^{x}e^{-t^2/2}\,dt $$`
 
@@ -215,9 +234,9 @@ So we can use the CDF to estimate what our bin probabilities `$p_i$` should be f
 a given `$\mu$` and `$\sigma$`, picking thresholds between our bin scores and 
 baking in all sorts of probably unwarranted assumptions about boundary conditions:
 
-`$$ p_1 = \Phi(\frac{3/8 - \mu}{\sigma}) $$`
-`$$ p_2 = \Phi(\frac{5/8 - \mu}{\sigma}) - p_1 $$`
-`$$ p_3 = \Phi(\frac{7/8 - \mu}{\sigma}) - p_1 - p_2 $$`
+`$$ p_1 = \Phi(\frac{\frac{3}{8} - \mu}{\sigma}) $$`
+`$$ p_2 = \Phi(\frac{\frac{5}{8} - \mu}{\sigma}) - p_1 $$`
+`$$ p_3 = \Phi(\frac{\frac{7}{8} - \mu}{\sigma}) - p_1 - p_2 $$`
 `$$ p_4 = 1 - p_1 - p_2 - p_3 $$`
 
 We now have four equations and two unknowns, so we can use any number of numerical
@@ -238,20 +257,31 @@ In the first three cases we've been able to fit quite nicely despite the varying
 stdev.  In the last case, the outputs of our attempt to fit the data to our expected 
 distribution indicate that something is seriously wrong: the score is out of bounds,
 the stddev is very large and the variance of the estimate is also very large.
-This particular sample cannot be relied upon.
- 
+This particular sample's score cannot be accurately estimated.
+
+Using least-squares fitting to quite a complicated function might well be overkill
+for detecting issues which could be determined from a simpler heuristic, but it at
+least provides a baseline to compare heuristics against.
+
+### Beyond Scoring
+
+In the above discussion we're still using the arbitrary score weights, but it
+might make more sense to use the actual thresholds we set on the sorting machine.
+It's also impossible for a cell to emit *less than zero light* so we can include
+that in our consideration of distributions: the distribution is probably *not* a
+normal curve.  
+
 ## Further Work
 
 There's lots more to do on this general concept:
 
 * how does it apply to real world data?
 * what are the sources and characteristics of noise
-  in the measurement apparatus?  Is "normal" what we expect?
+  in the measurement apparatus?  Is our noise actually normally distributed?
 * what is the "ideal" amount of noise to prevent quantization artifacts without
   losing too much information?
-* can we use the actual experimental thresholds and use boundary conditions
-  (eg: there's no such thing as negative light) for better estimates?
+* will using experimental thresholds and boundary conditions help?
 * can we incorporate measurement error estimates into our curve fit?
 * is there a better heuristic for error detection?
 
-I hope to return to this soon!
+**I hope to return to this soon!**

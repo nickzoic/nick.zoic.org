@@ -4,8 +4,7 @@ date: '2025-10-03'
 summary: "How to better get a score from quantized (binned) counts"
 tags:
   - bioinformatics
-  - simulation
-layout: draft
+layout: article
 uses_mathjax: 3
 ---
 
@@ -40,12 +39,12 @@ To very briefly summarize how VAMP-seq works:
 
 1. To see how much different cells are expressing a gene, you fuse that gene with
    a gene for EGFP or similar, so the cells glow more the more the gene is expressed.
-2. Then you set up the cell sorting machine to sort the cells into four "bins"
-   according to how much they glow, using a sample to establish quartile thresholds
-   for the sorter.
-3. Then you sort the cells into four output tubes ("bins"), roughly the same size.
-4. Then you sequence each of the four tubes and count up variants per "bin".
-5. Variants are scored by combining counts from each bin.
+2. Then you measure the cells' brightness, working out quartile thresholds to divide them
+   into four "bins" of roughly the same size.
+3. Then you sort the cells into four output tubes, literally four little test tubes at 
+   the end of the machine. 
+4. Then you sequence each of the four tubes and count up variants present in each bin.
+5. Variants are scored by combining the counts from each bin (we'll get to that)
 6. Scores are normalized, assuming nonsense types should be 0 and wild type should be 1.
 7. Addiional replicates are performed to confirm results.
 
@@ -67,6 +66,7 @@ I'll come back to that later, but in the mean time let's talk scoring.
 
 ## VAMP-seq Scoring
 
+From the VAMP-seq paper:
 > VAMP-seq scores are calculated from the scaled,
 > weighted average of variants across *N* bins. 
 
@@ -87,6 +87,7 @@ Weights per bin `$w_i$` are generally given by:
 `$$ w_i = i / N $$`
 
 ... where `$ 0 < i \leq N $`.
+
 So for example (ignoring scaling for clarity), if 500 cells of a particular variant
 go into the sorter, they might end up with 100 in bin 1, 250 in bin 2,
 150 in bin 3, and none in bin 4.
@@ -113,17 +114,33 @@ When a cell's brightness is measured, a cell which is close to the edge of a bin
 sometimes ends up in a neighbouring bin.
 The closer to the edge of the bin the more often this happens, giving us a
 signal to work with.
-
 This is a well known technique in signal processing called
 [dithering](https://en.wikipedia.org/wiki/Dither).
+The noise actually helps us!
+Similar techniques are used in all sorts of signal processing tasks.
 
-Where the noise comes from, and how it can be characterized, requires further
-investigation.
+### Characterizing Noise
+
+Where the noise comes from in our cell sorting procedure, and how it can be
+characterized, requires further investigation.
+
+Noise might be introduced by sensor
+[shot noise](https://en.wikipedia.org/wiki/Shot_noise)
+or by cell geometry (if cells glow more on one side than another then as they
+rotate their apparent brightness will vary) or by 
+[cell cycle](https://en.wikipedia.org/wiki/Cell_cycle) 
+or it might even be introduced intentionally by the sorting software.
+
+This discussion assumes noise is
+[gaussian ("normal")](https://en.wikipedia.org/wiki/Normal_distribution)
+for simplicity and because it's a pretty common distribution due to the
+[central limit theorem](https://en.wikipedia.org/wiki/Central_limit_theorem).
+But because we have a fixed limit on our distribution (a cell can't emit less than
+zero light) another good candidate would be a
+[log-normal distribution](https://en.wikipedia.org/wiki/Log-normal_distribution).
 
 ### Modeling Quantization Effects
 
-This discussion assumes noise is
-[gaussian ("normal")](https://en.wikipedia.org/wiki/Normal_distribution).
 These graphs show how a cell might appear in bins 1 .. 4 if it had 
 a mean score of 0.575 plus gaussian error with standard deviation
 varying from 0.01 up to 0.5:
@@ -151,19 +168,22 @@ with varying standard deviation (sigma):
 *Quantization effects on binned counts*
 *[python source code](src/quant.py)*
 
+With too little noise, many variants have 100% of counts in a single bin, and
+end up with a score of exactly 0.25, 0.50, 0.75 or 1.00.  With too much noise,
+the signal starts to get overwhelmed.
+
 Quantization isn't necessarily a huge problem for a lot of studies as we're 
 mostly looking to classify variants into broad categories of benign and pathological.
-But it may also lead to strange correlation artifacts, for example if many 
-variants end up being scored at exactly 0.25, 0.50 and 0.75 due to quantization
-this may give us misleading correlation graphs and statistics.
+But it may also lead to strange correlation artifacts and misleading 
+correlation statistics.
+
 
 ## Interpreting Experimental Data
 
 Actual experimental data contains quite a lot of noise, so we're unlikely to
-get clean results like the above.  Bin counts are only a *sample* of the actual 
-organism being experimented on.
-In the process of combining four bin counts into one score,
-we've lost quite a lot of information.
+get clean results like the above.
+Scores are based on bin counts which are only a *sample* of the actual organism
+being experimented on, so we can also consider how precise that estimate is.
 
 For example, here are four different sets of bin counts, with different distributions
 but all of which end up with a score of 0.525:
@@ -177,7 +197,7 @@ indicate how certain we are of the score and whether the experimental noise is
 helping or hindering our measurements.
 
 First up we can convert our bin frequencies into probabilities by scaling them to 
-add up to 1, and we can use our weights as before:
+add up to 1, and we can use our bin weights `$w_i$` as before:
 
 `$$ p_i = F_i / \sum_{i=1}^{N}F_i $$`
 
@@ -196,9 +216,15 @@ Then we can [calculate average and standard deviation](https://en.wikipedia.org/
 |200|125|100|75|0.525|0.273|high sd. skew?|
 |315|0|5|180|0.525|0.360|experimental error?|
 
+The average provides our score and the standard deviation provides an estimate of 
+the precision of our score.
+
 ## Error Detection
 
-As the above example illustrate, there are many different ways to get the same score.
+In the process of combining four bin counts into one score, we've lost
+quite a lot of information.
+As the above example illustrates, there are many different ways to get the same score.
+
 The last example seems likely to indicate a problem as it doesn't resemble a normal
 curve at all.  This might indicate swapped or contaminated bins, especially if
 similar issues affect many variants.
@@ -207,10 +233,13 @@ How can we detect this issue?  The formulae above give us a way to estimate `$\m
 and `$\sigma$` from bin counts, but the answers are only valid if 
 our assumption that this is a normal distribution is true.
 
+### Distribution Fitting
+
 How about we go back in the other direction and predict what
 bin counts we should see for a given `$\mu$` and `$\sigma$`?
 
-We can do this using a [Cumulative Distribution Function (CDF)](https://en.wikipedia.org/wiki/Cumulative_distribution_function)
+We can do this using a
+[Cumulative Distribution Function (CDF)](https://en.wikipedia.org/wiki/Cumulative_distribution_function)
 of the probability distribution we're expecting.  The CDF is a function `$ F(x) $` such that for a randomly chosen value `$X$` from
 our distribution, we can find the probabilities of `$X$` falling within a range:
 
@@ -259,17 +288,20 @@ distribution indicate that something is seriously wrong: the score is out of bou
 the stddev is very large and the variance of the estimate is also very large.
 This particular sample's score cannot be accurately estimated.
 
+### Error Heuristics
+
 Using least-squares fitting to quite a complicated function might well be overkill
 for detecting issues which could be determined from a simpler heuristic, but it at
-least provides a baseline to compare heuristics against.
+least provides a baseline to compare potential heuristics against.
+For example, specific heuristics could be implemented to detect contaminated or swapped bins.
 
 ### Beyond Scoring
 
 In the above discussion we're still using the arbitrary score weights, but it
-might make more sense to use the actual thresholds we set on the sorting machine.
-It's also impossible for a cell to emit *less than zero light* so we can include
-that in our consideration of distributions: the distribution is probably *not* a
-normal curve.  
+might make more sense to incorporate the actual thresholds we set on the sorting
+machine.
+This would mean our output would be in actual units, and we could combine outputs
+from multiple replicates more meaningfully.
 
 ## Further Work
 

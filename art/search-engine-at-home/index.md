@@ -51,12 +51,18 @@ which has a URL, headers and plain text.  And these can be freely downloaded,
 totalling 6.5 TiB.
 
 Which is, don't get me wrong, a lot.  
-But [modern games are taking up gigabytes](https://www.techspot.com/article/2680-game-install-sizes/)
-and 6.5TiB is only a couple of weeks at 1GBit/s.
+But [AAA games are taking up gigabytes](https://www.techspot.com/article/2680-game-install-sizes/)
+and 6.5TiB is only a couple of days at 10GBit/s.
 Or the files are freely available as a [public S3 bucket](https://commoncrawl.org/get-started)
 but of course data tranfer and processing charges apply.
 
-## WET files
+A new archive is released [once a month or so](https://commoncrawl.org/blog) so 
+we're limited in our ability to search the latest news but for a lot of applications
+that's fine.
+Sadly there's no "diff" available so we have to download the whole damned
+thing every time.
+
+### WET files
 
 WET files are pretty simple compressed text files which look a lot like a
 [HTTP 1.1 persistent](https://en.wikipedia.org/wiki/HTTP_persistent_connection#HTTP_1.1)
@@ -70,7 +76,7 @@ WARC-Target-URI: https://nick.zoic.org/
 WARC-Date: 2001-02-03
 WARC-Identified-Content-Language: eng
 Content-Type: text/plain
-Content-Lenght: 23
+Content-Length: 23
 
 content content content
 
@@ -80,9 +86,10 @@ WARC-Type: conversion
 ```
 **etc**
 
-Content has been folded, spindled and mutilated into `text/plain` and stuck end on end into
-these files.
-Each file is about 65MByte compressed, about 200MByte uncompressed.
+Content has been folded, spindled and mutilated into `text/plain` (plain, but Unicode)
+and stuck end on end into these files.
+Each file is about 65MiB compressed, about 200MiB uncompressed and contains
+information on about 24,000 pages.
 
 They're not complicated, but helpfully, there's already a
 [python WARC library](https://en.wikipedia.org/wiki/HTTP_persistent_connection#HTTP_1.1)
@@ -98,11 +105,47 @@ for file in sys.argv[1:]:
             print(record.get('WARC-Target-URI'), record.payload.length )
 ```
 
-## Languages
+So, overall, we have to parse through 200TiB of data comprising 2.4 billion
+web pages, and do something useful with all that.
 
 ## Waves of Mutilation
 
-## Building an Index
+### Languages
+
+Every page in the archive comes with a `WARC-Identified-Content-Language` header
+which has one or more languages nominated: these are three letter
+[ISO 639-3](https://en.wikipedia.org/wiki/ISO_639-3) codes not the more 
+familiar two letter [ISO-639-1](https://en.wikipedia.org/wiki/ISO_639-1) codes,
+and not including a country code for region/dialect localization.
+
+Unsurprisingly, `eng` wins the day with runners-up including `rus`, `zho`, `deu`, `spa`, `jpn`, `fra` and `por` and a very long tail of other languages.
+
+Language is pretty important for indexing texts as operations like 
+[stopwords](https://en.wikipedia.org/wiki/Stop_word) and 
+[stemming](https://www.nltk.org/api/nltk.stem.SnowballStemmer.html)
+depend on it.
+Multi-language documents are a whole 'nother problem.
+
+### Document Numbering System
+
+One thing we're going to need is a
+[document numbering system](https://en.wikipedia.org/wiki/Discordianism#The_Pentabarf)
+to allow us to retrieve our files efficiently.
+Since there's exactly 100,000 files in the archive, let's try:
+
+`offset_in_file * 100000 + file_number`
+
+This will let us open an WET file, seek directly to the record we want and 
+retrieve it immediately.
+We can speed up indexing into the gzipped file using
+[gztool](https://github.com/circulosmeos/gztool) or using 
+something like [BGZF](https://biopython.org/docs/dev/api/Bio.bgzf.html)
+or something like [rapidgzip](https://pypi.org/project/rapidgzip/0.0.1/#python-library).
+
+Basically: record the offset of the compressed block, record the offset within the
+compressed block.
+
+### Building an Index
 
 ## Querying the Index
 

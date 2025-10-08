@@ -80,7 +80,7 @@ But I'd rather use the existing controller board if possible.
 It's not just a PWM controller though, there's lots of other stuff in there.
 
 * ARM Cortex M0 [HC32F005C6PA](https://jlcpcb.com/partdetail/XHSC-HC32F005C6PATSSOP20/C235578)
-* UC3813 Current-mode PWM Controller
+* [UC3813](https://www.ti.com/lit/ds/symlink/ucc3813-1.pdf) Current-mode PWM Controller
 * Ginormous Capacitor
 * Relay
 
@@ -91,6 +91,14 @@ optoisolators.  Why four, though, when there's only RX, TX and maybe SW?
 
 There's five unpopulated header pins right next to the MCU which are 
 maybe a JTAG or similar.
+
+The UC3813 normally uses an RC oscillator as a sawtooth generator and uses
+that to create a PWM signal by comparing the sawtooth with a reference.
+
+![oscillator](img/oscillator.png)
+
+My guess is in this application the microcontroller provides a signal into the
+RC pin to override the sawtooth generation.
 
 ## Protocol
 

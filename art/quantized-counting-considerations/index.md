@@ -46,7 +46,10 @@ To very briefly summarize how VAMP-seq works:
 4. Then you sequence each of the four tubes and count up variants present in each bin.
 5. Variants are scored by combining the counts from each bin (we'll get to that)
 6. Scores are normalized, assuming nonsense types should be 0 and wild type should be 1.
-7. Addiional replicates are performed to confirm results.
+7. Additional replicates are performed to confirm results.
+
+![BD FACSAria™ III Sorter](img/sorter.png)
+*BD FACSAria™ III Sorter (detail from [brochure](https://www.bdbiosciences.com/en-au/products/instruments/flow-cytometers/research-cell-sorters/bd-facsaria-iii))*
 
 There are several things which can go wrong here with the experimental process:
 
@@ -64,7 +67,7 @@ The sooner we detect them the sooner they can be corrected.
 
 I'll come back to that later, but in the mean time let's talk scoring.
 
-## VAMP-seq Scoring
+### VAMP-seq Scoring
 
 From the VAMP-seq paper:
 > VAMP-seq scores are calculated from the scaled,
@@ -192,6 +195,8 @@ but all of which end up with a score of 0.525:
 *Four ways to get the same score*
 *[python source code](src/bins.py)*
 
+### Score Standard Deviation
+
 We can calculate a standard deviation for each set of counts, and this might usefully
 indicate how certain we are of the score and whether the experimental noise is 
 helping or hindering our measurements.
@@ -219,7 +224,7 @@ Then we can [calculate average and standard deviation](https://en.wikipedia.org/
 The average provides our score and the standard deviation provides an estimate of 
 the precision of our score.
 
-## Error Detection
+### Error Detection
 
 In the process of combining four bin counts into one score, we've lost
 quite a lot of information.
@@ -288,6 +293,19 @@ distribution indicate that something is seriously wrong: the score is out of bou
 the stddev is very large and the variance of the estimate is also very large.
 This particular sample's score cannot be accurately estimated.
 
+## Further Work
+
+There's lots more to do on this general concept, including applying to to real
+experimental data.
+
+### Characterizing Noise
+
+What are the sources and characteristics of noise in the measurement apparatus?
+Is our noise actually normally distributed?
+What is the "ideal" amount of noise to prevent quantization artifacts without
+losing too much information?
+Can we incorporate measurement error estimates into our curve fit?
+
 ### Error Heuristics
 
 Using least-squares fitting to quite a complicated function might well be overkill
@@ -302,18 +320,5 @@ might make more sense to incorporate the actual thresholds we set on the sorting
 machine.
 This would mean our output would be in actual units, and we could combine outputs
 from multiple replicates more meaningfully.
-
-## Further Work
-
-There's lots more to do on this general concept:
-
-* how does it apply to real world data?
-* what are the sources and characteristics of noise
-  in the measurement apparatus?  Is our noise actually normally distributed?
-* what is the "ideal" amount of noise to prevent quantization artifacts without
-  losing too much information?
-* will using experimental thresholds and boundary conditions help?
-* can we incorporate measurement error estimates into our curve fit?
-* is there a better heuristic for error detection?
 
 **I hope to return to this soon!**

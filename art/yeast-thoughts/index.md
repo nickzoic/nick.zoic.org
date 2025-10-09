@@ -1,11 +1,10 @@
 ---
 title: Yeast Thoughts
-date: '2025-10-03'
+date: '2025-10-09'
 summary: "Some thoughts about the yeast modeling we've been doing"
 tags:
   - bioinformatics
-  - simulation
-layout: draft
+layout: article
 uses_mathjax: 3
 ---
 

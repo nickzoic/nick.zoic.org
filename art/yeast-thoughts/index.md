@@ -77,8 +77,8 @@ which is the [optical density](https://en.wikipedia.org/wiki/Absorbance)
 of 600nm ([orange](https://en.wikipedia.org/wiki/Orange_(colour)))
 light on a 1cm path through the yeast suspension.
 
-![experimental setup](img/turbidostat.svg)
-*experimental setup*
+![experimental setup (from my PyConAU talk)](img/turbidostat.svg)
+*experimental setup (from my PyConAU talk)*
 
 The turbidostat uses a pump to add nutrients and remove excess yeasts to keep the 
 turbidity the same, much like a [thermostat](https://en.wikipedia.org/wiki/Thermostat) 

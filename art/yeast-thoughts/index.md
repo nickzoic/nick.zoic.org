@@ -15,7 +15,7 @@ In my [PyConAU 2025 talk](/art/pycon-pyconau-2025-melbourne/) I talk a little bi
 about testing modified versions of the human *G6PD* gene in yeast[^geck].
 
 In that study we just used a simple linear interpolation of growth rates and it worked
-out fine but this discussion is an attempt to tackle the interesting mathematics of yeast growth.
+out fine, but this discussion is an attempt to tackle the interesting mathematics of yeast growth.
 
 [^geck]: Functional evidence for G6PD variant classification from mutational scanning
     Renee C. Geck, Melinda K. Wheelock, Rachel L. Powell, Ziyu R. Wang, Daniel L. Holmes,
@@ -45,7 +45,7 @@ The aim is to test thousands of variants of *G6PD* against each other, and to sc
 the different variants from bad (0) to good (1).
 This should give us some additional insight into the structure and behaviour of the G6PD
 protein, as well as some clinical insights into patients with unknown variants, eg:
-if a patient has *this* variant, is that likely to be a problem for them?
+if a patient has *this* variant, is that likely to be what's causing their problems?
 
 This experiment is done in brewer's yeast
 ([*Saccharomyces cerevisiae*](https://en.wikipedia.org/wiki/Saccharomyces_cerevisiae)).
@@ -54,7 +54,8 @@ because they reproduce very quickly and no-one minds you killing a billion of
 them before lunch.
 
 The experiment is done by knocking out the [yeast *ZWF1*](https://www.alliancegenome.org/gene/SGD:S000005185) gene 
-and inserting variants of [human *G6PD*](https://www.alliancegenome.org/gene/SGD:S000005185) using plasmids.
+and inserting variants of [human *G6PD*](https://www.alliancegenome.org/gene/SGD:S000005185).
+
 
 It might be surprising to you (it certainly was to me!) that this is a thing you can do,
 but both humans (a big complicated animal with bones and a brain and everything)
@@ -117,8 +118,8 @@ I'm ignoring the two "control" replicates.
 Samples were taken at every four hours at first, backing off to every 12 hours.
 The intention of this was to get some more subtlety in scoring especially for
 variants with low scores, rather than just
-a score of survived or didn't.  Number of volume replacements was also recorded
-at each time point.
+a score of 'survived' or 'didn't'.
+Number of volume replacements was also recorded at each time point.
 
 For each sample, DNA sequencing was performed to see what proportion
 of the yeasts were of what varieties.
@@ -140,7 +141,7 @@ get the idea.*
 ![good correlation between replicates](img/g6pd_histo_1.svg)
 *good correlation between replicates* **unpublished preliminary data**
 
-We also identied "nonsense" variants which have an early Stop codon,
+We also identied "nonsense" variants, which have an early Stop codon,
 and don't produce a complete protein, and "synonymous" variants which
 have nucleotide change(s) but produce the same protein as the original.
 The distribution of nonsense and synonymous variants was as expected,
@@ -159,7 +160,8 @@ is the situation simulated by the turbidostat.
 
 ### Scores, populations and frequencies
 
-Each of our variants `$v$` grow exponentially from their initial population `$p_{v,0}$`.
+Each of our variants `$v$` grow exponentially from their initial population `$p_{v,0}$`
+with a growth rate `$a$`.
 
 `$$ p_{v,t} = p_{v,0} a^{k_{v}t} $$`
 `$$ 0 \leq k_v \leq 1 $$`
@@ -266,9 +268,9 @@ $$`
 
 It's possible that a variant with `$k_v > 1$` might arise, because even though
 evolution has done a very good job of optimizing genes for their original
-roles our experimental setup isn't quite the same environment.
-Gains tend to be pretty
-marginal though so it's safe enough for now to assume `$0 \leq k_v \leq 1$`.
+roles, it's possible we might stumble upon a change which makes yeasts perform better in
+*this* artificial experimental environment.
+Gains tend to be pretty marginal though so it's safe enough for now to assume `$0 \leq k_v \leq 1$`.
 
 ### Fitting Curves
 
@@ -316,8 +318,8 @@ is found from the count as a fraction of the total count `$C$` at that timepoint
 `$$ \hat{f}_{v,t} = c_{v,t} / C_t $$`
 
 `$ \hat{f}_{v,t} $` is an *estimate* of the actual frequency of the variant. 
-The sample files contain millions of sequences, but these are just 
-a random sample of the billions of yeasts growing in the turbidostat.
+The sample files contain millions of samples, but these are just 
+a random sample of the *billions* of yeasts growing in the turbidostat.
 The larger the sample, the more certain we can be about the frequencies of
 variants in the population, but the size of sample files vary.
 
@@ -333,20 +335,21 @@ in the sample:
 1 / C_t & \quad \textrm{if } c_{v,t} = 0 \\
 \end{array}\right. $$`
 
-This expresses the intuitively obvious idea that the larger a sample file the
-more certain we can be about the estimates we get from it.  This is useful because
-when we fit a curve through the data points, we can use the standard deviation at
+In other words, the larger a sample file the more certain we can be about the estimates we get from it.
+This is useful because when we fit a curve through the data points, we can use the standard deviation at
 each point to control how tightly that point needs to be fitted.
 
-| count | total | estimate<br>(ppm) | estimate - σ<br>(ppm) | estimate + σ<br>(ppm) |
-|---:|---:|---|---|---|
-| 10 | 1000000 | 10 | 6.8 | 13.2 |
-| 20 | 2000000 | 10 | 7.8 | 12.2 |
-| 50 | 5000000 | 10 | 8.6 | 11.4 |
-| 100 | 10000000 | 10 | 9.0 | 11.0 |
+| count | total | estimate<br>(ppm) | σ<br>(ppm) | estimate - σ<br>(ppm) | estimate + σ<br>(ppm) |
+|---:|---:|---|---|---|---|
+| 10 | 1000000 | 10.0 | 3.2 | 6.8 | 13.2 |
+| 20 | 2000000 | 10.0 | 2.2 | 7.8 | 12.2 |
+| 50 | 5000000 | 10.0 | 1.4 | 8.6 | 11.4 |
+| 100 | 10000000 | 10.0 | 1.0 | 9.0 | 11.0 |
 
 I mentioned before that in the actual experiment each timed sample
 has a different size and thus a different level of certainty.
+A sample which is a little on the small side will have a larger standard
+deviation and therefore the curve fit will be a little looser on that point.
 
 We're sampling from a population of about a billion yeasts so it
 seems like our sampling should be "clean" but the number of 

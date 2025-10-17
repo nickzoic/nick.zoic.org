@@ -48,8 +48,8 @@ To very briefly summarize how VAMP-seq works:
 6. Scores are normalized, assuming nonsense types should be 0 and wild type should be 1.
 7. Additional replicates are performed to confirm results.
 
-![BD FACSAria™ III Sorter](img/sorter.png)
-*BD FACSAria™ III Sorter (detail from [brochure](https://www.bdbiosciences.com/en-au/products/instruments/flow-cytometers/research-cell-sorters/bd-facsaria-iii))*
+<!-- ![BD FACSAria™ III Sorter](img/sorter.png)
+*BD FACSAria™ III Sorter (detail from [brochure](https://www.bdbiosciences.com/en-au/products/instruments/flow-cytometers/research-cell-sorters/bd-facsaria-iii))* -->
 
 There are several things which can go wrong here with the experimental process:
 

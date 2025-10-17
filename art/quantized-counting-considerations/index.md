@@ -120,7 +120,15 @@ signal to work with.
 This is a well known technique in signal processing called
 [dithering](https://en.wikipedia.org/wiki/Dither).
 The noise actually helps us!
+
 Similar techniques are used in all sorts of signal processing tasks.
+In fact, this technique is so powerful that we could get away with having 
+only 2 bins and still end up with a continuous range of scores[^trippe].
+
+[^trippe]: Trippe BL, Huang B, DeBenedictis EA, Coventry B, Bhattacharya N, Yang KK, Baker D, Crawford L.
+    Randomized gates eliminate bias in sort‐seq assays.
+    Protein Sci. 2022 Sep;31(9):e4401. doi: [10.1002/pro.4401](https://doi.org/10.1002/pro.4401).
+    Epub 2022 Aug 30. PMCID: [PMC9601873](https://pmc.ncbi.nlm.nih.gov/articles/PMC9601873/).
 
 ### Characterizing Noise
 

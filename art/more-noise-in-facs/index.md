@@ -7,7 +7,7 @@ tags:
 uses_mathjax: 3
 ---
 
-VAMP-seq[^vamp] and other
+VAMP-seq[^vamp], sort-seq[^sort] and other
 [Fluorescence-activated cell sorting (FACS)](https://en.wikipedia.org/wiki/Flow_cytometry#Cell_sorting_by_flow_cytometry) 
 based experiments measure cells using fluorescent proteins and then sort them 
 into multiple *bins* based on how much they fluoresce.
@@ -16,6 +16,12 @@ into multiple *bins* based on how much they fluoresce.
     Multiplex assessment of protein variant abundance by massively parallel sequencing.
     Nat Genet 50, 874–882 (2018).
     doi: [10.1038/s41588-018-0122-z](https://doi.org/10.1038/s41588-018-0122-z)
+
+[^sort]: Peterman N, Levine E.
+    Sort-seq under the hood: implications of design choices on large-scale characterization of sequence-function relations.
+    BMC Genomics. 2016 Mar 9;17:206.
+    doi: [10.1186/s12864-016-2533-5](https://doi.org/10.1186/s12864-016-2533-5).
+    PMID: 26956374; PMCID: [PMC4784318](https://pmc.ncbi.nlm.nih.gov/articles/PMC4784318/).
 
 Cells which are genetically identical are not always sorted into the same bin:
 instead there is some "noise" in the system which distributes them across multiple

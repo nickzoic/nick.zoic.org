@@ -115,10 +115,17 @@ I'm only really interested in the two "stress" replicates at this point, so
 I'm ignoring the two "control" replicates.
 
 Samples were taken at every four hours at first, backing off to every 12 hours.
-The intention of this was to get some more subtlety in scoring especially for
-variants with low scores, rather than just
-a score of 'survived' or 'didn't'.
+The intention of this was to get some more subtlety in scoring[^matus] especially for
+variants with low scores, rather than just a score of 'survived' or 'didn't'.
 Number of volume replacements was also recorded at each time point.
+
+[^matus]: Matuszewski S, Hildebrandt ME, Ghenu AH, Jensen JD, Bank C.
+    A Statistical Guide to the Design of Deep Mutational Scanning Experiments.
+    Genetics. 2016 Sep;204(1):77-87.
+    doi: [10.1534/genetics.116.190462](https://doi.org/10.1534/genetics.116.190462).
+    Epub 2016 Jul 13. Erratum in: Genetics. 2025 Mar 17;229(3):iyaf002.
+    doi: [10.1093/genetics/iyaf002](https://doi.org/10.1093/genetics/iyaf002).
+    PMID: 27412710; PMCID: [PMC5012406](https://pmc.ncbi.nlm.nih.gov/articles/PMC5012406/).
 
 For each sample, DNA sequencing was performed to see what proportion
 of the yeasts were of what varieties.

@@ -13,7 +13,7 @@ nvar = 10000
 var = rr.random(nvar)
 
 # initial populations for the variants.
-pop = rr.integers(1, 10000, nvar)
+pop = rr.integers(9000, 10000, nvar)
 
 gen = 100
 

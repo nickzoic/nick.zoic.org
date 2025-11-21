@@ -78,7 +78,7 @@ to making it work before the competition was upon us.
 
 # Results
 
-<blockquote class="twitter-tweet"><p lang="en" dir="ltr">Chip-ey Bot is brutal! <a href="https://twitter.com/hashtag/sumobots?src=hash&amp;ref_src=twsrc%5Etfw">#sumobots</a> <a href="https://twitter.com/NodeBotsAU?ref_src=twsrc%5Etfw">@NodeBotsAU</a> Melbourne <a href="https://t.co/dvgWltquFV">pic.twitter.com/dvgWltquFV</a></p>&mdash; buzzconf.io (@buzzconfio) <a href="https://twitter.com/buzzconfio/status/888638462479310848?ref_src=twsrc%5Etfw">July 22, 2017</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script> 
+<blockquote class="twitter-tweet"><p lang="en" dir="ltr">Chip-ey Bot is brutal! <a href="https://twitter.com/hashtag/sumobots?src=hash&amp;ref_src=twsrc%5Etfw">#sumobots</a> <a href="https://twitter.com/NodeBotsAU?ref_src=twsrc%5Etfw">@NodeBotsAU</a> Melbourne <a href="https://t.co/dvgWltquFV">pic.twitter.com/dvgWltquFV</a></p>&mdash; buzzconf.io (@buzzconfio) <a href="https://twitter.com/buzzconfio/status/888638462479310848?ref_src=twsrc%5Etfw">July 22, 2017</a></blockquote>
 
 # LoliBot
 

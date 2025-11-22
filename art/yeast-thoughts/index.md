@@ -30,6 +30,8 @@ with actual yeasts is having a beer while thinking about numbers!**
 
 This section is just a loose summary to give some background,
 for proper details see the paper referenced above.
+My involvement was just with wrangling the numbers for the multiple timepoint assay,
+using [CountESS](https://countess-project.github.io/).
 
 ### Many Variants
 
@@ -114,10 +116,19 @@ Samples were taken at ten timepoints, for each of the four replicates.
 I'm only really interested in the two "stress" replicates at this point, so
 I'm ignoring the two "control" replicates.
 
-Samples were taken at every four hours at first, backing off to every 12 hours.
-The intention of this was to get some more subtlety in scoring[^matus] especially for
-variants with low scores, rather than just a score of 'survived' or 'didn't'.
-Number of volume replacements was also recorded at each time point.
+Samples were taken at every four hours at first, backing off to every 12 hours,
+to get some more subtlety in scoring, as described here by Renee Geck
+(in email correspondence):
+
+> Ten samples were taken over 72 hours (0, 4, 8, 12, 16, 24, 36, 48, 60, 72);
+> this sampling strategy was determined based on results of a pilot assay [...]
+> [W]e chose to do many early timepoints to capture initial changes, and then
+> 12 hour intervals to differentiate low, moderate, and normal activity variants.
+> We did not run the turbidistats past 72 hours because yeast began to flocculate,
+> disrupting the system, before 84 hours.
+
+I'm hoping to do some more work on this myself based on our experience and
+other published work on multi timepoint assays[^matus].
 
 [^matus]: Matuszewski S, Hildebrandt ME, Ghenu AH, Jensen JD, Bank C.
     A Statistical Guide to the Design of Deep Mutational Scanning Experiments.

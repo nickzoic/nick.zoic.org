@@ -70,8 +70,17 @@ better detection of experimental error conditions.
 and [Johnson-Nyquist Noise](https://en.wikipedia.org/wiki/Johnson%E2%80%93Nyquist_noise)
 and [Quantization Error](https://en.wikipedia.org/wiki/Quantization_(signal_processing))
 
-### Cell Asymmetry
+### Cell Geometry
 
+Cells are not perfect little spheres.
+Yeast cells, for example, have a nucleus, vacuole and various other organelles,
+all held in a cytoskeleton within the cell membrane.
+We're using frequencies of light which the cells are translucent to, but
+consider that for our fluorescence experiments, light is scattered both on the
+way into the cell and on the way out.
+If our fluorescence is occuring in, say, the nucleus then the geometry of the
+cell, the alignment of the nucleus to the direction the light is coming from
+or being detected in, may cause a variation in the amount of light measured. 
 
 ### Cell Cycle
 

@@ -309,8 +309,8 @@ Coming soon: luggage!
 
 # UPDATE 2025-08-11
 
-It's nice to see [Path Less Padaled](https://www.youtube.com/watch?v=DPdyLro3wbs)
+It's nice to see [Path Less Pedaled](https://www.youtube.com/watch?v=DPdyLro3wbs)
 also considering wider gear ranges as a priority ...
 
 ![Comparing Gear Ranges](img/ranges.png)
-*Path Less Padaled compares gear ranges*
+*Path Less Pedaled compares gear ranges*

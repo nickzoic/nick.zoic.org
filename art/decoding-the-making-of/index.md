@@ -124,7 +124,7 @@ Which may have left a single glitchy frame behind but so be it.  The original me
 was utterly useless so I have no idea what I could do to fix it.
 Deleting fusion compositions where the error occurred didn't help.
 
-<blockquote class="twitter-tweet"><p lang="en" dir="ltr">Dear <a href="https://twitter.com/Blackmagic_News?ref_src=twsrc%5Etfw">@Blackmagic_News</a> please hire me so I can find out who wrote this error message and snub them at parties.</p>&mdash; nick moore (@nickzoic) <a href="https://twitter.com/nickzoic/status/1298450533691191296?ref_src=twsrc%5Etfw">August 26, 2020</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script> 
+<blockquote class="twitter-tweet"><p lang="en" dir="ltr">Dear <a href="https://twitter.com/Blackmagic_News?ref_src=twsrc%5Etfw">@Blackmagic_News</a> please hire me so I can find out who wrote this error message and snub them at parties.</p>&mdash; nick moore (@nickzoic) <a href="https://twitter.com/nickzoic/status/1298450533691191296?ref_src=twsrc%5Etfw">August 26, 2020</a></blockquote>
 
 (for future reference: Resolve 16.2.4.016, on Windows 10 Home 1909 18363.1016)
 

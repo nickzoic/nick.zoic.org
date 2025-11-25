@@ -18,6 +18,7 @@ and the
 looks like an espresso machine made by [SGI](https://en.wikipedia.org/wiki/SGI_O2),
 there's one thing which always bothered me about this technique: Scoring.
 
+
 [^popp]: Popp NA, Powell RL, Wheelock MK, Holmes KJ, Zapp BD, Sheldon KM, Fletcher SN, Wu X, Fayer S, Rubin AF, Lannert KW, Chang AT, Sheehan JP, Johnsen JM, Fowler DM.
     Multiplex and multimodal mapping of variant effects in secreted proteins via MultiSTEP.
     Nat Struct Mol Biol. 2025 Jun 13:10.1038/s41594-025-01582-w.
@@ -35,6 +36,9 @@ there's one thing which always bothered me about this technique: Scoring.
     Nat Genet 50, 874–882 (2018).
     doi: [10.1038/s41588-018-0122-z](https://doi.org/10.1038/s41588-018-0122-z)
 
+(This discuession is focused on VAMP-seq but the principles apply to other
+[Fluorescence Activated Cell Sorting (FACS)](https://en.wikipedia.org/wiki/Cell_sorting#Fluorescence-activated) experiments as well)
+
 To very briefly summarize how VAMP-seq works:
 
 1. To see how much different cells are expressing a gene, you fuse that gene with
@@ -51,11 +55,12 @@ To very briefly summarize how VAMP-seq works:
 <!-- ![BD FACSAria™ III Sorter](img/sorter.png)
 *BD FACSAria™ III Sorter (detail from [brochure](https://www.bdbiosciences.com/en-au/products/instruments/flow-cytometers/research-cell-sorters/bd-facsaria-iii))* -->
 
-There are several things which can go wrong here with the experimental process:
+There are several things which can go wrong[^hallway] here with the experimental process:
 
-* Thresholds can be set incorrectly or inaccurately.
-* Output tubes can get contaminated, sequenced differently
-* Output tubes can get lost or swapped[^hallway].
+* Thresholds can be set incorrectly or inaccurately or in a way that
+  causes cells to 'fall out'.
+* Output tubes can get contaminated or amplified and sequenced differently
+* Output tubes can get lost or dropped or swapped.
 
 [^hallway]: Discussion with [UW-GS](https://www.gs.washington.edu/) wet-lab people
     and hallway discussions at [MSS 2025 Barcelona](https://www.varianteffect.org/mss2025/).
@@ -73,7 +78,7 @@ From the VAMP-seq paper:
 > VAMP-seq scores are calculated from the scaled,
 > weighted average of variants across *N* bins. 
 
-Thresholds between bins are chosen to make the bins *approximately* the same
+Thresholds between bins are manually chosen to make the bins *approximately* the same
 size, but to reduce the effect of bin size differences, first the counts are
 scaled to find frequencies of each variant within each bin, eg:
 

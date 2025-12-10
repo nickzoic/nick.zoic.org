@@ -25,7 +25,9 @@ There's modern looking alternatives like
 dynamos but they're expensive for something I'm not sure
 I'll use much.
 
-## Dynamos and motors
+So I thought I'd look into making my own.
+
+## Brushless motors
 
 A [brushless motor](https://en.wikipedia.org/wiki/Brushless_DC_electric_motor#Brushless_solution)[0]
 works pretty simply:
@@ -40,7 +42,6 @@ An AC generator works the same way but in the opposite direction:
 * As the *rotor* rotates, it's magnetic field induces a *voltage* in the stator
 * The load *current* produces a magnetic field in the *stator*, which interacts with
   the *rotor* and causes a *torque* on the rotor, in the opposite direction to its rotation.
-
 
 [0] There are other kinds, but let's stick to this one.
 
@@ -138,7 +139,7 @@ try out [synchronous rectification](https://en.wikipedia.org/wiki/Active_rectifi
 but designing a circuit around six mosfets and six opamps is out of my depth.
 
 Once the AC voltage is rectified into DC, power can be used to charge a capacitor or
-battery.
+a battery via a buck / boost converter.
 
 
 

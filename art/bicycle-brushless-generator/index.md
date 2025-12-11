@@ -60,7 +60,7 @@ Different KV ratings suit different sizes of battery pack and propeller.
 
 [2] Peak to peak?  Per phase?  This isn't very well documented.
 
-In this application we actually want a small number, because that will get us
+In this application we actually want a small KV number, because that will get us
 the most voltage per RPM, which is desireable because both high RPM and low
 voltage lead to losses.
 
@@ -85,6 +85,13 @@ Engineering diagrams are suprisingly hard to find but here's some info:
 * [rhydolabz](https://www.rhydolabz.com/documents/26/BLDC_A2212_13T.pdf)
 * [2212 Brushless Motor 1000KV](https://www.temu.com/goods.html?goods_id=601103209840102&sku_id=17608591017152)
 
+# 5010 motors
+
+These are bigger, about 50mm OD, but seem to be available down to 360KV.
+
+* [robu.in](https://robu.in/wp-content/uploads/2017/10/5010-360KV-High-Torque-Brushless-Motor-for-Drone.pdf)
+* [aliexpress](https://www.aliexpress.com/item/1005006467970366.html)
+
 ## Three phases
 
 These motors are "three phase" ... there's three wires, and three windings,
@@ -106,12 +113,15 @@ very high RPM at the generator.
 The generator wheel might be 20mm across, call it 63mm circumference.
 If the bike is rolling at 18 km/h = 5 m/s that going to be about 80 RPS = 4800 RPM.
 
-At 4800 RPM, we should be getting about 4.8 Volts peak.
+At 4800 RPM and 1000KV we should be getting about 4.8 Volts peak.
 On paper.
 In practice there's going to be all sorts of losses, but that's a start.
 
 From there we can rectify the three phases into a capacitor, and then use that
 stored energy to run lights or charge a battery pack etc.
+
+A lower KV 5010 motor coupled to a small wheel could generate a much higher voltage
+which would be more efficient.
 
 ## ... and off the bike
 

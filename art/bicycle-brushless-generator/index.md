@@ -6,6 +6,7 @@ tags:
   - cycling
   - electronics
   - not-computers
+uses_mathjax: 3
 ---
 
 Keeping lights and gadgets charged on the bike is tricky.
@@ -25,9 +26,11 @@ There's modern looking alternatives like
 dynamos but they're expensive for something I'm not sure
 I'll use much.
 
-## Dynamos and motors
+So I thought I'd look into making my own.
 
-A [brushless motor](https://en.wikipedia.org/wiki/Brushless_DC_electric_motor#Brushless_solution)[0]
+## Brushless motors
+
+A [brushless motor](https://en.wikipedia.org/wiki/Brushless_DC_electric_motor#Brushless_solution)[^0]
 works pretty simply:
 
 * A *current* flowing through the *stator* produces a magnetic field, which interacts
@@ -41,27 +44,48 @@ An AC generator works the same way but in the opposite direction:
 * The load *current* produces a magnetic field in the *stator*, which interacts with
   the *rotor* and causes a *torque* on the rotor, in the opposite direction to its rotation.
 
-
-[0] There are other kinds, but let's stick to this one.
+[^0] There are other kinds, but let's stick to this one.
 
 ## KV
 
 These sorts of motors are rated in `KV`, which doesn't stand for kilovolts (`kV`),
 and doesn't measure how *powerful* the motor is, it's more like how it is geared.
-It's short for "RPMs per Volt"[1], so a `1000KV` motor spinning at 1000 RPM will
-generate about 1V [2], and spinning at 5000 RPM will generate about 
+It's short for "RPMs per Volt"[^1], so a `1000KV` motor spinning at 1000 RPM will
+generate about 1V [^2], and spinning at 5000 RPM will generate about 
 5V peak-to-peak.
 Different KV ratings suit different sizes of battery pack and propeller.
 
-[1] Dimensional analysis time: that's `$ s^-1 V^-1 $` which we could call
+[^1] Dimensional analysis time: that's `$ s^-1 V^-1 $` which we could call
     `$ C s^-1 J^-1 $` or `$ A J^-1 $`.  Amps per Joule?  Doesn't really
     help us very much.
 
-[2] Peak to peak?  Per phase?  This isn't very well documented.
+[^2] Peak to peak?  Per phase?  This isn't very well documented.
 
-In this application we actually want a small number, because that will get us
+In this application we actually want a small KV number, because that will get us
 the most voltage per RPM, which is desireable because both high RPM and low
 voltage lead to losses.
+
+## Math!
+
+`$ V = \frac{s_{mm/sec}}{\pi D} = \frac{60000 s}{3.6 \pi K D} \approx \frac{5305 s}{K D} $`
+
+* `$V$`: Nominal generator voltage
+* `$s$`: road speed in km/h
+* `$K$`: KV rating of motor
+* `$D$`: diameter of follower wheel in mm
+
+Nothing's that accurate of course, the follower wheel isn't *quite* at the wheel diameter,
+there's losses, etc, but if we round it down a bit that's some idea of the voltage we should expect.
+
+For a 25mm follower at various road speeds vs KV:
+
+| KV | 10 | 20 | 30 | 40 | 50 |
+| 100 | 21 | 42 | 64 | 85 | 106 |
+| 200 | 11 | 21 | 32 | 42 | 53 |
+| 500 | 4.2 | 8.5 | 13 | 17 | 21 |
+| 1000 | 2.1 | 4.2 | 6.3 | 8.5 | 11 |
+
+For a 50mm follower, halve that, etc.
 
 ## 2212 motors
 
@@ -84,6 +108,20 @@ Engineering diagrams are suprisingly hard to find but here's some info:
 * [rhydolabz](https://www.rhydolabz.com/documents/26/BLDC_A2212_13T.pdf)
 * [2212 Brushless Motor 1000KV](https://www.temu.com/goods.html?goods_id=601103209840102&sku_id=17608591017152)
 
+# 5010 motors
+
+These are bigger, about 50mm OD, but seem to be available down to 360KV.
+
+* [robu.in](https://robu.in/wp-content/uploads/2017/10/5010-360KV-High-Torque-Brushless-Motor-for-Drone.pdf)
+* [aliexpress](https://www.aliexpress.com/item/1005006467970366.html)
+
+## 2208
+
+Oh for a standard!  These are generally called "gimbal motors" where they're used to 
+steer the drone's camera.  They're generally under 100KV so we could get quite a 
+high voltage out of them *if* they can handle the RPMs.  Datasheets are few and far
+between.
+
 ## Three phases
 
 These motors are "three phase" ... there's three wires, and three windings,
@@ -105,12 +143,15 @@ very high RPM at the generator.
 The generator wheel might be 20mm across, call it 63mm circumference.
 If the bike is rolling at 18 km/h = 5 m/s that going to be about 80 RPS = 4800 RPM.
 
-At 4800 RPM, we should be getting about 4.8 Volts peak.
+At 4800 RPM and 1000KV we should be getting about 4.8 Volts peak.
 On paper.
 In practice there's going to be all sorts of losses, but that's a start.
 
 From there we can rectify the three phases into a capacitor, and then use that
 stored energy to run lights or charge a battery pack etc.
+
+A lower KV 5010 motor coupled to a small wheel could generate a much higher voltage
+which would be more efficient.
 
 ## ... and off the bike
 
@@ -138,7 +179,7 @@ try out [synchronous rectification](https://en.wikipedia.org/wiki/Active_rectifi
 but designing a circuit around six mosfets and six opamps is out of my depth.
 
 Once the AC voltage is rectified into DC, power can be used to charge a capacitor or
-battery.
+a battery via a buck / boost converter.
 
 
 

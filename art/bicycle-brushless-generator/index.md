@@ -30,7 +30,7 @@ So I thought I'd look into making my own.
 
 ## Brushless motors
 
-A [brushless motor](https://en.wikipedia.org/wiki/Brushless_DC_electric_motor#Brushless_solution)[^0]
+A [brushless motor](https://en.wikipedia.org/wiki/Brushless_DC_electric_motor#Brushless_solution)[^mot]
 works pretty simply:
 
 * A *current* flowing through the *stator* produces a magnetic field, which interacts
@@ -44,22 +44,22 @@ An AC generator works the same way but in the opposite direction:
 * The load *current* produces a magnetic field in the *stator*, which interacts with
   the *rotor* and causes a *torque* on the rotor, in the opposite direction to its rotation.
 
-[^0] There are other kinds, but let's stick to this one.
+[^mot]: There are other kinds, but let's stick to this one.
 
 ## KV
 
 These sorts of motors are rated in `KV`, which doesn't stand for kilovolts (`kV`),
 and doesn't measure how *powerful* the motor is, it's more like how it is geared.
-It's short for "RPMs per Volt"[^1], so a `1000KV` motor spinning at 1000 RPM will
-generate about 1V [^2], and spinning at 5000 RPM will generate about 
+It's short for "RPMs per Volt"[^dim], so a `1000KV` motor spinning at 1000 RPM will
+generate about 1V [^ptp], and spinning at 5000 RPM will generate about 
 5V peak-to-peak.
 Different KV ratings suit different sizes of battery pack and propeller.
 
-[^1] Dimensional analysis time: that's `$ s^-1 V^-1 $` which we could call
+[^dim]: Dimensional analysis time: that's `$ s^-1 V^-1 $` which we could call
     `$ C s^-1 J^-1 $` or `$ A J^-1 $`.  Amps per Joule?  Doesn't really
     help us very much.
 
-[^2] Peak to peak?  Per phase?  This isn't very well documented.
+[^ptp]: Peak to peak?  Per phase?  This isn't very well documented.
 
 In this application we actually want a small KV number, because that will get us
 the most voltage per RPM, which is desireable because both high RPM and low
@@ -114,6 +114,8 @@ These are bigger, about 50mm OD, but seem to be available down to 360KV.
 
 * [robu.in](https://robu.in/wp-content/uploads/2017/10/5010-360KV-High-Torque-Brushless-Motor-for-Drone.pdf)
 * [aliexpress](https://www.aliexpress.com/item/1005006467970366.html)
+
+A 360KV motor with a 60mm tyre on it would 
 
 ## 2208
 

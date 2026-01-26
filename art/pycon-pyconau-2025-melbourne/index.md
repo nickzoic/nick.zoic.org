@@ -29,7 +29,7 @@ and life as we know it ...
 
 Slides: [The Primordial Code](/talk/pycon2025/primordial-code/)
 
-Video: [The Primordial Code (youtube)](https://www.youtube.com/watch?v=jSm67Agx-Vw)
+Video: [The Primordial Code (youtube)](https://www.youtube.com/watch?v=Rp_IslakSIE)
 
 (PS: someone always asks me about my [python 3 confirmed t-shirt](/art/python-3-confirmed/)
 which I realize I've worn to a very large number of conference talks now!)
@@ -41,8 +41,3 @@ See [The Children Yearn for the Mines](/art/yearn-for-the-mines/)
 Slides: [The Children Yearn for the Mines](/talk/pycon2025/yearn/)
 
 Video: [Lightning Talks (Sunday)](https://www.youtube.com/watch?v=Wl1CZTpWFEk&t=95s)
-
-## Other People's Talks Which I Found Particularly Interesting
-
-I did a lot of hallway tracking but there were some interesting
-presentations ... I'll add some stuff here once everyone's video links are up.

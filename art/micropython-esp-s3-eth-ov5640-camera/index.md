@@ -9,18 +9,28 @@ title: Micropython on ESP32 with the OV5640 camera
 
 Came with a sticker linking [here](https://spotpear.com/wiki/ESP32-S3R8-PoE-ETH-RJ45-Camera-Micro-SD-Pico-W5500-OV2640-OV5640.html)
 
+[schematic](https://files.waveshare.com/wiki/ESP32-S3-ETH/ESP32-S3-ETH-Schematic.pdf)
+
 Should be an ESP32-S3 with a W5500 ethernet adaptor and a POEE daughterboard,
 plus an OV5640 camera module.
 
-NOTE: according to [this](https://github.com/cnadler86/micropython-camera-API?tab=readme-ov-file#notes):
+There's a "powerdown pin" is on GPIO8 and the camera won't start up until this is 
+pulled low (see schematic section 摄像头降压电路 (A11)) where Q3 turns off the
+step-down regulators which power the camera module.
 
-> The OV5640 pinout is compatible with boards designed for the OV2640 but the voltage supply is too high for the internal 1.5V regulator, so the camera overheats unless a heat sink is applied.
+According to [this](https://github.com/cnadler86/micropython-camera-API?tab=readme-ov-file#notes):
 
-It does seem to run pretty warm, but for my application I'm only interested 
-in sporadic snapshots so hopefully I can power the camera down when not in use.
+> The OV5640 pinout is compatible with boards designed for the OV2640 but the voltage supply
+> is too high for the internal 1.5V regulator, so the camera overheats unless a heat sink is applied.
 
-The "powerdown pin" is on GPIO8 and the camera won't start up until this is 
-pulled low.
+... but this board does include 2.8 and 1.5 volt regulators so I'm not
+sure if this applies.  The camera does seem to run pretty warm,
+but for my application I'm only interested in sporadic snapshots
+so hopefully I can just power the camera down between uses.
+
+I'm planning on powering it from USB-C or [PoE](https://en.wikipedia.org/wiki/Power_over_Ethernet) and in either case 
+peripherals can get limited 5V power from VBUS pin or 3.3V power
+from the 3V3 pin.
 
 # circuitpython
 
@@ -61,3 +71,10 @@ Type "help()" for more information.
 
 For some reason it isn't capturing JPEGS though.
 
+## control pins
+
+between USB-C, Ethernet, UART0, the SD card, the camera 
+interface and power, a boot button and an LED there aren't
+that many completely free GPIOs on this board!
+
+Looks like I've still got 7: 16, 17 and 33 .. 37 

@@ -28,6 +28,9 @@ sure if this applies.  The camera does seem to run pretty warm,
 but for my application I'm only interested in sporadic snapshots
 so hopefully I can just power the camera down between uses.
 
+W5500 has a default MAC address starting "a4:3c:d7" = "NTX Electronics YangZhou co.,LTD",
+not clear if this is issued by Waveshare or Wiznet or some other party.
+
 # PoE 
 
 I'm planning on powering this project from [PoE](https://en.wikipedia.org/wiki/Power_over_Ethernet), which 
@@ -57,7 +60,8 @@ Type "help()" for more information.
 960000
 ```
 
-For some reason it isn't capturing JPEGS though.
+For some reason it isn't capturing JPEGs on the OV5640 though.
+It works fine with the OV2640.
 
 ## control pins
 

@@ -28,32 +28,20 @@ sure if this applies.  The camera does seem to run pretty warm,
 but for my application I'm only interested in sporadic snapshots
 so hopefully I can just power the camera down between uses.
 
-I'm planning on powering it from USB-C or [PoE](https://en.wikipedia.org/wiki/Power_over_Ethernet) and in either case 
-peripherals can get limited 5V power from VBUS pin or 3.3V power
-from the 3V3 pin.
+# PoE 
 
-# circuitpython
+I'm planning on powering this project from [PoE](https://en.wikipedia.org/wiki/Power_over_Ethernet), which 
+thanks to the Waveshare PoE Module should provide enough 5V peripheral power on the VBUS pin.
+I can't find any documentation for the module but I suspect just from the look of the board
+it'll be good for 5V / 1A at the most.  Which should be enough.
 
-```
-Adafruit CircuitPython 10.1.3 on 2026-02-21; Waveshare ESP32-S3-ETH with ESP32S3
+I've bought a [TP-Link TL-SG1005P PoE+ switch](https://www.tp-link.com/au/business-networking/soho-switch-unmanaged/tl-sg1005p/)
+to provide power, it can apparently provide up to 30W power per port up to a total of 65W for all ports.
+There's also a nice Auto Recovery mode which power cycles any PoE device which hasn't sent packets
+["for a long period"](https://www.tp-link.com/us/support/faq/2944/) although I haven't found any documentation of
+how long that is.
 
->>> from microcontroller.pin import *
->>> import digitalio
->>> digitalio.DigitalInOut(GPIO8).switch_to_output(False)
->>> import espcamera
->>> import busio
->>> bus = busio.I2C(sda=GPIO48,scl=GPIO47)
->>> c = espcamera.Camera(data_pins=[GPIO41,GPIO45,GPIO46,GPIO42,GPIO40,GPIO38,GPIO15,GPIO18],pixel_clock_pin=GPIO39,vsync_pin=GPIO1,href_pin=GPIO2,external_clock_pin=GPIO3,i2c=bus)
->>> b = c.take()
->>> b.height
-120
->>> b.width
-160
->>> b.bits_per_value
-16
-```
-
-# micropython
+# Micropython
 
 ```
 MicroPython v1.27.0-dirty on 2026-02-22; Generic ESP32S3 module with ESP32S3
@@ -75,6 +63,9 @@ For some reason it isn't capturing JPEGS though.
 
 between USB-C, Ethernet, UART0, the SD card, the camera 
 interface and power, a boot button and an LED there aren't
-that many completely free GPIOs on this board!
+that many free GPIOs on this board!
 
-Looks like I've still got 7: 16, 17 and 33 .. 37 
+Looks like I've still got 7 completely free: 16, 17 and 33 .. 37 
+
+The I2C bus on GPIO47 and GPIO48 is used by the camera but can be shared
+with external hardware too.

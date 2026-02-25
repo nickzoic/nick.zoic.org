@@ -3,7 +3,7 @@ layout: draft
 title: Micropython on ESP32 with the OV5640 camera
 ---
 
-# board
+## Board
 
 "Waveshare ESP32-S3-ETH" purchased on Aliexpress.
 
@@ -11,10 +11,16 @@ Came with a sticker linking [here](https://spotpear.com/wiki/ESP32-S3R8-PoE-ETH-
 
 [schematic](https://files.waveshare.com/wiki/ESP32-S3-ETH/ESP32-S3-ETH-Schematic.pdf)
 
-Should be an ESP32-S3 with a W5500 ethernet adaptor and a POEE daughterboard,
-plus an OV5640 camera module.
+It's an [ESP32-S3](https://www.espressif.com/en/products/socs/esp32-s3) board with a USB-C interface,
+a [Wiznet W5500](https://wiznet.io/products/ethernet-chips/w5500)-based ethernet interface and 
+a little flat [camera connector](https://en.wikipedia.org/wiki/Camera_Serial_Interface), whatever those are called.
 
-There's a "powerdown pin" is on GPIO8 and the camera won't start up until this is 
+## Camera
+
+I also got an [OV5640 camera module](https://cdn.sparkfun.com/datasheets/Sensors/LightImaging/OV5640_datasheet.pdf)
+with it.
+
+Note there's a "powerdown pin" is on GPIO8 and the camera won't start up until this is 
 pulled low (see schematic section 摄像头降压电路 (A11)) where Q3 turns off the
 step-down regulators which power the camera module.
 
@@ -28,7 +34,10 @@ sure if this applies.  The camera does seem to run pretty warm,
 but for my application I'm only interested in sporadic snapshots
 so hopefully I can just power the camera down between uses.
 
-# PoE 
+Unfortunately the module I bought has a very short cable and is kind of tricky to place sensibly when
+the PoE module is also installed.  So I've ordered some camera modules with longer cables.
+
+## PoE 
 
 I'm planning on powering this project from [PoE](https://en.wikipedia.org/wiki/Power_over_Ethernet), which 
 thanks to the Waveshare PoE Module should provide enough 5V peripheral power on the VBUS pin.
@@ -39,9 +48,23 @@ I've bought a [TP-Link TL-SG1005P PoE+ switch](https://www.tp-link.com/au/busine
 to provide power, it can apparently provide up to 30W power per port up to a total of 65W for all ports.
 There's also a nice Auto Recovery mode which power cycles any PoE device which hasn't sent packets
 ["for a long period"](https://www.tp-link.com/us/support/faq/2944/) although I haven't found any documentation of
-how long that is.
+how long that is ... seconds? minutes? weeks?
 
-# Micropython
+## Demo App
+
+The board comes with a demo app called [`ETH_Web_Cam`](https://spotpear.com/wiki/ESP32-S3R8-PoE-ETH-RJ45-Camera-Micro-SD-Pico-W5500-OV2640-OV5640.html#ETH_Web_CAM)
+which does what it sounds like: DHCPs onto the ethernet network and exposes a web
+server which displays stills or streams from the camera, with lots of configuration
+buttons and stuff.  So at least I know the hardware works.
+
+Incidentally, the demo always uses the MAC address `DE:AD:BE:EF:FE:ED` ...
+remember the ESP32 has its own MAC for its own WiFi interface, but the
+W5500 is separate. If you want to run multiple of these devices on a network,
+you'll need to fix this either by copying the ESP32's allocated address
+(if you're not using it) or allocating a
+[random MAC](https://en.wikipedia.org/wiki/MAC_address#Randomization)
+
+## Micropython
 
 ```
 MicroPython v1.27.0-dirty on 2026-02-22; Generic ESP32S3 module with ESP32S3
@@ -69,3 +92,23 @@ Looks like I've still got 7 completely free: 16, 17 and 33 .. 37
 
 The I2C bus on GPIO47 and GPIO48 is used by the camera but can be shared
 with external hardware too.
+
+## code
+
+```
+Obtain unique identifier
+Configure LAN w/ random MAC
+Setup output pins
+Connect to MQTT & subscribe to control topic with callback:
+    update outputs 
+    set counter = 10
+set up a 30 second timer with callback:
+    mq.ping()
+while True:
+    if counter > 0:
+        take picture and publish to img topic
+        decrement counter
+        mq.check_msg()
+    else:
+        mq.wait_msg()
+

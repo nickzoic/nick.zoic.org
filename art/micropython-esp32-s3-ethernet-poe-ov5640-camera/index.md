@@ -37,7 +37,7 @@ so hopefully I can just power the camera down between uses.
 Unfortunately the module I bought has a very short cable and is kind of tricky to place sensibly when
 the PoE module is also installed.  So I've ordered some camera modules with longer cables.
 
-## PoE 
+# PoE 
 
 I'm planning on powering this project from [PoE](https://en.wikipedia.org/wiki/Power_over_Ethernet), which 
 thanks to the Waveshare PoE Module should provide enough 5V peripheral power on the VBUS pin.
@@ -50,6 +50,9 @@ There's also a nice Auto Recovery mode which power cycles any PoE device which h
 ["for a long period"](https://www.tp-link.com/us/support/faq/2944/) although I haven't found any documentation of
 how long that is ... seconds? minutes? weeks?
 
+W5500 has a default MAC address starting "a4:3c:d7" = "NTX Electronics YangZhou co.,LTD",
+not clear if this is issued by Waveshare or Wiznet or some other party.
+
 ## Demo App
 
 The board comes with a demo app called [`ETH_Web_Cam`](https://spotpear.com/wiki/ESP32-S3R8-PoE-ETH-RJ45-Camera-Micro-SD-Pico-W5500-OV2640-OV5640.html#ETH_Web_CAM)
@@ -57,12 +60,7 @@ which does what it sounds like: DHCPs onto the ethernet network and exposes a we
 server which displays stills or streams from the camera, with lots of configuration
 buttons and stuff.  So at least I know the hardware works.
 
-Incidentally, the demo always uses the MAC address `DE:AD:BE:EF:FE:ED` ...
-remember the ESP32 has its own MAC for its own WiFi interface, but the
-W5500 is separate. If you want to run multiple of these devices on a network,
-you'll need to fix this either by copying the ESP32's allocated address
-(if you're not using it) or allocating a
-[random MAC](https://en.wikipedia.org/wiki/MAC_address#Randomization)
+Incidentally, the demo always overrides the MAC address to `DE:AD:BE:EF:FE:ED` ...
 
 ## Micropython
 
@@ -80,7 +78,8 @@ Type "help()" for more information.
 960000
 ```
 
-For some reason it isn't capturing JPEGS though.
+For some reason it isn't capturing JPEGs on the OV5640 though.
+It works fine with the OV2640.
 
 ## control pins
 

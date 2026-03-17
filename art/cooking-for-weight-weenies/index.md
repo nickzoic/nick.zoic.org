@@ -4,6 +4,7 @@ tags:
   - cycling
   - not-computers
 date: '2023-11-24'
+updated: '2025-03-17'
 summary: "Looking at camp cooking if you're trying to save pack weight"
 layout: "article"
 ---
@@ -14,17 +15,12 @@ and working on my fitness, I've also had to work on how to pack.
 
 <div class="aside"></div>
 
-*A lot of the cheaper stuff mentioned here, including the rocket stove, the
+A lot of the cheaper stuff mentioned here, including the rocket stove, the
 alcohol stove, the stove windshields and the coffee filter was bought from Temu.com.
 Also a tiny luggage scale I used for a lot of the weights in this article.
 I've so far found their deliveries to be super reliable and while they
 have some crappy items most of the stuff I've bought has been very good
 for the price.
-If you're considering trying Temu out you can use
-[this Temu affiliate link](https://temu.to/m/un8i4z9z5w9) or
-coupon code `apr43524` and you'll get some kind of discount /
-discount voucher and when you actually buy something I'll get some
-kind of store credit to spend on more random cycling stuff!*
 
 ## The Weight
 
@@ -387,3 +383,19 @@ your fate as you drag a kitchen sink up the side of a mountain.
 And, yeah, I went and bought that 500g chair.
 Because of course I did.
 After all, I'd just saved 500g on a coffee filter ...
+
+## Update: A little note on Titanium
+
+[Aluminium and Titanium alloys](https://www.titaniumprocessingcenter.com/titanium-vs-aluminum/)
+are both strong and light and great for outdoors gear.
+Sometimes Titanium based stuff might be a few grams lighter, but it's 
+generally pretty close: the titanium cooksets I've been looking 
+at have been within a few grams of the ones listed above.
+
+Aluminium alloys are about 10x as thermally conductive as Titanium alloys.
+Remember that it's not just the conduction through the base of the pot
+you care about, you want the bottom of a pan to conduct heat *sideways* to
+spread the heat and prevent food burning.
+Therefore, despite my gearhead leanings, I think it makes sense to use
+Aluminium for pots and pans, and for other applications where the extra
+strength of Titanium doesn't really matter.

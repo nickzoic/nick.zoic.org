@@ -154,7 +154,7 @@ top where it causes any wood gases to be completely burnt off.
 Based on the blue color of the stainless steel it's producing
 [temperatures up to 300⁰C](https://blog.adafruit.com/2016/06/20/the-color-spectrum-of-heated-steel/).
 
-[This one is from Temu]( https://share.temu.com/72OqEdYsuEA)
+[This one is from Temu](https://www.temu.com/search_result.html?search_key=outdoor%20stove)
 but you could also
 [make one out of a couple of cans](https://www.youtube.com/watch?v=ENhwbQljpM8).
 
@@ -174,8 +174,8 @@ a regular campfire started.
 Looking at overall weight, the rocket stove (586g) is actually lighter
 than the Kovea stove plus windshield and nominal 300g gas can.
 And it runs on sustainable free fuel you find laying on the ground in
-every bush campsite, plus you can burn off your paper trash in it, and it gives
-off a cheery campfire light.
+every bush campsite, plus you can burn off your paper trash in it,
+and it gives off a cheery campfire light.
 
 Of course, there are places and conditions where
 [a gas stove is safe/permitted and a rocket stove isn't](https://www.cfa.vic.gov.au/warnings-restrictions/total-fire-bans-fire-danger-ratings/can-i-or-cant-i),
@@ -184,6 +184,9 @@ stove has to cool down before you can pack it up and it covers all your cookware
 in soot (not as much as an open fire, but still), so it's not as clear cut as all that.
 
 Also: don't forget your matches.
+
+UPDATE: If you've read this far you're almost certainly saying "If only they made these but in titanium"
+well here's the [Titanium Backpacking Wood Burning Stove by TOAKS](https://www.garagegrowngear.com/en-au/collections/cookware-accessories/products/titanium-backpacking-wood-burning-stove-by-toaks)
 
 ### Alcohol stoves
 

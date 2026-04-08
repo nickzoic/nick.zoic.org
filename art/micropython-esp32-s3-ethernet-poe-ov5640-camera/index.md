@@ -1,6 +1,7 @@
 ---
 layout: draft
 title: Micropython on ESP32 with the OV5640 camera
+date: '2025-03-01'
 ---
 
 ## Board

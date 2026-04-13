@@ -48,8 +48,36 @@ it'll be good for 5V / 1A at the most.  Which should be enough.
 I've bought a [TP-Link TL-SG1005P PoE+ switch](https://www.tp-link.com/au/business-networking/soho-switch-unmanaged/tl-sg1005p/)
 to provide power, it can apparently provide up to 30W power per port up to a total of 65W for all ports.
 There's also a nice Auto Recovery mode which power cycles any PoE device which hasn't sent packets
-["for a long period"](https://www.tp-link.com/us/support/faq/2944/) although I haven't found any documentation of
-how long that is ... seconds? minutes? weeks?
+["for a long period"](https://www.tp-link.com/us/support/faq/2944/),
+I couldn't find detailed documentation for for this but
+[TP-Link support](mailto:support.au@tp-link.com)
+helpfully clarified by email:
+
+> Please note that the TL‑SG1005P is an unmanaged PoE switch [...]
+> The switch checks the RX/TX packet counters of ports with PoE
+> Auto‑Recovery enabled once every 300 seconds.
+>
+> If the results of two consecutive checks are the same [...]
+> The switch will then turn off PoE power on the port for approximately
+> 10 seconds, after which power is restored to reboot the device.
+
+I think by "packets" here they mean Ethernet frames, I think excluding
+received broadcast frames.  When I shut down the W5500 interface the
+little flashy lights still flash but the device gets reset after five
+minutes.  But if the W5500 is still active, even if the Python code
+has crashed out to the REPL prompt, it never gets reset.  Which is 
+less helpful than it might be although a `try: finally:` might help
+here, or maybe this wouldn't be a problem on a network segment which
+isn't crawling with broadcasty devices, or a network stack which isn't
+the W5500.
+
+(Their managed switches eg:
+[TP-Link TL-SG1428PE](https://www.tp-link.com/au/business-networking/easy-smart-switch/tl-sg1428pe/) 
+use an ICMP Ping mechanism instead.
+It seems a bit odd to me that there's no integration between the
+layers here: you have to manually enter IP addresses per port, they're not
+discovered or whatever.
+But it might suit your application better.)
 
 # Servos
 

@@ -7,7 +7,7 @@ tags:
 summary: "Thoughts from this year's Mutational Scanning Symposium"
 ---
 
-> There are unknown unknowns -- the ones we don't know we don't know.
+> But there are also unknown unknowns -- the ones we don't know we don't know.
 > -- [Donald Rumsfeld](https://en.wikipedia.org/wiki/There_are_unknown_unknowns)[^rumsfeld]
 
 I've just finished up at this year's [Mutational Scanning Symposium](https://mss2026.org)
@@ -40,7 +40,8 @@ is regarded as significant.
 
 [ExCALIBR](https://www.biorxiv.org/content/10.1101/2025.04.29.651326v2)[^swords] provides
 a methodology for setting these thresholds and also the introduction is a good 
-introduction to the concept of supporting evidence.
+introduction to the concept of supporting evidence.  ExCALIBR's output provides both
+an estimate of pathogenicity and a strength of evidence based on Bayesian stats.
 
 ## In search of mediocrity
 
@@ -60,7 +61,9 @@ Our current scoring and classification system doesn't really clarify between "we
 enough evidence to say if this variant is benign or pathogenic" and "we know this variant is hypomorphic",
 and I think this is worth further investigation.
 
-The first question I'm working on is: is there evidence of these variants in existing experimental data?
+The first question I'm working on is:
+
+* is there evidence of these variants in existing experimental data, such as that found in MAVEdb?
 
 # TO BE CONTINUED
 
@@ -73,4 +76,4 @@ The first question I'm working on is: is there evidence of these variants in exi
       [ExcalibR](https://mrsdprojects.ri.cmu.edu/2016teamg/wp-content/uploads/sites/18/2016/09/TeamG_CoDR.pdf) or
       [ExCalibr](https://nyudatascience.medium.com/excalibr-an-award-winning-system-for-educators-to-calibrate-exams-488bf78d396d) or
       [EXCALIBR](https://www.sciencedirect.com/science/article/abs/pii/S0925753507000495) ...
-      researchers, do not name your new tool after a famous sword.
+      researchers, do not name your new calibration tool after the famous sword.

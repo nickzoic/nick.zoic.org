@@ -44,3 +44,22 @@ constantly to keep them multiplying without limit.
 
 At each sample, about 2 million (2 × 10<sup>6</sup>) sequences are taken.
 
+##  Score Distributions
+
+So I mention this in ["Yeast Thoughts"](../yeast-thoughts/#statistical-treatment-of-frequencies)
+but when we do a MAVE experiment we don't measure every cell.
+We take a *sample* of cells, and that means we've got to deal with *statistics*.
+
+Specifically, when we take a sample of `$N$` cells, and find `$c_v$` cells of variety `$v$`,
+we can calculate an 'expected frequency' of those cells in the whole experiment using
+something like the
+[Agresti-Coull Interval](https://en.wikipedia.org/wiki/Binomial_proportion_confidence_interval#Agresti%E2%80%93Coull_interval):
+
+`$$ \hat{f}_v = \frac{c_v + 1}{N + 2} $$`
+
+`$$ \sigma_v = \sqrt{\frac{\hat{f}_v(1 - \hat{f}_v)}{N}} \approx \frac{\sqrt{c_v}}{N} $$`
+
+score is ratio:
+
+[ratio](https://en.wikipedia.org/wiki/Binomial_distribution#Ratio_of_two_binomial_distributions)
+

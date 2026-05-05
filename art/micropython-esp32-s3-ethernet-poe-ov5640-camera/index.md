@@ -1,6 +1,7 @@
 ---
 layout: draft
 title: Micropython on ESP32 with the OV5640 camera
+date: '2025-03-01'
 ---
 
 ## Board
@@ -47,11 +48,44 @@ it'll be good for 5V / 1A at the most.  Which should be enough.
 I've bought a [TP-Link TL-SG1005P PoE+ switch](https://www.tp-link.com/au/business-networking/soho-switch-unmanaged/tl-sg1005p/)
 to provide power, it can apparently provide up to 30W power per port up to a total of 65W for all ports.
 There's also a nice Auto Recovery mode which power cycles any PoE device which hasn't sent packets
-["for a long period"](https://www.tp-link.com/us/support/faq/2944/) although I haven't found any documentation of
-how long that is ... seconds? minutes? weeks?
+["for a long period"](https://www.tp-link.com/us/support/faq/2944/),
+I couldn't find detailed documentation for for this but
+[TP-Link support](mailto:support.au@tp-link.com)
+helpfully clarified by email:
 
-W5500 has a default MAC address starting "a4:3c:d7" = "NTX Electronics YangZhou co.,LTD",
-not clear if this is issued by Waveshare or Wiznet or some other party.
+> Please note that the TL‑SG1005P is an unmanaged PoE switch [...]
+> The switch checks the RX/TX packet counters of ports with PoE
+> Auto‑Recovery enabled once every 300 seconds.
+>
+> If the results of two consecutive checks are the same [...]
+> The switch will then turn off PoE power on the port for approximately
+> 10 seconds, after which power is restored to reboot the device.
+
+I think by "packets" here they mean Ethernet frames, I think excluding
+received broadcast frames.  When I shut down the W5500 interface the
+little flashy lights still flash but the device gets reset after five
+minutes.  But if the W5500 is still active, even if the Python code
+has crashed out to the REPL prompt, it never gets reset.  Which is 
+less helpful than it might be although a `try: finally:` might help
+here, or maybe this wouldn't be a problem on a network segment which
+isn't crawling with broadcasty devices, or a network stack which isn't
+the W5500.
+
+(Their managed switches eg:
+[TP-Link TL-SG1428PE](https://www.tp-link.com/au/business-networking/easy-smart-switch/tl-sg1428pe/) 
+use an ICMP Ping mechanism instead.
+It seems a bit odd to me that there's no integration between the
+layers here: you have to manually enter IP addresses per port, they're not
+discovered or whatever.
+But it might suit your application better.)
+
+# Servos
+
+RC Servos are simple to drive, they need a constant 5V (or thereabouts) supply plus a 
+[PWM signal](https://learn.sparkfun.com/tutorials/hobby-servo-tutorial/servo-motor-background)
+to position them.  This is easily generated from a PWM capable GPIO.
+For most servos, the required PWM signal is 50Hz (20ms) with duty cycle varying from 5% to 10% (1 - 2 ms) ...
+and 3.3V logic works fine, no driver circuitry necessary.
 
 ## Demo App
 
@@ -60,7 +94,9 @@ which does what it sounds like: DHCPs onto the ethernet network and exposes a we
 server which displays stills or streams from the camera, with lots of configuration
 buttons and stuff.  So at least I know the hardware works.
 
-Incidentally, the demo always overrides the MAC address to `DE:AD:BE:EF:FE:ED` ...
+Incidentally, while the W5500 on this module has a default MAC address in the range "a4:3c:d7",
+the demo always overrides the MAC address to `DE:AD:BE:EF:FE:ED` ...
+
 
 ## Micropython
 
@@ -110,4 +146,4 @@ while True:
         mq.check_msg()
     else:
         mq.wait_msg()
-
+```

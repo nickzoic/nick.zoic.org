@@ -61,9 +61,33 @@ Our current scoring and classification system doesn't really clarify between "we
 enough evidence to say if this variant is benign or pathogenic" and "we know this variant is hypomorphic",
 and I think this is worth further investigation.
 
-The first question I'm working on is:
+The first question I'm working on:
+is there evidence of these variants in existing experimental data, such as that found in MAVEdb?
 
-* is there evidence of these variants in existing experimental data, such as that found in MAVEdb?
+## Signal vs. Noise
+
+Experiments generally have multiple replicates, and where we have scores for each replicate we can look 
+at how those scores are distributed.  Variants with widely distributed scores might end up with a middling
+average score, but we can tell from the standard deviation that this is meaningless.
+
+If we have `$ N $` scores `$ x_i $`, we can work out the sample mean `$$ \bar{x} $$`
+and [sample variance](https://en.wikipedia.org/wiki/Bessel%27s_correction#Source_of_bias) `$$ s^2 $$`:
+
+`$$ \bar{x} = \frac{1}{N} \sum{x_i} $$`
+
+`$$ s^2 = \frac{1}{N-1} \sum(x_i - \bar{x})^2 $$`
+
+What we're looking for is variants where `$ \epsilon < \bar{x} - s $`
+and `$ \bar{x} + s < 1 - \epsilon $`.
+
+`$ \epsilon $` is a bit of a fudge here, just some arbitrary limit.
+It'd probably be better to use the standard deviation of nonsense variants
+as the low limit, and the standard deviation of synonymous variants
+as the high limit.
+Really I'm just looking for anything whose distribution is centered and not too broad.
+
+
+
 
 # TO BE CONTINUED
 

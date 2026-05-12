@@ -5,6 +5,7 @@ layout: article
 tags: 
   - bioinformatics
 summary: "Thoughts from this year's Mutational Scanning Symposium"
+uses_mathjax: 3
 ---
 
 > But there are also unknown unknowns -- the ones we don't know we don't know.

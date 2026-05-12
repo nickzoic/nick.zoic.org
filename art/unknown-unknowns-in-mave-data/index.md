@@ -71,8 +71,8 @@ Experiments generally have multiple replicates, and where we have scores for eac
 at how those scores are distributed.  Variants with widely distributed scores might end up with a middling
 average score, but we can tell from the standard deviation that this is meaningless.
 
-If we have `$ N $` scores `$ x_i $`, we can work out the sample mean `$$ \bar{x} $$`
-and [sample variance](https://en.wikipedia.org/wiki/Bessel%27s_correction#Source_of_bias) `$$ s^2 $$`:
+If we have `$ N $` scores `$ x_i $`, we can work out the sample mean `$ \bar{x} $`
+and [sample variance](https://en.wikipedia.org/wiki/Bessel%27s_correction#Source_of_bias) `$ s^2 $`:
 
 `$$ \bar{x} = \frac{1}{N} \sum{x_i} $$`
 

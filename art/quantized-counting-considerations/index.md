@@ -312,16 +312,6 @@ This particular sample's score cannot be accurately estimated.
 There's lots more to do on this general concept, including applying to to real
 experimental data.
 
-It's also worth considering how this work fits in with the
-Random Effects Model as implemented in Enrich2[^enrich].  This
-technique allows results with varying `$ \mu $` and `$ \sigma $` 
-from different replicates to be combined into a single result.
-
-[^enrich]: Rubin, A.F., Gelman, H., Lucas, N. et al.
-    A statistical framework for analyzing deep mutational scanning data.
-    Genome Biol. 18, 150 (2017).
-    doi: [10.1186/s13059-017-1272-5](https://doi.org/10.1186/s13059-017-1272-5)
-
 ### Characterizing Noise
 
 What are the sources and characteristics of noise in the measurement apparatus?
@@ -337,6 +327,12 @@ for detecting issues which could be determined from a simpler heuristic, but it 
 least provides a baseline to compare potential heuristics against.
 For example, specific heuristics could be implemented to detect contaminated or swapped bins.
 
+The distribution of our measurements is probably *not* normal.  
+If anything, it's more likely to be lognormal or something like that.
+There's a whole range of potential noise sources which contribute
+to the measurement noise.
+This requires some further thought and investigation.
+
 ### Beyond Scoring
 
 In the above discussion we're still using the arbitrary score weights, but it
@@ -345,4 +341,21 @@ machine.
 This would mean our output would be in actual units, and we could combine outputs
 from multiple replicates more meaningfully.
 
-**I hope to return to this soon!**
+### Random Effects Model
+
+It's also worth considering how this work fits in with the
+Random Effects Model as implemented in Enrich2[^enrich].  This
+technique allows results with varying `$ \mu $` and `$ \sigma $` 
+from different replicates to be combined into a single result.
+
+[^enrich]: Rubin, A.F., Gelman, H., Lucas, N. et al.
+    A statistical framework for analyzing deep mutational scanning data.
+    Genome Biol. 18, 150 (2017).
+    doi: [10.1186/s13059-017-1272-5](https://doi.org/10.1186/s13059-017-1272-5)
+
+### CountESS plugin
+
+I've started on an implementation of this code as a CountESS plugin 
+at: [countess-vampseq2](https://github.com/nickzoic/countess-vampseq2)
+and I hope to do some investigation into whether this technique is
+going to be useful for reanalysis of some of our existing work.

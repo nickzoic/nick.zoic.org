@@ -1,6 +1,7 @@
 ---
 title: Quantized Counting Considerations
 date: '2025-10-08'
+updated: '2026-05-13'
 summary: "How to better get a score from quantized (binned) counts"
 tags:
   - bioinformatics
@@ -317,9 +318,9 @@ technique allows results with varying `$ \mu $` and `$ \sigma $`
 from different replicates to be combined into a single result.
 
 [^enrich]: Rubin, A.F., Gelman, H., Lucas, N. et al.
-A statistical framework for analyzing deep mutational scanning data.
-Genome Biol 18, 150 (2017).
-doi: [10.1186/s13059-017-1272-5](https://doi.org/10.1186/s13059-017-1272-5)
+    A statistical framework for analyzing deep mutational scanning data.
+    Genome Biol. 18, 150 (2017).
+    doi: [10.1186/s13059-017-1272-5](https://doi.org/10.1186/s13059-017-1272-5)
 
 ### Characterizing Noise
 

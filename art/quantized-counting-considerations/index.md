@@ -311,6 +311,16 @@ This particular sample's score cannot be accurately estimated.
 There's lots more to do on this general concept, including applying to to real
 experimental data.
 
+It's also worth considering how this work fits in with the
+Random Effects Model as implemented in Enrich2[^enrich].  This
+technique allows results with varying `$ \mu $` and `$ \sigma $` 
+from different replicates to be combined into a single result.
+
+[^enrich]: Rubin, A.F., Gelman, H., Lucas, N. et al.
+A statistical framework for analyzing deep mutational scanning data.
+Genome Biol 18, 150 (2017).
+doi: [10.1186/s13059-017-1272-5](https://doi.org/10.1186/s13059-017-1272-5)
+
 ### Characterizing Noise
 
 What are the sources and characteristics of noise in the measurement apparatus?

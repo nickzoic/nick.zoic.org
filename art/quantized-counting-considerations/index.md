@@ -353,6 +353,11 @@ from different replicates to be combined into a single result.
     Genome Biol. 18, 150 (2017).
     doi: [10.1186/s13059-017-1272-5](https://doi.org/10.1186/s13059-017-1272-5)
 
+Also, as discussed in that paper and [here](../yeast-thoughts) we can 
+use the variant count and sample size to give us an estimate of how accurate
+each bin frequency is going to be and pass that information through to the 
+curve fitting process.
+
 ### CountESS plugin
 
 I've started on an implementation of this code as a CountESS plugin 

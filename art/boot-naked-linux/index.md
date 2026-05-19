@@ -44,15 +44,22 @@ forever or whatever, we use `reboot(RB_AUTOBOOT)` to trigger a reboot.
 
 ## Making initrd
 
-To boot Linux you need two things: a kernel and a filesystem.
-Modern Linux supports quite a complex multi-stage process, but all we 
-want for now is to get our one program running:
+There's a few examples of how to construct a filesystem with a 
+[replacement for init](https://medium.com/@mustafaakin/writing-my-own-init-with-go-part-1-22e81495a246)
+but I wanted to go even simpler.  The `initrd` file which my PC boots
+from is 73MB and according to `lsintramfs` it contains 2163 files!
+
+To boot Linux you only need two things: a kernel and a file to run.
+Modern Linux supports
+[quite a complex multi-stage process](https://wiki.debian.org/initramfs),
+but all we want for now is to get our one program running:
 
     gcc -static init.c -o init
+
     echo 'init' | cpio -o --format=newc | gzip -c > initrd
 
 `cpio` is a very weird program which makes `tar` look user-friendly.
-But let's not worry about it for now.
+But let's not worry about the details for now.
 I will note that, later, if you get a kernel message:
 
     Initramfs unpacking failed: no cpio magic
@@ -67,11 +74,20 @@ not usable.
 This message happens pretty early in the boot process, which attempts to 
 continue anyway, so you'll have to look back carefully.
 
+Whereas if you see:
+
+    Trying to unpack rootfs image as initramfs...
+
+... and then nothing else, that's a good sign.
+
 ## Virtualized
 
 Getting this going on real hardware would be pretty irritating,
 so I'm using [QEMU](https://qemu.org/) to make a virtual system
 to experiment with.
+
+QEMU lets you boot from just
+[a kernel and a filesystem image](https://qemu-project.gitlab.io/qemu/system/linuxboot.html).
 
 For now, I'm using `kvm` to run a virtualized system rather than
 go for full emulation with `qemu-system-x86_64`, but we'll return
@@ -108,13 +124,17 @@ runs our `init` binary:
     Hello from init.c!
     [    0.807535] reboot: machine restart
 
+Incidentally there's nothing very special about the name `/init`, that's
+just a default you can change by appending a kernel option
+`rdinit=/hello_world` or whatever name you like.
+
 ## Devices
 
 Even if we don't want any filesystems, we might want some permanent 
 storage.
-Let's make some:
+Let's make some random bytes in a file:
 
-    dd if=/dev/random of=disk bs=1K count=1K
+    dd if=/dev/random of=diskimage bs=1K count=1K
 
 But we haven't mounted a root filesystem yet, so there's no devices available!
 Devices are made available using a kernel mechanism called "devtmpfs" which
@@ -139,11 +159,13 @@ first few bytes from that file:
         mount("devtmpfs", "/dev", "devtmpfs", 0, NULL);
 
         int fd = open("/dev/sda", O_RDWR);
-        uint32_t buffer;
-        read(fd, &buffer, sizeof(buffer));
+        uint32_t buffer[2];
+        read(fd, buffer, sizeof(buffer));
         close(fd);
 
-        fprintf(stderr, "Read %08x\n", ntohl(buffer));
+        fprintf(stderr, "Read %08x %08x\n",
+            ntohl(buffer[0]), ntohl(buffer[1]));
+
         reboot(RB_AUTOBOOT);
     }
 
@@ -151,11 +173,15 @@ first few bytes from that file:
 value checks and sensible reports of errno.
 I've left these out for clarity.)*
 
-We can run this as:
+We can compile and run this like before:
+
+    gcc -static -o init init.c 
+
+    echo 'init' | cpio -o --format=newc | gzip -c > initrd
 
     kvm -m 1G -nographic -kernel vmlinuz \
         -initrd initrd -append "console=ttyS0 panic=-1" \
-        -no-reboot -hda disk
+        -no-reboot -hda diskimage
 
 ... and end up with output something like (edited for brevity):
 
@@ -168,9 +194,10 @@ We can run this as:
     [    0.713091] ata1.00: 2048 sectors, multi 16: LBA48 
     [    0.816634] Run /init as init process
     Hello from init.c!
-    Read 4463823c
+    Read 4463823c a5c37e77
     [    0.818128] sd 0:0:0:0: [sda] Synchronizing SCSI cache
     [    0.819849] reboot: machine restart
 
-So there we go, less than a second from power-on to running a program and reading from disk,
-and a trimmed back kernel could probably improve that a bit.
+So there we go, less than a second from power-on to running a program and reading from disk.
+
+

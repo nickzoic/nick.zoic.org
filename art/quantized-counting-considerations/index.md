@@ -1,6 +1,7 @@
 ---
 title: Quantized Counting Considerations
 date: '2025-10-08'
+updated: '2026-05-13'
 summary: "How to better get a score from quantized (binned) counts"
 tags:
   - bioinformatics
@@ -326,6 +327,12 @@ for detecting issues which could be determined from a simpler heuristic, but it 
 least provides a baseline to compare potential heuristics against.
 For example, specific heuristics could be implemented to detect contaminated or swapped bins.
 
+The distribution of our measurements is probably *not* normal.  
+If anything, it's more likely to be lognormal or something like that.
+There's a whole range of potential noise sources which contribute
+to the measurement noise.
+This requires some further thought and investigation.
+
 ### Beyond Scoring
 
 In the above discussion we're still using the arbitrary score weights, but it
@@ -334,4 +341,26 @@ machine.
 This would mean our output would be in actual units, and we could combine outputs
 from multiple replicates more meaningfully.
 
-**I hope to return to this soon!**
+### Random Effects Model
+
+It's also worth considering how this work fits in with the
+Random Effects Model as implemented in Enrich2[^enrich].  This
+technique allows results with varying `$ \mu $` and `$ \sigma $` 
+from different replicates to be combined into a single result.
+
+[^enrich]: Rubin, A.F., Gelman, H., Lucas, N. et al.
+    A statistical framework for analyzing deep mutational scanning data.
+    Genome Biol. 18, 150 (2017).
+    doi: [10.1186/s13059-017-1272-5](https://doi.org/10.1186/s13059-017-1272-5)
+
+Also, as discussed in that paper and [here](../yeast-thoughts) we can 
+use the variant count and sample size to give us an estimate of how accurate
+each bin frequency is going to be and pass that information through to the 
+curve fitting process.
+
+### CountESS plugin
+
+I've started on an implementation of this code as a CountESS plugin 
+at: [countess-vampseq2](https://github.com/nickzoic/countess-vampseq2)
+and I hope to do some investigation into whether this technique is
+going to be useful for reanalysis of some of our existing work.

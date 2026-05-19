@@ -6,22 +6,45 @@ date: '2025-03-01'
 
 ## Board
 
-"Waveshare ESP32-S3-ETH" purchased on Aliexpress.
-
-Came with a sticker linking [here](https://spotpear.com/wiki/ESP32-S3R8-PoE-ETH-RJ45-Camera-Micro-SD-Pico-W5500-OV2640-OV5640.html)
-
-[schematic](https://files.waveshare.com/wiki/ESP32-S3-ETH/ESP32-S3-ETH-Schematic.pdf)
+For this project I'm using a 
+[Waveshare ESP32-S3-ETH](https://www.waveshare.com/esp32-s3-eth.htm)
+board purchased on Aliexpress.
 
 It's an [ESP32-S3](https://www.espressif.com/en/products/socs/esp32-s3) board with a USB-C interface,
-a [Wiznet W5500](https://wiznet.io/products/ethernet-chips/w5500)-based ethernet interface and 
-a little flat [camera connector](https://en.wikipedia.org/wiki/Camera_Serial_Interface), whatever those are called.
+a [Wiznet W5500](https://wiznet.io/products/ethernet-chips/w5500)-based ethernet interface and a header for a
+[Power over Ethernet](https://en.wikipedia.org/wiki/Power_over_Ethernet) module.
+
+Documentation is a little minimal, but 
+there's a [schematic](https://files.waveshare.com/wiki/ESP32-S3-ETH/ESP32-S3-ETH-Schematic.pdf) and also 
+it came with a sticker linking [here](https://spotpear.com/wiki/ESP32-S3R8-PoE-ETH-RJ45-Camera-Micro-SD-Pico-W5500-OV2640-OV5640.html)
 
 ## Camera
 
-I also got an [OV5640 camera module](https://cdn.sparkfun.com/datasheets/Sensors/LightImaging/OV5640_datasheet.pdf)
-with it.
+I also got some [OV2640](https://blog.arducam.com/ov2640/) and
+[OV5640](https://cdn.sparkfun.com/datasheets/Sensors/LightImaging/OV5640_datasheet.pdf)
+camera modules to experiment with.
 
-Note there's a "powerdown pin" is on GPIO8 and the camera won't start up until this is 
+The board has one of those 
+little flat [camera connectors](https://en.wikipedia.org/wiki/Camera_Serial_Interface), whatever those are called, hooked up to various GPIO pins in no particular order:
+
+| GPIO | Function |
+|---|---|
+| 1 | VSYNC |
+| 2 | HREF |
+| 3 | XCLK |
+| 15 | D6 |
+| 18 | D7 |
+| 38 | D5 |
+| 39 | PCLK |
+| 40 | D4 |
+| 41 | D0 |
+| 42 | D3 |
+| 45 | D1 |
+| 46 | D2 |
+| 47 | I2C SCL |
+| 48 | I2C SDA |
+
+Note there's also a "powerdown pin" is on GPIO8 and the camera won't start up until this is 
 pulled low (see schematic section 摄像头降压电路 (A11)) where Q3 turns off the
 step-down regulators which power the camera module.
 
@@ -30,13 +53,10 @@ According to [this](https://github.com/cnadler86/micropython-camera-API?tab=read
 > The OV5640 pinout is compatible with boards designed for the OV2640 but the voltage supply
 > is too high for the internal 1.5V regulator, so the camera overheats unless a heat sink is applied.
 
-... but this board does include 2.8 and 1.5 volt regulators so I'm not
+... but this board *does* include 2.8 and 1.5 volt regulators so I'm not
 sure if this applies.  The camera does seem to run pretty warm,
 but for my application I'm only interested in sporadic snapshots
 so hopefully I can just power the camera down between uses.
-
-Unfortunately the module I bought has a very short cable and is kind of tricky to place sensibly when
-the PoE module is also installed.  So I've ordered some camera modules with longer cables.
 
 # PoE 
 
@@ -87,6 +107,14 @@ to position them.  This is easily generated from a PWM capable GPIO.
 For most servos, the required PWM signal is 50Hz (20ms) with duty cycle varying from 5% to 10% (1 - 2 ms) ...
 and 3.3V logic works fine, no driver circuitry necessary.
 
+I'm only using small servos so it's okay to power them off the VBUS pin 
+coming out of the board, I'll add a capacitor to help smooth out any power
+transients caused by the motors switching on and off.
+
+Using bigger servos with this approach would be a bad idea as they can 
+draw quite a bit of current at stall.
+For bigger servos, forget PoE and just use an external power supply.
+
 ## Demo App
 
 The board comes with a demo app called [`ETH_Web_Cam`](https://spotpear.com/wiki/ESP32-S3R8-PoE-ETH-RJ45-Camera-Micro-SD-Pico-W5500-OV2640-OV5640.html#ETH_Web_CAM)
@@ -94,11 +122,16 @@ which does what it sounds like: DHCPs onto the ethernet network and exposes a we
 server which displays stills or streams from the camera, with lots of configuration
 buttons and stuff.  So at least I know the hardware works.
 
-Incidentally, while the W5500 on this module has a default MAC address in the range "a4:3c:d7",
-the demo always overrides the MAC address to `DE:AD:BE:EF:FE:ED` ...
-
+Incidentally, while the W5500 on this module has a default MAC
+address in the range `a4:3c:d7`,
+the demo always overrides the MAC address to `DE:AD:BE:EF:FE:ED` ... 
+so you won't be running two of these demos on the same subnet.
 
 ## Micropython
+
+So, using the pins we determined earlier, we can set up MicroPython
+to activate the camera.  I'm using a MicroPython release from
+[cnadler86's micropython-camera-API repo](https://github.com/cnadler86/micropython-camera-API/releases) for now.
 
 ```
 MicroPython v1.27.0-dirty on 2026-02-22; Generic ESP32S3 module with ESP32S3
@@ -119,6 +152,7 @@ It works fine with the OV2640.
 
 ## control pins
 
+Looking at the module schematic,
 between USB-C, Ethernet, UART0, the SD card, the camera 
 interface and power, a boot button and an LED there aren't
 that many free GPIOs on this board!

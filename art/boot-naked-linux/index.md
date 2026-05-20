@@ -1,7 +1,7 @@
 ---
 title: Boot Naked Linux
 date: '2026-05-19'
-layout: draft
+layout: article
 tags:
   - c
   - linux
@@ -91,7 +91,7 @@ needs, we can make our own 'initrd' with only one file in it:
 
 ### about cpio
 
-`cpio` is a very weird program with a command line
+`cpio` is a very weird and ancient program with a command line
 which makes `tar` look user-friendly.
 But let's not worry about the details for now.
 
@@ -105,11 +105,11 @@ continue, but a later error message like:
 
     check access for rdinit=/init failed: -2, ignoring
 
-... means that either the initramfs didn't happen or your binary is otherwise
-not usable.  You might also get a message about incompatible architectures.
+... means that either the initramfs didn't happen *or* your binary is
+in the wrong place (`-2` means file not found).
+You might also get a message about incompatible architectures.
 This message happens pretty early in the boot process, which attempts to 
 continue anyway, so you'll have to look back carefully.
-
 Whereas if you see:
 
     Trying to unpack rootfs image as initramfs...
@@ -127,22 +127,20 @@ QEMU lets you boot from just
 [a kernel and a filesystem image](https://qemu-project.gitlab.io/qemu/system/linuxboot.html)
 on the command line.
 
-For now, rather than proper QEMU I'm using `kvm` to run a virtualized
-system. For full emulation, you can run these examples with
+For now, rather than proper QEMU I'm using KVM to run a virtualized
+system. For full emulation, you can also run these examples with
 `qemu-system-x86_64`, or whatever the appropriate emulator is for 
-your system. We'll return
-to the question of emulation later, and we'll get to real hardware
-eventually.
+your system.
 
 But first we need a kernel, I'm just using the current kernel
-from my machine but the file is readable by root only so first
+from my machine but the `/boot/vmlinuz` file is readable by root only so first
 we make a copy of it in our working directory and change its ownership:
 
     sudo cp /boot/vmlinuz .
     sudo chown $USER:$GROUP vmlinuz
 
 We now have our two binary files, the kernel `vmlinuz` and 
-the init file system `initrd` which contains only our program
+the init image `initrd` which contains only our program
 `init`.
 So we can boot our system with:
 
@@ -152,7 +150,7 @@ So we can boot our system with:
 The `-nographic` and `-append "console=ttyS0"` options give us a terminal console
 to monitor stderr on rather than popping up a graphical console.
 
-when the kernel starts up, it unpacks our `initrd` into a ram disk, and
+When the kernel starts up, it unpacks our `initrd` into a ram disk, and
 runs our `init` binary:
 
     [    0.000000] Linux version 6.8.0-111-generic (buildd@lcy02-amd64-088)
@@ -162,7 +160,7 @@ runs our `init` binary:
     Hello from init.c!
     [    0.807535] reboot: Power down
 
-(abbreviated)
+*(abbreviated)*
 
 ## Devices
 
@@ -252,9 +250,10 @@ worked for me:
   and partition table completely.
 * use `sudo cfdisk` to set up some partitions:
   * Format the device as "dos"
-  * Create a partition type "EFI" (0xef) with 512M size and mark it as bootable.
+  * Create a partition of type "EFI" (hex id `ef`) with 512M size
+    and mark it as bootable.
   * Create another partition for later, leave the type
-    "Linux filesystem" for now
+    "Linux" (hex id `83`) for now
 
 It should end up looking something like:
 
@@ -266,8 +265,9 @@ It should end up looking something like:
     /dev/sda1 *       2048 1050623 1048576 512M ef EFI (FAT-12/16/32)   
     /dev/sda2      1050624 7884799 6834176 3.3G 83 Linux
 
-Plenty of places seem to say the partition table has to be of type MBR
+Plenty of places seem to say the partition table has to be of type GPT
 and the EFI partition of a special type within that, but this is what
+my Mint Linux installer USB looked like and this is what 
 worked for me on this crappy laptop.
 
 Now we can make the file systems on our partitions:
@@ -287,7 +287,7 @@ We can do this with the `ukify` tool:
     sudo apt install systemd-ukify systemd-boot-efi
     ukify build --linux=vmlinuz --initrd=initrd
 
-Then we just need a filesystem on our new usb key partition, and to
+Then we just need to
 copy the new unified kernel file into the right place:
 
     sudo mount /dev/sda1 /mnt
@@ -301,6 +301,6 @@ copy the new unified kernel file into the right place:
 
 # TO BE CONTINUED
 
-* User input
-* Cross-compiling
-* Multiprocessing
+* User input from `/dev/console`
+* Cross-compiling for ARM
+* Multiprocessing and networking

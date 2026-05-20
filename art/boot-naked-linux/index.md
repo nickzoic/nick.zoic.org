@@ -53,8 +53,9 @@ virtual machine down in an orderly manner.
 
 Modern Linux supports
 [quite a complex multi-stage process](https://wiki.debian.org/initramfs).
-There's a lot of resources out there, and a lot of them are 20 years
-out of date, and
+There's a lot of
+[resources](https://docs.kernel.org/filesystems/ramfs-rootfs-initramfs.html)
+out there, and a lot of them are 20 years out of date, and
 [there have been changes](https://www.kernel.org/doc/html/v4.14/admin-guide/initrd.html)
 but here's a summary of how I think it works right now, 
 as of 2026 and Linux 6.8 or thereabouts:
@@ -117,6 +118,15 @@ Whereas if you see:
 
 ... and then nothing else, that's a good sign. It never logs that it was
 successful.
+
+Incidentally, if you're looking to pack many files into a cpio archive,
+you want something along the lines of:
+
+    (cd $SOURCE_DIR; find . | cpio -o -H newc) | gzip -c > $OUTPUT_FILE
+
+The whole thing about piping in a list of files probably seems
+perverse but `cpio` is older than `tar`, older than *shell filename
+globbing* so perhaps [we can forgive it](https://docs.kernel.org/filesystems/ramfs-rootfs-initramfs.html#why-cpio-rather-than-tar)
 
 ## Virtualized
 
@@ -298,7 +308,7 @@ copy the new unified kernel file into the right place:
 
 ... and go boot the USB stick!
 
-Then realize that it reboots too quick to get a photo of, and
+And then realize that it reboots too quick to get a photo of, and
 add a `sleep(5);` in there.  And then boot it again, and take a
 photo:
 

@@ -1,5 +1,6 @@
 ---
 title: Boot Naked Linux
+summary: 'Starting up a Linux kernel to host one single process rather than a full on operating system ... and doing it in less than a second!'
 date: '2026-05-19'
 layout: article
 tags:

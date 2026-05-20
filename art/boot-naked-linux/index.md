@@ -298,6 +298,10 @@ copy the new unified kernel file into the right place:
 
 ... and go boot the USB stick!
 
+Then realize that it reboots too quick to get a photo of, and
+add a `sleep(5);` in there.  And then boot it again, and take a
+photo:
+
 ![photo of message on a real laptop screen](img/booted.jpg)
 
 # TO BE CONTINUED

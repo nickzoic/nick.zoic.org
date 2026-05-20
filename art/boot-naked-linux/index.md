@@ -237,9 +237,62 @@ Then we can compile and run this like before:
 
 So there we go, less than a second from power-on to running a program and reading from disk.
 
+## Booting real hardware
+
+There are a lot of conflicting instructions out there, and most of them
+seem to assume you're trying to update the bootloader of the system you're
+using, rather than adding EFI booting to a USB stick, but this is what
+worked for me:
+
+* plug in the USB key
+* use lsblk to make sure it's the right one (in my case, it's /dev/sda, but
+  be careful as these commands will trash whatever drive you're pointing them
+  at.)
+* use `dd if=/dev/zero of=/dev/sda bs=1M count=1` to clear the boot sector
+  and partition table completely.
+
+* use `sudo cfdisk` to set up some partitions:
+  * Format the device as "dos"
+  * Create a partition type "EFI" (0xef) with 512M size and mark it as bootable.
+  * Create another partition for later, leave the type
+    "Linux filesystem" for now
+  * It should end up looking something like:
+
+                              Disk: /dev/sda
+            Size: 3.76 GiB, 4037017600 bytes, 7884800 sectors
+                    Label: dos, identifier: 0xdeadd0d0
+
+    Device     Boot     Start      End  Sectors  Size  Id Type
+    /dev/sda1  *         2048  1050623  1048576  512M  ef EFI (FAT-12/16/32)   
+    /dev/sda2         1050624  7884799  6834176  3.3G  83 Linux
+
+In theory UEFI can load multiple files from multiple locations, and run
+a little script called `startup.nsh`, and stuff like that, but the laptop
+I was trying to get it working on refused to pay any attention to any of
+that, and the only way to get it to boot was to create a file called 
+`/EFI/BOOT/BOOTX64.EFI`.  Since you can't pass parameters through to the
+kernel, we need to make a "unified kernel" which contains a loader stub,
+the kernel itself, and the initrd file which contains our program.
+We can do this with the `ukify` tool:
+
+    sudo apt install systemd-ukify systemd-boot-efi
+    ukify build --linux=vmlinuz --initrd=initrd --cmdline="debug"
+
+Then we just need a filesystem on our new usb key partition, and to
+copy the new unified kernel file into the right place:
+
+    sudo mkfs.fat -F 32 /dev/sda1
+    sudo mount /dev/sda1 /mnt
+    sudo mkdir -p /mnt/EFI/BOOT
+    sudo cp vmlinuz.unsigned.efi /mnt/EFI/BOOT/BOOTX64.EFI
+    sudo umount /mnt
+
+... and go boot the USB stick!
+
+![photo of message on a real laptop screen](img/booted.jpg)
+
 # TO BE CONTINUED
 
 * User input
 * Cross-compiling
-* Booting real hardware
 * Multiprocessing

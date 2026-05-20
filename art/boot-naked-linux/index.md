@@ -258,13 +258,13 @@ worked for me:
 
 It should end up looking something like:
 
-                              Disk: /dev/sda
-            Size: 3.76 GiB, 4037017600 bytes, 7884800 sectors
-                    Label: dos, identifier: 0xdeadd0d0
+                           Disk: /dev/sda
+         Size: 3.76 GiB, 4037017600 bytes, 7884800 sectors
+                 Label: dos, identifier: 0xdeadd0d0
     
-    Device     Boot     Start      End  Sectors  Size  Id Type
-    /dev/sda1  *         2048  1050623  1048576  512M  ef EFI (FAT-12/16/32)   
-    /dev/sda2         1050624  7884799  6834176  3.3G  83 Linux
+    Device    Boot   Start     End Sectors Size Id Type
+    /dev/sda1 *       2048 1050623 1048576 512M ef EFI (FAT-12/16/32)   
+    /dev/sda2      1050624 7884799 6834176 3.3G 83 Linux
 
 Plenty of places seem to say the partition table has to be of type MBR
 and the EFI partition of a special type within that, but this is what

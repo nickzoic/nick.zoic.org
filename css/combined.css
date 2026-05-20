@@ -180,7 +180,7 @@ pre {
   white-space: pre-wrap;
   word-break: break-all;
   word-wrap: break-word;
-  background-color: #800;
+  background-color: #eee;
 }
 pre code {
   padding: 0;

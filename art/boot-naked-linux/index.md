@@ -22,6 +22,11 @@ So I wanted to try an alternative.
 Keep the Linux kernel but strip away everything else I could.
 Here goes ... well not quite here goes nothing, but here goes a lot less.
 
+UPDATE: As per long tradition, while trying to fix a couple of details
+I found "[Building a tiny Linux from scratch](https://blinry.org/tiny-linux/)"
+which does most of what I do here but in Rust and a year ago,
+so that's worth a look too.
+
 ## Hello, World!
 
 The first thing a Linux system does is run an "init" program of one sort
@@ -82,10 +87,10 @@ it contains 2163 files!
 There's a few examples of how to
 [construct a filesystem with a 
 replacement for init](https://medium.com/@mustafaakin/writing-my-own-init-with-go-part-1-22e81495a246)
-but I wanted to go even simpler.
+but I wanted to go even simpler and replace the entire `initrd`.
 
 If we compile our example code statically, eg: containing all the libraries it
-needs, we can make our own 'initrd' with only one file in it:
+needs, we can make our own `initrd` with only one file in it:
 
     gcc -static init.c -o init
 
@@ -108,7 +113,7 @@ continue, but a later error message like:
     check access for rdinit=/init failed: -2, ignoring
 
 ... means that either the initramfs didn't happen *or* your binary is
-in the wrong place (`-2` means file not found).
+in the wrong place (`-2` is `-ENOENT` which means file not found).
 You might also get a message about incompatible architectures.
 This message happens pretty early in the boot process, which attempts to 
 continue anyway, so you'll have to look back carefully.
@@ -117,7 +122,9 @@ Whereas if you see:
     Trying to unpack rootfs image as initramfs...
 
 ... and then nothing else, that's a good sign. It never logs that it was
-successful.
+successful until much later when it should hopefully say:
+
+    Run /init as init process
 
 Incidentally, if you're looking to pack many files into a cpio archive,
 you want something along the lines of:
@@ -130,7 +137,8 @@ globbing* so perhaps [we can forgive it](https://docs.kernel.org/filesystems/ram
 
 ## Virtualized
 
-Getting this going on real hardware would be pretty irritating,
+Getting this going on real hardware would involve an irritating
+amount of USB key swapping,
 so I'm using [QEMU](https://qemu.org/) to make a virtual system
 to experiment with.
 
@@ -141,14 +149,18 @@ on the command line.
 For now, rather than proper QEMU I'm using KVM to run a virtualized
 system. For full emulation, you can also run these examples with
 `qemu-system-x86_64`, or whatever the appropriate emulator is for 
-your system.
+your system.  It's slightly slower but otherwise works the same.
 
-But first we need a kernel, I'm just using the current kernel
+First we need a kernel, I'm just using the current kernel
 from my machine but the `/boot/vmlinuz` file is readable by root only so first
 we make a copy of it in our working directory and change its ownership:
 
     sudo cp /boot/vmlinuz .
     sudo chown $USER:$GROUP vmlinuz
+
+If you can be bothered building your own
+[cut-down kernel](https://weeraman.com/building-a-tiny-linux-kernel/)
+that'd be even better.
 
 We now have our two binary files, the kernel `vmlinuz` and 
 the init image `initrd` which contains only our program

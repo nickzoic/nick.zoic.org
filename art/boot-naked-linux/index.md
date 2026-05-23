@@ -326,6 +326,149 @@ photo:
 
 ![photo of message on a real laptop screen](img/booted.jpg)
 
+## Tiny Kernel
+
+At the start of all this I just copied the Linux kernel from my running desktop: this
+is a Ubuntu install and pretty hefty as kernels go, with support for many things not 
+relevant to our one-program-at-a-time project.  It's pretty easy to build a new Linux
+kernel though:
+
+    git clone https://github.com/torvalds/linux.git
+    cd linux
+    make tinyconfig
+    make menuconfig
+
+This will get you to the linux kernel configuration menu, a wonderful text menu
+system with a thousand options which has been baffling new users for about 30 years
+now.
+
+![The linux kernel config menu](img/config.png)
+
+`make tinyconfig` switches off just about everything, too many things in fact.
+As per "[Building a tiny Linux from scratch](https://blinry.org/tiny-linux/)"
+some things have to be switched back on for our kernel to work.
+
+### Configuring
+
+I've tried to lay these out in order to make it possible to pick your way
+through the menus:
+
+* "General setup"
+
+  * "Local version"
+
+    I set this to "tiny" to make it easier to tell which kernel is which
+
+  * "Initial RAM filesystem and RAM disk (initramfs/initrd) support"
+
+    More options will appear. I kept "Support initial ramdisk/ramfs
+    compressed using gzip" and switched the others off,
+    we might as well have only one decompressor in th kernel.
+
+    "Initramfs source file(s)" is intriguing and I'll come back to this.
+
+  * Compiler optimization level
+
+    I changed this to "Optimize for size (-Os)"
+
+  * "Configure standard kernel features (expert users)"
+
+    Never mind the scary name.
+    This is both a toggle (hit space) and a nested menu (hit enter) which is 
+    massively confusing, and the contents are different depending on if it is 
+    switched on or off.
+
+    * "Multiple users, groups and capabilities support"
+
+      I've left this off for now because we don't really need it.
+
+    * "Enable support for printk"
+
+      You can save a bit of space by switching this off, but Without it you won't
+      know why the kernel isn't starting.
+
+* "64-bit kernel"
+
+  Even the shittiest laptop I've got laying around here is 64 bit.
+  If you pull something even older out of the junk pile, you might prefer 32 bit.
+
+* "Processor type and features"
+
+  This depends on your target platform too, but I chose to turn on
+  "Symmetric multi-processing support" and set "Maximum number of CPUs" to 4,
+  but turn off the "Cluster scheduler support" and "Multi-core scheduler support"
+  
+* "Enable the block layer"
+
+  I think this is necessary to access the block devices like "/dev/sda1" but
+  I turned off "Legacy autoloading support" and "Allow writing to mounted
+  block devices"
+
+* "Executable file formats"
+
+  * "Kernel support for ELF binaries"
+
+    Our `init` program is compiled to ELF format, we could probably compile it
+    to an older format but there's no real advantage.  I've left "Kernel support
+    for scripts starting with #!" off though because there's no shell where we're going ...
+
+* "Device Drivers"
+
+  * "Character devices"
+
+    * "Enable TTY"
+
+      We definiely need this to communicate with our program ...
+
+    * "Serial drivers"
+
+      ... and our 'qemu' emulation provides the text console as a fake
+      serial device, so I turned on "8250/16550 and compatible serial support"
+
+  * "Graphics support"
+ 
+    * "Frame buffer devices"
+
+      Just for fun I turned this on with just "Provide legacy /dev/fb* device",
+      it'll be interesting to see if our program can actually do *gasp* graphics!
+
+* "File systems"
+
+  We may not need them immediately, but I switched on "The Extended 3 (ext3) filesystem"
+  and "The Extended 4 (ext4) filesystem"
+ 
+  * "DOS/FAT/EXFAT/NT Filesystems"
+
+    I also switched on "MSDOS fs support" and "VFAT (Windows-95) fs support" and
+    "exFAT filesystem support".  It might be handy to be able to read more files
+    out of that EFI partition.
+
+* "Kernel hacking"
+
+  Again, don't be put off by the menu name.  I just went into
+  "printk and dmesg options" and set "Show timing information on printks"
+  which gives the printk messages nice timestamps.
+
+### Building
+
+Once you've waded through all that, you can just `make -j 8` to build 
+a new kernel.  Depending on exactly what options you included, the compiled 
+kernel should be 1-2 MB instead of the 16MB vendor kernel.  Of course,
+the down-side is that you probably won't know what feature you missed until
+your code tries to use it!
+
+<!--
+* `CONFIG_X86_MINIMUM_CPU_FAMILY=64`
+* `CONFIG_NR_CPUS=2`
+* `CONFIG_PRINTK=y` and `CONFIG_PRINTK_TIME=y`
+* `CONFIG_BLK_DEV_INITRD=y` and `CONFIG_INITRAMFS_SOURCE=""` 
+* `CONFIG_KERNEL_GZIP=y` and `CONFIG_RD_GZIP=y` and `CONFIG_DECOMPRESS_GZIP=y`
+* `CONFIG_CC_OPTIMIZE_FOR_SIZE=y`
+* `CONFIG_SERIO=y` and `CONFIG_TTY=y` and `CONFIG_VT=y`
+* `CONFIG_SERIAL_8250=y` and `CONFIG_SERIAL_8250_CONSOLE=y`
+* `CONFIG_FB=y` and `CONFIG_FB_DEVICE=y`
+-->
+
 # TO BE CONTINUED
 
 * User input from `/dev/console`

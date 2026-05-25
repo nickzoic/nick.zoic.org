@@ -8,6 +8,8 @@ title: 'Rod Logic'
 
 *Clearly I haven't been going [retro enough](/art/writing-an-apple-2-game-in-2021-1/) ...*
 
+https://www.youtube.com/watch?v=EtIJUwkOAwM
+
 # Rod Logic
 
 logical functions and/or/not/xor made out of rods

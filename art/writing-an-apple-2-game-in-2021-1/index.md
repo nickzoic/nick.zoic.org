@@ -130,12 +130,12 @@ fb02: 20 ff 00 ff+ DISKID      .bulk   $20,$ff,$00,$ff,$03,$ff,$3c
 What's interesting is that DISKID is checking *every second* byte in the ROM 
 (note the doubled `dey` ...), offset by one, in reverse order ...
 
-| y   | (LOC0),y | DISID-1,y | expected byte |
-|-----|----------|-----------|---------------|
-| $07 | $Cx07    | $FB08     | $3C           |
-| $05 | $Cx05    | $FB06     | $03           |
-| $03 | $Cx03    | $FB04     | $00           |
-| $01 | $Cx01    | $FB02     | $20           |
+| y   | (LOC0),y | DISKID-1,y | expected byte |
+|-----|----------|------------|---------------|
+| $07 | $Cx07    | $FB08      | $3C           |
+| $05 | $Cx05    | $FB06      | $03           |
+| $03 | $Cx03    | $FB04      | $00           |
+| $01 | $Cx01    | $FB02      | $20           |
 
 From [C600ROM Disassembly](https://6502disassembly.com/a2-rom/C600ROM.html):
 ```

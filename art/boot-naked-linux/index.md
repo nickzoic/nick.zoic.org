@@ -449,6 +449,11 @@ through the menus:
   "printk and dmesg options" and set "Show timing information on printks"
   which gives the printk messages nice timestamps.
 
+If you want to make the kernel with a UEFI stub, you need to do things out
+of order.  First go to "Power Management and ACPI options" and switch on 
+"ACPI".  Then you can go back to "Processor type and features" and 
+"EFI runtime service support" and "EFI stub support" should be active.
+
 ### Building
 
 Once you've waded through all that, you can just `make -j 8` to build 
@@ -468,6 +473,20 @@ your code tries to use it!
 * `CONFIG_SERIAL_8250=y` and `CONFIG_SERIAL_8250_CONSOLE=y`
 * `CONFIG_FB=y` and `CONFIG_FB_DEVICE=y`
 -->
+
+### Is this worth bothering with?
+
+Hard to say.  It saves a little bit of space, boots a bit quicker, and removing
+unused parts of the kernel may well improve the security of a device since 
+there's less "attack surface" to go wrong.
+
+There's also the possibility of compiling in our `initrd` system, reducing 
+even further our reliance on external files.  That combined with the EFI 
+loader stub option means we'd only need exactly one file to load our program
+from boot.
+
+Also, we're going to need to build our own kernel to target 
+[more interesting platforms](/art/nvidia-jetson-nano-experiments/).
 
 # TO BE CONTINUED
 

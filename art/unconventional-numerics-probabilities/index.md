@@ -48,17 +48,19 @@ If you go around storing probabilities in floats, you've got some issues:
 You could simply store probabilities as a fixed-point number, so that each
 value is in a set range.  For example, in a 16 bit float:
 
------ + ---
-Value | Probability
------ + ---
- 0000 | 0
- 7FFF | 0.49999237048905165
- 8000 | 0.50000762951094830
- FFFF | 1
------ + ---
+| Value | Probability |
+|---|---|
+| 0000 | 0.0000000000000000 |
+| 0001 | 0.0000152590218967 |
+| 0010 | 0.0002441443503471 |
+| 7FFF | 0.4999923704890517 |
+| 8000 | 0.5000076295109483 |
+| A000 | 0.6250095368886854 |
+| D0D0 | 0.8156862745098039 |
+| FFFF | 1.0000000000000000 |
 
 Inverting a probability is easy: subtract it from 0xFFFF.
-
+You don't have the same problem as floats do, where 1/1000
 Multiplying probabilities is fine too: calculate `A * B / 0xFFFF`
 (or if you don't want to divide, calculate `(A * B + A + B) >> 16`)
 

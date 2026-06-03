@@ -22,10 +22,16 @@ So inspired at least partly by
 and [Ryan's wheel lights](https://rideatnight.com/en-aud) I thought
 I'd put a design of my own together.
 
+![prototype](img/proto.jpg)
 
 ## Shared Power
 
 I have an LED headlight which runs on 4 x 18650s in parallel, and having that
 external battery pack shared between the head and tail light would be
+rather convenient.
 
+## New headlight?
+
+![C11 headlight photo](img/c11.jpg)
+![C11 headlight datasheet](img/c11.gif)
 

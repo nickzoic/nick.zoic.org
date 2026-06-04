@@ -55,11 +55,12 @@ generate about 1V [^ptp], and spinning at 5000 RPM will generate about
 5V peak-to-peak.
 Different KV ratings suit different sizes of battery pack and propeller.
 
-[^dim]: Dimensional analysis time: that's `$ s^-1 V^-1 $` which we could call
-    `$ C s^-1 J^-1 $` or `$ A J^-1 $`.  Amps per Joule?  Doesn't really
-    help us very much.
+[^dim]: Dimensional analysis time: that's `$ s^{-1} V^{-1} $`
+    which we could call `$ C s^{-1} J^{-1} $` or `$ A J^{-1} $`.
+    Amps per Joule?  Doesn't really help us very much.
 
 [^ptp]: Peak to peak?  Per phase?  This isn't very well documented.
+    I'll have to do some measurement.
 
 In this application we actually want a small KV number, because that will get us
 the most voltage per RPM, which is desireable because both high RPM and low
@@ -77,13 +78,14 @@ voltage lead to losses.
 Nothing's that accurate of course, the follower wheel isn't *quite* at the wheel diameter,
 there's losses, etc, but if we round it down a bit that's some idea of the voltage we should expect.
 
-For a 25mm follower at various road speeds vs KV:
+For a 25mm follower wheel at various road speeds and KV:
 
-| KV | 10 | 20 | 30 | 40 | 50 |
-| 100 | 21 | 42 | 64 | 85 | 106 |
-| 200 | 11 | 21 | 32 | 42 | 53 |
-| 500 | 4.2 | 8.5 | 13 | 17 | 21 |
-| 1000 | 2.1 | 4.2 | 6.3 | 8.5 | 11 |
+| | 10 km/h | 20 km/h | 30 km/h | 40 km/h | 50 km/h |
+|---|---|---|---|---|---|
+| KV=100 | 21 | 42 | 64 | 85 | 106 |
+| KV=200 | 11 | 21 | 32 | 42 | 53 |
+| KV=500 | 4.2 | 8.5 | 13 | 17 | 21 |
+| KV=1000 | 2.1 | 4.2 | 6.3 | 8.5 | 11 |
 
 For a 50mm follower, halve that, etc.
 

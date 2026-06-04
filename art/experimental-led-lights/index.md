@@ -23,7 +23,6 @@ So inspired at least partly by
 and [Ryan's wheel lights](https://rideatnight.com/en-aud) I thought
 I'd put a design of my own together.
 
-![prototype](img/proto.jpg)
 
 ## Shared Power
 
@@ -46,7 +45,13 @@ but there's still some like
 [these ones](https://www.ebay.com.au/itm/306227423154?_skw=bicycle+90000LM)
 which include 3 LEDs and a chunky 2S x 3600mAh battery pack.
 
-## LED drivers
+## Rear Light Prototype
+
+![prototype](img/proto.jpg)
+*Probably should put a Content Warning: Bad Soldering on that one*
+
+![schematic](img/schematic.jpg)
+*Badly drawn schematic*
 
 [LD06AJSA](https://www.aliexpress.com/s/wiki-ssr/article/ldo6ajsa-datasheet)
 driver boards are available in all the usual places and are 

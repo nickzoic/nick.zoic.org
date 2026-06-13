@@ -30,7 +30,7 @@ to build arbitrary complex structures.
 [^2]: Since Python 3.7 dict entries are also ordered by insertion.
 [^3]: You can't put `list`s in a `set` because `list`s are mutable.
       On the other hand, since a list is mutable, you can add it to itself.
-      Data structures are fun!
+      `a = []; a.append(a)` Data structures are fun!
 
 Most languages have broadly similar concepts ...
 what they lack in formalism and efficiency they makes up for in

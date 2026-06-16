@@ -95,11 +95,12 @@ Just some examples:
 | Tab | 9: HT | ESC `[Z` | 9: HT | ESC `[Z` |
 | F1 | ESC `OP` | ESC `[1;2P` | ESC `[1;5P` | ESC `[1;6P` |
 | F5 | ESC `[15P` | ESC `[15;2P` | ESC `[15;5P` | ESC `[15;6P` |
-| `\`` | 96: `\`` | 126: `~` | 0: NUL | 30: RS |
+| `` ` `` | 96: `` ` `` | 126: `~` | 0: NUL | 30: RS |
 | Insert | ESC `[2~` | ??? | nothing | nothing |
 
 Just gloriously inconsistent, and I especially like
-`/` and `\` which can each be four different things.
+`/` and `` ` `` which can each be four different
+things.
 
 I've been working in the Linux console ever since there was such
 a think as a Linux console and I had no idea it was possible
@@ -108,7 +109,7 @@ regular keyboard:
 
 | code | key(s) |
 |---|---|
-| 0 | Control-2, or Control-\\ |
+| 0 | Control-2, or Control-`` ` `` |
 | 1 .. 26 | Control-A through Control-Z |
 | 27 | Escape, or Control-3, or Control-[ |
 | 28 .. 31 | Control-4 through Control-7 |

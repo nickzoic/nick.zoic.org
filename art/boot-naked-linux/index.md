@@ -414,6 +414,12 @@ through the menus:
 
 * "Device Drivers"
 
+  * "Generic Driver Options"
+
+    * "Maintain a devtmpfs filesystem to mount at /dev"
+
+      This is how we actually find devices on the system.
+
   * "Character devices"
 
     * "Enable TTY"
@@ -490,6 +496,5 @@ Also, we're going to need to build our own kernel to target
 
 # TO BE CONTINUED
 
-* User input from `/dev/console`
-* Cross-compiling for ARM
-* Multiprocessing and networking
+Next up: [Forest for the trees](/art/forest-for-the-trees/), an adventure
+in structured data on our minimalist system ...

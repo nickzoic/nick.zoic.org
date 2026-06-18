@@ -54,7 +54,7 @@ that.  And control-shift-`-` makes a 31: US.
 | Tab | 9: TAB | 9: TAB | nothing |
 | [ | [ | { | 27: ESC |
 | ] | ] | } | 29: GS |
-| \\ | | \\ | \| | 28: FS |
+| \\ | \\ | \| | 28: FS |
 | ; | ; | : | nothing |
 | ' | ' | " | 7: BEL |
 | Enter | 13: LF | 13: LF | 13: LF |
@@ -116,15 +116,29 @@ Plus a kind of numpad overlay.
 | Insert | ESC `[2~` | ??? | nothing | nothing |
 | Home | ESC `[H` | ??? | ESC `1;5H` | ??? |
 | End | ESC `[F` | ??? | ESC `1;5F` | ??? |
-| PgUp | Esc `[5~` | ??? | ESC `[5;5~ | ??? |
-| PgDn | ESC `[6~` | ??? | ESC `[6;5~ | ??? |
+| PgUp | Esc `[5~` | ??? | ESC `[5;5~` | ??? |
+| PgDn | ESC `[6~` | ??? | ESC `[6;5~` | ??? |
 
 Just gloriously inconsistent, and I especially like
 `/` and `` ` `` which can each be four different
 things.  Plus holding down 'Alt' will stick an escape before
 whatever key you press next, even if it was a control character,
 including Esc, unless it was already an escape sequence in which
-case it does nothing.
+case it does nothing, unless it was an escape sequence with 
+modifier values, in which case it adds 2 to the modifier.
+
+| Alt- | Code |
+|---|---|
+| Alt-A | ESC `A` |
+| Alt-1 | ESC `1` |
+| Alt-Tab | ESC TAB |
+| Alt-Esc | ESC ESC |
+| Alt-Shift-5 | ESC `%` |
+| Ctrl-Alt-`` ` `` | ESC NUL |
+| Alt-F1 | ESC `[1;3P` |
+| Alt-F5 | ESC `[15;3~` |
+| Ctrl-Alt-Shift-F10 | ESC `[21;8~` |
+
 
 The longest escape sequence (not counting the escape seems to be 6 characters.
 although if there's an actual Meta key it might be 7.

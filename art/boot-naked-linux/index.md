@@ -2,6 +2,7 @@
 title: Boot Naked Linux
 summary: 'Starting up a Linux kernel to host one single process rather than a full on operating system ... and doing it in less than a second!'
 date: '2026-05-19'
+updated: '2026-06-18'
 layout: article
 tags:
   - c
@@ -493,6 +494,31 @@ from boot.
 
 Also, we're going to need to build our own kernel to target 
 [more interesting platforms](/art/nvidia-jetson-nano-experiments/).
+
+## Why not ...?
+
+### Why not UEFI?
+
+We talk above about a "stub" which loads the Linux kernel from EFI.
+And we're not using a very large proportion of the Linux kernel anyway.
+So rather than using the Linux kernel at all,
+[why not just write a binary for EFI?](https://krinkinmu.github.io/2020/10/11/efi-getting-started.html)?
+The specifications are weird but they're [available](https://uefi.org/specs/UEFI/2.11/) and 
+Well, mostly familiarity I guess, having the usual libc `printf` and
+so on available is kind of reassuring.  And it makes it a lot easier to
+'dual boot' our code as a process in a regular Linux environment, for
+debugging or convenience.
+There's [libraries](https://wiki.osdev.org/POSIX-UEFI) but I don't think they
+support `mmap` or anything similar.
+
+But this is definitely worth investigating further.
+
+### Why not Rust (etc)?
+
+Yeah, so far I've been looking at everything in C because that's
+what I'm most familiar with, but yes I'm aware
+that there have been languages written since 1999 and there
+may even be some advantages to using them.
 
 # TO BE CONTINUED
 

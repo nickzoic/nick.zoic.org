@@ -1,6 +1,7 @@
 ---
 layout: article
 date: '2026-06-13'
+updated: '2026-06-20'
 title: Forest for the trees
 summary: 'An adventure in structured data'
 ---
@@ -218,3 +219,20 @@ there's:
 * Portability
 
 ... but there'll be time to discuss that in the next installment ...
+
+# UPDATE
+
+For reasons I that will turn into a link later, I happened to look up the 
+specs for the [Siemens System 4004](http://bitsavers.informatik.uni-stuttgart.de/pdf//datapro/datapro_reports_70s-90s/Siemens/70C-754-01_7810_Siemens_4004.pdf)
+and it features an innovative virtual memory system:
+
+![4004](img/4004.png)
+*The 4004/46 Processor was an upgraded version of the 4004/45-I.
+It included built-in logic that facilitated program segmentation and paging.
+The 262K main memory was divided into pages of 2048 or 4096 bytes each.
+Dynamic address translation facilities enabled each user to program
+as if he had a 2-million-byte virtual memory at his disposal.
+A magnetic drum permitted rapid swapping of program segments into and out 
+of core memory.*
+
+... everything old is new again!

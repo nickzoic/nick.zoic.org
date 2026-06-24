@@ -1,5 +1,6 @@
 ---
 date: '2023-03-25'
+updated: '2026-06-24'
 layout: article
 title: 'Seussical Jr: Totally Not Work Related'
 tags:
@@ -154,3 +155,9 @@ nomination)
 Tickets are [on sale for DVS's production of Frozen Jr](https://www.dvsingers.org/tickets)
 and are selling alarmingly fast.  I've seen the rehearsals and it's looking and sounding great.
 I don't think we'll be able to add more shows so get in quick.
+
+## UPDATE JUNE 2026
+
+We're foolish enough to be doing this again for 
+[DVS's production of Charlie and the Chocolate Factory (Jr)](https://www.dvsingers.org/upcoming-shows)
+and I'll be writing up some of the more fun technical parts in an article soon.

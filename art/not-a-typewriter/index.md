@@ -15,6 +15,27 @@ maybe go read those first if you didn't already.
 
 ## What is a computer anyway?
 
+It's okay, we're going back into the technical weeds real soon, but
+first I want to ask some questions:
+
+* What is a computer anyway, and what does it do?
+* If the point of this project is to rethink some aspects of
+  typical computers, what will the rethought computer do?
+
+Considering for the moment my own plethora of desktops, laptops,
+phones, tablets and so on, all of which are "computers" in some
+sense, most of what they do is run a web browser so I can watch
+bicycle videos and buy bicycle parts and plan bicycle trips and
+read conversations about bicycles.
+The browser is a staggeringly complex piece of work I cannot 
+hope to replace even a fraction of, so all that's out.
+
+The other thing I do is construct structured information.
+Documents, including this blog post.
+Programs, including the subject of this blog post.
+
+
+
 ## Terminals and keyboards and the Linux console (oh my)
 
 *A lot of this stuff is supported by the
@@ -102,11 +123,11 @@ Which is a terrible hack, but here we are.
     and treat them as normal input if they aren't a valid
     escape code.
 
-There's no way at all to tell the difference between
-Alt-A and someone mashing Escape and A at the same time,
-or between Alt-[ and the start of an escape sequence.
-There's also no way to tell the difference between
-Control-J and Enter, or Control-I and Tab, for example.
+    There's no way at all to tell the difference between
+    Alt-A and someone mashing Escape and A at the same time,
+    or between Alt-[ and the start of an escape sequence.
+    There's also no way to tell the difference between
+    Control-J and Enter, or Control-I and Tab, for example.
 
 With all this in mind, why bother with the console at all?
 We could access keyboard scan codes directly, but then it'd 
@@ -121,7 +142,7 @@ display letters: we can position the cursor, change colours,
 there's even a sequence to check the number of rows and
 columns.  By default this is limited to ASCII or possibly
 [CP437](https://en.wikipedia.org/wiki/Code_page_437)
-characters.
-
+characters, and we need to mess with the kernel options to
+support much at all.
 
 

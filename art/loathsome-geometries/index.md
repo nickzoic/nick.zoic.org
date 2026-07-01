@@ -199,3 +199,18 @@ R - S - T - U
 We skipped over 5-connected grids back there.  Imagine a 
 6-connected grid but you delete half of the diagonal links.
 
+```
+A - B - C - D 
+|   |   |   |
+E - F - G - H
+ \ / \ / \ / \
+  J - K - L - M
+  |   |   |   |
+  N - O - P - Q
+   \ / \ / \ / \
+    R - S - T - U
+```
+
+Unsurprisingly, when we count our neighbourhoods, the rule still
+holds and we get `$N_N = \frac{5}{2}N^2 + \frac{5}{2}N + 1$`.
+

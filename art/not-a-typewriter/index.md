@@ -72,7 +72,9 @@ an `é`[^overtype]
 ![typewriter](img/typewriter.png)
 *thanks to [overtype: the over-the-top typewriter simulator](https://uniqcode.com/typewriter/)*
 
-[^overtype]: see also [The centralized ASCII tilde](https://en.wikipedia.org/wiki/Tilde#The_centralized_ASCII_tilde) for the history here.
+[^overtype]: The tilde `~` character was up high in some typefaces to
+    make it useful for this.
+    See also [The centralized ASCII tilde](https://en.wikipedia.org/wiki/Tilde#The_centralized_ASCII_tilde) for the history here.
 
 ### Keyboards
 
@@ -120,8 +122,8 @@ Which is a terrible hack, but here we are.
     `[` together will get you a pair of codes indistiguishable
     from the start of an escape sequence at least half the time,
     so we have to consider *several* characters of input
-    and treat them as normal input if they aren't a valid
-    escape code.
+    and either ignore them all or treat them as normal input
+    if they aren't a valid escape code.
 
     There's no way at all to tell the difference between
     Alt-A and someone mashing Escape and A at the same time,

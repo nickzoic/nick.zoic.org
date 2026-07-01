@@ -34,9 +34,36 @@ So, to make this camera zoomable remotely, I'll need to toggle the USB power on 
 * Turn USB power back on to connect to camera.
 * Turn USB power off and send IR codes to power off.
 
-This is annoying!  
+This is annoying!  I do have a supposedly smart hub here which *should* be able
+to turn ports on and off with `uhubctl` but it doesn't appear to actually work,
+so I've tested this out by cutting a USB cable in half and making the power 
+line switchable.
+I've asked the manufacturer if they have a better way.
+
+## The Lens
 
 ![lens1](img/lens1.jpg)
 
-[Ebay](https://www.ebay.com.au/itm/147100667054)
+From [Ebay](https://www.ebay.com.au/itm/147100667054).
+
+This is allegedly a 6-60mm zoom which goes out to f/1.6.
+The image is 1/3" whereas the camera is 1/2.5" and at some focal
+lengths you can indeed see the edges of the lens in the corners
+of the image.
+
+The outside of the barrel is 36mm.
+There are three rotating controls each of which rotate about 90⁰
+and they have little M2 thumb screws to secure them in one place.
+Plan is to replace these with regular screws which will secure and
+locate 3d printed rings with gear teeth or whatever which can be
+operated by servos.
+
+![lens-gears](img/lens-gears.png)
+
+|label|purpose|
+|---|---|
+| N &larr; &rarr; &inf; | focus |
+| O &larr; &rarr; C | aperture |
+| W &larr; &rarr; T | zoom |
+
 

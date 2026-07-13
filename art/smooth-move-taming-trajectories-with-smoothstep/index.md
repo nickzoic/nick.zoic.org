@@ -176,10 +176,12 @@ For now at least, the plan is to check for 'excursions' and increase or
 decrease `$ t $` as necessary.
 
 `$ a_5 t^5 + a_4 t^4 + a_3 t^3 + a_2 x^2 + a_1 x + a_0 $`
+
 `$ 5 a_5 t^4 + 4 a_4 t^3 + 3 a_3 t^2 + 2 a_2 t + s_1 $`
+
 `$ 20 a_5 t^3 + 12 a_4 t^2 + 6 a_3 t + 2 a_2 $`
 
-`$ \begin{bmatrix}0 & 0 & 0 & 0 & 0 & 1 \\ t^5 & t^4 & t^3 & t^2 & t & 1 \\ 0 & 0 & 0 & 0 & 1 & 0 \\ 5 t^5 & 4 t^4 & 3 t^3 & 2 t^2 & t & 0 \\ 0 & 0 & 0 & 2 & 0 & 0 \\ 20 t^5 & 12 t^4 & 6 t^3 & 2 t^2 & 0 & 0 \end{bmatrix} \begin{bmatrix} a_5 \\ a_4 \\ a_3 \\ a_2 \\ a_1 \\ a_0 \end{bmatrix} = \begin{bmatrix} x_0 \\ x_1 \\ x'_0 \\ x'_1 \\ x''_0 \\ x''_1 \end{bmatrix} $`
+`$ \begin{bmatrix}0 & 0 & 0 & 0 & 0 & 1 \\ t^5 & t^4 & t^3 & t^2 & t & 1 \\ 0 & 0 & 0 & 0 & 1 & 0 \\ 5 t^5 & 4 t^4 & 3 t^3 & 2 t^2 & t & 0 \\ 0 & 0 & 0 & 2 & 0 & 0 \\ 20 t^5 & 12 t^4 & 6 t^3 & 2 t^2 & 0 & 0 \end{bmatrix} \begin{bmatrix} a_5 \\ a_4 \\ a_3 \\ a_2 \\ a_1 \\ a_0 \end{bmatrix} = \begin{bmatrix} x_0 \\ x_t \\ x'_0 \\ x'_t \\ x''_0 \\ x''_t \end{bmatrix} $`
 
 So for example in our simple "smootherstep" scenario discussed above, while
 trying to move from x=0 to x=1 in a span of 1 second our maximum velocity
@@ -191,6 +193,14 @@ If we decide that 1.875 m/s is too fast for our machine,
 we could increase `$ t $`, recalculate our polynomial and
 try again:
 
-`$ \begin{bmatrix}0 & 0 & 0 & 0 & 0 & 1 \\ t^5 & t^4 & t^3 & t^2 & t & 1 \\ 0 & 0 & 0 & 0 & 1 & 0 \\ 5t^5 & 4t^4 & 3t^3 & 2t^2 & t & 0 \\ 0 & 0 & 0 & 2 & 0 & 0 \\ 20t^5 & 12t^4 & 6t^3 & 2t^2 & 0 & 0 \end{bmatrix} \begin{bmatrix} a_5 \\ a_4 \\ a_3 \\ a_2 \\ a_1 \\ a_0 \end{bmatrix} = \begin{bmatrix} x_0 \\ x_t \\ x'_0 \\ x'_t \\ x''_0 \\ x''_t \end{bmatrix} $`
+`$ \begin{bmatrix}0 & 0 & 0 & 0 & 0 & 1 \\ 32 & 16 & 8 & 4 & 2 & 1 \\ 0 & 0 & 0 & 0 & 1 & 0 \\ 160 & 64 & 24 & 8 & 2 & 0 \\ 0 & 0 & 0 & 2 & 0 & 0 \\ 640 & 192 & 48 & 8 & 0 & 0 \end{bmatrix} \begin{bmatrix} a_5 \\ a_4 \\ a_3 \\ a_2 \\ a_1 \\ a_0 \end{bmatrix} = \begin{bmatrix} x_0 \\ x_1 \\ x'_0 \\ x'_1 \\ x''_0 \\ x''_1 \end{bmatrix} $`
 
+Likewise, we can increase `$ t $` if our maximum acceleration or jerk is higher
+than our target, or decrease it if we're not approaching any of our maxima.
+At each step we calculate a new polynomial until we're satistfied.
 
+# TODO
+
+* Unreachable states
+* Decent python implementation
+* Graphs

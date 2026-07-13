@@ -5,6 +5,9 @@ uses_mathjax: 3
 tags:
   - robots
   - 3dprint
+  - python
+  - maths
+date: '2026-07-13'
 ---
 
 ## Position, Velocity, Acceleration, Jerk?
@@ -20,67 +23,91 @@ equilibrium.
 
 Now imagine the box is your skull and the mass is your brain.  Jerk is real!
 
+There are algorithms to produce jerk-limited trajectories such as Ruckig
+([paper](https://arxiv.org/abs/2105.04830) / [ruckig.com](https://ruckig.com)).
+
 ### Higher Orders
 
 There's also higher derivatives which are sometimes called
 [Snap, Crackle and Pop](https://en.wikipedia.org/wiki/Fourth,_fifth,_and_sixth_derivatives_of_position)
+Snap (sometimes called Jounce) is the rate of change of Jerk; Crackle is the rate
+of change of Snap, etc.
 
-## SmoothStep and SmootherStep and Smooth<sup>n</sup>Step
+## SmoothStep ...
 
 [SmoothStep](https://en.wikipedia.org/wiki/Smoothstep) is a family of polynomial functions
-which smoothly transition from 0 to 1.
+which smoothly transition across the range [0,1] in the domain [0,1]:
 
-`$ S_1(x) = \begin{cases}0, & x <= 0 \\ 3x^2 - 2x^3, & 0 <= x <= 1 \\ 1, & 1 <= x\end{cases} $`
+`$ S_1(t) = \begin{cases}0, & t <= 0 \\ 3t^2 - 2t^3, & 0 <= t <= 1 \\ 1, & 1 <= t\end{cases} $`
 
-They're kind of like the [Logistic Function](https://en.wikipedia.org/wiki/Logistic_function)
-with the same kind of [sigmoid](https://en.wikipedia.org/wiki/Sigmoid_function) curve except
-the the tapered ends finish exactly at 0 and 1 instead of tapering off into infinity.
+They have the same kind of [sigmoid](https://en.wikipedia.org/wiki/Sigmoid_function)
+as the [Logistic Function](https://en.wikipedia.org/wiki/Logistic_function)
+except the tapered ends finish exactly at 0 and 1 instead of tapering off into infinity, which
+is handy for those of us who would like to actually finish something.
 
-The first derivative `$ S^\prime_1 $`, is polynomial too:
+Smoothstep is a polynomial function and so the first derivative `$ S^\prime_1 $`, is polynomial too:
 
-`$ S'_1(x) = \begin{cases}0, & x <= 0 \\ -6x^2 + 6x, & 0 <= x <= 1 \\ 0, & 1 <= x\end{cases} $`
+`$ S'_1(t) = \begin{cases}0, & t <= 0 \\ -6t^2 + 6t, & 0 <= t <= 1 \\ 0, & 1 <= t\end{cases} $`
 
-and has the handy property that it is neatly zero at both ends.
+and has the handy property that it is neatly zero at both ends.  However, `$ S''_1 $` does not have
+this property.  Our velocity at each end of our movement is zero, but our acceleration is not.
 
-`$ S_2(x) = \begin{cases}0, & x <= 0 \\ 6x^5 - 15x^4 +10x^3, & 0 <= x <= 1 \\ 1, & 1 <= x\end{cases} $`
-but using [Linear Algebra](https://en.wikipedia.org/wiki/Linear_algebra)
-this function can be worked out to an arbitrary depth:
+### ... and SmootherStep ...
 
-`$ S_6(x) = \begin{cases}0, & x <= 0 \\ 924x^{13} - 6006x^{12} + 16380x^{11} - 24024x^{10} + 20020x^9 - 9009x^8 + 1716x^7, & 0 <= x <= 1 \\ 1, & 1 <= x\end{cases} $`
+If we want acceleration to be zero at the beginning and end of our trajectory, we can use
+[Smootherstep](https://en.wikipedia.org/wiki/Smoothstep#Variations), which is a fifth-order
+polynomial with this property:
 
-More generally, up to the `$ n $`-th derivative of the `$ n $`-th smoothstep function starts and ends at zero:
+`$ S_2(t) = \begin{cases}0, & t <= 0 \\ 6t^5 - 15t^4 +10t^3, & 0 <= t <= 1 \\ 1, & 1 <= t\end{cases} $`
 
-`$ S^{(m)}_n(0) = S^{(m)}_n(1) = 0 ; m <= n $`
+`$ S'_2(t) = \begin{cases}0, & t <= 0 \\ 30t^4 - 60t^3 + 30t^2, & 0 <= t <= 1 \\ 0, & 1 <= t\end{cases} $`
 
-If you want to mess around with these equations in Python, the `numpy.polynomial` library is rather handy:
+`$ S''_2(t) = \begin{cases}0, & t <= 0 \\ 120t^3 - 180t^2 + 60t, & 0 <= t <= 1 \\ 0, & 1 <= t\end{cases} $`
+
+### ... and Smooth<sup>n</sup>Step
+
+The SmoothStep function can be worked out to an arbitrary depth, for example `$ S_6 $` is a 13th-order polynomial:
+
+`$ S_6(t) = \begin{cases}0, & t <= 0 \\ 924t^{13} - 6006t^{12} + 16380t^{11} - 24024t^{10} + 20020t^9 - 9009t^8 + 1716t^7, & 0 <= t <= 1 \\ 1, & 1 <= t\end{cases} $`
+
+For the `$ n $`-th Smoothstep function, all derivatives up to the `$ n $`-th derivative start and end at zero:
+
+`$ S^{(m)}_n(0) = S^{(m)}_n(1) = 0 where 1 <= m <= n $`
+
+### Some Python
+
+If you want to mess around with these equations in Python, the `numpy.polynomial` library is rather handy.
+`Polynomial` objects can be constructed from coefficients, and differentiated using the `deriv` method:
 
 ```
 >>> from numpy.polynomial import Polynomial
->>> S_6 = Polynomial([0,0,0,0,0,0,0,1716,-9009,20020,-24024,16380,-6006,924])
+>>> S_6 = Polynomial([0,0,0,0,0,0,0,1716,-9009,20020,-24024,16380,-6006,924], symbol='t')
 >>> print(S_6)
-0.0 + 0.0·x + 0.0·x² + 0.0·x³ + 0.0·x⁴ + 0.0·x⁵ + 0.0·x⁶ + 1716.0·x⁷ -
-9009.0·x⁸ + 20020.0·x⁹ - 24024.0·x¹⁰ + 16380.0·x¹¹ - 6006.0·x¹² + 923.0·x¹³
->>> pop = S_6.deriv(6)
->>> print(pop)
-0.0 + 8648640.0·x - (1.8162144e+08)·x² + (1.2108096e+09)·x³ - (3.6324288e+09)·x⁴ +
-(5.4486432e+09)·x⁵ - (3.99567168e+09)·x⁶ + (1.14162048e+09)·x⁷
->>> pop(0)
+0.0 + 0.0·t + 0.0·t² + 0.0·t³ + 0.0·t⁴ + 0.0·t⁵ + 0.0·t⁶ + 1716.0·t⁷ -
+9009.0·t⁸ + 20020.0·t⁹ - 24024.0·t¹⁰ + 16380.0·t¹¹ - 6006.0·t¹² + 924.0·t¹³
+>>> jerk = S_6.deriv(3)
+>>> print(jerk)
+0.0 + 0.0·t + 0.0·t² + 0.0·t³ + 360360.0·t⁴ - 3027024.0·t⁵ +
+10090080.0·t⁶ - 17297280.0·t⁷ + 16216200.0·t⁸ - 7927920.0·t⁹ +
+1585584.0·t¹⁰
+>>> jerk(0)
 np.float64(0.0)
->>> pop(1)
+>>> jerk(1)
 np.float64(0.0)
 ```
 
 ## From Here To There
 
-When we [worked out the 5th order Smoothstep function](https://en.wikipedia.org/wiki/Smoothstep#5th-order_equation)
-`$ S_2 $`, we used some linear algebra to work out the 
-coefficients `$ a_n $`:
+To [work out `$ S_2 $`](https://en.wikipedia.org/wiki/Smoothstep#5th-order_equation)
+we used some [Linear Algebra](https://en.wikipedia.org/wiki/Linear_algebra)
+to work out the coefficients `$ a_n $`:
 
-`$ \begin{bmatrix}0 & 0 & 0 & 0 & 0 & 1 \\ 1 & 1 & 1 & 1 & 1 & 1 \\ 0 & 0 & 0 & 0 & 1 ^ 0 \\ 5 & 4 & 3 & 2 & 1 & 0 \\ 0 & 0 & 0 & 2 & 0 & 0 \\ 20 & 12 & 6 & 2 & 0 & 0 \end{bmatrix} \begin{bmatrix} a_5 \\ a_4 \\ a_3 \\ a_2 \\ a_1 \\ a_0 \end{bmatrix} = \begin{bmatrix} 0 \\ 1 \\ 0 \\ 0 \\ 0 \\ 0 \end{bmatrix} $`
+`$ \begin{bmatrix}0 & 0 & 0 & 0 & 0 & 1 \\ 1 & 1 & 1 & 1 & 1 & 1 \\ 0 & 0 & 0 & 0 & 1 & 0 \\ 5 & 4 & 3 & 2 & 1 & 0 \\ 0 & 0 & 0 & 2 & 0 & 0 \\ 20 & 12 & 6 & 2 & 0 & 0 \end{bmatrix} \begin{bmatrix} a_5 \\ a_4 \\ a_3 \\ a_2 \\ a_1 \\ a_0 \end{bmatrix} = \begin{matrix} x_0 \\ x_1 \\ x'_0 \\ x'_1 \\ x''_0 \\ x''_1 \end{bmatrix} = \begin{bmatrix} 0 \\ 1 \\ 0 \\ 0 \\ 0 \\ 0 \end{bmatrix} $`
 
-Our 'target' matrix can represent other situations of starting and finishing position, velocity and acceleration:
-
-`$ T = \begin{bmatrix} x_0 & x_1 & v_0 & v_1 & a_0 & a_1 \end{bmatrix} $`
+But our 'target' matrix can represent other situations of starting and finishing position, velocity and acceleration.
+For example we might be moving already, or we might want to be moving at the end of this trajectory.
+We can use numpy's linear algebra solver to find a solution for our situation and use this to produce a `Polynomial`
+just for this segment of our trajectory:
 
 ```
 >>> import numpy
@@ -93,12 +120,14 @@ Our 'target' matrix can represent other situations of starting and finishing pos
 >>> M2 = numpy.linalg.solve(A,T2)
 >>> print(M2)
 array([ 3., -8.,  6.,  0.,  0.,  0.])
+>>> p = numpy.polynomial.Polynomial(M2[::-1], symbol='t')
+>>> print(p)
+0.0 + 0.0·t + 0.0·t² + 6.0·t³ - 8.0·t⁴ + 3.0·t⁵
 ```
 
-... and we can use this to produce a `Polynomial`:
-```
->>> from numpy.polynomial import Polynomial
->>> print(Polynomial(M2[::-1]))
-0.0 + 0.0·x + 0.0·x² + 6.0·x³ - 8.0·x⁴ + 3.0·x⁵
-```
+## Time for time
+
+At this point, every segment is assumed to occur in unit time.
+No matter how large or complicated the movement is, we assume it takes 1 second.
+This is obviously problematic.
 

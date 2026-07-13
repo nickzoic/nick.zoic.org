@@ -8,6 +8,7 @@ tags:
     - updates
     - not-computers
     - 3dprint
+    - theater
 summary: |
     In totally not work related news, I've been working
     on set design and construction for a musical theater

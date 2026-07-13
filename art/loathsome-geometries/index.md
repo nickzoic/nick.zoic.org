@@ -5,6 +5,7 @@ uses_mathjax: 3
 tags:
   - simulation
   - games
+  - maths
 ---
 
 > He had said that the geometry of the dream-place he saw

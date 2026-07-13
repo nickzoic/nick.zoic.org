@@ -4,6 +4,7 @@ date: '2025-10-09'
 summary: "Some thoughts about the yeast modeling we've been doing"
 tags:
   - bioinformatics
+  - maths
 layout: article
 uses_mathjax: 3
 ---

@@ -5,6 +5,7 @@ updated: '2026-05-13'
 summary: "How to better get a score from quantized (binned) counts"
 tags:
   - bioinformatics
+  - maths
 layout: article
 uses_mathjax: 3
 ---

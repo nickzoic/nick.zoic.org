@@ -23,9 +23,6 @@ equilibrium.
 
 Now imagine the box is your skull and the mass is your brain.  Jerk is real!
 
-There are algorithms to produce jerk-limited trajectories such as Ruckig
-([paper](https://arxiv.org/abs/2105.04830) / [ruckig.com](https://ruckig.com)).
-
 ### Higher Orders
 
 There's also higher derivatives which are sometimes called
@@ -33,12 +30,17 @@ There's also higher derivatives which are sometimes called
 Snap (sometimes called Jounce) is the rate of change of Jerk; Crackle is the rate
 of change of Snap, etc.
 
+## Trajectories
+
+There are algorithms to produce jerk-limited trajectories such as Ruckig
+([paper](https://arxiv.org/abs/2105.04830) / [ruckig.com](https://ruckig.com)).
+
 ## SmoothStep ...
 
 [SmoothStep](https://en.wikipedia.org/wiki/Smoothstep) is a family of polynomial functions
 which smoothly transition across the range [0,1] in the domain [0,1]:
 
-`$ S_1(t) = \begin{cases}0, & t <= 0 \\ 3t^2 - 2t^3, & 0 <= t <= 1 \\ 1, & 1 <= t\end{cases} $`
+`$ S_1(t) = \begin{cases}0, & t \leq 0 \\ 3t^2 - 2t^3, & 0 \leq t \leq 1 \\ 1, & 1 \leq t\end{cases} $`
 
 They have the same kind of [sigmoid](https://en.wikipedia.org/wiki/Sigmoid_function)
 as the [Logistic Function](https://en.wikipedia.org/wiki/Logistic_function)
@@ -47,7 +49,7 @@ is handy for those of us who would like to actually finish something.
 
 Smoothstep is a polynomial function and so the first derivative `$ S^\prime_1 $`, is polynomial too:
 
-`$ S'_1(t) = \begin{cases}0, & t <= 0 \\ -6t^2 + 6t, & 0 <= t <= 1 \\ 0, & 1 <= t\end{cases} $`
+`$ S'_1(t) = \begin{cases}0, & t \leq 0 \\ -6t^2 + 6t, & 0 \leq t \leq 1 \\ 0, & 1 \leq t\end{cases} $`
 
 and has the handy property that it is neatly zero at both ends.  However, `$ S''_1 $` does not have
 this property.  Our velocity at each end of our movement is zero, but our acceleration is not.
@@ -58,21 +60,23 @@ If we want acceleration to be zero at the beginning and end of our trajectory, w
 [Smootherstep](https://en.wikipedia.org/wiki/Smoothstep#Variations), which is a fifth-order
 polynomial with this property:
 
-`$ S_2(t) = \begin{cases}0, & t <= 0 \\ 6t^5 - 15t^4 +10t^3, & 0 <= t <= 1 \\ 1, & 1 <= t\end{cases} $`
+`$ S_2(t) = \begin{cases}0, & t \leq 0 \\ 6t^5 - 15t^4 +10t^3, & 0 \leq t \leq 1 \\ 1, & 1 \leq t\end{cases} $`
 
-`$ S'_2(t) = \begin{cases}0, & t <= 0 \\ 30t^4 - 60t^3 + 30t^2, & 0 <= t <= 1 \\ 0, & 1 <= t\end{cases} $`
+`$ S'_2(t) = \begin{cases}0, & t \leq 0 \\ 30t^4 - 60t^3 + 30t^2, & 0 \leq t \leq 1 \\ 0, & 1 \leq t\end{cases} $`
 
-`$ S''_2(t) = \begin{cases}0, & t <= 0 \\ 120t^3 - 180t^2 + 60t, & 0 <= t <= 1 \\ 0, & 1 <= t\end{cases} $`
+`$ S''_2(t) = \begin{cases}0, & t \leq 0 \\ 120t^3 - 180t^2 + 60t, & 0 \leq t \leq 1 \\ 0, & 1 \leq t\end{cases} $`
 
 ### ... and Smooth<sup>n</sup>Step
 
 The SmoothStep function can be worked out to an arbitrary depth, for example `$ S_6 $` is a 13th-order polynomial:
 
-`$ S_6(t) = \begin{cases}0, & t <= 0 \\ 924t^{13} - 6006t^{12} + 16380t^{11} - 24024t^{10} + 20020t^9 - 9009t^8 + 1716t^7, & 0 <= t <= 1 \\ 1, & 1 <= t\end{cases} $`
+`$ S_6(t) = \begin{cases}0, & t \leq 0 \\ 924t^{13} - 6006t^{12} + 16380t^{11} - 24024t^{10} + 20020t^9 - 9009t^8 + 1716t^7, & 0 \leq t \leq 1 \\ 1, & 1 \leq t\end{cases} $`
 
 For the `$ n $`-th Smoothstep function, all derivatives up to the `$ n $`-th derivative start and end at zero:
 
-`$ S^{(m)}_n(0) = S^{(m)}_n(1) = 0 where 1 <= m <= n $`
+`$ S^{(m)}_n(0) = S^{(m)}_n(1) = 0 \qquad where \qquad 1 \leq m \leq n $`
+
+![Smooth<sup>n</sup>step](img/smooth.svg)
 
 ### Some Python
 

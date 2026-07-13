@@ -171,6 +171,13 @@ and therefore a limit in snap, but its going to get confusing quick.)
 For now at least, the plan is to check for 'excursions' and increase or
 decrease `$ t $` as necessary.
 
+`$ a_0 = x_0 $`
+`$ t_1^5 a_5 + t_1^4 a_4 + t_1^3 a_3 + t_1^2 a_2 + t_1 a_1 + a_0 = x_t $`
+`$ a_1 = x'_0 $`
+`$ 5 t_1^5 a_5 + 4 t_1^4 a_4 + 3 t_1^3 a_3 + 2 t_1^2 a_2 + t_1 a_1 = x'_t $`
+`$ 2 a_2 = x''_0 $`
+`$ 20 t_1^5 a_5 + 12 t_1^4 a_4 + 6 t_1^3 a_3 + 2 t_1^2 a_2 = x''_t $`
+
 `$ \begin{bmatrix}0 & 0 & 0 & 0 & 0 & 1 \\ t^5 & t^4 & t^3 & t^2 & t & 1 \\ 0 & 0 & 0 & 0 & 1 & 0 \\ 5t^5 & 4t^4 & 3t^3 & 2t^2 & t & 0 \\ 0 & 0 & 0 & 2 & 0 & 0 \\ 20t^5 & 12t^4 & 6t^3 & 2t^2 & 0 & 0 \end{bmatrix} \begin{bmatrix} a_5 \\ a_4 \\ a_3 \\ a_2 \\ a_1 \\ a_0 \end{bmatrix} = \begin{bmatrix} x_0 \\ x_1 \\ x'_0 \\ x'_1 \\ x''_0 \\ x''_1 \end{bmatrix} $`
 
 So for example in our simple "smootherstep" scenario discussed above, while

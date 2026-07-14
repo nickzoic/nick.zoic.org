@@ -10,14 +10,25 @@ tags:
 date: '2026-07-13'
 ---
 
+This article is all about movement.
+Of a vehicle, or a robot, or something like a 3D printer which is really just a
+specialized robot with a hot glue gun.
+
+Some trajectories are fixed: the parts which are doing work like laying down plastic
+for example, have to be from a specific point to another specific point at a set speed,
+to most efficently do the task.  Other parts are pretty much free: the aim is to 
+get from the end of the previous task to the start of the next one rapidly but with as
+little fuss as possible. 
+
 ## Position, Velocity, Acceleration, Jerk?
 
 [Jerk](https://wikipedia.org/Jerk_%28Physics%29) is the third derivative of
 position, or the rate of change of acceleration, which might seem like a pretty
 abstract thing to be worried about but:
 
-Imagine a mass in a box under constant acceleration.  The mass is pushing up 
-against the side of the box which causes it to accelerate too.  But if we change
+Imagine a mass in a box under constant acceleration.  Springs inside the box are
+pushign the mass to cause it to accelerate too. But if we change the size or 
+direction of 
 the acceleration, the mass is going to slide around until it reaches a new
 equilibrium.
 
@@ -29,11 +40,31 @@ There's also higher derivatives which are sometimes called
 [Snap, Crackle and Pop](https://en.wikipedia.org/wiki/Fourth,_fifth,_and_sixth_derivatives_of_position)
 Snap (sometimes called Jounce) is the rate of change of Jerk; Crackle is the rate
 of change of Snap, etc.
+I don't have as neat an illustration of what these physically mean but there seems to be a consensus that
+they, and presumably higher derivatives again, have an effect on vibration and so on of
+mechanisms, and so they should be minimized too.
 
-## Trajectories
+### Discontinuities
 
+Our robot follows a path made up of many segments, some freer than others.
+The problem is smoothly transitioning between segments.
+A discontinuity in velocity requires a large acceleration.
+A discontinuity in acceleration requires a large jerk.
+And so on.
+When we combine segments into a path, it is important to match the ends to prevent
+these discontinuities.
+So our apparently "free" transport segments are actually critical to support
+our "working" segments.
 
-## SmoothStep ...
+## Transitions & Trajectories
+
+So let's look at a way to make our trajectories "smooth".
+There's been a lot of work on this for as long as people have been making machines.
+This is just one possible way to think about the problem ...
+
+Let's start by looking at a smooth transition function:
+
+### SmoothStep ...
 
 [SmoothStep](https://en.wikipedia.org/wiki/Smoothstep) is a family of
 polynomial functions which smoothly transition across the range [0,1]
@@ -71,6 +102,9 @@ For the `$ n $`-th Smoothstep function, all derivatives up to the `$ n $`-th der
 
 `$ S^{(m)}_n(0) = S^{(m)}_n(1) = 0 \qquad where \qquad 1 \leq m \leq n $`
 
+The next few examples all use Smootherstep `$ S_2 $` because it is slightly less cumbersome
+but we'll come back to `$ S_6 $` later.
+
 ### Logistic Function
 
 The higher the order of smoothstep, the more it resembles
@@ -107,8 +141,13 @@ np.float64(0.0)
 
 ## From Here To There
 
-To [work out `$ S_2 $`](https://en.wikipedia.org/wiki/Smoothstep#5th-order_equation)
-we set up a 5th order polynomial and its first and second derivatives:
+So let's work out a trajectory using SmootherStep. 
+[Calculating `$ S_2 $` is explained pretty well in wikipedia](https://en.wikipedia.org/wiki/Smoothstep#5th-order_equation)
+but note that I'm using `$ t $` as the free variable here since we're using `$ x $` for position and `$ x(t) $` for position
+varying with *time*.
+
+First, we set up a 5th order polynomial with variable coefficients `$ a_0, a_1, a_2, a_3, a_4, a_5 $`
+and consider its first and second derivatives:
 
 `$ S_2(t) = a_5 t^5 + a_4 t^4 + a_3 t^3 + a_2 x^2 + a_1 x + a_0 $`
 
@@ -116,14 +155,50 @@ we set up a 5th order polynomial and its first and second derivatives:
 
 `$ S''_2(t) = 20 a_5 t^3 + 12 a_4 t^2 + 6 a_3 t + 2 a_2 $`
 
-... and then used some [Linear Algebra](https://en.wikipedia.org/wiki/Linear_algebra)
+We also know some values we expect to see for `$ S_2 $` etc:
+
+* Start from position 0, end up in position 1: `$ S_2(0) = 0 ; S_2(1) = 1 $`
+* Start and end with zero velocity: `$ S'_2(0) = 0 ; S'_2(1) = 0 $`
+* Start and end with zero acceleration: `$ S''_2(0) = 0 ; S''_2(1) = 0 $`
+
+So now we can use some [Linear Algebra](https://en.wikipedia.org/wiki/Linear_algebra)
 to work out the coefficients `$ a_n $` for our desired starting and finishing
-values of `$ x $`, `$ x' $` and `$ x'' $`.
+values of `$ S_2 $`, `$ S'_2 $` and `$ S''_2 $`.
 
-`$ \begin{bmatrix}0 & 0 & 0 & 0 & 0 & 1 \\ 1 & 1 & 1 & 1 & 1 & 1 \\ 0 & 0 & 0 & 0 & 1 & 0 \\ 5 & 4 & 3 & 2 & 1 & 0 \\ 0 & 0 & 0 & 2 & 0 & 0 \\ 20 & 12 & 6 & 2 & 0 & 0 \end{bmatrix} \begin{bmatrix} a_5 \\ a_4 \\ a_3 \\ a_2 \\ a_1 \\ a_0 \end{bmatrix} = \begin{bmatrix} x_0 \\ x_1 \\ x'_0 \\ x'_1 \\ x''_0 \\ x''_1 \end{bmatrix} = \begin{bmatrix} 0 \\ 1 \\ 0 \\ 0 \\ 0 \\ 0 \end{bmatrix} $`
+`$ \begin{bmatrix}0 & 0 & 0 & 0 & 0 & 1 \\ 1 & 1 & 1 & 1 & 1 & 1 \\ 0 & 0 & 0 & 0 & 1 & 0 \\ 5 & 4 & 3 & 2 & 1 & 0 \\ 0 & 0 & 0 & 2 & 0 & 0 \\ 20 & 12 & 6 & 2 & 0 & 0 \end{bmatrix} \begin{bmatrix} a_5 \\ a_4 \\ a_3 \\ a_2 \\ a_1 \\ a_0 \end{bmatrix} = \begin{bmatrix} S_2(0) \\ S_2(1) \\ S'_2(0) \\ S'_2(1) \\ S''_2(0) \\ S''_2(1) \end{bmatrix} = \begin{bmatrix} 0 \\ 1 \\ 0 \\ 0 \\ 0 \\ 0 \end{bmatrix} $`
 
-But our 'target' matrix can represent other situations of starting and finishing position, velocity and acceleration.
-For example we might be moving already, or we might want to be moving at the end of this trajectory.
+Solving this, we find:
+
+`$ \begin{bmatrix}a_5 \\ a_4 \\ a_3 \\ a_2 \\ a_1 \\ a_0 \end{bmatrix} = \begin{bmatrix}6 \\ -15 \\ 10 \\ 0 \\ 0 \\ 0 \end{bmatrix} $`
+
+So our polynomial is:
+
+`$ S_2(t) = 6 t^5 - 15 t^4 + 10 t^3 $` 
+
+as expected.
+This function makes a smooth transition from standing still at point 0 (`$ x(0) = 0 ; x'(0) = 0 ; x''(0) = 0 $`) to
+standing still at point 1 (`$ x(1) = 1 ; x'(1) = 0 ; x''(1) = 0 $`)
+
+### Variable Targets
+
+Our 'target' matrix can represent other situations of starting and finishing position, velocity and acceleration.
+For example we might be moving already from a previous trajectory, or we might want to be moving at the end of this
+trajectory, for example if it leads into a working trajectory.
+
+For example here's the same calculation but when our trajectory starts we're already at point 1 and moving right
+(`$ x(0) = 1 ; x'(0) = 1 ; x''(0) = 0 $`) and when we end we'd like to be at point 2 and moving left
+(`$ x(1) = 2 ; x'(1) = -1 ; x''(1) = 0 $`):
+
+(we'll consider when we'd want to have `$ x''(0) \neq 0 $` and/or `$ x''(1) \neq 0 $` later)
+
+`$ \begin{bmatrix}0 & 0 & 0 & 0 & 0 & 1 \\ 1 & 1 & 1 & 1 & 1 & 1 \\ 0 & 0 & 0 & 0 & 1 & 0 \\ 5 & 4 & 3 & 2 & 1 & 0 \\ 0 & 0 & 0 & 2 & 0 & 0 \\ 20 & 12 & 6 & 2 & 0 & 0 \end{bmatrix} \begin{bmatrix} a_5 \\ a_4 \\ a_3 \\ a_2 \\ a_1 \\ a_0 \end{bmatrix} = \begin{bmatrix} x_0 \\ x_1 \\ x'_0 \\ x'_1 \\ x''_0 \\ x''_1 \end{bmatrix} = \begin{bmatrix} 1 \\ 2 \\ 1 \\ -1 \\ 0 \\ 0 \end{bmatrix} $`
+
+and solving we find:
+
+`$ \begin{bmatrix}a_5 \\ a_4 \\ a_3 \\ a_2 \\ a_1 \\ a_0 \end{bmatrix} = \begin{bmatrix}6 \\ -14 \\ 8 \\ 0 \\ 1 \\ 1 \end{bmatrix} $`
+
+### More Python
+
 We can use numpy's linear algebra solver to find a solution for our situation and use this to produce a `Polynomial`
 just for this segment of our trajectory:
 
@@ -134,14 +209,16 @@ just for this segment of our trajectory:
 >>> M1 = numpy.linalg.solve(A,T1)
 >>> print(M1)
 [  6. -15.  10.   0.   0.   0.]
->>> T2 = [0,1,0,1,0,0]
+>>> T2 = [1,2,1,-1,0,0]
 >>> M2 = numpy.linalg.solve(A,T2)
 >>> print(M2)
-array([ 3., -8.,  6.,  0.,  0.,  0.])
+[  6. -14.   8.   0.   1.   1.]
 >>> p = numpy.polynomial.Polynomial(M2[::-1], symbol='t')
 >>> print(p)
-0.0 + 0.0·t + 0.0·t² + 6.0·t³ - 8.0·t⁴ + 3.0·t⁵
+1.0 + 1.0·t + 0.0·t² + 8.0·t³ - 14.0·t⁴ + 6.0·t⁵
 ```
+
+### Different final velocities
 
 ![Position, Velocity, Acceleration and Jerk for different final velocities](img/smooth2.svg)
 
@@ -151,7 +228,9 @@ At this point, every segment is assumed to occur in unit time.
 No matter how large or complicated the movement is, we assume it takes 1 second.
 
 This is obviously problematic.
-The physical system we're working with has limitations.
+Our smooth curves and transitions have gotten rid of the discontinuities but
+the physical system we're working with has limitations.
+
 For example if we're dealing with a typical stepper actuated linear stage:
 
 * position `$ x $` is limited by the length of the device's threaded axis

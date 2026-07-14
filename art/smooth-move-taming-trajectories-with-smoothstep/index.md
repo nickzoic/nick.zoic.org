@@ -217,6 +217,8 @@ Likewise, we can increase `$ t $` if our maximum acceleration or jerk is higher
 than our target, or decrease it if we're not approaching any of our maxima.
 At each step we calculate a new polynomial until we're satistfied.
 
+![Same terminal velocity in different times](img/smooth3.svg)
+
 # TODO
 
 * Unreachable states

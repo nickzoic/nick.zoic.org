@@ -143,6 +143,8 @@ array([ 3., -8.,  6.,  0.,  0.,  0.])
 0.0 + 0.0·t + 0.0·t² + 6.0·t³ - 8.0·t⁴ + 3.0·t⁵
 ```
 
+![Position, Velocity, Acceleration and Jerk for different final velocities](img/smooth2.svg)
+
 ## Time for time
 
 At this point, every segment is assumed to occur in unit time.

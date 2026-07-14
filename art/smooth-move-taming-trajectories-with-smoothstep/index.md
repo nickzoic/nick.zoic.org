@@ -35,15 +35,12 @@ of change of Snap, etc.
 
 ## SmoothStep ...
 
-[SmoothStep](https://en.wikipedia.org/wiki/Smoothstep) is a family of polynomial functions
-which smoothly transition across the range [0,1] in the domain [0,1]:
+[SmoothStep](https://en.wikipedia.org/wiki/Smoothstep) is a family of
+polynomial functions which smoothly transition across the range [0,1]
+in the domain [0,1] in a
+[Sigmoid](https://en.wikipedia.org/wiki/Sigmoid_function) shape.
 
 `$ S_1(t) = \begin{cases}0, & if\ t \leq 0 \\ 3t^2 - 2t^3, & if\ 0 \leq t \leq 1 \\ 1, & if\ 1 \leq t\end{cases} $`
-
-They have the same kind of [sigmoid](https://en.wikipedia.org/wiki/Sigmoid_function)
-as the [Logistic Function](https://en.wikipedia.org/wiki/Logistic_function)
-except the tapered ends finish exactly at 0 and 1 instead of tapering off into infinity, which
-is handy for those of us who would like to actually finish something.
 
 Smoothstep is a polynomial function and so the first derivative `$ S^\prime_1 $`, is polynomial too:
 
@@ -74,6 +71,16 @@ For the `$ n $`-th Smoothstep function, all derivatives up to the `$ n $`-th der
 
 `$ S^{(m)}_n(0) = S^{(m)}_n(1) = 0 \qquad where \qquad 1 \leq m \leq n $`
 
+### Logistic Function
+
+The higher the order of smoothstep, the more it resembles
+the [Logistic Function](https://en.wikipedia.org/wiki/Logistic_function)
+except the tapered ends finish exactly at 0 and 1 instead of tapering off into infinity, which
+is handy for those of us who would like to actually finish moving.
+
+This graph compares the first few Smoothstep functions with a scaled version
+of the logistic function `$ \frac{1}{1 + e^{6-12x}} $`:
+
 ![Smoothstep compared to Logistic Function](img/smooth.svg)
 
 ### Some Python
@@ -101,12 +108,17 @@ np.float64(0.0)
 ## From Here To There
 
 To [work out `$ S_2 $`](https://en.wikipedia.org/wiki/Smoothstep#5th-order_equation)
-we used some [Linear Algebra](https://en.wikipedia.org/wiki/Linear_algebra)
-to work out the coefficients `$ a_n $`:
+we set up a 5th order polynomial and its first and second derivatives:
 
 `$ S_2(t) = a_5 t^5 + a_4 t^4 + a_3 t^3 + a_2 x^2 + a_1 x + a_0 $`
-`$ S'_2(t) = 5 a_5 t^4 + 4 a_4 t^3 + 3 a_3 t^2 + 2 a_2 t + s_1 $`
+
+`$ S'_2(t) = 5 a_5 t^4 + 4 a_4 t^3 + 3 a_3 t^2 + 2 a_2 t + a_1 $`
+
 `$ S''_2(t) = 20 a_5 t^3 + 12 a_4 t^2 + 6 a_3 t + 2 a_2 $`
+
+... and then used some [Linear Algebra](https://en.wikipedia.org/wiki/Linear_algebra)
+to work out the coefficients `$ a_n $` for our desired starting and finishing
+values of `$ x $`, `$ x' $` and `$ x'' $`.
 
 `$ \begin{bmatrix}0 & 0 & 0 & 0 & 0 & 1 \\ 1 & 1 & 1 & 1 & 1 & 1 \\ 0 & 0 & 0 & 0 & 1 & 0 \\ 5 & 4 & 3 & 2 & 1 & 0 \\ 0 & 0 & 0 & 2 & 0 & 0 \\ 20 & 12 & 6 & 2 & 0 & 0 \end{bmatrix} \begin{bmatrix} a_5 \\ a_4 \\ a_3 \\ a_2 \\ a_1 \\ a_0 \end{bmatrix} = \begin{bmatrix} x_0 \\ x_1 \\ x'_0 \\ x'_1 \\ x''_0 \\ x''_1 \end{bmatrix} = \begin{bmatrix} 0 \\ 1 \\ 0 \\ 0 \\ 0 \\ 0 \end{bmatrix} $`
 
@@ -173,7 +185,7 @@ and therefore a limit in snap, but its going to get confusing quick.)
 ### Scaling
 
 For now at least, the plan is to check for 'excursions' and increase or
-decrease `$ t $` as necessary.
+decrease `$ t $` as necessaryo
 
 We can find maxima by finding the roots of the derivative.
 
@@ -194,7 +206,7 @@ is:
 `$ S'_2(\frac{1}{2}) = 30(\frac{1}{2})^4 - 60(\frac{1}{2})^3 + 30(\frac{1}{2})^2 = 1.875 $`
 
 If we decide that 1.875 m/s is too fast for our machine,
-we could increase `$ t $`, recalculate our polynomial and
+we could increase to `$ t=2 $`, recalculate our polynomial and
 try again:
 
 `$ \begin{bmatrix}0 & 0 & 0 & 0 & 0 & 1 \\ 32 & 16 & 8 & 4 & 2 & 1 \\ 0 & 0 & 0 & 0 & 1 & 0 \\ 80 & 32 & 12 & 4 & 2 & 0 \\ 0 & 0 & 0 & 2 & 0 & 0 \\ 160 & 48 & 12 & 2 & 0 & 0 \end{bmatrix} \begin{bmatrix} a_5 \\ a_4 \\ a_3 \\ a_2 \\ a_1 \\ a_0 \end{bmatrix} = \begin{bmatrix} x_0 \\ x_1 \\ x'_0 \\ x'_1 \\ x''_0 \\ x''_1 \end{bmatrix} $`

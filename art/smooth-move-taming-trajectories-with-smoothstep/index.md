@@ -286,6 +286,8 @@ is:
 
 `$ S'_2(\frac{1}{2}) = 30(\frac{1}{2})^4 - 60(\frac{1}{2})^3 + 30(\frac{1}{2})^2 = 1.875 $`
 
+![Same terminal velocity in different times](img/smooth3.svg)
+
 If we decide that 1.875 m/s is too fast for our machine,
 we could increase to `$ t=2 $`, recalculate our polynomial and
 try again:
@@ -296,7 +298,7 @@ Likewise, we can increase `$ t $` if our maximum acceleration or jerk is higher
 than our target, or decrease it if we're not approaching any of our maxima.
 At each step we calculate a new polynomial until we're satistfied.
 
-![Same terminal velocity in different times](img/smooth3.svg)
+![Determining optimal trajectory time for maximum velocity](img/smooth4.svg)
 
 # TODO
 

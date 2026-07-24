@@ -1,7 +1,11 @@
 ---
 title: 'CCCP: the Computer Controlled Camera Project'
-layout: draft
+layout: article
 summary: 'controlling a camera and lens from software'
+tags: 
+  - 3dprint
+  - robots
+date: '2026-07-24'
 ---
 
 This is a project to get a camera and lens controlled directly from software.
@@ -76,7 +80,7 @@ compatible in the future and using USB saves me worrying about all that.
 From [Ebay](https://www.ebay.com.au/itm/147100667054).
 
 This is a 6-60mm zoom CS-mount lens which opens out to f/1.6.
-The image circle is 1/3" whereas the camera is 1/2.5", fractions being
+The image circle is 1/3" whereas the camera is 1/2.5", so fractions being
 fractions, at some focal lengths you can indeed see vignetting or even
 the edges of the lens in the corners of the image, where the image circle
 is smaller than the sensor.
@@ -220,8 +224,17 @@ project for a different time.
 ## Autofocus
 
 I'd like to explore getting autofocus working ... part of the inspiration for this project
-was to get the microscope camera autofocussing.  
+was to get the microscope camera autofocussing.
+Because the depth of field is very shallow, varying the focus could also be used to reveal the
+3D structure of the structure being observed.
+
+This paper looks particularly interesting:
 
 * [Deep learning for single-shot autofocus microscopy](https://doi.org/10.1364/OPTICA.6.000794)
 
+## Coming Soon ...
 
+* Kinematics for moving samples and/or cameras smoothly
+* Autofocus and image processing
+* Making the camera accessible remotely
+* Some optical theater magic

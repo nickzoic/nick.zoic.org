@@ -61,13 +61,12 @@ I've also ordered a more specialized CS-mount camera
 [from Waveshare](https://www.ebay.com.au/itm/257289165597)
 which doesn't have the HDMI output but should be useful for other things.
 It's based on the Sony IMX577 and should be able to stream
-3840 × 3024 at 20FPS, or hopefully it's UVC support is good enough to 
-make digital zoom control each.
+3840 × 3024 at 20FPS over USB 2.0.
 
-This one just has USB 2.0 connection.  There are heaps of similar cameras around
-using various flavours of "CSI", which support assorted Raspberry Pi and
-Nvidia Jetson boards, but I'm not sure how the different versions interoperate
-and USB saves me worrying about all that.
+There are heaps of similar cameras around using various flavours of "CSI",
+and which support assorted Raspberry Pi and Nvidia Jetson boards, but I'm
+not sure how the different versions interoperate and what boards will be
+compatible in the future and using USB saves me worrying about all that.
 
 ## The Lens
 
@@ -140,8 +139,10 @@ which would be 36-360mm in 35mm equivalent which seems about right.)
 ![non-linear](img/plot1.svg)
 *ring1 vs ring2*
 
-The relationship between the two is not linear!  The angle of ring2 rises 
-along with the angle of ring1, until it slows and rapidly reverses.
+The relationship between the two is not linear!  The angle of the rear ring rises 
+along with the angle of the front ring, until it slows and rapidly reverses.
+You can confirm this experimentally: with the rear ring set to 60⁰, the image is in
+focus at two different settings of the front ring, with different zoom levels.
 
 By picking an arbitrary
 'zoom' axis for both rings to be functions of, and assuming one was a
@@ -150,20 +151,23 @@ simple parabola, I was able to fit a cubic to the other:
 ![arbitary t](img/plot2.svg)
 *fitting curves compared to an arbitrary 'zoominess' axis*
 
-This is pretty arbitrary, of course: a better fit is likely possible but 
-I'm going to come back to this.
+This is pretty arbitrary, of course: a more elegant equation and a better fit
+is likely possible but I'm going to come back to this once things are
+automated.
 
 ### ... why don't you give me a gear.
 
-To gain control of the lens, I 3D printed a gear which fits tightly onto
-the ring and used the thumbscrew to secure it to the ring.  Because of 
-the additional spacing, he screws just attach the gear to the ring without preventing
-the ring from rotating.
+To let the computer control the lens, I 3D printed a gear which fits tightly onto
+the ring and used the existing thumbscrew to secure it to the ring.  Because of 
+the additional spacing, the screws just attach the gear to the ring and don't
+prevent the ring from rotating freely.
 
 ![lens-gears](img/lens-gears.png)
+*lens gear designed in OpenSCAD*
 
-I drive the gear with a small RC servo.  These turn about 180⁰
-where the ring only turns 90⁰, so I use a 1:2 gear ratio to match them
+I drive the gear with a small [RC servo](https://en.wikipedia.org/wiki/Servo_(radio_control).
+The servo I'm using is a [Tower Pro 9G SG90](https://towerpro.com.tw/product/sg90-7/),
+these turn about 180⁰ where the ring only turns 90⁰, so I use a 1:2 gear ratio to match them
 together.
 
 <div style="position: relative; width: 100%; height: 0; padding-bottom: 100%"><iframe src="htt
@@ -171,10 +175,10 @@ ps://www.youtube.com/embed/9Pfr_puJHnI" frameborder="0" allow="accelerometer; au
 ted-media; gyroscope; picture-in-picture" style="position: absolute; width: 100%; height: 100%
 ; left: 0; top: 0" allowfullscreen></iframe></div>
 
-The servo is a [Tower Pro 9G SG90](https://towerpro.com.tw/product/sg90-7/) ...
-it is very small but it draws a lot of power when moving — about 6V 300mA 
-when moving quickly and twice that current at stall — and it 'fidgets' if
-it doesn't get enough.
+RC Servos are cheap and cheerful and not particularly precise, but they do have
+a handy amount of torque for their size and just need a single pulse signal to tell
+them what position to go to.  This makes them very easy to control from a microcontroller
+PWM IO.
 
 Next: a second servo!  By controlling the two rings separately, and
 plotting out focus curves at other distances, I should be able to focus
@@ -186,10 +190,18 @@ servo for aperture.
 I also have a 100x microscope lens in CS format which is also getting a servoed
 focus.  That one only has the one ring so a little more straightforward.
 
-Real camera lenses make these adjustments using ultrasonic steppers motors
+![microscope with servoed focus](img/micro.jpg)
+*Microscope lens with servoed focus: this is an earlier prototype using a
+larger servomotor and chunkier gears.  It clamps onto the lens using screws 
+in the plastic, but I have some threaded inserts now too.*
+
+Real camera lenses make these adjustments using ultrasonic motors
 which wrap right around the lens.  It'd be a fun project to reverse engineer
 a micro-four-thirds power zoom lens for this purpose, but that's a different
 project for a different time.
 
+I'd like to explore getting 
 [Autofocus](https://doi.org/10.1364/OPTICA.6.000794)
+to work with this lens.
+
 

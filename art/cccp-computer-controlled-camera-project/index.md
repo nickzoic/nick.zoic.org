@@ -55,6 +55,20 @@ to turn ports on and off with `uhubctl` but it doesn't appear to actually work,
 so I've tested this out by cutting a USB cable in half and making the power 
 line switchable.
 
+### Other Cameras
+
+I've also ordered a more specialized CS-mount camera
+[from Waveshare](https://www.ebay.com.au/itm/257289165597)
+which doesn't have the HDMI output but should be useful for other things.
+It's based on the Sony IMX577 and should be able to stream
+3840 × 3024 at 20FPS, or hopefully it's UVC support is good enough to 
+make digital zoom control each.
+
+This one just has USB 2.0 connection.  There are heaps of similar cameras around
+using various flavours of "CSI", which support assorted Raspberry Pi and
+Nvidia Jetson boards, but I'm not sure how the different versions interoperate
+and USB saves me worrying about all that.
+
 ## The Lens
 
 ![lens1](img/lens1.jpg)
@@ -75,7 +89,10 @@ a fixed position.
 
 The middle ring is labelled "O &larr;&rarr; C" and is
 straightforwardly the aperture, from a maximum f/1.6 at "O" to
-completely closed at "C".
+completely closed at "C".  As the aperture closes it appears to
+be three blades and quite amazing bokeh, but sadly CS lenses 
+don't lend themselves to mounting on other cameras as their focal
+plane distance is very short indeed.
 
 The other two rings are a bit weirder.  Despite "N &larr;&rarr; &infin;"
 suggesting this is focus from near to infinity and "W &larr;&rarr; T"
@@ -139,12 +156,13 @@ I'm going to come back to this.
 ### ... why don't you give me a gear.
 
 To gain control of the lens, I 3D printed a gear which fits tightly onto
-the ring and used the thumbscrew to secure it to the ring without preventing
+the ring and used the thumbscrew to secure it to the ring.  Because of 
+the additional spacing, he screws just attach the gear to the ring without preventing
 the ring from rotating.
 
 ![lens-gears](img/lens-gears.png)
 
-I could then drive the gear with a small RC servo.  These turn about 180⁰
+I drive the gear with a small RC servo.  These turn about 180⁰
 where the ring only turns 90⁰, so I use a 1:2 gear ratio to match them
 together.
 
@@ -162,6 +180,11 @@ Next: a second servo!  By controlling the two rings separately, and
 plotting out focus curves at other distances, I should be able to focus
 and zoom the lens accurately.  I could maybe even squeeze in a third 
 servo for aperture.
+
+### Other Lenses
+
+I also have a 100x microscope lens in CS format which is also getting a servoed
+focus.  That one only has the one ring so a little more straightforward.
 
 Real camera lenses make these adjustments using ultrasonic steppers motors
 which wrap right around the lens.  It'd be a fun project to reverse engineer

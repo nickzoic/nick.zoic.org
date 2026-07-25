@@ -84,7 +84,7 @@ I already have a couple of CS mount lenses though ...
 ![lens1](img/lens1.jpg)
 *From [Ebay](https://www.ebay.com.au/itm/147100667054).*
 
-This is a 6-60mm zoom CS-mount lens which opens out to f/1.6.
+This is a 6-60mm zoom CS-mount[^csmount] lens which opens out to f/1.6.
 The image circle is 1/3" whereas the camera is 1/2.5", so fractions being
 fractions, at some focal lengths you can indeed see vignetting or even
 the edges of the lens in the corners of the image, where the image circle
@@ -100,13 +100,15 @@ a fixed position.
 The middle ring is labelled "O &larr;&rarr; C" and is
 straightforwardly the aperture, from a maximum f/1.6 at "O" to
 completely closed at "C".  As the aperture closes it appears to
-be three blades leading to quite amazing [bokeh](https://photographylife.com/what-is-bokeh)[^cs],
+be three blades leading to quite amazing [bokeh](https://photographylife.com/what-is-bokeh)
 
-[^cs]: Sadly CS lenses don't lend themselves to mounting on other cameras as their focal
+[^csmount]: Sadly CS lenses don't lend themselves to mounting on other cameras as their focal
     plane distance is very short indeed (12.526mm), even compared to 
     say [Micro 4/3](https://en.wikipedia.org/wiki/Micro_Four_Thirds_system)'s 19.25mm.
     The ones you see people using are "C-mount", which are mostly similar but 17.526mm 
     focal plane distance.
+[^cmount]: C-mount lenses can mount on a CS-mount camera using a 5mm
+    spacer, but not vice-versa.
 
 The other two rings are a bit weirder.
 The front ring is labelled "N &larr;&rarr; &infin;"
@@ -164,7 +166,7 @@ front ring | rear ring (300mm) | rear ring (150mm) | rear ring (75mm) | zoom
 The relationship between the two is not linear!  The angle of the rear ring rises 
 along with the angle of the front ring, until it slows and rapidly reverses.
 You can confirm this experimentally: with the rear ring set to 60⁰, the image is in
-focus at two different settings of the front ring, with different zoom levels.
+focus at two widely different settings of the front ring, with different zoom levels.
 
 By picking an arbitrary
 'zoom' axis for both rings to be functions of, and assuming one was a
@@ -222,11 +224,16 @@ then change the aperture, and thus the depth of field, while autofocussing.
 
 ### Microscope Lenses
 
-I also have a 100x microscope lens in CS format which is also getting a servoed
+I also have a 100x[^100x] microscope lens in CS format which is also getting a servoed
 focus.
 The microscope lens one only has the one ring so is a little more straightforward.
 On the other hand, it has a lot of turns rather than ¼ of a turn so a stepper
 might be a better idea than a servo.
+
+[^100x]: Much as with 10x programmers, the "100x" is bullshit.
+    This lens is *maybe* as powerful as a 8x microscope objective.
+    The nominal 100x includes the magnification between the 1/2.5"
+    camera sensor and a great big monitor.
 
 This is an earlier prototype using a larger servo and chunkier (modulus=2)
 gears.  It clamps onto the non-rotating part of the lens barrel:

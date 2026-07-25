@@ -520,6 +520,10 @@ what I'm most familiar with, but yes I'm aware
 that there have been languages written since 1999 and there
 may even be some advantages to using them.
 
+**If you like this kind of thing, [SmolBSD](https://smolbsd.org/)
+might be of interest too, a NetBSD based system which boots in milliseconds.
+(thanks to Emile on Blueksy for the heads-up.**
+
 # TO BE CONTINUED
 
 Next up: [Forest for the trees](/art/forest-for-the-trees/), an adventure

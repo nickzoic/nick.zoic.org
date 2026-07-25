@@ -1,6 +1,6 @@
 ---
 title: Charlie and the Chocolate Factory — Tricks!
-template: draft
+layout: draft
 tags:
   - theater
   - not-computers

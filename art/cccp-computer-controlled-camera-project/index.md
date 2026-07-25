@@ -17,6 +17,11 @@ experience if nothing else.
 
 ## The Camera
 
+This is an HDMI camera I bought off Ebay as a circuit assembly / inspection 
+microscope.
+The nice thing about this camera is it outputs HDMI so you can use it directly with 
+a monitor or TV at very low latency.
+
 <!--![camera1](img/camera1.jpg)-->
 ![camera2](img/camera2.jpg)
 
@@ -27,10 +32,6 @@ The camera is advertised and labelled as "52MP FHD Camera V8" but when zooming t
 of zoom it's actually interpolating pixels.
 It is more or less [this YW5607](http://www.szyoungwin.com/en/procanshu.php?pid=401)
 which I note advertises a more realistic 16Mpix which would correspond to a 2.8x zoom.
-
-The nice thing about this camera is it outputs HDMI so you can use it directly with 
-a monitor or TV at very low latency.  I'm using it in this way as a microscope for 
-circuit assembly and inspection but it'd be nice to have some software control.
 
 ### Zooming
 
@@ -54,30 +55,34 @@ So, to make this camera zoomable remotely, I'll need to toggle the USB power on 
 * Turn USB power back on to connect to camera.
 * Turn USB power off and send IR codes to power off.
 
-This is annoying!  I do have a supposedly smart hub here which *should* be able
-to turn ports on and off with `uhubctl` but it doesn't appear to actually work,
-so I've tested this out by cutting a USB cable in half and making the power 
-line switchable.
+This is annoying!  This camera might go back to being an inspection camera ...
 
 ### Other Cameras
 
-I've also ordered a more specialized CS-mount camera
-[from Waveshare](https://www.ebay.com.au/itm/257289165597)
-which doesn't have the HDMI output but should be useful for other things.
+I've also ordered a more specialized CS-mount camera.
 It's based on the Sony IMX577 and should be able to stream
-3840 × 3024 at 20FPS over USB 2.0.  Hopefully it'll also let me zoom etc
-using UVC controls.
+3840 × 3024 at 20FPS over USB 2.0.
+Hopefully it'll also let me zoom etc using UVC controls.
+
+![waveshare imx577 camera](img/waveshare-imx577-camera.jpg)
+*IMX577 based USB camera from Waveshare*
+
+* [Ebay listing](https://www.ebay.com.au/itm/257289165597)
+* [Sony IMX577 datasheet](https://www.sony-semicon.com/files/62/pdf/p-13_IMX577-AACK_Flyer.pdf)
 
 There are heaps of similar cameras around using various flavours of "CSI",
 and which support assorted Raspberry Pi and Nvidia Jetson boards, but I'm
 not sure how the different versions interoperate and what boards will be
 compatible in the future and using USB saves me worrying about all that.
 
+There are also a heap of cameras around which use an "M12" or "S-mount"
+lens, which uses a plastic M12x0.5 thread to retain and focus the lens.
+I already have a couple of CS mount lenses though ...
+
 ## The Lens
 
 ![lens1](img/lens1.jpg)
-
-From [Ebay](https://www.ebay.com.au/itm/147100667054).
+*From [Ebay](https://www.ebay.com.au/itm/147100667054).*
 
 This is a 6-60mm zoom CS-mount lens which opens out to f/1.6.
 The image circle is 1/3" whereas the camera is 1/2.5", so fractions being
@@ -179,6 +184,13 @@ the ring and used the existing thumbscrew to secure it to the ring.  Because of
 the additional spacing, the screws just attach the gear to the ring and don't
 prevent the ring from rotating freely.
 
+3d printed spur gears work amazingly well, I've used them in 
+[previous projects](/art/saturnalia-a-rotating-christmas-tree/) and with
+the right print settings they can be quite strong and reasonably efficient.
+There's a nice [OpenSCAD gear library](https://github.com/chrisspen/gears) 
+which makes it easy!
+I could write a whole article just on spur gears and perhaps some day I will :-)
+
 ![lens-gears](img/lens-gears.png)
 *lens gear designed in OpenSCAD*
 
@@ -192,28 +204,41 @@ ps://www.youtube.com/embed/9Pfr_puJHnI" frameborder="0" allow="accelerometer; au
 ted-media; gyroscope; picture-in-picture" style="position: absolute; width: 100%; height: 100%
 ; left: 0; top: 0" allowfullscreen></iframe></div>
 
-RC Servos are cheap and cheerful and not particularly precise, but they do have
+RC Servos are cheap and cheerful and not particularly accurate or precise, but they do have
 a handy amount of torque for their size and just need a single pulse signal to tell
 them what position to go to.  This makes them very easy to control from a microcontroller
-IO pin using [PWM](https://en.wikipedia.org/wiki/Pulse-width_modulation)
+IO pin using [PWM](https://en.wikipedia.org/wiki/Pulse-width_modulation) ... depending
+on the microcontroller you could get 8, 10 or even 16 bits of resolution.
 
-The front ring now moves quite easily across its full range.
+The front ring can now be moved quite easily across its full range.
 
-Next: a second servo!  By controlling the two rings separately, and
+Next: add a second servo!  By controlling the two rings separately, and
 plotting out focus curves at other distances, I should be able to focus
-and zoom the lens accurately.  I could maybe even squeeze in a third 
-servo for aperture.
+and zoom the lens accurately.
 
-### Other Lenses
+I could maybe even squeeze in a third servo for aperture.
+Computer control of aperture would be quite nice because the computer could
+then change the aperture, and thus the depth of field, while autofocussing.
+
+### Microscope Lenses
 
 I also have a 100x microscope lens in CS format which is also getting a servoed
 focus.
 The microscope lens one only has the one ring so is a little more straightforward.
-This is an earlier prototype using a larger servo and chunkier gears.  It clamps 
-onto the non-rotating part of the lens barrel.
+On the other hand, it has a lot of turns rather than ¼ of a turn so a stepper
+might be a better idea than a servo.
+
+This is an earlier prototype using a larger servo and chunkier (modulus=2)
+gears.  It clamps onto the non-rotating part of the lens barrel:
 
 ![microscope with servoed focus](img/micro.jpg)
 *Microscope lens with servoed focus*
+
+I also have some microscope objectives around here somewhere and I'd like to
+try getting them working with the camera sensor.  Those are fixed focus 
+though so they'll require a very precisely moveable Z axis.
+
+#### Real Camera Lenses
 
 Real camera lenses make these adjustments using ultrasonic motors
 which wrap right around the lens.  It'd be a fun project to
@@ -224,7 +249,7 @@ project for a different time.
 ## Autofocus
 
 I'd like to explore getting autofocus working ... part of the inspiration for this project
-was to get the microscope camera autofocussing.
+was to get the microscope camera autofocussing to make it easier to work with.
 Because the depth of field is very shallow, varying the focus could also be used to reveal the
 3D structure of the structure being observed.
 

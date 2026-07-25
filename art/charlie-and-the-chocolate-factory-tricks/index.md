@@ -27,7 +27,7 @@ Mike Teavee is the final child to be found wanting: he transmits himself over
 the television and is shrunk to doll size in the process.  I wanted some way to 
 present this which was fun and unexpected and a bit strange.
 
-In the movie[^wilder] Mike is in a huge white room and just stands on a little
+In the movie[^wilder], Mike is in a huge white room and just stands on a little
 platform and a huge white camera makes him disappear, but this is a bit beyond
 our abilities.
 
@@ -53,7 +53,8 @@ He's still live so can deliver his lines, and the HDMI camera should introduce v
 little latency.
 
 Then we pull the zoom back so he appears to shrink and eventually he'll defocus
-and disappear, or we can close the aperture.
+and disappear, or we can close the aperture to fade to black.
+
 A fixed mask in front of the lens prevents the camera from seeing anything it
 shouldn't, but the door at the back is open to the floor so as he shrinks
 we see all the way down to his feet.
@@ -91,22 +92,22 @@ t = a + b = c + d       # the combined radiuses have to be the same for both to 
 r = (a / b) / (c / d)   # work out the combined gear ratio
 ```
 
-We can make a table of useful ratios with a small bit of Python:
+We can make a table of useful ratios with a small and scruffy bit of Python:
 
 ```
 results = []
 
 for a in range(41,50):
     for b in range(13,30):
-        for c in range(41,50):
+        for c in range(a+1,50):
             d = a + b - c
-            if d < 13: continue
-            r = a*d/b/c
-            if 0.7 < r < 0.8:
-                results.append([a*d/b/c,a+b,a,b,c,d])
+            if d >= 13:
+                r = (a/b) / (c/d)
+                if 0.7 < r < 0.8:
+                    results.append([r, a+b, a, b, c, d])
 
-for r,t,a,b,c,d in sorted(results):
-    print(a,b,c,d,r,t)
+for r, t, a, b, c, d in sorted(results):
+    print(a, b, c, d, r, t)
 ```
 
 Overall, I'd prefer the ones with a smaller sum of radiuses because that
@@ -114,7 +115,7 @@ makes the whole apparatus less bulky.
 Some candidate ratios produced by this script:
 
 a | b | c | d | r | t
----|---|---|---|---|---
+:---:|:---:|:---:|:---:|:---:|:---:
 41 | 20 | 45 | 16 | 0.7289 | 61
 43 | 27 | 48 | 22 | 0.7299 | 70
 44 | 20 | 48 | 16 | 0.7333 | 64

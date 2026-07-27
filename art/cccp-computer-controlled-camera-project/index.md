@@ -105,10 +105,11 @@ be three blades leading to quite amazing [bokeh](https://photographylife.com/wha
 [^csmount]: Sadly CS lenses don't lend themselves to mounting on other cameras as their focal
     plane distance is very short indeed (12.526mm), even compared to 
     say [Micro 4/3](https://en.wikipedia.org/wiki/Micro_Four_Thirds_system)'s 19.25mm.
-    The ones you see people using are "C-mount", which are mostly similar but 17.526mm 
-    focal plane distance.
+    The ones you see people using with mirrorless cameras are "C-mount",
+    which are the same thread but 17.526mm focal plane distance.
+
 [^cmount]: C-mount lenses can mount on a CS-mount camera using a 5mm
-    spacer, but not vice-versa.
+    spacer (see above), but not vice-versa.
 
 The other two rings are a bit weirder.
 The front ring is labelled "N &larr;&rarr; &infin;"
@@ -224,19 +225,21 @@ then change the aperture, and thus the depth of field, while autofocussing.
 
 ### Microscope Lenses
 
-I also have a 100x[^100x] microscope lens in CS format which is also getting a servoed
-focus.
+I also have a 100x[^100x] microscope lens in CS format which is also getting
+a motorized focus.
 The microscope lens one only has the one ring so is a little more straightforward.
-On the other hand, it has a lot of turns rather than ¼ of a turn so a stepper
-might be a better idea than a servo.
+On the other hand, its focus ring rotates about 3½ turns rather than ¼ of a turn
+so a stepper might be a better idea than a servo.
 
 [^100x]: Much as with 10x programmers, the "100x" is bullshit.
     This lens is *maybe* as powerful as a 8x microscope objective.
     The nominal 100x includes the magnification between the 1/2.5"
     camera sensor and a great big monitor.
 
-This is an earlier prototype using a larger servo and chunkier (modulus=2)
-gears.  It clamps onto the non-rotating part of the lens barrel:
+This is an earlier prototype using a large servo and chunky
+gears.  It clamps onto the lens barrel and focus ring using
+self-tapping screws in the plastic.
+I'll need to find a better way to support continuous rotation.
 
 ![microscope with servoed focus](img/micro.jpg)
 *Microscope lens with servoed focus*

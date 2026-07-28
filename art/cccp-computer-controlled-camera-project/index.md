@@ -6,6 +6,7 @@ tags:
   - 3dprint
   - robots
 date: '2026-07-24'
+updated: '2026-07-29'
 ---
 
 This is a project to get a camera and lens controlled directly from software.
@@ -202,10 +203,7 @@ The servo I'm using is a [Tower Pro 9G SG90](https://towerpro.com.tw/product/sg9
 these turn about 180⁰ where the ring only turns 90⁰, so I use a 1:2 gear ratio to match them
 together.
 
-<div style="position: relative; width: 100%; height: 0; padding-bottom: 100%"><iframe src="htt
-ps://www.youtube.com/embed/9Pfr_puJHnI" frameborder="0" allow="accelerometer; autoplay; encryp
-ted-media; gyroscope; picture-in-picture" style="position: absolute; width: 100%; height: 100%
-; left: 0; top: 0" allowfullscreen></iframe></div>
+<div style="position: relative; width: 100%; height: 0; padding-bottom: 100%"><iframe src="https://www.youtube.com/embed/9Pfr_puJHnI" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" style="position: absolute; width: 100%; height: 100%; left: 0; top: 0" allowfullscreen></iframe></div>
 
 RC Servos are cheap and cheerful and not particularly accurate or precise, but they do have
 a handy amount of torque for their size and just need a single pulse signal to tell
@@ -266,6 +264,32 @@ Because the depth of field is very shallow, varying the focus could also be used
 This paper looks particularly interesting:
 
 * [Deep learning for single-shot autofocus microscopy](https://doi.org/10.1364/OPTICA.6.000794)
+
+## Updates 2026-07-29
+
+I've made a new microscope mechanism with a small geared stepper motor
+and finer pitch gears.  Rather than clamping on, the motor bracket and the gear
+use tapered wedges to grip the lens barrel, and this seems to have worked 
+quite well, the layer lines keep everything securely locked together.
+
+You can get the 3D model files [here](https://www.thingiverse.com/thing:7389087).
+
+I've got to say, I'm not a big fan of these `28BYJ48` steppers,
+which somehow manage to draw 5V / 400mA, have a ~64:1 reduction gear and still
+not have enough torque to pull the skin off a rice pudding.
+There's also a lot of backlash in the drivetrain.
+
+![new microscope](img/new-micro.jpg)
+*new microscope setup*
+
+Still, it should be enough to grab a stack of JPGs to try out autofocus
+algorithms, while I look around for an affordable source for NEMA 8 motors
+or similar.
+
+<div style="position: relative; width: 100%; height: 0; padding-bottom: 100%"><iframe src="https://www.youtube.com/embed/DNIvnmj3MRw" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" style="position: absolute; width: 100%; height: 100%; left: 0; top: 0" allowfullscreen></iframe></div>
+
+I also need some kind of stall detection or endstop detection or whatever,
+for when the lens hits the end of its focus range.
 
 ## Coming Soon ...
 

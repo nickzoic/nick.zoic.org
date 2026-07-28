@@ -109,9 +109,6 @@ be three blades leading to quite amazing [bokeh](https://photographylife.com/wha
     The ones you see people using with mirrorless cameras are "C-mount",
     which are the same thread but 17.526mm focal plane distance.
 
-[^cmount]: C-mount lenses can mount on a CS-mount camera using a 5mm
-    spacer (see above), but not vice-versa.
-
 The other two rings are a bit weirder.
 The front ring is labelled "N &larr;&rarr; &infin;"
 suggesting this is focus from near to infinity and the rear one 
@@ -223,7 +220,7 @@ then change the aperture, and thus the depth of field, while autofocussing.
 
 ### Microscope Lenses
 
-I also have a 100x[^100x] microscope lens in CS format which is also getting
+I also have a 100x[^100x] C-mount[^cmount] microscope lens which is also getting
 a motorized focus.
 The microscope lens one only has the one ring so is a little more straightforward.
 On the other hand, its focus ring rotates about 3½ turns rather than ¼ of a turn
@@ -233,6 +230,9 @@ so a stepper might be a better idea than a servo.
     This lens is *maybe* as powerful as a 8x microscope objective.
     The nominal 100x includes the magnification between the 1/2.5"
     camera sensor and a great big monitor.
+
+[^cmount]: C-mount lenses can mount on a CS-mount camera using a 5mm
+    spacer (see above), but not vice-versa.
 
 This is an earlier prototype using a large servo and chunky
 gears.  It clamps onto the lens barrel and focus ring using

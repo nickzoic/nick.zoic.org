@@ -11,42 +11,62 @@ date: '2026-07-13'
 ---
 
 This article is all about movement.
-Of a vehicle, or a robot, or something like a 3D printer which is really just a
-specialized robot with a hot glue gun.
+Of a vehicle, or a robot, or something like a 3D printer.
 
-Some trajectories are fixed: the parts which are doing work like laying down plastic
-for example, have to be from a specific point to another specific point at a set speed,
-to most efficently do the task.  Other parts are pretty much free: the aim is to 
-get from the end of the previous task to the start of the next one rapidly but with as
-little fuss as possible. 
+A 3D printer is really just a specialized robot with a hot glue gun
+which it can move in multiple directions while squirting out molten
+plastic.
+Some parts of this movement are fixed: while the printer is extruding
+it goes in a set direction and speed.
+Other parts of the movement are more free: the printer just has to 
+get to the right place for the start of its next task, as rapidly 
+as it is able to do so[^gcode].
+
+[^gcode]: 3D printers and similar machines use an encoding called 
+[G-code](https://en.wikipedia.org/wiki/G-code) which makes this
+separation explicit: command `G1` means travel a fixed straight path at
+a fixed speed whereas command `G0` means just get there any way you can.
+`G02` and `G03` mean circles, we'll talk about circles later.
 
 ## Position, Velocity, Acceleration, Jerk?
 
-[Jerk](https://wikipedia.org/Jerk_%28Physics%29) is the third derivative of
-position, or the rate of change of acceleration, which might seem like a pretty
-abstract thing to be worried about but:
+Our robot, or print head, has a *position* in space and also a *velocity*
+which is how fast it is moving and an *acceleration* which is how rapidly
+that velocity is changing.  These are all *vectors* in that they have 
+both [magnitude and direction](https://despicableme.fandom.com/wiki/Vector_Perkins)
+but for (many) 3D printers each axis is a separate mechanism, so this 
+article is often going to talk about them as if they were scalars, eg:
+just a positive or negative number.
 
-Imagine a mass in a box under constant acceleration.  Springs inside the box are
-pushign the mass to cause it to accelerate too. But if we change the size or 
-direction of 
-the acceleration, the mass is going to slide around until it reaches a new
-equilibrium.
+Acceleration is the [derivative](https://en.wikipedia.org/wiki/Derivative)
+of velocity, how rapidly velocity is increasing or decreasing.
+Velocity is just the derivative of position: how fast is our position changing.
+
+[Jerk](https://wikipedia.org/Jerk_%28Physics%29) is the derivative of
+acceleration, or the rate of change of acceleration, which might seem like a pretty
+abstract thing to be worried about.
+But imagine a mass in a box under constant acceleration.
+Springs inside the box are pushing the mass to cause it to accelerate too,
+so it stays inside the box.
+But if we change the size or direction of the acceleration, the mass is going
+to slide around until it reaches a new equilibrium.
 
 Now imagine the box is your skull and the mass is your brain.  Jerk is real!
 
 ### Higher Orders
 
 There's also higher derivatives which are sometimes called
-[Snap, Crackle and Pop](https://en.wikipedia.org/wiki/Fourth,_fifth,_and_sixth_derivatives_of_position)
+[Snap, Crackle and Pop](https://en.wikipedia.org/wiki/Fourth,_fifth,_and_sixth_derivatives_of_position).
+
 Snap (sometimes called Jounce) is the rate of change of Jerk; Crackle is the rate
 of change of Snap, etc.
 I don't have as neat an illustration of what these physically mean but there seems to be a consensus that
-they, and presumably higher derivatives again, have an effect on vibration and so on of
+they, and presumably even higher derivatives, have an effect on vibration and so on of
 mechanisms, and so they should be minimized too.
 
 ### Discontinuities
 
-Our robot follows a path made up of many segments, some freer than others.
+Our robot follows a path made up of many trajectories.
 The problem is smoothly transitioning between segments.
 A discontinuity in velocity requires a large acceleration.
 A discontinuity in acceleration requires a large jerk.
@@ -56,9 +76,12 @@ these discontinuities.
 So our apparently "free" transport segments are actually critical to support
 our "working" segments.
 
+https://www.flightradar24.com/blog/aviation-explainer-series/interesting-patterns-on-flightradar24/
+
 ## Transitions & Trajectories
 
 So let's look at a way to make our trajectories "smooth".
+
 There's been a lot of work on this for as long as people have been making machines.
 This is just one possible way to think about the problem ...
 

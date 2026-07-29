@@ -290,6 +290,7 @@ or similar.
 
 I also need some kind of stall detection or endstop detection or whatever,
 for when the lens hits the end of its focus range.
+And maybe a detector for when the gear falls off.
 
 ## Coming Soon ...
 

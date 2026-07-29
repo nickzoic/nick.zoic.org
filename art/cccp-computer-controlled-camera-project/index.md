@@ -272,7 +272,8 @@ and finer pitch gears.  Rather than clamping on, the motor bracket and the gear
 use tapered wedges to grip the lens barrel, and this seems to have worked 
 quite well, the layer lines keep everything securely locked together.
 
-You can get the 3D model files [here](https://www.thingiverse.com/thing:7389087).
+You can get the 3D model files [here](https://www.thingiverse.com/thing:7389087)
+or the OpenSCAD source [on github](https://github.com/nickzoic/models3d/blob/master/parts/microscope-gear3.scad)
 
 I've got to say, I'm not a big fan of these `28BYJ48` steppers,
 which somehow manage to draw 5V / 400mA, have a ~64:1 reduction gear and still

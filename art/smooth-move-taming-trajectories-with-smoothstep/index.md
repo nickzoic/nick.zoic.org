@@ -23,10 +23,10 @@ get to the right place for the start of its next task, as rapidly
 as it is able to do so[^gcode].
 
 [^gcode]: 3D printers and similar machines use an encoding called 
-[G-code](https://en.wikipedia.org/wiki/G-code) which makes this
-separation explicit: command `G1` means travel a fixed straight path at
-a fixed speed whereas command `G0` means just get there any way you can.
-`G02` and `G03` mean circles, we'll talk about circles later.
+  [G-code](https://en.wikipedia.org/wiki/G-code) which makes this
+  separation explicit: command `G1` means travel a fixed straight path at
+  a fixed speed whereas command `G0` means just get there any way you can.
+  `G02` and `G03` mean circles. We'll talk about circles later.
 
 ## Position, Velocity, Acceleration, Jerk?
 
@@ -34,13 +34,14 @@ Our robot, or print head, has a *position* in space and also a *velocity*
 which is how fast it is moving and an *acceleration* which is how rapidly
 that velocity is changing.  These are all *vectors* in that they have 
 both [magnitude and direction](https://despicableme.fandom.com/wiki/Vector_Perkins)
-but for (many) 3D printers each axis is a separate mechanism, so this 
-article is often going to talk about them as if they were scalars, eg:
+but for (many) 3D printers each axis is a separate mechanism, so for now
+we're going to talk about them as if they were scalars, eg:
 just a positive or negative number.
 
-Acceleration is the [derivative](https://en.wikipedia.org/wiki/Derivative)
-of velocity, how rapidly velocity is increasing or decreasing.
-Velocity is just the derivative of position: how fast is our position changing.
+Velocity is just the [derivative](https://en.wikipedia.org/wiki/Derivative)
+of position: how fast is our position changing.
+Acceleration is the derivative
+of velocity: how rapidly our velocity is increasing or decreasing.
 
 [Jerk](https://wikipedia.org/Jerk_%28Physics%29) is the derivative of
 acceleration, or the rate of change of acceleration, which might seem like a pretty

@@ -68,11 +68,11 @@ get to the right place for the start of its next fixed segment, as rapidly
 as is practical[^gcode].
 
 [^gcode]: 3D printers and similar machines use an encoding called 
-  [G-code](https://en.wikipedia.org/wiki/G-code) which makes this
-  separation explicit: command `G1` means travel a fixed straight path at
-  a fixed speed whereas command `G0` means just get there any way you can.
-  There's also `G02` and `G03` which mean circles, we'll talk about circles later
-  under "Multiple Dimensions".
+    [G-code](https://en.wikipedia.org/wiki/G-code) which makes this
+    separation explicit: command `G1` means travel a fixed straight path at
+    a fixed speed whereas command `G0` means just get there any way you can.
+    There's also `G02` and `G03` which mean circles, we'll talk about circles later
+    under "Multiple Dimensions".
 
 The problem is smoothly transitioning between segments.
 A discontinuity in velocity requires a large acceleration.

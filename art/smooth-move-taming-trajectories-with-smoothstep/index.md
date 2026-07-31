@@ -23,9 +23,10 @@ Our robot, or print head, has a *position* in space and also a *velocity*
 which is how fast it is moving and an *acceleration* which is how rapidly
 that velocity is changing.
 
-Acceleration is the [derivative](https://en.wikipedia.org/wiki/Derivative)
-of velocity, how rapidly velocity is increasing or decreasing.
-Velocity is just the derivative of position: how fast is our position changing.
+Velocity is just the [derivative](https://en.wikipedia.org/wiki/Derivative)
+of position: how fast is our position changing.
+Acceleration is the derivative
+of velocity: how rapidly our velocity is increasing or decreasing.
 
 These are all *vectors* in that they have 
 both [magnitude and direction](https://despicableme.fandom.com/wiki/Vector_Perkins)
@@ -67,11 +68,11 @@ get to the right place for the start of its next fixed segment, as rapidly
 as is practical[^gcode].
 
 [^gcode]: 3D printers and similar machines use an encoding called 
-[G-code](https://en.wikipedia.org/wiki/G-code) which makes this
-separation explicit: command `G1` means travel a fixed straight path at
-a fixed speed whereas command `G0` means just get there any way you can.
-There's also `G02` and `G03` which mean circles, we'll talk about circles later
-under "Multiple Dimensions".
+  [G-code](https://en.wikipedia.org/wiki/G-code) which makes this
+  separation explicit: command `G1` means travel a fixed straight path at
+  a fixed speed whereas command `G0` means just get there any way you can.
+  There's also `G02` and `G03` which mean circles, we'll talk about circles later
+  under "Multiple Dimensions".
 
 The problem is smoothly transitioning between segments.
 A discontinuity in velocity requires a large acceleration.
@@ -208,7 +209,7 @@ as expected.
 This function makes a smooth transition from standing still at point 0 (`$ x(0) = 0 ; x'(0) = 0 ; x''(0) = 0 $`) to
 standing still at point 1 (`$ x(1) = 1 ; x'(1) = 0 ; x''(1) = 0 $`)
 
-### Variable Targets
+### Moving Targets
 
 Our 'target' matrix can represent other situations of starting and finishing position, velocity and acceleration.
 For example we might be moving already from a previous trajectory, or we might want to be moving at the end of this

@@ -215,9 +215,13 @@ Our 'target' matrix can represent other situations of starting and finishing pos
 For example we might be moving already from a previous trajectory, or we might want to be moving at the end of this
 trajectory, for example if it leads into a working trajectory.
 
-For example here's the same calculation but when our trajectory starts we're already at point 1 and moving right
-(`$ x(0) = 1 ; x'(0) = 1 ; x''(0) = 0 $`) and when we end we'd like to be at point 2 and moving left
-(`$ x(1) = 2 ; x'(1) = -1 ; x''(1) = 0 $`):
+For example here's the same calculation but when our trajectory starts we're already at point 1 and moving right:
+
+`$ x(0) = 1 \qquad ; \qquad x'(0) = 1 \qquad ; \qquad x''(0) = 0 $`
+
+... and when we end we'd like to be at point 2 and moving left:
+
+`$ x(1) = 2 \qquad ; \qquad x'(1) = -1 \qquad ; \qquad x''(1) = 0 $`
 
 (we'll consider when we'd want to have `$ x''(0) \neq 0 $` and/or `$ x''(1) \neq 0 $` later)
 
@@ -284,7 +288,7 @@ The trajectory goes through several phases:
 | decreasing | negative | increasing | negative | starting to slow down |
 | decreasing | negative | maximum | zero | slowing as fast as possible |
 | decreasing | negative | decreasing | positive | gently coming to a halt |
-| zero | zero | zero | finished |
+| zero | zero | zero | zero | finished |
 
 Not all phases are necessarily used, for example a given trajectory may
 never hit maximum acceleration.
@@ -296,9 +300,10 @@ and therefore a limit in snap, but its going to get confusing quick.)
 ### Scaling
 
 For now at least, the plan is to check for 'excursions' and increase or
-decrease `$ t $` as necessaryo
+decrease `$ t $` as necessary.
 
-We can find maxima by finding the roots of the derivative.
+We can find maxima of each derivative numerically, or by finding the roots
+of the next derivative.
 
 **XXX check the math here**
 

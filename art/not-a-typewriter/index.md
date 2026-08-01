@@ -1,11 +1,11 @@
 ---
-layout: draft
+layout: article
 title: 'ENOTTY: Not a typewriter'
 summary: 'What is a computer anyway?'
 tags:
   - c
   - linux
-date: '2026-06-16'
+date: '2026-08-01'
 ---
 
 This is kind of a third installment following on from
@@ -33,8 +33,6 @@ hope to replace even a fraction of, so all that's out.
 The other thing I do is construct structured information.
 Documents, including this blog post.
 Programs, including the subject of this blog post.
-
-
 
 ## Terminals and keyboards and the Linux console (oh my)
 
@@ -107,7 +105,11 @@ arrive at our program exactly as if the user splattered
 a bunch of keys all in an instant.
 
 I started to catalog which keys were reliably available in this
-mode but it got a bit out of hand ...
+mode but it got a bit out of hand ... but to summarize,
+in addition to the printables, it’s looking like F1 through F10
+and Shift-F1 through Shift-F10, plus Tab, Escape and Enter
+are consistent.
+Control-(digit or letter) and Alt-(digit or letter) are okay too.
 
 * [some console keycodes](keyboards/)
 
@@ -139,12 +141,35 @@ in the long run.
 
 ### Console Output
 
-Going back the other way, the console can do more than just
-display letters: we can position the cursor, change colours,
+Going back the other way, the console can do
+[more than just display letters](https://man7.org/linux/man-pages/man4/console_codes.4.html): we can position the cursor, change colours,
 there's even a sequence to check the number of rows and
 columns.  By default this is limited to ASCII or possibly
 [CP437](https://en.wikipedia.org/wiki/Code_page_437)
 characters, and we need to mess with the kernel options to
 support much at all.
 
+## Computer, Compute!
 
+Okay, so in [Boot Naked Linux](/art/boot-naked-linux/) we looked
+at how to boot a computer into a stand-alone program, and in 
+[Forest for the Trees](/art/forest-for-the-trees/) we looked at
+persistent data structures without a file system per se, and with
+the work above we've got a console with an extended keyboard and
+enough building blocks for a TUI (in unaccented
+[English](https://en.wikipedia.org/wiki/English_as_She_Is_Spoke)
+anyway).
+
+The missing thing is that back in the day, computers used to ...
+compute!  As in, you could write programs to compute things.
+So from here we need to implement a 
+[LISP machine](https://en.wikipedia.org/wiki/Lisp_machine)
+or a [FORTH kernel](https://en.wikipedia.org/wiki/Forth_(programming_language))
+or [TIS-100](https://en.wikipedia.org/wiki/TIS-100) or something
+like that to give us a development environment.
+
+Or maybe a somewhat weird version of 
+[MicroPython](/tag/micropython/) would work well, with the REPL
+taking over from the Applesoft BASIC prompt.
+
+But that's for another time ...

@@ -86,9 +86,9 @@ To select the gear ratios I use a small Python script which just brute-forces al
 plausible gear sizes to see what numbers of teeth produce about the right ratio.
 
 ```
-41 <= a < c < 50        # the big gears have to be big enough to fit around the lens
-13 <= d < b < 30        # the small gears have to be big enough to be nicely formed
-t = a + b = c + d       # the combined radiuses have to be the same for both to mesh
+41 <= a < c < 50        # big enough to fit around the lens
+13 <= d < b < 30        # big enough to be nicely formed
+t = a + b = c + d       # the combined radiuses have to be the same
 r = (a / b) / (c / d)   # work out the combined gear ratio
 ```
 
@@ -114,13 +114,14 @@ Overall, I'd prefer the ones with a smaller sum of radiuses because that
 makes the whole apparatus less bulky.
 Some candidate ratios produced by this script:
 
-a | b | c | d | r | t
-:---:|:---:|:---:|:---:|:---:|:---:
-41 | 20 | 45 | 16 | 0.7289 | 61
-43 | 27 | 48 | 22 | 0.7299 | 70
-44 | 20 | 48 | 16 | 0.7333 | 64
-41 | 21 | 45 | 17 | 0.7376 | 62
-43 | 21 | 47 | 17 | 0.7406 | 64
+a | b | c | d | r | t | color
+:---:|:---:|:---:|:---:|:---:|:---:|---
+42 | 19 | 46 | 15 | 0.7208 | 61 | red/green
+41 | 20 | 45 | 16 | 0.7289 | 61 |
+43 | 27 | 48 | 22 | 0.7299 | 70 | white
+44 | 20 | 48 | 16 | 0.7333 | 64 | red
+41 | 21 | 45 | 17 | 0.7376 | 62 |
+43 | 21 | 47 | 17 | 0.7406 | 64 | blue
 
 Then it's time to experiment and see which set of gears gets us closest to what we want:
 

@@ -107,7 +107,8 @@ be three blades leading to quite amazing [bokeh](https://photographylife.com/wha
     plane distance is very short indeed (12.526mm), even compared to 
     say [Micro 4/3](https://en.wikipedia.org/wiki/Micro_Four_Thirds_system)'s 19.25mm.
     The ones you see people using with mirrorless cameras are "C-mount",
-    which are the same thread but 17.526mm focal plane distance.
+    which are the same thread but 17.526mm focal plane distance, which you can
+    get away with by recessing the lens a couple of mm into the camera body.
 
 The other two rings are a bit weirder.
 The front ring is labelled "N &larr;&rarr; &infin;"

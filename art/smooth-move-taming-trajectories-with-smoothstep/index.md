@@ -16,39 +16,31 @@ Of a vehicle, or a robot, or something like a 3D printer.
 A 3D printer is really just a specialized robot with a hot glue gun
 which it can move in multiple directions while squirting out molten
 plastic.
-Some parts of this movement are fixed: while the printer is extruding
-it goes in a set direction and speed.
-Other parts of the movement are more free: the printer just has to 
-get to the right place for the start of its next task, as rapidly 
-as it is able to do so[^gcode].
 
-[^gcode]: 3D printers and similar machines use an encoding called 
-  [G-code](https://en.wikipedia.org/wiki/G-code) which makes this
-  separation explicit: command `G1` means travel a fixed straight path at
-  a fixed speed whereas command `G0` means just get there any way you can.
-  `G02` and `G03` mean circles. We'll talk about circles later.
-
-## Position, Velocity, Acceleration, Jerk?
+## Position, Velocity, Acceleration ...
 
 Our robot, or print head, has a *position* in space and also a *velocity*
 which is how fast it is moving and an *acceleration* which is how rapidly
-that velocity is changing.  These are all *vectors* in that they have 
-both [magnitude and direction](https://despicableme.fandom.com/wiki/Vector_Perkins)
-but for (many) 3D printers each axis is a separate mechanism, so for now
-we're going to talk about them as if they were scalars, eg:
-just a positive or negative number.
+that velocity is changing.
 
 Velocity is just the [derivative](https://en.wikipedia.org/wiki/Derivative)
 of position: how fast is our position changing.
 Acceleration is the derivative
 of velocity: how rapidly our velocity is increasing or decreasing.
 
+These are all *vectors* in that they have 
+both [magnitude and direction](https://despicableme.fandom.com/wiki/Vector_Perkins)
+but for (many) 3D printers and machines each axis is a separate mechanism, so this 
+article is for now going to talk about them as if they were scalars, eg:
+just a positive or negative number.
+
+### ... Jerk?
+
 [Jerk](https://wikipedia.org/Jerk_%28Physics%29) is the derivative of
-acceleration, or the rate of change of acceleration, which might seem like a pretty
-abstract thing to be worried about.
+acceleration, which might seem like a pretty abstract thing to be worried about.
+
 But imagine a mass in a box under constant acceleration.
-Springs inside the box are pushing the mass to cause it to accelerate too,
-so it stays inside the box.
+Springs inside the box are pushing the mass to cause it to accelerate too.
 But if we change the size or direction of the acceleration, the mass is going
 to slide around until it reaches a new equilibrium.
 
@@ -67,7 +59,21 @@ mechanisms, and so they should be minimized too.
 
 ### Discontinuities
 
-Our robot follows a path made up of many trajectories.
+Our 3D printer or similar machine follows a path made up of many segments.
+Some segments have fixed position and velocity: while the printer is extruding
+or the CNC mill is cutting, it goes in a set direction at a set speed.
+
+Other parts of the movement are more free: the printer just has to 
+get to the right place for the start of its next fixed segment, as rapidly 
+as is practical[^gcode].
+
+[^gcode]: 3D printers and similar machines use an encoding called 
+    [G-code](https://en.wikipedia.org/wiki/G-code) which makes this
+    separation explicit: command `G1` means travel a fixed straight path at
+    a fixed speed whereas command `G0` means just get there any way you can.
+    There's also `G02` and `G03` which mean circles, we'll talk about circles later
+    under "Multiple Dimensions".
+
 The problem is smoothly transitioning between segments.
 A discontinuity in velocity requires a large acceleration.
 A discontinuity in acceleration requires a large jerk.
@@ -203,15 +209,19 @@ as expected.
 This function makes a smooth transition from standing still at point 0 (`$ x(0) = 0 ; x'(0) = 0 ; x''(0) = 0 $`) to
 standing still at point 1 (`$ x(1) = 1 ; x'(1) = 0 ; x''(1) = 0 $`)
 
-### Variable Targets
+### Moving Targets
 
 Our 'target' matrix can represent other situations of starting and finishing position, velocity and acceleration.
 For example we might be moving already from a previous trajectory, or we might want to be moving at the end of this
 trajectory, for example if it leads into a working trajectory.
 
-For example here's the same calculation but when our trajectory starts we're already at point 1 and moving right
-(`$ x(0) = 1 ; x'(0) = 1 ; x''(0) = 0 $`) and when we end we'd like to be at point 2 and moving left
-(`$ x(1) = 2 ; x'(1) = -1 ; x''(1) = 0 $`):
+For example here's the same calculation but when our trajectory starts we're already at point 1 and moving right:
+
+`$ x(0) = 1 \qquad ; \qquad x'(0) = 1 \qquad ; \qquad x''(0) = 0 $`
+
+... and when we end we'd like to be at point 2 and moving left:
+
+`$ x(1) = 2 \qquad ; \qquad x'(1) = -1 \qquad ; \qquad x''(1) = 0 $`
 
 (we'll consider when we'd want to have `$ x''(0) \neq 0 $` and/or `$ x''(1) \neq 0 $` later)
 
@@ -278,7 +288,7 @@ The trajectory goes through several phases:
 | decreasing | negative | increasing | negative | starting to slow down |
 | decreasing | negative | maximum | zero | slowing as fast as possible |
 | decreasing | negative | decreasing | positive | gently coming to a halt |
-| zero | zero | zero | finished |
+| zero | zero | zero | zero | finished |
 
 Not all phases are necessarily used, for example a given trajectory may
 never hit maximum acceleration.
@@ -290,9 +300,10 @@ and therefore a limit in snap, but its going to get confusing quick.)
 ### Scaling
 
 For now at least, the plan is to check for 'excursions' and increase or
-decrease `$ t $` as necessaryo
+decrease `$ t $` as necessary.
 
-We can find maxima by finding the roots of the derivative.
+We can find maxima of each derivative numerically, or by finding the roots
+of the next derivative.
 
 **XXX check the math here**
 

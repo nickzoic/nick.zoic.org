@@ -1,13 +1,13 @@
 ---
 title: "Smooth Move: Taming Trajectories with Polynomials"
-layout: draft
+layout: article
 uses_mathjax: 3
 tags:
   - robots
   - 3dprint
   - python
   - maths
-date: '2026-07-13'
+date: '2026-08-03'
 ---
 
 This article is all about movement.
@@ -349,11 +349,27 @@ acceptable maximum velocity:
 
 ![Determining optimal trajectory time for maximum velocity](img/smooth4.svg)
 
-# TODO
+## Multiple Dimensions
 
-* Unreachable states
-* Decent python implementation
-* Graphs
-* Multiple axes / radial movement
-* Transitions between smooth and straight.
-https://www.flightradar24.com/blog/aviation-explainer-series/interesting-patterns-on-flightradar24/
+1D printers never really took off.
+
+Thankfully we can apply the same general concept to each axis of a
+3D printer and combine them back together, making sure to use the same
+value of `$ t $` for all axes.
+
+![combining x and y](img/smooth_xy.svg)
+
+Circular motion is also really interesting: while entering a circle at a 
+tangent seems the obvious approach, to travel in a circle requires a 
+centripetal acceleration, and the sudden transition into the circle would
+therefore produce a transient jerk.
+
+Instead, we can use our smoothing formula to match the centripetal acceleration
+of the circle, like this:
+
+![circle work](img/smooth_circ.svg)
+
+## TO BE CONTINUED
+
+In the meantime, please consider 
+[other applications](https://www.flightradar24.com/blog/aviation-explainer-series/interesting-patterns-on-flightradar24/) ...

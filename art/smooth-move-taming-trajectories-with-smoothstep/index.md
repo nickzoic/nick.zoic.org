@@ -1,5 +1,5 @@
 ---
-title: "Smooth Move: Taming Trajectories with SmoothStep"
+title: "Smooth Move: Taming Trajectories with Polynomials"
 layout: draft
 uses_mathjax: 3
 tags:
@@ -71,7 +71,7 @@ as is practical[^gcode].
     [G-code](https://en.wikipedia.org/wiki/G-code) which makes this
     separation explicit: command `G1` means travel a fixed straight path at
     a fixed speed whereas command `G0` means just get there any way you can.
-    There's also `G02` and `G03` which mean circles, we'll talk about circles later
+    There's also `G2` and `G3` which mean circles, we'll talk about circles later
     under "Multiple Dimensions".
 
 The problem is smoothly transitioning between segments.
@@ -81,18 +81,23 @@ And so on.
 When we combine segments into a path, it is important to match the ends to prevent
 these discontinuities.
 So our apparently "free" transport segments are actually critical to support
-our "working" segments.
-
-https://www.flightradar24.com/blog/aviation-explainer-series/interesting-patterns-on-flightradar24/
+smooth transitions in and out of our "working" segments.
 
 ## Transitions & Trajectories
 
-So let's look at a way to make our trajectories "smooth".
+So let's look at a way to make our transitions *smooth*.  
+What we're looking for is some kind of 
+[Sigmoid Function](https://en.wikipedia.org/wiki/Sigmoid_function)
+which has the right general shape.
 
-There's been a lot of work on this for as long as people have been making machines.
-This is just one possible way to think about the problem ...
+The most obvious sigmoid functions is the 
+[Logistic Function](https://en.wikipedia.org/wiki/Logistic_function)
+which does indeed transition smoothly between 0 and 1 and has well
+defined derivatives, but unfortunately it only *converges* towards 0 
+and 1 whereas we want to get our transition over and done with in
+finite time.
 
-Let's start by looking at a smooth transition function:
+There are other suitable functions though, including polynomials.
 
 ### SmoothStep ...
 
@@ -254,12 +259,18 @@ just for this segment of our trajectory:
 
 ### Different final velocities
 
+It's interesting to look at the families of curves which are produced
+as we vary different parameters, for example here's five trajectories
+with the same initial position and velocity, and the same final position,
+but different final velocities:
+
 ![Position, Velocity, Acceleration and Jerk for different final velocities](img/smooth2.svg)
 
 ## Time for time
 
 At this point, every segment is assumed to occur in unit time.
 No matter how large or complicated the movement is, we assume it takes 1 second.
+
 
 This is obviously problematic.
 Our smooth curves and transitions have gotten rid of the discontinuities but
@@ -300,12 +311,13 @@ and therefore a limit in snap, but its going to get confusing quick.)
 ### Scaling
 
 For now at least, the plan is to check for 'excursions' and increase or
-decrease `$ t $` as necessary.
+decrease `$ t $` as necessary.  Getting to our target more quickly 
+will require more extreme velocities and accelerations:
+
+![Same terminal velocity in different times](img/smooth3.svg)
 
 We can find maxima of each derivative numerically, or by finding the roots
 of the next derivative.
-
-**XXX check the math here**
 
 `$ x_t = a_5 t^5 + a_4 t^4 + a_3 t^3 + a_2 t^2 + a_1 t + a_0 $`
 
@@ -315,13 +327,11 @@ of the next derivative.
 
 `$ \begin{bmatrix}0 & 0 & 0 & 0 & 0 & 1 \\ t^5 & t^4 & t^3 & t^2 & t & 1 \\ 0 & 0 & 0 & 0 & 1 & 0 \\ 5 t^4 & 4 t^3 & 3 t^2 & 2 t & 1 & 0 \\ 0 & 0 & 0 & 2 & 0 & 0 \\ 20 t^3 & 12 t^2 & 6 t & 2 & 0 & 0 \end{bmatrix} \begin{bmatrix} a_5 \\ a_4 \\ a_3 \\ a_2 \\ a_1 \\ a_0 \end{bmatrix} = \begin{bmatrix} x_0 \\ x_t \\ x'_0 \\ x'_t \\ x''_0 \\ x''_t \end{bmatrix} $`
 
-So for example in our simple "smootherstep" scenario discussed above, while
+In our example above, when
 trying to move from x=0 to x=1 in a span of 1 second our maximum velocity
 is:
 
 `$ S'_2(\frac{1}{2}) = 30(\frac{1}{2})^4 - 60(\frac{1}{2})^3 + 30(\frac{1}{2})^2 = 1.875 $`
-
-![Same terminal velocity in different times](img/smooth3.svg)
 
 If we decide that 1.875 m/s is too fast for our machine,
 we could increase to `$ t=2 $`, recalculate our polynomial and
@@ -333,6 +343,10 @@ Likewise, we can increase `$ t $` if our maximum acceleration or jerk is higher
 than our target, or decrease it if we're not approaching any of our maxima.
 At each step we calculate a new polynomial until we're satistfied.
 
+In this scenario we'd like to keep to a maximum velocity of `$ 1.25 ms^-1 $`.
+We can converge on `$ t=1.19s $` to end up with an
+acceptable maximum velocity:
+
 ![Determining optimal trajectory time for maximum velocity](img/smooth4.svg)
 
 # TODO
@@ -342,3 +356,4 @@ At each step we calculate a new polynomial until we're satistfied.
 * Graphs
 * Multiple axes / radial movement
 * Transitions between smooth and straight.
+https://www.flightradar24.com/blog/aviation-explainer-series/interesting-patterns-on-flightradar24/

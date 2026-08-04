@@ -403,3 +403,8 @@ from WebUSB:
 * ... it shifts to paste mode and back automatically
 * upload a 'main.py' file
 * ... it reboots itself and main.py runs
+
+Links:
+
+* [MPY-USB](https://mpy-usb.zoic.org/)
+* [Github Repo](https://github.com/nickzoic/mpy-usb/)

@@ -228,12 +228,14 @@ On the other hand, its focus ring rotates about 3½ turns rather than ¼ of a tu
 so a stepper might be a better idea than a servo.
 
 [^100x]: Much as with 10x programmers, the "100x" is bullshit.
-    This lens is *maybe* as powerful as a 8x microscope objective.
+    <s>This lens is *maybe* as powerful as a 8x microscope objective.</s>
+    <em>See updates.</em>
     The nominal 100x includes the magnification between the 1/2.5"
     camera sensor and a great big monitor.
 
 [^cmount]: C-mount lenses can mount on a CS-mount camera using a 5mm
-    spacer (see above), but not vice-versa.
+    spacer (see above), but not vice-versa, or at least not without
+    limiting the focal range.
 
 This is an earlier prototype using a large servo and chunky
 gears.  It clamps onto the lens barrel and focus ring using
@@ -293,6 +295,15 @@ or similar.
 I also need some kind of stall detection or endstop detection or whatever,
 for when the lens hits the end of its focus range.
 And maybe a detector for when the gear falls off.
+
+## Updates 2026-08-08
+
+I also took some images of a ruler to measure the pixel pitch, and images with
+the Sony camera sensor are about 666 pix/mm.
+The camera sensor pixels are 1.55μm square, which means this lens is
+almost exactly 1x.
+
+I'll be writing lots more about microscope lenses soon.
 
 ## Coming Soon ...
 

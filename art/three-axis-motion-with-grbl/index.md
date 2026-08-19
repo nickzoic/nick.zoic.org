@@ -40,9 +40,10 @@ The `$I` command reveals it is running a custom build of GRBL 1.1f:
 
 ```
 Monport
-[VER:1.1f.20230316:����������������������������������������������������������������]
+[VER:1.1f.20230316:������������������������]
 [OPT:VMZHL,35,254]
 ```
+*some `�` omitted for clarity*
 
 This particular board uses a Gigadevice ARM Cortex CPU, probably a
 [GD32F303VCT6](https://www.gigadevice.com/product/mcu/mcus-product-selector/gd32f303vct6)
@@ -54,8 +55,9 @@ one was cheap and ticked all the boxes.
 ### Stepper Drivers
 
 The board comes pre-populated with three `A4988` drivers.
-They have little heatsinks and [current limit trimpots which
-need to be set up](https://ardufocus.com/howto/a4988-motor-current-tuning/)
+They have little heatsinks and
+[current limit trimpots which need to be set up](https://ardufocus.com/howto/a4988-motor-current-tuning/)
+to suit your stepper motors.
 
 As shipped the board has all three [stepper driver jumpers populated](https://software.farm.bot/v7/Device/arduino-firmware/microstepping.html),
 meaning each step is 1/16th of a real step.
@@ -70,6 +72,7 @@ Setting | Purpose | Stock Value | New Value
 ---|---|---|---
 $3 | Direction Invert (X,Y,Z) | 6 (invert Y and Z) | 3 (invert X and Y)
 $20 | Soft Limit enable | 0 | 1
+$23 | Home dir invert | 7 | 7 (invert X, Y, Z) |
 $27 | Homing pull-off, mm | 2.000 | 1.000 
 $100, $101, $102 | X,Y,Z steps per mm | 800,800,800 | 1600,1600,1600
 $110, $111, $112 | X,Y,Z max rate | 2000,2000,100 | 2000,2000,2000
@@ -82,6 +85,8 @@ a very neat 0 - 100 mm.
 For some reason the Z axis is inverted in hardware, I checked my stepper wiring many times
 and it just is.  So I invert X and Y to match, so that 0 is with the stage at the stepper end
 and 100 is with the stage at the far end.
+Homing direction is also inverted, so the homing cycle travels to the negative X, Y and Z
+direction.
 
 ### Axis Connectors
 
@@ -137,4 +142,7 @@ Note that GRBL starts a homing cycle with `$H` instead of the more common `G28`.
 ## Next Steps
 
 * [printing](/tag/3dprint) a case for the board and some parts to hold the stages 
-together and more elegant end stop switch holders.
+    together and more elegant end stop switch holders.
+* implementing [smoother kinematics](/art/smooth-move-taming-trajectories-with-polynomials/) by
+    sending way too much Gcode.
+  

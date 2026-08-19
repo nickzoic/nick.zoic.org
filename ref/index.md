@@ -33,6 +33,7 @@ with an easy to write URL ...
 * [The Mother of All Demos](http://www.dougengelbart.org/firsts/dougs-1968-demo.html) ([wikipedia](https://en.wikipedia.org/wiki/The_Mother_of_All_Demos)) (Douglas Engelbart)
 * [Computer Lib / Dream Machines](https://archive.org/details/computer-lib-dream-machines/mode/2up) (Ted Nelson) [alt](https://kupdf.net/download/ted-nelson-computer-lib-dream-machines_59bc49cd08bbc59209686eb8_pdf)
 * [Project Xanadu](https://en.wikipedia.org/wiki/Project_Xanadu) (Ted Nelson) / [Xanadu System Proposal](https://sentido-labs.com/en/library/201904240732/Xanadu%20Hypertext%20Documents.html)
+* [The Hardest-working Font in Manhattan](https://aresluna.org/the-hardest-working-font-in-manhattan/) [archive.org](https://web.archive.org/web/20260721004101/https://aresluna.org/the-hardest-working-font-in-manhattan/)
 
 (see also [autonomic layouts](/art/autonomic-layouts/) )
 

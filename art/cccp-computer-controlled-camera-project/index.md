@@ -6,7 +6,7 @@ tags:
   - 3dprint
   - robots
 date: '2026-07-24'
-updated: '2026-07-29'
+updated: '2026-08-08'
 ---
 
 This is a project to get a camera and lens controlled directly from software.

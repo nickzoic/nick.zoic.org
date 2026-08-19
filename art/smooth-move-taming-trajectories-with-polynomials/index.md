@@ -371,5 +371,5 @@ of the circle, like this:
 
 ## TO BE CONTINUED
 
-In the meantime, please consider 
+In the meantime, while I [play with hardware](/art//three-axis-motion-with-grbl/) please consider 
 [other applications](https://www.flightradar24.com/blog/aviation-explainer-series/interesting-patterns-on-flightradar24/) ...

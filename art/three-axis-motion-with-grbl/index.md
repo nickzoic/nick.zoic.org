@@ -1,7 +1,8 @@
 ---
 title: Three-axis motion with GRBL
 summary: getting three stepper stages to work with GRBL software and drivers
-layout: draft
+layout: article
+date: '2026-08-19'
 ---
 
 For an upcoming project I want to get three axis motion working with
@@ -12,11 +13,14 @@ in a very accurate way.
 
 I used [these stages](https://www.ebay.com.au/itm/358054743590) which
 have a NEMA11 motor and a Tr6-2 thread (1mm pitch, double start),
-resulting in 100 steps per mm.  As shipped the end plates were a little
-misaligned, and needed to be properly set up[^1].
+resulting in 100 steps per mm (not 200 like the listing said).
+As shipped the end plates were a little misaligned, and needed to be properly set up[^1].
 
-[^1] loosen the two screws, send the stages out to the end
-of their travel and then tighten the end screws again.  No more problem!
+[^1]: loosen the two screws, send the stages out to the end
+    of their travel and then tighten the end screws again.  No more problem!
+
+The actual length of travel is about 103mm.
+I'll post some measurements later.
 
 ## GRBL board
 
@@ -39,6 +43,13 @@ Monport
 [VER:1.1f.20230316:����������������������������������������������������������������]
 [OPT:VMZHL,35,254]
 ```
+
+This particular board uses a Gigadevice ARM Cortex CPU, probably a
+[GD32F303VCT6](https://www.gigadevice.com/product/mcu/mcus-product-selector/gd32f303vct6)
+but I'm damned if I can read the inscription.
+
+I probably should have found an [ESP32](/tag/esp32) based board but this
+one was cheap and ticked all the boxes.
 
 ### Stepper Drivers
 
@@ -64,7 +75,7 @@ $100, $101, $102 | X,Y,Z steps per mm | 800,800,800 | 1600,1600,1600
 $110, $111, $112 | X,Y,Z max rate | 2000,2000,100 | 2000,2000,2000
 $130, $131, $132 | X,Y,Z limit | 500,500,200 | 100,100,100
 
-The stages are actually about 103mm long so by keeping the limit switch activation
+By keeping the limit switch activation
 point about 1mm from the end and reducing homing pull-off to 1mm the stage limits are 
 a very neat 0 - 100 mm.
 
@@ -116,12 +127,14 @@ There are three red power LEDs on the board which might be helpful to know about
 * B: USB-C Power (no label)
 * C: Either Motor or USB-C Power labelled `3V3`
 
-There's two LEDs at C which are labelled `3V3` and `RUN` on my board and opposite on the
-one pictured at EBay.  
-
 ## Does it work?
 
 Yes!  The three axis can be controlled independently or together using G-Code commands.
 Note that GRBL starts a homing cycle with `$H` instead of the more common `G28`.
 
 ![image](img/image.jpg)
+
+## Next Steps
+
+* [printing](/tag/3dprint) a case for the board and some parts to hold the stages 
+together and more elegant end stop switch holders.

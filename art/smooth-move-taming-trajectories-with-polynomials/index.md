@@ -369,6 +369,13 @@ of the circle, like this:
 
 ![circle work](img/smooth_circ.svg)
 
+We've talked about these free segments as something that exists between fixed 
+segments, but what if you have one fixed segment jumping straight into another?
+Just insert a free segment between them and let the algorithm  work out how to
+connect the two without undue discontinuities:
+
+![octogon](img/smooth_octo.svg)
+
 ## TO BE CONTINUED
 
 In the meantime, while I [play with hardware](/art//three-axis-motion-with-grbl/) please consider 

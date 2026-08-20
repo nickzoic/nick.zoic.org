@@ -36,10 +36,10 @@ Programs, including the subject of this blog post.
 
 ## Terminals and keyboards and the Linux console (oh my)
 
-*A lot of this stuff is supported by the
+A lot of this stuff is supported by the
 [ncurses](https://tldp.org/HOWTO/NCURSES-Programming-HOWTO/intro.html)
 library so we probably don't need to reinvent that particular
-wheel but it makes sense to understand the *ahem* challenges.*
+wheel but it makes sense to understand the *ahem* challenges.
 
 ### ASCII 
 

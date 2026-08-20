@@ -41,9 +41,29 @@ It is otherwise the same.
 ![back](img/back.jpg)
 *photos: ebay listing*
 
-It shows up as a USB device with identifiers `0483:5740 STMicroelectronics Virtual COM Port`
-and device strings `Product: LUNYEE_4axis_Control` and `Manufacturer: tomeko net`.
-In Linux it appears as `/dev/ttyACM0` (etc).
+### USB configuration
+
+Plugged into a USB-C port, it shows up as a USB device with descriptors:
+
+```
+  bDeviceClass            2 Communications
+  bDeviceSubClass         0 [unknown]
+  idVendor           0x0483 STMicroelectronics
+  idProduct          0x5740 Virtual COM Port
+  bcdDevice            2.00
+  iManufacturer           1 tomeko net
+  iProduct                2 LUNYEE_4axis_Control
+```
+
+... and supporting a
+[CDC](https://en.wikipedia.org/wiki/USB_communications_device_class) data interface.
+
+Is there a proper GCode [device class](https://en.wikipedia.org/wiki/USB#Device_classes)?
+If there was, would anyone use it?
+
+In Linux it gets recognized as a serial adapter and appears as `/dev/ttyACM0` (etc).
+
+### GRBL build
 
 The `$I` command reveals it is running a custom build of GRBL 1.1f:
 
@@ -53,6 +73,8 @@ Monport
 [OPT:VMZHL,35,254]
 ```
 *some `�` omitted for clarity*
+
+### CPU
 
 This particular board uses a Gigadevice ARM Cortex CPU, probably a
 [GD32F303VCT6](https://www.gigadevice.com/product/mcu/mcus-product-selector/gd32f303vct6)
@@ -66,7 +88,9 @@ do some software development, but this one was cheap and ticked all the boxes.
 The board comes pre-populated with three `A4988` drivers.
 They have little heatsinks on top already and have
 [current limit trimpots which need to be set up](https://ardufocus.com/howto/a4988-motor-current-tuning/)
-to suit your stepper motors.
+to suit your stepper motors, which means turning the trimpots
+gently to achieve a `V_REF` which corresponds to a healthy maximum
+current for your specific driver modules and stepper motors.
 
 As shipped the board is set up to
 [microstep](https://en.wikipedia.org/wiki/Stepper_motor#Microstepping)
@@ -95,32 +119,34 @@ $110, $111, $112 | X,Y,Z max rate | 2000, 2000, 100 | 2000, 2000, 2000
 $130, $131, $132 | X,Y,Z limit | 500, 500, 200 | 100, 100, 100
 
 By keeping the limit switch activation
-point about 1mm from the end of travel and reducing homing pull-off to 1mm
+point about 1mm from the end of travel and reducing homing pull-off to 1mm (`$27=1`)
 the stage limits can be set to a very neat 0 - 100 mm.
 
 For some reason the Z axis is inverted in hardware.
 I checked my stepper wiring many times and it just is.
-So I invert X and Y to match, so that 0 is with the stage at the stepper end
+So I invert X and Y (`$3=3`) to match, so that 0 is with the stage at the stepper end
 and 100 is with the stage at the far end.
-Homing direction is also inverted, so the homing cycle travels to the negative X, Y and Z
+Homing direction is also inverted (`$23=7`), so the homing cycle travels to the negative X, Y and Z
 direction.
+
+In my case the Z axis is just like the others so I've set its max rate to be
+the same as that of X and Y (`$112=2000`).
 
 ### Axis Connectors
 
 Each axis has it's own [JST XH2.5](https://electronics.alibaba.com/buyingguides/xh2.54-connectors-what-you-actually-need-to-know)
 with the following pinout.
+Except Y2 which is a reversed pinout of Y1.
+The steppers had bare wires and I had some spare pre-wired headers with Grey/Blue/Purple/White wires, so I just made up some frankencables.
 
-Pin | Phase | Header Color | Stepper Color |
+Pin | Phase | Header Wire Color | Stepper Wire Color |
 ---|---|---|---
 1 | A- | Grey | Red |
 2 | A+ | Blue | Blue |
 3 | B- | Purple | Green |
 4 | B+ | White | Black |
 
-Except Y2 which has the pins opposite for some reason, but I'm not using that one.
-
-The steppers had bare wires and I had some spare pre-wired headers so I just made up some frankencables.
-Using motors with pre-installed connectors would save a lot of messing about with solder.
+Using motors with pre-installed connectors would save a lot of messing about with solder and heatshrink.
 
 ### Limit / Home switches
 
@@ -128,9 +154,10 @@ When the board first wakes up, it doesn't know where the stepper stages have bee
 So it has to perform a homing cycle, and to do that it needs[^2] some switches to tell it when
 each axis is 'home'.  Optionally you can also provide limit switches for the other
 end of travel, but in this case I'm happy to trust the steppers to count correctly
-and use soft limits.
+and use soft limits (`$20=1`, `$130=100`, `$131=100`, `$132=100`).
 
-[^2]: Unless you're an Apple Disk II drive in which case you just smack into the 
+[^2]: Unless you're an [Apple Disk II drive](https://www.youtube.com/shorts/yNVecgQZcxY)
+    in which case you just smack into the 
     end of travel 80 times and figure after that you must be home.
 
 The home and limit switches wire to two-pin "dupont" (aka "pin header")
@@ -144,7 +171,6 @@ The stepper drivers are powered from the DC connector, which is
 [5.5mm OD / 2.5mm ID](https://www.jaycar.com.au/2-5mm-dc-power-line-connector-14mm-shaft/p/PP0512),
 with a slightly chunkier ID than the typical 2.1mm.
 It is center positive and expects 7 - 36V.  
-
 I found a 19V 4A supply to suit.
 Don't forget to turn on the switch!
 

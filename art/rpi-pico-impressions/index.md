@@ -73,8 +73,8 @@ will make board layouts simpler.
 *See Section 2.19.2 in the [RP2040 Datasheet](https://datasheets.raspberrypi.org/rp2040/rp2040-datasheet.pdf) and once again curse the world of PDF documents and their inability to play
 nicely with hyperlinks*.
 
-The good news is that the USB connection is direct via it's own PHY so unlike the 
-a lot of microcontroller boards you don't lose a serial port the console.
+The good news is that the USB connection is direct via it's own PHY so unlike
+a lot of microcontroller boards you don't lose a serial port to the console.
 
 The Pico is surface mountable to your own boards too, or there's a various smaller
 boards available 

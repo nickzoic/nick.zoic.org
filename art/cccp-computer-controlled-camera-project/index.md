@@ -6,7 +6,7 @@ tags:
   - 3dprint
   - robots
 date: '2026-07-24'
-updated: '2026-08-08'
+updated: '2026-08-20'
 ---
 
 This is a project to get a camera and lens controlled directly from software.
@@ -298,12 +298,27 @@ And maybe a detector for when the gear falls off.
 
 ## Updates 2026-08-08
 
+The [Waveshare IMX577 Camera](https://www.waveshare.com/wiki/IMX577_12MP_USB_Camera_%28B%29) 
+arrived and it's much nicer to work with than the other one, as well as being smaller.
+
 I also took some images of a ruler to measure the pixel pitch, and images with
-the Sony camera sensor are about 666 pix/mm.
+the microscope lens on the Sony IMX577 camera sensor are about 666 pix/mm.
 The camera sensor pixels are 1.55μm square, which means this lens is
 almost exactly 1x.
 
+Using V4L2 it can capture the whole frame at 3840x3024 at 20fps, or zoom in on a smaller part of the frame
+for a higher framerate.
+
 I'll be writing lots more about microscope lenses soon.
+
+## Updates 2026-08-20
+
+[More stuff on stepper motors](/art/three-axis-motion-with-grbl/) as I consider whether I'd be better off
+focussing by moving the entire camera and lens rather than trying to turn a rebellious helicoid.  There 
+are advantages and disadvantages.
+
+I also ordered a much nicer looking geared stepper which will possibly become the focus motor one way or
+another.
 
 ## Coming Soon ...
 

@@ -19,16 +19,18 @@ in a very accurate way.
 *photo: ebay listing*
 
 I used [these stages](https://www.ebay.com.au/itm/358054743590) which
-have a NEMA11 motor and a Tr6-2 thread (1mm pitch, double start),
+have a 200-step-per-revolution NEMA11 motor and a Tr6-2 thread which moves
+2mm per revolution (1mm pitch, but double start so it's a 2mm lead),
 resulting in 100 steps per mm (not 200 like the listing said).
 
-As shipped the end plates were a little misaligned causing the stages
+As shipped the bearing end plates were a little misaligned causing the stages
 to jam near the end of travel.  To fix this,
-loosen the two screws, send the stages out to the end
-of their travel and then tighten the end screws again.  No more problem!
+loosen the two screws on the end plate, send the stage out to the end
+of its travel and then tighten the end screws again.  No more problem!
 
 The actual length of travel is about 103mm.
-I'll post some accurate measurements later.
+I'll post some accurate measurements later when I look at 3D printing
+a chassis around these.
 
 ## GRBL board
 
@@ -95,11 +97,17 @@ current for your specific driver modules and stepper motors.
 As shipped the board is set up to
 [microstep](https://en.wikipedia.org/wiki/Stepper_motor#Microstepping)
 where each microstep is 1/16th of a full step.
-So with 100 steps per mm, we get 1600 microsteps per mm, or to put it
-another way 625nm per microstep!
+
+Microstepping | Microsteps per mm | μm per microstep
+---|---|---
+Full Step | 100 | 10
+1/2 step | 200 | 5
+1/4 step | 400 | 2.5 
+1/8 step | 800 | 1.25
+1/16 step | 1600 | 0.625
 
 Microstepping is not without its drawbacks, eg: reduced torque and repeatability,
-so we might end up going back to 1/4 or 1/8 steps instead.
+so we might end up going with 1/4 or 1/8 steps instead.
 This is controlled by the [stepper driver jumpers](https://software.farm.bot/v7/Device/arduino-firmware/microstepping.html)
 hidden under the drivers themselves.
 
@@ -174,7 +182,7 @@ It is center positive and expects 7 - 36V.
 I found a 19V 4A supply to suit.
 Don't forget to turn on the switch!
 
-The logic is, or at least can be, powered from the USB-C port while the motor power is off.
+The CPU is, or at least can be, powered from the USB-C port while the motor power is off.
 There are a number of other power connectors on the board whose purpose is not entirely clear but
 is presumably for spindles, lasers, etc.
 I'm hoping to repurpose one of these for lighting power.
@@ -190,7 +198,8 @@ There are three red power LEDs on the board which might be helpful to know about
 ## Does it work?
 
 Yes!  The three axis can be controlled independently or together using G-Code commands.
-Note that GRBL starts a homing cycle with `$H` instead of the more common `G28`.
+Note that GRBL starts a homing cycle with `$H` instead of the more common `G28`, 
+and it won't let you do much until you run a homing cycle.
 
 ![image](img/image.jpg)
 

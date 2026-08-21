@@ -19,26 +19,37 @@ in a very accurate way.
 ![stage](img/stage.jpg)
 *photo: ebay listing*
 
-I used [these stages](https://www.ebay.com.au/itm/358054743590) which
-have a 200-step-per-revolution NEMA11 motor and a Tr6-2 thread which moves
-2mm per revolution (1mm pitch, but double start so it's a 2mm lead),
+I used three of [these stages](https://www.ebay.com.au/itm/358054743590) from
+[celinahotoin on ebay](https://www.ebay.com.au/str/celinahotoin).
+They have a 200-step-per-revolution `NEMA11`[^nema] motor and a `Tr6x2(P1)` trapezoidal
+thread.
+The thread has a 1mm pitch but a "double start" so it moves 2mm per 
+revolution
 resulting in 100 steps per mm (not 200 like the listing said).
 
-As shipped the bearing end plates were a little misaligned causing the stages
-to jam near the end of travel.  To fix this,
-loosen the two screws on the end plate, send the stage out to the end
-of its travel and then tighten the end screws again.  No more problem!
+[^nema]: hurrah for standards!  These are 1.1" (28mm) wide.  The ones you
+    see on most 3d printers are NEMA17, 1.7" (43mm) wide.
+
+As shipped the bearing end plates were a little misaligned on two out of the
+three stages, causing them to jam near the far end of travel.
+To fix this, just slightly
+loosen the two screws on the end plate, send the platform out to ~1mm from
+the end of its travel and then tighten the end plate screws again.
+No more problem!
 
 The actual length of travel is about 103mm.
-I'll post some accurate measurements later when I look at 3D printing
-a chassis around these.
+I'll post some accurate measurements later when I write about 3D printing
+a chassis for these.
 
 ## GRBL board
 
-I combined them with this [GRBL driver board from Ebay](https://www.ebay.com.au/itm/234270397356).
-In the photos it is identified as `LY-GRBL3-10086-V11` but the
+I combined them with this
+[GRBL driver board](https://www.ebay.com.au/itm/234270397356)
+from [lunyee on ebay](https://www.ebay.com.au/str/lunyee).
+
+In the photos the board is identified as `LY-GRBL3-10086-V11` but the
 board as shipped is identified as `LY-3Axis-4.0-V2.0`.
-It is otherwise the same.
+It is otherwise the same so far as I can see.
 
 ![the board](img/board.png)
 ![back](img/back.jpg)
@@ -59,12 +70,11 @@ Plugged into a USB-C port, it shows up as a USB device with descriptors:
 ```
 
 ... and supporting a
-[CDC](https://en.wikipedia.org/wiki/USB_communications_device_class) data interface.
-
-Is there a proper GCode [device class](https://en.wikipedia.org/wiki/USB#Device_classes)?
-If there was, would anyone use it?
-
+[CDC](https://en.wikipedia.org/wiki/USB_communications_device_class) data interface[^X].
 In Linux it gets recognized as a serial adapter and appears as `/dev/ttyACM0` (etc).
+
+[^X]: Is there a proper standardized GCode [device class](https://en.wikipedia.org/wiki/USB#Device_classes)?
+    If there was, would anyone use it?  We're still haunted by the ghost of [RS232](https://en.wikipedia.org/wiki/RS-232).
 
 ### GRBL build
 
@@ -81,10 +91,13 @@ Monport
 
 This particular board uses a Gigadevice ARM Cortex CPU, probably a
 [GD32F303VCT6](https://www.gigadevice.com/product/mcu/mcus-product-selector/gd32f303vct6)
-but I'm damned if I can read the inscription.
+but I'm damned if I can read the inscription on this one even under a microscope.
 
 I probably should have found an [ESP32](/tag/esp32) based board if I'd wanted to
-do some software development, but this one was cheap and ticked all the boxes.
+do some software development, but this one was cheap and
+[ticks all the boxes](https://www.youtube.com/@AudioPilz).
+If I get around to [implementing polynominal trajectories](/art/smooth-move-taming-trajectories-with-polynomials/) I'll probably make up my own board based on an
+[Raspberry Pi Pico / RP2040](/art/rpi-pico-impressions/) or similar.
 
 ### Stepper Drivers
 
@@ -98,6 +111,7 @@ current for your specific driver modules and stepper motors.
 As shipped the board is set up to
 [microstep](https://en.wikipedia.org/wiki/Stepper_motor#Microstepping)
 where each microstep is 1/16th of a full step.
+Since my linear stages have 100 steps per mm this works out to:
 
 Microstepping | Microsteps per mm | μm per microstep
 ---|---|---
@@ -177,30 +191,32 @@ to the stepper, eventually the microswitches will get housed in a less ugly way.
 ### Board Power
 
 The stepper drivers are powered from the DC connector, which is
-[5.5mm OD / 2.5mm ID](https://www.jaycar.com.au/2-5mm-dc-power-line-connector-14mm-shaft/p/PP0512),
-with a slightly chunkier ID than the typical 2.1mm.
+5.5mm OD / 2.5mm ID[^5525]
 It is center positive and expects 7 - 36V.  
 I found a 19V 4A supply to suit.
 Don't forget to turn on the switch!
 
+[^5525]: Slightly chunkier than the typical 2.1mm ID which your junkbox is full of.
+    Speaking of things which should have been better standardized ...
+
 The CPU is, or at least can be, powered from the USB-C port while the motor power is off.
-There are a number of other power connectors on the board whose purpose is not entirely clear but
-is presumably for spindles, lasers, etc.
-I'm hoping to repurpose one of these for lighting power.
+There are a number of other power connectors on the board whose purpose is
+not entirely clear but are presumably for spindles, lasers, etc.
+I'm hoping to repurpose one of these for variable lighting power.
 
 There are three red power LEDs on the board which might be helpful to know about:
 
 ![leds](img/leds.png)
 
-* A: Motor Power labelled `PWR`
-* B: USB-C Power (no label)
-* C: Either Motor or USB-C Power labelled `3V3`
+* A: Motor Power: labelled `PWR`
+* B: USB-C Power: no label.
+* C: Either Motor or USB-C Power: labelled `3V3`
 
 ## Does it work?
 
 Yes!  The three axis can be controlled independently or together using G-Code commands.
 Note that GRBL starts a homing cycle with `$H` instead of the more common `G28`, 
-and it won't let you do much until you run a homing cycle.
+and depending on build options it might not let you do much until you run a homing cycle.
 
 ![image](img/image.jpg)
 
@@ -210,4 +226,4 @@ and it won't let you do much until you run a homing cycle.
     together and more elegant end stop switch holders.
 * implementing [smoother kinematics](/art/smooth-move-taming-trajectories-with-polynomials/) by
     sending way too much Gcode.
-  
+* work out how the 12V "laser pwm" port works.

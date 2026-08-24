@@ -3,7 +3,7 @@ title: Three-axis motion with GRBL
 summary: getting three stepper stages to work with GRBL software and drivers
 layout: article
 date: '2026-08-19'
-updates: '2026-08-20'
+updates: '2026-08-24'
 tags:
   - electronics
   - robots
@@ -220,7 +220,6 @@ and depending on build options it might not let you do much until you run a homi
 
 ![image](img/image.jpg)
 
-
 ## Next Steps
 
 * [printing](/tag/3dprint) a case for the board and some parts to hold the stages 
@@ -234,3 +233,7 @@ and depending on build options it might not let you do much until you run a homi
 I've made a start on turning them into an XYZ setup ...
 
 <div style="position: relative; width: 100%; height: 0; padding-bottom: 100%"><iframe src="https://www.youtube.com/embed/TKIx3qPMQlM" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" style="position: absolute; width: 100%; height: 100%; left: 0; top: 0" allowfullscreen></iframe></div>
+
+... never mind the cable management!
+The base is just temporary too, just to hold everything
+aligned while I test out the kinematics.

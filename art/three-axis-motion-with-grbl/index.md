@@ -93,10 +93,12 @@ This particular board uses a Gigadevice ARM Cortex CPU, probably a
 [GD32F303VCT6](https://www.gigadevice.com/product/mcu/mcus-product-selector/gd32f303vct6)
 but I'm damned if I can read the inscription on this one even under a microscope.
 
+I'm not at all clear on how I'd reflash this board if I wanted to change the firmware.
 I probably should have found an [ESP32](/tag/esp32) based board if I'd wanted to
 do some software development, but this one was cheap and
-[ticks all the boxes](https://www.youtube.com/@AudioPilz).
-If I get around to [implementing polynominal trajectories](/art/smooth-move-taming-trajectories-with-polynomials/) I'll probably make up my own board based on an
+[ticks all the boxes](https://www.youtube.com/@AudioPilz) otherwise.
+If I get around to [implementing polynominal trajectories](/art/smooth-move-taming-trajectories-with-polynomials/)
+I'll probably make up my own board based on an
 [Raspberry Pi Pico / RP2040](/art/rpi-pico-impressions/) or similar.
 
 ### Stepper Drivers
@@ -138,7 +140,7 @@ $20 | Soft Limit enable | 0 | 1
 $23 | Home dir invert | 7 | 7 (invert X, Y, Z) |
 $27 | Homing pull-off, mm | 2.000 | 1.000 
 $100, $101, $102 | X,Y,Z steps per mm | 800, 800, 800 | 1600, 1600, 1600
-$110, $111, $112 | X,Y,Z max rate | 2000, 2000, 100 | 2000, 2000, 2000
+$110, $111, $112 | X,Y,Z max rate | 2000, 2000, 100 | 7200, 7200, 7200
 $130, $131, $132 | X,Y,Z limit | 500, 500, 200 | 100, 100, 100
 
 By keeping the limit switch activation
@@ -149,11 +151,14 @@ For some reason the Z axis is inverted in hardware.
 I checked my stepper wiring many times and it just is.
 So I invert X and Y (`$3=3`) to match, so that 0 is with the stage at the stepper end
 and 100 is with the stage at the far end.
-Homing direction is also inverted (`$23=7`), so the homing cycle travels to the negative X, Y and Z
-direction.
+Homing direction is also inverted (`$23=7`), so the homing cycle travels to the
+negative X, Y and Z direction which is where I've put the limit switches.
 
-In my case the Z axis is just like the others so I've set its max rate to be
-the same as that of X and Y (`$112=2000`).
+According to the Ebay ad the maximum speed is 120mm/s so I've set the maximum speed
+for all three axes to that (`$110=7200`, `$111=7200`, `$112=7200`).
+
+Working out the maximum acceleration will take a bit of experimentation with the
+stages assembled into a machine.
 
 ### Axis Connectors
 

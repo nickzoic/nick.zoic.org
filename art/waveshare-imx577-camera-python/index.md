@@ -94,6 +94,13 @@ with capture as frames:
 
 ### OpenCV2
 
+An alternative to `linuxpy` is to use [OpenCV](https://opencv.org/) which 
+*should* give us cross-platform compatibility, not that I've tried it.
+
+There's a CPU-only version of opencv for Python but depending on what you're
+doing you might want to use a OS package instead which might use the GPU as well.
+Let's go with the GPU version for now:
+
 `pip install opencv-python cv2_enumerate_cameras`
 
 ```
@@ -105,11 +112,38 @@ for camera_info in enumerate_cameras(cv2.CAP_ANY):
     cap = cv2.VideoCapture(camera_info.index, camera_info.backend)
 ```
 
-There isn't such an obvious way to handle asyncio
-but opencv can run in a separate thread.
+There isn't an asyncio-compatible way to fetch frames,
+but opencv can run in a separate thread and trigger an asyncio
+event whenever a new frame is available.
+
+## Resolutions vs. Frame Rate
+
+Depending on the resolution and compression format you're asking for
+the frame rate can be pretty limited:
+
+Resolution | Format | FPS (reported) | FPS (linuxpy) | FPS (opencv)
+---|---|---:|---:|---:
+640 × 480 | MJPG | 30 | 20.13 | 20.55
+640 × 480 | YUYV | 30 | 31.13 | 41.48
+1024 × 768 | MJPG | 30 | 20.13 | 20.36
+1024 × 768 | YUYV | 10 | 15.32 | 20.65
+1280 × 720 | MJPG | 30 | 20.13 | 20.35
+1280 × 720 | YUYV | 10 | 15.56 | 20.64
+1600 × 1200 | MJPG | 30 | 19.94 | 20.36
+1600 × 1200 | YUYV | 5 | 7.65 | 10.36
+1920 × 1080 | MJPG | 30 | 20.13 | 20.38
+1920 × 1080 | YUYV | 5 | 7.77 | 10.15
+2048 × 1536 | MJPG | 30 | 20.13 | 20.40
+2048 × 1536 | YUYV | 1 | 1.31 | 1.31
+3840 × 3024 | MJPG | 20 | 20.71 | 21.09
+3840 × 3024 | YUYV | 1 | 0.79 | 0.79
+
+The actual IMX 577 sensor is capable of a lot more, so this has to be down
+to the processor in the camera and/or the USB connection to the PC.
+"FPS (reported)" is the FPS reported by the API when you set the resolution
+and format, "FPS (linuxpy)" and "FPS (opencv)" are measured frames per second
+in a simple loop over 100 frames in linuxpy and opencv libraries.
 
 ## Pan, Tilt, Zoom
 
-If you're asking for the full 3840 × 3024 resolution
-the frame rate is limited to 10 fps.
 

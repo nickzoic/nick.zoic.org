@@ -138,14 +138,11 @@ Setting | Purpose | Stock Value | New Value
 $3 | Direction Invert (X,Y,Z) | 6 (invert Y and Z) | 3 (invert X and Y)
 $20 | Soft Limit enable | 0 | 1
 $23 | Home dir invert | 7 | 7 (invert X, Y, Z) |
-$27 | Homing pull-off, mm | 2.000 | 1.000 
+$27 | Homing pull-off, mm | 2.000 | 2.500
 $100, $101, $102 | X,Y,Z steps per mm | 800, 800, 800 | 1600, 1600, 1600
-$110, $111, $112 | X,Y,Z max rate | 2000, 2000, 100 | 7200, 7200, 7200
-$130, $131, $132 | X,Y,Z limit | 500, 500, 200 | 100, 100, 100
-
-By keeping the limit switch activation
-point about 1mm from the end of travel and reducing homing pull-off to 1mm (`$27=1`)
-the stage limits can be set to a very neat 0 - 100 mm.
+$110, $111, $112 | X,Y,Z max rate | 2000, 2000, 100 | 2400, 2400, 1200
+$120, $121, $122 | X,Y,Z max acceleration | 20, 20, 20 | 1000, 1000, 100
+$130, $131, $132 | X,Y,Z limit | 500, 500, 200 | 95, 95, 95
 
 For some reason the Z axis is inverted in hardware.
 I checked my stepper wiring many times and it just is.
@@ -154,11 +151,13 @@ and 100 is with the stage at the far end.
 Homing direction is also inverted (`$23=7`), so the homing cycle travels to the
 negative X, Y and Z direction which is where I've put the limit switches.
 
-According to the Ebay ad the maximum speed is 120mm/s so I've set the maximum speed
-for all three axes to that (`$110=7200`, `$111=7200`, `$112=7200`).
+According to the Ebay ad the maximum speed is 120mm/s but the motors skip well below that
+speed so I've set the maximum speed for all X and Y to 40mm/s (`$110=2400`, `$111=2400`)
+and the Z axis which has to lift the camera I've set to 20mm/s (`$112=1200`).
 
 Working out the maximum acceleration will take a bit of experimentation with the
-stages assembled into a machine.
+stages assembled into a machine.  The Z axis is noticeably limited by the weight of the
+camera.  Unfortunately, GRBL doesn't allow you to set different limits in each direction.
 
 ### Axis Connectors
 
@@ -242,3 +241,15 @@ I've made a start on turning them into an XYZ setup ...
 ... never mind the cable management!
 The base is just temporary too, just to hold everything
 aligned while I test out the kinematics.
+
+I'm changing a few of the numbers in this article as I discover just how much of a limit this is!
+
+## Updated 2026-08-26
+
+I've now got a microscope lens and [USB-C camera](/art/waveshare-imx577-camera-python/)
+attached and can move it around over a sample.  Rather than using a
+[focus servo](/art/cccp-computer-controlled-camera-project/)
+I just set the focus by hand and then use the Z axis to move the
+whole lens and camera setup up and down to adjust the focal plane.
+
+![three axis scope](img/scope.jpg)

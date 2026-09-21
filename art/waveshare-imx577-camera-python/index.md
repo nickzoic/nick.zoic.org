@@ -206,8 +206,10 @@ I want to control the zoom.
 
 ### Zoom in LinuxPy
 
-Zoom seems to be a value from 0 to 60, it's not clear what it actually
-means.
+Zoom seems to be a value from 0 to 60, with '0' meaning to zoom out as 
+far as possible and '60' meaning to zoom in until image pixels are 1:1
+with sensor pixels.
+
 
 ```
 from linuxpy.video.device import Device, VideoCapture

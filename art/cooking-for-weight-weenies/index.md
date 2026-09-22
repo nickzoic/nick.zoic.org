@@ -261,6 +261,7 @@ As well as three stoves I've got three lots of cookware ... okay, so I have a pr
 
 | Item | Weight, g | 
 |:---:|:---:|
+| Titanium pot & lid with folding handles [^ti] | 192 |
 | Small pot & lid with folding handles | 220  |
 | Swedish Army mess kit | 465 |
 | Large double pot & lid & handle | 555 |
@@ -268,6 +269,9 @@ As well as three stoves I've got three lots of cookware ... okay, so I have a pr
 The small pot is just the right size to fit a gas canister, gas can tripod and mini stove inside.
 it's just big enough to cook some sausage and tinned beans or something like that.
 It has plastic-coated folding handles which mean it's not really suitable for use on a fire or on the rocket stove though.
+
+[^ti]: it was inevitable.  It's only a little lighter than the small pot but doesn't have a coating
+    to wear out and is a more useful shape, plus the lid stays on on its own.
 
 The [Swedish Army mess kit](https://www.ebay.com.au/sch/i.html?_nkw=swedish+army+mess+kit)
 is an aluminum billy with a loop handle and a matching saucepan/lid with a fold-out steel handle.

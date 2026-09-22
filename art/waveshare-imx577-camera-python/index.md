@@ -242,6 +242,82 @@ actually set it to the maximum.
 60
 ```
 
+## A Very Simple Web Server
+
+To put it all together, here's a very simple python program which
+looks for a camera called `OPENAICAM: OPENAICAM` and makes the frames
+available to a web browser on `http://localhost:8888/`.  There's no
+video streaming as such, just an image which reloads itself continuously.
+
+It's kind of stupid, but it works:
+
+```
+import asyncio
+from io import BytesIO
+
+from aiohttp import web
+from PIL import Image
+from linuxpy.video.device import iter_video_capture_devices, VideoCapture, Device
+  
+def find_device(device_name):
+    for dev in iter_video_capture_devices():
+        dev.open()
+        if not device_name or dev.info.card == device_name:
+            return dev
+        dev.close()
+  
+device = find_device('OPENAICAM: OPENAICAM')
+image_buffer = BytesIO()
+cam_event = asyncio.Event()
+  
+html_page = """
+  <html><body>
+  <img id="image"><br/>
+  <input type="range" id="zoom" min="0" max="60"/>
+  <script>
+  (function() {
+      var zoom = document.getElementById('zoom');
+      var image = document.getElementById('image');
+      image.onload = function () {
+          image.src="/cam?t=" + Date.now() + "&z=" + zoom.value;
+      }
+      image.src="/cam?t=" + Date.now();
+  })();
+  </script>
+  </body></html>"""
+  
+async def root_handler(request):
+    return web.Response(body=html_page.encode('utf-8'), content_type='text/html')
+
+async def cam_handler(request):
+    zoom = request.query.get('z')
+    if zoom:
+        device.controls['zoom_absolute'].value = float(zoom)
+    await cam_event.wait()
+    return web.Response(body=image_buffer.value, content_type='image/jpg')
+
+async def cam_task():
+    cap = VideoCapture(device)
+    cap.set_format(1024, 768, "MJPG")
+
+    with cap as frames:
+        async for frame in frames:
+            image_buffer.value = frame.data
+            cam_event.set()
+            cam_event.clear()
+
+app = web.Application()
+app.add_routes([
+    web.get("/cam", cam_handler),
+    web.get('/', root_handler),
+])
+
+if __name__ == "__main__":
+    loop = asyncio.get_event_loop()
+    loop.create_task(cam_task())
+    web.run_app(app, loop=loop, port=8888)
+```
+
 ## Next Steps
 
 While not everything about this camera setup is ideal, it's a good start

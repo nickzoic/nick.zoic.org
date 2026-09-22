@@ -59,7 +59,7 @@ supports [python asyncio](https://docs.python.org/3/library/asyncio.html).
 
 #### `Device`
 
-```
+```python
 from linuxpy.video.device import Device
 device = Device('/dev/video0')
 ```
@@ -68,7 +68,7 @@ We can also iterate over all the video devices in the system using
 `iter_video_capture_devices`, and *once we've opened the device* 
 we can use `device.info` to hopefully find the one we're looking for:
 
-```
+```python
 from linuxpy.video.device import iter_video_capture_devices
 
 for device in iter_video_capture_devices():
@@ -83,7 +83,7 @@ for device in iter_video_capture_devices():
 
 #### `VideoCapture`
 
-```
+```python
 from linuxpy.video.device import VideoCapture
 
 capture = VideoCapture(device)
@@ -105,7 +105,7 @@ Let's go with the plain old CPU version for now:
 
 `pip install opencv-python cv2_enumerate_cameras`
 
-```
+```python
 import cv2
 from cv2_enumerate_cameras import enumerate_cameras
 
@@ -117,7 +117,7 @@ for camera_info in enumerate_cameras(cv2.CAP_ANY):
 OpenCV exposes the "four character code" (Four CC) values for video
 formats, so you need to put up with these:
 
-```
+```python
 import cv2
 
 fourcc = "MJPG"
@@ -212,7 +212,7 @@ far as possible and '60' meaning to zoom in until image pixels are 1:1
 with sensor pixels.
 
 
-```
+```python
 from linuxpy.video.device import Device, VideoCapture
 dev = Device("/dev/video2")
 dev.open()
@@ -255,7 +255,7 @@ The `cam_event` means that slower clients will
 miss some frames, a primitive kind of throttling.
 It's kind of stupid, but it works:
 
-```
+```python
 import asyncio
 from io import BytesIO
 
@@ -276,7 +276,7 @@ image_buffer = BytesIO()
 cam_event = asyncio.Event()
 
 async def root_handler(request):
-    return web.Response(body="""<html><img src="/cam"></html>""", content_type='text/htm  l')
+    return web.Response(body="""<html><img src="/cam"></html>""", content_type='text/html')
   
 async def cam_handler(request):
     try:

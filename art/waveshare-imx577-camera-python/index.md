@@ -245,56 +245,54 @@ actually set it to the maximum.
 ## A Very Simple Web Server
 
 To put it all together, here's a very simple python program which
-looks for a camera called `OPENAICAM: OPENAICAM` and makes the frames
-available to a web browser on `http://localhost:8888/`.  There's no
-video streaming as such, just an image which reloads itself continuously.
+looks for a camera called `OPENAICAM: OPENAICAM` and makes an 
+MJPEG stream available on `http://0.0.0.0:8888/`.
 
+Frames are grabbed as rapidly as they are available and put in
+`image_buffer`.  By sending 
+the JPEG data straight from the camera we can avoid re-encoding losses.
+The `cam_event` means that slower clients will
+miss some frames, a primitive kind of throttling.
 It's kind of stupid, but it works:
 
 ```
 import asyncio
 from io import BytesIO
 
-from aiohttp import web
-from PIL import Image
+from aiohttp import web, MultipartWriter, ClientConnectionResetError
 from linuxpy.video.device import iter_video_capture_devices, VideoCapture, Device
-  
+
 def find_device(device_name):
     for dev in iter_video_capture_devices():
         dev.open()
         if not device_name or dev.info.card == device_name:
             return dev
         dev.close()
-  
+
 device = find_device('OPENAICAM: OPENAICAM')
+assert device
+
 image_buffer = BytesIO()
 cam_event = asyncio.Event()
-  
-html_page = """
-  <html><body>
-  <img id="image"><br/>
-  <input type="range" id="zoom" min="0" max="60"/>
-  <script>
-  (function() {
-      var zoom = document.getElementById('zoom');
-      var image = document.getElementById('image');
-      image.onload = function () {
-          image.src="/cam?t=" + Date.now() + "&z=" + zoom.value;
-      }
-      image.src="/cam?t=" + Date.now();
-  })();
-  </script>
-  </body></html>"""
-  
-async def root_handler(request):
-    return web.Response(body=html_page.encode('utf-8'), content_type='text/html')
 
+async def root_handler(request):
+    return web.Response(body="""<html><img src="/cam"></html>""", content_type='text/htm  l')
+  
 async def cam_handler(request):
-    zoom = request.query.get('z')
-    if zoom:
-        device.controls['zoom_absolute'].value = float(zoom)
-    await cam_event.wait()
-    return web.Response(body=image_buffer.value, content_type='image/jpg')
+    try:
+        my_boundary = "the-mjpeg-boundary"
+        response = web.StreamResponse(status=200, reason='OK', headers={
+            'Content-Type': 'multipart/x-mixed-replace;boundary=' + my_boundary
+        })
+        await response.prepare(request)
+        while True:
+            await cam_event.wait()
+            with MultipartWriter('image/jpeg', boundary=my_boundary) as mpwriter:
+                mpwriter.append(image_buffer.value, { 'Content-Type': 'image/jpeg' })
+                await mpwriter.write(response, close_boundary=False)
+    except ClientConnectionResetError:
+        pass
+    return response
 
 async def cam_task():
     cap = VideoCapture(device)
@@ -308,8 +306,8 @@ async def cam_task():
 
 app = web.Application()
 app.add_routes([
-    web.get("/cam", cam_handler),
     web.get('/', root_handler),
+    web.get('/cam', cam_handler),
 ])
 
 if __name__ == "__main__":
@@ -328,9 +326,10 @@ the camera output while allowing control over movement, focus and zoom.
 I'd like to set the camera up to move automatically and build up a composite 
 picture of the entire sample.  The depth of field of these lenses is very small,
 so we effectively have to scan in X, Y and Z to see everything, and then 
-[focus stack](https://github.com/PetteriAimonen/focus-stack).
+we can combine images with [focus stacking](https://github.com/PetteriAimonen/focus-stack).
 
-Before I do much more though I need to work out how to improve the lighting.
+Before I do much more coding though I need to spend some time in the physical
+world working out how to improve the lighting.
 When the image is zoomed in there's a lot of [shot noise](https://en.wikipedia.org/wiki/Shot_noise)
 visible, but this is visibly reduced by increasing the illumination of the sample.
-But I also have to manage the amount of heat the sample is exposed to.
+I also have to manage the amount of heat the sample is exposed to.

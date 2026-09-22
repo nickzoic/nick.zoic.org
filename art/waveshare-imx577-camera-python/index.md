@@ -200,9 +200,10 @@ you first have to set up capture for a resolution smaller than the maximum,
 and then you can zoom in, and then you can pan/tilt the zoomed window around
 within the image.
 
-I'm not too fussed about panning at the moment, but I'd like to be working
-with smaller images and still getting one image pixel per sensor pixel, so 
-I want to control the zoom.
+I'm not too fussed about panning at the moment since the camera is already
+attached to a mechanism to move it around.  But zoom is easy enough to 
+implement and makes it convenient to retrieve smaller images without losing
+resolution.
 
 ### Zoom in LinuxPy
 
@@ -247,3 +248,13 @@ While not everything about this camera setup is ideal, it's a good start
 and [with the camera attached to an XYZ stage](/art/three-axis-motion-with-grbl/)
 I'm just about ready to put together a web interface which will display
 the camera output while allowing control over movement, focus and zoom.
+
+I'd like to set the camera up to move automatically and build up a composite 
+picture of the entire sample.  The depth of field of these lenses is very small,
+so we effectively have to scan in X, Y and Z to see everything, and then 
+[focus stack](https://github.com/PetteriAimonen/focus-stack).
+
+Before I do much more though I need to work out how to improve the lighting.
+When the image is zoomed in there's a lot of [shot noise](https://en.wikipedia.org/wiki/Shot_noise)
+visible, but this is visibly reduced by increasing the illumination of the sample.
+But I also have to manage the amount of heat the sample is exposed to.

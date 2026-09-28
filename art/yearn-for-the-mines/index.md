@@ -25,6 +25,7 @@ bring Ultima IV's beautifully designed continent into 3D life.
 
 [![The world of Ultima IV](img/world.png)](img/world.png)
 *The world of Ultima IV*
+
 I did get as far as messing with Minecraft's maps, but the file
 formats changed a few times and many other things kept me busy,
 and I never really got anywhere with this idea, until ...

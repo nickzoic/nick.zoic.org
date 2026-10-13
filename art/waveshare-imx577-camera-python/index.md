@@ -276,14 +276,21 @@ image_buffer = BytesIO()
 cam_event = asyncio.Event()
 
 async def root_handler(request):
-    return web.Response(body="""<html><img src="/cam"></html>""", content_type='text/html')
+    return web.Response(
+        body="""<html><img src="/cam"></html>""",
+        content_type='text/html'
+    )
   
 async def cam_handler(request):
     try:
+        # See https://docs.aiohttp.org/en/stable/multipart.html
         my_boundary = "the-mjpeg-boundary"
-        response = web.StreamResponse(status=200, reason='OK', headers={
-            'Content-Type': 'multipart/x-mixed-replace;boundary=' + my_boundary
-        })
+        content_type = 'multipart/x-mixed-replace;boundary=' + my_boundary
+        response = web.StreamResponse(
+            status=200,
+            reason='OK',
+            headers={ 'Content-Type': content_type }
+        )
         await response.prepare(request)
         while True:
             await cam_event.wait()

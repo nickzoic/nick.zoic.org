@@ -50,21 +50,27 @@ This project may also owe just a *little* something to reading
 
 ## Hardware
 
+![Tiny Zoo prototype](img/scope.jpg)
+*Tiny Zoo prototype*
+
 ### Camera & Optics
 
 Currently a 12Mpix USB webcam capable of capturing JPEGs at about 20fps,
 see [Using the Waveshare IMX577 Camera from Python](/art/waveshare-imx577-camera-python/)
 
-I've got the setup working with two lenses:
+I've got the setup working with three lenses:
 
 * A "100x" industrial microscope C-mount lens.
     This is really about 1x in microscope terms I think.
 * A "4x" microscope objective with a 0.5x C-mount converter
+* A "10x" microscope objective with a 0.5x C-mount converter
 
-I did try out a "10x" microscope objective but getting
-it to focus proved very difficult. It might be practical
-with better autofocus and maybe an improved Z axis.
-Or maybe this lens is just no good with this setup.
+The "10x" lens works, but depth of field is so thin that it is difficult
+to see anything much.  Autofocus works but only if the Z axis moves super
+slowly so it can sample enough frames.
+
+![Human hairs through the 4x lens](img/hairs.jpg)
+*Human hairs through the 4x lens*
 
 I'd like to look at upgrading to an
 [infinity corrected lens](https://www.microscopyu.com/microscopy-basics/infinity-optical-systems)
@@ -100,29 +106,32 @@ The stage is approx 100x100x100 mm using 3 stepper axes with about 1.25µm resol
 * Screws: `Tr6x2(P1)` threads move 2mm per rev so 10µm per step.
 * Stepper Drivers: 8 microsteps per motor step so about 1.25µm per microstep.
 
-See [Three-axis motion with GRBL](https://nick.zoic.org/art/three-axis-motion-with-grbl/).
-
-More details TBC and 3D models for the parts connecting the stages will be included under [`models/`](models/).
+The axes are connected with 3D printed parts, for
+[OpenSCAD](https://openscad.org/) models and more info see
+[the repo](https://codeberg.org/nickzoic/tiny-zoo/src/branch/main/models)
 
 ### Improved Z axis
 
 The useful range of the Z axis for focussing is only 2-3mm which
 makes using a 100mm stage seem a bit silly.
-I'm thinking of replacing it with a shorter, lighter, more precise stage.
+I'm thinking of replacing it with a shorter, lighter, more precise stage
+using a geared stepper and a 3D printed
+[snail cam](https://en.wikipedia.org/wiki/Cam_%28mechanism%29)
 
 With a microscope lens on board and the long tube (~180mm)
 required to adapt it to the camera, there's a noticeable
 vibration in the image when moving unless acceleration is severely
 limited.  This would be improved with a more compact camera setup
-and/or improved kinematics.
+and/or improved kinematics and/or improved rigidity in the stages.
 
 ### GRBL Controller
 
+See [Three-axis motion with GRBL](https://nick.zoic.org/art/three-axis-motion-with-grbl/).
 A 3-axis [GRBL](https://github.com/gnea/grbl) controller board drives the three axes
 and has microstepping drivers so the steppers can be run at 1, 2, 4, 8 or 16 microsteps
 per step.
 
-This board controls the lighting as well, using a PWM output intended to 
+This board controls the lighting as well, using a 12V PWM output intended to 
 control a laser for laser cutting.
 
 ## Server Software
@@ -157,25 +166,40 @@ having the sharpest parts of all the images combined.
 This is working, but not very well, so I may need to revisit it with a more
 sophisticated focus stacking library.
 
+![Unstacked](img/unstacked.jpg)
+![Stacked](img/stacked.jpg)
+![Stack failure](img/badstack.jpg)
+*Unstacked / Stacked / Stacking Failure*
+
+When it works it works, but when it doesn't work it generates spectacular
+abstract art `:-)`.
+
 ### Capturing Video
 
 Movement is a really important part of identifying small, semi-transparent creatures, so
 as well as screenshots users can capture small videos.
 
 To capture video, a `/vid` handler starts a task to enqueue frames, and spawns a process
-which uses [OpenCV](https://opencv.org/)) to encode frames into an
+which uses [OpenCV](https://opencv.org/) to encode frames into an
 [AVI](https://en.wikipedia.org/wiki/Audio_Video_Interleave) file using an
 [XVID (MPEG4) codec](https://en.wikipedia.org/wiki/Xvid).
-The output video is written to a temporary [FIFO](https://en.wikipedia.org/wiki/Named_pipe)
-which is streamed to the client as it becomes available.
+OpenCV can only write to a file, not a Python file-like, so the output video is
+written to a temporary [FIFO](https://en.wikipedia.org/wiki/Named_pipe)
+and the aiohttp handler streams it to the client as it becomes available.
 
 At the moment, videos are 200 frames (about 10 seconds) long, less than 2MB in size.
 
+It's worth investigating if this method will also work to stream video to 
+clients, as it'd greatly reduce the amount of data transferred (at the expense
+of quite a bit of CPU per client).
+
+There are now [some tinyzoo videos on youtube](https://www.youtube.com/playlist?list=PLQ9TdAYTtlJc) ...
+
 ### Autofocus 
 
-The [depth of field](https://photographylife.com/what-is-depth-of-field) of microscope lenses is very shallow:
-a matter of microns!
-Jogging the Z axis back and forth a micron at a time is pretty tedious.
+The [depth of field](https://photographylife.com/what-is-depth-of-field)
+of microscope lenses is very shallow: a matter of microns!
+Manually jiggling the Z axis back and forth a micron at a time is pretty tedious.
 
 To perform autofocus, Tiny Zoo jogs the lens up and down a few millimeters,
 while capturing frames and comparing their "sharpness".
@@ -186,7 +210,8 @@ processing power needed and gives a spot-focus effect.
 
 I've also looked at [Deep learning for single-shot autofocus microscopy](https://opg.optica.org/optica/fulltext.cfm?uri=optica-6-6-794) which
 seems like a really interesting way to do autofocus more efficiently.
-I've noticed when manually focussing that it's often possible to estimate if the focal plane is too high or too low
+I've noticed when manually focussing that it's often possible to estimate if
+the focal plane is too high or too low
 just by looking at the shape of the blur, so this technique seems promising.
 
 ### User Interface

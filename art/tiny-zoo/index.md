@@ -1,7 +1,8 @@
 ---
 title: Tiny Zoo
 summary: Remote Control Microscopy
-layout: draft
+layout: article
+date: '2026-10-13'
 tags:
     - robots
     - python

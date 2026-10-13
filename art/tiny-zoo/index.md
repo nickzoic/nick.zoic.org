@@ -166,10 +166,9 @@ having the sharpest parts of all the images combined.
 This is working, but not very well, so I may need to revisit it with a more
 sophisticated focus stacking library.
 
-![Unstacked](img/unstacked.jpg)
-![Stacked](img/stacked.jpg)
-![Stack failure](img/badstack.jpg)
-*Unstacked / Stacked / Stacking Failure*
+Unstacked | Stacked | Stack Failure
+---|---|---
+[![Unstacked](img/unstacked.jpg)](img/unstacked.jpg) | [![Stacked](img/stacked.jpg)](img/stacked.jpg) | [![Stack failure](img/badstack.jpg)](img/badstack.jpg)
 
 When it works it works, but when it doesn't work it generates spectacular
 abstract art `:-)`.

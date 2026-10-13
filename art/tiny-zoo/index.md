@@ -207,6 +207,17 @@ with variance-of-Laplacian being "good enough" so far.
 Only the central portion of the image is measured, which reduces the 
 processing power needed and gives a spot-focus effect.
 
+```
+np_array = np.frombuffer(frame.data, dtype=np.uint8)
+cropped_image = center_crop(
+    cv2.imdecode(np_array, cv2.IMREAD_COLOR)i
+)
+sharpness = cv2.Laplacian(
+    cv2.cvtColor(cropped_image, cv2.COLOR_BGR2GRAY),
+    cv2.CV_64F
+).var()
+```
+
 I've also looked at [Deep learning for single-shot autofocus microscopy](https://opg.optica.org/optica/fulltext.cfm?uri=optica-6-6-794) which
 seems like a really interesting way to do autofocus more efficiently.
 I've noticed when manually focussing that it's often possible to estimate if
@@ -231,9 +242,9 @@ Keyboard controls:
 
 Keys | Purpose
 :---:|---
-q / e | Focus Up/Down
-w / s | Move Y Axis - / +
-a / d | Move X Axis 
+q / e | Focus Near/Far
+w / s | Move Y Axis Up/Down
+a / d | Move X Axis Left/Right
 z / x | Zoom In/Out
 c | Capture single image
 r | Capture stacked image

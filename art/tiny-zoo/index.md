@@ -36,7 +36,8 @@ and follow interesting species.
 
 ## Related
 
-* [FARlabs](https://www.farlabs.edu.au/) allows students to perform remote experiments with radioisotopes,
+* [FARlabs](https://www.farlabs.edu.au/) allows students to perform remote
+    experiments with radioisotopes,
     to measure the differences between different types of radiation.
 * [Open Flexure](https://openflexure.org/) is a servoed microscope which
     uses microscope lenses and "flexures", bendy bits of 3d print, instead of all
@@ -47,12 +48,12 @@ and follow interesting species.
 This project may also owe just a *little* something to reading
 [James Blish's *Surface Tension*](https://gwijthoff.github.io/globalSF/readings/blish_surface_tension.pdf) at an impressionable age.
 
-## Camera & Optics
+## Hardware
+
+### Camera & Optics
 
 Currently a 12Mpix USB webcam capable of capturing JPEGs at about 20fps,
 see [Using the Waveshare IMX577 Camera from Python](/art/waveshare-imx577-camera-python/)
-
-### Lenses
 
 I've got the setup working with two lenses:
 
@@ -62,7 +63,7 @@ I've got the setup working with two lenses:
 
 I did try out a "10x" microscope objective but getting
 it to focus proved very difficult. It might be practical
-with autofocus and maybe an improved Z axis.
+with better autofocus and maybe an improved Z axis.
 Or maybe this lens is just no good with this setup.
 
 I'd like to look at upgrading to an
@@ -73,22 +74,6 @@ These lenses are more expensive but may offer better sharpness and a more conven
 I'm also considering mounting two cameras and lenses side by side and allowing
 zoom to switch between them, to cover a wider range of zoom than the digital zoom can allow.
 
-### Autofocus 
-
-The [depth of field](https://photographylife.com/what-is-depth-of-field) of microscope lenses is very shallow:
-a matter of microns!
-Jogging the Z axis back and forth a micron at a time is pretty tedious.
-Some form of autofocus will be very helpful to the user.
-
-There are [various methods of measuring focus](https://opencv.org/autofocus-using-opencv-a-comparative-study-of-focus-measures-for-sharpness-assessment/)
-which can be combined with small movements of the Z axis to automatically fine-tune focus.
-I've tried out variance-of-laplacian and it seems to give a pretty clear peak.
-
-I've also looked at [Deep learning for single-shot autofocus microscopy](https://opg.optica.org/optica/fulltext.cfm?uri=optica-6-6-794) which
-seems like a really interesting way to do autofocus more efficiently.
-I've noticed when manually focussing that it's often possible to estimate if the focal plane is too high or too low
-just by looking at the shape of the blur, so this technique seems promising.
-
 ### Lighting
 
 Lighting is definitely a big issue here, and I've been experimenting with
@@ -96,8 +81,7 @@ lighting from above, below, on the sides, etc.  I think it might end up needing
 to have several lights so that lighting can be adjusted depending on the situation.
 
 So far the best setup has been a ring of six LEDs with the lens peeking through the center.
-These are *too* bright sometimes though, overloading the sensor, so PWM control of the lights
-would make sense.
+The brightness is controlled from the GRBL boards "spindle PWM" output.
 
 I'm also quite taken with the appearance of
 [dark field microscopy](https://en.wikipedia.org/wiki/Dark-field_microscopy)
@@ -108,7 +92,7 @@ lighting options under software control.
 The condenser would have to move with the lens though, which would require
 significant changes to the stage setup.
 
-## Motion Platform & Controller
+### Motion Platform & Controller
 
 The stage is approx 100x100x100 mm using 3 stepper axes with about 1.25µm resolution:
 
@@ -129,8 +113,8 @@ I'm thinking of replacing it with a shorter, lighter, more precise stage.
 With a microscope lens on board and the long tube (~180mm)
 required to adapt it to the camera, there's a noticeable
 vibration in the image when moving unless acceleration is severely
-limited.  A more rigid stage and/or more sophisticated kinematics
-might help.
+limited.  This would be improved with a more compact camera setup
+and/or improved kinematics.
 
 ### GRBL Controller
 
@@ -138,9 +122,8 @@ A 3-axis [GRBL](https://github.com/gnea/grbl) controller board drives the three 
 and has microstepping drivers so the steppers can be run at 1, 2, 4, 8 or 16 microsteps
 per step.
 
-This board can potentially control the lighting as well, there are several
-interfaces for laser and/or spindle control which I could repurpose to drive
-LED lights.
+This board controls the lighting as well, using a PWM output intended to 
+control a laser for laser cutting.
 
 ## Server Software
 
@@ -151,17 +134,28 @@ This software is simple enough that it could run easily on an
 [RPi](https://raspberrypi.com/) or similar SBC.
 It currently doesn't do any image processing, just picks the frames up and sends them.
 
-Autofocus and video clip recording will need more processing power and [OpenCV](https://opencv.org/)
+Autofocus and video clip recording uses [OpenCV](https://opencv.org/)
 for image processing so the plan is to run it on a
 [Jetson Nano](/art/nvidia-jetson-nano-experiments/) I happen to have laying around,
 which has good GPU capabilities plus a [MIPI-CSI2](https://en.wikipedia.org/wiki/Camera_Serial_Interface)
 interface for the camera.
+
 ### Streaming Images
 
 Images are captured at 1024x768 pixels and served up as
 [JPEG frames in a `multipart/x-mixed-replace`](https://docs.aiohttp.org/en/stable/multipart.html#sending-multipart-requests)
 [Motion JPEG (MJPG)](https://en.wikipedia.org/wiki/Motion_JPEG) stream.
-Clients only recieve frames when they're ready for them, as a primitive form of throttling.
+Clients only recieve frames when they're ready for them, as a primitive
+form of throttling.
+
+### Focus Stacking
+
+One way to work around shallow depth of field is to do "Focus Stacking",
+where many images at different focal points are combined into one, hopefully
+having the sharpest parts of all the images combined.
+
+This is working, but not very well, so I may need to revisit it with a more
+sophisticated focus stacking library.
 
 ### Capturing Video
 
@@ -177,6 +171,24 @@ which is streamed to the client as it becomes available.
 
 At the moment, videos are 200 frames (about 10 seconds) long, less than 2MB in size.
 
+### Autofocus 
+
+The [depth of field](https://photographylife.com/what-is-depth-of-field) of microscope lenses is very shallow:
+a matter of microns!
+Jogging the Z axis back and forth a micron at a time is pretty tedious.
+
+To perform autofocus, Tiny Zoo jogs the lens up and down a few millimeters,
+while capturing frames and comparing their "sharpness".
+There are [various methods of measuring focus](https://opencv.org/autofocus-using-opencv-a-comparative-study-of-focus-measures-for-sharpness-assessment/)
+with variance-of-Laplacian being "good enough" so far.
+Only the central portion of the image is measured, which reduces the 
+processing power needed and gives a spot-focus effect.
+
+I've also looked at [Deep learning for single-shot autofocus microscopy](https://opg.optica.org/optica/fulltext.cfm?uri=optica-6-6-794) which
+seems like a really interesting way to do autofocus more efficiently.
+I've noticed when manually focussing that it's often possible to estimate if the focal plane is too high or too low
+just by looking at the shape of the blur, so this technique seems promising.
+
 ### User Interface
 
 Simple Javascript UI should mostly just display the image received, but also
@@ -191,7 +203,18 @@ should allow control through many different mechanisms:
 A "map" of the whole area in reduced resolution would be nice too,
 and a scale indicator in mm.
 
-Control of lighting might be useful as well.
+Keyboard controls:
+
+Keys | Purpose
+:---:|---
+q / e | Focus Up/Down
+w / s | Move Y Axis - / +
+a / d | Move X Axis 
+z / x | Zoom In/Out
+c | Capture single image
+r | Capture stacked image
+v | Capture short video
+f | Autofocus
 
 ### Communicating with the GRBL controller
 
@@ -220,6 +243,3 @@ I did get as far as setting up a [linode](https://linode.com/) to host this and 
 
 * I need some way to map 'zoom' onto 'pixels per mm' for both movement and for displaying a scale.
 * Motion detection and tracking would be lovely.
-* Autofocus using variance of Laplacian.
-* Video recording / downloading.
-* Focus stacking would be nice.

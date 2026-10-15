@@ -3,7 +3,7 @@ title: Three-axis motion with GRBL
 summary: getting three stepper stages to work with GRBL software and drivers
 layout: article
 date: '2026-08-19'
-updates: '2026-08-24'
+updated: '2026-08-24'
 tags:
   - electronics
   - robots

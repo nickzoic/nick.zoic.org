@@ -1,6 +1,7 @@
 ---
 title: "Geeetech A20T: Assembly and Configuration"
 date: '2023-07-30'
+updated: '2026-10-16'
 layout: article
 summary: "Assembly and configuration of the Geeetech A20T 3D printer"
 tags:
@@ -322,4 +323,26 @@ Don't forget to check out the
 [Multi Material Printing with Geeetech A20T](/art/multi-material-3d-printing-openscad-cura-geeetech/)
 article as well.
 
+# UPDATE 2026-10-16
 
+Okay this printer has been running for 3 years now, not bad, and it just had its first proper failure.
+The printer kept having intermittent "heater failure" and "thermal runaway" errors and stopping,
+while the bed slowly went cold.
+
+That's actually clever: if the heater is on, but the bed temperature measurement is getting colder,
+the printer has no way of knowing if:
+
+* the heater is broken and the bed is actually going cold, or:
+* the thermometer is broken and the bed is actually getting hotter
+
+So it stops a waits for a human to stick their finger on it and find out.  
+Anyway, in my case the thermometer was find and the power wiring was busted,
+snapped just at the back where it's connected to the bed itself.
+That's probably my fault: at some point I'd put it on a shelf just slightly too narrow for it and
+that bit of wire was repeatedly running into the wall.
+I cut and replaced a small length of wire and reinforced everything with
+layers of heatshrink tube.
+And it's on a more comfortable bench now `:-)`.
+
+![busted bed power wire](img/busted.jpg)
+*busted bed power wire*

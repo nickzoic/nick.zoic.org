@@ -5,7 +5,8 @@ tags:
     - 3dprint
     - theater
     - not-computers
-layout: draft
+layout: article
+date: '2026-10-17'
 ---
 
 Just is just a little one: for
@@ -37,10 +38,12 @@ So really that's
 only 30% more plastic but it should be much less prone to warping.
 
 ![thick stencil](img/stencil3.jpg)
-*Thicker stencil*
+*Thicker stencil (taped into a cardboard surround)
 
 ![final spray](img/spray2.jpg)
 *Final spray*
 
-Some further reinforcing would help the stencil last longer without warping,
-but not a bad result, and did a stack of these boxes for Wonka's factory scenes ...
+Some further reinforcing would help the stencil last longer without warping
+on the long points in the W, N and K,
+but not a bad result, and did a stack of these cartons as props for Wonka's
+factory scenes ...

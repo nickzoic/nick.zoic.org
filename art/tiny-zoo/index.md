@@ -17,6 +17,10 @@ This article discusses the history and aims of the project.
 For more technical specifics of the software, see 
 [the Tiny Zoo repo](https://codeberg.org/nickzoic/tiny-zoo/).
 
+**UPDATE: I'll be presenting this project at 
+[Everything Open 2027](https://2027.everythingopen.au/)
+in beautiful Brisbane, Australia ...**
+
 ## Species
 
 The microscope is powerful enough to see [various microfauna](https://www.msnucleus.org/watersheds/mission/plankton.pdf)

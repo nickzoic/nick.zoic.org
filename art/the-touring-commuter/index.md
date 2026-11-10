@@ -195,6 +195,11 @@ Oh, and as they've worn out I've changed the bottom bracket and chain
 and pulleys over for Deore ones which are a very slight upgrade for only
 a couple of bucks extra.
 
+(update: after the derailleur met with an awful fate, catching on a stick which 
+pushed it into the spokes and tore it to pieces, I replaced the whole thing
+with an [Alivio Shadow M3100](https://productinfo.shimano.com/en/product/RD-M3100-SGS)
+which works fine with everything else too)
+
 ## Axles & Skewers
 
 The only thing which has really gone wrong on this bike has been the

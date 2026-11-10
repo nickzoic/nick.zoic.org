@@ -380,3 +380,8 @@ connect the two without undue discontinuities:
 
 In the meantime, while I [play with hardware](/art//three-axis-motion-with-grbl/) please consider 
 [other applications](https://www.flightradar24.com/blog/aviation-explainer-series/interesting-patterns-on-flightradar24/) ...
+
+## UPDATE
+
+I've set up a [tiny-xyz](https://codeberg.org/nickzoic/tiny-xyz/) project for
+the work of making a three-axis controller board using this technique ...

@@ -282,3 +282,8 @@ I did get as far as setting up a [linode](https://linode.com/) to host this and 
 
 * I need some way to map 'zoom' onto 'pixels per mm' for both movement and for displaying a scale.
 * Motion detection and tracking would be lovely.
+* At the moment, a 1024×768 image is stretched to cover the whole screen, which for a portrait display
+  throws away about half the pixels.  We could instead have the camera capture at full resolution, then
+  each camera handler scales and crops the image to an appropriate size for its display.  Screenshots
+  could record at full resolution, videos could record in typical 16:9 ratios.
+
